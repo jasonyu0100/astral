@@ -8,9 +8,9 @@ import { SpacesMapAddCollectionModal } from '../add/collection/main';
 import { SpacesMapAddGalleryModal } from '../add/gallery/main';
 import { SpacesMapAddFileIdeaModal } from '../add/idea/file/main';
 import { SpacesMapAddGenerateIdeaModal } from '../add/idea/generate/main';
-import { SpacesMapAddUrlIdeaModal } from '../add/idea/link/main';
 import { SpacesMapAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpacesMapAddTextIdeaModal } from '../add/idea/text/main';
+import { SpacesMapAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesMapAddResourceModal } from '../add/resource/main';
 import { SpacesMapAddSceneModal } from '../add/scene/main';
 import { SpacesMapCombineIdeas } from '../combine/main';
@@ -72,7 +72,7 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
         <SpacesMapAddFileIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addUrlIdeaController}>
-        <SpacesMapAddUrlIdeaModal />
+        <SpacesMapAddYouTubeUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextIdeaController}>
         <SpacesMapAddTextIdeaModal />

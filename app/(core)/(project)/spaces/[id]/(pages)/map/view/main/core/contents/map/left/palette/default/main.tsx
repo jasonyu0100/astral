@@ -1,53 +1,30 @@
-import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
 import { ContextForSpacesMapModals } from '@/(core)/(project)/spaces/[id]/(pages)/map/modal/controller/main';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { AstralCombineIcon } from '@/icons/combine/main';
-import { AstralDeleteIcon } from '@/icons/delete/main';
-import { AstralHideSourceIcon } from '@/icons/hide-source/main';
-import { AstralShareIcon } from '@/icons/share/main';
+import { AstralAlbumIcon } from '@/icons/album/main';
+import { AstralEditNoteIcon } from '@/icons/edit-note/main';
+import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
+import { AstralSearchIcon } from '@/icons/search/main';
+import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
+import { AstralUploadIcon } from '@/icons/upload/main';
 import { useContext } from 'react';
 
-export function SpacesMapPaletteDefault() {
-  const {
-    state: { selectedIdeas },
-    actions: { updateSelectedIdeas, linkIdeas },
-  } = useContext(ContextForSpacesMap);
-  const ideaListController = useContext(ContextForSceneIdeaList);
+export function SpacesMapPaletteSelected() {
   const modalController = useContext(ContextForSpacesMapModals);
 
   return (
     <>
-      {selectedIdeas.length >= 2 && (
-        <AstralCombineIcon
-          onClick={() => {
-            modalController.combineIdeasController.open();
-          }}
-        />
-      )}
-      {selectedIdeas.length >= 2 && (
-        <AstralShareIcon
-          onClick={() => {
-            linkIdeas();
-          }}
-        />
-      )}
-      <AstralHideSourceIcon
-        onClick={() => {
-          selectedIdeas.forEach((idea) => {
-            ideaListController.actions.editActions.edit(idea.id, {
-              visible: false,
-            });
-          });
-          updateSelectedIdeas([]);
-        }}
+      <AstralUploadIcon onClick={modalController.addFileIdeaController.open} />
+      <AstralEditNoteIcon
+        onClick={() => modalController.addTextIdeaController.open()}
       />
-      <AstralDeleteIcon
-        onClick={() => {
-          selectedIdeas.forEach((idea) => {
-            ideaListController.actions.deleteActions.delete(idea.id);
-          });
-          updateSelectedIdeas([]);
-        }}
+      <AstralSmartDisplayIcon
+        onClick={() => modalController.addUrlIdeaController.open()}
+      />
+      <AstralManufacturingIcon
+        onClick={() => modalController.addGenerateIdeaController.open()}
+      />
+      <AstralAlbumIcon />
+      <AstralSearchIcon
+        onClick={() => modalController.addSearchIdeaController.open()}
       />
     </>
   );

@@ -20,6 +20,7 @@ import { AstralCombineIcon } from './combine/main';
 import { AstralCursorIcon } from './cursor/main';
 import { AstralDeleteIcon } from './delete/main';
 import { AstralDoneIcon } from './done/main';
+import { AstralEditNoteIcon } from './edit-note/main';
 import { AstralEqualizerIcon } from './equalizer/main';
 import { AstralFileIcon } from './file/main';
 import { AstralFolderOpenIcon } from './folder-open/main';
@@ -36,6 +37,7 @@ import { AstralInfoIcon } from './info/main';
 import { AstralKanbanIcon } from './kanban/main';
 import { AstralLinkIcon } from './link/main';
 import { AstralListIcon } from './list/main';
+import { AstralManageSearchIcon } from './manage-search/main';
 import { AstralManufacturingIcon } from './manufacturing/main';
 import { AstralMoreIcon } from './more/main';
 import { AstralNoteIcon } from './note/main';
@@ -48,11 +50,13 @@ import { AstralSettingsIcon } from './settings/main';
 import { AstralShareIcon } from './share/main';
 import { AstralSidebarLeftIcon } from './sidebar-left/main';
 import { AstralSidebarRightIcon } from './sidebar-right/main';
+import { AstralSmartDisplayIcon } from './smart-display/main';
 import { AstralSortIcon } from './sort/main';
 import { AstralSourceIcon } from './source/main';
 import { AstralStacksIcon } from './stacks/main';
 import { AstralSubjectIcon } from './subject/main';
 import { AstralTimelineIcon } from './timeline/main';
+import { AstralUploadIcon } from './upload/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
 import { AstralVisibilityIcon } from './visibility/main';
 import { AstralVoiceIcon } from './voice/main';
@@ -118,6 +122,10 @@ export default function Page() {
       <AstralSidebarLeftIcon />
       <AstralSidebarRightIcon />
       <AstralHiearchyIcon />
+      <AstralEditNoteIcon />
+      <AstralUploadIcon />
+      <AstralSmartDisplayIcon />
+      <AstralManageSearchIcon />
     </div>
   );
 }

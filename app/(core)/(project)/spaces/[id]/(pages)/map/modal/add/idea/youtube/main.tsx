@@ -11,7 +11,7 @@ import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddUrlIdeaModal() {
+export function SpacesMapAddYouTubeUrlModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
@@ -138,7 +138,7 @@ export function SpacesMapAddUrlIdeaModal() {
             </div>
             <input
               placeholder='Enter a youtube url'
-              className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent outline-none'
+              className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
               onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />
           </div>

@@ -11,15 +11,11 @@ import {
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
+import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main';
+import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddGenerateIdeaModal() {
@@ -73,14 +69,20 @@ export function SpacesMapAddGenerateIdeaModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Generate Image</FormTitle>
-          <FormBody>
-            <div className='flex flex-row items-center space-x-[1rem]'>
-              <FormInput
+      <CustomisableModal>
+        <CustomisableModalHalfContents>
+          <div className='flex w-1/2 flex-col space-y-[2rem]'>
+            <div className='flex flex-row items-center justify-between space-x-[2rem]'>
+              <div
+                onClick={createFileIdea}
+                className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'
+              >
+                <p className='font-bold text-slate-300'>1.</p>
+              </div>
+              <input
+                placeholder='Enter an image prompt'
+                className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
                 title='Prompt'
-                placeholder='Enter a prompt'
                 value={prompt}
                 onChange={(e) => changePrompt(e.target.value)}
               />
@@ -99,25 +101,29 @@ export function SpacesMapAddGenerateIdeaModal() {
                   });
                 }}
               >
-                <AstralArrowForwardIcon />
+                <AstralManufacturingIcon />
               </div>
             </div>
             {file.src && (
-              <>
-                <img src={file.src} />
-                <FormInput
-                  title='Title'
-                  value={title}
-                  onChange={(e) => changeTitle(e.target.value)}
-                />
-              </>
+              <div className='flex flex-row items-center justify-between space-x-[2rem]'>
+                <div
+                  onClick={createFileIdea}
+                  className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'
+                >
+                  <p className='font-bold text-slate-300'>2.</p>
+                </div>
+                <img src={file.src} className='w-1/2' />
+                <div
+                  onClick={createFileIdea}
+                  className='flex h-[5rem] w-[5rem] items-center justify-center rounded-full bg-blue-500'
+                >
+                  <AstralArrowForwardIcon />
+                </div>
+              </div>
             )}
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createFileIdea}>Add</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+          </div>
+        </CustomisableModalHalfContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

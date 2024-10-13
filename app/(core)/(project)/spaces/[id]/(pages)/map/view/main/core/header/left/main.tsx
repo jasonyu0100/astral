@@ -2,9 +2,9 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
+import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralPersonIcon } from '@/icons/person/main';
 import { AstralSaveIcon } from '@/icons/save/main';
-import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
 import { BarDividerIndicator } from '@/ui/indicator/bar/main';
@@ -111,7 +111,7 @@ export function SpacesMapHeaderLeft() {
           }
         }}
       /> */}
-      <AstralSearchIcon
+      <AstralManageSearchIcon
         className={
           sidebarContentMode === SpacesMapSidebarContentMode.SEARCH
             ? 'fill-blue-500'
