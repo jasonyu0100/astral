@@ -11,22 +11,14 @@ export function SpacesMapUrlIdea() {
         <iframe
           src={ideaObj.urlElem?.url}
           title='YouTube video player'
-          className='h-full w-full'
-          style={{
-            objectFit: 'contain',
-            border: '0',
-          }}
+          style={{ objectFit: 'contain' }}
           allowFullScreen
         />
       )}
       {ideaObj.urlElem?.variant === UrlElemVariant.SPOTIFY && (
         <iframe
           src={ideaObj.urlElem?.url}
-          style={{
-            objectFit: 'contain',
-            border: '0',
-            width: '100%',
-          }}
+          style={{ objectFit: 'contain' }}
           allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
           loading='lazy'
         />

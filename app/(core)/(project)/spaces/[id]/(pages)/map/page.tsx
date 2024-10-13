@@ -110,6 +110,18 @@ function Page({ params }: { params: { id: string } }) {
       sceneListController.state.objId,
     );
 
+  useEffect(() => {
+    if (sceneListController.state.objs.length == 0) {
+      sceneListController.actions.createActions.createScene(
+        'New Scene',
+        '',
+        'Open-ended',
+        user.id,
+        chapterListController.state.objId,
+      );
+    }
+  }, [sceneListController.state.objs]);
+
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>

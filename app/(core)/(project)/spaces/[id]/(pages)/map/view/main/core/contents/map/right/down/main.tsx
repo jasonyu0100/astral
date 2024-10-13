@@ -9,11 +9,15 @@ export function SpacesMapNavigationDown() {
   return (
     <div className='absolute bottom-[2rem] right-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
       <AstralChevronDownIcon
-        className={cn('h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer', {
-          'fill-slate-500':
-            sceneListController.state.index ===
-            sceneListController.state.objs.length - 1,
-        })}
+        className={cn(
+          'h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer fill-slate-500',
+          {
+            'fill-slate-700':
+              sceneListController.state.index ===
+                sceneListController.state.objs.length - 1 ||
+              sceneListController.state.objs.length === 0,
+          },
+        )}
         onClick={() => {
           if (
             sceneListController.state.index ===

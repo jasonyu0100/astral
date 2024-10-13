@@ -53,7 +53,7 @@ export function SpacesMapAddYouTubeUrlModal() {
       description,
       0,
       0,
-      150,
+      300,
       150,
       {
         id: crypto.randomUUID(),
