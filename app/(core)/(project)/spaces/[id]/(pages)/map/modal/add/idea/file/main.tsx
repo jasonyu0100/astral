@@ -3,7 +3,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
+import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -24,15 +24,16 @@ export function SpacesMapAddFileIdeaModal() {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
-  const [variant, changeVariant] = useState<FileElemVariant>(
-    FileElemVariant.IMAGE,
-  );
   const [file, changeFile] = useState({} as FileElem);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
 
   async function createFileIdea() {
+    if (file.id === undefined) {
+      alert('Please upload a file first.');
+      return;
+    }
     const idea = await ideaListController.actions.createActions.createFromFile(
       user.id,
       sceneListController.state.objId,
