@@ -73,10 +73,7 @@ export function SpacesMapAddGenerateIdeaModal() {
         <CustomisableModalHalfContents>
           <div className='flex w-1/2 flex-col space-y-[2rem]'>
             <div className='flex flex-row items-center justify-between space-x-[2rem]'>
-              <div
-                onClick={createFileIdea}
-                className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'
-              >
+              <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
                 <p className='font-bold text-slate-300'>1.</p>
               </div>
               <input
@@ -106,10 +103,7 @@ export function SpacesMapAddGenerateIdeaModal() {
             </div>
             {file.src && (
               <div className='flex flex-row items-center justify-between space-x-[2rem]'>
-                <div
-                  onClick={createFileIdea}
-                  className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'
-                >
+                <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-purple-500'>
                   <p className='font-bold text-slate-300'>2.</p>
                 </div>
                 <img src={file.src} className='w-1/2' />
