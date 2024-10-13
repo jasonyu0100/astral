@@ -1,6 +1,7 @@
 export enum ConversationRole {
   Channel = 'Channel',
   Questioner = 'Questioner',
+  Answerer = 'Answerer',
   Storyteller = 'Storyteller',
   Optimist = 'Optimist',
   Contrarian = 'Contrarian',
@@ -11,6 +12,7 @@ export enum ConversationRole {
 
 export const roleDescriptions: { [key in ConversationRole]: string } = {
   [ConversationRole.Channel]: `As the Channel, you facilitate the conversation, ensuring that each participant has an opportunity to contribute. Your role is to keep the dialogue flowing smoothly, maintaining a balanced and inclusive environment within the space.`,
+  [ConversationRole.Answerer]: `As the Answerer, your role is to respond to questions posed by the Questioner, providing thoughtful and informative answers that enhance the chapter's narrative. Your insights help shape the direction of the conversation, adding depth and clarity to the space.`,
   [ConversationRole.Questioner]: `As the Questioner, your role is to ask insightful questions that help shape the narrative of the chapter, ensuring that each scene stays on course and aligns with the space's creative goals. Your inquiries keep the conversation dynamic and moving forward.`,
   [ConversationRole.Storyteller]: `As the Storyteller, you weave narratives that enrich the chapter with vivid details and engaging scenarios. Your stories bring scenes to life, adding depth to the conversation and ensuring the space remains vibrant and imaginative.`,
   [ConversationRole.Optimist]: `As the Optimist, you bring positivity to every chapter, highlighting the best aspects of each scene. Your upbeat perspective helps maintain an encouraging atmosphere within the space, fostering ongoing engagement and motivation.`,

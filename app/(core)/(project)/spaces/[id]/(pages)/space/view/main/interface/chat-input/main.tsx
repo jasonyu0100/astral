@@ -9,13 +9,11 @@ export function SpacesSpaceInputText() {
   const hoverableController = useControllerForHoverable();
   const messageListController = useContext(ContextForConversationMessageList);
 
-  const {
-    actions: { sendMessageIntoConversation: triggerMessageSendToConversation },
-  } = useContext(ContextForSpacesSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      triggerMessageSendToConversation();
+      spacesSpaceController.actions.sendMessageToConversation();
     }
   };
 

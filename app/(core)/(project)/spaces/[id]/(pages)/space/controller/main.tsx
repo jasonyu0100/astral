@@ -23,7 +23,7 @@ interface ControllerState {
 interface ControllerActions {
   updateRole: (role: ConversationRole) => void;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
-  sendMessageIntoConversation: () => Promise<ConversationMessageObj>;
+  sendMessageToConversation: () => Promise<ConversationMessageObj>;
   summariseConversationIntoQuery: () => Promise<string>;
   summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
   summariseConversationIntoKeywords: () => Promise<string>;
@@ -121,9 +121,10 @@ export function useControllerForSpacesSpace() {
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
       `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the message history:`,
+      `Start of Message History`,
       ...getMessageHistory(),
-      `Reply to the user message and keep the objective in mind.`,
+      `End of Message History`,
+      `Reply to the user keeping role, objective and context in mind. Format the response for conciseness and keep it readable.`,
     ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
@@ -150,21 +151,23 @@ export function useControllerForSpacesSpace() {
       `This is the space description: ${spaceController.state.obj.description}`,
       `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
       `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the message history:`,
+      `Start of Message History`,
       ...getMessageHistory(),
-      `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference."`,
-      `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
-      `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors. Example format:
+      `End of Message History`,
+      `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference. 
+      Depending on the size of the conversaion, you may return up to a maximum of 8 insights. 
+      Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.
+      
+      Example format:
+      {
+        "insights": [
+          {"text": "Insight 1"},
+          {"text": "Insight 2"},
+          {"text": "Insight 3"}
+        ]
+      }
 
-{
-  "insights": [
-    {"text": "Insight 1"},
-    {"text": "Insight 2"},
-    {"text": "Insight 3"}
-  ]
-}
-
-Ensure the response follows the exact structure and format shown above, with properly escaped characters, no trailing commas, and valid JSON syntax.`,
+      Ensure the response follows the exact structure and format shown above, with properly escaped characters, no trailing commas, and valid JSON syntax.`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -279,11 +282,11 @@ Ensure the response follows the exact structure and format shown above, with pro
       role: role,
     },
     actions: {
+      sendMessageToConversation: sendMessageToConversation,
       summariseConversationIntoSearchTerm: summariseConversationIntoSearchTerm,
       summariseConversationIntoNotes,
       summariseConversationIntoQuery: summariseConversationIntoQuery,
       summariseConversationIntoKeywords: summariseConversationIntoKeywords,
-      sendMessageToConversation: sendMessageToConversation,
       updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => {
         setSidebarVisibility(visibility);
       },
