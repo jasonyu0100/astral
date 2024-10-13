@@ -1,6 +1,5 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
@@ -11,41 +10,39 @@ import { CustomisableModalHalfContents } from '@/ui/modal/general/container/main
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddYouTubeUrlModal() {
+export function SpacesMapAddSpotifyUrlModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const sceneListController = useContext(ContextForIdeaSceneList);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
   const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
-  const [youtubeId, changeYoutubeId] = useState('');
+  const [spotifyId, changeSpotifyId] = useState('');
   const [description, changeDescription] = useState<string>('');
 
-  function extractVideoId(url: string) {
-    // Regular expression pattern to match YouTube video IDs
-    const pattern =
-      /(?:youtube\.com\/(?:[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  function extractSpotifyTrackId(url: string) {
+    // Regular expression pattern to match Spotify track IDs
+    const pattern = /\/track\/(\w+)/;
 
-    // Find the video ID using the regular expression pattern
+    // Find the track ID using the regular expression pattern
     const match = url.match(pattern);
 
     if (match) {
-      const videoId = match[1];
-      return videoId;
+      const trackId = match[1];
+      return trackId;
     } else {
       return url;
     }
   }
 
-  async function createIdeaFromYouTube() {
+  async function createIdeaFromSpotify() {
     const idea = await ideaListController.actions.createActions.createFromUrl(
       user.id,
-      sceneListController.state.objId,
+      ideaListController.state.objId,
       title,
       description,
       0,
@@ -54,9 +51,9 @@ export function SpacesMapAddYouTubeUrlModal() {
       150,
       {
         id: crypto.randomUUID(),
-        title: `Youtube ${youtubeId}`,
-        url: `https://www.youtube.com/embed/${youtubeId}`,
-        variant: UrlElemVariant.YOUTUBE,
+        title: `Spotify ${spotifyId}`,
+        url: `https://open.spotify.com/embed/track/${spotifyId}`,
+        variant: UrlElemVariant.SPOTIFY,
       } as UrlElem,
       ideaListController.state.objs.length,
     );
@@ -70,7 +67,7 @@ export function SpacesMapAddYouTubeUrlModal() {
   }
 
   async function createIdea() {
-    await createIdeaFromYouTube();
+    await createIdeaFromSpotify();
     openableController.close();
   }
 
@@ -80,17 +77,26 @@ export function SpacesMapAddYouTubeUrlModal() {
         <CustomisableModalHalfContents>
           <div className='flex flex-col space-y-[2rem]'>
             <div className='h-[400px] w-[500px]'>
-              <iframe
-                onDrag={(e) => e.stopPropagation()}
-                style={{ width: '100%', height: '100%' }}
-                src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
-                title='YouTube video player'
-              />
+              {spotifyId && (
+                <div className='max-h-[400px] w-full'>
+                  <iframe
+                    src={`https://open.spotify.com/embed/track/${spotifyId}`}
+                    style={{ width: '100%', height: '400px' }}
+                    allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+                    loading='lazy'
+                  />
+                </div>
+              )}
             </div>
             <input
-              placeholder='Enter a youtube url'
+              placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
+              defaultValue='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
+              title='Url'
+              value={spotifyId}
+              onChange={(e) =>
+                changeSpotifyId(extractSpotifyTrackId(e.target.value))
+              }
               className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
-              onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />
           </div>
           <div

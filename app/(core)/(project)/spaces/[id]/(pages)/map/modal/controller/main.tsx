@@ -9,6 +9,7 @@ import { SpacesMapAddGalleryModal } from '../add/gallery/main';
 import { SpacesMapAddFileIdeaModal } from '../add/idea/file/main';
 import { SpacesMapAddGenerateIdeaModal } from '../add/idea/generate/main';
 import { SpacesMapAddSearchIdeaModal } from '../add/idea/search/main';
+import { SpacesMapAddSpotifyUrlModal } from '../add/idea/spotify/main';
 import { SpacesMapAddTextIdeaModal } from '../add/idea/text/main';
 import { SpacesMapAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesMapAddResourceModal } from '../add/resource/main';
@@ -22,7 +23,8 @@ export interface SpacesMapModals {
   addCollectionController: ContextForOpenableInterface;
   addGalleryController: ContextForOpenableInterface;
   addFileIdeaController: ContextForOpenableInterface;
-  addUrlIdeaController: ContextForOpenableInterface;
+  addYouTubeUrlIdeaController: ContextForOpenableInterface;
+  addSpotifyUrlIdeaController: ContextForOpenableInterface;
   addTextIdeaController: ContextForOpenableInterface;
   addResourceController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
@@ -36,7 +38,8 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
   const addCollectionController = useControllerForOpenable();
   const addGalleryController = useControllerForOpenable();
   const addFileIdeaController = useControllerForOpenable();
-  const addUrlIdeaController = useControllerForOpenable();
+  const addYouTubeUrlIdeaController = useControllerForOpenable();
+  const addSpotifyUrlIdeaController = useControllerForOpenable();
   const addTextIdeaController = useControllerForOpenable();
   const addResourceController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
@@ -51,7 +54,8 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
         addGalleryController: addGalleryController,
         addCollectionController: addCollectionController,
         addFileIdeaController: addFileIdeaController,
-        addUrlIdeaController: addUrlIdeaController,
+        addYouTubeUrlIdeaController: addYouTubeUrlIdeaController,
+        addSpotifyUrlIdeaController: addSpotifyUrlIdeaController,
         addTextIdeaController: addTextIdeaController,
         addResourceController: addResourceController,
         addSceneController: addSceneController,
@@ -71,8 +75,11 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addFileIdeaController}>
         <SpacesMapAddFileIdeaModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addUrlIdeaController}>
+      <ContextForOpenable.Provider value={addYouTubeUrlIdeaController}>
         <SpacesMapAddYouTubeUrlModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addSpotifyUrlIdeaController}>
+        <SpacesMapAddSpotifyUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextIdeaController}>
         <SpacesMapAddTextIdeaModal />
