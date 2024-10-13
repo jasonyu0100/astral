@@ -4,6 +4,7 @@ import {
   SpacesMapSidebarMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -15,7 +16,7 @@ export function SpacesMapSidebarScenesListActiveItem() {
     actions: { updateSidebarMode: updateSidebarMode, updateDirectoryMode },
   } = useContext(ContextForSpacesMap);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const scene = useContext(ContextForChapterSceneObj);
+  const scene = useContext(ContextForIdeaSceneObj);
 
   return (
     <GlassWindowFrame className='w-full p-[1rem]' roundedFx={roundedFx.rounded}>

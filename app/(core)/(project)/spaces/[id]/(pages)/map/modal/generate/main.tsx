@@ -142,9 +142,9 @@ export function SpacesMapGenerateLog() {
         log.id,
       )
       .then(() => {
-        window.location.href = spacesMap.spaces.id.journey.link(
+        window.location.href = `${spacesMap.spaces.id.journey.link(
           spaceController.state.objId,
-        );
+        )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
       });
   }
 
@@ -152,7 +152,7 @@ export function SpacesMapGenerateLog() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Genereate Task</FormTitle>
+          <FormTitle>Generate Task</FormTitle>
           <FormBody>
             <FormInput
               value={title}

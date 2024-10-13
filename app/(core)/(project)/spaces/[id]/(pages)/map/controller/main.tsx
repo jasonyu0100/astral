@@ -88,7 +88,6 @@ export enum SpacesMapSidebarMediaMode {
 
 export enum SpacesMapSidebarContentMode {
   MEDIA = 'Media',
-  SEARCH = 'Search',
   LIST = 'List',
   CHAT = 'Chat',
 }

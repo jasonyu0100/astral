@@ -1,6 +1,5 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
-import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralPersonIcon } from '@/icons/person/main';
@@ -14,9 +13,9 @@ import {
   ContextForSpacesMap,
   SpacesMapConnectionMode,
   SpacesMapPeopleMode,
-  SpacesMapSidebarContentMode,
   SpacesMapSidebarVisibility,
 } from '../../../../../controller/main';
+import { ContextForSpacesMapModals } from '../../../../../modal/controller/main';
 
 export function SpacesMapHeaderLeft() {
   const {
@@ -36,6 +35,7 @@ export function SpacesMapHeaderLeft() {
       selectAll,
     },
   } = useContext(ContextForSpacesMap);
+  const modalController = useContext(ContextForSpacesMapModals);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
@@ -54,20 +54,19 @@ export function SpacesMapHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralCursorIcon
+      <AstralBubbleIcon
         className={
-          selectedIdeas.length === 0 ? 'fill-slate-300' : 'fill-blue-500'
-        }
-      />
-      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
-      <AstralFullscreenIcon
-        onClick={() => selectAll()}
-        className={
-          selectedIdeas.length >= ideaListController.state.objs.length &&
-          selectedIdeas.length > 0
+          connectionMode === SpacesMapConnectionMode.DEFAULT
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
+        onClick={() => {
+          if (connectionMode === SpacesMapConnectionMode.DEFAULT) {
+            updateConnectionMode(SpacesMapConnectionMode.BUBBLE);
+          } else {
+            updateConnectionMode(SpacesMapConnectionMode.DEFAULT);
+          }
+        }}
       />
       <AstralPersonIcon
         className={
@@ -83,49 +82,22 @@ export function SpacesMapHeaderLeft() {
           }
         }}
       />
-      <AstralBubbleIcon
-        className={
-          connectionMode === SpacesMapConnectionMode.DEFAULT
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
-        }
-        onClick={() => {
-          if (connectionMode === SpacesMapConnectionMode.DEFAULT) {
-            updateConnectionMode(SpacesMapConnectionMode.BUBBLE);
-          } else {
-            updateConnectionMode(SpacesMapConnectionMode.DEFAULT);
-          }
-        }}
-      />
-      {/* <AstralListIcon
-        className={
-          sidebarContentMode === SpacesMapSidebarContentMode.LIST
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-        onClick={() => {
-          if (sidebarContentMode === SpacesMapSidebarContentMode.LIST) {
-            updateSidebarMode(SpacesMapSidebarContentMode.MEDIA);
-          } else {
-            updateSidebarMode(SpacesMapSidebarContentMode.LIST);
-          }
-        }}
-      /> */}
-      <AstralManageSearchIcon
-        className={
-          sidebarContentMode === SpacesMapSidebarContentMode.SEARCH
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-        onClick={() => {
-          if (sidebarContentMode === SpacesMapSidebarContentMode.SEARCH) {
-            updateSidebarMode(SpacesMapSidebarContentMode.MEDIA);
-          } else {
-            updateSidebarMode(SpacesMapSidebarContentMode.SEARCH);
-          }
-        }}
-      />
       <BarDividerIndicator />
+      <AstralManageSearchIcon
+        onClick={() => {
+          modalController.addSearchIdeaController.open();
+        }}
+      />
+      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
+      <AstralFullscreenIcon
+        onClick={() => selectAll()}
+        className={
+          selectedIdeas.length >= ideaListController.state.objs.length &&
+          selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+      />
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {

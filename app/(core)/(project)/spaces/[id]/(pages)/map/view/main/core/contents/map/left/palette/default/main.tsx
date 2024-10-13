@@ -1,7 +1,6 @@
 import { ContextForSpacesMapModals } from '@/(core)/(project)/spaces/[id]/(pages)/map/modal/controller/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralEditNoteIcon } from '@/icons/edit-note/main';
-import { AstralImageIcon } from '@/icons/image/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { AstralUploadIcon } from '@/icons/upload/main';
@@ -24,9 +23,6 @@ export function SpacesMapPaletteSelected() {
       />
       <AstralAlbumIcon
         onClick={() => modalController.addSpotifyUrlIdeaController.open()}
-      />
-      <AstralImageIcon
-        onClick={() => modalController.addSearchIdeaController.open()}
       />
     </>
   );

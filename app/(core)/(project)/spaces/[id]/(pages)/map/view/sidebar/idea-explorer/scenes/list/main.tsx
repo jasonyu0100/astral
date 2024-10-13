@@ -1,4 +1,5 @@
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { useContext } from 'react';
 import { SpacesMapSidebarScenesListActiveItem } from './item/active/main';
 import { SpacesMapSidebarScenesListInactiveItem } from './item/inactive/main';
@@ -13,7 +14,7 @@ export function SpacesMapSidebarScenesList() {
     >
       <div className='flex flex-col space-y-[1rem]'>
         {sceneListController.state.objs.map((scene) => (
-          <ContextForChapterSceneObj.Provider value={scene}>
+          <ContextForIdeaSceneObj.Provider value={scene}>
             <>
               {sceneListController.actions.stateActions.checkActive(scene) ? (
                 <SpacesMapSidebarScenesListActiveItem />
@@ -21,7 +22,7 @@ export function SpacesMapSidebarScenesList() {
                 <SpacesMapSidebarScenesListInactiveItem />
               )}
             </>
-          </ContextForChapterSceneObj.Provider>
+          </ContextForIdeaSceneObj.Provider>
         ))}
       </div>
     </div>
