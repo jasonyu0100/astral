@@ -8,6 +8,7 @@ import { SpacesSpaceAddAttachmentModal } from '../add/attachment/main';
 import { SpacesSpaceAddChapterModal } from '../add/chapter/main';
 import { SpacesSpaceSetConstellationModal } from '../constellation/main';
 import { SpacesSpaceEditChapterModal } from '../edit/chapter/main';
+import { SpacesSpaceEditSpaceModal } from '../edit/space/main';
 
 export const ContextForSpacesSpaceModals = createContext(
   {} as SpacesSpaceModals,
@@ -18,6 +19,7 @@ export interface SpacesSpaceModals {
   addAttachmentController: ContextForOpenableInterface;
   generateSceneController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
+  editSpaceController: ContextForOpenableInterface;
 }
 
 export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
@@ -25,6 +27,7 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
   const addAttachmentController = useControllerForOpenable();
   const generateSceneController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
+  const editSpaceController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSpaceModals.Provider
@@ -33,6 +36,7 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
         addAttachmentController: addAttachmentController,
         generateSceneController: generateSceneController,
         editChapterController: editChapterController,
+        editSpaceController: editSpaceController,
       }}
     >
       {children}
@@ -47,6 +51,9 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editChapterController}>
         <SpacesSpaceEditChapterModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editSpaceController}>
+        <SpacesSpaceEditSpaceModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSpaceModals.Provider>
   );

@@ -1,12 +1,12 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { useContext } from 'react';
 
 export default function SpacesSpaceHeaderMiddleTitle() {
-  const chapterListController = useContext(ContextForSpaceChapterList);
+  const spaceMainController = useContext(ContextForSpaceMain);
 
   return (
     <p className='text-center text-lg font-light text-slate-300'>
-      {chapterListController.state.currentObj?.title || 'untitled'}
+      {spaceMainController.state.obj.title || 'untitled'}
     </p>
   );
 }
