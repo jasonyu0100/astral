@@ -21,6 +21,7 @@ import { AstralCombineIcon } from './combine/main';
 import { AstralCursorIcon } from './cursor/main';
 import { AstralDeleteIcon } from './delete/main';
 import { AstralDoneIcon } from './done/main';
+import { AstralDownloadIcon } from './download/main';
 import { AstralEditNoteIcon } from './edit-note/main';
 import { AstralEditIcon } from './edit/main';
 import { AstralEqualizerIcon } from './equalizer/main';
@@ -130,6 +131,7 @@ export default function Page() {
       <AstralManageSearchIcon />
       <AstralCheckIcon />
       <AstralEditIcon />
+      <AstralDownloadIcon />
     </div>
   );
 }
