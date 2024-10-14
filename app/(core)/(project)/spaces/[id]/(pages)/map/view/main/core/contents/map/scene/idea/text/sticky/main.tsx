@@ -29,7 +29,7 @@ export function SpacesMapTextStickyIdea() {
   return (
     <div
       ref={divRef}
-      className='h-full w-full bg-yellow-500 p-[2rem] shadow-lg'
+      className='h-full w-full bg-yellow-500 p-[1rem] shadow-lg'
     >
       <textarea
         className='h-full w-full resize-none bg-transparent text-black outline-none'
