@@ -27,12 +27,6 @@ export function CreateSpaceModalPageOne() {
         onChange={(file) => updateThumbnail(file)}
         label='Thumbnail'
       />
-      <FormInput
-        title='Title'
-        placeholder='A title for the space'
-        value={title}
-        onChange={(e) => updateTitle(e.target.value)}
-      />
       <FormSelect
         title='Project Type'
         value={category}
@@ -46,6 +40,12 @@ export function CreateSpaceModalPageOne() {
           </option>
         ))}
       </FormSelect>
+      <FormInput
+        title='Title'
+        placeholder='A title for the space'
+        value={title}
+        onChange={(e) => updateTitle(e.target.value)}
+      />
       <FormTextArea
         title='Description'
         placeholder='A description for the space'

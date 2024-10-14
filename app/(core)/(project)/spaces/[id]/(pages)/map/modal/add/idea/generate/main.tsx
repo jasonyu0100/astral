@@ -71,7 +71,7 @@ export function SpacesMapAddGenerateIdeaModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents>
+        <CustomisableModalContents className='h-1/2'>
           <div className='flex flex-row items-center space-x-[4rem]'>
             <div className='flex flex-shrink-0 flex-row items-center space-x-[2rem]'>
               <AstralModalStep>1</AstralModalStep>

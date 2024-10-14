@@ -45,7 +45,7 @@ export function SpacesMapAddSpotifyUrlModal() {
   async function createIdeaFromSpotify() {
     const idea = await ideaListController.actions.createActions.createFromUrl(
       user.id,
-      ideaListController.state.objId,
+      sceneListController.state.objId,
       title,
       description,
       0,
