@@ -12,8 +12,6 @@ import { useContext, useEffect, useState } from 'react';
 
 export enum ConnectionStatus {
   FOLLOWING = 'FOLLOWING',
-  FOLLOWER = 'FOLLOWER',
-  MUTUAL = 'MUTUAL',
   FOLLOW = 'FOLLOW',
 }
 
@@ -46,11 +44,11 @@ export function ProfileAboutConnectAction() {
     );
 
     if (fromLoggedInFollows && fromProfileFollows) {
-      return ConnectionStatus.MUTUAL;
+      return ConnectionStatus.FOLLOWING;
     } else if (fromLoggedInFollows) {
       return ConnectionStatus.FOLLOWING;
     } else if (fromProfileFollows) {
-      return ConnectionStatus.FOLLOWER;
+      return ConnectionStatus.FOLLOW;
     } else {
       return ConnectionStatus.FOLLOW;
     }
@@ -87,6 +85,8 @@ export function ProfileAboutConnectAction() {
         onClick={() => {
           if (connectionStatus === ConnectionStatus.FOLLOW) {
             followProfile();
+          } else if (connectionStatus === ConnectionStatus.FOLLOWING) {
+            unfollowProfile();
           } else {
             unfollowProfile();
           }

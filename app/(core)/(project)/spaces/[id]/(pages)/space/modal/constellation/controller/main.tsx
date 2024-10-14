@@ -5,6 +5,7 @@ import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list'
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
+import { IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -29,6 +30,7 @@ interface ControllerState {
   searchResults: any[];
   imageResults: any[];
   videoResults: any[];
+  selected: IdeaObj[];
 }
 
 interface ControllerActions {
@@ -36,6 +38,7 @@ interface ControllerActions {
   editSticky: (index: number, text: string) => void;
   updateTab: (tab: GenerateSceneTab) => void;
   updateQuery: (query: string) => void;
+  updateSelected: (selected: IdeaObj[]) => void;
 }
 
 interface Controller {
@@ -56,6 +59,7 @@ export function useGenerateSceneController(): Controller {
   const [searchQuery, setSearchQuery] = useState('');
   const [videoResults, setVideoResults] = useState([]);
   const [keywords, setKeywords] = useState('');
+  const [selected, setSelected] = useState<IdeaObj[]>([]);
 
   const loadingController = useContext(ContextForLoading);
   const spacesSpaceController = useContext(ContextForSpacesSpace);
@@ -246,12 +250,14 @@ export function useGenerateSceneController(): Controller {
       searchQuery,
       keywords,
       videoResults,
+      selected,
     },
     actions: {
       updateTab: (tab: GenerateSceneTab) => setTab(tab),
       updateQuery: (query: string) => setSearchQuery(query),
       createMap,
       editSticky,
+      updateSelected: (selected: IdeaObj[]) => setSelected(selected),
     },
   };
 }
