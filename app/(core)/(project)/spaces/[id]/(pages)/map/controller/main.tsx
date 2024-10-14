@@ -10,7 +10,8 @@ import { GalleryObj } from '@/(server)/model/gallery/main';
 import { IdeaObj } from '@/(server)/model/idea/main';
 import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
-import { createContext, useContext, useState } from 'react';
+import html2canvas from 'html2canvas';
+import { createContext, useContext, useRef, useState } from 'react';
 
 interface Controller {
   state: ControllerState;
@@ -30,6 +31,8 @@ interface ControllerState {
   sidebarMode: SpacesMapSidebarMode;
   sidebarVisibility: SpacesMapSidebarVisibility;
   peopleMode: SpacesMapPeopleMode;
+  screenshotRef: React.RefObject<HTMLDivElement>;
+  hideUI: boolean;
 }
 
 interface ControllerActions {
@@ -56,6 +59,8 @@ interface ControllerActions {
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
+  takeScreenshot: () => void;
+  updateHideUI: (hide: boolean) => void;
 }
 
 export const ContextForSpacesMap = createContext({} as Controller);
@@ -149,6 +154,39 @@ export function useControllerForSpacesMap(): Controller {
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
 
+  // Add ref for capturing the screenshot of the container
+  const screenshotRef = useRef<HTMLDivElement>(null);
+
+  // State to control the visibility of UI components
+  const [hideUI, setHideUI] = useState(false);
+
+  // Function to handle screenshot
+  const takeScreenshot = async () => {
+    // Hide UI components before taking the screenshot
+    setHideUI(true);
+
+    setTimeout(async () => {
+      if (screenshotRef.current) {
+        try {
+          const canvas = await html2canvas(screenshotRef.current, {
+            useCORS: true, // To capture cross-origin images
+          });
+          const imgData = canvas.toDataURL('image/png'); // Convert to image
+
+          // Create an anchor element to download the screenshot
+          const link = document.createElement('a');
+          link.href = imgData;
+          link.download = 'screenshot.png';
+          link.click(); // Trigger download
+        } catch (error) {
+          console.error('Screenshot capture failed:', error);
+        } finally {
+          // Show UI components again after the screenshot
+          setHideUI(false);
+        }
+      }
+    }, 500);
+  };
   const autoSort = async (gapPercentage = 5) => {
     const totalIdeas = ideaListController.state.objs.length;
     const columns = Math.ceil(Math.sqrt(totalIdeas));
@@ -268,8 +306,12 @@ export function useControllerForSpacesMap(): Controller {
       sidebarContentMode: listMode,
       sidebarMode: listSceneMode,
       sidebarVisibility: sidebarVisibility,
+      screenshotRef: screenshotRef,
+      hideUI: hideUI,
     },
     actions: {
+      updateHideUI: (hide: boolean) => setHideUI(hide),
+      takeScreenshot: takeScreenshot,
       updateDivWidth: (width) => setDivWidth(width),
       updateDirectoryMode: (mode) => setDirectoryMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
