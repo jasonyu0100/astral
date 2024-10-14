@@ -66,6 +66,31 @@ function Page({ params }: { params: { id: string } }) {
     }
   }, [spaceMainController.state.obj]);
 
+  useEffect(() => {
+    if (conversationListController.state.objId === '') {
+      conversationListController.actions.createActions.createConversation(
+        loggedInUser.id,
+        chapterListController.state.objId,
+      );
+    }
+  }, [conversationListController.state.objId]);
+
+  useEffect(() => {
+    if (
+      messageListController.state.objs.length === 0 &&
+      conversationListController.state.objId !== ''
+    ) {
+      messageListController.actions.createActions.sendAgentMessage(
+        'astral',
+        conversationListController.state.objId,
+        "Hello, I'm Astral. How can I help you today?",
+      );
+    }
+  }, [
+    messageListController.state.objs,
+    conversationListController.state.objId,
+  ]);
+
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceMainController}>

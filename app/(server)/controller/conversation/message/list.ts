@@ -37,12 +37,10 @@ interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
   sendUserMessage: (
     userId: string,
-    chatId: string,
     conversationId: string,
   ) => Promise<TargetObj>;
   sendAgentMessage: (
     agentId: string,
-    chatId: string,
     conversationId: string,
     message: string,
   ) => Promise<TargetObj>;
@@ -299,7 +297,7 @@ export const useControllerForConversationMessageList = (
         created: new Date().toISOString(),
         userId: userId,
         conversationId: conversationId,
-        sceneId: chatId,
+        sceneId: '',
         message: inputMessageText,
         hasAttachment: false,
       };
@@ -312,7 +310,6 @@ export const useControllerForConversationMessageList = (
     },
     sendAgentMessage: async (
       agentId: string,
-      chatId: string,
       conversationId: string,
       message: string,
     ) => {
@@ -320,7 +317,7 @@ export const useControllerForConversationMessageList = (
         created: new Date().toISOString(),
         agentId: agentId,
         conversationId: conversationId,
-        sceneId: chatId,
+        sceneId: '',
         message: message,
         hasAttachment: false,
       };

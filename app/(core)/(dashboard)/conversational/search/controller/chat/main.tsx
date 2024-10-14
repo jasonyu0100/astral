@@ -88,7 +88,6 @@ export function useControllerForConversationalSearch() {
   async function sendUserMessage(conversation: ConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
-      conversation.chapterId || '',
       conversation.id,
     );
   }
@@ -118,7 +117,6 @@ export function useControllerForConversationalSearch() {
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
-      conversation.chapterId || '',
       conversation.id,
       message,
     );

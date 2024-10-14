@@ -98,10 +98,9 @@ export function useControllerForSpacesMapChat() {
     return conversation;
   }
 
-  async function sendUserMessage(conversation: ConversationObj) {
+  async function triggerSendUserMessage(conversation: ConversationObj) {
     return await messageListController.actions.createActions.sendUserMessage(
       user.id,
-      conversation.chapterId,
       conversation.id,
     );
   }
@@ -125,14 +124,13 @@ export function useControllerForSpacesMapChat() {
     return agentResponse;
   }
 
-  async function sendAgentMessage(
+  async function triggerSendAgentMessage(
     agentId: string,
     message: string,
     conversation: ConversationObj,
   ) {
     return await messageListController.actions.createActions.sendAgentMessage(
       agentId,
-      conversation.chapterId,
       conversation.id,
       message,
     );
@@ -164,9 +162,9 @@ export function useControllerForSpacesMapChat() {
     if (conversation !== undefined) {
       const conversationStatus = checkConversationStatus(conversation);
       if (conversationStatus) {
-        const newUserMessage = await sendUserMessage(conversation);
+        const newUserMessage = await triggerSendUserMessage(conversation);
         const agentResponse = await generateAgentResponse(newUserMessage);
-        const newAgentMessage = await sendAgentMessage(
+        const newAgentMessage = await triggerSendAgentMessage(
           'astral',
           agentResponse,
           conversation,
@@ -186,9 +184,9 @@ export function useControllerForSpacesMapChat() {
     }
 
     const newConversation = await createNewConversation();
-    const newUserMessage = await sendUserMessage(newConversation);
+    const newUserMessage = await triggerSendUserMessage(newConversation);
     const agentResponse = await generateAgentResponse(newUserMessage);
-    const newAgentMessage = await sendAgentMessage(
+    const newAgentMessage = await triggerSendAgentMessage(
       'astral',
       agentResponse,
       newConversation,
