@@ -110,18 +110,6 @@ function Page({ params }: { params: { id: string } }) {
       sceneListController.state.objId,
     );
 
-  useEffect(() => {
-    if (sceneListController.state.objs.length == 0) {
-      sceneListController.actions.createActions.createScene(
-        'New Scene',
-        '',
-        'Open-ended',
-        user.id,
-        chapterListController.state.objId,
-      );
-    }
-  }, [sceneListController.state.objs]);
-
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
@@ -145,17 +133,19 @@ function Page({ params }: { params: { id: string } }) {
                           <ContextForIdeaRelationshipListFromScene.Provider
                             value={ideaRelationshipListController}
                           >
-                            <UpdateWrapper>
-                              <LoadingWrapper>
-                                <ControllerWrapper>
-                                  <ModalWrapper>
-                                    <ViewWrapper>
-                                      <SpacesMapView />
-                                    </ViewWrapper>
-                                  </ModalWrapper>
-                                </ControllerWrapper>
-                              </LoadingWrapper>
-                            </UpdateWrapper>
+                            <EffectWrapper>
+                              <UpdateWrapper>
+                                <LoadingWrapper>
+                                  <ControllerWrapper>
+                                    <ModalWrapper>
+                                      <ViewWrapper>
+                                        <SpacesMapView />
+                                      </ViewWrapper>
+                                    </ModalWrapper>
+                                  </ControllerWrapper>
+                                </LoadingWrapper>
+                              </UpdateWrapper>
+                            </EffectWrapper>
                           </ContextForIdeaRelationshipListFromScene.Provider>
                         </ContextForConversationMessageList.Provider>
                       </ContextForChapterConversationList.Provider>
@@ -169,6 +159,25 @@ function Page({ params }: { params: { id: string } }) {
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
+}
+
+function EffectWrapper({ children }: { children: React.ReactNode }) {
+  const sceneListController = useContext(ContextForIdeaSceneList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const user = useGlobalUser((state) => state.user);
+
+  useEffect(() => {
+    if (sceneListController.state.objs.length == 0) {
+      sceneListController.actions.createActions.createScene(
+        'New Scene',
+        '',
+        'Open-ended',
+        user.id,
+        chapterListController.state.objId,
+      );
+    }
+  }, [sceneListController.state.objs]);
+  return <>{children}</>;
 }
 
 function ModalWrapper({ children }: { children: React.ReactNode }) {

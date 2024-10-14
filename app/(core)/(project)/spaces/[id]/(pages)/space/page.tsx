@@ -41,9 +41,6 @@ import { SpacesSpaceView } from './view/main';
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
   const chapterId = searchParams.get('chapter');
-
-  const setSpace = useGlobalSpace((state) => state.setSpace);
-
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const spaceMemberListController = useControllerForSpaceMemberList(
@@ -59,6 +56,49 @@ function Page({ params }: { params: { id: string } }) {
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
   );
+
+  return (
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForSpaceMain.Provider value={spaceMainController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
+            <ContextForChapterConversationList.Provider
+              value={conversationListController}
+            >
+              <ContextForConversationMessageList.Provider
+                value={messageListController}
+              >
+                <EffectWrapper>
+                  <UpdateWrapper>
+                    <LoadingWrapper>
+                      <ControllerWrapper>
+                        <ModalWrapper>
+                          <ViewWrapper>
+                            <SpacesSpaceView />
+                          </ViewWrapper>
+                        </ModalWrapper>
+                      </ControllerWrapper>
+                    </LoadingWrapper>
+                  </UpdateWrapper>
+                </EffectWrapper>
+              </ContextForConversationMessageList.Provider>
+            </ContextForChapterConversationList.Provider>
+          </ContextForSpaceMemberList.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceMain.Provider>
+    </ContextForLoggedInUserObj.Provider>
+  );
+}
+
+function EffectWrapper({ children }: { children: React.ReactNode }) {
+  const spaceMainController = useContext(ContextForSpaceMain);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const conversationListController = useContext(
+    ContextForChapterConversationList,
+  );
+  const messageListController = useContext(ContextForConversationMessageList);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const setSpace = useGlobalSpace((state) => state.setSpace);
 
   useEffect(() => {
     if (spaceMainController.state.obj) {
@@ -91,35 +131,7 @@ function Page({ params }: { params: { id: string } }) {
     conversationListController.state.objId,
   ]);
 
-  return (
-    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForSpaceMain.Provider value={spaceMainController}>
-        <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
-            <ContextForChapterConversationList.Provider
-              value={conversationListController}
-            >
-              <ContextForConversationMessageList.Provider
-                value={messageListController}
-              >
-                <UpdateWrapper>
-                  <LoadingWrapper>
-                    <ControllerWrapper>
-                      <ModalWrapper>
-                        <ViewWrapper>
-                          <SpacesSpaceView />
-                        </ViewWrapper>
-                      </ModalWrapper>
-                    </ControllerWrapper>
-                  </LoadingWrapper>
-                </UpdateWrapper>
-              </ContextForConversationMessageList.Provider>
-            </ContextForChapterConversationList.Provider>
-          </ContextForSpaceMemberList.Provider>
-        </ContextForSpaceChapterList.Provider>
-      </ContextForSpaceMain.Provider>
-    </ContextForLoggedInUserObj.Provider>
-  );
+  return <>{children}</>;
 }
 
 function ModalWrapper({ children }: { children: React.ReactNode }) {
