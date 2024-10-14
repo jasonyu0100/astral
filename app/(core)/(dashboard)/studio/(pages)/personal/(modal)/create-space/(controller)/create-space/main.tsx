@@ -1,10 +1,15 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
+import { useControllerForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
+import { useControllerForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
+import { useControllerForGalleryList } from '@/(server)/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
-import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
+import {
+  exampleFileElem,
+  exampleFileElems,
+  FileElem,
+} from '@/(server)/model/elements/file/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import {
   SpaceTemplate,
@@ -58,15 +63,20 @@ interface CreateSpaceController {
 export const ContextForCreateSpace = createContext({} as CreateSpaceController);
 
 export const useControllerForCreateSpace = (): CreateSpaceController => {
+  const user = useGlobalUser((state) => state.user);
   const spaceListController = useContext(ContextForSpaceList);
-  const galleryListController = useContext(ContextForGalleryList);
-  const collectionListController = useContext(ContextForGalleryCollectionList);
+  const galleryListController = useControllerForGalleryList(user.id);
+  const collectionListController = useControllerForGalleryCollectionList(
+    galleryListController.state.objId,
+  );
+  const resourceListController = useControllerForCollectionResourceList(
+    collectionListController.state.objId,
+  );
   const chapterListController = useControllerForSpaceChapterList('');
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
   const spaceMembersListController = useControllerForSpaceMemberList('');
-  const user = useGlobalUser((state) => state.user);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [category, changeCategory] = useState(SpaceTemplate.StarterProject);
@@ -140,6 +150,19 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         gallery.id,
       );
     console.log('COLLECTION CREATED', collection);
+
+    const starterResourecs = await Promise.all(
+      exampleFileElems.map((fileElem) =>
+        resourceListController.actions.createActions.createFromFile(
+          user.id,
+          collection.id,
+          'Starter Resource',
+          '',
+          fileElem,
+        ),
+      ),
+    );
+    console.log('RESOURCES CREATED', starterResourecs);
 
     const space =
       await spaceListController.actions.createActions.createFromTemplate(

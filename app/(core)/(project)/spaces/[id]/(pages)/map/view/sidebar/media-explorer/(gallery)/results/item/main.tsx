@@ -18,7 +18,7 @@ export function SpacesMapCollectionItem() {
 
   return (
     <GlassWindowFrame
-      className='aspect-video w-full flex-shrink-0'
+      className='aspect-[3/2] w-full flex-shrink-0'
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-b']}
     >
@@ -29,7 +29,7 @@ export function SpacesMapCollectionItem() {
         <p className='w-full px-[1rem] py-[0.5rem] text-sm font-bold text-slate-300'>
           {collection.title || 'Untitled'}
         </p>
-        <div className='flex h-full w-full cursor-pointer flex-row flex-wrap'>
+        <div className='flex h-full w-full cursor-pointer flex-row flex-wrap justify-center'>
           {resourceListController.state.objs.slice(0, 6).map((resource) => (
             <div className='aspect-square h-1/2' style={{ padding: '2%' }}>
               <img
