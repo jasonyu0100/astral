@@ -34,7 +34,7 @@ export function SpacesSpaceAddChapterModal() {
       setDescription(chapterListController.state.currentObj.description);
       setObjective(chapterListController.state.currentObj.objective);
     }
-  });
+  }, [chapterListController.state.currentObj]);
 
   async function createChapter() {
     const chapter =
@@ -43,6 +43,7 @@ export function SpacesSpaceAddChapterModal() {
         description,
         objective,
         objective,
+        background.src || '',
         user.id,
         spaceController.state.objId,
       );

@@ -1,9 +1,7 @@
-import { SpaceTemplate } from '@/(server)/templates/space/main';
 import { FormBody } from '@/ui/form/body/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 import { CreateSpaceEditStructure } from './edit/main';
-import { CreateSpaceTemplateStructure } from './template/main';
 
 export function CreateSpaceModalPageTwo() {
   const { pageTwo } = useContext(ContextForCreateSpace);
@@ -11,11 +9,7 @@ export function CreateSpaceModalPageTwo() {
 
   return (
     <FormBody>
-      {category === SpaceTemplate.StarterProject ? (
-        <CreateSpaceEditStructure />
-      ) : (
-        <CreateSpaceTemplateStructure />
-      )}
+      <CreateSpaceEditStructure />
     </FormBody>
   );
 }

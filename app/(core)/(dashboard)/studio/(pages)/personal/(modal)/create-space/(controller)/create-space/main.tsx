@@ -41,12 +41,10 @@ export interface PageThree {
   updateHours: (hours: number) => void;
   target: string;
   updateTarget: (target: string) => void;
-  thumbnail: FileElem;
-  updateThumbnail: (thumbnail: FileElem) => void;
   memberIds: string[];
   updateMemberIds: (memberIds: string[]) => void;
-  commitmentLevel: number;
-  updateCommitmentLevel: (commitmentLevel: number) => void;
+  background: FileElem;
+  updateBackground: (background: FileElem) => void;
 }
 
 export const ContextForPageOne = createContext({} as PageOne);
@@ -82,10 +80,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [category, changeCategory] = useState(SpaceTemplate.StarterProject);
   const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(10);
+  const [background, setBackground] = useState(exampleFileElem);
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
-  const [commitmentLevel, setCommitmentLevel] = useState(1);
   const [memberIds, changeMemberIds] = useState<string[]>([]);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
     [] as TemplateChapterObj[],
@@ -103,6 +101,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             templateChapter.description,
             templateChapter.summary,
             templateChapter.objective,
+            background ? background.src : '',
             user.id,
             space.id,
             index,
@@ -209,16 +208,14 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   };
 
   const pageThree: PageThree = {
-    commitmentLevel: commitmentLevel,
     memberIds: memberIds,
     updateMemberIds: (members: string[]) => changeMemberIds(members),
     hours: hours,
     updateHours: (hours: number) => changeHours(hours),
     target: target,
     updateTarget: (target: string) => changeTarget(target),
-    thumbnail,
-    updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
-    updateCommitmentLevel: (number: number) => setCommitmentLevel(number),
+    background,
+    updateBackground: (background: FileElem) => setBackground(background),
   };
 
   return {

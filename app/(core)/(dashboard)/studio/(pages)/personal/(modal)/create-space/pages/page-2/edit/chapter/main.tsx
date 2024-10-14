@@ -22,7 +22,7 @@ export function CreateSpaceEditChapter() {
         <p className='text-lg font-bold'>{index + 1}.</p>
         <input
           placeholder='Enter your title...'
-          className='w-auto rounded px-1 text-lg font-bold outline-none'
+          className='w-full rounded px-1 text-lg font-bold outline-none'
           value={templateChapter.title}
           onChange={(e) =>
             updateTemplateProjectChapters(

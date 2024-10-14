@@ -95,6 +95,7 @@ export function ConversationalSearchWrapper({
         'Search Query',
         'Search Query',
         'Search Query',
+        '',
         userId,
         spaceController.state.objId,
         0,

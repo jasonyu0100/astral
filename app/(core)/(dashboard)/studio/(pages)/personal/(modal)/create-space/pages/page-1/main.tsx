@@ -25,7 +25,7 @@ export function CreateSpaceModalPageOne() {
       <FormSearchImage
         fileElem={thumbnail}
         onChange={(file) => updateThumbnail(file)}
-        label='Thumbnail'
+        label='Thumbnail (optional)'
       />
       <FormSelect
         title='Project Type'
