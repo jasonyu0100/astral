@@ -17,7 +17,7 @@ export function SpacesMapScene() {
   const visibleIdeas = ideaListController.state.objs.filter(
     (idea) => idea.visible,
   );
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ref.current) {

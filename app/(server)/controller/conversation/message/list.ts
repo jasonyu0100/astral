@@ -288,11 +288,7 @@ export const useControllerForConversationMessageList = (
       changeId(newObj.id);
       return newObj;
     },
-    sendUserMessage: async (
-      userId: string,
-      chatId: string,
-      conversationId: string,
-    ) => {
+    sendUserMessage: async (userId: string, conversationId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,

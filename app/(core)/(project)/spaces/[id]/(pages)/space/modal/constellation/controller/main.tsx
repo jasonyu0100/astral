@@ -199,7 +199,7 @@ export function useGenerateSceneController(): Controller {
           150,
           {
             id: crypto.randomUUID(),
-            title: title,
+            title: title || '',
             text: text,
             variant: variant,
           } as TextElem,

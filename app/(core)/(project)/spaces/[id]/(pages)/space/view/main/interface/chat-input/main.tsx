@@ -11,7 +11,7 @@ export function SpacesSpaceInputText() {
 
   const spacesSpaceController = useContext(ContextForSpacesSpace);
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: { key: string }) => {
     if (event.key === 'Enter') {
       spacesSpaceController.actions.sendMessageToConversation();
     }
