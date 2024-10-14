@@ -1,3 +1,4 @@
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ImageBackground } from '@/ui/background/img/main';
 import { AbsoluteHolder } from '@/ui/holder/main';
 import { useContext } from 'react';
@@ -18,13 +19,17 @@ export function SpacesMapContents() {
   const {
     state: { directoryMode: directoryMode },
   } = useContext(ContextForSpacesMap);
+  const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
     <div
       style={{ width: '100%', height: '100%' }}
       className='relative flex flex-col items-center'
     >
-      <ImageBackground />
+      <ImageBackground
+        src={chapterListController.state.currentObj?.bg}
+        active
+      />
       <AbsoluteHolder>
         {directoryMode === SpacesMapDirectoryMode.DIRECTORY ? (
           <>

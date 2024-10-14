@@ -33,7 +33,10 @@ export function SpacesJourneyMain() {
     >
       <SpacesJourneyHeader />
       <div className='relative h-full w-full'>
-        <ImageBackground />
+        <ImageBackground
+          src={chapterListController.state.currentObj?.bg}
+          active
+        />
         <AbsoluteHolder>
           {wayListController.state.objId ? (
             <>

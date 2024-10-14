@@ -1,28 +1,40 @@
 import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
+import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 export function SpacesSpaceAddChapterModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const activityListController =
-    useControllerForUserActivityListFromChapter('');
-  const [title, changeTitle] = useState('');
-  const [description, changeDescription] = useState('');
-  const [objective, changeObjective] = useState('');
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.currentObj?.id || '',
+  );
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [objective, setObjective] = useState('');
+  const [background, setBackground] = useState(exampleFileElem);
+
+  useEffect(() => {
+    if (chapterListController.state.currentObj) {
+      setTitle(chapterListController.state.currentObj.title);
+      setDescription(chapterListController.state.currentObj.description);
+      setObjective(chapterListController.state.currentObj.objective);
+    }
+  });
 
   async function createChapter() {
     const chapter =
@@ -50,26 +62,28 @@ export function SpacesSpaceAddChapterModal() {
           <FormBody>
             <FormInput
               title='Title'
-              placeholder='Set a title for your chapter'
               value={title}
-              onChange={(e) => changeTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
             <FormTextArea
               title='Objective'
-              placeholder='Set an objective for your chapter'
-              rows={3}
+              rows={5}
               value={objective}
-              onChange={(e) => changeObjective(e.target.value)}
+              onChange={(e) => setObjective(e.target.value)}
               style={{ resize: 'none' }}
             />
             <FormTextArea
               title='Description'
-              placeholder='Describe your chapter'
               rows={5}
               value={description}
-              onChange={(e) => changeDescription(e.target.value)}
+              onChange={(e) => setDescription(e.target.value)}
               style={{ resize: 'none' }}
             />
+            <FormSearchImage
+              fileElem={background}
+              label='Background (optional)'
+              onChange={(file) => setBackground(file)}
+            ></FormSearchImage>
           </FormBody>
           <FormFooter>
             <FormButton onClick={createChapter}>Add</FormButton>
