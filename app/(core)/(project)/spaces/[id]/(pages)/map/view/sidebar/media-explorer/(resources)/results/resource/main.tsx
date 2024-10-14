@@ -21,7 +21,31 @@ export function SpacesMapResourceResource() {
 
   const resource = useContext(ContextForCollectionResourceObj);
 
+  async function getFileBounds() {
+    if (file.id === undefined) {
+      return { width: 150, height: 150 };
+    }
+
+    let width = 150;
+    let height = 150;
+
+    if (file.variant === FileElemVariant.IMAGE) {
+      width = 100;
+      height = 100;
+    } else if (file.variant === FileElemVariant.VIDEO) {
+      width = 150;
+      height = 100;
+    } else if (file.variant === FileElemVariant.AUDIO) {
+      width = 300;
+      height = 50;
+    }
+
+    return { width, height };
+  }
+
   async function addResourceToScene() {
+    const { width, height } = await getFileBounds();
+
     const idea = await ideaListController.actions.createActions.createFromFile(
       loggedInUser.id,
       sceneListController.state.objId,
@@ -29,8 +53,8 @@ export function SpacesMapResourceResource() {
       resource.description,
       Math.floor(Math.random() * 1000),
       Math.floor(Math.random() * 500),
-      150,
-      150,
+      width,
+      height,
       resource.fileElem || ({} as FileElem),
       ideaListController.state.objs.length,
     );

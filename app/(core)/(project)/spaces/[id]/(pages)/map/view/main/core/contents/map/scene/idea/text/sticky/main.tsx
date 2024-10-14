@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 export function SpacesMapTextStickyIdea() {
   const ideaObj = useContext(ContextForIdeaObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const divRef = useRef(null);
+  const divRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState('1rem'); // Default font size
 
   useEffect(() => {

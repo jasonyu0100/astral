@@ -41,11 +41,36 @@ export function SpacesMapAddGenerateIdeaModal() {
     chapterListController.state.objId,
   );
 
+  async function getFileBounds() {
+    if (file.id === undefined) {
+      return { width: 150, height: 150 };
+    }
+
+    let width = 150;
+    let height = 150;
+
+    if (file.variant === FileElemVariant.IMAGE) {
+      width = 100;
+      height = 100;
+    } else if (file.variant === FileElemVariant.VIDEO) {
+      width = 150;
+      height = 100;
+    } else if (file.variant === FileElemVariant.AUDIO) {
+      width = 300;
+      height = 50;
+    }
+
+    return { width, height };
+  }
+
   async function createFileIdea() {
     if (!file.src) {
       alert('generate an image');
       return;
     }
+
+    const { width, height } = await getFileBounds();
+
     const idea = await ideaListController.actions.createActions.createFromFile(
       user.id,
       sceneListController.state.objId,
@@ -53,8 +78,8 @@ export function SpacesMapAddGenerateIdeaModal() {
       description,
       0,
       0,
-      150,
-      150,
+      width,
+      height,
       file,
       ideaListController.state.objs.length,
     );

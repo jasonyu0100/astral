@@ -3,7 +3,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { FileElem } from '@/(server)/model/elements/file/main';
+import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -29,11 +29,36 @@ export function SpacesMapAddFileIdeaModal() {
     chapterListController.state.objId,
   );
 
+  async function getFileBounds() {
+    if (file.id === undefined) {
+      return { width: 150, height: 150 };
+    }
+
+    let width = 150;
+    let height = 150;
+
+    if (file.variant === FileElemVariant.IMAGE) {
+      width = 100;
+      height = 100;
+    } else if (file.variant === FileElemVariant.VIDEO) {
+      width = 150;
+      height = 100;
+    } else if (file.variant === FileElemVariant.AUDIO) {
+      width = 300;
+      height = 50;
+    }
+
+    return { width, height };
+  }
+
   async function createFileIdea() {
     if (file.id === undefined) {
       alert('Please upload a file first.');
       return;
     }
+
+    const { width, height } = await getFileBounds();
+
     const idea = await ideaListController.actions.createActions.createFromFile(
       user.id,
       sceneListController.state.objId,
@@ -41,8 +66,8 @@ export function SpacesMapAddFileIdeaModal() {
       description,
       0,
       0,
-      150,
-      150,
+      width,
+      height,
       file,
       ideaListController.state.objs.length,
     );

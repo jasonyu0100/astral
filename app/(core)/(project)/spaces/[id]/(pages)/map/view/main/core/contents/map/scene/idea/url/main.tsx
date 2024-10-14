@@ -1,6 +1,8 @@
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';
+import { SpacesMapUrlSpotifyIdea } from './spotify/main';
+import { SpacesMapUrlYouTubeIdea } from './youtube/main';
 
 export function SpacesMapUrlIdea() {
   const ideaObj = useContext(ContextForIdeaObj);
@@ -8,20 +10,10 @@ export function SpacesMapUrlIdea() {
   return (
     <div className='relative h-full w-full'>
       {ideaObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
-        <iframe
-          src={ideaObj.urlElem?.url}
-          title='YouTube video player'
-          style={{ objectFit: 'contain' }}
-          allowFullScreen
-        />
+        <SpacesMapUrlYouTubeIdea />
       )}
       {ideaObj.urlElem?.variant === UrlElemVariant.SPOTIFY && (
-        <iframe
-          src={ideaObj.urlElem?.url}
-          style={{ objectFit: 'contain' }}
-          allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-          loading='lazy'
-        />
+        <SpacesMapUrlSpotifyIdea />
       )}
     </div>
   );
