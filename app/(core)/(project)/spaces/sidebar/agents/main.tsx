@@ -6,7 +6,7 @@ import { ContextForSpacesSidebarModals } from '../modal/controller/main';
 export function SpaceSidebarAgentsList() {
   const spacesSidebarModals = useContext(ContextForSpacesSidebarModals);
   return (
-    <div className='flex w-full flex-shrink-0 flex-col items-end space-y-[2rem] overflow-hidden rounded-full'>
+    <div className='flex w-full flex-shrink-0 flex-col items-center space-y-[2rem] overflow-hidden rounded-full p-[1rem]'>
       {exampleAgents
         .map((agent) => agent.dp)
         .map((fileElem) => (

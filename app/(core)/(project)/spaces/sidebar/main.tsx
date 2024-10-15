@@ -1,6 +1,9 @@
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { CommonSidebarMinimisedContainer } from '@/(core)/common/(sidebar)/common/container/minimised/main';
 import { CommonSidebarTopBack } from '@/(core)/common/(sidebar)/top/back/main';
+import { glassFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { SpaceSidebarAgentsList } from './agents/main';
 import { SpaceSidebarMembersList } from './members/main';
@@ -9,13 +12,16 @@ import { SpacesSidebarModals } from './modal/controller/main';
 export function SpaceSidebar() {
   return (
     <SpacesSidebarModals>
-      <CommonSidebarMinimisedContainer>
-        <CommonSidebarTopBack href={studioMap.studio.personal.link} />
-        <HorizontalDivider className='my-[1rem] mb-[2rem]' />
-        <SpaceSidebarAgentsList />
-        <HorizontalDivider className='my-[2rem] mb-[2rem]' />
-        <SpaceSidebarMembersList />
-      </CommonSidebarMinimisedContainer>
+      <GlassWindowFrame className='flex h-full w-[4.5rem] flex-shrink-0 flex-col items-center p-[1rem]'>
+        <GlassWindowContents className='relative flex h-full w-full flex-col'>
+          <CommonSidebarTopBack href={studioMap.studio.personal.link} />
+          <HorizontalDivider className='my-[1rem] mb-[2rem]' />
+          <SpaceSidebarAgentsList />
+          <HorizontalDivider className='my-[2rem] mb-[2rem]' />
+          <SpaceSidebarMembersList />
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
+      </GlassWindowFrame>
     </SpacesSidebarModals>
   );
 }
