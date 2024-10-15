@@ -4,5 +4,9 @@ import { useContext } from 'react';
 export function JournalDailyTableListItemDescription() {
   const resource = useContext(ContextForCollectionResourceObj);
 
-  return <div>{resource.description?.trim() || 'Untitled'}</div>;
+  return (
+    <div className='col-span-2'>
+      {resource.description?.trim() || 'Untitled'}
+    </div>
+  );
 }
