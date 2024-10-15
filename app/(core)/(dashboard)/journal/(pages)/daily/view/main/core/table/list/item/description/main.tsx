@@ -5,7 +5,7 @@ export function JournalDailyTableListItemDescription() {
   const resource = useContext(ContextForCollectionResourceObj);
 
   return (
-    <div className='col-span-2'>
+    <div className='col-span-3'>
       {resource.description?.trim() || 'Untitled'}
     </div>
   );
