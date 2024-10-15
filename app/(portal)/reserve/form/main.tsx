@@ -19,7 +19,7 @@ export function PortalReserveForm() {
   const attemptReserve = async () => {
     reservationController.actions.createActions
       .reserve(fname, lname, email, role)
-      .then((res) => {
+      .then(() => {
         alert('Position reserved.');
         window.location.href = '/';
       });

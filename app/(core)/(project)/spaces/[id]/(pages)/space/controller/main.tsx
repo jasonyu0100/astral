@@ -23,7 +23,7 @@ interface ControllerState {
 interface ControllerActions {
   updateRole: (role: ConversationRole) => void;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
-  sendMessageToConversation: () => Promise<ConversationMessageObj>;
+  sendMessageToConversation: () => Promise<ConversationMessageObj[]>;
   summariseConversationIntoQuery: () => Promise<string>;
   summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
   summariseConversationIntoKeywords: () => Promise<string>;

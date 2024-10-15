@@ -4,11 +4,9 @@ import { ContextForGenerateSceneController } from '../../controller/main';
 export function SpacesSpaceSearchMediaContent() {
   const generateSceneController = useContext(ContextForGenerateSceneController);
 
-  console.log(generateSceneController.state.videoResults);
-
   return (
     <div className='grid grid-cols-3 gap-[1rem]'>
-      {generateSceneController.state.videoResults?.map((result) => (
+      {generateSceneController.state.videoResults?.map((result: unknown) => (
         <iframe
           onDrag={(e) => e.stopPropagation()}
           style={{ width: '100%', height: '100%' }}

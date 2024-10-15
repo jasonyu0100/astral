@@ -64,6 +64,11 @@ export function SpacesJourneyAddFileLinkModal() {
               value={title}
               onChange={(e) => changeTitle(e.target.value)}
             />
+            <FormInput
+              title='Description'
+              value={description}
+              onChange={(e) => changeDescription(e.target.value)}
+            />
           </FormBody>
           <FormFooter>
             <FormButton onClick={createFileIdea}>Add</FormButton>

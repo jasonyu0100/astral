@@ -23,7 +23,6 @@ export function SpacesMapAddSpotifyUrlModal() {
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
-  const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [spotifyId, changeSpotifyId] = useState('');
   const [description, changeDescription] = useState<string>('');

@@ -7,6 +7,7 @@ import { ContextForGenerateSceneController } from '../../controller/main';
 
 export function SpacesSpaceSearchArticlesContent() {
   const generateSceneController = useContext(ContextForGenerateSceneController);
+  //   TODO
 
   return (
     <div className='flex flex-col space-y-[1rem]'>

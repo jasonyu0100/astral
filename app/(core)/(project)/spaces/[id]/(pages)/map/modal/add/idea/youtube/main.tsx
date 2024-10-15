@@ -25,7 +25,6 @@ export function SpacesMapAddYouTubeUrlModal() {
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
-  const [variant, changeVariant] = useState<string>(UrlElemVariant.YOUTUBE);
   const [title, changeTitle] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');
   const [description, changeDescription] = useState<string>('');
