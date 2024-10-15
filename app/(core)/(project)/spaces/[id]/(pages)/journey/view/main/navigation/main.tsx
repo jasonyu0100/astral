@@ -1,7 +1,7 @@
 import { NavigationTimelineContainer } from './container/main';
 import { SpacesJourneyNavigationRow } from './row/main';
 
-export function SpacesJourneyChapterNavigation() {
+export function SpacesJourneyNavigation() {
   return (
     <NavigationTimelineContainer>
       {/* <NavigationTimelineGoLeftAction /> */}

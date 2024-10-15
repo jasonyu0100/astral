@@ -12,7 +12,7 @@ import { SpacesJourneyEmpty } from './core/empty/main';
 import { SpacesJourneyKanban } from './core/kanban/main';
 import { SpacesJourneyWayTable } from './core/table/main';
 import { SpacesJourneyHeader } from './header/main';
-import { SpacesJourneyChapterNavigation } from './navigation/main';
+import { SpacesJourneyNavigation } from './navigation/main';
 
 export function SpacesJourneyMain() {
   const {
@@ -52,7 +52,7 @@ export function SpacesJourneyMain() {
           )}
         </AbsoluteHolder>
       </div>
-      <SpacesJourneyChapterNavigation />
+      <SpacesJourneyNavigation />
     </GlassWindowFrame>
   );
 }

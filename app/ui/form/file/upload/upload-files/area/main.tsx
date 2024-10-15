@@ -1,4 +1,4 @@
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -7,10 +7,7 @@ import { UploadFilesAreaInterface } from './upload/main';
 
 export function UploadFilesArea() {
   return (
-    <GlassWindowFrame
-      borderFx={borderFx['border-around']}
-      roundedFx={roundedFx.rounded}
-    >
+    <GlassWindowFrame borderFx={borderFx['border-around']}>
       <GlassWindowContents className='flex flex-row p-[1rem]'>
         <UploadFilesAreaInterface />
         <UploadFilesAreaPlaceholder />

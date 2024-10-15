@@ -2,6 +2,7 @@ import { ContextForPostAttachmentListFromPost } from '@/(server)/controller/post
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext, useState } from 'react';
+import { SpacesFlightCarouselSlide } from './slide/main';
 
 export function SpacesFlightCarousel() {
   const attachmentListController = useContext(
@@ -28,13 +29,7 @@ export function SpacesFlightCarousel() {
   return (
     <div className='flex h-full w-full max-w-[1000px] flex-row  items-center space-x-[2rem]'>
       <div className='relative w-full'>
-        <div className='aspect-video w-full overflow-hidden rounded-[2rem] bg-black'>
-          <img
-            src={images[currentIndex]}
-            alt={`Slide ${currentIndex}`}
-            className='h-full w-full object-contain'
-          />
-        </div>
+        <SpacesFlightCarouselSlide index={currentIndex} />
         <button
           className='absolute left-[1rem] top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-[1rem]'
           onClick={handlePrev}

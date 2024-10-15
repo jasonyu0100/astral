@@ -68,7 +68,7 @@ export function SpacesFlightAddPostModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Create Post</FormTitle>
+          <FormTitle>Create Flight</FormTitle>
           <FormBody>
             <FormInput
               title='Title'

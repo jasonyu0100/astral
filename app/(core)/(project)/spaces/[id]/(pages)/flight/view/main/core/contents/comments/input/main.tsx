@@ -1,7 +1,7 @@
 import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
@@ -23,10 +23,7 @@ export function SpacesFlightInput() {
 
   return (
     <div className='flex flex-col space-y-[2rem]'>
-      <GlassWindowFrame
-        className='h-[6rem] w-full'
-        roundedFx={roundedFx['rounded']}
-      >
+      <GlassWindowFrame className='h-[6rem] w-full'>
         <GlassWindowContents>
           <input
             className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent p-[2rem] font-bold text-slate-300 outline-none'

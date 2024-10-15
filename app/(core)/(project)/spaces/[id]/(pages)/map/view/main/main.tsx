@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpacesMapBodyCore } from './core/main';
-import { SpacesMapChapterNavigation } from './navigation/main';
+import { SpacesMapNavigation } from './navigation/main';
 
 export function SpacesMapMain() {
   return (
@@ -10,7 +10,7 @@ export function SpacesMapMain() {
       className={`flex flex-col`}
     >
       <SpacesMapBodyCore />
-      <SpacesMapChapterNavigation />
+      <SpacesMapNavigation />
     </GlassAreaContainer>
   );
 }

@@ -1,9 +1,9 @@
 import { TabsContainer } from '@/ui/tabs/main';
 import { TabsRow } from '@/ui/tabs/tabs-row/main';
-import { TabOne } from './tab-1/main';
-import { TabThree } from './tab-2/main';
-import { TabTwo } from './tab-3/main';
-import { TabFour } from './tab-4/main';
+import { TabField } from './field-tab/main';
+import { TabHorizon } from './horizon-tab/main';
+import { TabPoint } from './point-tab/main';
+import { TabArc } from './tab-arc/main';
 
 interface HorizonTabProps {
   tab?: string;
@@ -12,7 +12,7 @@ interface HorizonTabProps {
 export enum HorizonTabStage {
   Horizon = 'Horizon',
   Arc = 'Arc',
-  Field = 'Field',
+  Board = 'Board',
   Point = 'Point',
 }
 
@@ -20,10 +20,10 @@ export function HorizonTabs({ tab }: HorizonTabProps) {
   return (
     <TabsContainer>
       <TabsRow>
-        <TabOne tab={tab} />
-        <TabTwo tab={tab} />
-        <TabThree tab={tab} />
-        <TabFour tab={tab} />
+        <TabHorizon tab={tab} />
+        <TabArc tab={tab} />
+        <TabField tab={tab} />
+        <TabPoint tab={tab} />
       </TabsRow>
     </TabsContainer>
   );

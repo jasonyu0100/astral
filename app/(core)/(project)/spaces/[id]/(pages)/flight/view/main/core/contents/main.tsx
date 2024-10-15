@@ -12,7 +12,7 @@ export function SpacesFlightContents() {
   const postLightController = useContext(ContextForUserPostListFromChapter);
   const chapterListController = useContext(ContextForSpaceChapterList);
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div className='relative' style={{ width: '100%', height: '100%' }}>
       <ImageBackground
         src={chapterListController.state.currentObj?.bg}
         active

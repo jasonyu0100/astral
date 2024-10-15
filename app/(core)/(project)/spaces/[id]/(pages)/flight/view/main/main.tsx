@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 import { SpacesFlightCore } from './core/main';
-import { SpacesFlightChapterNavigation } from './navigation/main';
+import { SpacesFlightNavigation } from './navigation/main';
 
 export function SpacesFlightMain() {
   return (
@@ -11,7 +11,7 @@ export function SpacesFlightMain() {
       className={`flex flex-col`}
     >
       <SpacesFlightCore />
-      <SpacesFlightChapterNavigation />
+      <SpacesFlightNavigation />
     </GlassAreaContainer>
   );
 }
