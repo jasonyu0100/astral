@@ -7,7 +7,7 @@ import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
+import { AstralButtonRoundedAction } from '@/ui/button/action/main';
 import { AstralTextLineInput } from '@/ui/input/line/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';

@@ -2,12 +2,12 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 
 export function HorizonsHorizonRowElement() {
   return (
     <GlassWindowFrame
-      className={cn('z-10 h-[3.5rem] max-w-[300px]', {})}
+      className={ctwn('z-10 h-[3.5rem] max-w-[300px]', {})}
       roundedFx={roundedFx['rounded-full']}
     >
       <GlassWindowContents

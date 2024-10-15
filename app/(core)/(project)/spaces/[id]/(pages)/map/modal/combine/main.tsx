@@ -12,7 +12,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ElementIdeaPreview } from '@/ui/element/idea/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';
 import { FormTitle } from '@/ui/form/title/main';
@@ -125,7 +125,10 @@ export function SpacesMapCombineIdeas() {
             </div>
           </FormBody>
           <FormFooter>
-            <FormButton onClick={() => executeCombineIdeas()}>
+            <FormButton
+              variant={ButtonVariant.PRIMARY}
+              onClick={() => executeCombineIdeas()}
+            >
               Combine
             </FormButton>
           </FormFooter>

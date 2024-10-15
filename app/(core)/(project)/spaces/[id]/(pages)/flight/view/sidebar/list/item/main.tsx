@@ -5,7 +5,7 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesFlightSidebarItem() {
@@ -28,7 +28,7 @@ export function SpacesFlightSidebarItem() {
           className='aspect-square h-[3rem] w-[3rem] flex-shrink-0 rounded-full'
         />
         <p
-          className={cn('text-sm font-bold text-slate-500', {
+          className={ctwn('text-sm font-bold text-slate-500', {
             'text-slate-300': selected,
           })}
         >

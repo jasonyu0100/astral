@@ -3,7 +3,7 @@ import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
@@ -85,8 +85,15 @@ export function SpacesSpaceEditChapterModal() {
             ></FormSearchImage>
           </FormBody>
           <FormFooter>
-            <FormButton onClick={editChapter}>Edit</FormButton>
-            <FormButton onClick={deleteChapter}>Delete</FormButton>
+            <FormButton variant={ButtonVariant.PRIMARY} onClick={editChapter}>
+              Edit
+            </FormButton>
+            <FormButton
+              variant={ButtonVariant.SECONDARY}
+              onClick={deleteChapter}
+            >
+              Delete
+            </FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

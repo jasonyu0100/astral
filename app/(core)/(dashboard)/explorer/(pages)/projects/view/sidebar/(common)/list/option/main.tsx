@@ -3,7 +3,7 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 
 export function ExplorerProjectsSidebarOption({
   active,
@@ -31,7 +31,7 @@ export function ExplorerProjectsSidebarOption({
       >
         <GlassWindowContents>
           <p
-            className={cn('text-lg font-bold text-slate-500', {
+            className={ctwn('text-lg font-bold text-slate-500', {
               'text-slate-300': hoverableController.hovered || active,
             })}
           >

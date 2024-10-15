@@ -4,7 +4,7 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import { SpacesSpaceChapterActive } from './active/main';
 
@@ -39,7 +39,7 @@ export function SpacesSpaceSidebarChapter() {
             }
           >
             <p
-              className={cn(
+              className={ctwn(
                 'whitespace-nowrap font-extraBold text-xl text-slate-400',
               )}
             >

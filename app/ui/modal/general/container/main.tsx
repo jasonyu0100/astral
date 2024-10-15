@@ -1,6 +1,6 @@
 import { AstralCloseIcon } from '@/icons/close/main';
 import { DivInputProps } from '@/props/main';
-import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
+import { AstralButtonRoundedAction } from '@/ui/button/action/main';
 
 interface InputProps extends DivInputProps {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
 'use client';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 
@@ -61,7 +61,7 @@ export default function Page() {
         <TabsList className='h-[80px] w-[500px] rounded bg-slate-700 p-[5px]'>
           <TabsTrigger
             value='yearly'
-            className={cn('h-full w-1/2 rounded font-bold text-slate-300', {
+            className={ctwn('h-full w-1/2 rounded font-bold text-slate-300', {
               'bg-slate-950': activeTab === 'yearly',
             })}
             onClick={() => setActiveTab('yearly')}
@@ -70,7 +70,7 @@ export default function Page() {
           </TabsTrigger>
           <TabsTrigger
             value='monthly'
-            className={cn('h-full w-1/2 rounded font-bold text-slate-300', {
+            className={ctwn('h-full w-1/2 rounded font-bold text-slate-300', {
               'bg-slate-950': activeTab === 'monthly',
             })}
             onClick={() => setActiveTab('monthly')}

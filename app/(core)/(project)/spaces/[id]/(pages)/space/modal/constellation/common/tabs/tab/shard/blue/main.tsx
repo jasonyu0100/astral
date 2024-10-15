@@ -1,9 +1,9 @@
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 
 export function GenerateTabBlueShard({ active }: { active: boolean }) {
   return (
     <div
-      className={cn(
+      className={ctwn(
         'h-1 w-[9rem] bg-gradient-to-br from-emerald-500 to-blue-600',
         {
           'opacity-0': !active,

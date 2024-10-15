@@ -13,7 +13,7 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { ElementIdeaPreview } from '@/ui/element/idea/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
@@ -174,7 +174,9 @@ export function SpacesMapGenerateLog() {
             </div>
           </FormBody>
           <FormFooter>
-            <FormButton onClick={createLog}>Next</FormButton>
+            <FormButton variant={ButtonVariant.PRIMARY} onClick={createLog}>
+              Next
+            </FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

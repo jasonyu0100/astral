@@ -1,6 +1,6 @@
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 
 export function UserProfileTextTab({
   children,
@@ -18,7 +18,7 @@ export function UserProfileTextTab({
         className='flex h-full w-full cursor-pointer flex-row items-center justify-center'
       >
         <p
-          className={cn('text-lg font-bold text-slate-500', {
+          className={ctwn('text-lg font-bold text-slate-500', {
             'text-slate-300': active,
           })}
         >

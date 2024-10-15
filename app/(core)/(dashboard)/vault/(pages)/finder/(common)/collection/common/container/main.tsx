@@ -10,7 +10,7 @@ import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collect
 import { DivInputProps } from '@/props/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import React, { useContext } from 'react';
 
 interface InputProps extends DivInputProps {
@@ -31,7 +31,7 @@ export function CollectionContainer({ children, ...props }: InputProps) {
       <ContextForCollectionResourceList.Provider value={resourceListController}>
         <GlassWindowFrame
           name={CollectionContainer.name}
-          className={cn(`w-full`, props.className)}
+          className={ctwn(`w-full`, props.className)}
         >
           <GlassWindowContents
             className='flex flex-col items-center'

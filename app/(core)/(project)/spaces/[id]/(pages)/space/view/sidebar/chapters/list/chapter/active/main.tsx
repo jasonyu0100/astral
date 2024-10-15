@@ -2,7 +2,7 @@ import { ContextForSpacesSpaceModals } from '@/(core)/(project)/spaces/[id]/(pag
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesSpaceChapterActive() {
@@ -17,7 +17,7 @@ export function SpacesSpaceChapterActive() {
     >
       <div className='flex w-full flex-row items-center justify-between'>
         <p
-          className={cn(
+          className={ctwn(
             'w-full animate-pulse-slow whitespace-nowrap text-start font-extraBold text-xl text-slate-300',
           )}
         >

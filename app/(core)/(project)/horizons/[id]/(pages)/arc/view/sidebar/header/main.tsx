@@ -2,7 +2,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 
 export function HorizonsArcSidebarHeader() {
   return (
@@ -17,7 +17,7 @@ export function HorizonsArcSidebarHeader() {
             // onClick={() => updateSidebarMode(SpacesJourneySidebarMode.LINKS)}
           >
             <p
-              className={cn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-500', {
                 // 'text-slate-300':
                 //   sidebarMode === SpacesJourneySidebarMode.LINKS,
               })}
@@ -38,7 +38,7 @@ export function HorizonsArcSidebarHeader() {
             // onClick={() => updateSidebarMode(SpacesJourneySidebarMode.NOTES)}
           >
             <p
-              className={cn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-500', {
                 // 'text-slate-300':
                 //   sidebarMode === SpacesJourneySidebarMode.NOTES,
               })}

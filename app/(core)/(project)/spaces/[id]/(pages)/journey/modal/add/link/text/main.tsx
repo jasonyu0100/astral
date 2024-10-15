@@ -5,7 +5,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
@@ -66,7 +66,9 @@ export function SpacesJourneyAddTextLinkModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton onClick={create}>Add</FormButton>
+            <FormButton variant={ButtonVariant.PRIMARY} onClick={create}>
+              Add
+            </FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

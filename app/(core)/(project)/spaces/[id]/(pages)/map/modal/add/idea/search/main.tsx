@@ -7,7 +7,7 @@ import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
@@ -74,7 +74,12 @@ export function SpacesMapAddSearchIdeaModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton onClick={createFileIdea}>Add</FormButton>
+            <FormButton
+              variant={ButtonVariant.PRIMARY}
+              onClick={createFileIdea}
+            >
+              Add
+            </FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

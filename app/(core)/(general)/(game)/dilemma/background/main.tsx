@@ -1,6 +1,6 @@
 'use client';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
-import { cn } from '@/utils/cn';
+import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function DashboardBackground() {
@@ -11,7 +11,7 @@ export function DashboardBackground() {
   return (
     <>
       <div
-        className={cn(
+        className={ctwn(
           'absolute overflow-auto bg-gradient-to-br from-slate-950 to-[#2c0441]',
           {
             'animate-breathe-slow from-40% to-90% ': !toggled,

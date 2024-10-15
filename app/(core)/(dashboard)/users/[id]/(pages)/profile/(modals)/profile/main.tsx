@@ -5,7 +5,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormContainer } from '@/ui/form/main';
@@ -66,6 +66,7 @@ export function EditProfileModal() {
           </FormBody>
           <FormFooter>
             <FormButton
+              variant={ButtonVariant.PRIMARY}
               onClick={() => {
                 userController.actions.editActions.edit({
                   ...userObj,
@@ -76,6 +77,7 @@ export function EditProfileModal() {
               Save
             </FormButton>
             <FormButton
+              variant={ButtonVariant.SECONDARY}
               onClick={() => {
                 alert('Logging out');
                 window.location.href = portalMap.portal.login.link;
