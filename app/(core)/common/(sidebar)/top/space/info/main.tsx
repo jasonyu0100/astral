@@ -14,7 +14,7 @@ export function CommonSidebarTopSpaceInfo() {
   const [spaceName, setSpaceName] = useState('No Author');
 
   useEffect(() => {
-    setUserName(`${loggedInUser.fname} ${loggedInUser.lname}`);
+    setUserName(loggedInUser.fname);
     setSpaceName(currentSpace.title);
   }, [loggedInUser, currentSpace]);
 
@@ -31,14 +31,14 @@ export function CommonSidebarTopSpaceInfo() {
           'h-[25px] overflow-hidden text-xl font-bold leading-7 text-slate-300',
         )}
       >
-        {spaceName}
+        {spaceName || 'Untitled'}
       </p>
       <p
         className={cn(
           'h-[25px] text-base font-normal leading-normal text-slate-300',
         )}
       >
-        {userName}
+        {userName || 'Untitled'}
       </p>
     </div>
   );

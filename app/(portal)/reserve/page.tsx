@@ -17,7 +17,7 @@ export default function Page() {
         polaroidHandler: _polaroidHandler,
       }}
     >
-      <ReserveView />;
+      <ReserveView />
     </PolaroidContext.Provider>
   );
 }

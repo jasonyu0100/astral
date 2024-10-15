@@ -10,6 +10,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { AstralModalStep } from '@/ui/step/main';
+import { getUrlIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddSpotifyUrlModal() {
@@ -43,23 +44,33 @@ export function SpacesMapAddSpotifyUrlModal() {
   }
 
   async function createIdeaFromSpotify() {
-    const idea = await ideaListController.actions.createActions.createFromUrl(
-      user.id,
-      sceneListController.state.objId,
-      title,
-      description,
-      0,
-      0,
-      300,
-      80,
-      {
-        id: crypto.randomUUID(),
-        title: `Spotify ${spotifyId}`,
-        url: `https://open.spotify.com/embed/track/${spotifyId}`,
-        variant: UrlElemVariant.SPOTIFY,
-      } as UrlElem,
-      ideaListController.state.objs.length,
-    );
+    const urlIdea = {
+      id: crypto.randomUUID(),
+      title: `Spotify ${spotifyId}`,
+      url: `https://open.spotify.com/embed/track/${spotifyId}`,
+      variant: UrlElemVariant.SPOTIFY,
+    } as UrlElem;
+
+    const { width, height } = await getUrlIdeaBounds(urlIdea);
+
+    const idea =
+      await ideaListController.actions.createActions.createIdeaFromUrlElement(
+        user.id,
+        sceneListController.state.objId,
+        title,
+        description,
+        0,
+        0,
+        width,
+        height,
+        {
+          id: crypto.randomUUID(),
+          title: `Spotify ${spotifyId}`,
+          url: `https://open.spotify.com/embed/track/${spotifyId}`,
+          variant: UrlElemVariant.SPOTIFY,
+        } as UrlElem,
+        ideaListController.state.objs.length,
+      );
     await activityListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,

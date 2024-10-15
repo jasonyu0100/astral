@@ -7,7 +7,7 @@ export function CollectionResourceAudio() {
 
   return (
     <div className='flex h-full w-full flex-shrink-0 flex-col'>
-      <div className='flex aspect-square w-full flex-shrink-0 items-center justify-center bg-slate-950 p-[30px]'>
+      <div className='flex aspect-square w-full flex-shrink-0 items-center justify-center bg-slate-950 p-[3rem]'>
         <AstralEqualizerIcon />
       </div>
       <p className='mt-[1rem] w-full text-center font-extraBold text-xl'>

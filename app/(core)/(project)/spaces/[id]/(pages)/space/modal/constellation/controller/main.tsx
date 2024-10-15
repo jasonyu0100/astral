@@ -4,13 +4,17 @@ import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/cont
 import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { TextElemVariant } from '@/(server)/model/elements/text/main';
+import {
+  exampleTextElem,
+  TextElemVariant,
+} from '@/(server)/model/elements/text/main';
 import { IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
+import { getTextIdeaBounds } from '@/utils/bounds';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { ContextForSpacesSpace } from '../../../controller/main';
 
@@ -191,16 +195,24 @@ export function useGenerateSceneController(): Controller {
         const description = sticky;
         const text = sticky;
         const variant = TextElemVariant.STICKY;
+        const textElem = {
+          ...exampleTextElem,
+          title: title,
+          text: text,
+          description: description,
+          variant: variant,
+        };
+        const { width, height } = await getTextIdeaBounds(textElem);
 
-        return ideaListController.actions.createActions.createFromText(
+        return ideaListController.actions.createActions.createIdeaFromTextElement(
           user.id,
           newScene.id,
           title,
           description,
           index * 200, // Adjust position based on index
           0,
-          150,
-          150,
+          width,
+          height,
           {
             id: crypto.randomUUID(),
             title: title || '',

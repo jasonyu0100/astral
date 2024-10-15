@@ -120,11 +120,16 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       messageListController.state.objs.length === 0 &&
       conversationListController.state.objId !== ''
     ) {
-      messageListController.actions.createActions.sendAgentMessage(
-        'astral',
-        conversationListController.state.objId,
-        "Hello, I'm Astral. How can I help you today?",
+      const created = new Date(
+        conversationListController.state.currentObj?.created,
       );
+      if (new Date().getTime() - created.getTime() < 1000 * 60) {
+        messageListController.actions.createActions.sendAgentMessage(
+          'astral',
+          conversationListController.state.objId,
+          "Hello, I'm Astral. How can I help you today?",
+        );
+      }
     }
   }, [
     messageListController.state.objs,

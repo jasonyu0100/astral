@@ -62,23 +62,24 @@ export function SpacesMapCombineIdeas() {
       ),
     );
 
-    const idea = await ideaListController.actions.createActions.createFromText(
-      user.id,
-      sceneListController.state.objId,
-      selectedIdeas[0].title,
-      selectedIdeas[0].description,
-      selectedIdeas[0].x,
-      selectedIdeas[0].y,
-      selectedIdeas[0].width * 1.5,
-      selectedIdeas[0].height * 1.5,
-      {
-        id: crypto.randomUUID(),
-        title: 'Combined Idea',
-        text: combinationDescription,
-        variant: TextElemVariant.STICKY,
-      } as TextElem,
-      ideaListController.state.objs.length,
-    );
+    const idea =
+      await ideaListController.actions.createActions.createIdeaFromTextElement(
+        user.id,
+        sceneListController.state.objId,
+        selectedIdeas[0].title,
+        selectedIdeas[0].description,
+        selectedIdeas[0].x,
+        selectedIdeas[0].y,
+        selectedIdeas[0].width * 1.5,
+        selectedIdeas[0].height * 1.5,
+        {
+          id: crypto.randomUUID(),
+          title: 'Combined Idea',
+          text: combinationDescription,
+          variant: TextElemVariant.STICKY,
+        } as TextElem,
+        ideaListController.state.objs.length,
+      );
     updateSelectedIdeas([idea]);
 
     await activityListController.actions.createActions.createFromChapterSceneIdea(

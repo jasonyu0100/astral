@@ -29,16 +29,16 @@ const Header = () => (
       />
       <nav className='flex space-x-2 sm:space-x-[3rem]'>
         <a href='/' className='text-sm font-bold text-white sm:text-lg'>
-          Home
+          HOME
         </a>
         <a
           href='/conversational/search'
           className='text-sm font-bold text-white sm:text-lg'
         >
-          Search
+          SEARCH
         </a>
         {/* <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
-          Pricing
+          PRICING
         </a> */}
       </nav>
     </div>
@@ -309,7 +309,7 @@ const FooterCTA = () => (
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
       <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-        Begin your journey in space
+        Start your creative journey today
       </p>
     </a>
   </footer>
@@ -362,13 +362,13 @@ function MembershipSection() {
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 <MemberPricingCard
                   title='Creator'
-                  price='$149 / year'
+                  price='$250 / year'
                   description='Best for individual creators looking to organize and execute their ideas.'
                   imageSrc='/portal/producer-f.png'
                 />
                 <MemberPricingCard
                   title='Team Pro'
-                  price='$499 / year'
+                  price='$100 per seat / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
                 />
@@ -384,13 +384,13 @@ function MembershipSection() {
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 <MemberPricingCard
                   title='Creator'
-                  price='$15 / month'
+                  price='$50 / mo'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
                   imageSrc='/portal/performer-m.png'
                 />
                 <MemberPricingCard
                   title='Team Pro'
-                  price='$50 / month'
+                  price='$20 per seat / mo'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
                   imageSrc='/portal/performer-f.png'
                 />

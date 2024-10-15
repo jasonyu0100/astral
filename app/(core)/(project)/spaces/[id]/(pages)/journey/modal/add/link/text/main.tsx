@@ -25,7 +25,7 @@ export function SpacesJourneyAddTextLinkModal() {
 
   function create() {
     linkListController.actions.createActions
-      .createFromText(
+      .createLinkFromTextIdea(
         user.id,
         wayListController.state.objId,
         title,

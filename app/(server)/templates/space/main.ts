@@ -2,10 +2,10 @@ import { ConversationMessageObj } from '@/(server)/model/conversation/message/ma
 import { IdeaObj } from '@/(server)/model/idea/main';
 import { PostCommentObj } from '@/(server)/model/post/comment/main';
 import { UserPostObj } from '@/(server)/model/post/main';
+import { IdeaSceneObj } from '@/(server)/model/scene/main';
 import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
-import { ChapterSceneObj } from '@/(server)/model/space/chapter/scene/main';
 import { SpaceObj } from '@/(server)/model/space/main';
-import { TaskObj } from '@/(server)/model/way/main';
+import { TaskObj } from '@/(server)/model/task/main';
 import { createContext } from 'react';
 import { brandCreationTemplate } from './templates/brand-creation';
 import { designSprintTemplate } from './templates/design-sprint';
@@ -83,7 +83,7 @@ export interface TemplateMessageObj extends _TemplateMessageObj {}
 // SCENE
 
 export type _TemplateSceneObj = Omit<
-  ChapterSceneObj,
+  IdeaSceneObj,
   'id' | 'chapterId' | 'userId' | 'created'
 >;
 export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId'>;

@@ -6,6 +6,7 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext } from 'react';
 
 export function SpacesMapResourceResource() {
@@ -21,43 +22,23 @@ export function SpacesMapResourceResource() {
 
   const resource = useContext(ContextForCollectionResourceObj);
 
-  async function getFileBounds() {
-    if (file.id === undefined) {
-      return { width: 150, height: 150 };
-    }
-
-    let width = 150;
-    let height = 150;
-
-    if (file.variant === FileElemVariant.IMAGE) {
-      width = 100;
-      height = 100;
-    } else if (file.variant === FileElemVariant.VIDEO) {
-      width = 150;
-      height = 100;
-    } else if (file.variant === FileElemVariant.AUDIO) {
-      width = 300;
-      height = 50;
-    }
-
-    return { width, height };
-  }
-
   async function addResourceToScene() {
-    const { width, height } = await getFileBounds();
+    const file = resource.fileElem || ({} as FileElem);
+    const { width, height } = await getFileIdeaBounds(file);
 
-    const idea = await ideaListController.actions.createActions.createFromFile(
-      loggedInUser.id,
-      sceneListController.state.objId,
-      resource.title,
-      resource.description,
-      Math.floor(Math.random() * 1000),
-      Math.floor(Math.random() * 500),
-      width,
-      height,
-      resource.fileElem || ({} as FileElem),
-      ideaListController.state.objs.length,
-    );
+    const idea =
+      await ideaListController.actions.createActions.createIdeaFromFileElement(
+        loggedInUser.id,
+        sceneListController.state.objId,
+        resource.title,
+        resource.description,
+        0,
+        0,
+        width,
+        height,
+        resource.fileElem || ({} as FileElem),
+        ideaListController.state.objs.length,
+      );
     await reviewactivityListController.actions.createActions.createFromChapterSceneIdea(
       loggedInUser.id,
       spaceController.state.objId,

@@ -5,7 +5,7 @@ export function FeltModalContainer({
 }) {
   return (
     <div className='aspect-[18/12] h-4/5 rounded-full border-[0.2rem] border-white bg-green-600'>
-      <div className='h-full w-full rounded-full border-[1rem] border-black bg-green-600 p-[30px]'>
+      <div className='h-full w-full rounded-full border-[1rem] border-black bg-green-600 p-[3rem]'>
         {children}
       </div>
     </div>

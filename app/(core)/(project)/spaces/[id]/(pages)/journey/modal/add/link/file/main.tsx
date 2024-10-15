@@ -3,7 +3,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
+import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
@@ -25,22 +25,20 @@ export function SpacesJourneyAddFileLinkModal() {
   const wayListController = useContext(ContextForTaskList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
-  const [variant, changeVariant] = useState<FileElemVariant>(
-    FileElemVariant.IMAGE,
-  );
   const [file, changeFile] = useState({} as FileElem);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
 
   async function createFileIdea() {
-    const idea = await linkListController.actions.createActions.createFromFile(
-      user.id,
-      wayListController.state.objId,
-      title,
-      description,
-      file,
-    );
+    const idea =
+      await linkListController.actions.createActions.createLinkFromFileIdea(
+        user.id,
+        wayListController.state.objId,
+        title,
+        description,
+        file,
+      );
     await activityListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
@@ -57,24 +55,9 @@ export function SpacesJourneyAddFileLinkModal() {
         <FormContainer>
           <FormTitle>Upload File</FormTitle>
           <FormBody>
-            {/* <FormSelect
-              title='Variant'
-              value={variant}
-              onChange={(e) => changeVariant(e.target.value as FileElemVariant)}
-            >
-              <option value={FileElemVariant.AUDIO}>AUDIO</option>
-              <option value={FileElemVariant.IMAGE}>IMAGE</option>
-              <option value={FileElemVariant.VIDEO}>VIDEO</option>
-            </FormSelect> */}
-            {/* <FormInput
-              title='Description'
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-            /> */}
             <FormUploadFile
               label={'File'}
               onChange={(file) => changeFile(file)}
-              variant={variant}
             />
             <FormInput
               title='Title'

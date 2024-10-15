@@ -5,7 +5,7 @@ export function SpaceInfoDetailAuthor() {
 
   return (
     <p className='text-lg font-bold text-slate-300'>
-      {loggedInUser?.fname} {loggedInUser?.lname}
+      {loggedInUser?.fname || 'Unknown'}
     </p>
   );
 }

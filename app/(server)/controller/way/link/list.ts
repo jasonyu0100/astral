@@ -42,14 +42,14 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     sceneId: string,
   ) => Promise<TargetObj>;
-  createFromFile: (
+  createLinkFromFileIdea: (
     userId: string,
     logId: string,
     title: string,
     description: string,
     file: FileElem,
   ) => Promise<TargetObj>;
-  createFromText: (
+  createLinkFromTextIdea: (
     userId: string,
     logId: string,
     title: string,
@@ -292,7 +292,7 @@ export const useControllerForTaskLinkList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromFile: async (
+    createLinkFromFileIdea: async (
       userId: string,
       logId: string,
       title: string,
@@ -315,7 +315,7 @@ export const useControllerForTaskLinkList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromText: async (
+    createLinkFromTextIdea: async (
       userId: string,
       logId: string,
       title: string,

@@ -33,7 +33,7 @@ export function SpacesMapAddTextIdeaModal() {
   function create() {
     const { x, y, width, height } = mapController.actions.getAvailableXYWH();
     ideaListController.actions.createActions
-      .createFromText(
+      .createIdeaFromTextElement(
         user.id,
         sceneListController.state.objId,
         title,

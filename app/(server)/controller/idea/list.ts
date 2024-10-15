@@ -34,7 +34,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromFile: (
+  createIdeaFromFileElement: (
     userId: string,
     sceneId: string,
     title: string,
@@ -46,7 +46,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     fileElem: FileElem,
     idx: number,
   ) => Promise<TargetObj>;
-  createFromUrl: (
+  createIdeaFromUrlElement: (
     userId: string,
     sceneId: string,
     title: string,
@@ -58,7 +58,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     urlElem: UrlElem,
     idx: number,
   ) => Promise<TargetObj>;
-  createFromText: (
+  createIdeaFromTextElement: (
     userId: string,
     sceneId: string,
     title: string,
@@ -290,7 +290,7 @@ export const useControllerForSceneIdeaList = (
   };
 
   const createActions: CreateActions = {
-    createFromFile: async (
+    createIdeaFromFileElement: async (
       userId,
       sceneId,
       title,
@@ -325,7 +325,7 @@ export const useControllerForSceneIdeaList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromUrl: async (
+    createIdeaFromUrlElement: async (
       userId,
       sceneId,
       title,
@@ -360,7 +360,7 @@ export const useControllerForSceneIdeaList = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromText: async (
+    createIdeaFromTextElement: async (
       userId,
       sceneId,
       title,

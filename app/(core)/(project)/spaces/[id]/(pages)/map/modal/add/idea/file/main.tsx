@@ -3,7 +3,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
+import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -13,6 +13,7 @@ import { AstralTextLineInput } from '@/ui/input/line/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { AstralModalStep } from '@/ui/step/main';
+import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
 export function SpacesMapAddFileIdeaModal() {
@@ -29,48 +30,27 @@ export function SpacesMapAddFileIdeaModal() {
     chapterListController.state.objId,
   );
 
-  async function getFileBounds() {
-    if (file.id === undefined) {
-      return { width: 150, height: 150 };
-    }
-
-    let width = 150;
-    let height = 150;
-
-    if (file.variant === FileElemVariant.IMAGE) {
-      width = 100;
-      height = 100;
-    } else if (file.variant === FileElemVariant.VIDEO) {
-      width = 150;
-      height = 100;
-    } else if (file.variant === FileElemVariant.AUDIO) {
-      width = 300;
-      height = 50;
-    }
-
-    return { width, height };
-  }
-
   async function createFileIdea() {
     if (file.id === undefined) {
       alert('Please upload a file first.');
       return;
     }
 
-    const { width, height } = await getFileBounds();
+    const { width, height } = await getFileIdeaBounds(file);
 
-    const idea = await ideaListController.actions.createActions.createFromFile(
-      user.id,
-      sceneListController.state.objId,
-      title,
-      description,
-      0,
-      0,
-      width,
-      height,
-      file,
-      ideaListController.state.objs.length,
-    );
+    const idea =
+      await ideaListController.actions.createActions.createIdeaFromFileElement(
+        user.id,
+        sceneListController.state.objId,
+        title,
+        description,
+        0,
+        0,
+        width,
+        height,
+        file,
+        ideaListController.state.objs.length,
+      );
     await activityListController.actions.createActions.createFromChapterSceneIdea(
       user.id,
       spaceController.state.objId,
