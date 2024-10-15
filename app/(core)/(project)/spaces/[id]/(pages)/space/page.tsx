@@ -118,12 +118,13 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (
       messageListController.state.objs.length === 0 &&
-      conversationListController.state.objId !== ''
+      conversationListController.state.currentObj
     ) {
       const created = new Date(
-        conversationListController.state.currentObj?.created,
+        conversationListController.state.currentObj.created,
       );
-      if (new Date().getTime() - created.getTime() < 1000 * 60) {
+      const duration = new Date().getTime() - created.getTime();
+      if (duration < 1000 * 60) {
         messageListController.actions.createActions.sendAgentMessage(
           'astral',
           conversationListController.state.objId,

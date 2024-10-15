@@ -5,7 +5,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
-export function SpacesSpaceSidebarChaptersSearch() {
+export function SpacesSpaceSidebarSearch() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (

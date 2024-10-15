@@ -10,7 +10,6 @@ import {
 } from '@/(server)/model/elements/text/main';
 import { IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
-import { TextElem } from '@/graphql/API';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
@@ -31,9 +30,9 @@ interface ControllerState {
   searchQuery: string;
   keywords: string;
   stickies: string[];
-  searchResults: any[];
-  imageResults: any[];
-  videoResults: any[];
+  searchResults: unknown[];
+  imageResults: unknown[];
+  videoResults: unknown[];
   selected: IdeaObj[];
 }
 
@@ -213,12 +212,7 @@ export function useGenerateSceneController(): Controller {
           0,
           width,
           height,
-          {
-            id: crypto.randomUUID(),
-            title: title || '',
-            text: text,
-            variant: variant,
-          } as TextElem,
+          textElem,
           ideaListController.state.objs.length,
         );
       }),
