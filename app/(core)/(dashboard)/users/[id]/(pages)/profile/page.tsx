@@ -33,9 +33,9 @@ function Page() {
   const userController = useControllerForUserMain(profileIdContext.userId);
   const profileUser = userController.state.obj;
   const fromSourceFollowingController =
-    useControllerForUserConnectionListFromSource(profileUser.id);
+    useControllerForUserConnectionListFromSource(profileUser?.id);
   const fromDestinationFollowingController =
-    useControllerForUserConnectionListFromDestination(profileUser.id);
+    useControllerForUserConnectionListFromDestination(profileUser?.id);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>

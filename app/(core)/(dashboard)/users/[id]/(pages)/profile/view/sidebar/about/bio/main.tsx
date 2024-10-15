@@ -9,7 +9,7 @@ export function UserProfileAboutBio() {
       <div className='flex w-full flex-col space-y-[1rem]'>
         <p className='text-sm text-white'>
           <span className='font-bold'>role - </span>
-          {profileUser.role}
+          {profileUser?.role}
         </p>
       </div>
       <div className='flex w-full flex-col space-y-[1rem]'>

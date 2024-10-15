@@ -9,7 +9,7 @@ import { UserProfileSpacesTable } from './table/main';
 
 export function UserProfileOverviewYour() {
   const profileUser = useContext(ContextForProfileUserObj);
-  const spaceListController = useControllerForSpaceList(profileUser.id);
+  const spaceListController = useControllerForSpaceList(profileUser?.id);
 
   return (
     <ContextForSpaceList.Provider value={spaceListController}>

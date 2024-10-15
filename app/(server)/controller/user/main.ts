@@ -103,8 +103,10 @@ export const useControllerForUserMain = (objId: string): Controller => {
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          if (daysDifference > 100) {
-            throw new Error('Trial is over');
+          if (process.env.VERSES_MODE !== 'true') {
+            if (daysDifference > 100) {
+              throw new Error('Trial is over');
+            }
           }
         } else {
           const subscription = await stripe.subscriptions.retrieve(
