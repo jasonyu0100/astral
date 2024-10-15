@@ -1,7 +1,7 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpacesJourneySidebarHeader } from './header/main';
-import { SpacesJourneySidebarList } from './list/main';
+import { SpacesJourneySidebarLinkList } from './list/main';
 
 export function SpacesJourneySidebar() {
   return (
@@ -12,7 +12,7 @@ export function SpacesJourneySidebar() {
       className={`flex flex-col items-center overflow-hidden`}
     >
       <SpacesJourneySidebarHeader />
-      <SpacesJourneySidebarList />
+      <SpacesJourneySidebarLinkList />
     </GlassAreaContainer>
   );
 }

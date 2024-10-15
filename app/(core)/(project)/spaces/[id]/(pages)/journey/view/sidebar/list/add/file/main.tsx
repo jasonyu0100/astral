@@ -11,7 +11,7 @@ export function SpacesJourneySidebarAddFile() {
 
   return (
     <GlassWindowFrame
-      className='aspect-video w-full'
+      className='aspect-video w-full flex-shrink-0'
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-around']}
     >

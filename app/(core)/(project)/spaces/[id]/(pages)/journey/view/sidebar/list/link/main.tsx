@@ -4,7 +4,7 @@ import { TextElem } from '@/(server)/model/elements/text/main';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
 import { useContext } from 'react';
 
-export function SpacesJourneySidebarLinksListItem() {
+export function SpacesJourneySidebarLinkListItem() {
   const taskLinkObj = useContext(ContextForTaskLinkObj);
   const linkListController = useContext(ContextForTaskLinkList);
 

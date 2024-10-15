@@ -9,9 +9,9 @@ import {
 } from '../../../controller/main';
 import { SpacesJourneySidebarAddFile } from './add/file/main';
 import { SPaceJourneySidebarAddText } from './add/text/main';
-import { SpacesJourneySidebarLinksListItem } from './item/main';
+import { SpacesJourneyTaskLinkIdea } from './idea/main';
 
-export function SpacesJourneySidebarList() {
+export function SpacesJourneySidebarLinkList() {
   const {
     state: { sidebarMode },
   } = useContext(ContextForSpacesJourney);
@@ -32,7 +32,7 @@ export function SpacesJourneySidebarList() {
           )
           .map((task) => (
             <ContextForTaskLinkObj.Provider value={task}>
-              <SpacesJourneySidebarLinksListItem />
+              <SpacesJourneyTaskLinkIdea />
             </ContextForTaskLinkObj.Provider>
           ))}
         <HorizontalDivider />
