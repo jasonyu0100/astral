@@ -4,11 +4,5 @@ import { useContext } from 'react';
 
 export function JournalDailyTableListItemTime() {
   const resource = useContext(ContextForCollectionResourceObj);
-  return (
-    <div>
-      <p className='text-center font-bold text-slate-300'>
-        {getFormattedAMPM(new Date(resource.created))}
-      </p>
-    </div>
-  );
+  return <div>{getFormattedAMPM(new Date(resource.created))}</div>;
 }

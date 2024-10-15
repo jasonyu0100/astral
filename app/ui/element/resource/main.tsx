@@ -2,7 +2,7 @@ import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 
-export function ElementResourcePreview() {
+export function ElementResourceEntry() {
   const resource = useContext(ContextForCollectionResourceObj);
 
   return (

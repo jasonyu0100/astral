@@ -14,12 +14,13 @@ export function FinderHomeGallerysGrid() {
   const openableController = useControllerForOpenable();
 
   return (
-    <>
-      <ContextForOpenable.Provider value={openableController}>
-        <VaultFinderCreateGalleryModal />
-      </ContextForOpenable.Provider>
-      <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
-        <div className='grid grid-cols-3 gap-[2rem] pr-[2rem]'>
+    <ContextForOpenable.Provider value={openableController}>
+      <VaultFinderCreateGalleryModal />
+      <div className='h-full flex-grow overflow-auto'>
+        <div
+          className='grid grid-cols-3 gap-[2rem] pr-[2rem]'
+          style={{ height: '100%' }}
+        >
           {galleryListController.state.more.queryResults.map((gallery) => (
             <ContextForGalleryObj.Provider value={gallery} key={gallery.id}>
               <FinderGallery key={gallery.id} />
@@ -28,6 +29,6 @@ export function FinderHomeGallerysGrid() {
           <GalleryFinderAdd onClick={openableController.open} />
         </div>
       </div>
-    </>
+    </ContextForOpenable.Provider>
   );
 }
