@@ -52,7 +52,7 @@ export function SpacesJourneyKanban() {
       const itemId = evt.item.dataset.id;
 
       if (!itemId) {
-        console.error('Item ID is undefined');
+        console.error('No item id found'); // aura
         return;
       }
 

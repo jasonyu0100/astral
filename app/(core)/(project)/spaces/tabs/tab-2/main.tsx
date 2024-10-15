@@ -25,7 +25,7 @@ export function SpacesTabMap({ tab }: { tab?: string }) {
   // Construct the URL only if spaceId is available
   const url = spaceId
     ? `${spacesMap.spaces.id.map.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
-    : '#'; // Fallback URL if spaceId is undefined
+    : '#'; // Fallback URL if spaceId is not defined
 
   return (
     <Tab href={url}>

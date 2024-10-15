@@ -22,7 +22,7 @@ export function SpaceTabJourney({ tab }: { tab?: string }) {
   // Construct the URL only if spaceId is available
   const url = spaceId
     ? `${spacesMap.spaces.id.journey.link(spaceId)}?chapter=${chapterId ?? ''}`
-    : '#'; // Fallback URL if spaceId is undefined
+    : '#'; // Fallback URL if spaceId is not defined
 
   return (
     <Tab href={url}>

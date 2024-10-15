@@ -39,7 +39,7 @@ export function Force() {
             <>
               {/* Starcraft APM Program */}
               <p className='hidden'>Dualist - refined player</p>
-              <p className='hidden'>Duelist - undefined player</p>
+              <p className='hidden'>Duelist - aura player</p>
             </>
           )}
         </>
