@@ -28,7 +28,7 @@ export function SpacesMapResourceResource() {
 
     const idea =
       await ideaListController.actions.createActions.createIdeaFromFileElement(
-        loggedInUser.id,
+        loggedInUser?.id,
         sceneListController.state.objId,
         resource.title,
         resource.description,
@@ -40,7 +40,7 @@ export function SpacesMapResourceResource() {
         ideaListController.state.objs.length,
       );
     await reviewactivityListController.actions.createActions.createFromChapterSceneIdea(
-      loggedInUser.id,
+      loggedInUser?.id,
       spaceController.state.objId,
       chapterListController.state.objId,
       sceneListController.state.objId,

@@ -18,7 +18,7 @@ import { useContext, useState } from 'react';
 export function EditProfileModal() {
   const logout = useGlobalUser((state) => state.logout);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const userController = useControllerForUserMain(loggedInUser.id);
+  const userController = useControllerForUserMain(loggedInUser?.id);
   const userObj = userController.state.obj;
   const openableController = useContext(ContextForOpenable);
   const [enabled, setEnabled] = useState(userObj?.private);

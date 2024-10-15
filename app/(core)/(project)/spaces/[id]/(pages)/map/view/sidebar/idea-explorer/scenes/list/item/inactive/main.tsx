@@ -1,11 +1,12 @@
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 
 export function SpacesMapSidebarScenesListInactiveItem() {
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const scene = useContext(ContextForChapterSceneObj);
+  const scene = useContext(ContextForIdeaSceneObj);
 
   return (
     <>
@@ -20,9 +21,11 @@ export function SpacesMapSidebarScenesListInactiveItem() {
             key={scene.id}
             className='flex flex-col font-bold text-slate-300'
           >
-            <div className='text-lg font-bold'>{scene.title || 'Untitled'}</div>
+            <div className='text-lg font-bold'>
+              {scene?.title?.trim() || 'Untitled'}
+            </div>
             <div className='text-sm font-light'>
-              {scene.objective || 'No description'}
+              {scene?.objective?.trim() || 'Untitled'}
             </div>
           </div>
         </GlassWindowContents>

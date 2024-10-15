@@ -10,7 +10,7 @@ import { StudioSpacesView } from './view/view';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const spaceListController = useControllerForSpaceList(loggedInUser.id);
+  const spaceListController = useControllerForSpaceList(loggedInUser?.id);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>

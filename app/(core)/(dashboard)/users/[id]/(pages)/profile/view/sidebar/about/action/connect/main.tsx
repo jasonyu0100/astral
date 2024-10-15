@@ -37,10 +37,10 @@ export function ProfileAboutConnectAction() {
 
   function checkConnectionStatus() {
     const fromLoggedInFollows = profileFollowers.some(
-      (connection) => connection.sourceId === loggedInUser.id,
+      (connection) => connection.sourceId === loggedInUser?.id,
     );
     const fromProfileFollows = profileFollowing.some(
-      (connection) => connection.destinationId === loggedInUser.id,
+      (connection) => connection.destinationId === loggedInUser?.id,
     );
 
     if (fromLoggedInFollows && fromProfileFollows) {
@@ -56,7 +56,7 @@ export function ProfileAboutConnectAction() {
 
   async function followProfile() {
     await fromDestinationFollowingController.actions.createActions.createConnection(
-      loggedInUser.id, // initiator
+      loggedInUser?.id, // initiator
       profileUser.id, // receiver
     );
 
@@ -65,7 +65,7 @@ export function ProfileAboutConnectAction() {
 
   async function unfollowProfile() {
     const fromProfileIds = fromDestinationFollowingController.state.objs
-      .filter((connection) => connection.sourceId === loggedInUser.id)
+      .filter((connection) => connection.sourceId === loggedInUser?.id)
       .map((connection) => connection.id);
 
     await fromDestinationFollowingController.actions.deleteActions.deleteMany([

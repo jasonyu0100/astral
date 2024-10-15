@@ -15,8 +15,8 @@ export function SpacesMapChatExplorerMessage() {
         <SpacesMapAgentMessage />
       ) : (
         <>
-          {loggedInUser.id === messageObj.userId && <SpacesMapUserMessage />}
-          {loggedInUser.id !== messageObj.userId && <SpacesMapMemberMessage />}
+          {loggedInUser?.id === messageObj.userId && <SpacesMapUserMessage />}
+          {loggedInUser?.id !== messageObj.userId && <SpacesMapMemberMessage />}
         </>
       )}
     </>

@@ -41,7 +41,9 @@ export function SpacesMapHistoryItem() {
             {getFormattedAMPM(new Date(scene.created))}
           </div>
           <div className='text-lg font-light'>-</div>
-          <div className='text-lg font-light'>{scene.title || 'Untitled'}</div>
+          <div className='text-lg font-light'>
+            {scene.title?.trim() || 'Untitled'}
+          </div>
           <div className='text-lg font-light'>
             {scene.objective || 'No objective'}
           </div>

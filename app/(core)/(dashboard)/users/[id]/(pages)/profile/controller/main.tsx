@@ -31,7 +31,7 @@ export function useControllerForUserProfile(): Controller {
 
   const [page, setPage] = useState(UserProfilePage.Overview);
 
-  const adminMode = loggedInUser.id === profileUser.id;
+  const adminMode = loggedInUser?.id === profileUser.id;
 
   return {
     state: {

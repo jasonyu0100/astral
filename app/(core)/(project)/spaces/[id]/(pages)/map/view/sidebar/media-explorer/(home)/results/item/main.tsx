@@ -31,7 +31,7 @@ export function SpacesMapGalleryItem() {
         >
           <div className='absolute flex h-full w-full flex-col p-[1rem]'>
             <p className='text-md w-full font-bold text-slate-300'>
-              {gallery.title || 'Untitled'}
+              {gallery.title?.trim() || 'Untitled'}
             </p>
           </div>
         </GlassWindowContents>

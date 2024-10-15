@@ -27,7 +27,7 @@ export function SpacesMapCollectionItem() {
         className='flex h-full w-full flex-col'
       >
         <p className='w-full px-[1rem] py-[0.5rem] text-sm font-bold text-slate-300'>
-          {collection.title || 'Untitled'}
+          {collection.title?.trim() || 'Untitled'}
         </p>
         <div className='flex h-full w-full cursor-pointer flex-row flex-wrap justify-center'>
           {resourceListController.state.objs.slice(0, 6).map((resource) => (

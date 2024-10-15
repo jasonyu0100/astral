@@ -12,10 +12,10 @@ export function SpacesFlightTitle() {
       <div className='flex flex-row items-center space-x-[1rem]'>
         <img
           className='aspect-square h-[3rem] rounded-full'
-          src={loggedInUser.dp?.src || exampleFileElem.src}
+          src={loggedInUser?.dp?.src || exampleFileElem.src}
         />
         <p className='text-2xl font-bold text-slate-300'>
-          {postListController.state.currentObj?.title || 'Untitled'}
+          {postListController.state.currentObj?.title?.trim() || 'Untitled'}
         </p>
       </div>
     </div>

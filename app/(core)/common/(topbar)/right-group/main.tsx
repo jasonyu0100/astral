@@ -8,8 +8,7 @@ export function TopbarRightGroup() {
   const [userId, setUserId] = useState<string>('0');
 
   useEffect(() => {
-    if (userId === loggedInUser.id) return;
-    setUserId(loggedInUser.id);
+    setUserId(loggedInUser?.id);
   }, [loggedInUser]);
 
   return (

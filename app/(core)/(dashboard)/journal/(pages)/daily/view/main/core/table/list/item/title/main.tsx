@@ -13,7 +13,7 @@ export function JournalDailyTableListItemTitle() {
         roundedFx={roundedFx.rounded}
       >
         <GlassWindowContents className='h-full w-full p-[1rem] text-center text-lg font-light text-slate-300'>
-          {resource.title || 'Untitled'}
+          {resource.title?.trim() || 'Untitled'}
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

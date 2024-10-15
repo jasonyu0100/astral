@@ -33,7 +33,7 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
         ) : (
           <>
             <div className='pb-[1rem] text-lg font-bold text-slate-500'>
-              {collection.state.obj.title || 'Untitled'}
+              {collection.state.obj.title?.trim() || 'Untitled'}
             </div>
             <div className='grid w-full grid-cols-3 gap-[1rem]'>
               {visualResources.slice(0, 6).map((resource) => (

@@ -26,7 +26,9 @@ export function SpacesMapSidebarScenesListActiveItem() {
           sceneListController.actions.stateActions.select(scene);
         }}
       >
-        <div className='text-lg font-bold'>{scene.title || 'Untitled'}</div>
+        <div className='text-lg font-bold'>
+          {scene.title?.trim() || 'Untitled'}
+        </div>
         <div className='text-sm font-light'>
           {scene.objective || 'No description'}
         </div>

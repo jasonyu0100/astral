@@ -18,7 +18,7 @@ export function SpacesFlightKarma() {
   );
 
   const userKarma = karmaVotes
-    .filter((obj) => obj.userId === loggedInUser.id)
+    .filter((obj) => obj.userId === loggedInUser?.id)
     .at(0);
   const userVote =
     userKarma === undefined ? 0 : userKarma.neutrality === true ? 1 : -1;
@@ -31,7 +31,7 @@ export function SpacesFlightKarma() {
     } else {
       postKarmaListController.actions.createActions.createKarma(
         postListController.state.objId,
-        loggedInUser.id,
+        loggedInUser?.id,
         true,
       );
     }
@@ -45,7 +45,7 @@ export function SpacesFlightKarma() {
     } else {
       postKarmaListController.actions.createActions.createKarma(
         postListController.state.objId,
-        loggedInUser.id,
+        loggedInUser?.id,
         false,
       );
     }

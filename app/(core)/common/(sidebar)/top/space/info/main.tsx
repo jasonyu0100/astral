@@ -31,14 +31,14 @@ export function CommonSidebarTopSpaceInfo() {
           'h-[25px] overflow-hidden text-xl font-bold leading-7 text-slate-300',
         )}
       >
-        {spaceName || 'Untitled'}
+        {spaceName.trim() || 'Untitled'}
       </p>
       <p
         className={cn(
           'h-[25px] text-base font-normal leading-normal text-slate-300',
         )}
       >
-        {userName || 'Untitled'}
+        {userName.trim() || 'Untitled'}
       </p>
     </div>
   );

@@ -18,7 +18,7 @@ export function CreateSpaceMembers() {
   const { memberIds, updateMemberIds } = pageThree;
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const connectListController = useControllerForUserConnectionListFromSource(
-    loggedInUser.id,
+    loggedInUser?.id,
   );
 
   const togglableController = useControllerForTogglable();

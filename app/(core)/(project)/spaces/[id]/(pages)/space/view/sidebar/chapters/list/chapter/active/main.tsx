@@ -21,7 +21,7 @@ export function SpacesSpaceChapterActive() {
             'w-full animate-pulse-slow whitespace-nowrap text-start font-extraBold text-xl text-slate-300',
           )}
         >
-          {chapter.title || 'Untitled'}
+          {chapter.title?.trim() || 'Untitled'}
         </p>
         <AstralMoreVertIcon
           onClick={() => modalController.editChapterController.open()}

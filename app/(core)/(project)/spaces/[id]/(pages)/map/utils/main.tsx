@@ -24,15 +24,15 @@ export function parseTransformString(
 
   // Extract values if matches are found
   if (translateMatch) {
-    x = parseFloat(translateMatch[1].trim());
-    y = parseFloat(translateMatch[2].trim());
+    x = parseFloat(translateMatch[1]?.trim());
+    y = parseFloat(translateMatch[2]?.trim());
   }
   if (rotateMatch) {
-    rotation = parseFloat(rotateMatch[1].trim());
+    rotation = parseFloat(rotateMatch[1]?.trim());
   }
   if (scaleMatch) {
-    scaleX = parseFloat(scaleMatch[1].trim());
-    scaleY = parseFloat(scaleMatch[2].trim());
+    scaleX = parseFloat(scaleMatch[1]?.trim());
+    scaleY = parseFloat(scaleMatch[2]?.trim());
   }
 
   return {

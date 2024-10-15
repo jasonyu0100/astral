@@ -15,8 +15,8 @@ export function SpacesSpaceMessage() {
         <SpacesSpaceAgentMessage />
       ) : (
         <>
-          {loggedInUser.id === message.userId && <SpacesSpaceUserMessage />}
-          {loggedInUser.id !== message.userId && <SpacesSpaceMemberMessage />}
+          {loggedInUser?.id === message.userId && <SpacesSpaceUserMessage />}
+          {loggedInUser?.id !== message.userId && <SpacesSpaceMemberMessage />}
         </>
       )}
     </>

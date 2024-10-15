@@ -11,11 +11,11 @@ export function SpacesSpaceUserMessageDetail() {
   return (
     <div className='ml-auto flex flex-row items-center'>
       <img
-        src={loggedInUser.dp?.src || exampleFileElem.src}
+        src={loggedInUser?.dp?.src || exampleFileElem.src}
         className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
       />
       <p className='p-[0.5rem] text-xs text-slate-300'>
-        from {loggedInUser.displayName} sent{' '}
+        from {loggedInUser?.displayName} sent{' '}
         {getFormmatedTimeDifference(new Date(message.created))}
       </p>
     </div>

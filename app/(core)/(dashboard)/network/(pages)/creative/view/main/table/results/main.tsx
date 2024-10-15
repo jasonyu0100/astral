@@ -14,7 +14,7 @@ export function NetworkCreativeTableResults() {
   return (
     <div className={`flex w-full flex-col pt-[2rem]`}>
       {userListController.state.objs
-        .filter((obj) => obj.id !== loggedInUser.id)
+        .filter((obj) => obj.id !== loggedInUser?.id)
         .map((obj) => (
           <ContextForUserObj.Provider value={obj}>
             <NetworkCreativeRowWrapper>

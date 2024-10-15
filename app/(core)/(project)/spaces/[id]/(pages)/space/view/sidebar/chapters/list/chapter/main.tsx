@@ -43,7 +43,7 @@ export function SpacesSpaceSidebarChapter() {
                 'whitespace-nowrap font-extraBold text-xl text-slate-400',
               )}
             >
-              {chapter.title || 'Untitled'}
+              {chapter.title?.trim() || 'Untitled'}
             </p>
           </GlassWindowContents>
         </GlassWindowFrame>

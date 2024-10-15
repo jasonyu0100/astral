@@ -11,7 +11,7 @@ import { StudioSpacesView } from './view/view';
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMemberListController = useControllerForSpaceMemberListFromUser(
-    loggedInUser.id,
+    loggedInUser?.id,
   );
 
   return (

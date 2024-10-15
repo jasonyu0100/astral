@@ -18,7 +18,6 @@ export function SpacesJourneyAddTextLinkModal() {
   const linkListController = useContext(ContextForTaskLinkList);
   const wayListController = useContext(ContextForTaskList);
   const openableController = useContext(ContextForOpenable);
-  const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
@@ -34,7 +33,7 @@ export function SpacesJourneyAddTextLinkModal() {
           id: crypto.randomUUID(),
           title: title,
           text: text,
-          variant: variant,
+          variant: TextElemVariant.STICKY,
         } as TextElem,
       )
       .then(() => {
@@ -48,22 +47,12 @@ export function SpacesJourneyAddTextLinkModal() {
         <FormContainer>
           <FormTitle>Note Element</FormTitle>
           <FormBody>
-            {/* <FormSelect
-              title='Variant'
-              value={variant}
-              onChange={(e) => changeVariant(e.target.value)}
-            >
-              <option value={TextElemVariant.LINE}>Line</option>
-              <option value={TextElemVariant.STICKY}>Sticky</option>
-              <option value={TextElemVariant.BLOCK}>Block</option>
-              <option value={TextElemVariant.CODE}>Code</option>
-            </FormSelect> */}
-            {/* <FormInput
+            <FormInput
               placeholder='Description'
               title='Description'
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
-            /> */}
+            />
             <FormTextArea
               title='Text'
               value={text}

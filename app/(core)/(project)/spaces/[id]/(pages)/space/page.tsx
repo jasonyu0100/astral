@@ -109,7 +109,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (conversationListController.state.objId === '') {
       conversationListController.actions.createActions.createConversation(
-        loggedInUser.id,
+        loggedInUser?.id,
         chapterListController.state.objId,
       );
     }

@@ -6,7 +6,8 @@ export function SpaceInfoDetailTitle() {
 
   return (
     <p className='w-full text-ellipsis font-light text-slate-300'>
-      {space.title}
+      /fix set space title to undefined
+      {space.title?.trim() || 'Untitled'}
     </p>
   );
 }

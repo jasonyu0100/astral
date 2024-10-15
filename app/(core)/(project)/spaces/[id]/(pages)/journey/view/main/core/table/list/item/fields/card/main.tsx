@@ -24,7 +24,7 @@ export function SpacesJourneyLogTableItemCard() {
         <br />
         <input
           className='w-full bg-transparent text-xl font-bold outline-none placeholder:text-slate-800'
-          defaultValue={task.title || 'Untitled'}
+          defaultValue={task.title?.trim() || 'Untitled'}
           onBlur={(e) =>
             taskListController.actions.editActions.edit(task.id, {
               title: e.target.value,

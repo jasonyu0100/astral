@@ -15,7 +15,7 @@ export function SpacesFlightInput() {
 
   async function createComment() {
     commentListController.actions.createActions.createComment(
-      loggedInUser.id,
+      loggedInUser?.id,
       postListController.state.objId,
       message,
     );

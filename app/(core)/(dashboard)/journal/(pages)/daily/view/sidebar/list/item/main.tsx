@@ -32,7 +32,7 @@ export function JournalDailySidebarListItem() {
         >
           <p className='text-md whitespace-nowrap p-[1rem] font-light text-slate-300'>
             {getFormattedAMPM(new Date(collectionObj.created))} {' - '}
-            {collectionObj.title || 'untitled'}{' '}
+            {collectionObj.title?.trim() || 'Untitled'}
           </p>
         </GlassWindowContents>
         {(hoverableController.hovered || active) && (
