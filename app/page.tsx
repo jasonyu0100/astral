@@ -322,7 +322,7 @@ function MembershipSection() {
   return (
     <section className={ctwn('py-12', { hidden: ready })}>
       <div className='container mx-auto text-center'>
-        <h2 className='mb-6 text-3xl font-bold'>Member Plans</h2>
+        <h2 className='mb-6 text-3xl font-bold text-slate-300'>Member Plans</h2>
         <div className='flex w-full flex-col items-center'>
           <div
             role='tablist'
@@ -356,7 +356,6 @@ function MembershipSection() {
               Monthly
             </button>
           </div>
-          Membership Content
           <div className='mt-8'>
             {activeTab === 'yearly' && (
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
