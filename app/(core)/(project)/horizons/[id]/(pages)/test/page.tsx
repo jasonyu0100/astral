@@ -6,17 +6,17 @@ import { DashboardController } from '@/(core)/(dashboard)/common/controller/main
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonSidebar } from '../../../sidebar/main';
 import { HorizonTabs, HorizonTabStage } from '../../../tabs/main';
-import { HorizonsFieldView } from './view/main';
-import { HorizonsFieldCore } from './view/main/main';
-import { HorizonsFieldSidebar } from './view/sidebar/main';
+import { HorizonsBoardView } from '../board/view/main';
+import { HorizonsBoardCore } from '../board/view/main/main';
+import { HorizonsBoardSidebar } from '../board/view/sidebar/main';
 
 function Page() {
   return (
     <ViewWrapper>
-      <HorizonsFieldView>
-        <HorizonsFieldSidebar />
-        <HorizonsFieldCore />
-      </HorizonsFieldView>
+      <HorizonsBoardView>
+        <HorizonsBoardSidebar />
+        <HorizonsBoardCore />
+      </HorizonsBoardView>
     </ViewWrapper>
   );
 }
