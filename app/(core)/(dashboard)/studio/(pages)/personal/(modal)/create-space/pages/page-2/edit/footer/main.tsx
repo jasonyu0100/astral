@@ -14,11 +14,8 @@ export function CreateSpaceEditFooter() {
             updateTemplateProjectChapters([
               ...templateProjectChapters,
               {
-                sceneTemplates: [],
-                postTemplates: [],
                 title: `Chapter ${templateProjectChapters.length + 1}`,
                 objective: '',
-                logTemplates: [],
                 description: '',
                 summary: '',
               },

@@ -198,7 +198,6 @@ export function useGenerateSceneController(): Controller {
           ...exampleTextElem,
           title: title,
           text: text,
-          description: description,
           variant: variant,
         };
         const { width, height } = await getTextIdeaBounds(textElem);
