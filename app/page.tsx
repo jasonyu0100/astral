@@ -31,11 +31,8 @@ const Header = () => (
         <a href='/' className='text-sm font-bold text-white sm:text-lg'>
           HOME
         </a>
-        <a
-          href='/conversational/search'
-          className='text-sm font-bold text-white sm:text-lg'
-        >
-          SEARCH
+        <a href='/learn' className='text-sm font-bold text-white sm:text-lg'>
+          LEARN
         </a>
         {/* <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
           PRICING
@@ -111,7 +108,7 @@ const CallToAction = () => {
       />
       <div className='h-[5rem] sm:h-[10rem]' />
       <a
-        href={'/conversational/search'}
+        href={'/learn'}
         className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
       >
         <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
