@@ -56,7 +56,9 @@ export function useControllerForSpacesSpace() {
     chapterListController.state.objId,
   );
 
-  const [role, setRole] = useState<ConversationRole>(ConversationRole.Channel);
+  const [role, setRole] = useState<ConversationRole>(
+    ConversationRole.Questioner,
+  );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesSpaceSidebarVisibility>(SpacesSpaceSidebarVisibility.OPEN);
 
