@@ -78,9 +78,9 @@ export function useControllerForConversationalSearch() {
       );
     await activityListController.actions.createActions.createFromChapterChapterConversation(
       user.id,
-      spaceController.state.objId,
-      chapterListController.state.objId,
-      conversationListController.state.objId,
+      spaceController?.state?.objId,
+      chapterListController?.state?.objId,
+      conversationListController?.state?.objId,
     );
     return conversation;
   }
