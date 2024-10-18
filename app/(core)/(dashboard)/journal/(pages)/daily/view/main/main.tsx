@@ -1,6 +1,6 @@
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { JournalDailyCore } from './core/main';
-import { JournalDailyFooter } from './header/main';
+import { JournalDailyHeader } from './header/main';
 
 export function JournalDailyMain() {
   return (
@@ -9,7 +9,7 @@ export function JournalDailyMain() {
       sizeFx='h-full flex-grow '
       className='flex flex-col'
     >
-      <JournalDailyFooter />
+      <JournalDailyHeader />
       <JournalDailyCore />
     </GlassAreaContainer>
   );

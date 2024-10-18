@@ -4,7 +4,7 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { JournalDailyFooterRight } from './center/main';
 
-export function JournalDailyFooter() {
+export function JournalDailyHeader() {
   return (
     <GlassWindowFrame className='h-[4rem] w-full flex-shrink-0'>
       <GlassWindowPane glassFx={glassFx['glass-5']} />

@@ -14,7 +14,7 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function JournalRecordCollectionModal() {
+export function DashboardJournalAddCollectionModal() {
   const user = useGlobalUser((state) => state.user);
   const galleryController = useContext(ContextForGalleryMain);
   const collectionListController = useContext(ContextForGalleryCollectionList);

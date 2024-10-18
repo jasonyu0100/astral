@@ -14,6 +14,7 @@ import {
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
+import { DashboardJournalModals } from '../../modal/controller/main';
 import { JournalDailyView } from './view/view';
 
 function Page() {
@@ -36,7 +37,9 @@ function Page() {
           <ContextForCollectionResourceList.Provider
             value={resourceListController}
           >
-            <JournalDailyView />
+            <DashboardJournalModals>
+              <JournalDailyView />
+            </DashboardJournalModals>
           </ContextForCollectionResourceList.Provider>
         </ContextForGalleryCollectionList.Provider>
       </ContextForGalleryMain.Provider>
