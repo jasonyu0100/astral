@@ -548,7 +548,7 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
-      <MembershipSection />
+      {/* <MembershipSection /> */}
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
