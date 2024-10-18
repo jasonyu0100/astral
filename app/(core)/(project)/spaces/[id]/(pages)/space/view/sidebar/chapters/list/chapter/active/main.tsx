@@ -15,10 +15,10 @@ export function SpacesSpaceChapterActive() {
       className='flex w-full flex-col space-y-[0.5rem]'
       onClick={() => chapterListController.actions.stateActions.select(chapter)}
     >
-      <div className='flex w-full flex-row items-center justify-between'>
+      <div className='flex w-full flex-row flex-wrap items-center justify-between'>
         <p
           className={ctwn(
-            'w-full animate-pulse-slow whitespace-nowrap text-start font-extraBold text-xl text-slate-300',
+            'animate-pulse-slow text-start font-extraBold text-xl text-slate-300',
           )}
         >
           {chapter.title?.trim() || 'Untitled'}
