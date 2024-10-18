@@ -104,6 +104,7 @@ const CallToAction = () => {
         className='w-[3/4] rounded-[3rem] shadow-glow sm:w-3/4'
         autoPlay
         muted
+        controls
         loop
       />
       <div className='h-[5rem] sm:h-[10rem]' />
