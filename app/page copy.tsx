@@ -60,10 +60,10 @@ const HeroSection = () => (
         Creative spaces that flow
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is the creative conversational platform that grows with you.
-        Whether you're a creative visionary, content creator, or startup
-        founder, Astral empowers you with the tools to transform ideas into
-        reality, fostering collaboration every step of the way.
+        Astral is the creative collaborative platform that grows with you.
+        Whether you're a creative visionary, product manager, or startup
+        founder, Astral empowers you and your team with the tools to transform
+        ideas into reality, fostering collaboration every step of the way.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
@@ -96,7 +96,6 @@ const Question = () => (
     <br /> an age of AI?"
   </p>
 );
-
 const CallToAction = () => {
   return (
     <section className='flex w-full flex-col items-center px-4 text-center'>
@@ -108,10 +107,6 @@ const CallToAction = () => {
         controls
         loop
       />
-      <div className='h-[3rem] sm:h-[5rem]' />
-      <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
-        Your conversations now flow into visual insights
-      </p>
       <div className='h-[5rem] sm:h-[10rem]' />
       <a
         href={'/learn'}
@@ -125,35 +120,29 @@ const CallToAction = () => {
   );
 };
 
-const Answer = () => (
-  <p className='w-full animate-pulse-slow text-center text-xl font-light text-slate-300 sm:text-5xl'>
-    Conversations flowing into meaningful insights
-  </p>
-);
-
 const FeaturesSection = () => {
   const features = [
     {
-      text: 'Engage in collaborative conversations around defined objectives',
+      text: 'Transform conversations into visual maps for easy idea development.',
       number: 1,
     },
     {
-      text: 'Collaboratively search and expand on your conversations.',
+      text: 'Aggregate and synthesize concepts into actionable steps.',
       number: 2,
     },
     {
-      text: 'Work with engaging visual maps in a notebook styled experience.',
+      text: 'Manage workflow effortlessly with tracking and deadlines.',
       number: 3,
     },
   ];
 
   const [activeFeature, setActiveFeature] = useState(0);
 
-  // Automatically switch features every 3 seconds
+  // Automatically switch features every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveFeature((prev) => (prev + 1) % features.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [features.length]);
 
