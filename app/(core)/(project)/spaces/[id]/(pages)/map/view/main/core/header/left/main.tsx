@@ -12,6 +12,7 @@ import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,
+  SpacesMapSidebarContentMode,
   SpacesMapSidebarVisibility,
 } from '../../../../../controller/main';
 import { ContextForSpacesMapModals } from '../../../../../modal/controller/main';
@@ -105,6 +106,7 @@ export function SpacesMapHeaderLeft() {
           goToGallery(
             galleryController.actions.stateActions.find(user.journalId),
           );
+          updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
         }}
       />
       <AstralSaveIcon
