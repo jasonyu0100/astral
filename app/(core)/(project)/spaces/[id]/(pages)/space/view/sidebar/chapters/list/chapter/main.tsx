@@ -1,5 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -14,8 +15,14 @@ export function SpacesSpaceSidebarChapter() {
   const active =
     chapterListController.actions.stateActions.checkActive(chapter);
 
+  const hoverableController = useControllerForHoverable();
+
   return (
-    <>
+    <div
+      className='w-full cursor-pointer'
+      onMouseOver={() => hoverableController.onHover()}
+      onMouseOut={() => hoverableController.onUnhover()}
+    >
       {active ? (
         <GlassWindowFrame
           className='aspect-16/9 w-full flex-shrink-0 cursor-pointer'
@@ -30,7 +37,8 @@ export function SpacesSpaceSidebarChapter() {
       ) : (
         <GlassWindowFrame
           borderFx={borderFx['border-b']}
-          className='overflow-hidden p-[0.5rem]'
+          roundedFx={roundedFx['rounded-t']}
+          className='p-[1rem]'
         >
           <GlassWindowContents
             className='w-full cursor-pointer'
@@ -46,8 +54,11 @@ export function SpacesSpaceSidebarChapter() {
               {chapter.title?.trim() || 'Untitled'}
             </p>
           </GlassWindowContents>
+          {hoverableController.hovered && (
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          )}
         </GlassWindowFrame>
       )}
-    </>
+    </div>
   );
 }

@@ -10,7 +10,10 @@ export function SpacesMapGalleryCollectionsResults() {
   const collectionsListController = useContext(ContextForGalleryCollectionList);
 
   return (
-    <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
+    <div
+      className='flex w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'
+      style={{ height: 'calc(100% - 4rem)' }}
+    >
       <SpacesMapGalleryCollectionsBack />
       {collectionsListController.state.more.queryResults.map((collection) => (
         <ContextForGalleryCollectionObj.Provider value={collection}>

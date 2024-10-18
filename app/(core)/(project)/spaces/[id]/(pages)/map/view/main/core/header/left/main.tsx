@@ -1,6 +1,5 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
-import { AstralDownloadIcon } from '@/icons/download/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralPersonIcon } from '@/icons/person/main';
@@ -25,12 +24,12 @@ export function SpacesMapHeaderLeft() {
       selectedIdeas,
       peopleMode,
       connectionMode,
-      sidebarContentMode: sidebarContentMode,
+      sidebarContentMode,
     },
     actions: {
       updatePeopleMode,
       updateConnectionMode,
-      updateSidebarContentMode: updateSidebarMode,
+      updateSidebarContentMode,
       updateSidebarVisibility,
       autoSort,
       selectAll,
@@ -99,7 +98,7 @@ export function SpacesMapHeaderLeft() {
             : 'fill-slate-300'
         }
       />
-      <AstralDownloadIcon />
+      {/* <AstralDownloadIcon /> */}
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {

@@ -8,12 +8,12 @@ import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
-import { active } from 'sortablejs';
 
 export function SpacesMapSidebarChaptersChapter() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapterObj = useContext(ContextForSpaceChapterObj);
   const hoverableController = useControllerForHoverable();
+  const selected = chapterListController.state.objId === chapterObj.id;
 
   return (
     <div
@@ -24,25 +24,49 @@ export function SpacesMapSidebarChaptersChapter() {
         chapterListController.actions.stateActions.select(chapterObj)
       }
     >
-      <GlassWindowFrame
-        name={ExplorerProjectsSidebarOption.name}
-        borderFx={borderFx['border-b']}
-        roundedFx={roundedFx['rounded-t']}
-        className=' p-[1rem]'
-      >
-        <GlassWindowContents>
-          <p
-            className={ctwn('text-lg font-bold text-slate-500', {
-              'text-slate-300': hoverableController.hovered || active,
-            })}
-          >
-            {chapterObj.title}
-          </p>
-        </GlassWindowContents>
-        {(hoverableController.hovered || active) && (
+      {selected ? (
+        <GlassWindowFrame
+          name={ExplorerProjectsSidebarOption.name}
+          borderFx={borderFx['border-all']}
+          roundedFx={roundedFx['rounded']}
+          className='p-[1rem]'
+        >
+          <GlassWindowContents className='flex flex-col space-y-[0.5rem]'>
+            <p className={' text-xl font-bold text-slate-300'}>
+              {chapterObj.title}
+            </p>
+            <p className={'text-sm font-light text-slate-300'}>
+              <span className='font-bold'>Description: </span>
+              {chapterObj.description}
+            </p>
+            <p className={'text-sm font-light text-slate-300'}>
+              <span className='font-bold'>Objective: </span>
+              {chapterObj.objective}
+            </p>
+          </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />
-        )}
-      </GlassWindowFrame>
+        </GlassWindowFrame>
+      ) : (
+        <GlassWindowFrame
+          name={ExplorerProjectsSidebarOption.name}
+          borderFx={borderFx['border-b']}
+          roundedFx={roundedFx['rounded-t']}
+          className='p-[1rem]'
+        >
+          <GlassWindowContents>
+            <p
+              className={ctwn('text-lg font-bold text-slate-500', {
+                'text-slate-300': hoverableController.hovered,
+              })}
+            >
+              {chapterObj.title}
+            </p>
+          </GlassWindowContents>
+          {hoverableController.hovered && (
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          )}
+        </GlassWindowFrame>
+      )}
     </div>
   );
 }

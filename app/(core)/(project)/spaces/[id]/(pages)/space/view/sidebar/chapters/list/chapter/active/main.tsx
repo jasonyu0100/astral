@@ -12,7 +12,7 @@ export function SpacesSpaceChapterActive() {
 
   return (
     <div
-      className='flex w-full flex-col items-start'
+      className='flex w-full flex-col space-y-[0.5rem]'
       onClick={() => chapterListController.actions.stateActions.select(chapter)}
     >
       <div className='flex w-full flex-row items-center justify-between'>
@@ -27,11 +27,12 @@ export function SpacesSpaceChapterActive() {
           onClick={() => modalController.editChapterController.open()}
         />
       </div>
-      <p className='text-md font-md w-full text-start text-slate-300'>
+      <p className='font-md w-full text-start text-sm font-light text-slate-300'>
         <span className='font-bold'>Chapter: </span>
         {chapterListController.state.currentObj?.objective || 'Open-ended'}
       </p>
-      <p className='font-md w-full text-start text-sm text-slate-300'>
+      <p className='font-md w-full text-start text-sm font-light text-slate-300'>
+        <span className='font-bold'>Objective: </span>
         {chapterListController.state.currentObj?.description || 'Open-ended'}
       </p>
     </div>

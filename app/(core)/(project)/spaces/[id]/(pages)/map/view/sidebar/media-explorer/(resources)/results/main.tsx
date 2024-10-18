@@ -10,7 +10,10 @@ export function SpacesMapResourcesResults() {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
-    <div className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'>
+    <div
+      className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'
+      style={{ height: 'calc(100% - 9rem)' }}
+    >
       <SpacesMapResourcesBack />
       {resourceListController.state.more.queryResults.map((resource) => (
         <ContextForCollectionResourceObj.Provider value={resource}>
