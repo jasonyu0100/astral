@@ -13,7 +13,9 @@ export function StudioSpacesRowIdeas() {
 
   return (
     <div className='flex flex-row items-center justify-center'>
-      <p className='text-sm font-bold text-slate-300'>{ideas.length}</p>
+      <p className='text-center text-sm font-bold text-slate-300'>
+        {ideas.length}
+      </p>
     </div>
   );
 }

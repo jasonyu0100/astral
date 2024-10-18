@@ -26,7 +26,7 @@ export function SpacesMapCollectionItem() {
         onClick={() => goToCollection(collection)}
         className='flex h-full w-full flex-col'
       >
-        <p className='w-full px-[1rem] py-[0.5rem] text-sm font-bold text-slate-300'>
+        <p className='w-full px-[1rem] py-[0.5rem] text-center text-sm font-bold text-slate-300'>
           {collection.title?.trim() || 'Untitled'}
         </p>
         <div className='flex h-full w-full cursor-pointer flex-row flex-wrap justify-center'>

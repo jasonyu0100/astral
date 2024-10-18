@@ -1,5 +1,5 @@
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 export function StudioSpacesRowDays() {
   const space = useContext(ContextForSpaceObj);
@@ -8,7 +8,9 @@ export function StudioSpacesRowDays() {
 
   return (
     <div className='flex items-center justify-center'>
-      <p className='text-sm font-bold text-slate-300'>{daysDifference + 1}</p>
+      <p className='text-center text-sm font-bold text-slate-300'>
+        {daysDifference + 1}
+      </p>
     </div>
   );
 }

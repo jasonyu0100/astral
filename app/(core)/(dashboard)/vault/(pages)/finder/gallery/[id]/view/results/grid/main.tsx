@@ -5,9 +5,9 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
-import { GalleryCollectionAdd } from '../../../../../(common)/collection/add/main';
-import { FinderCollection } from '../../../../../(common)/collection/main';
-import { VaultFinderCreateCollectionModal } from '../../../../../(modals)/create/collection/main';
+import { GalleryCollectionAdd } from '../../../../../common/collection/add/main';
+import { FinderCollection } from '../../../../../common/collection/main';
+import { VaultFinderCreateCollectionModal } from '../../../../../modals/create/collection/main';
 
 export function FinderGalleryCollectionsGrid() {
   const collectionListController = useContext(ContextForGalleryCollectionList);

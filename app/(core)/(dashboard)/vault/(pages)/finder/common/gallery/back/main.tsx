@@ -7,7 +7,7 @@ import {
 } from '@/logic/contexts/openable/main';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { VaultFinderEditGalleryModal } from '../../../(modals)/edit/gallery/main';
+import { VaultFinderEditGalleryModal } from '../../../modals/edit/gallery/main';
 import { GalleryBackAuthor } from '../common/back/author/main';
 import { GalleryBackDescription } from '../common/back/description/main';
 import { GalleryBackEdit } from '../common/back/edit/main';

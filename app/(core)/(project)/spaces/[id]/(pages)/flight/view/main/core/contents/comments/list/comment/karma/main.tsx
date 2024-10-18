@@ -62,7 +62,7 @@ export function SpacesFlightCommentKarma() {
         onClick={() => downvote()}
       />
       <p
-        className={ctwn('text-sm font-bold text-slate-300', {
+        className={ctwn('text-center text-sm font-bold text-slate-300', {
           'text-red-300': userVote === -1,
           'text-blue-300': userVote === 1,
           'text-slate-500': userVote === 0,

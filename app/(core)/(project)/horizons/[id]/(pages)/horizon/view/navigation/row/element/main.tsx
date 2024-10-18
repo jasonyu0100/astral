@@ -14,7 +14,7 @@ export function HorizonsHorizonRowElement() {
         className='z-10 flex h-full w-full items-center px-[1rem]'
         onClick={() => {}}
       >
-        <p className='whitespace-nowrap text-sm font-bold text-slate-300'>
+        <p className='whitespace-nowrap text-center text-sm font-bold text-slate-300'>
           Horizon Chapter
         </p>
       </GlassWindowContents>

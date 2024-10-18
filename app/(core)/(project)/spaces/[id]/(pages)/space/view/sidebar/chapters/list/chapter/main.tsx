@@ -46,11 +46,7 @@ export function SpacesSpaceSidebarChapter() {
               chapterListController.actions.stateActions.select(chapter)
             }
           >
-            <p
-              className={ctwn(
-                'whitespace-nowrap font-extraBold text-xl text-slate-400',
-              )}
-            >
+            <p className={ctwn('text-lg font-bold text-slate-400')}>
               {chapter.title?.trim() || 'Untitled'}
             </p>
           </GlassWindowContents>

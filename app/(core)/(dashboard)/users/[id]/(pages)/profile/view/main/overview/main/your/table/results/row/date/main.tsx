@@ -9,7 +9,7 @@ export function StudioSpacesRowDate() {
 
   return (
     <div className='flex items-center justify-center'>
-      <p className='text-sm font-bold text-slate-300'>
+      <p className='text-center text-sm font-bold text-slate-300'>
         {getFormattedDate(new Date(space.created))}
       </p>
     </div>

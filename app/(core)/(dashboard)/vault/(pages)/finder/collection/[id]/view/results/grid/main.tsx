@@ -5,9 +5,9 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
-import { CollectionResourceAdd } from '../../../../../(common)/resource/add/main';
-import { FinderResource } from '../../../../../(common)/resource/main';
-import { VaultFinderCreateResourceModal } from '../../../../../(modals)/create/resource/main';
+import { CollectionResourceAdd } from '../../../../../common/resource/add/main';
+import { FinderResource } from '../../../../../common/resource/main';
+import { VaultFinderCreateResourceModal } from '../../../../../modals/create/resource/main';
 
 export function FinderCollectionResourcesGrid() {
   const resourceListController = useContext(ContextForCollectionResourceList);

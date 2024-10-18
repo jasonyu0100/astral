@@ -18,7 +18,7 @@ import {
   useControllerForGalleryMain,
 } from '@/(server)/controller/gallery/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { VaultFinderCreateModals } from '../../(modals)/create/controller/main';
+import { VaultFinderModals } from '../../modals/controller/main';
 import { FinderCollectionResources } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -40,7 +40,7 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForCollectionResourceList.Provider
           value={resourceListController}
         >
-          <VaultFinderCreateModals>
+          <VaultFinderModals>
             <DashboardContent>
               <VaultTabs
                 tab={VaultTabStage.Finder}
@@ -50,7 +50,7 @@ function Page({ params }: { params: { id: string } }) {
               />
               <FinderCollectionResources />
             </DashboardContent>
-          </VaultFinderCreateModals>
+          </VaultFinderModals>
         </ContextForCollectionResourceList.Provider>
       </ContextForGalleryCollectionMain.Provider>
     </ContextForGalleryMain.Provider>

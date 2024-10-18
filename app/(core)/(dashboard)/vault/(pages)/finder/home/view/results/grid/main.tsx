@@ -5,9 +5,9 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
-import { GalleryFinderAdd } from '../../../../(common)/gallery/add/main';
-import { FinderGallery } from '../../../../(common)/gallery/main';
-import { VaultFinderCreateGalleryModal } from '../../../../(modals)/create/gallery/main';
+import { GalleryFinderAdd } from '../../../../common/gallery/add/main';
+import { FinderGallery } from '../../../../common/gallery/main';
+import { VaultFinderCreateGalleryModal } from '../../../../modals/create/gallery/main';
 
 export function FinderHomeGallerysGrid() {
   const galleryListController = useContext(ContextForGalleryList);

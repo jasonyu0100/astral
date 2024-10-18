@@ -9,7 +9,7 @@ export function SpacesBoardLogTableItemStatus() {
   return (
     <div>
       <select
-        className='text-light bg-transparent text-sm font-bold text-slate-300 outline-none'
+        className='text-light bg-transparent text-center text-sm font-bold text-slate-300 outline-none'
         value={task.taskStatus}
         onClick={(e) => {
           e.stopPropagation();

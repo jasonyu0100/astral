@@ -1,4 +1,4 @@
-import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
+import { ContextForGalleryMain } from '@/(server)/controller/gallery/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
 import { FormButton } from '@/ui/form/button/main';
@@ -9,13 +9,11 @@ import { FormTitle } from '@/ui/form/title/main';
 import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext, useState } from 'react';
 
-export function VaultFinderEditCollectionModal() {
+export function VaultFinderEditGalleryModal() {
   const openableController = useContext(ContextForOpenable);
-  const collectionController = useContext(ContextForGalleryCollectionMain);
-  const [title, changeTitle] = useState(collectionController.state.obj.title);
-  const [description, changeDescription] = useState(
-    collectionController.state.obj.description,
-  );
+  const galleryController = useContext(ContextForGalleryMain);
+  const [title, changeTitle] = useState('');
+  const [description, changeDescription] = useState('');
 
   async function updateGallery() {
     alert('TODO');
