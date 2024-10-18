@@ -1,11 +1,11 @@
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { DivInputProps } from '@/props/main';
 import { useContext } from 'react';
-import { ContextForVaultFinderEditModals } from '../../../modals/edit/controller/main';
+import { ContextForVaultFinderModals } from '../../../modals/controller/main';
 
 export function CollectionResourceInfo({ ...props }: DivInputProps) {
   const resource = useContext(ContextForCollectionResourceObj);
-  const modalController = useContext(ContextForVaultFinderEditModals);
+  const modalController = useContext(ContextForVaultFinderModals);
 
   return (
     <>

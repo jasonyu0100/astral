@@ -11,9 +11,7 @@ import { VaultFinderEditCollectionModal } from '../edit/collection/main';
 import { VaultFinderEditGalleryModal } from '../edit/gallery/main';
 import { VaultFinderEditResourceModal } from '../edit/resource/main';
 
-export const ContextForVaultFinderCreateModals = createContext(
-  {} as Controller,
-);
+export const ContextForVaultFinderModals = createContext({} as Controller);
 
 interface Controller {
   createCollectionController: ContextForOpenableInterface;
@@ -33,7 +31,7 @@ export function VaultFinderModals({ children }: { children: React.ReactNode }) {
   const editResourceController = useControllerForOpenable();
 
   return (
-    <ContextForVaultFinderCreateModals.Provider
+    <ContextForVaultFinderModals.Provider
       value={{
         createCollectionController,
         createGalleryController,
@@ -62,6 +60,6 @@ export function VaultFinderModals({ children }: { children: React.ReactNode }) {
         <VaultFinderEditResourceModal />
       </ContextForOpenable.Provider>
       {children}
-    </ContextForVaultFinderCreateModals.Provider>
+    </ContextForVaultFinderModals.Provider>
   );
 }
