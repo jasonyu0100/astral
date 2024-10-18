@@ -5,7 +5,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { FormTextArea } from '@/ui/form/area/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
@@ -61,7 +61,12 @@ export function SpacesMapAddResourceModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton onClick={createResource}>Upload</FormButton>
+            <FormButton
+              onClick={createResource}
+              variant={ButtonVariant.PRIMARY}
+            >
+              Upload
+            </FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

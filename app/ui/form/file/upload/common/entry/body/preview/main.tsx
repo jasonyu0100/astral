@@ -10,7 +10,7 @@ export function UploadedFileEntryPreview() {
     <>
       {file.variant === FileElemVariant.AUDIO && (
         <div
-          className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center  shadow-md'
+          className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center'
           onClick={() => {
             const audio = document.getElementById(
               'file-upload-audio',
@@ -44,21 +44,21 @@ export function UploadedFileEntryPreview() {
           <audio
             id='file-upload-audio'
             src={file.src}
-            className='aspect-square h-[100px]  object-contain shadow-md'
+            className='aspect-square h-[100px]  bg-black object-contain'
           />
         </div>
       )}
       {file.variant === FileElemVariant.VIDEO && (
         <video
           src={file.src}
-          className='aspect-square h-[100px]  object-contain shadow-md'
+          className='aspect-square h-[100px]  bg-black object-contain'
         />
       )}
       {file.variant === FileElemVariant.IMAGE && (
         <img
           src={file.src}
           alt={file.title}
-          className='aspect-square h-[100px]  object-contain shadow-md'
+          className='aspect-square h-[100px]  bg-black object-contain'
         />
       )}
     </>
