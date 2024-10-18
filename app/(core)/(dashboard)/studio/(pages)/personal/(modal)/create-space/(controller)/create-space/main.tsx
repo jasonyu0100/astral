@@ -136,7 +136,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     const gallery =
       await galleryListController.actions.createActions.createGallery(
         user.id,
-        `Space - ${title}`,
+        `${title || 'Untitled'} Gallery`,
         'Gallery for space',
         thumbnail,
       );

@@ -1,15 +1,28 @@
+import { vaultMap } from '@/(core)/(dashboard)/vault/map';
+import { ContextForGalleryMain } from '@/(server)/controller/gallery/main';
+import { AstralFolderIcon } from '@/icons/folder/main';
 import { glassFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { JournalDailyFooterRight } from './center/main';
+import { useContext } from 'react';
+import { JournalDailyFooterRight } from './right/main';
 
 export function JournalDailyHeader() {
+  const galleryController = useContext(ContextForGalleryMain);
   return (
     <GlassWindowFrame className='h-[4rem] w-full flex-shrink-0'>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
-      <GlassWindowContents className='grid w-full grid-cols-3 p-[1rem]'>
-        <div></div>
+      <GlassWindowContents className='grid w-full grid-cols-3 items-center p-[1rem]'>
+        <div>
+          <AstralFolderIcon
+            onClick={() => {
+              window.location.href = vaultMap.vault.finder.gallery.id.link(
+                galleryController.state.objId,
+              );
+            }}
+          />
+        </div>
         <div></div>
         <JournalDailyFooterRight />
       </GlassWindowContents>
