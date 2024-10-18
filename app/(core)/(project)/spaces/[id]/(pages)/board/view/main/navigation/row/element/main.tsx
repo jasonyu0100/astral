@@ -20,7 +20,7 @@ export function SpacesBoardRowElement() {
 
   return (
     <GlassWindowFrame
-      className={ctwn('z-10 h-[3.5rem] max-w-[300px]', {
+      className={ctwn('z-10 h-[3.5rem] min-w-[250px]', {
         'animate-pulse-slow': active,
       })}
       roundedFx={roundedFx['rounded-full']}

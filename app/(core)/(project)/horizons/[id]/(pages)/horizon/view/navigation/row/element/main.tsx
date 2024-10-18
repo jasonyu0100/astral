@@ -7,7 +7,7 @@ import { ctwn } from '@/utils/cn';
 export function HorizonsHorizonRowElement() {
   return (
     <GlassWindowFrame
-      className={ctwn('z-10 h-[3.5rem] max-w-[300px]', {})}
+      className={ctwn('z-10 h-[3.5rem] min-w-[250px]', {})}
       roundedFx={roundedFx['rounded-full']}
     >
       <GlassWindowContents
