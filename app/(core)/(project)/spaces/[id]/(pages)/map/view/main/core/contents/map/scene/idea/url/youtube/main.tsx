@@ -9,7 +9,7 @@ export function SpacesMapUrlYouTubeIdea() {
       <iframe
         src={ideaObj.urlElem?.url}
         title='YouTube video player'
-        style={{ objectFit: 'contain' }}
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         allowFullScreen
       />
     </>

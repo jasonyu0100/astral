@@ -22,6 +22,7 @@ export function ElementLinkPreview() {
           onDrag={(e) => e.stopPropagation()}
           src={link.urlElem?.url}
           title='YouTube video player'
+          style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       )}
     </>

@@ -1,7 +1,7 @@
 import { ContextForGalleryMain } from '@/(server)/controller/gallery/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { FormBody } from '@/ui/form/body/main';
-import { FormButton } from '@/ui/form/button/main';
+import { ButtonVariant, FormButton } from '@/ui/form/button/main';
 import { FormFooter } from '@/ui/form/footer/main';
 import { FormInput } from '@/ui/form/input/main';
 import { FormContainer } from '@/ui/form/main';
@@ -38,6 +38,7 @@ export function VaultFinderEditGalleryModal() {
           </FormBody>
           <FormFooter>
             <FormButton
+              variant={ButtonVariant.PRIMARY}
               onClick={() => {
                 updateGallery().then(() => {
                   openableController.close();

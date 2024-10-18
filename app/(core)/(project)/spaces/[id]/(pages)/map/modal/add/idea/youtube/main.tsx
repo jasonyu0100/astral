@@ -99,7 +99,7 @@ export function SpacesMapAddYouTubeUrlModal() {
               <iframe
                 onDrag={(e) => e.stopPropagation()}
                 className='aspect-video'
-                style={{ width: '500px' }}
+                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
                 title='YouTube video player'
               />

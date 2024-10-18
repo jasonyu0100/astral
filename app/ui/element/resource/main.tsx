@@ -20,6 +20,7 @@ export function ElementResourceEntry() {
           onDrag={(e) => e.stopPropagation()}
           src={resource.urlElem?.url}
           title='YouTube video player'
+          style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       )}
     </>
