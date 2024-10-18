@@ -32,13 +32,13 @@ export function getPlanName(priceId: string) {
 export function getPlanPrice(priceId: string) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
-      return '$20 / Month';
-    case stripeProducts.standard.yearly:
-      return '$180 / Year';
-    case stripeProducts.pro.monthly:
       return '$50 / Month';
+    case stripeProducts.standard.yearly:
+      return '$250 / Year';
+    case stripeProducts.pro.monthly:
+      return '$20 seat / Month';
     case stripeProducts.pro.yearly:
-      return '$480 / Year';
+      return '$100 seat / Year';
     default:
       return 'Free';
   }
@@ -82,7 +82,7 @@ export default function Page() {
           <div className='flex h-[500px] flex-row space-x-[2rem]'>
             <div
               className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
-              onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
+              onClick={() => triggerCheckout(stripeProducts.standard.yearly)}
             >
               <img
                 src='/portal/producer-f.png'
@@ -90,12 +90,12 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>200 / year</p>
+                <p className='text-lg font-bold'>$250 / year</p>
               </div>
             </div>
             <div
               className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
-              onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
+              onClick={() => triggerCheckout(stripeProducts.pro.yearly)}
             >
               <img
                 src='/portal/producer-m.png'
@@ -103,7 +103,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>360 / year</p>
+                <p className='text-lg font-bold'>$100 seat / year</p>
               </div>
             </div>
             <div
@@ -135,7 +135,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>10 / month</p>
+                <p className='text-lg font-bold'>$50 / month</p>
               </div>
             </div>
             <div
@@ -148,7 +148,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>50 / month</p>
+                <p className='text-lg font-bold'>$20 seat / month</p>
               </div>
             </div>
             <div

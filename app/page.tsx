@@ -365,7 +365,7 @@ function MembershipSection() {
                 />
                 <MemberPricingCard
                   title='Team Pro'
-                  price='$100 per seat / year'
+                  price='$100 seat / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
                 />
@@ -381,13 +381,13 @@ function MembershipSection() {
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 <MemberPricingCard
                   title='Creator'
-                  price='$50 / mo'
+                  price='$50 / month'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
                   imageSrc='/portal/performer-m.png'
                 />
                 <MemberPricingCard
                   title='Team Pro'
-                  price='$20 per seat / mo'
+                  price='$20 seat / month'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
                   imageSrc='/portal/performer-f.png'
                 />
