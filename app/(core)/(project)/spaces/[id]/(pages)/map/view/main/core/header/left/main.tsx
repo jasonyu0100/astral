@@ -59,6 +59,7 @@ export function SpacesMapHeaderLeft() {
           );
         }}
       />
+      <BarDividerIndicator />
       <AstralFolderIcon
         onClick={() => {
           goToGallery(
