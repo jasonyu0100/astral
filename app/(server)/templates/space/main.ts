@@ -7,6 +7,20 @@ import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { TaskObj } from '@/(server)/model/task/main';
 import { createContext } from 'react';
+import { animationTemplate } from './new-templates/animationTemplate';
+import { collaborationHubTemplate } from './new-templates/collaborationHubTemplate';
+import { contentCreationTemplate } from './new-templates/contentCreationTemplate';
+import { creativeCampaignTemplate } from './new-templates/creativeCampaignTemplate';
+import { freelancingTaskTemplate } from './new-templates/freelancingTaskTemplate';
+import { hackathonProjectTemplate } from './new-templates/hackathonProjectTemplate';
+import { ideationTemplate } from './new-templates/ideationTemplate';
+import { musicAndAudioProductionTemplate } from './new-templates/musicAndAudioProductionTemplate';
+import { photographyAndArtTemplate } from './new-templates/photographyAndArtTemplate';
+import { prototypeDevelopmentTemplate } from './new-templates/prototypeDevelopmentTemplate';
+import { sprintChallengeTemplate } from './new-templates/sprintChallengeTemplate';
+import { newStarterProjectTemplate } from './new-templates/starterTemplate';
+import { uxUiDesignTemplate } from './new-templates/uxUiDesignTemplate';
+import { writingProjectTemplate } from './new-templates/writingProjectTemplate';
 import { brandCreationTemplate } from './templates/brand-creation';
 import { designSprintTemplate } from './templates/design-sprint';
 import { eventPlanningTemplate } from './templates/event-planning';
@@ -108,7 +122,7 @@ export interface TemplatePostObj extends _TemplatePostObj {
 
 // TEMPLATES
 
-export enum SpaceTemplate {
+enum OldSpaceTemplate {
   StarterProject = 'Starter Project',
   ProjectManagement = 'Project Management',
   GameDevelopment = 'Game Development',
@@ -120,23 +134,60 @@ export enum SpaceTemplate {
   DesignSprint = 'Design Sprint',
   EventPlanning = 'Event Planning',
   BrandCreation = 'Brand Creation',
-  // Execute order 66, when we and I and us and they are ready
-  // Video Production
-  // Music Production
-  // Marketing Campaign
-  // Film Production
 }
 
-export const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
-  [SpaceTemplate.ProjectManagement]: projectManagementTemplate,
-  [SpaceTemplate.StarterProject]: starterTemplate,
-  [SpaceTemplate.GameDevelopment]: gameDevelopmentTemplate,
-  [SpaceTemplate.SoftwareDevelopment]: softwareDevelopmentTemplate,
-  [SpaceTemplate.MarketingCampaign]: marketingCampaignTemplate,
-  [SpaceTemplate.ProductLaunch]: productLaunchTemplate,
-  [SpaceTemplate.StartupOrganization]: startupOrganizationTemplate,
-  [SpaceTemplate.VideoProduction]: videoProductionTemplate,
-  [SpaceTemplate.DesignSprint]: designSprintTemplate,
-  [SpaceTemplate.EventPlanning]: eventPlanningTemplate,
-  [SpaceTemplate.BrandCreation]: brandCreationTemplate,
+enum NewSpaceTemplate {
+  StarterProject = 'Starter Project',
+  FreelancingTask = 'Freelancing Task',
+  Ideation = 'Ideation',
+  SprintChallenge = 'Sprint Challenge',
+  HackathonProject = 'Hackathon Project',
+  CollaborationHub = 'Collaboration Hub',
+  CreativeCampaign = 'Creative Campaign',
+  PrototypeDevelopment = 'Prototype Development',
+  VideoMediaProduction = 'Video/Media Production',
+  ContentCreation = 'Content Creation', // Covers writing, blogging, and podcasting
+  PhotographyAndArtProject = 'Photography & Art Project', // Combines photography and illustration
+  UXUIDesign = 'UX/UI Design', // Specialized template for interface and user experience designers
+  MusicAndAudioProduction = 'Music & Audio Production', // Combines music and sound design
+  WritingProject = 'Writing Project', // Dedicated for written works (e.g., novels, scripts)
+  Animation = 'Animation Project', // For animators and motion graphics
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
+  [NewSpaceTemplate.StarterProject]: newStarterProjectTemplate,
+  [NewSpaceTemplate.FreelancingTask]: freelancingTaskTemplate,
+  [NewSpaceTemplate.Ideation]: ideationTemplate,
+  [NewSpaceTemplate.SprintChallenge]: sprintChallengeTemplate,
+  [NewSpaceTemplate.HackathonProject]: hackathonProjectTemplate,
+  [NewSpaceTemplate.CollaborationHub]: collaborationHubTemplate,
+  [NewSpaceTemplate.CreativeCampaign]: creativeCampaignTemplate,
+  [NewSpaceTemplate.PrototypeDevelopment]: prototypeDevelopmentTemplate,
+  [NewSpaceTemplate.VideoMediaProduction]: videoProductionTemplate,
+  [NewSpaceTemplate.ContentCreation]: contentCreationTemplate,
+  [NewSpaceTemplate.PhotographyAndArtProject]: photographyAndArtTemplate,
+  [NewSpaceTemplate.UXUIDesign]: uxUiDesignTemplate,
+  [NewSpaceTemplate.MusicAndAudioProduction]: musicAndAudioProductionTemplate,
+  [NewSpaceTemplate.WritingProject]: writingProjectTemplate,
+  [NewSpaceTemplate.Animation]: animationTemplate,
+};
+
+const OldSpaceTemplateMap: Record<OldSpaceTemplate, TemplateSpaceObj> = {
+  [OldSpaceTemplate.ProjectManagement]: projectManagementTemplate,
+  [OldSpaceTemplate.StarterProject]: starterTemplate,
+  [OldSpaceTemplate.GameDevelopment]: gameDevelopmentTemplate,
+  [OldSpaceTemplate.SoftwareDevelopment]: softwareDevelopmentTemplate,
+  [OldSpaceTemplate.MarketingCampaign]: marketingCampaignTemplate,
+  [OldSpaceTemplate.ProductLaunch]: productLaunchTemplate,
+  [OldSpaceTemplate.StartupOrganization]: startupOrganizationTemplate,
+  [OldSpaceTemplate.VideoProduction]: videoProductionTemplate,
+  [OldSpaceTemplate.DesignSprint]: designSprintTemplate,
+  [OldSpaceTemplate.EventPlanning]: eventPlanningTemplate,
+  [OldSpaceTemplate.BrandCreation]: brandCreationTemplate,
+};
+
+export {
+  NewSpaceTemplate as SpaceTemplate,
+  NewSpaceTemplateMap as SpaceTemplateMap,
 };
