@@ -142,7 +142,7 @@ export function SpacesMapGenerateLog() {
         log.id,
       )
       .then(() => {
-        window.location.href = `${spacesMap.spaces.id.journey.link(
+        window.location.href = `${spacesMap.spaces.id.board.link(
           spaceController.state.objId,
         )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
       });

@@ -1,7 +1,7 @@
 'use client';
+import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
+import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
-import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
-import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import {
   ContextForPostAttachmentListFromPost,
   useControllerForPostAttachmentListFromPost,
@@ -165,13 +165,13 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <DashboardController fullHeight>
+    <DashboardContainer fullHeight>
       <SpaceSidebar />
       <DashboardContent>
         <SpaceTabs tab={SpaceTabStage.Flight} />
         <DashboardBody>{children}</DashboardBody>
       </DashboardContent>
-    </DashboardController>
+    </DashboardContainer>
   );
 }
 

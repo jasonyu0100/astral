@@ -34,9 +34,9 @@ const Header = () => (
         <a href='/learn' className='text-sm font-bold text-white sm:text-lg'>
           LEARN
         </a>
-        {/* <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
+        <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
           PRICING
-        </a> */}
+        </a>
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>

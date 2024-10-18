@@ -19,14 +19,14 @@ export function SpacesMapChat() {
           'h-[2rem] w-[2rem] animate-pulse-slow cursor-pointer fill-slate-500',
           {
             'fill-slate-300':
-              sidebarContentMode === SpacesMapSidebarContentMode.CHAT,
+              sidebarContentMode === SpacesMapSidebarContentMode.CHAT_SCENE,
           },
         )}
         onClick={() => {
-          if (sidebarContentMode === SpacesMapSidebarContentMode.CHAT) {
+          if (sidebarContentMode === SpacesMapSidebarContentMode.CHAT_SCENE) {
             updateSidebarContentMode(SpacesMapSidebarContentMode.LIST);
           } else {
-            updateSidebarContentMode(SpacesMapSidebarContentMode.CHAT);
+            updateSidebarContentMode(SpacesMapSidebarContentMode.CHAT_SCENE);
           }
         }}
       />

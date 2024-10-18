@@ -9,7 +9,7 @@ export function SpacesMapGalleryCollectionsSearch() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
 
   return (
-    <div className='flex h-[4rem] w-full flex-shrink-0 flex-col items-center justify-center p-[1rem] shadow-glow'>
+    <div className='flex h-[4rem] w-full flex-shrink-0 flex-col items-center justify-center px-[1rem] shadow-glow'>
       <GlassWindowFrame
         className='h-[2rem] w-full flex-shrink-0'
         roundedFx={roundedFx['rounded-full']}

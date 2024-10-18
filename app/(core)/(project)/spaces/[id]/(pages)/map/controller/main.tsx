@@ -92,9 +92,9 @@ export enum SpacesMapSidebarMediaMode {
 }
 
 export enum SpacesMapSidebarContentMode {
-  MEDIA = 'Media',
-  LIST = 'List',
-  CHAT = 'Chat',
+  EXPLORER = 'Explorer',
+  CHAT_SCENE = 'Chat Scene',
+  CHAPTERS = 'Chapters',
 }
 
 export enum SpacesMapSidebarMode {
@@ -139,7 +139,7 @@ export function useControllerForSpacesMap(): Controller {
     SpacesMapInteractionMode.SELECTED,
   );
   const [listMode, setListMode] = useState<SpacesMapSidebarContentMode>(
-    SpacesMapSidebarContentMode.MEDIA,
+    SpacesMapSidebarContentMode.CHAPTERS,
   );
   const [connectionMode, setConnectionMode] = useState<SpacesMapConnectionMode>(
     SpacesMapConnectionMode.DEFAULT,

@@ -3,38 +3,24 @@ import {
   ContextForSpacesMap,
   SpacesMapSidebarContentMode,
   SpacesMapSidebarMediaMode,
-  SpacesMapSidebarMode,
 } from '../../controller/main';
-import { SpacesMapChatExplorer } from './chat-explorer/main';
+import { SpacesMapSidebarChapters } from './chapters/main';
 import { SpacesMapSidebarContainer } from './container/main';
-import { SpacesMapSidebarIdeas } from './idea-explorer/ideas/main';
-import { SpacesMapSidebarScenes } from './idea-explorer/scenes/main';
+import { SpacesMapSidebarHeader } from './header/main';
 import { SpacesMapGalleryCollectionsMode } from './media-explorer/(gallery)/main';
 import { SpacesMapSidebarHomeGallerysMode } from './media-explorer/(home)/main';
 import { SpacesMapCollectionResourcesMode } from './media-explorer/(resources)/main';
+import { SpacesMapSidebarChatScene } from './scene-chat/main';
 
 export function SpacesMapSidebar() {
   const {
-    state: {
-      sidebarContentMode: sidebarMode,
-      sidebarMode: listSceneMode,
-      sidebarMediaMode,
-    },
+    state: { sidebarContentMode, sidebarMediaMode },
   } = useContext(ContextForSpacesMap);
 
   return (
     <SpacesMapSidebarContainer>
-      {sidebarMode === SpacesMapSidebarContentMode.LIST && (
-        <>
-          {listSceneMode === SpacesMapSidebarMode.SCENES && (
-            <SpacesMapSidebarScenes />
-          )}
-          {listSceneMode === SpacesMapSidebarMode.IDEAS && (
-            <SpacesMapSidebarIdeas />
-          )}
-        </>
-      )}
-      {sidebarMode === SpacesMapSidebarContentMode.MEDIA && (
+      <SpacesMapSidebarHeader />
+      {sidebarContentMode === SpacesMapSidebarContentMode.EXPLORER && (
         <>
           {sidebarMediaMode === SpacesMapSidebarMediaMode.Home && (
             <SpacesMapSidebarHomeGallerysMode />
@@ -47,9 +33,13 @@ export function SpacesMapSidebar() {
           )}
         </>
       )}
-
-      {sidebarMode === SpacesMapSidebarContentMode.CHAT && (
-        <SpacesMapChatExplorer />
+      {sidebarContentMode === SpacesMapSidebarContentMode.CHAT_SCENE && (
+        <SpacesMapSidebarChatScene />
+      )}
+      {sidebarContentMode === SpacesMapSidebarContentMode.CHAPTERS && (
+        <>
+          <SpacesMapSidebarChapters />
+        </>
       )}
     </SpacesMapSidebarContainer>
   );

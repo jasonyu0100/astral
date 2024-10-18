@@ -1,8 +1,8 @@
 'use client';
 
+import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
+import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
-import { DashboardBody } from '@/(core)/(dashboard)/common/controller/body/main';
-import { DashboardController } from '@/(core)/(dashboard)/common/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { HorizonSidebar } from '../../../sidebar/main';
 import { HorizonTabs, HorizonTabStage } from '../../../tabs/main';
@@ -18,13 +18,13 @@ function Page() {
 
 function ViewWrapper({ children }: { children?: React.ReactNode }) {
   return (
-    <DashboardController fullHeight>
+    <DashboardContainer fullHeight>
       <HorizonSidebar />
       <DashboardBody>
         <HorizonTabs tab={HorizonTabStage.Point} />
         <DashboardContent>{children}</DashboardContent>
       </DashboardBody>
-    </DashboardController>
+    </DashboardContainer>
   );
 }
 

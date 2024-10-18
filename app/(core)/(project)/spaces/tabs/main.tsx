@@ -1,9 +1,9 @@
 import { TabsContainer } from '@/ui/tabs/main';
 import { TabsRow } from '@/ui/tabs/tabs-row/main';
-import { SpacesTabSpace } from './tab-1/main';
-import { SpacesTabMap } from './tab-2/main';
-import { SpaceTabJourney } from './tab-3/main';
-import { SpacesTabFlight } from './tab-4/main';
+import { SpaceTabBoard } from './board-tab/main';
+import { SpacesTabFlight } from './flight-tab/main';
+import { SpacesTabMap } from './map-tab/main';
+import { SpacesTabSpace } from './space-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -12,7 +12,7 @@ interface SpaceTabProps {
 export enum SpaceTabStage {
   Space = 'Space',
   Map = 'Map',
-  Journey = 'Journey',
+  Board = 'Board',
   Flight = 'Flight',
 }
 
@@ -22,7 +22,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
       <TabsRow>
         <SpacesTabSpace tab={tab} />
         <SpacesTabMap tab={tab} />
-        <SpaceTabJourney tab={tab} />
+        <SpaceTabBoard tab={tab} />
         <SpacesTabFlight tab={tab} />
       </TabsRow>
     </TabsContainer>
