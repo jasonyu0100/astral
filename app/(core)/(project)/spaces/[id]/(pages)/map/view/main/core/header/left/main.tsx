@@ -1,7 +1,9 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
+import { AstralListIcon } from '@/icons/list/main';
 import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
@@ -37,6 +39,7 @@ export function SpacesMapHeaderLeft() {
     },
   } = useContext(ContextForSpacesMap);
   const user = useGlobalUser((state) => state.user);
+  const space = useContext(ContextForSpaceMain);
   const galleryController = useContext(ContextForGalleryList);
   const modalController = useContext(ContextForSpacesMapModals);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -56,7 +59,47 @@ export function SpacesMapHeaderLeft() {
           );
         }}
       />
+      <AstralFolderIcon
+        onClick={() => {
+          goToGallery(
+            galleryController.actions.stateActions.find(
+              space.state.obj.galleryId,
+            ),
+          );
+          updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
+        }}
+      />
+      <AstralListIcon
+        onClick={() => {
+          goToGallery(
+            galleryController.actions.stateActions.find(user.journalId),
+          );
+          updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
+        }}
+      />
       <BarDividerIndicator />
+      <AstralManageSearchIcon
+        onClick={() => {
+          modalController.addSearchIdeaController.open();
+        }}
+      />
+      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
+      <AstralFullscreenIcon
+        onClick={() => selectAll()}
+        className={
+          selectedIdeas.length >= ideaListController.state.objs.length &&
+          selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+      />
+      <AstralSaveIcon
+        onClick={() => {
+          ideaListController.actions.editActions.sync().then(() => {
+            alert('save all');
+          });
+        }}
+      />{' '}
       {/* <AstralBubbleIcon
         className={
           connectionMode === SpacesMapConnectionMode.DEFAULT
@@ -86,36 +129,6 @@ export function SpacesMapHeaderLeft() {
         }}
       />
       <BarDividerIndicator /> */}
-      <AstralManageSearchIcon
-        onClick={() => {
-          modalController.addSearchIdeaController.open();
-        }}
-      />
-      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
-      <AstralFullscreenIcon
-        onClick={() => selectAll()}
-        className={
-          selectedIdeas.length >= ideaListController.state.objs.length &&
-          selectedIdeas.length > 0
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-      />
-      <AstralFolderIcon
-        onClick={() => {
-          goToGallery(
-            galleryController.actions.stateActions.find(user.journalId),
-          );
-          updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
-        }}
-      />
-      <AstralSaveIcon
-        onClick={() => {
-          ideaListController.actions.editActions.sync().then(() => {
-            alert('save all');
-          });
-        }}
-      />
     </div>
   );
 }
