@@ -11,6 +11,7 @@ import { SpacesSpaceSearchArticlesContent } from './main/articles/main';
 import { SpacesSpaceSearchImageryContent } from './main/imagery/main';
 import { SpacesSpaceSearchMediaContent } from './main/media/main';
 import { SpacesSpaceSearchTextContent } from './main/text/main';
+import { SpacesSpaceSearchVaultContent } from './main/vault/main';
 import { SpacesSpaceGenerateRowAdd } from './row/add/main';
 import { SpacesSpaceSearchArticlesTab } from './tabs/articles/main';
 import { SpacesSpaceSearchImageryTab } from './tabs/imagery/main';
@@ -51,7 +52,7 @@ export function SpacesSpaceSetConstellationModal() {
                   {generateSceneController.state.tab ===
                     GenerateSceneTab.MEDIA && <SpacesSpaceSearchMediaContent />}
                   {generateSceneController.state.tab ===
-                    GenerateSceneTab.VAULT && <SpacesSpaceSearchTextContent />}
+                    GenerateSceneTab.VAULT && <SpacesSpaceSearchVaultContent />}
                 </div>
                 <SpacesSpaceGenerateRowAdd />
               </div>

@@ -27,8 +27,8 @@ export function SpacesSpaceContents() {
             <SpacesSpaceMessages />
           </>
         )}
-        <SpacesSpaceConversations />
       </AbsoluteHolder>
+      <SpacesSpaceConversations />
     </div>
   );
 }
