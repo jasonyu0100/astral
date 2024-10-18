@@ -19,6 +19,7 @@ export function CreateSpaceModalFooter() {
         return (
           <FormFooter>
             <FormButton
+              variant={ButtonVariant.PRIMARY}
               onClick={() => {
                 pagableController.updatePage(1);
               }}
@@ -39,27 +40,7 @@ export function CreateSpaceModalFooter() {
               Prev
             </FormButton>
             <FormButton
-              onClick={() => {
-                pagableController.updatePage(2);
-              }}
-            >
-              Next
-            </FormButton>
-          </FormFooter>
-        );
-      }
-      case 2:
-        return (
-          <FormFooter>
-            <FormButton
-              variant={ButtonVariant.SECONDARY}
-              onClick={() => {
-                pagableController.updatePage(1);
-              }}
-            >
-              Prev
-            </FormButton>
-            <FormButton
+              variant={ButtonVariant.PRIMARY}
               onClick={() => {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
@@ -73,6 +54,7 @@ export function CreateSpaceModalFooter() {
             </FormButton>
           </FormFooter>
         );
+      }
     }
   }
 

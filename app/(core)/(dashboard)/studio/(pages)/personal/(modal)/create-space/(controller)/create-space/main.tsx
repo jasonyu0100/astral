@@ -28,6 +28,8 @@ export interface PageOne {
   updateDescription: (description: string) => void;
   category: SpaceTemplate;
   updateCategory: (category: SpaceTemplate) => void;
+  memberIds: string[];
+  updateMemberIds: (memberIds: string[]) => void;
 }
 
 export interface PageTwo {
@@ -43,8 +45,6 @@ export interface PageThree {
   updateTarget: (target: string) => void;
   memberIds: string[];
   updateMemberIds: (memberIds: string[]) => void;
-  background: FileElem;
-  updateBackground: (background: FileElem) => void;
 }
 
 export const ContextForPageOne = createContext({} as PageOne);
@@ -78,9 +78,8 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [category, changeCategory] = useState(SpaceTemplate.StarterProject);
-  const [thumbnail, changeThumbnail] = useState(exampleFileElem as FileElem);
+  const [theme, changeTheme] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(10);
-  const [background, setBackground] = useState(exampleFileElem);
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
   );
@@ -101,7 +100,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             templateChapter.description,
             templateChapter.summary,
             templateChapter.objective,
-            background ? background.src : '',
+            theme.src,
             user.id,
             space.id,
             index,
@@ -138,7 +137,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         user.id,
         `${title || 'Untitled'} Gallery`,
         'Gallery for space',
-        thumbnail,
+        theme,
       );
     console.log('GALLERY CREATED', gallery);
 
@@ -169,7 +168,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         description,
         SpaceTemplateMap[category].objective,
         user.id,
-        thumbnail,
+        theme,
         category,
         gallery.id,
         collection.id,
@@ -194,10 +193,12 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     updateTitle: (title: string) => changeTitle(title),
     category,
     updateCategory: (category: SpaceTemplate) => changeCategory(category),
-    thumbnail,
-    updateThumbnail: (thumbnail: FileElem) => changeThumbnail(thumbnail),
+    thumbnail: theme,
+    updateThumbnail: (thumbnail: FileElem) => changeTheme(thumbnail),
     description,
     updateDescription: (description: string) => changeDescription(description),
+    memberIds: memberIds,
+    updateMemberIds: (members: string[]) => changeMemberIds(members),
   };
 
   const pageTwo: PageTwo = {
@@ -214,8 +215,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     updateHours: (hours: number) => changeHours(hours),
     target: target,
     updateTarget: (target: string) => changeTarget(target),
-    background,
-    updateBackground: (background: FileElem) => setBackground(background),
   };
 
   return {

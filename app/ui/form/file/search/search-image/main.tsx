@@ -20,7 +20,7 @@ export function FormSearchImage({
     <ContextForFileChangable.Provider
       value={{ fileElem, updateFileElem: onChange }}
     >
-      <div className='flex flex-col bg-white'>
+      <div className='flex flex-col'>
         <SearchImageLabel>{label}</SearchImageLabel>
         {fileElem.id === undefined ? <SearchButton /> : <SearchImagePreview />}
       </div>
