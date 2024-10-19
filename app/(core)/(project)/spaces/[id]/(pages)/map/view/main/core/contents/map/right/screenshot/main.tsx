@@ -17,7 +17,7 @@ export function SpacesMapScreenshot() {
         borderFx={borderFx['border-all']}
         className='h-[4rem] w-[4rem]'
       >
-        <GlassWindowContents className='flex h-full w-full items-center justify-center'>
+        <GlassWindowContents className='flex h-full w-full flex-col items-center justify-center'>
           <AstralCameraIcon onClick={takeScreenshot} />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />

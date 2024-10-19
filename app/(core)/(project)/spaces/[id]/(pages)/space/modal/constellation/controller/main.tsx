@@ -207,14 +207,16 @@ export function useGenerateSceneController(): Controller {
           newScene.id,
           title,
           description,
-          index * 200, // Adjust position based on index
-          0,
+          Math.ceil(75 + Math.random() * 150),
+          Math.ceil(75 + Math.random() * 150),
           width,
           height,
           textElem,
           ideaListController.state.objs.length,
         );
       }),
+
+      // TODO Bound within box and arrange
     );
 
     await Promise.all(

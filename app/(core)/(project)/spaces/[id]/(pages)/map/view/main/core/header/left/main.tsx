@@ -1,6 +1,7 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { AstralDownloadIcon } from '@/icons/download/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralListIcon } from '@/icons/list/main';
@@ -93,6 +94,11 @@ export function SpacesMapHeaderLeft() {
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
+      />
+      <AstralDownloadIcon
+        onClick={() => {
+          alert('Coming Soon...');
+        }}
       />
       <AstralSaveIcon
         onClick={() => {

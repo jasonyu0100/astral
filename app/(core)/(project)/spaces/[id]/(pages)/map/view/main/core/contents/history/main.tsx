@@ -25,25 +25,29 @@ export function SpacesMapHistory() {
           </div>
         </GlassWindowContents>
       </GlassWindowFrame>
-      <div className='flex flex-col space-y-[1rem]'>
-        {sceneListController.state.objs.map((scene) => (
-          <ContextForIdeaSceneObj.Provider value={scene}>
-            <SpacesMapHistoryItem />
-          </ContextForIdeaSceneObj.Provider>
-        ))}
-        <GlassWindowFrame className='w-full p-[1rem]'>
-          <GlassWindowContents
-            className='cursor-pointer'
-            onClick={() => {
-              modalController.addSceneController.open();
-            }}
-          >
-            <div className='flex flex-row items-center space-x-[1rem]'>
-              <div className='text-lg font-light text-slate-300'>Add Scene</div>
-              <AstralAddIcon />
-            </div>
-          </GlassWindowContents>
-        </GlassWindowFrame>
+      <div className='flex h-full flex-col overflow-auto'>
+        <div className='flex flex-col space-y-[1rem]'>
+          {sceneListController.state.objs.map((scene) => (
+            <ContextForIdeaSceneObj.Provider value={scene}>
+              <SpacesMapHistoryItem />
+            </ContextForIdeaSceneObj.Provider>
+          ))}
+          <GlassWindowFrame className='w-full p-[1rem]'>
+            <GlassWindowContents
+              className='cursor-pointer'
+              onClick={() => {
+                modalController.addSceneController.open();
+              }}
+            >
+              <div className='flex flex-row items-center space-x-[1rem]'>
+                <div className='text-lg font-light text-slate-300'>
+                  Add Scene
+                </div>
+                <AstralAddIcon />
+              </div>
+            </GlassWindowContents>
+          </GlassWindowFrame>
+        </div>
       </div>
     </div>
   );

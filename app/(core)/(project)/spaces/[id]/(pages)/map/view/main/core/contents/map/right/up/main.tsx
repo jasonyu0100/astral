@@ -7,7 +7,7 @@ export function SpacesMapNavigationUp() {
   const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
-    <div className='absolute right-[2rem] top-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
+    <div className='absolute right-[2rem] top-[2rem] z-40 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
       <AstralChevronUpIcon
         className={ctwn('h-[3rem] w-[3rem] cursor-pointer fill-slate-500', {
           'fill-slate-700':

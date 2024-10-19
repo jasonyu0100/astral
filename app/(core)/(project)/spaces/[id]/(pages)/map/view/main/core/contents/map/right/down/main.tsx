@@ -7,7 +7,7 @@ export function SpacesMapNavigationDown() {
   const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
-    <div className='absolute bottom-[2rem] right-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
+    <div className='absolute bottom-[2rem] right-[2rem] z-40 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
       <AstralChevronDownIcon
         className={ctwn(
           'h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer fill-slate-500',
