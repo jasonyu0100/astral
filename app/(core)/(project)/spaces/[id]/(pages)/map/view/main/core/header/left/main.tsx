@@ -22,16 +22,8 @@ import { ContextForSpacesMapModals } from '../../../../../modal/controller/main'
 
 export function SpacesMapHeaderLeft() {
   const {
-    state: {
-      sidebarVisibility,
-      selectedIdeas,
-      peopleMode,
-      connectionMode,
-      sidebarContentMode,
-    },
+    state: { sidebarVisibility, selectedIdeas },
     actions: {
-      updatePeopleMode,
-      updateConnectionMode,
       updateSidebarContentMode,
       goToGallery,
       updateSidebarVisibility,
