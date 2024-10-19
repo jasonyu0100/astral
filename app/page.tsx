@@ -45,7 +45,7 @@ const Header = () => (
       </a>
       <a
         href='/login'
-        className='rounded-full bg-violet-500 p-2 px-4 font-bold text-slate-300 sm:p-[1rem] sm:px-[2rem]'
+        className='rounded-full bg-blue-500 p-2 px-4 font-bold text-slate-300 sm:p-[1rem] sm:px-[2rem]'
       >
         Login
       </a>
