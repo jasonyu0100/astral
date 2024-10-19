@@ -4,7 +4,7 @@ export function PortalBackground({ children }: { children?: React.ReactNode }) {
       className={`
       flex min-h-screen 
       w-full flex-col items-center justify-center
-      bg-gradient-to-b from-purple-950 to-slate-900
+      bg-gradient-to-b from-purple-950 to-slate-950
       p-[2rem]
       `}
     >
