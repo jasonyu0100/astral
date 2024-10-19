@@ -1,10 +1,10 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { AstralDownloadIcon } from '@/icons/download/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
-import { AstralListIcon } from '@/icons/list/main';
 import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
@@ -63,7 +63,7 @@ export function SpacesMapHeaderLeft() {
           updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
         }}
       />
-      <AstralListIcon
+      <AstralCalendarIcon
         onClick={() => {
           goToGallery(
             galleryController.actions.stateActions.find(user.journalId),

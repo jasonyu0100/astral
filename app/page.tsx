@@ -60,15 +60,15 @@ const HeroSection = () => (
         Creative spaces that flow
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is the creative conversational platform that grows with you.
-        Whether you're a creative visionary, content creator, or startup
-        founder, Astral empowers you with the tools to transform ideas into
-        reality, fostering collaboration every step of the way.
+        Astral is the creative mapping platform that grows with you. Whether
+        you're a creative visionary, content creator, or startup founder, Astral
+        empowers you with the tools to transform ideas into reality, fostering
+        insight every step of the way.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
           href='/register'
-          className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-4 sm:h-[5rem] sm:px-[1rem]'
+          className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[5rem] sm:px-[1rem]'
         >
           <span className='text-xl font-bold text-slate-300'>Start now</span>
         </a>
@@ -110,7 +110,7 @@ const CallToAction = () => {
       />
       <div className='h-[3rem] sm:h-[5rem]' />
       <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
-        Your conversations now flow into visual insights
+        Your chats now flow into visual insights
       </p>
       <div className='h-[5rem] sm:h-[10rem]' />
       <a
@@ -134,15 +134,15 @@ const Answer = () => (
 const FeaturesSection = () => {
   const features = [
     {
-      text: 'Engage in collaborative conversations around defined objectives',
+      text: 'Engage in chats around defined clear objectives',
       number: 1,
     },
     {
-      text: 'Collaboratively search and expand on your conversations.',
+      text: 'Visually expand upon your conversations and ideas.',
       number: 2,
     },
     {
-      text: 'Work with engaging visual maps in a notebook styled experience.',
+      text: 'Work with engaging visual maps in a notebook style experience.',
       number: 3,
     },
   ];
