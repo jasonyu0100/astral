@@ -30,10 +30,9 @@ export function ElementResource({
           )}
           {resourceObj.fileElem?.variant === FileElemVariant.VIDEO && (
             <video
-              controls
               id={`video-${resourceObj.id}`}
+              controls
               onClick={(e) => {
-                e.stopPropagation();
                 const video = document.getElementById(
                   `video-${resourceObj.id}`,
                 ) as HTMLVideoElement;

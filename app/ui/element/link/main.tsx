@@ -31,7 +31,6 @@ export function ElementLink({
             <video
               id={`video-${linkObj.id}`}
               onClick={(e) => {
-                e.stopPropagation();
                 const video = document.getElementById(
                   `video-${linkObj.id}`,
                 ) as HTMLVideoElement;

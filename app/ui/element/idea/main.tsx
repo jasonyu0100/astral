@@ -31,7 +31,6 @@ export function ElementIdea({
             <video
               id={`video-${ideaObj.id}`}
               onClick={(e) => {
-                e.stopPropagation();
                 const video = document.getElementById(
                   `video-${ideaObj.id}`,
                 ) as HTMLVideoElement;
