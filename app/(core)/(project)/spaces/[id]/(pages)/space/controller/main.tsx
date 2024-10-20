@@ -77,14 +77,14 @@ export function useControllerForSpacesSpace() {
     return messageHistory;
   }
 
-  function checkConversationStatus(conversation?: ConversationObj) {
+  function checkConversationExpiryStatus(conversation?: ConversationObj) {
     if (conversation === undefined) {
       return false;
     } else {
       const current = new Date();
       const conversationCreated = new Date(conversation.created);
       const diff = current.getTime() - conversationCreated.getTime();
-      const conversationDuration = 24 * 60 * 7; // a weekabsolute right-[0px] flex h-full w-[6rem] items-center justify-center
+      const conversationDuration = 24 * 60 * 1; // a day
       const diffInMinutes = diff / (1000 * 60);
       return diffInMinutes < conversationDuration;
     }
@@ -262,12 +262,17 @@ export function useControllerForSpacesSpace() {
 
   async function sendMessageToConversation() {
     const conversation = conversationListController.state.currentObj;
-    const conversationStatus = checkConversationStatus(conversation);
+    const conversationStatus = checkConversationExpiryStatus(conversation);
+    const maxConversationLength = 30;
     let messages = [];
-    if (conversation !== undefined && conversationStatus) {
+    if (
+      conversation !== undefined &&
+      conversationStatus &&
+      messageListController.state.objs.length < maxConversationLength
+    ) {
       messages = await sendAndReceiveMessage(conversation);
     } else {
-      alert('Your conversation is older then a week. Starting a new one');
+      alert('Starting a fresh conversation.');
       const newConversation = await createNewConversation();
       messages = await sendAndReceiveMessage(newConversation);
       await summariseConversation(messages, newConversation);
