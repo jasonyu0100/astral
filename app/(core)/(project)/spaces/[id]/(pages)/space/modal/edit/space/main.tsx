@@ -33,7 +33,6 @@ export function SpacesSpaceEditSpaceModal() {
       objective,
     };
     const space = await spaceMainController.actions.editActions.edit(payload);
-    console.log(space);
     openableController.close();
   }
 
@@ -41,7 +40,7 @@ export function SpacesSpaceEditSpaceModal() {
     <ContextForOpenable.Provider value={openableController}>
       <PolaroidModal>
         <FormContainer>
-          <FormTitle>Edit Chapter</FormTitle>
+          <FormTitle>Edit Space</FormTitle>
           <FormBody>
             <FormInput
               title='Title'

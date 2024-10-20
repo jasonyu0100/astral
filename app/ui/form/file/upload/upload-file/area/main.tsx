@@ -12,7 +12,7 @@ export function UploadFileArea() {
         <UploadFileAreaInterface />
         <UploadFileAreaPlaceholder />
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }

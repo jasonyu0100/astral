@@ -6,9 +6,10 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { AstralButtonRoundedAction } from '@/ui/button/rounded/action/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
@@ -70,18 +71,17 @@ export function SpacesMapAddGenerateIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
         <CustomisableModalContents className='h-1/2'>
-          <div className='flex flex-row items-center space-x-[4rem]'>
-            <div className='flex flex-shrink-0 flex-row items-center space-x-[2rem]'>
-              <AstralModalStep>1</AstralModalStep>
-              <input
-                placeholder='Enter an image prompt'
-                className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
-                title='Prompt'
-                value={prompt}
-                onChange={(e) => changePrompt(e.target.value)}
-              />
-              <div
-                className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
+          <div className='flex flex-row items-center space-x-[2rem]'>
+            <AstralModalStep>1</AstralModalStep>
+            <input
+              placeholder='Enter an image prompt'
+              className='h-[3rem] flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
+              title='Prompt'
+              value={prompt}
+              onChange={(e) => changePrompt(e.target.value)}
+            />
+            <div className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'>
+              <AstralManufacturingIcon
                 onClick={() => {
                   loadingController.loadingController.open();
                   openableController.close();
@@ -94,26 +94,16 @@ export function SpacesMapAddGenerateIdeaModal() {
                     loadingController.loadingController.close();
                   });
                 }}
-              >
-                <AstralManufacturingIcon />
-              </div>
+              />
             </div>
             {file.src && (
-              <div className='flex flex-shrink-0 flex-row items-center space-x-[2rem]'>
+              <>
                 <AstralModalStep>2</AstralModalStep>
-                <img src={file.src} className='aspect-square h-[300px]' />
-              </div>
-            )}
-            {file.src && (
-              <div className='flex flex-shrink-0 flex-row items-center space-x-[2rem]'>
-                <div
-                  onClick={createFileIdea}
-                  className='flex h-[5rem] w-[5rem] items-center justify-center rounded-full bg-blue-500'
-                >
-                  <AstralArrowForwardIcon />
-                </div>
-                <p className='text-2xl font-bold text-slate-300'>Add Image</p>
-              </div>
+                <img src={file.src} className='aspect-square w-[400px]' />
+                <AstralButtonRoundedAction onClick={createFileIdea}>
+                  <AstralCheckIcon />
+                </AstralButtonRoundedAction>
+              </>
             )}
           </div>
         </CustomisableModalContents>

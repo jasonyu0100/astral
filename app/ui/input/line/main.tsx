@@ -6,7 +6,7 @@ export function AstralTextLineInput({ ...props }: FormInputProps) {
     <input
       {...props}
       className={ctwn(
-        `h-[5rem] flex-shrink-0 flex-grow border-b border-slate-300  border-opacity-30 bg-transparent text-xl font-bold text-slate-300 outline-none ${props.className}`,
+        `h-[5rem] w-[500px] flex-shrink-0 flex-grow border-b border-slate-300  border-opacity-30 bg-transparent text-xl font-bold text-slate-300 outline-none ${props.className}`,
       )}
     />
   );

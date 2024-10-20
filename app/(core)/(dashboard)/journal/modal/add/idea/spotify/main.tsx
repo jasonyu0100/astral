@@ -4,6 +4,8 @@ import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { AstralButtonRoundedAction } from '@/ui/button/action/main';
+import { AstralTextLineInput } from '@/ui/input/line/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { AstralModalStep } from '@/ui/step/main';
@@ -80,45 +82,34 @@ export function DashboardJournalAddSpotifyUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents className='h-1/2'>
-          <div className='flex flex-row items-center space-x-[4rem]'>
-            <div className='flex flex-row items-center space-x-[2rem]'>
-              <AstralModalStep>1</AstralModalStep>
-              <input
-                placeholder='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
-                defaultValue='https://open.spotify.com/embed/track/14I47nVJiJt9NCzt7YmnWz'
-                title='Url'
-                value={spotifyId}
-                onChange={(e) =>
-                  changeSpotifyId(extractSpotifyTrackId(e.target.value))
-                }
-                className='h-[3rem] w-full flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
-              />
-            </div>
+        <CustomisableModalContents>
+          <div className='flex flex-row items-center space-x-[2rem]'>
+            <AstralModalStep>1</AstralModalStep>
+            <AstralTextLineInput
+              placeholder='Enter a spotify url'
+              title='Url'
+              value={spotifyId}
+              onChange={(e) =>
+                changeSpotifyId(extractSpotifyTrackId(e.target.value))
+              }
+            />
             {spotifyId && (
               <>
-                <div className='flex flex-row items-center space-x-[2rem]'>
-                  <AstralModalStep>2</AstralModalStep>
-                  <div className='max-h-[400px] w-full'>
-                    <iframe
-                      src={`https://open.spotify.com/embed/track/${spotifyId}`}
-                      style={{ width: '100%', height: '400px' }}
-                      allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                      loading='lazy'
-                    />
-                  </div>
+                <AstralModalStep>2</AstralModalStep>
+                <div className='max-h-[400px] w-full'>
+                  <iframe
+                    src={`https://open.spotify.com/embed/track/${spotifyId}`}
+                    style={{ width: '100%', height: '400px' }}
+                    allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+                    loading='lazy'
+                  />
                 </div>
-                <div className='flex flex-row items-center space-x-[2rem]'>
-                  <div
-                    onClick={addEntryToJournal}
-                    className='flex h-[4rem] w-[4rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
-                  >
-                    <AstralArrowForwardIcon />
-                  </div>
-                  <p className='text-2xl font-bold text-slate-300'>
-                    Add Spotify
-                  </p>
-                </div>
+                <AstralButtonRoundedAction
+                  className='h-[4rem] w-[4rem]'
+                  onClick={addEntryToJournal}
+                >
+                  <AstralArrowForwardIcon />
+                </AstralButtonRoundedAction>
               </>
             )}
           </div>

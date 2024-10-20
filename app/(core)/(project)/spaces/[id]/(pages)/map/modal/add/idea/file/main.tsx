@@ -9,7 +9,6 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { AstralButtonRoundedAction } from '@/ui/button/action/main';
 import { FormUploadFile } from '@/ui/form/file/upload/upload-file/main';
-import { AstralTextLineInput } from '@/ui/input/line/main';
 import { CustomisableModalContents } from '@/ui/modal/general/container/main';
 import { CustomisableModal } from '@/ui/modal/general/main';
 import { AstralModalStep } from '@/ui/step/main';
@@ -65,33 +64,16 @@ export function SpacesMapAddFileIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
         <CustomisableModalContents className='h-1/2'>
-          <div className='flex flex-row space-x-[4rem]'>
-            <div className='flex flex-row items-center space-x-[2rem]'>
-              <AstralModalStep>1</AstralModalStep>
-              <FormUploadFile onChange={(file) => changeFile(file)} />
-            </div>
+          <div className='flex flex-row items-center space-x-[2rem]'>
+            <AstralModalStep>1</AstralModalStep>
+            <FormUploadFile onChange={(file) => changeFile(file)} />
             {file.id && (
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <AstralModalStep>2</AstralModalStep>
-                <AstralTextLineInput
-                  placeholder='Enter the title of the idea'
-                  value={title}
-                  onChange={(e) => changeTitle(e.target.value)}
-                />
-              </div>
-            )}
-            {file.id && title.length > 0 && (
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <AstralButtonRoundedAction
-                  className='h-[4rem] w-[4rem]'
-                  onClick={createFileIdea}
-                >
-                  <AstralCheckIcon />
-                </AstralButtonRoundedAction>
-                <p className='text-2xl font-bold text-slate-300'>
-                  Add File Idea
-                </p>
-              </div>
+              <AstralButtonRoundedAction
+                className='h-[4rem] w-[4rem]'
+                onClick={createFileIdea}
+              >
+                <AstralCheckIcon />
+              </AstralButtonRoundedAction>
             )}
           </div>
         </CustomisableModalContents>

@@ -85,37 +85,36 @@ export function SpacesMapAddYouTubeUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents className='h-full w-full'>
+        <CustomisableModalContents>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
-              placeholder='Enter a YouTube url e.g https://www.youtube.com/watch?v=...'
+              placeholder='Enter a YouTube Url'
               onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />
+            {youtubeId && (
+              <>
+                <AstralModalStep>2</AstralModalStep>
+                <iframe
+                  onDrag={(e) => e.stopPropagation()}
+                  className='aspect-video'
+                  style={{
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: '100%',
+                  }}
+                  src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
+                  title='YouTube video player'
+                />
+                <AstralButtonRoundedAction
+                  onClick={createIdea}
+                  className='h-[4rem] w-[4rem]'
+                >
+                  <AstralCheckIcon />
+                </AstralButtonRoundedAction>
+              </>
+            )}
           </div>
-          {youtubeId && (
-            <div className='flex flex-row items-center space-x-[2rem]'>
-              <AstralModalStep>2</AstralModalStep>
-              <iframe
-                onDrag={(e) => e.stopPropagation()}
-                className='aspect-video'
-                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
-                title='YouTube video player'
-              />
-            </div>
-          )}
-          {youtubeId && (
-            <div className='flex flex-row items-center space-x-[2rem]'>
-              <AstralButtonRoundedAction
-                onClick={createIdea}
-                className='h-[4rem] w-[4rem]'
-              >
-                <AstralCheckIcon />
-              </AstralButtonRoundedAction>
-              <p className='text-2xl font-bold text-slate-300'>Add YouTube</p>
-            </div>
-          )}
         </CustomisableModalContents>
       </CustomisableModal>
     </ContextForOpenable.Provider>
