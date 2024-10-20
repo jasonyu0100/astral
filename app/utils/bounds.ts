@@ -11,14 +11,14 @@ export async function getFileIdeaBounds(file: FileElem) {
   let height = 150;
 
   if (file.variant === FileElemVariant.IMAGE) {
-    width = 100;
-    height = 100;
+    width = 150;
+    height = 150;
   } else if (file.variant === FileElemVariant.VIDEO) {
     width = 150;
     height = 100;
   } else if (file.variant === FileElemVariant.AUDIO) {
-    width = 300;
-    height = 50;
+    width = 150;
+    height = 150;
   }
 
   return { width, height };

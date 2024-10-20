@@ -9,7 +9,7 @@ import { CustomisableModal } from '@/ui/modal/general/main';
 import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useEffect, useState } from 'react';
 
-export function DashboardJournnalAddSpotifyUrlModal() {
+export function DashboardJournalAddSpotifyUrlModal() {
   const user = useGlobalUser((state) => state.user);
   const [journalId, setJournalId] = useState('' as string);
   const [title, changeTitle] = useState('');

@@ -5,9 +5,8 @@ import {
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { DashboardJournalAddCollectionModal } from '../add/collection/main';
-import { DashboardJournalAddResourceModal } from '../add/file/main';
 import { DashboardJournalAddFileModal } from '../add/idea/file/main';
-import { DashboardJournnalAddSpotifyUrlModal } from '../add/idea/spotify/main';
+import { DashboardJournalAddSpotifyUrlModal } from '../add/idea/spotify/main';
 import { DashboardJournalAddTextStickyModal } from '../add/idea/text/main';
 import { DashboardJournalAddYouTubeUrlModal } from '../add/idea/youtube/main';
 
@@ -17,7 +16,6 @@ export const ContextForDashboardJournalModals = createContext(
 
 export interface DashboardJournalModalsController {
   addCollectionModal: ContextForOpenableInterface;
-  addResourceModal: ContextForOpenableInterface;
   addFileModal: ContextForOpenableInterface;
   addUrlSpotifyModal: ContextForOpenableInterface;
   addUrlYouTubeModal: ContextForOpenableInterface;
@@ -30,7 +28,6 @@ export function DashboardJournalModals({
   children: React.ReactNode;
 }) {
   const addCollectionModal = useControllerForOpenable();
-  const addResourceModal = useControllerForOpenable();
   const addFileModal = useControllerForOpenable();
   const addUrlSpotifyModal = useControllerForOpenable();
   const addUrlYouTubeModal = useControllerForOpenable();
@@ -40,7 +37,6 @@ export function DashboardJournalModals({
     <ContextForDashboardJournalModals.Provider
       value={{
         addCollectionModal: addCollectionModal,
-        addResourceModal: addResourceModal,
         addFileModal: addFileModal,
         addUrlSpotifyModal: addUrlSpotifyModal,
         addUrlYouTubeModal: addUrlYouTubeModal,
@@ -51,17 +47,14 @@ export function DashboardJournalModals({
       <ContextForOpenable.Provider value={addCollectionModal}>
         <DashboardJournalAddCollectionModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addResourceModal}>
-        <DashboardJournalAddResourceModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addFileModal}>
         <DashboardJournalAddFileModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addUrlSpotifyModal}>
-        <DashboardJournalAddYouTubeUrlModal />
+        <DashboardJournalAddSpotifyUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addUrlYouTubeModal}>
-        <DashboardJournnalAddSpotifyUrlModal />
+        <DashboardJournalAddYouTubeUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextStickyModal}>
         <DashboardJournalAddTextStickyModal />

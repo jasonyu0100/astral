@@ -3,6 +3,9 @@ import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
+import { roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/ui/glass/window/contents/main';
+import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { useContext } from 'react';
 
 export function ElementLink({
@@ -28,25 +31,29 @@ export function ElementLink({
             />
           )}
           {linkObj.fileElem?.variant === FileElemVariant.VIDEO && (
-            <video
-              id={`video-${linkObj.id}`}
-              onClick={(e) => {
-                const video = document.getElementById(
-                  `video-${linkObj.id}`,
-                ) as HTMLVideoElement;
-                if (video?.paused) {
-                  video?.play();
-                } else {
-                  video?.pause();
-                }
-              }}
-              src={linkObj?.fileElem?.src}
-              className='aspect-square w-full flex-shrink-0 cursor-pointer bg-black'
-            />
+            <GlassWindowFrame roundedFx={roundedFx.rounded}>
+              <GlassWindowContents>
+                <video
+                  id={`video-${linkObj.id}`}
+                  onClick={(e) => {
+                    const video = document.getElementById(
+                      `video-${linkObj.id}`,
+                    ) as HTMLVideoElement;
+                    if (video?.paused) {
+                      video?.play();
+                    } else {
+                      video?.pause();
+                    }
+                  }}
+                  src={linkObj?.fileElem?.src}
+                  className='aspect-video w-full flex-shrink-0 cursor-pointer bg-black'
+                />
+              </GlassWindowContents>
+            </GlassWindowFrame>
           )}
           {linkObj.fileElem?.variant === FileElemVariant.AUDIO && (
             <div
-              className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center'
+              className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-slate-900'
               onClick={() => {
                 const audio = document.getElementById(
                   'file-upload-audio',
@@ -108,12 +115,20 @@ export function ElementLink({
       {linkObj.variant === ElementVariant.URL && (
         <>
           {linkObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
-            <iframe
-              onDrag={(e) => e.stopPropagation()}
-              src={linkObj.urlElem?.url}
-              title='YouTube video player'
-              style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-            />
+            <GlassWindowFrame roundedFx={roundedFx.rounded}>
+              <GlassWindowContents>
+                <iframe
+                  onDrag={(e) => e.stopPropagation()}
+                  src={linkObj.urlElem?.url}
+                  title='YouTube video player'
+                  style={{
+                    objectFit: 'contain',
+                    width: '100%',
+                    height: '100%',
+                  }}
+                />
+              </GlassWindowContents>
+            </GlassWindowFrame>
           )}
           {linkObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
             <iframe

@@ -85,7 +85,7 @@ export function SpacesMapAddYouTubeUrlModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents className='h-1/2'>
+        <CustomisableModalContents className='h-full w-full'>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput

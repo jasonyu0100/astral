@@ -10,11 +10,8 @@ import { SpacesMapHistory } from './history/main';
 import { SpacesMapBack } from './map/left/back/main';
 import { SpacesMapChat } from './map/left/chat/main';
 import { SpacesMapPalette } from './map/left/palette/main';
-import { SpacesMapNavigationDown } from './map/right/down/main';
 import { SpacesMapScreenshot } from './map/right/screenshot/main';
-import { SpacesMapNavigationUp } from './map/right/up/main';
 import { SpacesMapScene } from './map/scene/main';
-import { SpacesMapStatus } from './map/status/main';
 
 export function SpacesMapContents() {
   const {
@@ -41,12 +38,12 @@ export function SpacesMapContents() {
             {/* Conditionally hide UI components based on `hideUI` state */}
             {!hideUI && (
               <>
-                <SpacesMapStatus />
+                {/* <SpacesMapStatus /> */}
                 <SpacesMapPalette />
                 <SpacesMapBack />
                 <SpacesMapChat />
-                <SpacesMapNavigationUp />
-                <SpacesMapNavigationDown />
+                {/* <SpacesMapNavigationUp /> */}
+                {/* <SpacesMapNavigationDown /> */}
                 <SpacesMapScreenshot />
               </>
             )}
