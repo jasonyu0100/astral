@@ -19,7 +19,9 @@ export function CommonSidebarDefault() {
           <CommonSidebarExplorerIndicator />
         )}
         <CommonSidebarJournalIndicator />
-        <CommonSidebarNetworkIndicator />
+        {process.env.VERSES_MODE === 'false' && (
+          <CommonSidebarNetworkIndicator />
+        )}
         <CommonSidebarVaultIndicator />
       </CommonSidebarIndicators>
     </CommonSidebarDefaultContainer>

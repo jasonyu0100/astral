@@ -8,7 +8,7 @@ export function CustomisableModalContents({ children, ...props }: InputProps) {
   return (
     <div className='flex h-full w-full flex-col items-center justify-evenly p-[5rem]'>
       <div
-        className={`flex w-full flex-row items-center justify-center gap-[3rem] overflow-auto rounded-[3rem] border-[1px] border-slate-300 border-opacity-30 bg-slate-800 bg-opacity-30 p-[2rem] ${props.className}`}
+        className={`flex w-full flex-row items-center justify-center gap-[3rem] overflow-auto rounded-[3rem] border-[1px] border-slate-300 border-opacity-30 bg-slate-800 bg-opacity-80 p-[2rem] ${props.className}`}
         onClick={(e) => {
           e.stopPropagation();
         }}

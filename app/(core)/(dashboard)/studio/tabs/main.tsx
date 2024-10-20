@@ -17,7 +17,7 @@ export function StudioTabs({ tab }: StudioTabProps) {
     <TabsContainer>
       <TabsRow>
         <TabOne tab={tab} />
-        <TabTwo tab={tab} />
+        {process.env.VERSES_MODE === 'true' && <TabTwo tab={tab} />}
       </TabsRow>
     </TabsContainer>
   );
