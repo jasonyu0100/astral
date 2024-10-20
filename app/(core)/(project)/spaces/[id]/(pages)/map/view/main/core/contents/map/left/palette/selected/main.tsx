@@ -3,7 +3,6 @@ import { ContextForSpacesMapModals } from '@/(core)/(project)/spaces/[id]/(pages
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
-import { AstralHideSourceIcon } from '@/icons/hide-source/main';
 import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
 
@@ -31,7 +30,7 @@ export function SpacesMapPaletteDefault() {
           }}
         />
       )}
-      <AstralHideSourceIcon
+      {/* <AstralHideSourceIcon
         onClick={() => {
           selectedIdeas.forEach((idea) => {
             ideaListController.actions.editActions.edit(idea.id, {
@@ -40,7 +39,7 @@ export function SpacesMapPaletteDefault() {
           });
           updateSelectedIdeas([]);
         }}
-      />
+      /> */}
       <AstralDeleteIcon
         onClick={() => {
           selectedIdeas.forEach((idea) => {

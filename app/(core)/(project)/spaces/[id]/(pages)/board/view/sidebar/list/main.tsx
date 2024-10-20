@@ -1,6 +1,7 @@
 import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
+import { ElementLink } from '@/ui/element/link/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
@@ -9,7 +10,7 @@ import {
 } from '../../../controller/main';
 import { SpacesBoardSidebarAddFile } from './add/file/main';
 import { SPaceJourneySidebarAddText } from './add/text/main';
-import { SpacesBoardTaskLinkIdea } from './idea/main';
+import { SpacesLinkTextIdea } from './override/text/main';
 
 export function SpacesBoardSidebarLinkList() {
   const {
@@ -30,9 +31,9 @@ export function SpacesBoardSidebarLinkList() {
               : obj.variant === ElementVariant.URL ||
                 obj.variant === ElementVariant.FILE,
           )
-          .map((task) => (
-            <ContextForTaskLinkObj.Provider value={task}>
-              <SpacesBoardTaskLinkIdea />
+          .map((link) => (
+            <ContextForTaskLinkObj.Provider value={link}>
+              <ElementLink textOveride={<SpacesLinkTextIdea />} />
             </ContextForTaskLinkObj.Provider>
           ))}
         <HorizontalDivider />

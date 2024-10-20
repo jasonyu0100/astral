@@ -1,8 +1,8 @@
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { useControllerForFlippable } from '@/logic/contexts/flippable/main';
+import { ElementResource } from '@/ui/element/resource/main';
 import { useContext } from 'react';
 import { ResourceContainer } from './common/container/main';
-import { CollectionResourceMedia } from './common/media/main';
 import { CollectionResourceInfo } from './info/main';
 
 export function FinderResource() {
@@ -17,7 +17,7 @@ export function FinderResource() {
       {flippableController.flipped ? (
         <CollectionResourceInfo />
       ) : (
-        <CollectionResourceMedia />
+        <ElementResource />
       )}
       <p className='absolute bottom-[1rem] w-full text-center font-extraBold text-xl text-slate-300'>
         {resource.title}

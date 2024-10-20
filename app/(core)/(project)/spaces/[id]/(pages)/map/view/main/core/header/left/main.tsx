@@ -3,8 +3,8 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { AstralDownloadIcon } from '@/icons/download/main';
-import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
+import { AstralHomeIcon } from '@/icons/home/main';
 import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
@@ -53,7 +53,7 @@ export function SpacesMapHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralFolderIcon
+      <AstralHomeIcon
         onClick={() => {
           goToGallery(
             galleryController.actions.stateActions.find(
@@ -71,7 +71,6 @@ export function SpacesMapHeaderLeft() {
           updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
         }}
       />
-      <BarDividerIndicator />
       <AstralManageSearchIcon
         onClick={() => {
           modalController.addSearchIdeaController.open();

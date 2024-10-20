@@ -125,12 +125,6 @@ const CallToAction = () => {
   );
 };
 
-const Answer = () => (
-  <p className='w-full animate-pulse-slow text-center text-xl font-light text-slate-300 sm:text-5xl'>
-    Conversations flowing into meaningful insights
-  </p>
-);
-
 const FeaturesSection = () => {
   const features = [
     {

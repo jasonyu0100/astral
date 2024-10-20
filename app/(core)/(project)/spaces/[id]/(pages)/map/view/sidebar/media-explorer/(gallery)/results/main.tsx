@@ -2,7 +2,6 @@ import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/c
 import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
-import { SpacesMapGalleryCollectionsBack } from '../back/main';
 import { SpacesMapCollectionAdd } from './add/main';
 import { SpacesMapCollectionItem } from './item/main';
 
@@ -12,9 +11,9 @@ export function SpacesMapGalleryCollectionsResults() {
   return (
     <div
       className='flex w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'
-      style={{ height: 'calc(100% - 4rem)' }}
+      style={{ height: '100%' }}
     >
-      <SpacesMapGalleryCollectionsBack />
+      {/* <SpacesMapGalleryCollectionsBack /> */}
       {collectionsListController.state.more.queryResults.map((collection) => (
         <ContextForGalleryCollectionObj.Provider value={collection}>
           <SpacesMapCollectionItem />
