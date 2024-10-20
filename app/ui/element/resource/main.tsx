@@ -29,25 +29,23 @@ export function ElementResource({
             />
           )}
           {resourceObj.fileElem?.variant === FileElemVariant.VIDEO && (
-            <div className='h-[300px] w-[300px]'>
-              <video
-                controls
-                id={`video-${resourceObj.id}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const video = document.getElementById(
-                    `video-${resourceObj.id}`,
-                  ) as HTMLVideoElement;
-                  if (video?.paused) {
-                    video?.play();
-                  } else {
-                    video?.pause();
-                  }
-                }}
-                src={resourceObj?.fileElem?.src}
-                className='aspect-square h-full w-full flex-shrink-0 cursor-pointer bg-black'
-              />
-            </div>
+            <video
+              controls
+              id={`video-${resourceObj.id}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                const video = document.getElementById(
+                  `video-${resourceObj.id}`,
+                ) as HTMLVideoElement;
+                if (video?.paused) {
+                  video?.play();
+                } else {
+                  video?.pause();
+                }
+              }}
+              src={resourceObj?.fileElem?.src}
+              className='aspect-square h-full w-full flex-shrink-0 cursor-pointer bg-black'
+            />
           )}
           {resourceObj.fileElem?.variant === FileElemVariant.AUDIO && (
             <div
@@ -99,7 +97,7 @@ export function ElementResource({
       {resourceObj.variant === ElementVariant.TEXT && (
         <>
           {resourceObj.textElem?.variant === TextElemVariant.STICKY && (
-            <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
+            <div className='aspect-square w-full flex-shrink-0 bg-yellow-500 p-[1rem] text-black'>
               {resourceObj.textElem?.text}
             </div>
           )}
