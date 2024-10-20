@@ -17,39 +17,40 @@ import { useContext, useEffect, useState } from 'react';
 export function DashboardJournalAddResourceModal() {
   const user = useGlobalUser((state) => state.user);
   const [journalId, setJournalId] = useState('' as string);
-  const collectionListController = useContext(ContextForGalleryCollectionList);
-  const resourceListController = useContext(ContextForCollectionResourceList);
-  const openableController = useContext(ContextForOpenable);
   const [file, changeFile] = useState({} as FileElem);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
+  const collectionListController = useContext(ContextForGalleryCollectionList);
+  const resourceListController = useContext(ContextForCollectionResourceList);
+  const openableController = useContext(ContextForOpenable);
 
   useEffect(() => {
     setJournalId(user.journalId);
   }, [user.journalId]);
 
-  async function addJournalEntry() {
+  async function addEntryToJournal() {
     if (journalId === '') {
       throw new Error('User does not have a journal');
     }
-    const date = new Date().toLocaleDateString();
+
+    const todaysDate = new Date().toLocaleDateString();
     const collectionDateCheck = collectionListController.state.objs.filter(
-      (collection) => collection.title === date,
+      (collection) => collection.title === todaysDate,
     );
+    const dateCheck = collectionDateCheck.length === 0;
+
     let collection;
-    if (
-      collectionListController.state.objId === '' ||
-      collectionDateCheck.length === 0
-    ) {
+    if (dateCheck || collectionListController.state.objId === '') {
       collection =
         await collectionListController.actions.createActions.createCollection(
-          date,
-          `Journal Entry ${date}`,
+          todaysDate,
+          `Journal Entry ${todaysDate}`,
           journalId,
         );
     } else {
       collection = collectionDateCheck.at(0);
     }
+
     await resourceListController.actions.createActions.createFromFile(
       user.id,
       collection?.id || '',
@@ -87,7 +88,7 @@ export function DashboardJournalAddResourceModal() {
           <FormFooter>
             <FormButton
               variant={ButtonVariant.PRIMARY}
-              onClick={() => addJournalEntry()}
+              onClick={() => addEntryToJournal()}
             >
               Add
             </FormButton>

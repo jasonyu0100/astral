@@ -15,9 +15,21 @@ export function JournalDailyFooterRight() {
   return (
     <>
       <div className='flex h-full w-full items-center justify-end space-x-[1rem]'>
-        <AstralAlbumIcon />
-        <AstralSmartDisplayIcon />
-        <AstralNoteIcon />
+        <AstralAlbumIcon
+          onClick={() => {
+            modalController.addUrlSpotifyModal.open();
+          }}
+        />
+        <AstralSmartDisplayIcon
+          onClick={() => {
+            modalController.addUrlYouTubeModal.open();
+          }}
+        />
+        <AstralNoteIcon
+          onClick={() => {
+            modalController.addTextStickyModal.open();
+          }}
+        />
         <GlassWindowFrame
           className='aspect-square h-[2.5rem] w-[2.5rem]'
           roundedFx={roundedFx['rounded-full']}
@@ -25,7 +37,7 @@ export function JournalDailyFooterRight() {
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
             onClick={() => {
-              modalController.addResourceModal.open();
+              modalController.addFileModal.open();
             }}
           >
             <AstralAddIcon />

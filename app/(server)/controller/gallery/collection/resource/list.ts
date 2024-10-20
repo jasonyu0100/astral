@@ -8,6 +8,8 @@ import {
 } from '@/(server)/controller/list';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
+import { TextElem } from '@/(server)/model/elements/text/main';
+import { UrlElem } from '@/(server)/model/elements/url/main';
 import {
   collectionResourceModel,
   CollectionResourceObj,
@@ -41,6 +43,20 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     title: string,
     description: string,
     fileElem: FileElem,
+  ) => Promise<TargetObj>;
+  createFromUrl: (
+    userId: string,
+    collectionId: string,
+    title: string,
+    description: string,
+    urlElem: UrlElem,
+  ) => Promise<TargetObj>;
+  createFromText: (
+    userId: string,
+    collectionId: string,
+    title: string,
+    description: string,
+    textElem: TextElem,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -277,6 +293,50 @@ export const useControllerForCollectionResourceList = (
         variant: ElementVariant.FILE,
         created: new Date().toISOString(),
         fileElem: fileElem,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromText: async (
+      userId: string,
+      collectionId: string,
+      title: string,
+      description: string,
+      textElem: TextElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        collectionId: collectionId,
+        title: title,
+        description: description,
+        variant: ElementVariant.TEXT,
+        created: new Date().toISOString(),
+        textElem: textElem,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFromUrl: async (
+      userId: string,
+      collectionId: string,
+      title: string,
+      description: string,
+      urlElem: UrlElem,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        collectionId: collectionId,
+        title: title,
+        description: description,
+        variant: ElementVariant.URL,
+        created: new Date().toISOString(),
+        urlElem: urlElem,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
