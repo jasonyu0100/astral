@@ -31,7 +31,7 @@ export function SpacesMapCollectionItem() {
         <p className='w-full px-[1rem] py-[0.5rem] text-center text-sm font-bold text-slate-300'>
           {collection.title?.trim() || 'Untitled'}
         </p>
-        <div className='flex h-full w-full cursor-pointer flex-row flex-wrap justify-center'>
+        <div className='grid w-full grid-cols-3 gap-[1rem] p-[1rem]'>
           {resourceListController.state.objs
             .filter((resource) => resource.variant === ElementVariant.FILE)
             .filter(
@@ -40,11 +40,13 @@ export function SpacesMapCollectionItem() {
             )
             .slice(0, 6)
             .map((resource) => (
-              <div className='aspect-square h-1/2' style={{ padding: '2%' }}>
-                <img
-                  src={resource.fileElem?.src}
-                  className='h-full w-full object-contain'
-                />
+              <div className='w-full'>
+                {resource.fileElem?.variant === FileElemVariant.IMAGE && (
+                  <img
+                    src={resource.fileElem?.src}
+                    className='h-full w-full object-contain'
+                  />
+                )}
               </div>
             ))}
         </div>

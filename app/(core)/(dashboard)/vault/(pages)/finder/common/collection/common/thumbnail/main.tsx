@@ -36,7 +36,7 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
             <div className='pb-[1rem] text-lg font-bold text-slate-500'>
               {collection.state.obj.title?.trim() || 'Untitled'}
             </div>
-            <div className='grid w-full grid-cols-3 gap-[1rem]'>
+            <div className='grid w-full grid-cols-3 gap-[1rem] p-[1rem]'>
               {visualResources
                 .filter((resource) => resource.variant === ElementVariant.FILE)
                 .filter(
@@ -49,12 +49,6 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
                     {resource.fileElem?.variant === FileElemVariant.IMAGE && (
                       <img
                         alt='thumbnail'
-                        className='h-full w-full object-contain'
-                        src={resource?.fileElem?.src}
-                      />
-                    )}
-                    {resource.fileElem?.variant === FileElemVariant.VIDEO && (
-                      <video
                         className='h-full w-full object-contain'
                         src={resource?.fileElem?.src}
                       />
