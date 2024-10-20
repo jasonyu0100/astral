@@ -11,7 +11,9 @@ export function SpacesMapPaletteSelected() {
 
   return (
     <>
-      <AstralAddIcon onClick={modalController.addFileIdeaController.open} />
+      <div className='flex items-center justify-center rounded-full bg-blue-500 p-[0.5rem]'>
+        <AstralAddIcon onClick={modalController.addFileIdeaController.open} />
+      </div>
       <AstralEditNoteIcon
         onClick={() => modalController.addTextIdeaController.open()}
       />
