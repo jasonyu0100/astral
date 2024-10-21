@@ -4,7 +4,7 @@ import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
 import { SpacesFlightSidebarItem } from './item/main';
 
-export function SpacesFlightSidebarList() {
+export function SpacesFlightSidebarPosts() {
   const postListController = useContext(ContextForUserPostListFromChapter);
 
   return (

@@ -7,7 +7,7 @@ import {
 } from '../../controller/main';
 import { SpacesFlightSidebarChapters } from './chapters/main';
 import { SpacesFlightSidebarHeader } from './header/main';
-import { SpacesFlightSidebarList } from './list/main';
+import { SpacesFlightSidebarPosts } from './posts/main';
 
 export function SpacesFlightSidebar() {
   const flightController = useContext(ContextForSpacesFlight);
@@ -24,7 +24,7 @@ export function SpacesFlightSidebar() {
           SpacesFlightSidebarMode.CHAPTERS && <SpacesFlightSidebarChapters />}
 
         {flightController.state.sidebarMode ===
-          SpacesFlightSidebarMode.POSTS && <SpacesFlightSidebarList />}
+          SpacesFlightSidebarMode.POSTS && <SpacesFlightSidebarPosts />}
       </GlassAreaContainer>
     </>
   );
