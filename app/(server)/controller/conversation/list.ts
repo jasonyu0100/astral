@@ -332,7 +332,7 @@ export const useControllerForChapterConversationList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then(() => {
+      controllerActions.gatherActions.gatherFromBeginning().then(() => {
         if (initialId) {
           stateActions.selectViaId(initialId);
         }
