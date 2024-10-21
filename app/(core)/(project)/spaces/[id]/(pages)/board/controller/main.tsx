@@ -29,7 +29,7 @@ export enum SpacesBoardDataMode {
 }
 
 export enum SpacesBoardSidebarMode {
-  LINKS = 'LINKS',
+  CHAPTERS = 'CHAPTERS',
   NOTES = 'NOTES',
 }
 
@@ -44,7 +44,7 @@ export function useControllerForSpacesBoard(): Controller {
     SpacesBoardDataMode.TABLE,
   );
   const [sidebarMode, setSidebarMode] = useState<SpacesBoardSidebarMode>(
-    SpacesBoardSidebarMode.LINKS,
+    SpacesBoardSidebarMode.CHAPTERS,
   );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesBoardSidebarVisibility>(SpacesBoardSidebarVisibility.OPEN);

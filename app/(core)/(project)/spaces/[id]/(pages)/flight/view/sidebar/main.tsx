@@ -1,9 +1,16 @@
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { useContext } from 'react';
+import {
+  ContextForSpacesFlight,
+  SpacesFlightSidebarMode,
+} from '../../controller/main';
+import { SpacesFlightSidebarChapters } from './chapters/main';
+import { SpacesFlightSidebarHeader } from './header/main';
 import { SpacesFlightSidebarList } from './list/main';
-import { SpacesFlightSidebarSearch } from './search/main';
 
 export function SpacesFlightSidebar() {
+  const flightController = useContext(ContextForSpacesFlight);
   return (
     <>
       <GlassAreaContainer
@@ -12,8 +19,12 @@ export function SpacesFlightSidebar() {
         glassFx={glassFx['glass-10']}
         className={`flex flex-col items-center overflow-hidden`}
       >
-        <SpacesFlightSidebarSearch />
-        <SpacesFlightSidebarList />
+        <SpacesFlightSidebarHeader />
+        {flightController.state.sidebarMode ===
+          SpacesFlightSidebarMode.CHAPTERS && <SpacesFlightSidebarChapters />}
+
+        {flightController.state.sidebarMode ===
+          SpacesFlightSidebarMode.POSTS && <SpacesFlightSidebarList />}
       </GlassAreaContainer>
     </>
   );
