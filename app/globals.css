@@ -85,3 +85,53 @@
   background: #64748b30;
   border-radius: 8px;
 }
+
+.creato-thin {
+  font-family: var(--font-creato-thin);
+  font-weight: 100;
+}
+
+.creato-light {
+  font-family: var(--font-creato-light);
+  font-weight: 300;
+}
+
+.creato-regular {
+  font-family: var(--font-creato-regular);
+  font-weight: 400;
+}
+
+.creato-medium {
+  font-family: var(--font-creato-medium);
+  font-weight: 500;
+}
+
+.creato-bold {
+  font-family: var(--font-creato-bold);
+  font-weight: 700;
+}
+
+.creato-extraBold {
+  font-family: var(--font-creato-extraBold);
+  font-weight: 800;
+}
+
+.creato-black {
+  font-family: var(--font-creato-black);
+  font-weight: 900;
+}
+
+.permanent-marker {
+  font-family: var(--font-marker);
+  font-weight: normal;
+}
+
+.magazine-letter {
+  font-family: var(--font-magazine);
+  font-weight: normal;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
