@@ -1,6 +1,7 @@
 import { ContextForDashboardJournalModals } from '@/(core)/(dashboard)/journal/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
+import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { glassFx, roundedFx } from '@/style/data';
@@ -24,6 +25,9 @@ export function JournalDailyFooterRight() {
           onClick={() => {
             modalController.addUrlYouTubeModal.open();
           }}
+        />
+        <AstralLinkIcon
+          onClick={() => modalController.addUrlWebsiteModal.open()}
         />
         <AstralNoteIcon
           onClick={() => {

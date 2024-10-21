@@ -2,6 +2,7 @@ import { ContextForSpacesMapModals } from '@/(core)/(project)/spaces/[id]/(pages
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralEditNoteIcon } from '@/icons/edit-note/main';
+import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { useContext } from 'react';
@@ -12,8 +13,13 @@ export function SpacesMapPaletteSelected() {
   return (
     <>
       <div className='flex items-center justify-center rounded-full bg-blue-500 p-[0.5rem]'>
-        <AstralAddIcon onClick={modalController.addFileIdeaController.open} />
+        <AstralAddIcon
+          onClick={() => modalController.addFileIdeaController.open()}
+        />
       </div>
+      <AstralLinkIcon
+        onClick={() => modalController.addWebsiteUrlIdeaController.open()}
+      />
       <AstralEditNoteIcon
         onClick={() => modalController.addTextIdeaController.open()}
       />

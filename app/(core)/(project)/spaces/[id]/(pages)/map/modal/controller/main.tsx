@@ -11,6 +11,7 @@ import { SpacesMapAddGenerateIdeaModal } from '../add/idea/generate/main';
 import { SpacesMapAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpacesMapAddSpotifyUrlModal } from '../add/idea/spotify/main';
 import { SpacesMapAddTextIdeaModal } from '../add/idea/text/main';
+import { SpacesMapAddWebsiteUrlModal } from '../add/idea/website/main';
 import { SpacesMapAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesMapAddResourceModal } from '../add/resource/main';
 import { SpacesMapAddSceneModal } from '../add/scene/main';
@@ -25,6 +26,7 @@ export interface SpacesMapModals {
   addFileIdeaController: ContextForOpenableInterface;
   addYouTubeUrlIdeaController: ContextForOpenableInterface;
   addSpotifyUrlIdeaController: ContextForOpenableInterface;
+  addWebsiteUrlIdeaController: ContextForOpenableInterface;
   addTextIdeaController: ContextForOpenableInterface;
   addResourceController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
@@ -40,6 +42,7 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
   const addFileIdeaController = useControllerForOpenable();
   const addYouTubeUrlIdeaController = useControllerForOpenable();
   const addSpotifyUrlIdeaController = useControllerForOpenable();
+  const addWebsiteUrlIdeaController = useControllerForOpenable();
   const addTextIdeaController = useControllerForOpenable();
   const addResourceController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
@@ -56,6 +59,7 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
         addFileIdeaController: addFileIdeaController,
         addYouTubeUrlIdeaController: addYouTubeUrlIdeaController,
         addSpotifyUrlIdeaController: addSpotifyUrlIdeaController,
+        addWebsiteUrlIdeaController: addWebsiteUrlIdeaController,
         addTextIdeaController: addTextIdeaController,
         addResourceController: addResourceController,
         addSceneController: addSceneController,
@@ -77,6 +81,9 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addYouTubeUrlIdeaController}>
         <SpacesMapAddYouTubeUrlModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addWebsiteUrlIdeaController}>
+        <SpacesMapAddWebsiteUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSpotifyUrlIdeaController}>
         <SpacesMapAddSpotifyUrlModal />

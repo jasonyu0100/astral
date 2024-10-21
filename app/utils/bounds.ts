@@ -38,6 +38,9 @@ export async function getUrlIdeaBounds(file: UrlElem) {
   } else if (file.variant === UrlElemVariant.YOUTUBE) {
     width = 400;
     height = 225;
+  } else if (file.variant === UrlElemVariant.WEBSITE) {
+    width = 150;
+    height = 150;
   }
 
   return { width, height };

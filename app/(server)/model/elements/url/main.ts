@@ -4,6 +4,7 @@ import { ModelInterface } from '../../main';
 export enum UrlElemVariant {
   YOUTUBE = 'YOUTUBE',
   SPOTIFY = 'SPOTIFY',
+  WEBSITE = 'WEBSITE',
 }
 
 export interface UrlElem {

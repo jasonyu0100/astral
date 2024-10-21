@@ -3,9 +3,12 @@ import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
-import { roundedFx } from '@/style/data';
+import { AstralLinkIcon } from '@/icons/link/main';
+import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowPane } from '@/ui/glass/window/pane/main';
+import Link from 'next/link';
 import { useContext } from 'react';
 
 export function ElementLink({
@@ -137,6 +140,21 @@ export function ElementLink({
               allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
               loading='lazy'
             />
+          )}
+          {linkObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
+            <GlassWindowFrame roundedFx={roundedFx['rounded']}>
+              <GlassWindowContents className='p-[1rem]'>
+                <Link
+                  className='flex flex-row justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
+                  href={linkObj.urlElem.url}
+                  target='_blank'
+                >
+                  <p>{linkObj?.title || 'Untitled'}</p>
+                  <AstralLinkIcon />
+                </Link>
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
           )}
         </>
       )}
