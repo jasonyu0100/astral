@@ -60,10 +60,10 @@ const HeroSection = () => (
         Creative spaces that flow
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is the creative mapping platform that grows with you. Whether
-        you're a creative visionary, content creator, or startup founder, Astral
-        empowers you with the tools to transform ideas into reality, fostering
-        insight every step of the way.
+        Astral is the creative studio that flows with you. Whether you're a
+        creative visionary, content creator, or startup founder, Astral empowers
+        you with the tools to transform ideas into reality, fostering insight
+        every step of the way.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
