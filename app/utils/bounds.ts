@@ -40,7 +40,7 @@ export async function getUrlIdeaBounds(file: UrlElem) {
     height = 225;
   } else if (file.variant === UrlElemVariant.WEBSITE) {
     width = 150;
-    height = 150;
+    height = 50;
   }
 
   return { width, height };

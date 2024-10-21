@@ -20,10 +20,10 @@ export function SpacesBoardSidebarLinkList() {
 
   return (
     <div
-      className='flex flex-col space-y-[1rem] overflow-auto p-[1rem]'
+      className='flex flex-col overflow-auto p-[1rem]'
       style={{ height: '100%', width: '100%' }}
     >
-      <div className='flex flex-col items-center space-y-[1rem]'>
+      <div className='flex flex-col space-y-[1rem]'>
         {linkListController.state.objs
           .filter((obj) =>
             sidebarMode === SpacesBoardSidebarMode.NOTES

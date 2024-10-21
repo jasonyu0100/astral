@@ -31,7 +31,7 @@ export function ElementResource({
             <img
               src={resourceObj?.fileElem?.src}
               alt={resourceObj.title}
-              className='h-full w-full object-contain'
+              className='w-full flex-shrink-0 object-contain'
             />
           )}
           {resourceObj.fileElem?.variant === FileElemVariant.VIDEO && (
@@ -114,27 +114,34 @@ export function ElementResource({
       {resourceObj.variant === ElementVariant.URL && (
         <>
           {resourceObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
-            <iframe
-              onDrag={(e) => e.stopPropagation()}
-              src={resourceObj.urlElem?.url}
-              title='YouTube video player'
-              className='aspect-video'
-              style={{ objectFit: 'contain', width: '100%' }}
-            />
+            <GlassWindowFrame roundedFx={roundedFx.rounded} className='w-full'>
+              <GlassWindowContents>
+                <iframe
+                  onDrag={(e) => e.stopPropagation()}
+                  src={resourceObj.urlElem?.url}
+                  title='YouTube video player'
+                  className='aspect-video'
+                  style={{ objectFit: 'contain', width: '100%' }}
+                />
+              </GlassWindowContents>
+            </GlassWindowFrame>
           )}
           {resourceObj.urlElem?.variant === UrlElemVariant.SPOTIFY && (
             <iframe
               src={resourceObj.urlElem?.url}
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'contain', width: '100%' }}
               allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
               loading='lazy'
             />
           )}
           {resourceObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
-            <GlassWindowFrame roundedFx={roundedFx['rounded']}>
-              <GlassWindowContents className='p-[1rem]'>
+            <GlassWindowFrame
+              roundedFx={roundedFx['rounded']}
+              className='w-full'
+            >
+              <GlassWindowContents className='w-full p-[1rem]'>
                 <Link
-                  className='flex flex-row justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
+                  className='flex w-full flex-row items-center justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
                   href={resourceObj.urlElem.url}
                   target='_blank'
                 >

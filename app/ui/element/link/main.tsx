@@ -30,7 +30,7 @@ export function ElementLink({
             <img
               src={linkObj?.fileElem?.src}
               alt={linkObj.title}
-              className='h-full w-full object-contain'
+              className='w-full flex-shrink-0 object-contain'
             />
           )}
           {linkObj.fileElem?.variant === FileElemVariant.VIDEO && (
@@ -118,7 +118,7 @@ export function ElementLink({
       {linkObj.variant === ElementVariant.URL && (
         <>
           {linkObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
-            <GlassWindowFrame roundedFx={roundedFx.rounded}>
+            <GlassWindowFrame roundedFx={roundedFx.rounded} className='w-full'>
               <GlassWindowContents>
                 <iframe
                   onDrag={(e) => e.stopPropagation()}
@@ -136,16 +136,19 @@ export function ElementLink({
           {linkObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
             <iframe
               src={linkObj.urlElem?.url}
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'contain', width: '100%' }}
               allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
               loading='lazy'
             />
           )}
           {linkObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
-            <GlassWindowFrame roundedFx={roundedFx['rounded']}>
-              <GlassWindowContents className='p-[1rem]'>
+            <GlassWindowFrame
+              roundedFx={roundedFx['rounded']}
+              className='w-full'
+            >
+              <GlassWindowContents className='w-full p-[1rem]'>
                 <Link
-                  className='flex flex-row justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
+                  className='flex w-full flex-row items-center justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
                   href={linkObj.urlElem.url}
                   target='_blank'
                 >
