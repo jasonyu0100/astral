@@ -30,9 +30,9 @@ export function SearchButton() {
           <div className='flex h-full w-full flex-row items-center space-x-[2rem]'>
             <AstralSearchIcon className='h-[2rem] w-[2rem]' />
             <p className='text-md font-light text-slate-500'>
-              {fileChangableController.fileElem.title === undefined
+              {fileChangableController?.fileElem?.title === undefined
                 ? 'No image selected'
-                : fileChangableController.fileElem.title}
+                : fileChangableController?.fileElem?.title}
             </p>
           </div>
         </GlassWindowContents>

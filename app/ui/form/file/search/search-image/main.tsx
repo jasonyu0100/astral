@@ -22,7 +22,7 @@ export function FormSearchImage({
     >
       <div className='flex flex-col'>
         <SearchImageLabel>{label}</SearchImageLabel>
-        {fileElem.id === undefined ? <SearchButton /> : <SearchImagePreview />}
+        {fileElem?.id === undefined ? <SearchButton /> : <SearchImagePreview />}
       </div>
     </ContextForFileChangable.Provider>
   );
