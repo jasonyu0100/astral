@@ -95,7 +95,7 @@ export function SpacesMapGenerateLog() {
   async function createLog() {
     loadingController.loadingController.open();
     openableController.close();
-    const log = await wayListController.actions.createActions.createLog(
+    const log = await wayListController.actions.createActions.createTask(
       chapterListController.state.objId,
       user.id,
       title,
@@ -135,7 +135,7 @@ export function SpacesMapGenerateLog() {
       }),
     );
     await activityListController.actions.createActions
-      .createFromChapterLog(
+      .createFromChapterTask(
         user.id,
         spaceController.state.objId,
         chapterListController.state.objId,

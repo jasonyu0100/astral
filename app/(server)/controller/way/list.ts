@@ -30,7 +30,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createLog: (
+  createTask: (
     chapterId: string,
     userId: string,
     title: string,
@@ -271,7 +271,7 @@ export const useControllerForTaskList = (
       changeId(newObj.id);
       return newObj;
     },
-    createLog: async (chapterId, userId, title, description) => {
+    createTask: async (chapterId, userId, title, description) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
@@ -282,7 +282,7 @@ export const useControllerForTaskList = (
         summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;

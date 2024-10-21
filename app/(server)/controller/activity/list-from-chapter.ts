@@ -50,7 +50,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     postId: string,
   ) => Promise<TargetObj>;
-  createFromChapterLog: (
+  createFromChapterTask: (
     userId: string,
     spaceId: string,
     chapterId: string,
@@ -380,7 +380,7 @@ export const useControllerForUserActivityListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterLog: async (userId, spaceId, chapterId, logId) => {
+    createFromChapterTask: async (userId, spaceId, chapterId, logId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,

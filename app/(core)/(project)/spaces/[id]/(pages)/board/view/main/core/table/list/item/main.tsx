@@ -23,7 +23,7 @@ import { SpacesBoardLogTableItemStatus } from './fields/status/main';
 export function SpacesBoardLogTableItem() {
   const task = useContext(ContextForTaskObj);
   const userController = useControllerForUserMain(task.userId);
-  const wayListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskList);
   const linkListController = useControllerForTaskLinkList(task.id);
   const journeyController = useContext(ContextForSpacesBoard);
   const selected = journeyController.state.selectedLogs.includes(task);
@@ -42,7 +42,7 @@ export function SpacesBoardLogTableItem() {
                   ),
                 );
               } else {
-                wayListController.actions.stateActions.select(task);
+                taskListController.actions.stateActions.select(task);
                 journeyController.actions.updateSelectedLogs([
                   ...journeyController.state.selectedLogs,
                   task,
