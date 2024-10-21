@@ -37,7 +37,7 @@ export function SpacesSpaceEditSpaceModal() {
       objective,
       thumbnail,
     };
-    const space = await spaceMainController.actions.editActions.edit(payload);
+    await spaceMainController.actions.editActions.edit(payload);
     openableController.close();
   }
 

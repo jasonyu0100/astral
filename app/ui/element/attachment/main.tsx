@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FileElemVariant } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { TextElemVariant } from '@/(server)/model/elements/text/main';
@@ -16,9 +17,9 @@ export function ElementAttachment({
   audioOveride,
   urlOveride,
 }: {
-  textOveride?: any;
-  audioOveride?: any;
-  urlOveride?: any;
+  textOveride?: unknown;
+  audioOveride?: unknown;
+  urlOveride?: unknown;
 }) {
   const attachmentObj = useContext(ContextForPostAttachmentObj);
 
@@ -29,7 +30,6 @@ export function ElementAttachment({
           {attachmentObj.fileElem?.variant === FileElemVariant.IMAGE && (
             <img
               src={attachmentObj?.fileElem?.src}
-              alt={attachmentObj.title}
               className='w-full flex-shrink-0 object-contain'
             />
           )}
@@ -152,7 +152,7 @@ export function ElementAttachment({
                   href={attachmentObj.urlElem.url}
                   target='_blank'
                 >
-                  <p>{attachmentObj?.title || 'Untitled'}</p>
+                  <p>{attachmentObj?.urlElem.title || 'Untitled'}</p>
                   <AstralLinkIcon />
                 </Link>
               </GlassWindowContents>

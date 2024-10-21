@@ -9,6 +9,8 @@ const STRIPE_SK =
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const stripe = require('stripe')(STRIPE_SK);
 
+// NEED TO ADD WEBHOOKS TO SUPPORT CANCELLATION AND CHANGES TO PLANS
+
 export async function stripeCheckoutSession(priceId: string) {
   const portalSession = await stripe.checkout.sessions.create({
     ui_mode: 'embedded',

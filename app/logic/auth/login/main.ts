@@ -7,6 +7,7 @@ const STRIPE_SK =
   process.env.LIVE_MODE === 'true'
     ? process.env.STRIPE_SK_LIVE
     : process.env.STRIPE_SK_TEST;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const stripe = require('stripe')(STRIPE_SK);
 
 export async function emailLoginUser(email: string, password: string) {

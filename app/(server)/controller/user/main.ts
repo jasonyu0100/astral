@@ -15,6 +15,7 @@ const STRIPE_SK =
     ? process.env.STRIPE_SK_LIVE
     : process.env.STRIPE_SK_TEST;
 console.log(STRIPE_SK);
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const stripe = require('stripe')(STRIPE_SK);
 
 type TargetObj = UserObj;
