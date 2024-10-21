@@ -3,7 +3,11 @@ import { amplifyClient } from '@/api/aws/graphql/main';
 import { listUserObjs } from '@/graphql/queries';
 import bcrypt from 'bcryptjs';
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const STRIPE_SK =
+  process.env.LIVE_MODE === 'true'
+    ? process.env.STRIPE_SK_LIVE
+    : process.env.STRIPE_SK_TEST;
+const stripe = require('stripe')(STRIPE_SK);
 
 export async function emailLoginUser(email: string, password: string) {
   const payload = await amplifyClient.graphql({

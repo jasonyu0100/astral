@@ -22,7 +22,7 @@ export default function Page() {
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
         onClick={() => openExistingCustomerBillingSession()}
       >
-        OPEN BILLING
+        EXISTING BILLING
       </button>
       <button
         type='submit'

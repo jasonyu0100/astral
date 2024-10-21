@@ -8,7 +8,13 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY || '');
+const STRIPE_PK =
+  process.env.LIVE_MODE === 'true'
+    ? process.env.STRIPE_PK_LIVE
+    : process.env.STRIPE_PK_TEST;
+const stripePromise = loadStripe(STRIPE_PK || '');
+
+console.log('STRIPE_PK', STRIPE_PK, process.env.LIVE_MODE);
 
 export default function Page() {
   const searchParams = useSearchParams();

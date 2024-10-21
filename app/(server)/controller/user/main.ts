@@ -10,8 +10,12 @@ import { exampleDisplayPictureFileElem } from '@/(server)/model/elements/file/ma
 import { UserObj } from '@/(server)/model/user/main';
 import bcrypt from 'bcryptjs';
 import { createContext, useMemo, useState } from 'react';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const STRIPE_SK =
+  process.env.LIVE_MODE === 'true'
+    ? process.env.STRIPE_SK_LIVE
+    : process.env.STRIPE_SK_TEST;
+console.log(STRIPE_SK);
+const stripe = require('stripe')(STRIPE_SK);
 
 type TargetObj = UserObj;
 const gqlDbWrapper = userDbWrapper;
@@ -109,9 +113,11 @@ export const useControllerForUserMain = (objId: string): Controller => {
             }
           }
         } else {
+          console.log(user.subscriptionId);
           const subscription = await stripe.subscriptions.retrieve(
-            user.subscriptionId,
+            user.subscriptionId as string,
           );
+          console.log(subscription);
           if (subscription.plan.active !== true) {
             throw new Error('Subscription is not active');
           }

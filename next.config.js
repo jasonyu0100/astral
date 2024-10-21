@@ -24,6 +24,7 @@ const nextConfig = {
     return config;
   },
   env: {
+    LIVE_MODE: process.env.LIVE_MODE,
     MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
     VERSES_MODE: process.env.VERSES_MODE,
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
@@ -38,8 +39,10 @@ const nextConfig = {
     OPEN_AI_APIKEY: process.env.OPEN_AI_APIKEY,
     UNSPLASH_API_KEY: process.env.UNSPLASH_API_KEY,
     UNSPLASH_SECRET: process.env.UNSPLASH_SECRET,
-    STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
-    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    STRIPE_PK_TEST: process.env.STRIPE_PK_TEST,
+    STRIPE_SK_TEST: process.env.STRIPE_SK_TEST,
+    STRIPE_PK_LIVE: process.env.STRIPE_PK_LIVE,
+    STRIPE_SK_LIVE: process.env.STRIPE_SK_LIVE,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     NPM_AUTH_TOKEN: process.env.NPM_AUTH_TOKEN,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,

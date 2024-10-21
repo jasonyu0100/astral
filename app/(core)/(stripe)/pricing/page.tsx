@@ -5,42 +5,54 @@ import { useState } from 'react';
 
 export const stripeProducts = {
   standard: {
-    monthly: 'price_1OiCdDJLrUNVWkE6cCXg6z64',
-    yearly: 'price_1Oio7kJLrUNVWkE60gMeqk5y',
+    monthly:
+      process.env.LIVE_MODE === 'true'
+        ? 'price_1OiC3WJLrUNVWkE6fyTSHZdg'
+        : 'price_1OiCdDJLrUNVWkE6cCXg6z64',
+    yearly:
+      process.env.LIVE_MODE === 'true'
+        ? 'price_1OinhNJLrUNVWkE6tuuaI5M2'
+        : 'price_1Oio7kJLrUNVWkE60gMeqk5y',
   },
   pro: {
-    monthly: 'price_1OiCZrJLrUNVWkE6t33t3j8e',
-    yearly: 'price_1Oio7cJLrUNVWkE6j6vqQqQt',
+    monthly:
+      process.env.LIVE_MODE === 'true'
+        ? 'price_1OiCXIJLrUNVWkE6AQPj7oF9'
+        : 'price_1OiCZrJLrUNVWkE6t33t3j8e',
+    yearly:
+      process.env.LIVE_MODE === 'true'
+        ? 'price_1OingkJLrUNVWkE65T1Xov44'
+        : 'price_1Oio7cJLrUNVWkE6j6vqQqQt',
   },
 };
 
 export function getPlanName(priceId: string) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
-      return 'Standard';
-    case stripeProducts.standard.yearly:
-      return 'Standard';
+      return 'Standard Monthly';
     case stripeProducts.pro.monthly:
-      return 'Pro';
+      return 'Pro Monthly';
+    case stripeProducts.standard.yearly:
+      return 'Standard Yearly';
     case stripeProducts.pro.yearly:
-      return 'Pro';
+      return 'Pro Yearly';
     default:
-      return 'Community';
+      return 'Community Monthly';
   }
 }
 
 export function getPlanPrice(priceId: string) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
+      return '$20 / Month';
+    case stripeProducts.pro.monthly:
       return '$50 / Month';
     case stripeProducts.standard.yearly:
-      return '$250 / Year';
-    case stripeProducts.pro.monthly:
-      return '$20 seat / Month';
+      return '$180 / Year';
     case stripeProducts.pro.yearly:
-      return '$100 seat / Year';
+      return '$480 / Year';
     default:
-      return 'Free';
+      return 'Community Free';
   }
 }
 
@@ -90,7 +102,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>$250 / year</p>
+                <p className='text-lg font-bold'>$180 / year</p>
               </div>
             </div>
             <div
@@ -103,7 +115,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>$100 seat / year</p>
+                <p className='text-lg font-bold'>$480 / year</p>
               </div>
             </div>
             <div
@@ -135,7 +147,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>$50 / month</p>
+                <p className='text-lg font-bold'>$20 / month</p>
               </div>
             </div>
             <div
@@ -148,7 +160,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>$20 seat / month</p>
+                <p className='text-lg font-bold'>$50 / month</p>
               </div>
             </div>
             <div

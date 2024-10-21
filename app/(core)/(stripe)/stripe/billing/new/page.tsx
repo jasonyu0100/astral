@@ -41,7 +41,7 @@ export default function Page() {
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
         onClick={() => openNewCustomerBillingSession()}
       >
-        OPEN BILLING
+        NEW BILLING
       </button>
       <button
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
