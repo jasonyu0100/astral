@@ -8,17 +8,19 @@ import {
   exampleFileElem,
   FileElemVariant,
 } from '@/(server)/model/elements/file/main';
-import {
-  exampleTextElem,
-  TextElemVariant,
-} from '@/(server)/model/elements/text/main';
+import { ElementVariant } from '@/(server)/model/elements/main';
+import { exampleTextElem } from '@/(server)/model/elements/text/main';
 import { exampleUrlElem } from '@/(server)/model/elements/url/main';
 import { exampleIdea, IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForLoading } from '@/ui/loading/controller/main';
-import { getTextIdeaBounds } from '@/utils/bounds';
+import {
+  getFileIdeaBounds,
+  getTextIdeaBounds,
+  getUrlIdeaBounds,
+} from '@/utils/bounds';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { ContextForSpacesSpace } from '../../../controller/main';
 
@@ -129,6 +131,7 @@ export function useGenerateSceneController(): Controller {
                     variant: FileElemVariant.IMAGE,
                     src: image.src,
                   },
+                  variant: ElementVariant.FILE,
                 })),
               );
               loadingController.loadingController.close();
@@ -147,6 +150,7 @@ export function useGenerateSceneController(): Controller {
                       ...exampleUrlElem,
                       url: `https://www.youtube.com/embed/${result.id.videoId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`,
                     },
+                    variant: ElementVariant.URL,
                   };
                 }),
               );
@@ -179,6 +183,7 @@ export function useGenerateSceneController(): Controller {
             title: item.title,
             url: item.link,
           },
+          variant: ElementVariant.URL,
         };
       });
       setArticlesResults(ideas);
@@ -230,42 +235,68 @@ export function useGenerateSceneController(): Controller {
       );
 
     const ideas = await Promise.all(
-      textResults.map(async (sticky, index) => {
-        const title = `Step ${index + 1}`;
-        const description = sticky;
-        const text = sticky;
-        const variant = TextElemVariant.STICKY;
-        const textElem = {
-          ...exampleTextElem,
-          title: title,
-          text: text,
-          variant: variant,
-        };
-        const { width, height } = await getTextIdeaBounds(textElem);
-
-        return ideaListController.actions.createActions.createIdeaFromTextElement(
-          user.id,
-          newScene.id,
-          title,
-          description,
-          Math.ceil(75 + Math.random() * 150),
-          Math.ceil(75 + Math.random() * 150),
-          width,
-          height,
-          textElem,
-          ideaListController.state.objs.length,
-        );
+      selectedIdeas.map(async (idea, index) => {
+        if (idea.variant === ElementVariant.TEXT) {
+          const { width, height } = await getFileIdeaBounds(
+            idea.fileElem || exampleFileElem,
+          );
+          return ideaListController.actions.createActions.createIdeaFromTextElement(
+            user.id,
+            newScene.id,
+            '',
+            '',
+            Math.ceil(75 + Math.random() * 150),
+            Math.ceil(75 + Math.random() * 150),
+            width,
+            height,
+            idea?.textElem || exampleTextElem,
+            ideaListController.state.objs.length + index,
+          );
+        } else if (idea.variant === ElementVariant.FILE) {
+          const { width, height } = await getTextIdeaBounds(
+            idea.textElem || exampleTextElem,
+          );
+          return ideaListController.actions.createActions.createIdeaFromFileElement(
+            user.id,
+            newScene.id,
+            '',
+            '',
+            Math.ceil(75 + Math.random() * 150),
+            Math.ceil(75 + Math.random() * 150),
+            width,
+            height,
+            idea?.fileElem || exampleFileElem,
+            ideaListController.state.objs.length + index,
+          );
+        } else if (idea.variant === ElementVariant.URL) {
+          const { width, height } = await getUrlIdeaBounds(
+            idea.urlElem || exampleUrlElem,
+          );
+          return ideaListController.actions.createActions.createIdeaFromUrlElement(
+            user.id,
+            newScene.id,
+            '',
+            '',
+            Math.ceil(75 + Math.random() * 150),
+            Math.ceil(75 + Math.random() * 150),
+            width,
+            height,
+            idea?.urlElem || exampleUrlElem,
+            ideaListController.state.objs.length + index,
+          );
+        }
       }),
-
-      // TODO Bound within box and arrange
     );
+
+    console.log(selectedIdeas);
+    console.log(ideas);
 
     await Promise.all(
       ideas.slice(0, ideas.length - 1).map((idea, index) => {
         const toIdea = ideas[index + 1];
         return ideaRelationshipListController.actions.createActions.createFromIdea(
-          idea,
-          toIdea,
+          idea || exampleIdea,
+          toIdea || exampleIdea,
           spaceController.state.objId,
           chapterListController.state.objId,
           newScene.id,

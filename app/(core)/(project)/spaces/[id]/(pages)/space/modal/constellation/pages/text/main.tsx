@@ -27,9 +27,22 @@ export function SpacesSpaceSearchTextContent() {
             className={ctwn(
               'aspect-square cursor-pointer bg-yellow-500 p-[1rem]',
               {
-                'border-blue-500': selected,
+                'rounded border-[2px] border-blue-500':
+                  selected.includes(textResult),
               },
             )}
+            onClick={() => {
+              if (selected.includes(textResult)) {
+                generateSceneController.actions.updateSelectedIdeas(
+                  selected.filter((idea) => idea !== textResult),
+                );
+              } else {
+                generateSceneController.actions.updateSelectedIdeas([
+                  ...generateSceneController.state.selectedIdeas,
+                  textResult,
+                ]);
+              }
+            }}
           >
             <p className='h-full w-full font-bold'>
               {textResult.textElem?.text}
