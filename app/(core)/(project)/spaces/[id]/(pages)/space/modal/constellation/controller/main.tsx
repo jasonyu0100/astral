@@ -5,10 +5,15 @@ import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list'
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import {
+  exampleFileElem,
+  FileElemVariant,
+} from '@/(server)/model/elements/file/main';
+import {
   exampleTextElem,
   TextElemVariant,
 } from '@/(server)/model/elements/text/main';
-import { IdeaObj } from '@/(server)/model/idea/main';
+import { exampleUrlElem } from '@/(server)/model/elements/url/main';
+import { exampleIdea, IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -27,21 +32,29 @@ export enum GenerateSceneTab {
 
 interface ControllerState {
   tab: GenerateSceneTab;
-  searchQuery: string;
-  keywords: string;
-  stickies: string[];
-  searchResults: unknown[];
-  imageResults: unknown[];
-  videoResults: unknown[];
-  selected: IdeaObj[];
+  articleSearchQuery: string;
+  mediaSearchQuery: string;
+  imageryKeywords: string;
+  textSummary: string;
+  textResults: IdeaObj[];
+  articleResults: IdeaObj[];
+  imageryResults: IdeaObj[];
+  mediaResults: IdeaObj[];
+  selectedIdeas: IdeaObj[];
 }
 
 interface ControllerActions {
   createMap: () => Promise<void>;
-  editSticky: (index: number, text: string) => void;
   updateTab: (tab: GenerateSceneTab) => void;
-  updateQuery: (query: string) => void;
-  updateSelected: (selected: IdeaObj[]) => void;
+  updateArticleSearchQuery: (query: string) => void;
+  updateMediaSearchQuery: (query: string) => void;
+  updateImageryKeywords: (keywords: string) => void;
+  updateTextSummary: (summary: string) => void;
+  updateArticleResults: (results: IdeaObj[]) => void;
+  updateImageryResults: (results: IdeaObj[]) => void;
+  updateMediaResults: (results: IdeaObj[]) => void;
+  updateTextResults: (results: IdeaObj[]) => void;
+  updateSelectedIdeas: (selected: IdeaObj[]) => void;
 }
 
 interface Controller {
@@ -56,13 +69,18 @@ export const ContextForGenerateSceneController = createContext(
 export function useGenerateSceneController(): Controller {
   const user = useGlobalUser((state) => state.user);
   const [tab, setTab] = useState(GenerateSceneTab.TEXT);
-  const [stickies, setStickies] = useState<string[]>([]);
-  const [searchResults, setSearchResults] = useState([]);
-  const [imageResults, setImageResults] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [videoResults, setVideoResults] = useState([]);
-  const [keywords, setKeywords] = useState('');
-  const [selected, setSelected] = useState<IdeaObj[]>([]);
+  // Results
+  const [textResults, setTextResults] = useState<IdeaObj[]>([]);
+  const [articlesResults, setArticlesResults] = useState<IdeaObj>([]);
+  const [imageryResults, setImageryResults] = useState<IdeaObj>([]);
+  const [mediaResults, setMediaResults] = useState<IdeaObj>([]);
+  // Query
+  const [articleSearchQuery, setArticleSearchQuery] = useState('');
+  const [mediaSearchQuery, setMediaSearchQuery] = useState('');
+  const [imageryKeywords, setImageryKeywords] = useState('');
+  const [textSummary, setTextSummary] = useState('');
+  // Selected
+  const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
 
   const loadingController = useContext(ContextForLoading);
   const spacesSpaceController = useContext(ContextForSpacesSpace);
@@ -84,15 +102,15 @@ export function useGenerateSceneController(): Controller {
       if (tab === GenerateSceneTab.TEXT) {
         spacesSpaceController.actions
           .summariseConversationIntoNotes()
-          .then((stickies) => {
-            setStickies(stickies.map((sticky) => sticky.text));
+          .then((ideas) => {
+            setTextResults(ideas);
             loadingController.loadingController.close();
           });
       } else if (tab === GenerateSceneTab.ARTICLES) {
         spacesSpaceController.actions
           .summariseConversationIntoQuery()
           .then((query) => {
-            setSearchQuery(query);
+            setArticleSearchQuery(query);
             searchArticles(query).then(() => {
               loadingController.loadingController.close();
             });
@@ -101,9 +119,18 @@ export function useGenerateSceneController(): Controller {
         spacesSpaceController.actions
           .summariseConversationIntoKeywords()
           .then((keywords) => {
-            setKeywords(keywords);
+            setImageryKeywords(keywords);
             unsplashController.searchImage(keywords).then((images) => {
-              setImageResults(images);
+              setImageryResults(
+                images.map((image: any) => ({
+                  ...exampleIdea,
+                  fileElem: {
+                    ...exampleFileElem,
+                    variant: FileElemVariant.IMAGE,
+                    src: image.src,
+                  },
+                })),
+              );
               loadingController.loadingController.close();
             });
           });
@@ -111,16 +138,21 @@ export function useGenerateSceneController(): Controller {
         spacesSpaceController.actions
           .summariseConversationIntoSearchTerm()
           .then((searchTerm) => {
-            searchYouTubeVideos(searchTerm).then((result) => {
-              setVideoResults(result);
-              console.log(result);
+            searchYouTubeVideos(searchTerm).then((results) => {
+              setMediaResults(
+                results.map((result: any) => {
+                  return {
+                    ...exampleIdea,
+                    urlElem: {
+                      ...exampleUrlElem,
+                      url: `https://www.youtube.com/embed/${result.id.videoId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`,
+                    },
+                  };
+                }),
+              );
               loadingController.loadingController.close();
             });
           });
-      } else if (tab === GenerateSceneTab.VAULT) {
-        searchArticles('how to create a map').then(() => {
-          loadingController.loadingController.close();
-        });
       } else {
         loadingController.loadingController.open();
       }
@@ -139,9 +171,18 @@ export function useGenerateSceneController(): Controller {
       }
 
       const data = await response.json();
-      console.log(data);
-      setSearchResults(data.items || []);
-      return data.items || []; // Return the array of search results, or an empty array if none
+      const ideas = data.items.map((item) => {
+        return {
+          ...exampleIdea,
+          urlElem: {
+            ...exampleUrlElem,
+            title: item.title,
+            url: item.link,
+          },
+        };
+      });
+      setArticlesResults(ideas);
+      return ideas; // Return the array of search results, or an empty array if none
     } catch (error) {
       console.error('Error fetching data from Google Custom Search API', error);
       return [];
@@ -189,7 +230,7 @@ export function useGenerateSceneController(): Controller {
       );
 
     const ideas = await Promise.all(
-      stickies.map(async (sticky, index) => {
+      textResults.map(async (sticky, index) => {
         const title = `Step ${index + 1}`;
         const description = sticky;
         const text = sticky;
@@ -236,35 +277,31 @@ export function useGenerateSceneController(): Controller {
       spaceController.state.objId,
     )}?chapter=${chapterListController.state.objId}&scene=${newScene.id}`;
   }
-
-  function editSticky(index: number, text: string) {
-    setStickies(
-      stickies.map((sticky, i) => {
-        if (i === index) {
-          return text;
-        }
-        return sticky;
-      }),
-    );
-  }
-
   return {
     state: {
       tab,
-      stickies,
-      searchResults,
-      imageResults,
-      searchQuery,
-      keywords,
-      videoResults,
-      selected,
+      articleSearchQuery: articleSearchQuery,
+      imageryKeywords: imageryKeywords,
+      mediaSearchQuery: mediaSearchQuery,
+      textSummary: textSummary,
+      textResults: textResults,
+      articleResults: articlesResults,
+      imageryResults: imageryResults,
+      mediaResults: mediaResults,
+      selectedIdeas: selectedIdeas,
     },
     actions: {
+      createMap: createMap,
       updateTab: (tab: GenerateSceneTab) => setTab(tab),
-      updateQuery: (query: string) => setSearchQuery(query),
-      createMap,
-      editSticky,
-      updateSelected: (selected: IdeaObj[]) => setSelected(selected),
+      updateArticleSearchQuery: (query: string) => setArticleSearchQuery(query),
+      updateMediaSearchQuery: (query: string) => setMediaSearchQuery(query),
+      updateImageryKeywords: (keywords: string) => setImageryKeywords(keywords),
+      updateTextSummary: (summary: string) => setTextSummary(summary),
+      updateArticleResults: (results: IdeaObj[]) => setArticlesResults(results),
+      updateImageryResults: (results: IdeaObj[]) => setImageryResults(results),
+      updateMediaResults: (results: IdeaObj[]) => setMediaResults(results),
+      updateTextResults: (results: IdeaObj[]) => setTextResults(results),
+      updateSelectedIdeas: (selected: IdeaObj[]) => setSelectedIdeas(selected),
     },
   };
 }

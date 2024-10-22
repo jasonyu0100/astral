@@ -7,19 +7,14 @@ import {
   GenerateSceneTab,
   useGenerateSceneController,
 } from './controller/main';
-import { SpacesSpaceSearchArticlesContent } from './main/articles/main';
-import { SpacesSpaceSearchImageryContent } from './main/imagery/main';
-import { SpacesSpaceSearchMediaContent } from './main/media/main';
-import { SpacesSpaceSearchTextContent } from './main/text/main';
-import { SpacesSpaceSearchVaultContent } from './main/vault/main';
+import { SpacesSpaceSearchArticlesContent } from './pages/articles/main';
+import { SpacesSpaceSearchImageryContent } from './pages/imagery/main';
+import { SpacesSpaceSearchMediaContent } from './pages/media/main';
+import { SpacesSpaceSearchTextContent } from './pages/text/main';
 import { SpacesSpaceGenerateRowAdd } from './row/add/main';
-import { SpacesSpaceSearchArticlesTab } from './tabs/articles/main';
-import { SpacesSpaceSearchImageryTab } from './tabs/imagery/main';
-import { SpacesSpaceSearchMediaTab } from './tabs/media/main';
-import { SpacesSpaceSearchTextTab } from './tabs/text/main';
-import { SpacesSpaceSearchVaultTab } from './tabs/vault/main';
+import { SpacesSpaceConstellationTabs } from './tabs/main';
 
-export function SpacesSpaceSetConstellationModal() {
+export function SpacesSpaceConstellationModal() {
   const openableController = useContext(ContextForOpenable);
   const generateSceneController = useGenerateSceneController();
 
@@ -33,9 +28,6 @@ export function SpacesSpaceSetConstellationModal() {
             <div className='flex h-full w-full flex-col justify-center'>
               <div className='flex flex-row items-center space-x-[2rem]'>
                 <div
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
                   className='flex w-full flex-row items-center justify-center space-x-[2rem] overflow-auto'
                   style={{ height: '800px' }}
                 >
@@ -51,20 +43,10 @@ export function SpacesSpaceSetConstellationModal() {
                   )}
                   {generateSceneController.state.tab ===
                     GenerateSceneTab.MEDIA && <SpacesSpaceSearchMediaContent />}
-                  {generateSceneController.state.tab ===
-                    GenerateSceneTab.VAULT && <SpacesSpaceSearchVaultContent />}
                 </div>
                 <SpacesSpaceGenerateRowAdd />
               </div>
-              <div className='flex flex-row p-[2rem]'>
-                <div className='grid w-full grid-cols-5'>
-                  <SpacesSpaceSearchTextTab />
-                  <SpacesSpaceSearchArticlesTab />
-                  <SpacesSpaceSearchImageryTab />
-                  <SpacesSpaceSearchMediaTab />
-                  <SpacesSpaceSearchVaultTab />
-                </div>
-              </div>
+              <SpacesSpaceConstellationTabs />
             </div>
           </CustomisableModalContents>
         </CustomisableModal>

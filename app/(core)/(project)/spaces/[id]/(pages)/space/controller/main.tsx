@@ -5,6 +5,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ConversationObj } from '@/(server)/model/conversation/main';
 import { ConversationMessageObj } from '@/(server)/model/conversation/message/main';
+import { exampleIdea, IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useState } from 'react';
@@ -25,7 +26,7 @@ interface ControllerActions {
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
   sendMessageToConversation: () => Promise<ConversationMessageObj[]>;
   summariseConversationIntoQuery: () => Promise<string>;
-  summariseConversationIntoNotes: () => Promise<GeneratedSticky[]>;
+  summariseConversationIntoNotes: () => Promise<IdeaObj[]>;
   summariseConversationIntoKeywords: () => Promise<string>;
   summariseConversationIntoSearchTerm: () => Promise<string>;
 }
@@ -179,7 +180,15 @@ export function useControllerForSpacesSpace() {
 
     const json = JSON.parse(replacedString);
 
-    return json.insights;
+    return json.insights.map((insight: { text: string }) => {
+      return {
+        ...exampleIdea,
+        textElem: {
+          ...exampleIdea.textElem,
+          text: insight.text,
+        },
+      };
+    });
   }
 
   async function summariseConversationIntoQuery() {
