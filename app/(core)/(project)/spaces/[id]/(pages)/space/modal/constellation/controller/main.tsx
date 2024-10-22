@@ -10,7 +10,10 @@ import {
 } from '@/(server)/model/elements/file/main';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { exampleTextElem } from '@/(server)/model/elements/text/main';
-import { exampleUrlElem } from '@/(server)/model/elements/url/main';
+import {
+  exampleUrlElem,
+  UrlElemVariant,
+} from '@/(server)/model/elements/url/main';
 import { exampleIdea, IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -128,8 +131,8 @@ export function useGenerateSceneController(): Controller {
                   ...exampleIdea,
                   fileElem: {
                     ...exampleFileElem,
-                    variant: FileElemVariant.IMAGE,
                     src: image.src,
+                    variant: FileElemVariant.IMAGE,
                   },
                   variant: ElementVariant.FILE,
                 })),
@@ -149,6 +152,7 @@ export function useGenerateSceneController(): Controller {
                     urlElem: {
                       ...exampleUrlElem,
                       url: `https://www.youtube.com/embed/${result.id.videoId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`,
+                      variant: UrlElemVariant.YOUTUBE,
                     },
                     variant: ElementVariant.URL,
                   };
@@ -182,7 +186,9 @@ export function useGenerateSceneController(): Controller {
             ...exampleUrlElem,
             title: item.title,
             url: item.link,
+            variant: UrlElemVariant.WEBSITE,
           },
+          title: item.title,
           variant: ElementVariant.URL,
         };
       });
@@ -243,8 +249,8 @@ export function useGenerateSceneController(): Controller {
           return ideaListController.actions.createActions.createIdeaFromTextElement(
             user.id,
             newScene.id,
-            '',
-            '',
+            idea.title || '',
+            idea.description || '',
             Math.ceil(75 + Math.random() * 150),
             Math.ceil(75 + Math.random() * 150),
             width,
@@ -259,8 +265,8 @@ export function useGenerateSceneController(): Controller {
           return ideaListController.actions.createActions.createIdeaFromFileElement(
             user.id,
             newScene.id,
-            '',
-            '',
+            idea.title || '',
+            idea.description || '',
             Math.ceil(75 + Math.random() * 150),
             Math.ceil(75 + Math.random() * 150),
             width,
@@ -275,8 +281,8 @@ export function useGenerateSceneController(): Controller {
           return ideaListController.actions.createActions.createIdeaFromUrlElement(
             user.id,
             newScene.id,
-            '',
-            '',
+            idea.title || '',
+            idea.description || '',
             Math.ceil(75 + Math.random() * 150),
             Math.ceil(75 + Math.random() * 150),
             width,

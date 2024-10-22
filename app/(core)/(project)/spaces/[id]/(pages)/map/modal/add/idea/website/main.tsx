@@ -72,15 +72,13 @@ export function SpacesMapAddWebsiteUrlModal() {
       <CustomisableModal>
         <CustomisableModalContents>
           <div className='flex flex-row items-center space-x-[2rem]'>
-            {!websiteUrl && (
-              <>
-                <AstralModalStep>1</AstralModalStep>
-                <AstralTextLineInput
-                  placeholder='Enter a website url'
-                  onChange={(e) => changeWebsiteUrl(e.target.value)}
-                />
-              </>
-            )}
+            <>
+              <AstralModalStep>1</AstralModalStep>
+              <AstralTextLineInput
+                placeholder='Enter a website url'
+                onChange={(e) => changeWebsiteUrl(e.target.value)}
+              />
+            </>
             {websiteUrl && (
               <>
                 <AstralModalStep>2</AstralModalStep>

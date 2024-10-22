@@ -24,8 +24,11 @@ export function SpacesSpaceConstellationModal() {
         value={generateSceneController}
       >
         <CustomisableModal>
-          <CustomisableModalContents className='h-full'>
-            <div className='flex h-full w-full flex-col justify-center'>
+          <CustomisableModalContents className='w-full'>
+            <div
+              className='flex w-full flex-col justify-center'
+              style={{ height: '100%' }}
+            >
               <div className='flex flex-row items-center space-x-[2rem]'>
                 <div
                   className='flex w-full flex-row items-center justify-center space-x-[2rem] overflow-auto'

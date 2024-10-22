@@ -63,7 +63,7 @@ export function SpacesMapAddFileIdeaModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
-        <CustomisableModalContents className='h-1/2'>
+        <CustomisableModalContents>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <FormUploadFile onChange={(file) => changeFile(file)} />

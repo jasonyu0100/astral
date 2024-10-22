@@ -135,13 +135,10 @@ export function ElementResource({
             />
           )}
           {resourceObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
-            <GlassWindowFrame
-              roundedFx={roundedFx['rounded']}
-              className='w-full'
-            >
-              <GlassWindowContents className='w-full p-[1rem]'>
+            <GlassWindowFrame roundedFx={roundedFx['rounded']}>
+              <GlassWindowContents className='px-[1rem]'>
                 <Link
-                  className='flex w-full flex-row items-center justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
+                  className='flex flex-row items-center justify-center space-x-[0.5rem] whitespace-nowrap font-bold text-slate-300'
                   href={resourceObj.urlElem.url}
                   target='_blank'
                 >
