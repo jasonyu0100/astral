@@ -73,9 +73,9 @@ export function useGenerateSceneController(): Controller {
   const [tab, setTab] = useState(GenerateSceneTab.TEXT);
   // Results
   const [textResults, setTextResults] = useState<IdeaObj[]>([]);
-  const [articlesResults, setArticlesResults] = useState<IdeaObj>([]);
-  const [imageryResults, setImageryResults] = useState<IdeaObj>([]);
-  const [mediaResults, setMediaResults] = useState<IdeaObj>([]);
+  const [articlesResults, setArticlesResults] = useState<IdeaObj[]>([]);
+  const [imageryResults, setImageryResults] = useState<IdeaObj[]>([]);
+  const [mediaResults, setMediaResults] = useState<IdeaObj[]>([]);
   // Query
   const [articleSearchQuery, setArticleSearchQuery] = useState('');
   const [mediaSearchQuery, setMediaSearchQuery] = useState('');
@@ -124,7 +124,7 @@ export function useGenerateSceneController(): Controller {
             setImageryKeywords(keywords);
             unsplashController.searchImage(keywords).then((images) => {
               setImageryResults(
-                images.map((image: any) => ({
+                images.map((image: unknown) => ({
                   ...exampleIdea,
                   fileElem: {
                     ...exampleFileElem,
@@ -143,7 +143,7 @@ export function useGenerateSceneController(): Controller {
           .then((searchTerm) => {
             searchYouTubeVideos(searchTerm).then((results) => {
               setMediaResults(
-                results.map((result: any) => {
+                results.map((result: unknown) => {
                   return {
                     ...exampleIdea,
                     urlElem: {
@@ -175,7 +175,7 @@ export function useGenerateSceneController(): Controller {
       }
 
       const data = await response.json();
-      const ideas = data.items.map((item) => {
+      const ideas = data.items.map((item: unknown) => {
         return {
           ...exampleIdea,
           urlElem: {
