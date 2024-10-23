@@ -77,7 +77,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceMembersListController = useControllerForSpaceMemberList('');
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [category, changeCategory] = useState(SpaceTemplate.StarterProject);
+  const [category, changeCategory] = useState(SpaceTemplate.BlankSpace);
   const [theme, changeTheme] = useState(exampleFileElem as FileElem);
   const [hours, changeHours] = useState(10);
   const [target, changeTarget] = useState(

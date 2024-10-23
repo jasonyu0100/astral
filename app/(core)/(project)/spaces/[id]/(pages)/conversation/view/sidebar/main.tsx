@@ -1,5 +1,7 @@
+import { ContextForSpacesSidebarModals } from '@/(core)/(project)/spaces/sidebar/modal/controller/main';
 import { ContextForSpaceMemberList } from '@/(server)/controller/space/member/list';
 import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
+import { AstralAddIcon } from '@/icons/add/main';
 import { glassFx } from '@/style/data';
 import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
@@ -16,6 +18,9 @@ import { SpacesConversationSidebarMember } from './members/member/main';
 export function SpacesConversationSidebar() {
   const spacesConversationController = useContext(ContextForSpacesConversation);
   const spaceMemberListController = useContext(ContextForSpaceMemberList);
+  const spacesSidebarModalController = useContext(
+    ContextForSpacesSidebarModals,
+  );
 
   return (
     <GlassAreaContainer
@@ -31,7 +36,7 @@ export function SpacesConversationSidebar() {
       )}
       {spacesConversationController.state.sidebarContentMode ===
         SpacesConversationSidebarContentMode.MEMBERS && (
-        <div className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
+        <div className='flex w-full flex-col items-center space-y-[1rem] p-[1rem]'>
           <SpacesConversationSidebarLoggedIn />
           <HorizontalDivider />
           {spaceMemberListController.state.objs.map((member) => (
@@ -39,6 +44,14 @@ export function SpacesConversationSidebar() {
               <SpacesConversationSidebarMember />
             </ContextForSpaceMemberObj.Provider>
           ))}
+          <div
+            className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
+            onClick={() => {
+              spacesSidebarModalController.addMemberController.open();
+            }}
+          >
+            <AstralAddIcon />
+          </div>
         </div>
       )}
     </GlassAreaContainer>

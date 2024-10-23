@@ -8,6 +8,7 @@ import { SpaceObj } from '@/(server)/model/space/main';
 import { TaskObj } from '@/(server)/model/task/main';
 import { createContext } from 'react';
 import { animationTemplate } from './new-templates/animationTemplate';
+import { blankSpaceTemplate } from './new-templates/blankSpaceTemplate';
 import { collaborationHubTemplate } from './new-templates/collaborationHubTemplate';
 import { contentCreationTemplate } from './new-templates/contentCreationTemplate';
 import { creativeCampaignTemplate } from './new-templates/creativeCampaignTemplate';
@@ -21,16 +22,6 @@ import { sprintChallengeTemplate } from './new-templates/sprintChallengeTemplate
 import { newStarterProjectTemplate } from './new-templates/starterTemplate';
 import { uxUiDesignTemplate } from './new-templates/uxUiDesignTemplate';
 import { writingProjectTemplate } from './new-templates/writingProjectTemplate';
-import { brandCreationTemplate } from './templates/brand-creation';
-import { designSprintTemplate } from './templates/design-sprint';
-import { eventPlanningTemplate } from './templates/event-planning';
-import { gameDevelopmentTemplate } from './templates/game-deverlopment';
-import { marketingCampaignTemplate } from './templates/marketing-campaign';
-import { productLaunchTemplate } from './templates/product-launch';
-import { projectManagementTemplate } from './templates/project-management';
-import { softwareDevelopmentTemplate } from './templates/software-development';
-import { starterTemplate } from './templates/starter-project';
-import { startupOrganizationTemplate } from './templates/startup-organization';
 import { videoProductionTemplate } from './templates/video-production';
 
 // SPACE
@@ -121,22 +112,8 @@ export interface TemplatePostObj extends _TemplatePostObj {
 }
 
 // TEMPLATES
-
-enum OldSpaceTemplate {
-  StarterProject = 'Starter Project',
-  ProjectManagement = 'Project Management',
-  GameDevelopment = 'Game Development',
-  SoftwareDevelopment = 'Software Development',
-  MarketingCampaign = 'Marketing Campaign',
-  ProductLaunch = 'Product Launch',
-  StartupOrganization = 'Startup Organization',
-  VideoProduction = 'Video Production',
-  DesignSprint = 'Design Sprint',
-  EventPlanning = 'Event Planning',
-  BrandCreation = 'Brand Creation',
-}
-
 enum NewSpaceTemplate {
+  BlankSpace = 'Blank Space',
   StarterProject = 'Starter Project',
   FreelancingTask = 'Freelancing Task',
   Ideation = 'Ideation',
@@ -156,6 +133,7 @@ enum NewSpaceTemplate {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
+  [NewSpaceTemplate.BlankSpace]: blankSpaceTemplate,
   [NewSpaceTemplate.StarterProject]: newStarterProjectTemplate,
   [NewSpaceTemplate.FreelancingTask]: freelancingTaskTemplate,
   [NewSpaceTemplate.Ideation]: ideationTemplate,
@@ -171,20 +149,6 @@ const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.MusicAndAudioProduction]: musicAndAudioProductionTemplate,
   [NewSpaceTemplate.WritingProject]: writingProjectTemplate,
   [NewSpaceTemplate.Animation]: animationTemplate,
-};
-
-const OldSpaceTemplateMap: Record<OldSpaceTemplate, TemplateSpaceObj> = {
-  [OldSpaceTemplate.ProjectManagement]: projectManagementTemplate,
-  [OldSpaceTemplate.StarterProject]: starterTemplate,
-  [OldSpaceTemplate.GameDevelopment]: gameDevelopmentTemplate,
-  [OldSpaceTemplate.SoftwareDevelopment]: softwareDevelopmentTemplate,
-  [OldSpaceTemplate.MarketingCampaign]: marketingCampaignTemplate,
-  [OldSpaceTemplate.ProductLaunch]: productLaunchTemplate,
-  [OldSpaceTemplate.StartupOrganization]: startupOrganizationTemplate,
-  [OldSpaceTemplate.VideoProduction]: videoProductionTemplate,
-  [OldSpaceTemplate.DesignSprint]: designSprintTemplate,
-  [OldSpaceTemplate.EventPlanning]: eventPlanningTemplate,
-  [OldSpaceTemplate.BrandCreation]: brandCreationTemplate,
 };
 
 export {

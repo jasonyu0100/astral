@@ -116,7 +116,7 @@ export function SpacesMapCombineIdeas() {
               </div>
               <div className='flex items-center justify-center'>
                 <div
-                  className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'
+                  className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
                   onClick={() => combineIdeas()}
                 >
                   <AstralSubjectIcon />
