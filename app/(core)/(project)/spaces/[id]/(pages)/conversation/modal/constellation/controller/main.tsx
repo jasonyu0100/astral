@@ -1,7 +1,7 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { useControllerForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
-import { useControllerForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import {
@@ -92,7 +92,7 @@ export function useGenerateSceneController(): Controller {
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useControllerForIdeaSceneList('');
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useControllerForSceneIdeaList('');
   const ideaRelationshipListController =
     useControllerForIdeaRelationshipListFromChapter(
@@ -231,14 +231,18 @@ export function useGenerateSceneController(): Controller {
     openableController.close();
     loadingController.loadingController.open();
 
-    const newScene =
-      await sceneListController.actions.createActions.createScene(
+    let newScene = sceneListController.state?.currentObj;
+    console.log(newScene);
+    if (!newScene) {
+      newScene = await sceneListController.actions.createActions.createScene(
         'Map',
         'A map of the scene',
         'A map of the scene',
         user.id,
         chapterListController.state.objId,
       );
+      console.log(newScene);
+    }
 
     const ideas = await Promise.all(
       selectedIdeas.map(async (idea, index) => {
@@ -293,9 +297,6 @@ export function useGenerateSceneController(): Controller {
         }
       }),
     );
-
-    console.log(selectedIdeas);
-    console.log(ideas);
 
     await Promise.all(
       ideas.slice(0, ideas.length - 1).map((idea, index) => {

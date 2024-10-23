@@ -428,7 +428,7 @@ export const useControllerForCollectionResourceList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromBeginning().then(() => {
+      controllerActions.gatherActions.gatherFromEnd().then(() => {
         if (initialId) {
           stateActions.selectViaId(initialId);
         }

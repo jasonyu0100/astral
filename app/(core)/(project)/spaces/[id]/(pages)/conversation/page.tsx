@@ -11,6 +11,10 @@ import {
   useControllerForConversationMessageList,
 } from '@/(server)/controller/conversation/message/list';
 import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/(server)/controller/scene/list';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/(server)/controller/space/chapter/list';
@@ -50,6 +54,9 @@ function Page({ params }: { params: { id: string } }) {
     spaceMainController.state.objId,
     chapterId,
   );
+  const sceneListController = useControllerForIdeaSceneList(
+    chapterListController.state.objId,
+  );
   const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
   );
@@ -65,23 +72,25 @@ function Page({ params }: { params: { id: string } }) {
             <ContextForChapterConversationList.Provider
               value={conversationListController}
             >
-              <ContextForConversationMessageList.Provider
-                value={messageListController}
-              >
-                <EffectWrapper>
-                  <UpdateWrapper>
-                    <LoadingWrapper>
-                      <ControllerWrapper>
-                        <ModalWrapper>
-                          <ViewWrapper>
-                            <SpacesConversationView />
-                          </ViewWrapper>
-                        </ModalWrapper>
-                      </ControllerWrapper>
-                    </LoadingWrapper>
-                  </UpdateWrapper>
-                </EffectWrapper>
-              </ContextForConversationMessageList.Provider>
+              <ContextForIdeaSceneList.Provider value={sceneListController}>
+                <ContextForConversationMessageList.Provider
+                  value={messageListController}
+                >
+                  <EffectWrapper>
+                    <UpdateWrapper>
+                      <LoadingWrapper>
+                        <ControllerWrapper>
+                          <ModalWrapper>
+                            <ViewWrapper>
+                              <SpacesConversationView />
+                            </ViewWrapper>
+                          </ModalWrapper>
+                        </ControllerWrapper>
+                      </LoadingWrapper>
+                    </UpdateWrapper>
+                  </EffectWrapper>
+                </ContextForConversationMessageList.Provider>
+              </ContextForIdeaSceneList.Provider>
             </ContextForChapterConversationList.Provider>
           </ContextForSpaceMemberList.Provider>
         </ContextForSpaceChapterList.Provider>
