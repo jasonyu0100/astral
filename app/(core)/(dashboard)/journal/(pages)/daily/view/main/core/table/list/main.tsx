@@ -6,7 +6,7 @@ import { useContext } from 'react';
 export function JournalDailyTableContents() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   return (
-    <div className='grid grid-cols-5 items-center justify-center gap-[2rem]'>
+    <div className='grid grid-cols-3 items-center justify-center gap-[2rem]'>
       {resourceListController.state.objs.map((resource) => (
         <ContextForCollectionResourceObj.Provider
           value={resource}

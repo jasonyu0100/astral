@@ -98,6 +98,17 @@ export function ElementAttachment({
               />
             </div>
           )}
+          {attachmentObj.fileElem?.variant === FileElemVariant.PDF && (
+            <div className='relative h-[400px] w-full'>
+              <iframe
+                src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${encodeURIComponent(attachmentObj?.fileElem?.src)}`}
+                height='100%'
+                width='100%'
+                className='rounded-md border-2 border-gray-300'
+                title='PDF Preview'
+              />
+            </div>
+          )}
         </>
       )}
       {attachmentObj.variant === ElementVariant.TEXT && (

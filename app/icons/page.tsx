@@ -61,6 +61,7 @@ import { AstralSubjectIcon } from './subject/main';
 import { AstralSyncAltIcon } from './sync-alt/main';
 import { AstralTimelineIcon } from './timeline/main';
 import { AstralUploadIcon } from './upload/main';
+import { AstralVideoCamIcon } from './video-cam/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
 import { AstralVisibilityIcon } from './visibility/main';
 import { AstralVoiceIcon } from './voice/main';
@@ -134,6 +135,7 @@ export default function Page() {
       <AstralEditIcon />
       <AstralDownloadIcon />
       <AstralSyncAltIcon />
+      <AstralVideoCamIcon />
     </div>
   );
 }

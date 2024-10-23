@@ -1,9 +1,6 @@
 import { ContextForDashboardJournalModals } from '@/(core)/(dashboard)/journal/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralAlbumIcon } from '@/icons/album/main';
-import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralNoteIcon } from '@/icons/note/main';
-import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { GlassWindowContents } from '@/ui/glass/window/contents/main';
 import { GlassWindowFrame } from '@/ui/glass/window/main';
@@ -16,7 +13,7 @@ export function JournalDailyFooterRight() {
   return (
     <>
       <div className='flex h-full w-full items-center justify-end space-x-[1rem]'>
-        <AstralAlbumIcon
+        {/* <AstralAlbumIcon
           onClick={() => {
             modalController.addUrlSpotifyModal.open();
           }}
@@ -28,7 +25,7 @@ export function JournalDailyFooterRight() {
         />
         <AstralLinkIcon
           onClick={() => modalController.addUrlWebsiteModal.open()}
-        />
+        /> */}
         <AstralNoteIcon
           onClick={() => {
             modalController.addTextStickyModal.open();

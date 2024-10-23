@@ -5,6 +5,7 @@ export enum FileElemVariant {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
   AUDIO = 'AUDIO',
+  PDF = 'PDF',
   ANY = 'ANY',
 }
 
@@ -126,6 +127,9 @@ export function getFileVariantFromMimeType(mimeType: string): FileElemVariant {
   }
   if (mimeType.includes('text')) {
     return FileElemVariant.IMAGE;
+  }
+  if (mimeType.includes('application/pdf')) {
+    return FileElemVariant.PDF;
   }
   return FileElemVariant.IMAGE;
 }

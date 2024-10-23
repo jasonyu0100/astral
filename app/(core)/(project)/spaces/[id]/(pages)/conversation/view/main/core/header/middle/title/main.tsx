@@ -6,7 +6,7 @@ export default function SpacesConversationHeaderMiddleTitle() {
 
   return (
     <p className='text-center text-lg font-light text-slate-300'>
-      {spaceMainController.state.obj.title?.trim() || 'Untitled'}
+      {spaceMainController.state.obj?.title?.trim() || 'Untitled'}
     </p>
   );
 }

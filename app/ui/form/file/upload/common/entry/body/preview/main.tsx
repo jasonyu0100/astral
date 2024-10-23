@@ -66,6 +66,17 @@ export function UploadedFileEntryPreview() {
           className='aspect-square h-[100px]  bg-black object-contain'
         />
       )}
+      {file.variant === FileElemVariant.PDF && (
+        <div className='relative h-[100px] w-full'>
+          <iframe
+            src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${encodeURIComponent(file.src)}`}
+            height='100%'
+            width='100%'
+            className='rounded-md border-2 border-gray-300'
+            title='PDF Preview'
+          />
+        </div>
+      )}
     </>
   );
 }
