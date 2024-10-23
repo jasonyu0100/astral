@@ -10,6 +10,7 @@ import { SpacesMapHistory } from './history/main';
 import { SpacesMapBack } from './map/left/back/main';
 import { SpacesMapChat } from './map/left/chat/main';
 import { SpacesMapPalette } from './map/left/palette/main';
+import { SpacesMapScreenshot } from './map/right/screenshot/main';
 import { SpacesMapScene } from './map/scene/main';
 
 export function SpacesMapContents() {
@@ -43,7 +44,7 @@ export function SpacesMapContents() {
                 <SpacesMapChat />
                 {/* <SpacesMapNavigationUp /> */}
                 {/* <SpacesMapNavigationDown /> */}
-                {/* <SpacesMapScreenshot /> */}
+                <SpacesMapScreenshot />
               </>
             )}
           </>

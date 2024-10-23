@@ -24,13 +24,13 @@ interface ControllerState {
   divHeight: number;
   selectedIdeas: IdeaObj[];
   directoryMode: SpacesMapDirectoryMode;
-  connectionMode: SpacesMapConnectionMode;
+  linkMode: SpacesMapLinkMode;
   mapMode: SpacesMapInteractionMode;
   sidebarMediaMode: SpacesMapSidebarMediaMode;
   sidebarContentMode: SpacesMapSidebarContentMode;
   sidebarMode: SpacesMapSidebarMode;
   sidebarVisibility: SpacesMapSidebarVisibility;
-  peopleMode: SpacesMapPeopleMode;
+  bubbleMode: SpacesMapBubbleMode;
   screenshotRef: React.RefObject<HTMLDivElement>;
   hideUI: boolean;
 }
@@ -46,8 +46,8 @@ interface ControllerActions {
   updateDirectoryMode: (mode: SpacesMapDirectoryMode) => void;
   updateDivWidth: (width: number) => void;
   updateDivHeight: (height: number) => void;
-  updateConnectionMode: (mode: SpacesMapConnectionMode) => void;
-  updatePeopleMode: (mode: SpacesMapPeopleMode) => void;
+  updateLinkMode: (mode: SpacesMapLinkMode) => void;
+  updateBubbleMode: (mode: SpacesMapBubbleMode) => void;
   updateSelectedIdeas: (ideas: IdeaObj[]) => void;
   updateInteractionMode: (mode: SpacesMapInteractionMode) => void;
   updateSidebarContentMode: (mode: SpacesMapSidebarContentMode) => void;
@@ -80,7 +80,7 @@ export enum SpacesMapIdeaMode {
   INFORMATION = 'Information',
 }
 
-export enum SpacesMapPeopleMode {
+export enum SpacesMapBubbleMode {
   OFF = 'OFF',
   ON = 'ON',
 }
@@ -103,9 +103,9 @@ export enum SpacesMapSidebarMode {
   CHAT = 'Chat',
 }
 
-export enum SpacesMapConnectionMode {
-  DEFAULT = 'Default',
-  BUBBLE = 'Bubble',
+export enum SpacesMapLinkMode {
+  ON = 'ON',
+  OFF = 'OFF',
 }
 
 export enum SpacesMapDirectoryMode {
@@ -125,8 +125,8 @@ export function useControllerForSpacesMap(): Controller {
     ContextForIdeaRelationshipListFromScene,
   );
   const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
-  const [peopleMode, setPeopleMode] = useState<SpacesMapPeopleMode>(
-    SpacesMapPeopleMode.OFF,
+  const [bubbleMode, setBubbleMode] = useState<SpacesMapBubbleMode>(
+    SpacesMapBubbleMode.OFF,
   );
   const [directoryMode, setDirectoryMode] = useState<SpacesMapDirectoryMode>(
     SpacesMapDirectoryMode.DEFAULT,
@@ -141,8 +141,8 @@ export function useControllerForSpacesMap(): Controller {
   const [listMode, setListMode] = useState<SpacesMapSidebarContentMode>(
     SpacesMapSidebarContentMode.CHAPTERS,
   );
-  const [connectionMode, setConnectionMode] = useState<SpacesMapConnectionMode>(
-    SpacesMapConnectionMode.DEFAULT,
+  const [linkMode, setLinkMode] = useState<SpacesMapLinkMode>(
+    SpacesMapLinkMode.ON,
   );
   const [sidebarMediaMode, changeSidebarMediaMode] = useState(
     SpacesMapSidebarMediaMode.Collection,
@@ -163,6 +163,8 @@ export function useControllerForSpacesMap(): Controller {
   // Function to handle screenshot
   const takeScreenshot = async () => {
     // Hide UI components before taking the screenshot
+    setLinkMode(SpacesMapLinkMode.ON);
+    setBubbleMode(SpacesMapBubbleMode.OFF);
     setHideUI(true);
 
     setTimeout(async () => {
@@ -298,9 +300,9 @@ export function useControllerForSpacesMap(): Controller {
       isSwitchOn: isSwitchOn,
       divWidth: divWidth,
       divHeight: divHeight,
-      connectionMode: connectionMode,
+      linkMode: linkMode,
       selectedIdeas: selectedIdeas,
-      peopleMode: peopleMode,
+      bubbleMode: bubbleMode,
       mapMode: mapMode,
       sidebarMediaMode: sidebarMediaMode,
       sidebarContentMode: listMode,
@@ -315,9 +317,9 @@ export function useControllerForSpacesMap(): Controller {
       updateDivWidth: (width) => setDivWidth(width),
       updateDirectoryMode: (mode) => setDirectoryMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
-      updateConnectionMode: (mode) => setConnectionMode(mode),
+      updateLinkMode: (mode) => setLinkMode(mode),
       updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
-      updatePeopleMode: (mode) => setPeopleMode(mode),
+      updateBubbleMode: (mode) => setBubbleMode(mode),
       updateInteractionMode: (mode) => setMode(mode),
       updateSidebarContentMode: (mode) => setListMode(mode),
       updateSidebarMode: (mode) => setListSceneMode(mode),

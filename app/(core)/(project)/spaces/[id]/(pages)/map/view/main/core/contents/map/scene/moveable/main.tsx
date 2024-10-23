@@ -1,8 +1,7 @@
 'use client';
 import {
   ContextForSpacesMap,
-  SpacesMapConnectionMode,
-  SpacesMapPeopleMode,
+  SpacesMapBubbleMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
@@ -10,12 +9,16 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import { parseTransformString } from '../../../../../../../utils/main';
-import { SpacesMapIdeaCollaborators } from './collaborators/main';
 import { SpacesMapIdeaIndicator } from './indicator/main';
 
 export function SpacesMapMovable({ children }: { children: React.ReactNode }) {
   const {
-    state: { selectedIdeas, peopleMode, connectionMode, isSwitchOn },
+    state: {
+      selectedIdeas,
+      bubbleMode: peopleMode,
+      linkMode: connectionMode,
+      isSwitchOn,
+    },
     actions: { updateSelectedIdeas, checkContainsSelectedIdea },
   } = useContext(ContextForSpacesMap);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -84,12 +87,7 @@ export function SpacesMapMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {connectionMode === SpacesMapConnectionMode.DEFAULT && (
-          <SpacesMapIdeaIndicator />
-        )}
-        {peopleMode === SpacesMapPeopleMode.ON && (
-          <SpacesMapIdeaCollaborators />
-        )}
+        {peopleMode === SpacesMapBubbleMode.ON && <SpacesMapIdeaIndicator />}
       </div>
       <Moveable
         ref={moveableRef}

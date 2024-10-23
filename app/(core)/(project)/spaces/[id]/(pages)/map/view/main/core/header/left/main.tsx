@@ -1,20 +1,23 @@
 import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { AstralDownloadIcon } from '@/icons/download/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
-import { AstralManageSearchIcon } from '@/icons/manage-search/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
+import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,
+  SpacesMapBubbleMode,
+  SpacesMapLinkMode,
   SpacesMapSidebarContentMode,
   SpacesMapSidebarVisibility,
 } from '../../../../../controller/main';
@@ -22,9 +25,16 @@ import { ContextForSpacesMapModals } from '../../../../../modal/controller/main'
 
 export function SpacesMapHeaderLeft() {
   const {
-    state: { sidebarVisibility, selectedIdeas },
+    state: {
+      sidebarVisibility,
+      selectedIdeas,
+      linkMode: connectionMode,
+      bubbleMode: peopleMode,
+    },
     actions: {
       updateSidebarContentMode,
+      updateLinkMode: updateConnectionMode,
+      updateBubbleMode: updatePeopleMode,
       goToGallery,
       updateSidebarVisibility,
       autoSort,
@@ -72,11 +82,6 @@ export function SpacesMapHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralManageSearchIcon
-        onClick={() => {
-          modalController.addSearchIdeaController.open();
-        }}
-      />
       <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
       <AstralFullscreenIcon
         onClick={() => selectAll()}
@@ -87,12 +92,40 @@ export function SpacesMapHeaderLeft() {
             : 'fill-slate-300'
         }
       />
+      <AstralSyncAltIcon
+        className={
+          connectionMode === SpacesMapLinkMode.ON
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+        onClick={() => {
+          if (connectionMode === SpacesMapLinkMode.ON) {
+            updateConnectionMode(SpacesMapLinkMode.OFF);
+          } else {
+            updateConnectionMode(SpacesMapLinkMode.ON);
+          }
+        }}
+      />
+      <AstralBubbleIcon
+        className={
+          peopleMode === SpacesMapBubbleMode.OFF
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
+        onClick={() => {
+          if (peopleMode === SpacesMapBubbleMode.OFF) {
+            updatePeopleMode(SpacesMapBubbleMode.ON);
+          } else {
+            updatePeopleMode(SpacesMapBubbleMode.OFF);
+          }
+        }}
+      />
+      <BarDividerIndicator />
       <AstralDownloadIcon
         onClick={() => {
           alert('Coming Soon...');
         }}
       />
-      <BarDividerIndicator />
       <AstralSaveIcon
         onClick={() => {
           ideaListController.actions.editActions.sync().then(() => {
@@ -100,35 +133,7 @@ export function SpacesMapHeaderLeft() {
           });
         }}
       />{' '}
-      {/* <AstralBubbleIcon
-        className={
-          connectionMode === SpacesMapConnectionMode.DEFAULT
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-        onClick={() => {
-          if (connectionMode === SpacesMapConnectionMode.DEFAULT) {
-            updateConnectionMode(SpacesMapConnectionMode.BUBBLE);
-          } else {
-            updateConnectionMode(SpacesMapConnectionMode.DEFAULT);
-          }
-        }}
-      />
-      <AstralPersonIcon
-        className={
-          peopleMode === SpacesMapPeopleMode.OFF
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
-        }
-        onClick={() => {
-          if (peopleMode === SpacesMapPeopleMode.OFF) {
-            updatePeopleMode(SpacesMapPeopleMode.ON);
-          } else {
-            updatePeopleMode(SpacesMapPeopleMode.OFF);
-          }
-        }}
-      />
-      <BarDividerIndicator /> */}
+      <BarDividerIndicator />
     </div>
   );
 }

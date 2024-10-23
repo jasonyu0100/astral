@@ -58,6 +58,7 @@ import { AstralSortIcon } from './sort/main';
 import { AstralSourceIcon } from './source/main';
 import { AstralStacksIcon } from './stacks/main';
 import { AstralSubjectIcon } from './subject/main';
+import { AstralSyncAltIcon } from './sync-alt/main';
 import { AstralTimelineIcon } from './timeline/main';
 import { AstralUploadIcon } from './upload/main';
 import { AstralVisibilityHiddenIcon } from './visibility-hidden/main';
@@ -132,6 +133,7 @@ export default function Page() {
       <AstralCheckIcon />
       <AstralEditIcon />
       <AstralDownloadIcon />
+      <AstralSyncAltIcon />
     </div>
   );
 }
