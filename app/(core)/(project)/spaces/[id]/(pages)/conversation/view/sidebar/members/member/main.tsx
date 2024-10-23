@@ -15,7 +15,7 @@ export function SpacesConversationSidebarMember() {
   const user = userController.state.obj;
   const spacesConversationController = useContext(ContextForSpacesConversation);
   const selected =
-    spacesConversationController.state.selectedUser.id === user.id;
+    spacesConversationController.state.selectedUser.id === user?.id;
 
   return (
     <GlassWindowFrame roundedFx={roundedFx['rounded-full']} className='w-full'>
@@ -27,9 +27,9 @@ export function SpacesConversationSidebarMember() {
           spacesConversationController.actions.updateSelectedUser(user);
         }}
       >
-        <UserDisplayPictureElement fileElem={user.dp} />
+        <UserDisplayPictureElement fileElem={user?.dp} />
         <p className='font-bold text-slate-300'>
-          {user.fname} {user.lname}
+          {user?.fname} {user?.lname}
         </p>
       </GlassWindowContents>
       {selected && <GlassWindowPane glassFx={glassFx['glass-20']} />}

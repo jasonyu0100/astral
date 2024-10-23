@@ -52,7 +52,7 @@ import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
-import { SpaceSidebar } from '../../../sidebar/main';
+import { SpacesSidebar } from '../../../sidebar/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
   ContextForSpacesMapChat,
@@ -236,7 +236,7 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
     <DashboardContainer fullHeight>
-      <SpaceSidebar />
+      <SpacesSidebar />
       <DashboardContent>
         <SpaceTabs tab={SpaceTabStage.Map} />
         <DashboardBody>{children}</DashboardBody>

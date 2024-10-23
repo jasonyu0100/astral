@@ -14,7 +14,7 @@ export function SpaceSidebarMembersListMember() {
         window.location.href = userProfileMap.profile.link(user.state.objId);
       }}
     >
-      <UserDisplayPictureElement fileElem={user.state.obj.dp} />
+      <UserDisplayPictureElement fileElem={user.state.obj?.dp} />
     </div>
   );
 }
