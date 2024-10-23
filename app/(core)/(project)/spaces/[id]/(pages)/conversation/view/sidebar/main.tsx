@@ -32,10 +32,9 @@ export function SpacesConversationSidebar() {
       {spacesConversationController.state.sidebarContentMode ===
         SpacesConversationSidebarContentMode.MEMBERS && (
         <div className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
-          <p className='font-bold text-slate-300'>User</p>
+          <p className='font-bold text-slate-300'>Members</p>
           <SpacesConversationSidebarLoggedIn />
           <HorizontalDivider />
-          <p className='font-bold text-slate-300'>Members</p>
           {spaceMemberListController.state.objs.map((member) => (
             <ContextForSpaceMemberObj.Provider value={member}>
               <SpacesConversationSidebarMember />
