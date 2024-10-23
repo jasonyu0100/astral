@@ -331,7 +331,7 @@ export function useControllerForSpacesConversation() {
     state: {
       sidebarVisibility,
       sidebarContentMode: sidebarContentMode,
-      role: aiChatRole,
+      aiChatRole: aiChatRole,
       selectedUser,
     },
     actions: {
@@ -346,7 +346,7 @@ export function useControllerForSpacesConversation() {
       ) => {
         setSidebarVisibility(visibility);
       },
-      updateRole: (role: ConversationRole) => {
+      updateAiChatRole: (role: ConversationRole) => {
         setAiChatRole(role);
       },
       updateSidebarContentMode: (mode: SpacesConversationSidebarContentMode) =>
