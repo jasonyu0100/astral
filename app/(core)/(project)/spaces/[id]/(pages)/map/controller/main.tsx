@@ -126,7 +126,7 @@ export function useControllerForSpacesMap(): Controller {
   );
   const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
   const [bubbleMode, setBubbleMode] = useState<SpacesMapBubbleMode>(
-    SpacesMapBubbleMode.OFF,
+    SpacesMapBubbleMode.ON,
   );
   const [directoryMode, setDirectoryMode] = useState<SpacesMapDirectoryMode>(
     SpacesMapDirectoryMode.DEFAULT,
@@ -185,6 +185,8 @@ export function useControllerForSpacesMap(): Controller {
         } finally {
           // Show UI components again after the screenshot
           setHideUI(false);
+          setLinkMode(SpacesMapLinkMode.ON);
+          setBubbleMode(SpacesMapBubbleMode.ON);
         }
       }
     }, 500);

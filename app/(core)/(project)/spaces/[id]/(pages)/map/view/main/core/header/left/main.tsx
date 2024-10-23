@@ -21,7 +21,6 @@ import {
   SpacesMapSidebarContentMode,
   SpacesMapSidebarVisibility,
 } from '../../../../../controller/main';
-import { ContextForSpacesMapModals } from '../../../../../modal/controller/main';
 
 export function SpacesMapHeaderLeft() {
   const {
@@ -44,7 +43,6 @@ export function SpacesMapHeaderLeft() {
   const user = useGlobalUser((state) => state.user);
   const space = useContext(ContextForSpaceMain);
   const galleryController = useContext(ContextForGalleryList);
-  const modalController = useContext(ContextForSpacesMapModals);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
@@ -82,16 +80,6 @@ export function SpacesMapHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
-      <AstralFullscreenIcon
-        onClick={() => selectAll()}
-        className={
-          selectedIdeas.length >= ideaListController.state.objs.length &&
-          selectedIdeas.length > 0
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-      />
       <AstralSyncAltIcon
         className={
           connectionMode === SpacesMapLinkMode.ON
@@ -119,6 +107,16 @@ export function SpacesMapHeaderLeft() {
             updatePeopleMode(SpacesMapBubbleMode.OFF);
           }
         }}
+      />
+      <AstralSortIcon className='fill-slate-300' onClick={() => autoSort()} />
+      <AstralFullscreenIcon
+        onClick={() => selectAll()}
+        className={
+          selectedIdeas.length >= ideaListController.state.objs.length &&
+          selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
       />
       <BarDividerIndicator />
       <AstralDownloadIcon
