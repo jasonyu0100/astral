@@ -1,9 +1,12 @@
 import { AstralVoiceIcon } from '../../../../../../../../../../../icons/voice/main';
 
-export function SpacesConversationMessageInputRightVoice() {
+export function SpacesConversationInputRightVoice() {
   return (
-    <div className='flex h-[40px] w-[40px] items-center justify-center rounded-[2rem]'>
+    <button
+      className='flex h-[40px] w-[40px] items-center justify-center rounded-[2rem] bg-red-500'
+      onClick={() => alert('Coming soon...')}
+    >
       <AstralVoiceIcon />
-    </div>
+    </button>
   );
 }

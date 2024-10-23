@@ -20,7 +20,7 @@ export function SpacesConversationInputText() {
   return (
     <GlassAreaContainer
       name={SpacesConversationInputText.name}
-      sizeFx='max-w-[600px] flex-grow h-[50px]'
+      sizeFx='max-w-[600px] flex-grow h-[3.5rem]'
       glassFx={`${hoverableController.hovered ? glassFx['glass-20'] : glassFx['glass-10']}`}
       roundedFx={roundedFx['rounded-full']}
       onMouseOver={() => hoverableController.onHover()}

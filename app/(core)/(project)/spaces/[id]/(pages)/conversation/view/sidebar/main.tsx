@@ -32,7 +32,6 @@ export function SpacesConversationSidebar() {
       {spacesConversationController.state.sidebarContentMode ===
         SpacesConversationSidebarContentMode.MEMBERS && (
         <div className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
-          <p className='font-bold text-slate-300'>Members</p>
           <SpacesConversationSidebarLoggedIn />
           <HorizontalDivider />
           {spaceMemberListController.state.objs.map((member) => (

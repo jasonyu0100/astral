@@ -10,7 +10,7 @@ export function SpacesConversationStatusContents() {
   return (
     <div className='flex h-[10rem] w-full p-[1rem]'>
       <GlassWindowFrame className='flex w-full' borderFx={borderFx['border-b']}>
-        <GlassWindowContents className='flex w-full flex-col justify-center px-[2rem]'>
+        <GlassWindowContents className='flex w-full flex-col justify-center px-[1rem]'>
           <p className='text-xl font-bold text-slate-300'>
             {chapterListController.state.currentObj?.title}
           </p>

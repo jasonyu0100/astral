@@ -8,7 +8,7 @@ export function SpacesConversationInputLeft() {
     actions: { updateAiChatRole: updateRole },
   } = useContext(ContextForSpacesConversation);
   return (
-    <div className='flex h-[50px] w-[200px] flex-shrink-0 items-center justify-center'>
+    <div className='flex w-[10rem] flex-shrink-0 items-center justify-center'>
       {/* <AstralAttachmentIcon
         onClick={() => {
           modalController.addAttachmentController.open();

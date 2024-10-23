@@ -1,9 +1,11 @@
 import { SpacesConversationInputRightSend } from './send/main';
+import { SpacesConversationInputRightVoice } from './voice/main';
 
 export function SpacesConversationInputRight() {
   return (
-    <div className='flex h-[50px] w-[200px] flex-shrink-0 flex-row items-center justify-start'>
+    <div className='flex flex-row items-center justify-start space-x-[1rem]'>
       <SpacesConversationInputRightSend />
+      <SpacesConversationInputRightVoice />
     </div>
   );
 }
