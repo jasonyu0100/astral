@@ -19,6 +19,9 @@ export async function getFileIdeaBounds(file: FileElem) {
   } else if (file.variant === FileElemVariant.AUDIO) {
     width = 150;
     height = 150;
+  } else if (file.variant === FileElemVariant.PDF) {
+    width = 400;
+    height = 400;
   }
 
   return { width, height };

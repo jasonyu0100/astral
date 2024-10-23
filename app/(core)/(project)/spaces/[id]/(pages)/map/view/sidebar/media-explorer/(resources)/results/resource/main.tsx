@@ -96,7 +96,7 @@ export function SpacesMapResourceResource() {
 
   return (
     <div
-      className='cursor-pointer'
+      className='relative w-full cursor-pointer'
       onClick={() => {
         addResourceToScene();
       }}
