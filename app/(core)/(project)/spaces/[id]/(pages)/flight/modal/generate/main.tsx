@@ -22,7 +22,7 @@ export function SpacesFlightShareReviewModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spacesMap.spaces.id.space.link(
+                window.location.href = spacesMap.spaces.id.conversation.link(
                   spaceController.state.objId,
                 );
               }}

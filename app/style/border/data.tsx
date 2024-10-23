@@ -8,4 +8,5 @@ export const borderFx = {
   'border-l': 'border-l border-slate-500 border-opacity-30',
   'border-lr': 'border-l border-r border-slate-500 border-opacity-30',
   'border-tb': 'border-t border-b border-slate-500 border-opacity-30',
+  none: '',
 };
