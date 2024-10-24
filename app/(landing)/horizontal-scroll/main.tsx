@@ -28,48 +28,54 @@ const keyframes = `
 
 const cardData = [
   {
-    title: 'Product Launch',
+    title: 'Collaborative Product Launch',
     description:
-      'A structured template for planning and executing a successful product launch.',
+      'A conversation-driven template for planning and executing a successful product launch, ensuring team alignment and idea aggregation.',
   },
   {
-    title: 'Startup Plan',
+    title: 'Startup Ideation Session',
     description:
-      'A comprehensive template for developing a strategic startup plan.',
+      'A dynamic template for brainstorming and developing a strategic startup plan through collaborative discussions.',
   },
   {
-    title: 'Marketing Campaign',
+    title: 'Engaging Marketing Campaign',
     description:
-      'A template for planning and executing an effective marketing campaign.',
+      'A template for brainstorming, planning, and executing an impactful marketing campaign, leveraging team conversations for creative ideas.',
   },
   {
-    title: 'Video Shoot',
+    title: 'Video Shoot Planning',
     description:
-      'A structured template for planning and executing a video shoot project.',
+      'A structured template for collaboratively planning and executing a video shoot, incorporating input from all stakeholders.',
   },
   {
-    title: 'Blog Post',
-    description: 'A template for planning, writing, and promoting a blog post.',
+    title: 'Blog Post Creation',
+    description:
+      'A conversation-centric template for planning, writing, and promoting a blog post with team insights.',
   },
   {
-    title: 'Social Media Strategy',
-    description: 'A guide for creating an impactful social media strategy.',
+    title: 'Social Media Engagement Strategy',
+    description:
+      'A guide for collaboratively creating an impactful social media strategy based on team discussions.',
   },
   {
-    title: 'Event Planning',
-    description: 'A comprehensive template for planning successful events.',
+    title: 'Event Brainstorming & Planning',
+    description:
+      'A comprehensive template for collaboratively planning successful events through engaging conversations.',
   },
   {
-    title: 'Design Sprint',
-    description: 'A guide to running an efficient design sprint.',
+    title: 'Design Sprint Collaboration',
+    description:
+      'A guide to running an efficient design sprint, focused on collective brainstorming and feedback.',
   },
   {
-    title: 'Pitch Deck',
-    description: 'A template for creating an effective pitch deck.',
+    title: 'Pitch Deck Development',
+    description:
+      'A collaborative template for creating an effective pitch deck, utilizing team insights and conversation.',
   },
   {
-    title: 'User Research',
-    description: 'A guide to conducting effective user research.',
+    title: 'User Research Insights',
+    description:
+      'A guide to conducting effective user research, encouraging collaborative discussions to uncover insights.',
   },
 ];
 

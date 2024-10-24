@@ -468,43 +468,43 @@ function FAQSection() {
     {
       question: 'What is Astral?',
       answer:
-        'Astral is an AI-powered creative workflow platform designed to empower creatives, product managers, and startup founders by turning their ideas into collaborative, actionable plans.',
+        'Astral is an AI-powered creative workflow platform that serves as a conversational co-pilot for creatives, product managers, and startup founders, transforming their ideas into collaborative, actionable plans.',
     },
     {
-      question: 'How does Astral help me with my creative projects?',
+      question: 'How does Astral assist with my creative projects?',
       answer:
-        'Astral helps you and your team by capturing ideas from conversations, turning them into tasks, generating timelines, and providing a supportive feedback loop to align everyone on shared project goals.',
+        'Astral acts as your conversational co-pilot, capturing ideas from discussions, converting them into tasks, generating timelines, and providing a supportive feedback loop. This ensures that everyone in your team stays aligned on shared project goals.',
     },
     {
-      question: 'Who is Astral for?',
+      question: 'Who is Astral designed for?',
       answer:
-        'Astral is built for anyone seeking a collaborative platform—creatives, product managers, startup founders, and teams looking to grow ideas together in an all-in-one environment.',
+        'Astral is ideal for anyone seeking a collaborative platform—creatives, product managers, startup founders, and teams looking to develop and grow ideas together through engaging conversations in an integrated environment.',
     },
     {
       question:
         'How does Astral differ from other project management tools like Miro or Slack?',
       answer:
-        'Unlike other platforms, Astral focuses on fostering collaboration through idea aggregation and visual mapping, turning conversation-first workflows into real-time insights and collective actions.',
+        'Unlike traditional project management tools, Astral emphasizes collaboration through idea aggregation and visual mapping, leveraging conversational inputs to turn discussions into real-time insights and actionable collective actions.',
     },
     {
-      question: 'Is Astral suitable for teams or solo users?',
+      question: 'Is Astral suitable for teams or individual users?',
       answer:
-        'Astral is designed to support both solo creatives and teams. As a solo user, you can organize and build out your ideas, and when ready, easily invite collaborators to join the journey.',
+        'Astral is designed for both solo creatives and teams. As a solo user, you can leverage Astral as your personal co-pilot to organize and develop your ideas, and when ready, easily invite collaborators to join your journey.',
     },
     {
-      question: 'How much does Astral cost?',
+      question: 'What is the cost of using Astral?',
       answer:
-        'Astral is available for $15 per month, providing a comprehensive solution for collaborative creativity and workflow management.',
+        'Astral is available for $15 per month, providing a comprehensive solution that includes the conversational co-pilot feature for enhanced collaborative creativity and workflow management.',
     },
     {
       question: 'Can I try Astral for free?',
       answer:
-        'Yes, Astral offers a 14-day free trial, allowing you and your team to experience its collaborative features and workflow tools.',
+        'Yes! Astral offers a 14-day free trial, allowing you and your team to experience the power of its conversational co-pilot features and collaborative tools without any commitment.',
     },
     {
-      question: 'How does Astral support collaboration?',
+      question: 'How does Astral facilitate collaboration?',
       answer:
-        'Astral makes collaboration seamless by turning conversations into visual maps and actionable insights. This helps teams work together in real-time, ensuring everyone stays aligned and creative efforts flow naturally.',
+        'Astral enhances collaboration by acting as a conversational co-pilot, transforming discussions into visual maps and actionable insights. This empowers teams to work together in real-time, ensuring that everyone remains aligned while creativity flows naturally.',
     },
   ];
 
