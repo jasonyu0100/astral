@@ -331,8 +331,11 @@ function MembershipSection() {
 
   return (
     <section className={ctwn('py-12', { hidden: ready })}>
-      <div className='container mx-auto text-center'>
-        <h2 className='mb-6 text-3xl font-bold text-slate-300'>Member Plans</h2>
+      <div className='container mx-auto'>
+        <h2 className='mb-6 text-center text-3xl font-bold text-slate-300'>
+          Member Plans
+        </h2>
+        <br />
         <div className='flex w-full flex-col items-center'>
           <div
             role='tablist'
@@ -366,6 +369,7 @@ function MembershipSection() {
               Monthly
             </button>
           </div>
+          <br />
           <div className='mt-8'>
             {activeTab === 'yearly' && (
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
@@ -439,24 +443,22 @@ function MemberPricingCard({
 
   return (
     <div
-      className='flex-start flex aspect-[11/13] w-full cursor-pointer flex-col bg-white p-6 shadow-md'
+      className='flex aspect-[11/13] w-full cursor-pointer flex-col bg-white p-6 shadow-md'
       onClick={handleToggle}
     >
       {!showDescription ? (
-        <>
+        <div className='flex w-full flex-col'>
           <img
             src={imageSrc}
             className='mb-4 aspect-square w-full bg-black'
             alt={title}
           />
-          <div className='w-full space-y-1'>
-            <p className='text-2xl font-bold'>{title}</p>
-            <p className='text-lg font-light'>{price}</p>
-          </div>
-        </>
+          <p className='text-3xl font-black'>{title}</p>
+          <p className='text-xl font-bold'>{price}</p>
+        </div>
       ) : (
-        <div className='w-full text-center'>
-          <p className='text-lg font-semibold italic'>"{description}"</p>
+        <div className='flex h-full w-full items-center justify-center text-center'>
+          <p className='text-2xl font-semibold italic'>"{description}"</p>
         </div>
       )}
     </div>
