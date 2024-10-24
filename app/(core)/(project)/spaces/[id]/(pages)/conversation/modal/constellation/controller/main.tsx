@@ -274,7 +274,8 @@ export function useGenerateSceneController(): Controller {
 
     const ideas = await Promise.all(
       selectedIdeas.map(async (idea, index) => {
-        let width, height;
+        let width = 150;
+        let height = 150;
 
         // Determine the width and height of each idea based on its variant
         if (idea.variant === ElementVariant.TEXT) {
