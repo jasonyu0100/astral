@@ -5,11 +5,7 @@ import { useControllerForGalleryList } from '@/(server)/controller/gallery/list'
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
-import {
-  exampleFileElem,
-  exampleFileElems,
-  FileElem,
-} from '@/(server)/model/elements/file/main';
+import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
@@ -149,18 +145,18 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
       );
     console.log('COLLECTION CREATED', collection);
 
-    const starterResourecs = await Promise.all(
-      exampleFileElems.map((fileElem) =>
-        resourceListController.actions.createActions.createFromFile(
-          user.id,
-          collection.id,
-          'Starter Resource',
-          '',
-          fileElem,
-        ),
-      ),
-    );
-    console.log('RESOURCES CREATED', starterResourecs);
+    // const starterResourecs = await Promise.all(
+    //   exampleFileElems.map((fileElem) =>
+    //     resourceListController.actions.createActions.createFromFile(
+    //       user.id,
+    //       collection.id,
+    //       'Starter Resource',
+    //       '',
+    //       fileElem,
+    //     ),
+    //   ),
+    // );
+    // console.log('RESOURCES CREATED', starterResourecs);
 
     const space =
       await spaceListController.actions.createActions.createFromTemplate(

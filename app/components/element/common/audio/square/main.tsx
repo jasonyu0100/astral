@@ -1,17 +1,29 @@
+import { ctwn } from '@/utils/cn';
+import { useState } from 'react';
+
 export function ElementAudioSquare({ src }: { src: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleAudioToggle = () => {
+    const audio = document.getElementById(
+      'file-upload-audio',
+    ) as HTMLAudioElement;
+    if (audio?.paused) {
+      audio?.play();
+      setIsPlaying(true);
+    } else {
+      audio?.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <div
-      className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-slate-900'
-      onClick={() => {
-        const audio = document.getElementById(
-          'file-upload-audio',
-        ) as HTMLAudioElement;
-        if (audio?.paused) {
-          audio?.play();
-        } else {
-          audio?.pause();
-        }
-      }}
+      className={ctwn(
+        'flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-violet-500',
+        isPlaying ? 'animate-spin' : '', // Add spin if playing
+      )}
+      onClick={handleAudioToggle}
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -39,7 +51,8 @@ export function ElementAudioSquare({ src }: { src: string }) {
       <audio
         id='file-upload-audio'
         src={src}
-        className='aspect-square h-[100px]  bg-black object-contain'
+        className='aspect-square h-[100px] bg-black object-contain'
+        onEnded={() => setIsPlaying(false)} // Reset when audio ends
       />
     </div>
   );
