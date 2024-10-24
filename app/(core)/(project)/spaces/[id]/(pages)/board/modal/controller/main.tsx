@@ -4,6 +4,7 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
+import { SpacesBoardAddChapterModal } from '../add/chapter/main';
 import { SpacesBoardAddFileLinkModal } from '../add/link/file/main';
 import { SpacesBoardAddTextLinkModal } from '../add/link/text/main';
 import { SpacesBoardAddSceneModal } from '../add/scene/main';
@@ -21,6 +22,7 @@ export interface SpacesBoardModals {
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
   addTaskController: ContextForOpenableInterface;
+  addChapterController: ContextForOpenableInterface;
 }
 
 export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
@@ -30,6 +32,7 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
   const addTaskController = useControllerForOpenable();
+  const addChapterController = useControllerForOpenable();
 
   return (
     <ContextForSpacesBoardModals.Provider
@@ -40,6 +43,7 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
         addTaskController: addTaskController,
+        addChapterController: addChapterController,
       }}
     >
       {children}
@@ -57,6 +61,9 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTaskController}>
         <SpacesBoardAddTaskModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addChapterController}>
+        <SpacesBoardAddChapterModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesBoardModals.Provider>
   );

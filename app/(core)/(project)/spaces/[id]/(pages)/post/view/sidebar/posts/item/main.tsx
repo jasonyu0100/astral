@@ -15,13 +15,13 @@ export function SpacesPostSidebarItem() {
     <>
       {selected ? (
         <GlassWindowFrame
-          className='flex h-[5rem] w-full p-[1rem]'
+          className='flex aspect-video w-full p-[1rem]'
           roundedFx={roundedFx['rounded']}
           borderFx={borderFx['border-around']}
         >
           <GlassWindowContents
             onClick={() => postListController.actions.stateActions.select(post)}
-            className='flex h-full w-full cursor-pointer flex-row items-center space-x-[1rem]'
+            className='flex h-full w-full cursor-pointer flex-row space-x-[1rem]'
           >
             <p className={'text-lg font-bold text-slate-300'}>
               {post.title || 'Untitled'}
@@ -31,12 +31,12 @@ export function SpacesPostSidebarItem() {
         </GlassWindowFrame>
       ) : (
         <GlassWindowFrame
-          className='flex h-[5rem] w-full p-[1rem]'
+          className='flex aspect-video  w-full p-[1rem]'
           borderFx={borderFx['border-b']}
         >
           <GlassWindowContents
             onClick={() => postListController.actions.stateActions.select(post)}
-            className='flex h-full w-full cursor-pointer flex-row items-center space-x-[1rem]'
+            className='flex h-full w-full cursor-pointer flex-row space-x-[1rem]'
           >
             <p className={'text-lg font-bold text-slate-500'}>
               {post.title || 'Untitled'}

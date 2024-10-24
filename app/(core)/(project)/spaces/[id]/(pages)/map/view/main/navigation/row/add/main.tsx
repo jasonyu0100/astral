@@ -1,25 +1,24 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
+import { AstralAddIcon } from '@/icons/add/main';
 import { ButtonInputProps } from '@/props/main';
 import { glassFx, roundedFx } from '@/style/data';
 
-interface NavigationTimelineInputProps extends ButtonInputProps {
-  children?: React.ReactNode;
-}
+interface NavigationTimelineInputProps extends ButtonInputProps {}
 
 export default function SpacesMapRowAdd({
-  children,
   ...props
 }: NavigationTimelineInputProps) {
   return (
     <button {...props}>
       <GlassAreaContainer
         name={SpacesMapRowAdd.name}
-        sizeFx='w-[200px] h-[3.5rem]'
+        sizeFx='min-w-[250px] h-[3.5rem]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}
       >
-        <div className='flex h-full w-full items-center justify-center'>
-          <div className='font-bold text-slate-500'>{children}</div>
+        <div className='flex h-full w-full items-center space-x-[1rem] p-[1rem]'>
+          <AstralAddIcon className='fill-slate-500' />
+          <div className='font-bold text-slate-500'>Add Scene</div>
         </div>
       </GlassAreaContainer>
     </button>

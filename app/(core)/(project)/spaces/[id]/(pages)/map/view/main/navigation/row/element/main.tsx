@@ -1,5 +1,5 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -11,9 +11,9 @@ import { useContext } from 'react';
 
 export function SpacesMapRowElement() {
   const index = useContext(ContextForIndexable);
-  const chapter = useContext(ContextForSpaceChapterObj);
-  const chapterListController = useContext(ContextForSpaceChapterList);
-  const active = chapter.id === chapterListController.state.objId;
+  const scene = useContext(ContextForIdeaSceneObj);
+  const sceneListController = useContext(ContextForIdeaSceneList);
+  const active = scene.id === sceneListController.state.objId;
   const controllerForScrollToCursor = useContext(
     ContextForScrollToHorizontalIndex,
   );
@@ -28,14 +28,14 @@ export function SpacesMapRowElement() {
       <GlassWindowContents
         className='z-10 flex h-full w-full items-center px-[1rem]'
         onClick={() => {
-          chapterListController.actions.stateActions.select(chapter);
+          sceneListController.actions.stateActions.select(scene);
           controllerForScrollToCursor.scrollToHorizontalIndex(index);
         }}
       >
         <p
           className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}
         >
-          {index + 1}. {chapter.title}
+          {index + 1}. {scene.title}
         </p>
       </GlassWindowContents>
       {!active ? (

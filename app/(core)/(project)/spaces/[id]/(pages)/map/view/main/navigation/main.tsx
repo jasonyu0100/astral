@@ -4,9 +4,7 @@ import { SpacesMapNavigationRow } from './row/main';
 export function SpacesMapNavigation() {
   return (
     <NavigationTimelineContainer>
-      {/* <NavigationTimelineGoLeftAction /> */}
       <SpacesMapNavigationRow />
-      {/* <NavigationTimelineGoRightAction /> */}
     </NavigationTimelineContainer>
   );
 }
