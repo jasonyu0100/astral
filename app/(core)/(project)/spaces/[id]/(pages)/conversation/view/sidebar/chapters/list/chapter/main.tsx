@@ -46,7 +46,11 @@ export function SpacesConversationSidebarChapter() {
               chapterListController.actions.stateActions.select(chapter)
             }
           >
-            <p className={ctwn('text-lg font-bold text-slate-400')}>
+            <p
+              className={ctwn('text-lg font-bold text-slate-500', {
+                'text-slate-300': hoverableController.hovered,
+              })}
+            >
               {chapter.title?.trim() || 'Untitled'}
             </p>
             <p className='font-md w-full text-sm font-light text-slate-300'>

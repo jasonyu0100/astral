@@ -36,6 +36,7 @@ export function SpacesConversationInputText() {
         />
         <AstralVoiceIcon
           onClick={() => {
+            alert('Coming soon...');
             // populate input message with voice over transcription
           }}
         />
