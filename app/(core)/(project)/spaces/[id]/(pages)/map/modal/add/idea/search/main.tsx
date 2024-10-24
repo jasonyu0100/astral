@@ -5,15 +5,15 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { FormBody } from '@/components/form/body/main';
+import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormSearchImage } from '@/components/form/file/search/search-image/main';
+import { FormFooter } from '@/components/form/footer/main';
+import { FormInput } from '@/components/form/input/main';
+import { FormContainer } from '@/components/form/main';
+import { FormTitle } from '@/components/form/title/main';
+import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { FormBody } from '@/ui/form/body/main';
-import { ButtonVariant, FormButton } from '@/ui/form/button/main';
-import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 

@@ -13,7 +13,7 @@ import {
   landingDescription,
   pitch,
   targetCustomer,
-} from '@/information/information';
+} from '@/logic/information/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext } from 'react';
 

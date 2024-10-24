@@ -1,4 +1,4 @@
-import { ElementResource } from '@/ui/element/resource/main';
+import { ElementResource } from '@/components/element/resource/main';
 import { ResourceContainer } from './common/container/main';
 
 export function FinderResource() {

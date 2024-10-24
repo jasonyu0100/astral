@@ -1,5 +1,5 @@
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,

@@ -1,8 +1,8 @@
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ImageBackground } from '@/ui/background/img/main';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { AbsoluteHolder } from '@/ui/holder/main';
+import { ImageBackground } from '@/components/background/img/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
+import { AbsoluteHolder } from '@/components/holder/main';
 import { useContext } from 'react';
 import { SpacesFlightComments } from './comments/main';
 import { SpacesFlightEmpty } from './empty/main';

@@ -9,7 +9,7 @@ import { TextElem } from '@/(server)/model/elements/text/main';
 import { UrlElem } from '@/(server)/model/elements/url/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { ElementResource } from '@/ui/element/resource/main';
+import { ElementResource } from '@/components/element/resource/main';
 import {
   getFileIdeaBounds,
   getTextIdeaBounds,

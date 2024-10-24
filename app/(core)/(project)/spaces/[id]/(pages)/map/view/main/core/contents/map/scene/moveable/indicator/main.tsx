@@ -1,10 +1,10 @@
 import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/map/controller/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

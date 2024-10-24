@@ -1,8 +1,8 @@
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 
 export function SpacesFlightSidebarSearch() {

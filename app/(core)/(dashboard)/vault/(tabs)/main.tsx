@@ -1,6 +1,6 @@
-import { TabsContainer } from '@/ui/tabs/main';
-import { TabsBackButton } from '@/ui/tabs/tabs-row/back-button/main';
-import { TabsRow } from '@/ui/tabs/tabs-row/main';
+import { TabsContainer } from '@/components/tabs/main';
+import { TabsBackButton } from '@/components/tabs/tabs-row/back-button/main';
+import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { studioMap } from '../../studio/map';
 import { TabOne } from './tab-1/main';
 

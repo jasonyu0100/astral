@@ -27,9 +27,9 @@ import {
   useControllerForSpaceMemberList,
 } from '@/(server)/controller/space/member/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { LoadingWrapper } from '@/ui/loading/controller/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';

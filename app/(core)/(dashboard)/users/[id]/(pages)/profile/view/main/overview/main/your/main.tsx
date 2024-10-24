@@ -3,7 +3,7 @@ import {
   useControllerForSpaceList,
 } from '@/(server)/controller/space/list';
 import { ContextForProfileUserObj } from '@/(server)/model/user/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { UserProfileSpacesTable } from './table/main';
 

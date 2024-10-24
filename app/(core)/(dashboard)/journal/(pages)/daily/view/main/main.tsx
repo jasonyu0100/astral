@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { JournalDailyCore } from './core/main';
 import { JournalDailyHeader } from './header/main';
 

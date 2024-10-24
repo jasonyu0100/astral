@@ -2,9 +2,9 @@
 
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { Tab } from '@/ui/tabs/tabs-row/tab/main';
-import { TabGreenShard } from '@/ui/tabs/tabs-row/tab/shard/green/main';
-import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/components/tabs/tabs-row/tab/main';
+import { TabGreenShard } from '@/components/tabs/tabs-row/tab/shard/green/main';
+import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';

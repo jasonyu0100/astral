@@ -1,9 +1,9 @@
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { borderFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { ContextForSpacesMapModals } from '../../../../../modal/controller/main';

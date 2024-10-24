@@ -1,9 +1,9 @@
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useState } from 'react';
 
 export function HorizonsSidebarSquadronsList() {

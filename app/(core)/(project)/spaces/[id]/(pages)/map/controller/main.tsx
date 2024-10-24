@@ -9,7 +9,7 @@ import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GalleryObj } from '@/(server)/model/gallery/main';
 import { IdeaObj } from '@/(server)/model/idea/main';
 import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
-import { ContextForLoading } from '@/ui/loading/controller/main';
+import { ContextForLoading } from '@/components/loading/controller/main';
 import html2canvas from 'html2canvas';
 import { createContext, useContext, useRef, useState } from 'react';
 

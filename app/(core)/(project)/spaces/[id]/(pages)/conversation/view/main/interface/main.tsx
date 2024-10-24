@@ -1,5 +1,5 @@
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpacesConversationInputRight } from './chat-action/main';
 import { SpacesConversationInputText } from './chat-input/main';
 import { SpacesConversationInputLeft } from './role-select/main';

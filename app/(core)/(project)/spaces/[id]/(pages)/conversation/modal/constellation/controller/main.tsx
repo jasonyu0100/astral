@@ -16,9 +16,9 @@ import {
 } from '@/(server)/model/elements/url/main';
 import { exampleIdea, IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
+import { ContextForLoading } from '@/components/loading/controller/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForLoading } from '@/ui/loading/controller/main';
 import {
   getFileIdeaBounds,
   getTextIdeaBounds,

@@ -11,12 +11,12 @@ import {
   FileElem,
 } from '@/(server)/model/elements/file/main';
 import { SpaceObj } from '@/(server)/model/space/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   SpaceTemplate,
   SpaceTemplateMap,
   TemplateChapterObj,
-} from '@/(server)/templates/space/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/templates/space/main';
 import moment from 'moment';
 import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {

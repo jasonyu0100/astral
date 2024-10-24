@@ -5,12 +5,12 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModalStep } from '@/components/step/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { AstralButtonRoundedAction } from '@/ui/button/action/main';
-import { CustomisableModalContents } from '@/ui/modal/general/container/main';
-import { CustomisableModal } from '@/ui/modal/general/main';
-import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesMap } from '../../../../controller/main';
 

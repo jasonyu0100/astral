@@ -1,4 +1,4 @@
-import { ImageBackground } from '@/ui/background/img/main';
+import { ImageBackground } from '@/components/background/img/main';
 import { HorizonsPointCreateSpace } from '../create/main';
 import { HorizonsPointMainCore } from './core/main';
 import { HorizonsPointHeader } from './header/main';

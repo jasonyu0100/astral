@@ -1,6 +1,6 @@
 import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
 import { CommonSidebarTopBack } from '@/(core)/common/(sidebar)/top/back/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 
 export function HorizonSidebarBack() {
   return (

@@ -1,5 +1,5 @@
 import { exampleFileElems } from '@/(server)/model/elements/file/main';
-import { UserDisplayPictureElement } from '@/ui/cover/user/main';
+import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { HorizonQuadrantBacking } from './backing/main';
 import { HorizonsPointHemisphere } from './hemisphere/main';
 import { HorizonsPointQuadrant } from './quadrant/main';

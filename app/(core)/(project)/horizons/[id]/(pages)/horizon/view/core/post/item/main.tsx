@@ -1,7 +1,7 @@
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ContextForHorizonsHorizonModals } from '../../../../modals/controller/main';
 
 export function HorizonsHorizonListPost() {

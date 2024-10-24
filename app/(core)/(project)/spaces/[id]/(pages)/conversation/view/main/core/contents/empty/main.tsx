@@ -1,4 +1,4 @@
-import { EmptyMain } from '@/ui/empty/main';
+import { EmptyMain } from '@/components/empty/main';
 
 export function SpacesConversationEmpty() {
   return <EmptyMain>SPACE</EmptyMain>;

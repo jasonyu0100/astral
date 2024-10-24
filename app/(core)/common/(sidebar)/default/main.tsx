@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { CommonSidebarDefaultContainer } from '../common/container/default/main';
 import { CommonSidebarIndicators } from '../common/indicators/main';
 import { CommonSidebarExplorerIndicator } from '../common/indicators/variants/explorer/main';

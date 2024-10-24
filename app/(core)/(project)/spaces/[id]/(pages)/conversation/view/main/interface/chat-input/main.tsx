@@ -1,7 +1,7 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { useContext } from 'react';
 import { ContextForSpacesConversation } from '../../../../controller/main';
 

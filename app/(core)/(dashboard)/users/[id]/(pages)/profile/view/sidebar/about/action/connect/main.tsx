@@ -4,10 +4,10 @@ import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
 } from '@/(server)/model/user/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext, useEffect, useState } from 'react';
 
 export enum ConnectionStatus {

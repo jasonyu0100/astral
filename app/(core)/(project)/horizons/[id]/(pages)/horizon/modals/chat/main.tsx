@@ -1,6 +1,6 @@
+import { CustomisableModal } from '@/components/modal/general/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext } from 'react';
 
 export function HorizonPostModal() {

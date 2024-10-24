@@ -1,10 +1,10 @@
 import { ContextForSpacesSidebarModals } from '@/(core)/(project)/spaces/sidebar/modal/controller/main';
 import { ContextForSpaceMemberList } from '@/(server)/controller/space/member/list';
 import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesConversation,

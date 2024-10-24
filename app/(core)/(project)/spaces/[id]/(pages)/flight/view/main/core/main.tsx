@@ -1,4 +1,4 @@
-import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { SpacesFlightContents } from './contents/main';
 import { SpacesFlightHeader } from './header/main';
 

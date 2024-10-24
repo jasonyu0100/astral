@@ -1,8 +1,8 @@
 import { ContextForTaskObj } from '@/(server)/model/task/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';

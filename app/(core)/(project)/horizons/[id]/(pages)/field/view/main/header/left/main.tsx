@@ -1,8 +1,8 @@
+import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralHiearchyIcon } from '@/icons/hiearchy/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralTableIcon } from '@/icons/table/main';
-import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 
 export function HorizonsFieldHeaderLeft() {

@@ -1,6 +1,6 @@
 import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
-import { ElementLink } from '@/ui/element/link/main';
+import { ElementLink } from '@/components/element/link/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesBoard,

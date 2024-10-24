@@ -1,7 +1,7 @@
 import { ContextForUserConnectionListFromDestination } from '@/(server)/controller/user/connection/list-from-destination';
 import { ContextForUserConnectionListFromSource } from '@/(server)/controller/user/connection/list-from-source';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { ConnectionsPage, ContextForConnections } from '../controller/main';
 import { UserProfileFollowersTableHeader } from './header/main';

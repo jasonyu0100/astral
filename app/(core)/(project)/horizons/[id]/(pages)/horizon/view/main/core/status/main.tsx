@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { KarmaState } from '../../../sidebar/item/header/main';
 
 export function HorizonsHorizonStatus() {

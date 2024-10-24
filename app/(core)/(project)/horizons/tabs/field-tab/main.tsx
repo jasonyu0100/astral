@@ -1,8 +1,8 @@
 'use client';
 
-import { Tab } from '@/ui/tabs/tabs-row/tab/main';
-import { TabOrangeShard } from '@/ui/tabs/tabs-row/tab/shard/orange/main';
-import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/components/tabs/tabs-row/tab/main';
+import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main';
+import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { ContextForHorizon } from '../../[id]/layout';
 import { horizonsMap } from '../../[id]/map';

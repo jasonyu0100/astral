@@ -1,11 +1,11 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
+import { UserDisplayPictureElement } from '@/components/cover/user/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { UserDisplayPictureElement } from '@/ui/cover/user/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import { ContextForSpacesSidebarAddMember } from '../main';

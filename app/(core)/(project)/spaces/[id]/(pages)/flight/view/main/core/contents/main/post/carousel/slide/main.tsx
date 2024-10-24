@@ -3,7 +3,7 @@ import {
   ContextForPostAttachmentObj,
   examplePostAttachment,
 } from '@/(server)/model/post/attachment/main';
-import { ElementAttachment } from '@/ui/element/attachment/main';
+import { ElementAttachment } from '@/components/element/attachment/main';
 import { useContext } from 'react';
 
 export function SpacesFlightCarouselSlide({ index }: { index: number }) {

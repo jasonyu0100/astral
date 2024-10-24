@@ -1,5 +1,5 @@
+import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
-import { BarDividerIndicator } from '@/ui/indicator/bar/main';
 import { ctwn } from '@/utils/cn';
 
 export function HorizonsHorizonHeaderLeft() {

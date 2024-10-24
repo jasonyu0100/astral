@@ -1,11 +1,11 @@
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import {
   Popover,
   PopoverContent,

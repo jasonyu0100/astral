@@ -1,6 +1,6 @@
 import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
 import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpacesFlightContentComment } from './comment/main';
 

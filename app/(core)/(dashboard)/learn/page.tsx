@@ -21,7 +21,7 @@ import {
 } from '@/(server)/controller/space/main';
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { ContextForUserObj } from '@/(server)/model/user/main';
-import { LoadingWrapper } from '@/ui/loading/controller/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useContext, useEffect } from 'react';
 import { ConversationalSearchView } from './(core)/view';
 import {

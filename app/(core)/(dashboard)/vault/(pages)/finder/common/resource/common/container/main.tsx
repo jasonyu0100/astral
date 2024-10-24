@@ -1,6 +1,6 @@
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { DivInputProps } from '@/props/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { ctwn } from '@/utils/cn';
 
 interface InputProps extends DivInputProps {

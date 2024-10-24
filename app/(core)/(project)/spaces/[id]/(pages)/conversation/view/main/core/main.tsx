@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { SpacesConversationContents } from './contents/main';
 import { SpacesConversationHeader } from './header/main';
 

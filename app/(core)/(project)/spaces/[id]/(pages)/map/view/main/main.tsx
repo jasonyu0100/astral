@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { SpacesMapBodyCore } from './core/main';
 import { SpacesMapNavigation } from './navigation/main';
 

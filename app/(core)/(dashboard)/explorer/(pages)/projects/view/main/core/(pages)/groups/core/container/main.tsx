@@ -1,6 +1,6 @@
 'use client';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { HorizonsGroupLabel } from '../label/main';
 import { HorizonsGroupRow } from '../row/main';
 

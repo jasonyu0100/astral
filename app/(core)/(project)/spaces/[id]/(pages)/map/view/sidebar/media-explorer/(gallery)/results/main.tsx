@@ -1,6 +1,6 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpacesMapCollectionAdd } from './add/main';
 import { SpacesMapCollectionItem } from './item/main';

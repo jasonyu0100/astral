@@ -1,7 +1,7 @@
-import { ContextForTemplateChapter } from '@/(server)/templates/space/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
+import { ContextForTemplateChapter } from '@/templates/space/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../../(controller)/create-space/main';
 

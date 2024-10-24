@@ -1,8 +1,8 @@
 'use client';
 
-import { Tab } from '@/ui/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '@/ui/tabs/tabs-row/tab/shard/blue/main';
-import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/components/tabs/tabs-row/tab/main';
+import { TabBlueShard } from '@/components/tabs/tabs-row/tab/shard/blue/main';
+import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { ContextForProfileId } from '../../layout';
 import { userProfileMap } from '../../map';

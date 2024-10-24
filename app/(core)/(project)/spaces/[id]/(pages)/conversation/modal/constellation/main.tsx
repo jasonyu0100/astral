@@ -1,6 +1,6 @@
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { CustomisableModalContents } from '@/ui/modal/general/container/main';
-import { CustomisableModal } from '@/ui/modal/general/main';
 import { useContext } from 'react';
 import {
   ContextForGenerateSceneController,

@@ -1,8 +1,8 @@
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 
 export function VentureHorizonsFooter() {
   return (

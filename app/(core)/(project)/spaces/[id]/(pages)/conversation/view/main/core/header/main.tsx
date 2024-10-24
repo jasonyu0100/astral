@@ -1,5 +1,5 @@
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpacesConversationHeaderLeft } from './left/main';
 import { SpacesConversationHeaderMiddle } from './middle/main';
 import { SpacesConversationHeaderRight } from './right/main';

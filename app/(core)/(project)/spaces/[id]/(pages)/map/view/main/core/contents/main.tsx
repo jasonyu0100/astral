@@ -1,6 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ImageBackground } from '@/ui/background/img/main';
-import { AbsoluteHolder } from '@/ui/holder/main';
+import { ImageBackground } from '@/components/background/img/main';
+import { AbsoluteHolder } from '@/components/holder/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesMap,

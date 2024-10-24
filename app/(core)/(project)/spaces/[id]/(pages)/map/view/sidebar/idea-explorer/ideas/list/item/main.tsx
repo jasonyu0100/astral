@@ -1,12 +1,12 @@
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralHideSourceIcon } from '@/icons/hide-source/main';
 import { AstralSourceIcon } from '@/icons/source/main';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 
 export function SpacesMapSidebarIdeasListItem() {

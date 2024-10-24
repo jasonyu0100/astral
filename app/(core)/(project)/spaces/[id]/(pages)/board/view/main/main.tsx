@@ -1,8 +1,8 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { ImageBackground } from '@/ui/background/img/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { AbsoluteHolder } from '@/ui/holder/main';
+import { ImageBackground } from '@/components/background/img/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { AbsoluteHolder } from '@/components/holder/main';
 import { useContext, useEffect } from 'react';
 import {
   ContextForSpacesBoard,

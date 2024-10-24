@@ -1,5 +1,5 @@
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { borderFx } from '@/style/data';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
 
 export function UserProfileSpaceTableHeader() {
   console.log('adfsfadsf');

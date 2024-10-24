@@ -1,5 +1,5 @@
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { HorizonsArcHeader } from './main/header/main';
 import { HorizonsArcMain } from './main/main';
 import { HorizonsArcNavigation } from './navigation/main';

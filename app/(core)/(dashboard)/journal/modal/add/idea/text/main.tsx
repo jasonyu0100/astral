@@ -2,12 +2,12 @@ import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/c
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModalStep } from '@/components/step/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { AstralButtonRoundedAction } from '@/ui/button/action/main';
-import { CustomisableModalContents } from '@/ui/modal/general/container/main';
-import { CustomisableModal } from '@/ui/modal/general/main';
-import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddTextStickyModal() {

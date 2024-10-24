@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { SpacesBoardTableHeader } from './header/main';
 import { SpacesBoardTableList } from './list/main';
 

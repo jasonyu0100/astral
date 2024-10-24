@@ -1,9 +1,9 @@
+import { FormContainer } from '@/components/form/main';
+import { FormTitle } from '@/components/form/title/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
+import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
-import { LoadingWrapper } from '@/ui/loading/controller/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { useContext } from 'react';
 import {
   ContextForCreateSpace,

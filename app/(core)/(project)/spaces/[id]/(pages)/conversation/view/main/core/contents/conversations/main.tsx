@@ -1,11 +1,11 @@
 import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

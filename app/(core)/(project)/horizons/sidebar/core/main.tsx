@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { HorizonsSidebarMembersList } from './members/main';
 import { HorizonsSidebarSquadronsList } from './squadrons/main';
 

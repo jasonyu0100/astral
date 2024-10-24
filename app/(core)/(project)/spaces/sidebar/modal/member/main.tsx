@@ -3,14 +3,14 @@ import { ContextForSpaceMemberList } from '@/(server)/controller/space/member/li
 import { useControllerForUserConnectionListFromSource } from '@/(server)/controller/user/connection/list-from-source';
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { FormBody } from '@/components/form/body/main';
+import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormFooter } from '@/components/form/footer/main';
+import { FormContainer } from '@/components/form/main';
+import { FormTitle } from '@/components/form/title/main';
+import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { FormBody } from '@/ui/form/body/main';
-import { ButtonVariant, FormButton } from '@/ui/form/button/main';
-import { FormFooter } from '@/ui/form/footer/main';
-import { FormContainer } from '@/ui/form/main';
-import { FormTitle } from '@/ui/form/title/main';
-import { PolaroidModal } from '@/ui/modal/polaroid/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesSidebarAddMemberItem } from './item/main';
 

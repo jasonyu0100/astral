@@ -1,8 +1,8 @@
 import { useControllerForPostAttachmentListFromUser } from '@/(server)/controller/post/attachment/list-from-user';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
 
 export function UserProfileOverviewGallery() {

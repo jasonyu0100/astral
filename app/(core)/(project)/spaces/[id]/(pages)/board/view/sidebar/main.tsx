@@ -1,5 +1,5 @@
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
 import { SpacesBoardSidebarHeader } from './header/main';
 import { SpacesBoardSidebarLinkList } from './list/main';
 

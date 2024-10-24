@@ -1,6 +1,6 @@
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForUserPostObj } from '@/(server)/model/post/main';
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { useContext } from 'react';
 import { SpacesFlightSidebarItem } from './item/main';
 

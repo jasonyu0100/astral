@@ -7,8 +7,8 @@ import {
   useControllerForUserMain,
 } from '@/(server)/controller/user/main';
 import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
 import { SpacesFlightCommentKarma } from './karma/main';
 import { SpacesFlightCommentMessage } from './message/main';

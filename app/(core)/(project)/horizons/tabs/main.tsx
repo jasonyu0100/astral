@@ -1,5 +1,5 @@
-import { TabsContainer } from '@/ui/tabs/main';
-import { TabsRow } from '@/ui/tabs/tabs-row/main';
+import { TabsContainer } from '@/components/tabs/main';
+import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { TabField } from './field-tab/main';
 import { TabHorizon } from './horizon-tab/main';
 import { TabPoint } from './point-tab/main';

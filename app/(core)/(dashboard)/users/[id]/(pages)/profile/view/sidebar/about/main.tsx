@@ -1,4 +1,4 @@
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { UserProfileAboutAction } from './action/main';
 import { UserProfileAboutBio } from './bio/main';
 import { UserProfileAboutConnections } from './connections/main';

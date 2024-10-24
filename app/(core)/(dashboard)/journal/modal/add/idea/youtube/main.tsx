@@ -1,14 +1,14 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
+import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { AstralButtonRoundedAction } from '@/ui/button/action/main';
-import { AstralTextLineInput } from '@/ui/input/line/main';
-import { CustomisableModalContents } from '@/ui/modal/general/container/main';
-import { CustomisableModal } from '@/ui/modal/general/main';
-import { AstralModalStep } from '@/ui/step/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddYouTubeUrlModal() {

@@ -2,9 +2,9 @@
 
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { Tab } from '@/ui/tabs/tabs-row/tab/main';
-import { TabPurpleShard } from '@/ui/tabs/tabs-row/tab/shard/purple/main';
-import { TabText } from '@/ui/tabs/tabs-row/tab/text/main';
+import { Tab } from '@/components/tabs/tabs-row/tab/main';
+import { TabPurpleShard } from '@/components/tabs/tabs-row/tab/shard/purple/main';
+import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';

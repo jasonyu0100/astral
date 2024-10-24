@@ -3,16 +3,16 @@ import { AccordionItem } from '@radix-ui/react-accordion';
 import { SetStateAction, useEffect, useState } from 'react';
 import ScrollableCardList from './(landing)/horizontal-scroll/main';
 import { PortalBackground } from './(portal)/common/background/main';
-import { borderFx, glassFx, roundedFx } from './style/data';
-import { GlassWindowContents } from './ui/glass/window/contents/main';
-import { GlassWindowFrame } from './ui/glass/window/main';
-import { GlassWindowPane } from './ui/glass/window/pane/main';
-import { HorizontalDivider } from './ui/indicator/divider/horizontal/main';
+import { GlassWindowContents } from './components/glass/window/contents/main';
+import { GlassWindowFrame } from './components/glass/window/main';
+import { GlassWindowPane } from './components/glass/window/pane/main';
+import { HorizontalDivider } from './components/indicator/divider/horizontal/main';
 import {
   Accordion,
   AccordionContent,
   AccordionTrigger,
-} from './ui/radix/accordion/main';
+} from './components/radix/accordion/main';
+import { borderFx, glassFx, roundedFx } from './style/data';
 import { ctwn } from './utils/cn';
 
 const Header = () => (

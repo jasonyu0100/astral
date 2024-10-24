@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { NetworkCreativeSearch } from './search/main';
 import { NetworkCreativeTable } from './table/main';
 

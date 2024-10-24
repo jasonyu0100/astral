@@ -1,10 +1,10 @@
 import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
 import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext, useState } from 'react';
 
 export function SpacesFlightInput() {

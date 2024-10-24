@@ -9,10 +9,10 @@ import {
 } from '@/(server)/controller/way/link/list';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { ContextForTaskObj } from '@/(server)/model/task/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
 import { useContext } from 'react';
 import { SpacesBoardLogTableItemAuthor } from './fields/author/main';
 import { SpacesBoardLogTableItemCard } from './fields/card/main';

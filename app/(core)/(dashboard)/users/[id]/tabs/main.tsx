@@ -1,5 +1,5 @@
-import { TabsContainer } from '@/ui/tabs/main';
-import { TabsRow } from '@/ui/tabs/tabs-row/main';
+import { TabsContainer } from '@/components/tabs/main';
+import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { TabOne } from './tab-1/main';
 
 interface UserTabProps {

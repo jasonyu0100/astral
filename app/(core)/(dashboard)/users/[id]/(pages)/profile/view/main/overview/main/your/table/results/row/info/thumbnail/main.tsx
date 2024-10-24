@@ -1,9 +1,9 @@
 import { ContextForSpaceObj } from '@/(server)/model/space/main';
-import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
 import {
   SpaceThumbnailElement,
   SpaceThumbnailVariant,
-} from '@/ui/cover/space/main';
+} from '@/components/cover/space/main';
+import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

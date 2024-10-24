@@ -1,10 +1,10 @@
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { CommonSidebarTopBack } from '@/(core)/common/(sidebar)/top/back/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { glassFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
-import { GlassWindowPane } from '@/ui/glass/window/pane/main';
-import { HorizontalDivider } from '@/ui/indicator/divider/horizontal/main';
 import { SpaceSidebarMembersList } from './members/main';
 
 export function SpacesSidebar() {

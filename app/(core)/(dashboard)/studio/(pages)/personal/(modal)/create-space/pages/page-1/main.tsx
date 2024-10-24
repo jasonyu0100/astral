@@ -1,9 +1,9 @@
-import { SpaceTemplate } from '@/(server)/templates/space/main';
-import { FormTextArea } from '@/ui/form/area/main';
-import { FormBody } from '@/ui/form/body/main';
-import { FormSearchImage } from '@/ui/form/file/search/search-image/main';
-import { FormInput } from '@/ui/form/input/main';
-import { FormSelect } from '@/ui/form/select/main';
+import { FormTextArea } from '@/components/form/area/main';
+import { FormBody } from '@/components/form/body/main';
+import { FormSearchImage } from '@/components/form/file/search/search-image/main';
+import { FormInput } from '@/components/form/input/main';
+import { FormSelect } from '@/components/form/select/main';
+import { SpaceTemplate } from '@/templates/space/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
 import { CreateSpaceMembers } from './members/main';

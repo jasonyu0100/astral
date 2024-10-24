@@ -7,9 +7,9 @@ import {
   useControllerForCollectionResourceList,
 } from '@/(server)/controller/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { DivInputProps } from '@/props/main';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
 import { ctwn } from '@/utils/cn';
 import React, { useContext } from 'react';
 

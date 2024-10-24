@@ -1,4 +1,4 @@
-import { GlassAreaContainer } from '@/ui/glass/area/main';
+import { GlassAreaContainer } from '@/components/glass/area/main';
 import { SpacesConversationSidebarChaptersList } from './list/main';
 
 export function SpacesConversationSidebarChapters() {

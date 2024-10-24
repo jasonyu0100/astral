@@ -1,5 +1,5 @@
 import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { UserDisplayPictureElement } from '@/ui/cover/user/main';
+import { UserDisplayPictureElement } from '@/components/cover/user/main';
 
 export function CreateSpaceCollaborator({
   connectedId,

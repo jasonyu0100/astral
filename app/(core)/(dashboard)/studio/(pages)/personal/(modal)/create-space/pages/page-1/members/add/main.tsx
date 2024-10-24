@@ -1,7 +1,7 @@
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { roundedFx } from '@/style/data';
-import { GlassWindowContents } from '@/ui/glass/window/contents/main';
-import { GlassWindowFrame } from '@/ui/glass/window/main';
 
 export function CreateSpaceAddCollaborator({
   onClick,
