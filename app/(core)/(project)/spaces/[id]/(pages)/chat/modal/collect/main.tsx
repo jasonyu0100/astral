@@ -33,7 +33,7 @@ export function SpacesChatAddSceneModal() {
           <FormFooter>
             <FormButton
               onClick={() => {
-                window.location.href = spacesMap.spaces.id.map.link(
+                window.location.href = spacesMap.spaces.id.view.link(
                   spaceController.state.objId,
                 );
               }}

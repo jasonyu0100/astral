@@ -1,5 +1,5 @@
 import { EmptyMain } from '@/components/empty/main';
 
 export function SpacesBoardEmpty() {
-  return <EmptyMain>JOURNEY</EmptyMain>;
+  return <EmptyMain>BOARD</EmptyMain>;
 }

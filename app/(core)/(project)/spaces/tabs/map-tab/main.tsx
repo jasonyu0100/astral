@@ -14,7 +14,7 @@ export function SpacesTabMap({ tab }: { tab?: string }) {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Map;
+  const tabText = SpaceTabStage.View;
   const active = tab === tabText;
 
   // Safely check if the necessary context values are available
@@ -24,7 +24,7 @@ export function SpacesTabMap({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.map.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
+    ? `${spacesMap.spaces.id.view.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
     : '#'; // Fallback URL if spaceId is not defined
 
   return (
