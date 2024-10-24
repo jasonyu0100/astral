@@ -27,12 +27,13 @@ export function SpacesPostSidebarItem() {
               {post.title || 'Untitled'}
             </p>
           </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
+          <GlassWindowPane glassFx={glassFx['glass-20']} />
         </GlassWindowFrame>
       ) : (
         <GlassWindowFrame
           className='flex aspect-video  w-full p-[1rem]'
-          borderFx={borderFx['border-b']}
+          borderFx={borderFx['border-around']}
+          roundedFx={roundedFx.rounded}
         >
           <GlassWindowContents
             onClick={() => postListController.actions.stateActions.select(post)}
@@ -42,6 +43,7 @@ export function SpacesPostSidebarItem() {
               {post.title || 'Untitled'}
             </p>
           </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       )}
     </>
