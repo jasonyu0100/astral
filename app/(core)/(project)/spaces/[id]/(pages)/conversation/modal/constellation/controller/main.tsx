@@ -266,8 +266,8 @@ export function useGenerateSceneController(): Controller {
       const y = Math.ceil(row * (imaginaryScreenHeight / rows));
 
       // Ensure ideas are centered within their grid cells
-      const xPos = x + (imaginaryScreenWidth / cols - width) / 2;
-      const yPos = y + (imaginaryScreenHeight / rows - height) / 2;
+      const xPos = Math.ceil(x + (imaginaryScreenWidth / cols - width) / 2);
+      const yPos = Math.ceil(y + (imaginaryScreenHeight / rows - height) / 2);
 
       return { xPos, yPos };
     };

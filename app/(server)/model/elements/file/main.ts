@@ -61,6 +61,14 @@ export const exampleDisplayPictureFileElem: FileElem = {
 export const exampleFileElems: FileElem[] = [
   {
     id: '0',
+    title: 'vinyl',
+    size: 0,
+    src: `/stock/vinyl.png`,
+    ext: 'image/png',
+    variant: FileElemVariant.IMAGE,
+  },
+  {
+    id: '0',
     title: 'passion',
     size: 0,
     src: `/stock/passion.png`,
