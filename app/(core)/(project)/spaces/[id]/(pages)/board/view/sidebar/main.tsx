@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
 import { SpacesBoardSidebarHeader } from './header/main';
-import { SpacesBoardSidebarLinkList } from './list/main';
+import { SpacesBoardSidebarList } from './links/list/main';
 
 export function SpacesBoardSidebar() {
   return (
@@ -12,7 +12,7 @@ export function SpacesBoardSidebar() {
       className={`flex flex-col items-center overflow-hidden`}
     >
       <SpacesBoardSidebarHeader />
-      <SpacesBoardSidebarLinkList />
+      <SpacesBoardSidebarList />
     </GlassAreaContainer>
   );
 }

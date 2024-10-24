@@ -10,11 +10,11 @@ import { CreativeSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';
 import { SpaceTabStage } from '../main';
 
-export function SpacesTabFlight({ tab }: { tab?: string }) {
+export function SpacesTabPost({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.Flight;
+  const tabText = SpaceTabStage.Post;
   const active = tab === tabText;
 
   const spaceId = spaceContext?.spaceId;
@@ -23,7 +23,7 @@ export function SpacesTabFlight({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.flight.link(spaceId)}?chapter=${chapterId ?? ''}&post=${postId ?? ''}`
+    ? `${spacesMap.spaces.id.post.link(spaceId)}?chapter=${chapterId ?? ''}&post=${postId ?? ''}`
     : '#'; // Fallback URL if spaceId is not defined
 
   return (

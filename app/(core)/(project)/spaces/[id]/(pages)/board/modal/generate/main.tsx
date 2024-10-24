@@ -127,7 +127,7 @@ export function SpacesBoardPostModal() {
       post.id,
     );
 
-    window.location.href = spacesMap.spaces.id.flight.link(
+    window.location.href = spacesMap.spaces.id.post.link(
       spaceController.state.objId,
     );
   }
