@@ -22,7 +22,6 @@ export function PortalRegisterForm() {
   const [lname, changeLname] = useState('');
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
-  const [rePassword, changeRePassword] = useState('');
   const [role, changeRole] = useState('');
 
   async function attemptRegister() {
@@ -87,13 +86,6 @@ export function PortalRegisterForm() {
           placeholder='password'
           type='password'
           emoji='🔒'
-        />
-        <PortalFormInput
-          emoji='🔐'
-          type='password'
-          value={rePassword}
-          onChange={(e) => changeRePassword(e.target.value)}
-          placeholder='re-enter password'
         />
       </PortalFormBody>
       <PortalFormActionContainer>
