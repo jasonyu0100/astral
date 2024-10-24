@@ -32,12 +32,12 @@ export function SpacesConversationSidebarChapter() {
           <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
             <SpacesConversationChapterActive />
           </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
+          <GlassWindowPane glassFx={glassFx['glass-20']} />
         </GlassWindowFrame>
       ) : (
         <GlassWindowFrame
-          borderFx={borderFx['border-b']}
-          roundedFx={roundedFx['rounded-t']}
+          borderFx={borderFx['border-around']}
+          roundedFx={roundedFx['rounded']}
           className='p-[1rem]'
         >
           <GlassWindowContents
@@ -49,10 +49,12 @@ export function SpacesConversationSidebarChapter() {
             <p className={ctwn('text-lg font-bold text-slate-400')}>
               {chapter.title?.trim() || 'Untitled'}
             </p>
+            <p className='font-md w-full text-sm font-light text-slate-300'>
+              {chapterListController.state.currentObj?.objective ||
+                'Open-ended'}
+            </p>
           </GlassWindowContents>
-          {hoverableController.hovered && (
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          )}
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       )}
     </div>

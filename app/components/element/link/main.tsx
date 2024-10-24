@@ -4,7 +4,7 @@ import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
 import { useContext } from 'react';
-import { ElementAudio } from '../common/audio/main';
+import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
@@ -35,7 +35,7 @@ export function ElementLink({
             <ElementVideo src={linkObj.fileElem.src} />
           )}
           {linkObj.fileElem?.variant === FileElemVariant.AUDIO && (
-            <ElementAudio src={linkObj.fileElem.src} />
+            <ElementAudioSquare src={linkObj.fileElem.src} />
           )}
           {linkObj.fileElem?.variant === FileElemVariant.PDF && (
             <ElementPdf src={linkObj.fileElem.src} />

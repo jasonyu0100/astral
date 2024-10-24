@@ -1,4 +1,4 @@
-export function ElementAudio({ src }: { src: string }) {
+export function ElementAudioSquare({ src }: { src: string }) {
   return (
     <div
       className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-slate-900'

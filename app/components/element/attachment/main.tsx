@@ -5,7 +5,7 @@ import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForPostAttachmentObj } from '@/(server)/model/post/attachment/main';
 import { useContext } from 'react';
-import { ElementAudio } from '../common/audio/main';
+import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
@@ -36,7 +36,7 @@ export function ElementAttachment({
             <ElementVideo src={attachmentObj.fileElem.src} />
           )}
           {attachmentObj.fileElem?.variant === FileElemVariant.AUDIO && (
-            <ElementAudio src={attachmentObj.fileElem.src} />
+            <ElementAudioSquare src={attachmentObj.fileElem.src} />
           )}
           {attachmentObj.fileElem?.variant === FileElemVariant.PDF && (
             <ElementPdf src={attachmentObj.fileElem.src} />

@@ -1,5 +1,6 @@
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import { SpacesConversationSidebarChaptersAdd } from './add/main';
 import { SpacesConversationSidebarChapter } from './chapter/main';
@@ -14,6 +15,7 @@ export function SpacesConversationSidebarChaptersList() {
           <SpacesConversationSidebarChapter key={chapter.id} />
         </ContextForSpaceChapterObj.Provider>
       ))}
+      <HorizontalDivider />
       <SpacesConversationSidebarChaptersAdd />
     </div>
   );

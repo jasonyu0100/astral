@@ -1,14 +1,14 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
-import { GlassAreaContainer } from '@/components/glass/area/main';
-import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { AstralVoiceIcon } from '@/icons/voice/main';
+import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { ContextForSpacesConversation } from '../../../../controller/main';
 
 export function SpacesConversationInputText() {
-  const hoverableController = useControllerForHoverable();
   const messageListController = useContext(ContextForConversationMessageList);
-
   const spacesConversationController = useContext(ContextForSpacesConversation);
 
   const handleKeyDown = (event: { key: string }) => {
@@ -18,26 +18,29 @@ export function SpacesConversationInputText() {
   };
 
   return (
-    <GlassAreaContainer
-      name={SpacesConversationInputText.name}
-      sizeFx='max-w-[600px] flex-grow h-[3.5rem]'
-      glassFx={`${hoverableController.hovered ? glassFx['glass-20'] : glassFx['glass-10']}`}
+    <GlassWindowFrame
+      className='h-[3.5rem] w-[600px]'
       roundedFx={roundedFx['rounded-full']}
-      onMouseOver={() => hoverableController.onHover()}
-      onMouseLeave={() => hoverableController.onUnhover()}
-      borderFx={borderFx['border-around']}
     >
-      <input
-        className={`h-full w-full animate-pulse-slow bg-transparent px-[2rem] font-light text-slate-300 outline-none`}
-        placeholder='Type a message...'
-        onKeyDown={handleKeyDown}
-        onChange={(e) =>
-          messageListController.actions.stateActions.updateInputMessageText(
-            e.target.value,
-          )
-        }
-        value={messageListController.state.more.inputMessageText}
-      />
-    </GlassAreaContainer>
+      <GlassWindowContents className='flex w-full flex-row items-center px-[2rem]'>
+        <input
+          className={`h-full flex-grow animate-pulse-slow bg-transparent font-light text-slate-300 outline-none`}
+          placeholder='Type a messsadfsge...'
+          onKeyDown={handleKeyDown}
+          onChange={(e) =>
+            messageListController.actions.stateActions.updateInputMessageText(
+              e.target.value,
+            )
+          }
+          value={messageListController.state.more.inputMessageText}
+        />
+        <AstralVoiceIcon
+          onClick={() => {
+            // populate input message with voice over transcription
+          }}
+        />
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
+    </GlassWindowFrame>
   );
 }

@@ -18,7 +18,7 @@ export function SpacesConversationChapterActive() {
       <div className='flex w-full flex-row flex-wrap items-center justify-between'>
         <p
           className={ctwn(
-            'animate-pulse-slow text-start font-extraBold text-xl text-slate-300',
+            'flex-grow animate-pulse-slow font-extraBold text-xl text-slate-300',
           )}
         >
           {chapter.title?.trim() || 'Untitled'}
@@ -27,12 +27,11 @@ export function SpacesConversationChapterActive() {
           onClick={() => modalController.editChapterController.open()}
         />
       </div>
-      <p className='font-md w-full text-start text-sm font-light text-slate-300'>
-        <span className='font-bold'>Chapter: </span>
+      <p className='font-md w-full text-sm font-light text-slate-300'>
         {chapterListController.state.currentObj?.objective || 'Open-ended'}
       </p>
-      <p className='font-md w-full text-start text-sm font-light text-slate-300'>
-        <span className='font-bold'>Objective: </span>
+      <p className='font-md w-full text-sm font-light text-slate-300'>
+        <span className='font-bold'>Summary: </span>
         {chapterListController.state.currentObj?.description || 'Open-ended'}
       </p>
     </div>

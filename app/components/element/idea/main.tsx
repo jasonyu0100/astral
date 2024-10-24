@@ -4,7 +4,7 @@ import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useContext } from 'react';
-import { ElementAudio } from '../common/audio/main';
+import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
@@ -35,7 +35,7 @@ export function ElementIdea({
             <ElementVideo src={ideaObj.fileElem.src} />
           )}
           {ideaObj.fileElem?.variant === FileElemVariant.AUDIO && (
-            <ElementAudio src={ideaObj.fileElem.src} />
+            <ElementAudioSquare src={ideaObj.fileElem.src} />
           )}
           {ideaObj.fileElem?.variant === FileElemVariant.PDF && (
             <ElementPdf src={ideaObj.fileElem.src} />

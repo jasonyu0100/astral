@@ -261,9 +261,8 @@ export function useControllerForSpacesConversation() {
     return agentResponse;
   }
 
-  async function summariseConversation(
+  async function summariseConversationForChapter(
     messages: ConversationMessageObj[],
-    conversationObj: ConversationObj,
   ) {
     const messageText = messages.map((message) => message.message).join(' ');
 
@@ -271,15 +270,14 @@ export function useControllerForSpacesConversation() {
       `Summarise within max 100 characters. ${messageText}`,
     );
 
-    const newConversation =
-      await conversationListController.actions.editActions.edit(
-        conversationObj?.id || '',
-        {
-          summary: summary || '',
-        },
-      );
+    console.log(summary);
 
-    return newConversation;
+    await chapterListController.actions.editActions.edit(
+      chapterListController.state.objId,
+      {
+        description: summary || '',
+      },
+    );
   }
 
   async function sendAndReceiveMessage(conversation: ConversationObj) {
@@ -307,7 +305,7 @@ export function useControllerForSpacesConversation() {
   }
 
   async function sendMessageToConversation() {
-    const conversation = conversationListController.state.currentObj;
+    let conversation = conversationListController.state.currentObj;
     const conversationStatus = checkConversationExpiryStatus(conversation);
     const maxConversationLength = 30;
     let messages = [];
@@ -319,11 +317,11 @@ export function useControllerForSpacesConversation() {
       messages = await sendAndReceiveMessage(conversation);
     } else {
       alert('Starting a fresh conversation.');
-      const newConversation = await createNewConversation();
-      messages = await sendAndReceiveMessage(newConversation);
-      await summariseConversation(messages, newConversation);
+      conversation = await createNewConversation();
+      messages = await sendAndReceiveMessage(conversation);
     }
 
+    await summariseConversationForChapter(messages);
     return messages;
   }
 

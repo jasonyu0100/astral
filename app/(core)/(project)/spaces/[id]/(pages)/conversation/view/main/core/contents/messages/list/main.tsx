@@ -17,7 +17,7 @@ export function SpacesConversationMessages() {
   return (
     <div
       className='flex w-full flex-col items-center overflow-auto'
-      style={{ height: 'calc(100% - 10rem)' }}
+      style={{ height: 'calc(100% - 8rem)' }}
       ref={ref}
     >
       {messageListController.state.objs.length === 0 ? (

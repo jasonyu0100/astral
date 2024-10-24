@@ -4,7 +4,7 @@ import { TextElemVariant } from '@/(server)/model/elements/text/main';
 import { UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { useContext } from 'react';
-import { ElementAudio } from '../common/audio/main';
+import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
@@ -36,7 +36,7 @@ export function ElementResource({
             <ElementVideo src={resourceObj.fileElem.src} />
           )}
           {resourceObj.fileElem?.variant === FileElemVariant.AUDIO && (
-            <ElementAudio src={resourceObj.fileElem.src} />
+            <ElementAudioSquare src={resourceObj.fileElem.src} />
           )}
           {resourceObj.fileElem?.variant === FileElemVariant.PDF && (
             <ElementPdf src={resourceObj.fileElem.src} />

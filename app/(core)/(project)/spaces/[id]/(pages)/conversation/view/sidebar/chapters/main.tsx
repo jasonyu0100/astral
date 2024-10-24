@@ -1,16 +1,31 @@
-import { GlassAreaContainer } from '@/components/glass/area/main';
-import { SpacesConversationSidebarChaptersList } from './list/main';
+import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { useContext } from 'react';
+import { SpacesConversationSidebarChaptersAdd } from './list/add/main';
+import { SpacesConversationSidebarChapter } from './list/chapter/main';
 
 export function SpacesConversationSidebarChapters() {
+  const chapterListController = useContext(ContextForSpaceChapterList);
+
   return (
     <div style={{ height: '100%', width: '100%' }}>
-      <GlassAreaContainer
-        name={SpacesConversationSidebarChapters.name}
-        sizeFx='h-full w-full'
-        className='flex flex-col overflow-auto p-[1rem]'
-      >
-        <SpacesConversationSidebarChaptersList />
-      </GlassAreaContainer>
+      <GlassWindowFrame className='h-full w-full'>
+        <GlassWindowContents className='flex flex-col space-y-[1rem] p-[1rem]'>
+          {chapterListController.state.more.queryResults.map((chapter) => (
+            <ContextForSpaceChapterObj.Provider
+              value={chapter}
+              key={chapter.id}
+            >
+              <SpacesConversationSidebarChapter key={chapter.id} />
+            </ContextForSpaceChapterObj.Provider>
+          ))}
+          <HorizontalDivider />
+          <SpacesConversationSidebarChaptersAdd />
+        </GlassWindowContents>
+      </GlassWindowFrame>
     </div>
   );
 }

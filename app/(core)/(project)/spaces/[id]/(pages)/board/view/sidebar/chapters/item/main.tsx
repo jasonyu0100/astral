@@ -36,21 +36,20 @@ export function SpacesMapSidebarChaptersChapter() {
               {chapterObj.title}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
-              <span className='font-bold'>Description: </span>
-              {chapterObj.description}
-            </p>
-            <p className={'text-sm font-light text-slate-300'}>
-              <span className='font-bold'>Objective: </span>
               {chapterObj.objective}
             </p>
+            <p className={'text-sm font-light text-slate-300'}>
+              <span className='font-bold'>Summary: </span>
+              {chapterObj.description}
+            </p>
           </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
+          <GlassWindowPane glassFx={glassFx['glass-20']} />
         </GlassWindowFrame>
       ) : (
         <GlassWindowFrame
           name={ExplorerProjectsSidebarOption.name}
-          borderFx={borderFx['border-b']}
-          roundedFx={roundedFx['rounded-t']}
+          borderFx={borderFx['border-around']}
+          roundedFx={roundedFx['rounded']}
           className='p-[1rem]'
         >
           <GlassWindowContents>
@@ -61,10 +60,11 @@ export function SpacesMapSidebarChaptersChapter() {
             >
               {chapterObj.title}
             </p>
+            <p className={'text-sm font-light text-slate-300'}>
+              {chapterObj.objective}
+            </p>
           </GlassWindowContents>
-          {hoverableController.hovered && (
-            <GlassWindowPane glassFx={glassFx['glass-10']} />
-          )}
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       )}
     </div>
