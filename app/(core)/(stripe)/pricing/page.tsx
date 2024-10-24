@@ -102,7 +102,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>$180 / year</p>
+                <p className='text-lg font-bold'>$90 / year</p>
               </div>
             </div>
             <div
@@ -115,7 +115,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>$480 / year</p>
+                <p className='text-lg font-bold'>$240 / year</p>
               </div>
             </div>
             <div
@@ -147,7 +147,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>$20 / month</p>
+                <p className='text-lg font-bold'>$10 / month</p>
               </div>
             </div>
             <div
@@ -160,7 +160,7 @@ export default function Page() {
               />
               <div className='flex h-full w-full flex-col justify-center'>
                 <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>$50 / month</p>
+                <p className='text-lg font-bold'>$25 / month</p>
               </div>
             </div>
             <div

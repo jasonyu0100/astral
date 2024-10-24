@@ -371,13 +371,13 @@ function MembershipSection() {
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 <MemberPricingCard
                   title='Creator'
-                  price='$250 / year'
+                  price='$90 / year'
                   description='Best for individual creators looking to organize and execute their ideas.'
                   imageSrc='/portal/producer-f.png'
                 />
                 <MemberPricingCard
                   title='Team Pro'
-                  price='$100 seat / year'
+                  price='$240 / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
                 />
@@ -393,13 +393,13 @@ function MembershipSection() {
               <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 <MemberPricingCard
                   title='Creator'
-                  price='$50 / month'
+                  price='$10 / month'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
                   imageSrc='/portal/performer-m.png'
                 />
                 <MemberPricingCard
                   title='Team Pro'
-                  price='$20 seat / month'
+                  price='$25 / month'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
                   imageSrc='/portal/performer-f.png'
                 />
@@ -560,7 +560,7 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
-      {/* <MembershipSection /> */}
+      <MembershipSection />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
