@@ -453,7 +453,7 @@ function MemberPricingCard({
             className='mb-4 aspect-square w-full bg-black'
             alt={title}
           />
-          <p className='text-3xl font-black'>{title}</p>
+          <p className='text-3xl font-extrabold'>{title}</p>
           <p className='text-xl font-bold'>{price}</p>
         </div>
       ) : (
