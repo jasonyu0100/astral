@@ -42,9 +42,9 @@ export const ContextForFileElem = createContext<FileElem>({} as FileElem);
 
 export const exampleFileElem: FileElem = {
   id: '0',
-  title: 'passion.png',
+  title: 'vinyl.png',
   size: 0,
-  src: `/stock/passion.png`,
+  src: `/stock/vinyl.png`,
   ext: 'image/png',
   variant: FileElemVariant.IMAGE,
 };
