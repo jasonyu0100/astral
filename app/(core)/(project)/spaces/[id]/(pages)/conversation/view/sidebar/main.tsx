@@ -38,12 +38,12 @@ export function SpacesConversationSidebar() {
         SpacesConversationSidebarContentMode.MEMBERS && (
         <div className='flex w-full flex-col items-center space-y-[1rem] p-[1rem]'>
           <SpacesConversationSidebarLoggedIn />
-          <HorizontalDivider />
           {spaceMemberListController.state.objs.map((member) => (
             <ContextForSpaceMemberObj.Provider value={member}>
               <SpacesConversationSidebarMember />
             </ContextForSpaceMemberObj.Provider>
           ))}
+          <HorizontalDivider />
           <div
             className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
             onClick={() => {

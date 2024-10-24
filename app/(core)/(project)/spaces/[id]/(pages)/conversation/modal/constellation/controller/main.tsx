@@ -1,5 +1,5 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { useControllerForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
@@ -93,7 +93,7 @@ export function useGenerateSceneController(): Controller {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const ideaListController = useControllerForSceneIdeaList('');
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaRelationshipListController =
     useControllerForIdeaRelationshipListFromChapter(
       chapterListController.state.objId,
@@ -232,8 +232,9 @@ export function useGenerateSceneController(): Controller {
     loadingController.loadingController.open();
 
     let newScene = sceneListController.state?.currentObj;
-    console.log(newScene);
-    if (!newScene) {
+
+    if (!newScene || ideaListController.state.objs.length >= 5) {
+      console.log('new scene');
       newScene = await sceneListController.actions.createActions.createScene(
         'Map',
         'A map of the scene',
@@ -244,51 +245,99 @@ export function useGenerateSceneController(): Controller {
       console.log(newScene);
     }
 
+    const imaginaryScreenWidth = 1000;
+    const imaginaryScreenHeight = 1000;
+
+    const getGridDimensions = (totalIdeas) => {
+      // Assume a square grid for simplicity
+      const gridSize = Math.ceil(Math.sqrt(totalIdeas));
+      return { rows: gridSize, cols: gridSize };
+    };
+
+    const getIdeaPosition = (index, totalIdeas, width, height) => {
+      const { rows, cols } = getGridDimensions(totalIdeas);
+
+      // Calculate row and column for the idea based on index
+      const row = Math.floor(index / cols);
+      const col = index % cols;
+
+      // Calculate x and y coordinates
+      const x = Math.ceil(col * (imaginaryScreenWidth / cols));
+      const y = Math.ceil(row * (imaginaryScreenHeight / rows));
+
+      // Ensure ideas are centered within their grid cells
+      const xPos = x + (imaginaryScreenWidth / cols - width) / 2;
+      const yPos = y + (imaginaryScreenHeight / rows - height) / 2;
+
+      return { xPos, yPos };
+    };
+
     const ideas = await Promise.all(
       selectedIdeas.map(async (idea, index) => {
+        let width, height;
+
+        // Determine the width and height of each idea based on its variant
         if (idea.variant === ElementVariant.TEXT) {
-          const { width, height } = await getFileIdeaBounds(
+          const bounds = await getFileIdeaBounds(
             idea.fileElem || exampleFileElem,
           );
+          width = bounds.width;
+          height = bounds.height;
+        } else if (idea.variant === ElementVariant.FILE) {
+          const bounds = await getTextIdeaBounds(
+            idea.textElem || exampleTextElem,
+          );
+          width = bounds.width;
+          height = bounds.height;
+        } else if (idea.variant === ElementVariant.URL) {
+          const bounds = await getUrlIdeaBounds(idea.urlElem || exampleUrlElem);
+          width = bounds.width;
+          height = bounds.height;
+        }
+
+        // Calculate the position using the helper function
+        const { xPos, yPos } = getIdeaPosition(
+          index,
+          selectedIdeas.length,
+          width,
+          height,
+        );
+
+        // Create the idea element at the calculated position
+        if (idea.variant === ElementVariant.TEXT) {
           return ideaListController.actions.createActions.createIdeaFromTextElement(
             user.id,
             newScene.id,
             idea.title || '',
             idea.description || '',
-            Math.ceil(75 + Math.random() * 150),
-            Math.ceil(75 + Math.random() * 150),
+            xPos,
+            yPos,
             width,
             height,
             idea?.textElem || exampleTextElem,
             ideaListController.state.objs.length + index,
           );
         } else if (idea.variant === ElementVariant.FILE) {
-          const { width, height } = await getTextIdeaBounds(
-            idea.textElem || exampleTextElem,
-          );
           return ideaListController.actions.createActions.createIdeaFromFileElement(
             user.id,
             newScene.id,
             idea.title || '',
             idea.description || '',
-            Math.ceil(75 + Math.random() * 150),
-            Math.ceil(75 + Math.random() * 150),
+            xPos,
+            yPos,
             width,
             height,
             idea?.fileElem || exampleFileElem,
             ideaListController.state.objs.length + index,
           );
         } else if (idea.variant === ElementVariant.URL) {
-          const { width, height } = await getUrlIdeaBounds(
-            idea.urlElem || exampleUrlElem,
-          );
           return ideaListController.actions.createActions.createIdeaFromUrlElement(
             user.id,
             newScene.id,
             idea.title || '',
             idea.description || '',
-            Math.ceil(75 + Math.random() * 150),
-            Math.ceil(75 + Math.random() * 150),
+            xPos,
+            yPos,
             width,
             height,
             idea?.urlElem || exampleUrlElem,
