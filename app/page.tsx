@@ -60,10 +60,10 @@ const HeroSection = () => (
         Creative spaces that flow
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is the creative studio that flows with you. Whether you're a
-        creative visionary, content creator, or startup founder, Astral empowers
-        you with the tools to transform ideas into reality, fostering insight
-        every step of the way.
+        Astral is the creative studio that grows with you. Whether you're a
+        visionary, content creator, or startup founder, Astral equips you with
+        AI-powered tools to turn your ideas into reality, providing clarity and
+        insight at every stage of the process.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
@@ -100,13 +100,20 @@ const Question = () => (
 const CallToAction = () => {
   return (
     <section className='flex w-full flex-col items-center px-4 text-center'>
-      <video
+      {/* <video
         src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/demo.mov'
         className='w-[3/4] rounded-[3rem] shadow-glow sm:w-3/4'
         autoPlay
         muted
         controls
         loop
+      /> */}
+      <iframe
+        src='https://www.youtube.com/embed/k9y8ALInN0s'
+        className='aspect-video w-[3/4] flex-shrink-0 rounded-[3rem] shadow-glow sm:w-3/4'
+        allow='autoplay; encrypted-media'
+        allowFullScreen
+        title='YouTube video'
       />
       <div className='h-[3rem] sm:h-[5rem]' />
       <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
