@@ -78,7 +78,7 @@ export function SpacesChatInputText() {
       className='h-[3.5rem] w-[600px]'
       roundedFx={roundedFx['rounded-full']}
     >
-      <GlassWindowContents className='flex w-full flex-row items-center px-[2rem]'>
+      <GlassWindowContents className='flex w-full flex-row items-center pl-[2rem] pr-[1rem]'>
         <input
           className={`h-full flex-grow animate-pulse-slow bg-transparent font-light text-slate-300 outline-none`}
           placeholder='Type a message...'
@@ -92,11 +92,13 @@ export function SpacesChatInputText() {
         />
         <div
           className={ctwn(
-            'flex h-[2rem] w-[2rem] items-center justify-center rounded-full',
-            {
-              'bg-red-500': isRecording,
-            },
+            'flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full',
           )}
+          style={{
+            backgroundColor: isRecording
+              ? 'rgba(239, 68, 68, 0.7)'
+              : 'rgba(156, 163, 175, 0.3)', // red with opacity if recording, slate with opacity otherwise
+          }}
         >
           <AstralVoiceIcon
             onClick={() => {
