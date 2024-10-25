@@ -1,5 +1,5 @@
 import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { TaskStatus } from '@/(server)/model/task/main';
+import { exampleTask, TaskStatus } from '@/(server)/model/task/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
@@ -120,14 +120,15 @@ function KanbanTask({ task }) {
       } ${isSelected ? 'border-2 border-blue-500' : 'border'}`}
       style={{ cursor: 'move' }}
       onClick={() => {
-        taskListController.actions.stateActions.select(task);
         if (isSelected) {
+          taskListController.actions.stateActions.select(exampleTask);
           spacesBoardController.actions.updateSelectedTasks(
             spacesBoardController.state.selectedTasks.filter(
               (id) => id !== task.id,
             ),
           );
         } else {
+          taskListController.actions.stateActions.select(task);
           spacesBoardController.actions.updateSelectedTasks([
             ...spacesBoardController.state.selectedTasks,
             task.id,

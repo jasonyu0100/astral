@@ -2,14 +2,10 @@ import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useState } from 'react';
 
@@ -43,35 +39,23 @@ export function SpacesBoardAddTextLinkModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Note Element</FormTitle>
-          <FormBody>
-            <FormInput
-              placeholder='Description'
-              title='Description'
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-            />
-            <FormTextArea
-              title='Text'
-              value={text}
-              onChange={(e) => changeText(e.target.value)}
-              rows={10}
-            />
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton variant={FormButtonVariant.PRIMARY} onClick={create}>
-              Add
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <CustomisableModal>
+        <CustomisableModalContents>
+          <div className='flex flex-row items-center space-x-[2rem]'>
+            <div className='aspect-square h-full space-y-[2rem] bg-yellow-500 p-[2rem]'>
+              <textarea
+                placeholder='Enter description here...'
+                value={text}
+                className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
+                onChange={(e) => changeText(e.target.value)}
+              />
+            </div>
+            <AstralButtonRoundedAction onClick={create}>
+              <AstralCheckIcon />
+            </AstralButtonRoundedAction>
+          </div>
+        </CustomisableModalContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }
