@@ -47,17 +47,18 @@ export function SpacesPostSidebarHeader() {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
-            onClick={() => updateSidebarMode(SpacesPostSidebarMode.POSTS)}
+            onClick={() => updateSidebarMode(SpacesPostSidebarMode.Attachments)}
           >
             <p
               className={ctwn('font-bold text-slate-500', {
-                'text-slate-300': sidebarMode === SpacesPostSidebarMode.POSTS,
+                'text-slate-300':
+                  sidebarMode === SpacesPostSidebarMode.Attachments,
               })}
             >
-              Posts
+              Attachments
             </p>
           </GlassWindowContents>
-          {sidebarMode === SpacesPostSidebarMode.POSTS && (
+          {sidebarMode === SpacesPostSidebarMode.Attachments && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>

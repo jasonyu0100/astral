@@ -245,8 +245,8 @@ export function useGenerateSceneController(): Controller {
       console.log(newScene);
     }
 
-    const imaginaryScreenWidth = 1000;
-    const imaginaryScreenHeight = 1000;
+    const virtualScreenWidth = 1200;
+    const virtualScreenHeight = 800;
 
     const getGridDimensions = (totalIdeas) => {
       // Assume a square grid for simplicity
@@ -262,12 +262,12 @@ export function useGenerateSceneController(): Controller {
       const col = index % cols;
 
       // Calculate x and y coordinates
-      const x = Math.ceil(col * (imaginaryScreenWidth / cols));
-      const y = Math.ceil(row * (imaginaryScreenHeight / rows));
+      const x = Math.ceil(col * (virtualScreenWidth / cols));
+      const y = Math.ceil(row * (virtualScreenHeight / rows));
 
       // Ensure ideas are centered within their grid cells
-      const xPos = Math.ceil(x + (imaginaryScreenWidth / cols - width) / 2);
-      const yPos = Math.ceil(y + (imaginaryScreenHeight / rows - height) / 2);
+      const xPos = Math.ceil(x + (virtualScreenWidth / cols - width) / 2);
+      const yPos = Math.ceil(y + (virtualScreenHeight / rows - height) / 2);
 
       return { xPos, yPos };
     };

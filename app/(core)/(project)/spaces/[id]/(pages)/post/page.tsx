@@ -70,7 +70,6 @@ function Page({ params }: { params: { id: string } }) {
   const commentListController = useControllerForPostCommentList(
     postListController.state.objId,
   );
-  console.log(commentListController.state.objs);
   const postKarmaListController = useControllerForPostKarmaList(
     postListController.state.objId,
   );

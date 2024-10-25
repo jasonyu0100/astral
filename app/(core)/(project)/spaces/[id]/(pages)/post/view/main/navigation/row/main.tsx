@@ -1,24 +1,21 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
+import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
+import { ContextForUserPostObj } from '@/(server)/model/post/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { SpacesPostRowContainer } from './container/main';
 import { SpacesPostRowElement } from './element/main';
 
 export function SpacesPostNavigationRow() {
-  const chapterListController = useContext(ContextForSpaceChapterList);
+  const postListController = useContext(ContextForUserPostListFromChapter);
 
   return (
     <>
       <SpacesPostRowContainer>
-        {chapterListController.state.objs.map((chapter, index) => (
-          <ContextForIndexable.Provider value={index} key={chapter.id}>
-            <ContextForSpaceChapterObj.Provider
-              value={chapter}
-              key={chapter.id}
-            >
+        {postListController.state.objs.map((post, index) => (
+          <ContextForIndexable.Provider value={index} key={post.id}>
+            <ContextForUserPostObj.Provider value={post} key={post.id}>
               <SpacesPostRowElement />
-            </ContextForSpaceChapterObj.Provider>
+            </ContextForUserPostObj.Provider>
           </ContextForIndexable.Provider>
         ))}
       </SpacesPostRowContainer>

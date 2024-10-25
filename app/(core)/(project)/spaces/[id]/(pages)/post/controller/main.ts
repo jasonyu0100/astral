@@ -24,7 +24,7 @@ export enum SpacesPostSidebarVisibility {
 
 export enum SpacesPostSidebarMode {
   CHAPTERS = 'Chapters',
-  POSTS = 'Posts',
+  Attachments = 'Attachments',
 }
 
 export function useControllerForSpacesPost(): Controller {

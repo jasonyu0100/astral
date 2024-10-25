@@ -1,58 +1,29 @@
 import { ContextForPostAttachmentListFromPost } from '@/(server)/controller/post/attachment/list-from-post';
-import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
-import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
-import { useContext, useState } from 'react';
-import { SpacesPostCarouselSlide } from './slide/main';
+import {
+  ContextForPostAttachmentObj,
+  examplePostAttachment,
+} from '@/(server)/model/post/attachment/main';
+import { ElementAttachment } from '@/components/element/attachment/main';
+import { GlassAreaContents } from '@/components/glass/area/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { useContext } from 'react';
 
-export function SpacesPostCarousel() {
+export function SpacesPostContainer() {
   const attachmentListController = useContext(
     ContextForPostAttachmentListFromPost,
   );
-  const images = attachmentListController.state.objs.map(
-    (obj) => obj.fileElem?.src || '',
-  );
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1,
-    );
-  };
 
   return (
-    <div className='flex h-full w-full max-w-[1000px] flex-row  items-center space-x-[2rem]'>
-      <div className='relative w-full'>
-        <SpacesPostCarouselSlide index={currentIndex} />
-        <button
-          className='absolute left-[1rem] top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-[1rem]'
-          onClick={handlePrev}
-        >
-          <AstralChevronLeftIcon />
-        </button>
-        <button
-          className='absolute right-[1rem] top-1/2 -translate-y-1/2 transform rounded-full bg-black bg-opacity-50 p-[1rem]'
-          onClick={handleNext}
-        >
-          <AstralChevronRightIcon />
-        </button>
-        <div className='absolute bottom-0 left-0 right-0 flex justify-center space-x-2 p-4'>
-          {images.map((_, index) => (
-            <div
-              key={index}
-              className={`h-2 w-2 rounded-full ${
-                index === currentIndex ? 'bg-white' : 'bg-gray-400'
-              }`}
-            />
-          ))}
-        </div>
+    <ContextForPostAttachmentObj.Provider
+      value={attachmentListController.state.currentObj || examplePostAttachment}
+    >
+      <div className='flex h-full w-full max-w-[500px] flex-row  items-center space-x-[2rem]'>
+        <GlassWindowFrame className='aspect-square w-full'>
+          <GlassAreaContents className='flex w-full flex-row items-center justify-center bg-black object-contain'>
+            <ElementAttachment />
+          </GlassAreaContents>
+        </GlassWindowFrame>
       </div>
-    </div>
+    </ContextForPostAttachmentObj.Provider>
   );
 }

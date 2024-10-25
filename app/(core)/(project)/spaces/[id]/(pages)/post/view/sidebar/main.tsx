@@ -5,9 +5,9 @@ import {
   ContextForSpacesPost,
   SpacesPostSidebarMode,
 } from '../../controller/main';
+import { SpacesPostSidebarAttachments } from './attachments/main';
 import { SpacesPostSidebarChapters } from './chapters/main';
 import { SpacesPostSidebarHeader } from './header/main';
-import { SpacesPostSidebarPosts } from './posts/main';
 
 export function SpacesPostSidebar() {
   const flightController = useContext(ContextForSpacesPost);
@@ -23,9 +23,8 @@ export function SpacesPostSidebar() {
         {flightController.state.sidebarMode ===
           SpacesPostSidebarMode.CHAPTERS && <SpacesPostSidebarChapters />}
 
-        {flightController.state.sidebarMode === SpacesPostSidebarMode.POSTS && (
-          <SpacesPostSidebarPosts />
-        )}
+        {flightController.state.sidebarMode ===
+          SpacesPostSidebarMode.Attachments && <SpacesPostSidebarAttachments />}
       </GlassAreaContainer>
     </>
   );
