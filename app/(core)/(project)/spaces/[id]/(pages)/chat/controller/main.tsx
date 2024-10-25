@@ -78,7 +78,7 @@ export function useControllerForSpacesChat() {
       SpacesChatSidebarContentMode.CHAPTERS,
     );
   const [aiChatRole, setAiChatRole] = useState<ConversationRole>(
-    ConversationRole.Default,
+    ConversationRole.NoteTaker,
   );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesChatSidebarVisibility>(SpacesChatSidebarVisibility.OPEN);
@@ -277,7 +277,7 @@ export function useControllerForSpacesChat() {
   async function sendAndReceiveMessage(conversation: ConversationObj) {
     const newUserMessage = await sendUserMessage(conversation);
     let messages = [];
-    if (aiChatRole !== ConversationRole.Default) {
+    if (aiChatRole !== ConversationRole.NoteTaker) {
       const agentResponse = await generateAgentResponse(
         newUserMessage,
         aiChatRole,
