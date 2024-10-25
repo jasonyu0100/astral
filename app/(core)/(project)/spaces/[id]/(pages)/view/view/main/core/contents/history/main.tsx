@@ -6,12 +6,12 @@ import { AstralAddIcon } from '@/icons/add/main';
 import { borderFx } from '@/style/data';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
-import { ContextForSpacesMapModals } from '../../../../../modal/controller/main';
-import { SpacesMapHistoryItem } from './item/main';
+import { ContextForSpacesViewModals } from '../../../../../modal/controller/main';
+import { SpacesViewHistoryItem } from './item/main';
 
-export function SpacesMapHistory() {
+export function SpacesViewHistory() {
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const modalController = useContext(ContextForSpacesMapModals);
+  const modalController = useContext(ContextForSpacesViewModals);
 
   return (
     <div className='relative flex h-full w-full flex-col space-y-[2rem] p-[2rem]'>
@@ -29,7 +29,7 @@ export function SpacesMapHistory() {
         <div className='flex flex-col space-y-[1rem]'>
           {sceneListController.state.objs.map((scene) => (
             <ContextForIdeaSceneObj.Provider value={scene}>
-              <SpacesMapHistoryItem />
+              <SpacesViewHistoryItem />
             </ContextForIdeaSceneObj.Provider>
           ))}
           <GlassWindowFrame className='w-full p-[1rem]'>

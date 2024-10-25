@@ -4,7 +4,7 @@ import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormContainer } from '@/components/form/main';
@@ -66,7 +66,7 @@ export function SpacesBoardAddTextLinkModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton variant={ButtonVariant.PRIMARY} onClick={create}>
+            <FormButton variant={FormButtonVariant.PRIMARY} onClick={create}>
               Add
             </FormButton>
           </FormFooter>

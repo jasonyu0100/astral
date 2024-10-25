@@ -6,7 +6,7 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
@@ -90,7 +90,12 @@ export function SpacesPostAddPostModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton onClick={createPost}>Next</FormButton>
+            <FormButton
+              variant={FormButtonVariant.PRIMARY}
+              onClick={createPost}
+            >
+              Next
+            </FormButton>
           </FormFooter>
         </FormContainer>
       </PolaroidModal>

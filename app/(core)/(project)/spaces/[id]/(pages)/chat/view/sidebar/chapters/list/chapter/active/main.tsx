@@ -28,6 +28,7 @@ export function SpacesChatChapterActive() {
         />
       </div>
       <p className='font-md w-full text-sm font-light text-slate-300'>
+        <span className='font-bold'>Objective: </span>
         {chapterListController.state.currentObj?.objective || 'Open-ended'}
       </p>
       <p className='font-md w-full text-sm font-light text-slate-300'>

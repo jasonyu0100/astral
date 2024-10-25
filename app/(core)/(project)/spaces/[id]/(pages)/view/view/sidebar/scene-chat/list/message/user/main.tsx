@@ -4,7 +4,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
-export function SpacesMapUserMessage() {
+export function SpacesViewUserMessage() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const messageObj = useContext(ContextForConversationMessageObj);
 

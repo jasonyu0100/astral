@@ -1,46 +1,46 @@
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapSidebarContentMode,
-  SpacesMapSidebarMediaMode,
+  ContextForSpacesView,
+  SpacesViewSidebarContentMode,
+  SpacesViewSidebarMediaMode,
 } from '../../controller/main';
-import { SpacesMapSidebarChapters } from './chapters/main';
-import { SpacesMapSidebarContainer } from './container/main';
-import { SpacesMapSidebarHeader } from './header/main';
-import { SpacesMapGalleryCollectionsMode } from './media-explorer/(gallery)/main';
-import { SpacesMapSidebarHomeGallerysMode } from './media-explorer/(home)/main';
-import { SpacesMapCollectionResourcesMode } from './media-explorer/(resources)/main';
-import { SpacesMapSidebarChatScene } from './scene-chat/main';
+import { SpacesViewSidebarChapters } from './chapters/main';
+import { SpacesViewSidebarContainer } from './container/main';
+import { SpacesViewSidebarHeader } from './header/main';
+import { SpacesViewGalleryCollectionsMode } from './media-explorer/(gallery)/main';
+import { SpacesViewSidebarHomeGallerysMode } from './media-explorer/(home)/main';
+import { SpacesViewCollectionResourcesMode } from './media-explorer/(resources)/main';
+import { SpacesViewSidebarChatScene } from './scene-chat/main';
 
-export function SpacesMapSidebar() {
+export function SpacesViewSidebar() {
   const {
     state: { sidebarContentMode, sidebarMediaMode },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
 
   return (
-    <SpacesMapSidebarContainer>
-      <SpacesMapSidebarHeader />
-      {sidebarContentMode === SpacesMapSidebarContentMode.EXPLORER && (
+    <SpacesViewSidebarContainer>
+      <SpacesViewSidebarHeader />
+      {sidebarContentMode === SpacesViewSidebarContentMode.EXPLORER && (
         <>
-          {sidebarMediaMode === SpacesMapSidebarMediaMode.Home && (
-            <SpacesMapSidebarHomeGallerysMode />
+          {sidebarMediaMode === SpacesViewSidebarMediaMode.Home && (
+            <SpacesViewSidebarHomeGallerysMode />
           )}
-          {sidebarMediaMode === SpacesMapSidebarMediaMode.Gallery && (
-            <SpacesMapGalleryCollectionsMode />
+          {sidebarMediaMode === SpacesViewSidebarMediaMode.Gallery && (
+            <SpacesViewGalleryCollectionsMode />
           )}
-          {sidebarMediaMode === SpacesMapSidebarMediaMode.Collection && (
-            <SpacesMapCollectionResourcesMode />
+          {sidebarMediaMode === SpacesViewSidebarMediaMode.Collection && (
+            <SpacesViewCollectionResourcesMode />
           )}
         </>
       )}
-      {sidebarContentMode === SpacesMapSidebarContentMode.CHAT_SCENE && (
-        <SpacesMapSidebarChatScene />
+      {sidebarContentMode === SpacesViewSidebarContentMode.CHAT_SCENE && (
+        <SpacesViewSidebarChatScene />
       )}
-      {sidebarContentMode === SpacesMapSidebarContentMode.CHAPTERS && (
+      {sidebarContentMode === SpacesViewSidebarContentMode.CHAPTERS && (
         <>
-          <SpacesMapSidebarChapters />
+          <SpacesViewSidebarChapters />
         </>
       )}
-    </SpacesMapSidebarContainer>
+    </SpacesViewSidebarContainer>
   );
 }

@@ -1,4 +1,4 @@
-import { TaskObj } from '@/(server)/model/way/main';
+import { TaskObj } from '@/(server)/model/task/main';
 import { createContext, useState } from 'react';
 
 interface Controller {
@@ -10,15 +10,15 @@ interface ControllerState {
   sidebarMode: SpacesBoardSidebarMode;
   sidebarVisibility: SpacesBoardSidebarVisibility;
   dataMode: SpacesBoardDataMode;
-  selectedLogs: TaskObj[];
+  selectedTasks: TaskObj[];
 }
 
 interface ControllerActions {
   updateSidebarMode: (mode: SpacesBoardSidebarMode) => void;
   updateSidebarVisibility: (visibility: SpacesBoardSidebarVisibility) => void;
   updateDataMode: (mode: SpacesBoardDataMode) => void;
-  updateSelectedLogs: (logs: TaskObj[]) => void;
-  checkContainsSelectedLog: (log: TaskObj) => boolean;
+  updateSelectedTasks: (logs: TaskObj[]) => void;
+  checkContainsSelectedTask: (log: TaskObj) => boolean;
 }
 
 export const ContextForSpacesBoard = createContext({} as Controller);
@@ -39,7 +39,7 @@ export enum SpacesBoardSidebarVisibility {
 }
 
 export function useControllerForSpacesBoard(): Controller {
-  const [selectedLogs, setSelectedLogs] = useState<TaskObj[]>([]);
+  const [selectedTasks, setSelectedTasks] = useState<TaskObj[]>([]);
   const [dataMode, setDataMode] = useState<SpacesBoardDataMode>(
     SpacesBoardDataMode.TABLE,
   );
@@ -53,16 +53,16 @@ export function useControllerForSpacesBoard(): Controller {
     state: {
       sidebarMode: sidebarMode,
       sidebarVisibility: sidebarVisibility,
-      selectedLogs: selectedLogs,
+      selectedTasks: selectedTasks,
       dataMode: dataMode,
     },
     actions: {
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       updateSidebarMode: (mode) => setSidebarMode(mode),
       updateDataMode: (mode) => setDataMode(mode),
-      updateSelectedLogs: (logs) => setSelectedLogs(logs),
-      checkContainsSelectedLog: (log: TaskObj) =>
-        selectedLogs.map((log) => log.id).includes(log.id),
+      updateSelectedTasks: (tasks) => setSelectedTasks(tasks),
+      checkContainsSelectedTask: (task: TaskObj) =>
+        selectedTasks.map((task) => task.id).includes(task.id),
     },
   };
 }

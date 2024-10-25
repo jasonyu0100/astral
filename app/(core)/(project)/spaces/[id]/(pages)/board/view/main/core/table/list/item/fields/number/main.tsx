@@ -12,8 +12,11 @@ export function SpacesBoardLogTableItemNumber() {
   const index = useContext(ContextForIndexable);
   const log = useContext(ContextForTaskObj);
   const {
-    state: { selectedLogs },
-    actions: { checkContainsSelectedLog, updateSelectedLogs },
+    state: { selectedTasks: selectedLogs },
+    actions: {
+      checkContainsSelectedTask: checkContainsSelectedLog,
+      updateSelectedTasks: updateSelectedLogs,
+    },
   } = useContext(ContextForSpacesBoard);
   const selected = checkContainsSelectedLog(log);
 

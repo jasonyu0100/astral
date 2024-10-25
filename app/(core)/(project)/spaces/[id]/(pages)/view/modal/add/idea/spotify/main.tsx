@@ -15,7 +15,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getUrlIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddSpotifyUrlModal() {
+export function SpacesViewAddSpotifyUrlModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);

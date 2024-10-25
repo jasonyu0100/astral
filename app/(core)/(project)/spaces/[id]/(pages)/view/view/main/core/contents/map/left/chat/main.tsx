@@ -2,15 +2,15 @@ import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapSidebarContentMode,
+  ContextForSpacesView,
+  SpacesViewSidebarContentMode,
 } from '../../../../../../../controller/main';
 
-export function SpacesMapChat() {
+export function SpacesViewChat() {
   const {
     state: { sidebarContentMode },
     actions: { updateSidebarContentMode },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
 
   return (
     <div className='absolute bottom-[2rem] left-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center'>
@@ -19,14 +19,14 @@ export function SpacesMapChat() {
           'h-[2rem] w-[2rem] animate-pulse-slow cursor-pointer fill-slate-500',
           {
             'fill-slate-300':
-              sidebarContentMode === SpacesMapSidebarContentMode.CHAT_SCENE,
+              sidebarContentMode === SpacesViewSidebarContentMode.CHAT_SCENE,
           },
         )}
         onClick={() => {
-          if (sidebarContentMode === SpacesMapSidebarContentMode.CHAT_SCENE) {
-            updateSidebarContentMode(SpacesMapSidebarContentMode.LIST);
+          if (sidebarContentMode === SpacesViewSidebarContentMode.CHAT_SCENE) {
+            updateSidebarContentMode(SpacesViewSidebarContentMode.LIST);
           } else {
-            updateSidebarContentMode(SpacesMapSidebarContentMode.CHAT_SCENE);
+            updateSidebarContentMode(SpacesViewSidebarContentMode.CHAT_SCENE);
           }
         }}
       />

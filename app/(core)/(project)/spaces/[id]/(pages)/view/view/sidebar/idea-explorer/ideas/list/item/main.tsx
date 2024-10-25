@@ -9,7 +9,7 @@ import { AstralSourceIcon } from '@/icons/source/main';
 import { glassFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function SpacesMapSidebarIdeasListItem() {
+export function SpacesViewSidebarIdeasListItem() {
   const idea = useContext(ContextForIdeaObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
 

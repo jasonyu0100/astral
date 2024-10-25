@@ -2,7 +2,7 @@ import { getPlanName, getPlanPrice } from '@/(core)/(stripe)/pricing/page';
 import { stripeMap } from '@/(core)/(stripe)/stripe/map';
 import { portalMap } from '@/(portal)/map';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
@@ -35,7 +35,7 @@ export function UserSettingsModal() {
           <FormFooter>
             {planName === 'Community Monthly' && (
               <FormButton
-                variant={ButtonVariant.PRIMARY}
+                variant={FormButtonVariant.PRIMARY}
                 onClick={() => {
                   window.location.href = '/pricing';
                 }}
@@ -45,7 +45,7 @@ export function UserSettingsModal() {
             )}
             {planName !== 'Community Monthly' && (
               <FormButton
-                variant={ButtonVariant.PRIMARY}
+                variant={FormButtonVariant.PRIMARY}
                 onClick={() => {
                   window.location.href = stripeMap.stripe.billing.existing.link;
                 }}
@@ -54,7 +54,7 @@ export function UserSettingsModal() {
               </FormButton>
             )}
             <FormButton
-              variant={ButtonVariant.SECONDARY}
+              variant={FormButtonVariant.SECONDARY}
               onClick={() => {
                 alert('Logging out');
                 window.location.href = portalMap.portal.login.link;

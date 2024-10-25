@@ -1,9 +1,9 @@
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
-import { ContextForSpacesMapModals } from '../../../../../../modal/controller/main';
+import { ContextForSpacesViewModals } from '../../../../../../modal/controller/main';
 
-export function SpacesMapAddResource() {
-  const modalController = useContext(ContextForSpacesMapModals);
+export function SpacesViewAddResource() {
+  const modalController = useContext(ContextForSpacesViewModals);
 
   return (
     <div

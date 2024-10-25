@@ -4,23 +4,23 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpacesMapAddCollectionModal } from '../add/collection/main';
-import { SpacesMapAddGalleryModal } from '../add/gallery/main';
-import { SpacesMapAddFileIdeaModal } from '../add/idea/file/main';
-import { SpacesMapAddGenerateIdeaModal } from '../add/idea/generate/main';
-import { SpacesMapAddSearchIdeaModal } from '../add/idea/search/main';
-import { SpacesMapAddSpotifyUrlModal } from '../add/idea/spotify/main';
-import { SpacesMapAddTextIdeaModal } from '../add/idea/text/main';
-import { SpacesMapAddWebsiteUrlModal } from '../add/idea/website/main';
-import { SpacesMapAddYouTubeUrlModal } from '../add/idea/youtube/main';
-import { SpacesMapAddResourceModal } from '../add/resource/main';
-import { SpacesMapAddSceneModal } from '../add/scene/main';
-import { SpacesMapCombineIdeas } from '../combine/main';
-import { SpacesMapGenerateLog } from '../generate/main';
+import { SpacesViewAddCollectionModal } from '../add/collection/main';
+import { SpacesViewAddGalleryModal } from '../add/gallery/main';
+import { SpacesViewAddFileIdeaModal } from '../add/idea/file/main';
+import { SpacesViewAddGenerateIdeaModal } from '../add/idea/generate/main';
+import { SpacesViewAddSearchIdeaModal } from '../add/idea/search/main';
+import { SpacesViewAddSpotifyUrlModal } from '../add/idea/spotify/main';
+import { SpacesViewAddTextIdeaModal } from '../add/idea/text/main';
+import { SpacesViewAddWebsiteUrlModal } from '../add/idea/website/main';
+import { SpacesViewAddYouTubeUrlModal } from '../add/idea/youtube/main';
+import { SpacesViewAddResourceModal } from '../add/resource/main';
+import { SpacesViewAddSceneModal } from '../add/scene/main';
+import { SpacesViewCombineIdeas } from '../combine/main';
+import { SpacesViewGenerateLog } from '../generate/main';
 
-export const ContextForSpacesMapModals = createContext({} as SpacesMapModals);
+export const ContextForSpacesViewModals = createContext({} as SpacesViewModals);
 
-export interface SpacesMapModals {
+export interface SpacesViewModals {
   addCollectionController: ContextForOpenableInterface;
   addGalleryController: ContextForOpenableInterface;
   addFileIdeaController: ContextForOpenableInterface;
@@ -36,7 +36,7 @@ export interface SpacesMapModals {
   combineIdeasController: ContextForOpenableInterface;
 }
 
-export function SpacesMapModals({ children }: { children: React.ReactNode }) {
+export function SpacesViewModals({ children }: { children: React.ReactNode }) {
   const addCollectionController = useControllerForOpenable();
   const addGalleryController = useControllerForOpenable();
   const addFileIdeaController = useControllerForOpenable();
@@ -52,7 +52,7 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
   const combineIdeasController = useControllerForOpenable();
 
   return (
-    <ContextForSpacesMapModals.Provider
+    <ContextForSpacesViewModals.Provider
       value={{
         addGalleryController: addGalleryController,
         addCollectionController: addCollectionController,
@@ -71,44 +71,44 @@ export function SpacesMapModals({ children }: { children: React.ReactNode }) {
     >
       {children}
       <ContextForOpenable.Provider value={addCollectionController}>
-        <SpacesMapAddCollectionModal />
+        <SpacesViewAddCollectionModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGalleryController}>
-        <SpacesMapAddGalleryModal />
+        <SpacesViewAddGalleryModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addFileIdeaController}>
-        <SpacesMapAddFileIdeaModal />
+        <SpacesViewAddFileIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addYouTubeUrlIdeaController}>
-        <SpacesMapAddYouTubeUrlModal />
+        <SpacesViewAddYouTubeUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addWebsiteUrlIdeaController}>
-        <SpacesMapAddWebsiteUrlModal />
+        <SpacesViewAddWebsiteUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSpotifyUrlIdeaController}>
-        <SpacesMapAddSpotifyUrlModal />
+        <SpacesViewAddSpotifyUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextIdeaController}>
-        <SpacesMapAddTextIdeaModal />
+        <SpacesViewAddTextIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addResourceController}>
-        <SpacesMapAddResourceModal />
+        <SpacesViewAddResourceModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSceneController}>
-        <SpacesMapAddSceneModal />
+        <SpacesViewAddSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSearchIdeaController}>
-        <SpacesMapAddSearchIdeaModal />
+        <SpacesViewAddSearchIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generatePlanController}>
-        <SpacesMapGenerateLog />
+        <SpacesViewGenerateLog />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateIdeaController}>
-        <SpacesMapAddGenerateIdeaModal />
+        <SpacesViewAddGenerateIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={combineIdeasController}>
-        <SpacesMapCombineIdeas />
+        <SpacesViewCombineIdeas />
       </ContextForOpenable.Provider>
-    </ContextForSpacesMapModals.Provider>
+    </ContextForSpacesViewModals.Provider>
   );
 }

@@ -6,7 +6,7 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormSearchImage } from '@/components/form/file/search/search-image/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
@@ -17,7 +17,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddSearchIdeaModal() {
+export function SpacesViewAddSearchIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
@@ -75,7 +75,7 @@ export function SpacesMapAddSearchIdeaModal() {
           </FormBody>
           <FormFooter>
             <FormButton
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
               onClick={createFileIdea}
             >
               Add

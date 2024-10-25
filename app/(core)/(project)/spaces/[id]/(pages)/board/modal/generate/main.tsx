@@ -8,7 +8,7 @@ import { FileElem } from '@/(server)/model/elements/file/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
@@ -24,7 +24,7 @@ import { ContextForSpacesBoard } from '../../controller/main';
 
 export function SpacesBoardPostModal() {
   const {
-    state: { selectedLogs },
+    state: { selectedTasks: selectedLogs },
   } = useContext(ContextForSpacesBoard);
   const loadingController = useContext(ContextForLoading);
   const openAiController = useControllerForOpenAi();
@@ -158,7 +158,10 @@ export function SpacesBoardPostModal() {
             />
           </FormBody>
           <FormFooter>
-            <FormButton variant={ButtonVariant.PRIMARY} onClick={createPost}>
+            <FormButton
+              variant={FormButtonVariant.PRIMARY}
+              onClick={createPost}
+            >
               Next
             </FormButton>
           </FormFooter>

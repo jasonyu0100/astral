@@ -9,7 +9,7 @@ import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ElementIdea } from '@/components/element/idea/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
@@ -20,14 +20,14 @@ import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
-import { ContextForSpacesMap } from '../../controller/main';
+import { ContextForSpacesView } from '../../controller/main';
 
-export function SpacesMapCombineIdeas() {
+export function SpacesViewCombineIdeas() {
   const user = useGlobalUser((state) => state.user);
   const {
     state: { selectedIdeas },
     actions: { updateSelectedIdeas },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const loadingController = useContext(ContextForLoading);
   const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
@@ -126,7 +126,7 @@ export function SpacesMapCombineIdeas() {
           </FormBody>
           <FormFooter>
             <FormButton
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
               onClick={() => executeCombineIdeas()}
             >
               Combine

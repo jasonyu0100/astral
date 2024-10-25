@@ -1,7 +1,7 @@
 import {
-  ContextForSpacesMap,
-  SpacesMapDirectoryMode,
-  SpacesMapSidebarMode,
+  ContextForSpacesView,
+  SpacesViewDirectoryMode,
+  SpacesViewSidebarMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
@@ -11,10 +11,10 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function SpacesMapSidebarScenesListActiveItem() {
+export function SpacesViewSidebarScenesListActiveItem() {
   const {
     actions: { updateSidebarMode: updateSidebarMode, updateDirectoryMode },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const sceneListController = useContext(ContextForIdeaSceneList);
   const scene = useContext(ContextForIdeaSceneObj);
 
@@ -35,8 +35,8 @@ export function SpacesMapSidebarScenesListActiveItem() {
         <div
           className='w-full cursor-pointer rounded-[2rem] bg-blue-500 p-[1rem] text-center font-bold text-white'
           onClick={() => {
-            updateSidebarMode(SpacesMapSidebarMode.IDEAS);
-            updateDirectoryMode(SpacesMapDirectoryMode.DEFAULT);
+            updateSidebarMode(SpacesViewSidebarMode.IDEAS);
+            updateDirectoryMode(SpacesViewDirectoryMode.DEFAULT);
           }}
         >
           View Ideas

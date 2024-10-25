@@ -3,20 +3,20 @@ import { ImageBackground } from '@/components/background/img/main';
 import { AbsoluteHolder } from '@/components/holder/main';
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapDirectoryMode,
+  ContextForSpacesView,
+  SpacesViewDirectoryMode,
 } from '../../../../controller/main';
-import { SpacesMapHistory } from './history/main';
-import { SpacesMapBack } from './map/left/back/main';
-import { SpacesMapChat } from './map/left/chat/main';
-import { SpacesMapPalette } from './map/left/palette/main';
-import { SpacesMapScreenshot } from './map/right/screenshot/main';
-import { SpacesMapScene } from './map/scene/main';
+import { SpacesViewHistory } from './history/main';
+import { SpacesViewBack } from './map/left/back/main';
+import { SpacesViewChat } from './map/left/chat/main';
+import { SpacesViewPalette } from './map/left/palette/main';
+import { SpacesViewScreenshot } from './map/right/screenshot/main';
+import { SpacesViewScene } from './map/scene/main';
 
-export function SpacesMapContents() {
+export function SpacesViewContents() {
   const {
     state: { directoryMode, screenshotRef, hideUI },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
@@ -30,21 +30,21 @@ export function SpacesMapContents() {
         active
       />
       <AbsoluteHolder>
-        {directoryMode === SpacesMapDirectoryMode.DIRECTORY ? (
-          <SpacesMapHistory />
+        {directoryMode === SpacesViewDirectoryMode.DIRECTORY ? (
+          <SpacesViewHistory />
         ) : (
           <>
-            <SpacesMapScene />
+            <SpacesViewScene />
             {/* Conditionally hide UI components based on `hideUI` state */}
             {!hideUI && (
               <>
-                {/* <SpacesMapStatus /> */}
-                <SpacesMapPalette />
-                <SpacesMapBack />
-                <SpacesMapChat />
-                {/* <SpacesMapNavigationUp /> */}
-                {/* <SpacesMapNavigationDown /> */}
-                <SpacesMapScreenshot />
+                {/* <SpacesViewStatus /> */}
+                <SpacesViewPalette />
+                <SpacesViewBack />
+                <SpacesViewChat />
+                {/* <SpacesViewNavigationUp /> */}
+                {/* <SpacesViewNavigationDown /> */}
+                <SpacesViewScreenshot />
               </>
             )}
           </>

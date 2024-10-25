@@ -4,7 +4,7 @@ import {
 } from '@/logic/controller/scroll-to-horizontal-index/main';
 import { useRef } from 'react';
 
-export function SpacesMapRowContainer({
+export function SpacesViewRowContainer({
   children,
 }: {
   children?: React.ReactNode;

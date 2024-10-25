@@ -2,7 +2,7 @@ import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
@@ -59,7 +59,7 @@ export function VaultFinderEditResourceModal() {
               Save
             </FormButton>
             <FormButton
-              variant={ButtonVariant.SECONDARY}
+              variant={FormButtonVariant.SECONDARY}
               onClick={() => {
                 resourceListController.actions.deleteActions
                   .delete(resource.id)

@@ -27,9 +27,9 @@ export interface GeneratedSticky {
   text: string;
 }
 
-export const ContextForSpacesMapChat = createContext({} as Controller);
+export const ContextForSpacesViewChat = createContext({} as Controller);
 
-export function useControllerForSpacesMapChat() {
+export function useControllerForSpacesViewChat() {
   const user = useGlobalUser((state) => state.user);
   const {
     actions: { getMessageResponse },

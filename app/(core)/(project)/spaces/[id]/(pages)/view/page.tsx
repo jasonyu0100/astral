@@ -55,15 +55,15 @@ import { useContext, useEffect } from 'react';
 import { SpacesSidebar } from '../../../sidebar/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
-  ContextForSpacesMapChat,
-  useControllerForSpacesMapChat,
+  ContextForSpacesViewChat,
+  useControllerForSpacesViewChat,
 } from './controller/chat/main';
 import {
-  ContextForSpacesMap,
-  useControllerForSpacesMap,
+  ContextForSpacesView,
+  useControllerForSpacesView,
 } from './controller/main';
-import { SpacesMapModals } from './modal/controller/main';
-import { SpacesMapView } from './view/main';
+import { SpacesViewModals } from './modal/controller/main';
+import { SpacesViewView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -139,7 +139,7 @@ function Page({ params }: { params: { id: string } }) {
                                   <ControllerWrapper>
                                     <ModalWrapper>
                                       <ViewWrapper>
-                                        <SpacesMapView />
+                                        <SpacesViewView />
                                       </ViewWrapper>
                                     </ModalWrapper>
                                   </ControllerWrapper>
@@ -183,7 +183,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
 function ModalWrapper({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SpacesMapModals>{children}</SpacesMapModals>
+      <SpacesViewModals>{children}</SpacesViewModals>
     </>
   );
 }
@@ -221,15 +221,15 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
 }
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
-  const mapController = useControllerForSpacesMap();
-  const mapChatController = useControllerForSpacesMapChat();
+  const mapController = useControllerForSpacesView();
+  const mapChatController = useControllerForSpacesViewChat();
 
   return (
-    <ContextForSpacesMap.Provider value={mapController}>
-      <ContextForSpacesMapChat.Provider value={mapChatController}>
+    <ContextForSpacesView.Provider value={mapController}>
+      <ContextForSpacesViewChat.Provider value={mapChatController}>
         {children}
-      </ContextForSpacesMapChat.Provider>
-    </ContextForSpacesMap.Provider>
+      </ContextForSpacesViewChat.Provider>
+    </ContextForSpacesView.Provider>
   );
 }
 

@@ -1,10 +1,10 @@
 import { ElementIdea } from '@/components/element/idea/main';
-import { SpacesMapTextIdea } from './override/text/main';
+import { SpacesViewTextIdea } from './override/text/main';
 
-export function SpacesMapMovableIdea() {
+export function SpacesViewMovableIdea() {
   return (
     <>
-      <ElementIdea textOveride={<SpacesMapTextIdea />} />
+      <ElementIdea textOveride={<SpacesViewTextIdea />} />
     </>
   );
 }

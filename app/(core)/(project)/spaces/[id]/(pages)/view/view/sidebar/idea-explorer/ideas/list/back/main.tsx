@@ -2,14 +2,14 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapSidebarMode,
+  ContextForSpacesView,
+  SpacesViewSidebarMode,
 } from '../../../../../../controller/main';
 
-export function SpacesMapSidebarIdeasBack() {
+export function SpacesViewSidebarIdeasBack() {
   const {
     actions: { updateSidebarMode },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
 
   return (
     <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
@@ -17,7 +17,7 @@ export function SpacesMapSidebarIdeasBack() {
         <p className='cursor-pointer text-sm font-bold text-slate-500'>
           <span
             onClick={() => {
-              updateSidebarMode(SpacesMapSidebarMode.SCENES);
+              updateSidebarMode(SpacesViewSidebarMode.SCENES);
             }}
           >
             Back to Scenes

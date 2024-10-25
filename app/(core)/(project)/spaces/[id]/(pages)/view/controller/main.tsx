@@ -23,14 +23,14 @@ interface ControllerState {
   divWidth: number;
   divHeight: number;
   selectedIdeas: IdeaObj[];
-  directoryMode: SpacesMapDirectoryMode;
-  linkMode: SpacesMapLinkMode;
-  mapMode: SpacesMapInteractionMode;
-  sidebarMediaMode: SpacesMapSidebarMediaMode;
-  sidebarContentMode: SpacesMapSidebarContentMode;
-  sidebarMode: SpacesMapSidebarMode;
-  sidebarVisibility: SpacesMapSidebarVisibility;
-  bubbleMode: SpacesMapBubbleMode;
+  directoryMode: SpacesViewDirectoryMode;
+  linkMode: SpacesViewLinkMode;
+  mapMode: SpacesViewInteractionMode;
+  sidebarMediaMode: SpacesViewSidebarMediaMode;
+  sidebarContentMode: SpacesViewSidebarContentMode;
+  sidebarMode: SpacesViewSidebarMode;
+  sidebarVisibility: SpacesViewSidebarVisibility;
+  bubbleMode: SpacesViewBubbleMode;
   screenshotRef: React.RefObject<HTMLDivElement>;
   hideUI: boolean;
 }
@@ -43,17 +43,17 @@ interface ControllerActions {
     width: number;
     height: number;
   };
-  updateDirectoryMode: (mode: SpacesMapDirectoryMode) => void;
+  updateDirectoryMode: (mode: SpacesViewDirectoryMode) => void;
   updateDivWidth: (width: number) => void;
   updateDivHeight: (height: number) => void;
-  updateLinkMode: (mode: SpacesMapLinkMode) => void;
-  updateBubbleMode: (mode: SpacesMapBubbleMode) => void;
+  updateLinkMode: (mode: SpacesViewLinkMode) => void;
+  updateBubbleMode: (mode: SpacesViewBubbleMode) => void;
   updateSelectedIdeas: (ideas: IdeaObj[]) => void;
-  updateInteractionMode: (mode: SpacesMapInteractionMode) => void;
-  updateSidebarContentMode: (mode: SpacesMapSidebarContentMode) => void;
-  updateSidebarMode: (mode: SpacesMapSidebarMode) => void;
+  updateInteractionMode: (mode: SpacesViewInteractionMode) => void;
+  updateSidebarContentMode: (mode: SpacesViewSidebarContentMode) => void;
+  updateSidebarMode: (mode: SpacesViewSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: IdeaObj) => boolean;
-  updateSidebarVisibility: (visibility: SpacesMapSidebarVisibility) => void;
+  updateSidebarVisibility: (visibility: SpacesViewSidebarVisibility) => void;
   linkIdeas: () => Promise<IdeaRelationshipObj[]>;
   selectAll: () => void;
   goToHome: () => void;
@@ -63,57 +63,57 @@ interface ControllerActions {
   updateHideUI: (hide: boolean) => void;
 }
 
-export const ContextForSpacesMap = createContext({} as Controller);
+export const ContextForSpacesView = createContext({} as Controller);
 
-export enum SpacesMapSidebarVisibility {
+export enum SpacesViewSidebarVisibility {
   OPEN = 'open',
   CLOSED = 'closed',
 }
 
-export enum SpacesMapInteractionMode {
+export enum SpacesViewInteractionMode {
   CURSOR = 'Cursor',
   SELECTED = 'Selected',
 }
 
-export enum SpacesMapIdeaMode {
+export enum SpacesViewIdeaMode {
   DEFAULT = 'Default',
   INFORMATION = 'Information',
 }
 
-export enum SpacesMapBubbleMode {
+export enum SpacesViewBubbleMode {
   OFF = 'OFF',
   ON = 'ON',
 }
 
-export enum SpacesMapSidebarMediaMode {
+export enum SpacesViewSidebarMediaMode {
   Home = 'Home',
   Gallery = 'Gallery',
   Collection = 'Collection',
 }
 
-export enum SpacesMapSidebarContentMode {
+export enum SpacesViewSidebarContentMode {
   EXPLORER = 'Explorer',
   CHAT_SCENE = 'Chat Scene',
   CHAPTERS = 'Chapters',
 }
 
-export enum SpacesMapSidebarMode {
+export enum SpacesViewSidebarMode {
   IDEAS = 'Ideas',
   SCENES = 'Scenes',
   CHAT = 'Chat',
 }
 
-export enum SpacesMapLinkMode {
+export enum SpacesViewLinkMode {
   ON = 'ON',
   OFF = 'OFF',
 }
 
-export enum SpacesMapDirectoryMode {
+export enum SpacesViewDirectoryMode {
   DEFAULT = 'Default',
   DIRECTORY = 'DIRECTORY',
 }
 
-export function useControllerForSpacesMap(): Controller {
+export function useControllerForSpacesView(): Controller {
   const loadingController = useContext(ContextForLoading);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -125,30 +125,30 @@ export function useControllerForSpacesMap(): Controller {
     ContextForIdeaRelationshipListFromScene,
   );
   const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
-  const [bubbleMode, setBubbleMode] = useState<SpacesMapBubbleMode>(
-    SpacesMapBubbleMode.ON,
+  const [bubbleMode, setBubbleMode] = useState<SpacesViewBubbleMode>(
+    SpacesViewBubbleMode.ON,
   );
-  const [directoryMode, setDirectoryMode] = useState<SpacesMapDirectoryMode>(
-    SpacesMapDirectoryMode.DEFAULT,
+  const [directoryMode, setDirectoryMode] = useState<SpacesViewDirectoryMode>(
+    SpacesViewDirectoryMode.DEFAULT,
   );
   const [isSwitchOn, setSwitch] = useState(false);
-  const [listSceneMode, setListSceneMode] = useState<SpacesMapSidebarMode>(
-    SpacesMapSidebarMode.SCENES,
+  const [listSceneMode, setListSceneMode] = useState<SpacesViewSidebarMode>(
+    SpacesViewSidebarMode.SCENES,
   );
-  const [mapMode, setMode] = useState<SpacesMapInteractionMode>(
-    SpacesMapInteractionMode.SELECTED,
+  const [mapMode, setMode] = useState<SpacesViewInteractionMode>(
+    SpacesViewInteractionMode.SELECTED,
   );
-  const [listMode, setListMode] = useState<SpacesMapSidebarContentMode>(
-    SpacesMapSidebarContentMode.CHAPTERS,
+  const [listMode, setListMode] = useState<SpacesViewSidebarContentMode>(
+    SpacesViewSidebarContentMode.CHAPTERS,
   );
-  const [linkMode, setLinkMode] = useState<SpacesMapLinkMode>(
-    SpacesMapLinkMode.ON,
+  const [linkMode, setLinkMode] = useState<SpacesViewLinkMode>(
+    SpacesViewLinkMode.ON,
   );
   const [sidebarMediaMode, changeSidebarMediaMode] = useState(
-    SpacesMapSidebarMediaMode.Collection,
+    SpacesViewSidebarMediaMode.Collection,
   );
   const [sidebarVisibility, setSidebarVisibility] = useState(
-    SpacesMapSidebarVisibility.OPEN,
+    SpacesViewSidebarVisibility.OPEN,
   );
 
   const [divWidth, setDivWidth] = useState(0);
@@ -163,8 +163,8 @@ export function useControllerForSpacesMap(): Controller {
   // Function to handle screenshot
   const takeScreenshot = async () => {
     // Hide UI components before taking the screenshot
-    setLinkMode(SpacesMapLinkMode.ON);
-    setBubbleMode(SpacesMapBubbleMode.OFF);
+    setLinkMode(SpacesViewLinkMode.ON);
+    setBubbleMode(SpacesViewBubbleMode.OFF);
     setHideUI(true);
 
     setTimeout(async () => {
@@ -185,8 +185,8 @@ export function useControllerForSpacesMap(): Controller {
         } finally {
           // Show UI components again after the screenshot
           setHideUI(false);
-          setLinkMode(SpacesMapLinkMode.ON);
-          setBubbleMode(SpacesMapBubbleMode.ON);
+          setLinkMode(SpacesViewLinkMode.ON);
+          setBubbleMode(SpacesViewBubbleMode.ON);
         }
       }
     }, 500);
@@ -327,15 +327,15 @@ export function useControllerForSpacesMap(): Controller {
       updateSidebarMode: (mode) => setListSceneMode(mode),
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       goToHome: () => {
-        changeSidebarMediaMode(SpacesMapSidebarMediaMode.Home);
+        changeSidebarMediaMode(SpacesViewSidebarMediaMode.Home);
       },
       goToGallery: (gallery: GalleryObj) => {
         galleryListController.actions.stateActions.select(gallery);
-        changeSidebarMediaMode(SpacesMapSidebarMediaMode.Gallery);
+        changeSidebarMediaMode(SpacesViewSidebarMediaMode.Gallery);
       },
       goToCollection: (collection: GalleryCollectionObj) => {
         collectionListController.actions.stateActions.select(collection);
-        changeSidebarMediaMode(SpacesMapSidebarMediaMode.Collection);
+        changeSidebarMediaMode(SpacesViewSidebarMediaMode.Collection);
       },
       checkContainsSelectedIdea: (idea: IdeaObj) =>
         selectedIdeas.map((idea) => idea.id).includes(idea.id),

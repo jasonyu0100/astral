@@ -1,11 +1,11 @@
-import { SpacesMapSidebarScenesList } from './list/main';
-import { SpacesMapSidebarScenesSearch } from './search/main';
+import { SpacesViewSidebarScenesList } from './list/main';
+import { SpacesViewSidebarScenesSearch } from './search/main';
 
-export function SpacesMapSidebarScenes() {
+export function SpacesViewSidebarScenes() {
   return (
     <>
-      <SpacesMapSidebarScenesSearch />
-      <SpacesMapSidebarScenesList />
+      <SpacesViewSidebarScenesSearch />
+      <SpacesViewSidebarScenesList />
     </>
   );
 }

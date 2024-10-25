@@ -11,7 +11,7 @@ import { useContext } from 'react';
 export function SpacesBoardLogTableItemCard() {
   const task = useContext(ContextForTaskObj);
   const journeyController = useContext(ContextForSpacesBoard);
-  const selected = journeyController.state.selectedLogs.includes(task);
+  const selected = journeyController.state.selectedTasks.includes(task);
   const taskListController = useContext(ContextForTaskList);
 
   return (

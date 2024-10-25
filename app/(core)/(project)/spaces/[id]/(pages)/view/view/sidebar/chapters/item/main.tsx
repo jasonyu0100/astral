@@ -4,22 +4,18 @@ import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpacesMapSidebarChaptersChapter() {
+export function SpacesViewSidebarChaptersChapter() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapterObj = useContext(ContextForSpaceChapterObj);
-  const hoverableController = useControllerForHoverable();
   const selected = chapterListController.state.objId === chapterObj.id;
 
   return (
     <div
       className='w-full cursor-pointer'
-      onMouseOver={() => hoverableController.onHover()}
-      onMouseOut={() => hoverableController.onUnhover()}
       onClick={() =>
         chapterListController.actions.stateActions.select(chapterObj)
       }
@@ -36,6 +32,7 @@ export function SpacesMapSidebarChaptersChapter() {
               {chapterObj.title}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
+              <span className='font-bold'>Objective: </span>
               {chapterObj.objective}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
@@ -53,14 +50,11 @@ export function SpacesMapSidebarChaptersChapter() {
           className='p-[1rem]'
         >
           <GlassWindowContents>
-            <p
-              className={ctwn('text-lg font-bold text-slate-500', {
-                'text-slate-300': hoverableController.hovered,
-              })}
-            >
+            <p className={ctwn('text-lg font-bold text-slate-300')}>
               {chapterObj.title}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
+              <span className='font-bold'>Objective: </span>
               {chapterObj.objective}
             </p>
           </GlassWindowContents>

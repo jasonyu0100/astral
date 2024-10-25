@@ -17,7 +17,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddGenerateIdeaModal() {
+export function SpacesViewAddGenerateIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const {
     actions: { getImageResponse },

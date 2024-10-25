@@ -1,9 +1,9 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { borderFx } from '@/style/data';
-import { SpacesMapStatusBody } from './body/main';
+import { SpacesViewStatusBody } from './body/main';
 
-export function SpacesMapStatus() {
+export function SpacesViewStatus() {
   return (
     <div className='absolute bottom-[2rem] flex h-[5rem] w-full flex-shrink-0 flex-col items-center justify-center'>
       <GlassWindowFrame
@@ -11,7 +11,7 @@ export function SpacesMapStatus() {
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents className='flex h-full w-full flex-row items-center'>
-          <SpacesMapStatusBody />
+          <SpacesViewStatusBody />
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

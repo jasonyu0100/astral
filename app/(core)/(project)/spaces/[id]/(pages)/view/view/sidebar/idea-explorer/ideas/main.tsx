@@ -1,11 +1,11 @@
-import { SpacesMapSidebarIdeasList } from './list/main';
-import { SpacesMapSidebarIdeasSearch } from './search/main';
+import { SpacesViewSidebarIdeasList } from './list/main';
+import { SpacesViewSidebarIdeasSearch } from './search/main';
 
-export function SpacesMapSidebarIdeas() {
+export function SpacesViewSidebarIdeas() {
   return (
     <>
-      <SpacesMapSidebarIdeasSearch />
-      <SpacesMapSidebarIdeasList />
+      <SpacesViewSidebarIdeasSearch />
+      <SpacesViewSidebarIdeasList />
     </>
   );
 }

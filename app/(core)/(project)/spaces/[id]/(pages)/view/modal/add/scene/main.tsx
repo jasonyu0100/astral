@@ -14,7 +14,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddSceneModal() {
+export function SpacesViewAddSceneModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);

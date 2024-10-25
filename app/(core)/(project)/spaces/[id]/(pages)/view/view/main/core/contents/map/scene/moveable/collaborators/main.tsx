@@ -2,7 +2,7 @@ import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { useContext } from 'react';
 
-export function SpacesMapIdeaCollaborators() {
+export function SpacesViewIdeaCollaborators() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 
   return (

@@ -1,16 +1,16 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { SpacesMapChatSceneInput } from './input/main';
-import { SpacesMapChatSceneList } from './list/main';
+import { SpacesViewChatSceneInput } from './input/main';
+import { SpacesViewChatSceneList } from './list/main';
 
-export function SpacesMapSidebarChatScene() {
+export function SpacesViewSidebarChatScene() {
   return (
     <div className='flex w-full flex-col' style={{ height: '100%' }}>
-      {/* <SpacesMapChatSceneHeader /> */}
+      {/* <SpacesViewChatSceneHeader /> */}
       <GlassWindowFrame className='h-full w-full flex-shrink-0'>
         <GlassWindowContents className='flex h-full w-full flex-col'>
-          <SpacesMapChatSceneList />
-          <SpacesMapChatSceneInput />
+          <SpacesViewChatSceneList />
+          <SpacesViewChatSceneInput />
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

@@ -1,5 +1,5 @@
 import { EmptyMain } from '@/components/empty/main';
 
-export function SpacesMapSceneEmpty() {
+export function SpacesViewSceneEmpty() {
   return <EmptyMain>VIEW</EmptyMain>;
 }

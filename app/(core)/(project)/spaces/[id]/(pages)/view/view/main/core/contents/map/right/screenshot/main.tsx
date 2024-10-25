@@ -1,4 +1,4 @@
-import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -6,10 +6,10 @@ import { AstralCameraIcon } from '@/icons/camera/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function SpacesMapScreenshot() {
+export function SpacesViewScreenshot() {
   const {
     actions: { takeScreenshot },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   return (
     <div className='absolute right-[2rem] top-[0rem] z-30 flex h-full w-[4rem] flex-col items-center justify-center'>
       <GlassWindowFrame

@@ -2,9 +2,9 @@ import { ContextForConversationMessageList } from '@/(server)/controller/convers
 import { ContextForConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
 import { useContext, useEffect, useRef } from 'react';
-import { SpacesMapChatSceneMessage } from './message/main';
+import { SpacesViewChatSceneMessage } from './message/main';
 
-export function SpacesMapChatSceneList() {
+export function SpacesViewChatSceneList() {
   const messageListController = useContext(ContextForConversationMessageList);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollToBottom } = useControllerForMessageScrollToBottom(ref);
@@ -24,7 +24,7 @@ export function SpacesMapChatSceneList() {
           value={message}
           key={message.id}
         >
-          <SpacesMapChatSceneMessage />
+          <SpacesViewChatSceneMessage />
         </ContextForConversationMessageObj.Provider>
       ))}
     </div>

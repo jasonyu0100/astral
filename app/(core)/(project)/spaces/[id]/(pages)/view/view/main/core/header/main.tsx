@@ -1,19 +1,19 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
-import { SpacesMapHeaderLeft } from './left/main';
-import { SpacesMapHeaderRight } from './right/main';
+import { SpacesViewHeaderLeft } from './left/main';
+import { SpacesViewHeaderRight } from './right/main';
 
-export function SpacesMapHeader() {
+export function SpacesViewHeader() {
   return (
     <GlassAreaContainer
-      name={SpacesMapHeader.name}
+      name={SpacesViewHeader.name}
       sizeFx='h-[4rem] w-full flex-shrink-0'
       className={`flex items-center justify-between px-[1rem]`}
       glassFx={glassFx['glass-5']}
     >
-      <SpacesMapHeaderLeft />
-      {/* <SpacesMapHeaderCenter /> */}
-      <SpacesMapHeaderRight />
+      <SpacesViewHeaderLeft />
+      {/* <SpacesViewHeaderCenter /> */}
+      <SpacesViewHeaderRight />
     </GlassAreaContainer>
   );
 }

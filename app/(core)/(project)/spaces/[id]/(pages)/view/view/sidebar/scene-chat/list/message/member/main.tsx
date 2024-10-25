@@ -3,7 +3,7 @@ import { ContextForConversationMessageObj } from '@/(server)/model/conversation/
 import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { useContext } from 'react';
 
-export function SpacesMapMemberMessage() {
+export function SpacesViewMemberMessage() {
   const messageObj = useContext(ContextForConversationMessageObj);
   const userController = useControllerForUserMain(messageObj?.userId || '');
   const userObj = userController.state.obj;

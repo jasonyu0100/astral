@@ -1,18 +1,18 @@
-import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
-import { ContextForSpacesMapModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
+import { ContextForSpacesViewModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
 
-export function SpacesMapPaletteDefault() {
+export function SpacesViewPaletteDefault() {
   const {
     state: { selectedIdeas },
     actions: { updateSelectedIdeas, linkIdeas },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const modalController = useContext(ContextForSpacesMapModals);
+  const modalController = useContext(ContextForSpacesViewModals);
 
   return (
     <>

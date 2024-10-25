@@ -9,7 +9,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpacesMapRowElement() {
+export function SpacesViewRowElement() {
   const index = useContext(ContextForIndexable);
   const scene = useContext(ContextForIdeaSceneObj);
   const sceneListController = useContext(ContextForIdeaSceneList);

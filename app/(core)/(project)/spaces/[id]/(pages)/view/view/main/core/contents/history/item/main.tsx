@@ -8,14 +8,14 @@ import { glassFx, roundedFx } from '@/style/data';
 import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapDirectoryMode,
+  ContextForSpacesView,
+  SpacesViewDirectoryMode,
 } from '../../../../../../controller/main';
 
-export function SpacesMapHistoryItem() {
+export function SpacesViewHistoryItem() {
   const {
     actions: { updateDirectoryMode },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const sceneListController = useContext(ContextForIdeaSceneList);
   const scene = useContext(ContextForIdeaSceneObj);
   const hoverableController = useControllerForHoverable();
@@ -34,7 +34,7 @@ export function SpacesMapHistoryItem() {
           className='flex h-full cursor-pointer flex-row items-center justify-items-center space-x-[1rem] p-[1rem] text-center font-bold text-slate-300'
           onClick={() => {
             sceneListController.actions.stateActions.select(scene);
-            updateDirectoryMode(SpacesMapDirectoryMode.DEFAULT);
+            updateDirectoryMode(SpacesViewDirectoryMode.DEFAULT);
           }}
         >
           <div className='text-lg font-light'>

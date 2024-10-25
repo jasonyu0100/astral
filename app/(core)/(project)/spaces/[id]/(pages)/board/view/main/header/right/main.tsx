@@ -6,7 +6,7 @@ import { ContextForSpacesBoardModals } from '../../../../modal/controller/main';
 export function SpacesBoardHeaderRight() {
   const modalController = useContext(ContextForSpacesBoardModals);
   const {
-    state: { selectedLogs },
+    state: { selectedTasks: selectedLogs },
   } = useContext(ContextForSpacesBoard);
 
   return (

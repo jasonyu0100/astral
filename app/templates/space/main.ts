@@ -7,7 +7,6 @@ import { SpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { TaskObj } from '@/(server)/model/task/main';
 import { createContext } from 'react';
-import { animationTemplate } from './new-templates/animationTemplate';
 import { blankSpaceTemplate } from './new-templates/blankSpaceTemplate';
 import { collaborationHubTemplate } from './new-templates/collaborationHubTemplate';
 import { contentCreationTemplate } from './new-templates/contentCreationTemplate';
@@ -15,13 +14,11 @@ import { creativeCampaignTemplate } from './new-templates/creativeCampaignTempla
 import { freelancingTaskTemplate } from './new-templates/freelancingTaskTemplate';
 import { hackathonProjectTemplate } from './new-templates/hackathonProjectTemplate';
 import { ideationTemplate } from './new-templates/ideationTemplate';
+import { meetingTemplate } from './new-templates/meetingTemplate';
 import { musicAndAudioProductionTemplate } from './new-templates/musicAndAudioProductionTemplate';
-import { photographyAndArtTemplate } from './new-templates/photographyAndArtTemplate';
 import { prototypeDevelopmentTemplate } from './new-templates/prototypeDevelopmentTemplate';
-import { sprintChallengeTemplate } from './new-templates/sprintChallengeTemplate';
 import { newStarterProjectTemplate } from './new-templates/starterTemplate';
 import { uxUiDesignTemplate } from './new-templates/uxUiDesignTemplate';
-import { writingProjectTemplate } from './new-templates/writingProjectTemplate';
 import { videoProductionTemplate } from './old-templates/video-production';
 
 // SPACE
@@ -113,42 +110,36 @@ export interface TemplatePostObj extends _TemplatePostObj {
 
 // TEMPLATES
 enum NewSpaceTemplate {
-  BlankSpace = 'Blank Space',
-  StarterProject = 'Starter Project',
-  FreelancingTask = 'Freelancing Task',
-  Ideation = 'Ideation',
-  SprintChallenge = 'Sprint Challenge',
-  HackathonProject = 'Hackathon Project',
-  CollaborationHub = 'Collaboration Hub',
-  CreativeCampaign = 'Creative Campaign',
-  PrototypeDevelopment = 'Prototype Development',
-  VideoMediaProduction = 'Video/Media Production',
-  ContentCreation = 'Content Creation', // Covers writing, blogging, and podcasting
-  PhotographyAndArtProject = 'Photography & Art Project', // Combines photography and illustration
-  UXUIDesign = 'UX/UI Design', // Specialized template for interface and user experience designers
-  MusicAndAudioProduction = 'Music & Audio Production', // Combines music and sound design
-  WritingProject = 'Writing Project', // Dedicated for written works (e.g., novels, scripts)
-  Animation = 'Animation Project', // For animators and motion graphics
+  BlankSpace = '🟡 Blank Space',
+  Starter = '🚀 Starter',
+  Ideation = '💡 Ideation',
+  MeetingMinutes = '📝 Meeting Minutes',
+  Collaboration = '🤝 Collaboration',
+  MusicProduction = '🎶 Music Production',
+  ContentCreation = '🖊️ Content Creation',
+  MediaProduction = '🎥 Media Production',
+  Freelancing = '💼 Freelancing',
+  Campaign = '📢 Campaign',
+  Hackathon = '💻 Hackathon',
+  Prototype = '🔧 Prototype',
+  DesignJam = '🎨 Design Jam',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.BlankSpace]: blankSpaceTemplate,
-  [NewSpaceTemplate.StarterProject]: newStarterProjectTemplate,
-  [NewSpaceTemplate.FreelancingTask]: freelancingTaskTemplate,
+  [NewSpaceTemplate.MeetingMinutes]: meetingTemplate,
+  [NewSpaceTemplate.Starter]: newStarterProjectTemplate,
+  [NewSpaceTemplate.Freelancing]: freelancingTaskTemplate,
   [NewSpaceTemplate.Ideation]: ideationTemplate,
-  [NewSpaceTemplate.SprintChallenge]: sprintChallengeTemplate,
-  [NewSpaceTemplate.HackathonProject]: hackathonProjectTemplate,
-  [NewSpaceTemplate.CollaborationHub]: collaborationHubTemplate,
-  [NewSpaceTemplate.CreativeCampaign]: creativeCampaignTemplate,
-  [NewSpaceTemplate.PrototypeDevelopment]: prototypeDevelopmentTemplate,
-  [NewSpaceTemplate.VideoMediaProduction]: videoProductionTemplate,
+  [NewSpaceTemplate.Hackathon]: hackathonProjectTemplate,
+  [NewSpaceTemplate.Collaboration]: collaborationHubTemplate,
+  [NewSpaceTemplate.Campaign]: creativeCampaignTemplate,
+  [NewSpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
+  [NewSpaceTemplate.MediaProduction]: videoProductionTemplate,
   [NewSpaceTemplate.ContentCreation]: contentCreationTemplate,
-  [NewSpaceTemplate.PhotographyAndArtProject]: photographyAndArtTemplate,
-  [NewSpaceTemplate.UXUIDesign]: uxUiDesignTemplate,
-  [NewSpaceTemplate.MusicAndAudioProduction]: musicAndAudioProductionTemplate,
-  [NewSpaceTemplate.WritingProject]: writingProjectTemplate,
-  [NewSpaceTemplate.Animation]: animationTemplate,
+  [NewSpaceTemplate.DesignJam]: uxUiDesignTemplate,
+  [NewSpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
 };
 
 export {

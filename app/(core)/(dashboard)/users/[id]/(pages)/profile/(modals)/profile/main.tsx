@@ -3,7 +3,7 @@ import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormContainer } from '@/components/form/main';
@@ -66,7 +66,7 @@ export function EditProfileModal() {
           </FormBody>
           <FormFooter>
             <FormButton
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
               onClick={() => {
                 userController.actions.editActions.edit({
                   ...userObj,
@@ -77,7 +77,7 @@ export function EditProfileModal() {
               Save
             </FormButton>
             <FormButton
-              variant={ButtonVariant.SECONDARY}
+              variant={FormButtonVariant.SECONDARY}
               onClick={() => {
                 alert('Logging out');
                 window.location.href = portalMap.portal.login.link;

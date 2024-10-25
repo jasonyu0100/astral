@@ -13,7 +13,7 @@ export function SpaceJourneyListItem() {
   const journeyController = useContext(ContextForSpacesBoard);
   const taskListController = useContext(ContextForTaskList);
   const task = useContext(ContextForTaskObj);
-  const selected = journeyController.state.selectedLogs.includes(task);
+  const selected = journeyController.state.selectedTasks.includes(task);
 
   return (
     <GlassWindowFrame className='aspect-video h-full bg-yellow-500 p-[0.5rem]'>
@@ -22,16 +22,16 @@ export function SpaceJourneyListItem() {
           'flex h-full w-full cursor-pointer flex-col space-y-[0.5rem] overflow-auto',
         )}
         onClick={() => {
-          if (journeyController.state.selectedLogs.includes(task)) {
-            journeyController.actions.updateSelectedLogs(
-              journeyController.state.selectedLogs.filter(
+          if (journeyController.state.selectedTasks.includes(task)) {
+            journeyController.actions.updateSelectedTasks(
+              journeyController.state.selectedTasks.filter(
                 (selectedLog) => selectedLog !== task,
               ),
             );
           } else {
             taskListController.actions.stateActions.select(task);
-            journeyController.actions.updateSelectedLogs([
-              ...journeyController.state.selectedLogs,
+            journeyController.actions.updateSelectedTasks([
+              ...journeyController.state.selectedTasks,
               task,
             ]);
           }

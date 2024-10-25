@@ -5,7 +5,7 @@ import { useContext } from 'react';
 
 import { useRef } from 'react';
 
-export function SpacesMapTextStickyIdea() {
+export function SpacesViewTextStickyIdea() {
   const ideaObj = useContext(ContextForIdeaObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const divRef = useRef<HTMLDivElement>(null);

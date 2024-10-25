@@ -1,15 +1,15 @@
 import {
-  ContextForSpacesMap,
-  SpacesMapLinkMode,
+  ContextForSpacesView,
+  SpacesViewLinkMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaRelationshipListFromScene } from '@/(server)/controller/idea/relationship/list-from-scene';
 import { useContext } from 'react';
 
-export function SpacesMapContentsSceneConnections() {
+export function SpacesViewContentsSceneConnections() {
   const {
     state: { linkMode: connectionMode },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaRelationshipListController = useContext(
     ContextForIdeaRelationshipListFromScene,
@@ -28,7 +28,7 @@ export function SpacesMapContentsSceneConnections() {
 
   return (
     <svg className='h-full w-full'>
-      {connectionMode == SpacesMapLinkMode.ON && (
+      {connectionMode == SpacesViewLinkMode.ON && (
         <>
           {ideaRelationshipListController.state.objs.map((relationship) => {
             const fromIdea = ideaListController.actions.stateActions.find(

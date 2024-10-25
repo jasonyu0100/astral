@@ -1,22 +1,24 @@
 import { ContextForConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useContext } from 'react';
-import { SpacesMapAgentMessage } from './agent/main';
-import { SpacesMapMemberMessage } from './member/main';
-import { SpacesMapUserMessage } from './user/main';
+import { SpacesViewAgentMessage } from './agent/main';
+import { SpacesViewMemberMessage } from './member/main';
+import { SpacesViewUserMessage } from './user/main';
 
-export function SpacesMapChatSceneMessage() {
+export function SpacesViewChatSceneMessage() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const messageObj = useContext(ContextForConversationMessageObj);
 
   return (
     <>
       {messageObj.agentId !== null ? (
-        <SpacesMapAgentMessage />
+        <SpacesViewAgentMessage />
       ) : (
         <>
-          {loggedInUser?.id === messageObj.userId && <SpacesMapUserMessage />}
-          {loggedInUser?.id !== messageObj.userId && <SpacesMapMemberMessage />}
+          {loggedInUser?.id === messageObj.userId && <SpacesViewUserMessage />}
+          {loggedInUser?.id !== messageObj.userId && (
+            <SpacesViewMemberMessage />
+          )}
         </>
       )}
     </>

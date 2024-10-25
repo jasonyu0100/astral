@@ -1,4 +1,4 @@
-import { ContextForSpacesMap } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
@@ -8,11 +8,11 @@ import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpacesMapIdeaIndicator() {
+export function SpacesViewIdeaIndicator() {
   const index = useContext(ContextForIndexable);
   const {
     actions: { checkContainsSelectedIdea },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const ideaObj = useContext(ContextForIdeaObj);
 
   return (

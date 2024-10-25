@@ -3,7 +3,6 @@ import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -15,14 +14,8 @@ export function SpacesChatSidebarChapter() {
   const active =
     chapterListController.actions.stateActions.checkActive(chapter);
 
-  const hoverableController = useControllerForHoverable();
-
   return (
-    <div
-      className='w-full cursor-pointer'
-      onMouseOver={() => hoverableController.onHover()}
-      onMouseOut={() => hoverableController.onUnhover()}
-    >
+    <>
       {active ? (
         <GlassWindowFrame
           className='aspect-16/9 w-full flex-shrink-0 cursor-pointer'
@@ -46,21 +39,17 @@ export function SpacesChatSidebarChapter() {
               chapterListController.actions.stateActions.select(chapter)
             }
           >
-            <p
-              className={ctwn('text-lg font-bold text-slate-500', {
-                'text-slate-300': hoverableController.hovered,
-              })}
-            >
+            <p className={ctwn('text-lg font-bold text-slate-300')}>
               {chapter.title?.trim() || 'Untitled'}
             </p>
             <p className='font-md w-full text-sm font-light text-slate-300'>
-              {chapterListController.state.currentObj?.objective ||
-                'Open-ended'}
+              <span className='font-bold'>Objective: </span>
+              {chapter.objective || 'Open-ended'}
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       )}
-    </div>
+    </>
   );
 }

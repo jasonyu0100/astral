@@ -2,30 +2,30 @@ import { GlassAreaContainer } from '@/components/glass/area/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapSidebarVisibility,
+  ContextForSpacesView,
+  SpacesViewSidebarVisibility,
 } from '../controller/main';
-import { SpacesMapMain } from './main/main';
-import { SpacesMapSidebar } from './sidebar/main';
+import { SpacesViewMain } from './main/main';
+import { SpacesViewSidebar } from './sidebar/main';
 
-export function SpacesMapView() {
+export function SpacesViewView() {
   const {
     state: { sidebarVisibility },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
 
   return (
     <GlassAreaContainer
-      name={SpacesMapView.name}
+      name={SpacesViewView.name}
       sizeFx='h-full flex-grow'
       className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
-      {sidebarVisibility !== SpacesMapSidebarVisibility.CLOSED && (
-        <SpacesMapSidebar />
+      {sidebarVisibility !== SpacesViewSidebarVisibility.CLOSED && (
+        <SpacesViewSidebar />
       )}
-      <SpacesMapMain />
+      <SpacesViewMain />
     </GlassAreaContainer>
   );
 }

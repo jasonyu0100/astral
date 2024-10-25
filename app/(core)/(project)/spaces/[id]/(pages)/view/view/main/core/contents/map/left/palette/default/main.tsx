@@ -1,4 +1,4 @@
-import { ContextForSpacesMapModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
+import { ContextForSpacesViewModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralEditNoteIcon } from '@/icons/edit-note/main';
@@ -10,8 +10,8 @@ import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { useContext } from 'react';
 
-export function SpacesMapPaletteSelected() {
-  const modalController = useContext(ContextForSpacesMapModals);
+export function SpacesViewPaletteSelected() {
+  const modalController = useContext(ContextForSpacesViewModals);
 
   return (
     <>

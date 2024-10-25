@@ -1,7 +1,7 @@
 'use client';
 import {
-  ContextForSpacesMap,
-  SpacesMapBubbleMode,
+  ContextForSpacesView,
+  SpacesViewBubbleMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
@@ -9,9 +9,9 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import { parseTransformString } from '../../../../../../../utils/main';
-import { SpacesMapIdeaIndicator } from './indicator/main';
+import { SpacesViewIdeaIndicator } from './indicator/main';
 
-export function SpacesMapMovable({ children }: { children: React.ReactNode }) {
+export function SpacesViewMovable({ children }: { children: React.ReactNode }) {
   const {
     state: {
       selectedIdeas,
@@ -20,7 +20,7 @@ export function SpacesMapMovable({ children }: { children: React.ReactNode }) {
       isSwitchOn,
     },
     actions: { updateSelectedIdeas, checkContainsSelectedIdea },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -87,7 +87,7 @@ export function SpacesMapMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {peopleMode === SpacesMapBubbleMode.ON && <SpacesMapIdeaIndicator />}
+        {peopleMode === SpacesViewBubbleMode.ON && <SpacesViewIdeaIndicator />}
       </div>
       <Moveable
         ref={moveableRef}

@@ -7,16 +7,16 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpacesMap } from '../../../../../../controller/main';
+import { ContextForSpacesView } from '../../../../../../controller/main';
 
-export function SpacesMapCollectionItem() {
+export function SpacesViewCollectionItem() {
   const collection = useContext(ContextForGalleryCollectionObj);
   const resourceListController = useControllerForCollectionResourceList(
     collection.id,
   );
   const {
     actions: { goToCollection },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
 
   return (
     <GlassWindowFrame

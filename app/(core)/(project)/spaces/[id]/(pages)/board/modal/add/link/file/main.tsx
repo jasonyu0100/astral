@@ -6,7 +6,7 @@ import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
@@ -72,7 +72,7 @@ export function SpacesBoardAddFileLinkModal() {
           </FormBody>
           <FormFooter>
             <FormButton
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
               onClick={createFileIdea}
             >
               Add

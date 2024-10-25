@@ -1,10 +1,10 @@
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { useContext } from 'react';
-import { SpacesMapSidebarScenesListActiveItem } from './item/active/main';
-import { SpacesMapSidebarScenesListInactiveItem } from './item/inactive/main';
+import { SpacesViewSidebarScenesListActiveItem } from './item/active/main';
+import { SpacesViewSidebarScenesListInactiveItem } from './item/inactive/main';
 
-export function SpacesMapSidebarScenesList() {
+export function SpacesViewSidebarScenesList() {
   const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
@@ -17,9 +17,9 @@ export function SpacesMapSidebarScenesList() {
           <ContextForIdeaSceneObj.Provider value={scene}>
             <>
               {sceneListController.actions.stateActions.checkActive(scene) ? (
-                <SpacesMapSidebarScenesListActiveItem />
+                <SpacesViewSidebarScenesListActiveItem />
               ) : (
-                <SpacesMapSidebarScenesListInactiveItem />
+                <SpacesViewSidebarScenesListInactiveItem />
               )}
             </>
           </ContextForIdeaSceneObj.Provider>

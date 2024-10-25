@@ -3,7 +3,7 @@ import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
-import { SpacesMapSidebarChaptersChapter } from './item/main';
+import { SpacesBoardSidebarChaptersChapter } from './item/main';
 
 export function SpacesBoardSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -14,7 +14,7 @@ export function SpacesBoardSidebarChapters() {
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
           {chapterListController.state.objs.map((chapter) => (
             <ContextForSpaceChapterObj.Provider value={chapter}>
-              <SpacesMapSidebarChaptersChapter />
+              <SpacesBoardSidebarChaptersChapter />
             </ContextForSpaceChapterObj.Provider>
           ))}
         </GlassWindowContents>

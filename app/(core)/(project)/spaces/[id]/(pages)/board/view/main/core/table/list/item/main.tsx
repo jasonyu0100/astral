@@ -26,7 +26,7 @@ export function SpacesBoardLogTableItem() {
   const taskListController = useContext(ContextForTaskList);
   const linkListController = useControllerForTaskLinkList(task.id);
   const journeyController = useContext(ContextForSpacesBoard);
-  const selected = journeyController.state.selectedLogs.includes(task);
+  const selected = journeyController.state.selectedTasks.includes(task);
 
   return (
     <ContextForTaskLinkList.Provider value={linkListController}>
@@ -35,16 +35,16 @@ export function SpacesBoardLogTableItem() {
           <GlassWindowContents
             className='grid w-full grid-cols-7 items-center justify-items-center'
             onClick={() => {
-              if (journeyController.state.selectedLogs.includes(task)) {
-                journeyController.actions.updateSelectedLogs(
-                  journeyController.state.selectedLogs.filter(
+              if (journeyController.state.selectedTasks.includes(task)) {
+                journeyController.actions.updateSelectedTasks(
+                  journeyController.state.selectedTasks.filter(
                     (selectedLog) => selectedLog !== task,
                   ),
                 );
               } else {
                 taskListController.actions.stateActions.select(task);
-                journeyController.actions.updateSelectedLogs([
-                  ...journeyController.state.selectedLogs,
+                journeyController.actions.updateSelectedTasks([
+                  ...journeyController.state.selectedTasks,
                   task,
                 ]);
               }

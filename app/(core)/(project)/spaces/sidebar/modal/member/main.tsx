@@ -4,7 +4,7 @@ import { useControllerForUserConnectionListFromSource } from '@/(server)/control
 import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
@@ -118,7 +118,7 @@ export function SpacesSidebarAddMemberModal() {
             </FormBody>
             <FormFooter>
               <FormButton
-                variant={ButtonVariant.PRIMARY}
+                variant={FormButtonVariant.PRIMARY}
                 onClick={addMembers}
                 disabled={memberIds.length === 0} // Disable button if no members are selected
               >

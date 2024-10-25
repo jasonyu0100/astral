@@ -2,7 +2,7 @@ import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { useContext } from 'react';
 
-export function SpacesMapStatusBody() {
+export function SpacesViewStatusBody() {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
 

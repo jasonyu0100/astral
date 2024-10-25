@@ -12,9 +12,9 @@ import { AstralModalStep } from '@/components/step/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useState } from 'react';
-import { ContextForSpacesMap } from '../../../../controller/main';
+import { ContextForSpacesView } from '../../../../controller/main';
 
-export function SpacesMapAddTextIdeaModal() {
+export function SpacesViewAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -25,7 +25,7 @@ export function SpacesMapAddTextIdeaModal() {
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
-  const mapController = useContext(ContextForSpacesMap);
+  const mapController = useContext(ContextForSpacesView);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );

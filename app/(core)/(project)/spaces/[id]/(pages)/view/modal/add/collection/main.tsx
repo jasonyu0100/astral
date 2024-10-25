@@ -14,7 +14,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddCollectionModal() {
+export function SpacesViewAddCollectionModal() {
   const user = useGlobalUser((state) => state.user);
   const galleryController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);

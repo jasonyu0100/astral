@@ -15,14 +15,14 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpacesMap,
-  SpacesMapBubbleMode,
-  SpacesMapLinkMode,
-  SpacesMapSidebarContentMode,
-  SpacesMapSidebarVisibility,
+  ContextForSpacesView,
+  SpacesViewBubbleMode,
+  SpacesViewLinkMode,
+  SpacesViewSidebarContentMode,
+  SpacesViewSidebarVisibility,
 } from '../../../../../controller/main';
 
-export function SpacesMapHeaderLeft() {
+export function SpacesViewHeaderLeft() {
   const {
     state: {
       sidebarVisibility,
@@ -39,7 +39,7 @@ export function SpacesMapHeaderLeft() {
       autoSort,
       selectAll,
     },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const user = useGlobalUser((state) => state.user);
   const space = useContext(ContextForSpaceMain);
   const galleryController = useContext(ContextForGalleryList);
@@ -50,13 +50,13 @@ export function SpacesMapHeaderLeft() {
       <AstralSidebarLeftIcon
         className={ctwn({
           'rotate-180 transform':
-            sidebarVisibility === SpacesMapSidebarVisibility.CLOSED,
+            sidebarVisibility === SpacesViewSidebarVisibility.CLOSED,
         })}
         onClick={() => {
           updateSidebarVisibility(
-            sidebarVisibility === SpacesMapSidebarVisibility.CLOSED
-              ? SpacesMapSidebarVisibility.OPEN
-              : SpacesMapSidebarVisibility.CLOSED,
+            sidebarVisibility === SpacesViewSidebarVisibility.CLOSED
+              ? SpacesViewSidebarVisibility.OPEN
+              : SpacesViewSidebarVisibility.CLOSED,
           );
         }}
       />
@@ -66,7 +66,7 @@ export function SpacesMapHeaderLeft() {
           goToGallery(
             galleryController.actions.stateActions.find(user.journalId),
           );
-          updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
+          updateSidebarContentMode(SpacesViewSidebarContentMode.EXPLORER);
         }}
       />
       <AstralFolderIcon
@@ -76,35 +76,35 @@ export function SpacesMapHeaderLeft() {
               space.state.obj.galleryId,
             ),
           );
-          updateSidebarContentMode(SpacesMapSidebarContentMode.EXPLORER);
+          updateSidebarContentMode(SpacesViewSidebarContentMode.EXPLORER);
         }}
       />
       <BarDividerIndicator />
       <AstralSyncAltIcon
         className={
-          connectionMode === SpacesMapLinkMode.ON
+          connectionMode === SpacesViewLinkMode.ON
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
         onClick={() => {
-          if (connectionMode === SpacesMapLinkMode.ON) {
-            updateConnectionMode(SpacesMapLinkMode.OFF);
+          if (connectionMode === SpacesViewLinkMode.ON) {
+            updateConnectionMode(SpacesViewLinkMode.OFF);
           } else {
-            updateConnectionMode(SpacesMapLinkMode.ON);
+            updateConnectionMode(SpacesViewLinkMode.ON);
           }
         }}
       />
       <AstralBubbleIcon
         className={
-          peopleMode === SpacesMapBubbleMode.OFF
+          peopleMode === SpacesViewBubbleMode.OFF
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (peopleMode === SpacesMapBubbleMode.OFF) {
-            updatePeopleMode(SpacesMapBubbleMode.ON);
+          if (peopleMode === SpacesViewBubbleMode.OFF) {
+            updatePeopleMode(SpacesViewBubbleMode.ON);
           } else {
-            updatePeopleMode(SpacesMapBubbleMode.OFF);
+            updatePeopleMode(SpacesViewBubbleMode.OFF);
           }
         }}
       />

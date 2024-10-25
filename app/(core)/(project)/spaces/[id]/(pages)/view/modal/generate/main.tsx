@@ -11,7 +11,7 @@ import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ElementIdea } from '@/components/element/idea/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormContainer } from '@/components/form/main';
@@ -22,13 +22,13 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
 import { spacesMap } from '../../../../map';
-import { ContextForSpacesMap } from '../../controller/main';
+import { ContextForSpacesView } from '../../controller/main';
 
-export function SpacesMapGenerateLog() {
+export function SpacesViewGenerateLog() {
   const user = useGlobalUser((state) => state.user);
   const {
     state: { selectedIdeas },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const loadingController = useContext(ContextForLoading);
   const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
@@ -174,7 +174,7 @@ export function SpacesMapGenerateLog() {
             </div>
           </FormBody>
           <FormFooter>
-            <FormButton variant={ButtonVariant.PRIMARY} onClick={createLog}>
+            <FormButton variant={FormButtonVariant.PRIMARY} onClick={createLog}>
               Next
             </FormButton>
           </FormFooter>

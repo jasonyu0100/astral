@@ -1,5 +1,5 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -19,7 +19,7 @@ export function CreateSpaceModalFooter() {
         return (
           <FormFooter>
             <FormButton
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
               onClick={() => {
                 pagableController.updatePage(1);
               }}
@@ -32,7 +32,7 @@ export function CreateSpaceModalFooter() {
         return (
           <FormFooter>
             <FormButton
-              variant={ButtonVariant.SECONDARY}
+              variant={FormButtonVariant.SECONDARY}
               onClick={() => {
                 pagableController.updatePage(0);
               }}
@@ -40,7 +40,7 @@ export function CreateSpaceModalFooter() {
               Prev
             </FormButton>
             <FormButton
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
               onClick={() => {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {

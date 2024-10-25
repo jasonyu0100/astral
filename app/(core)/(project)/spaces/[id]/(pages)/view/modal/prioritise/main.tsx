@@ -10,7 +10,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 import { spacesMap } from '../../../../map';
 
-export function SpacesMapPlanModal() {
+export function SpacesViewPlanModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const ideaListController = useContext(ContextForSceneIdeaList);

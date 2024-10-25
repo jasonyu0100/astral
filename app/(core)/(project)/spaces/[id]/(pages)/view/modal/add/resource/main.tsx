@@ -3,7 +3,7 @@ import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { ButtonVariant, FormButton } from '@/components/form/button/main';
+import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
@@ -14,7 +14,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
 
-export function SpacesMapAddResourceModal() {
+export function SpacesViewAddResourceModal() {
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const user = useGlobalUser((state) => state.user);
@@ -63,7 +63,7 @@ export function SpacesMapAddResourceModal() {
           <FormFooter>
             <FormButton
               onClick={createResource}
-              variant={ButtonVariant.PRIMARY}
+              variant={FormButtonVariant.PRIMARY}
             >
               Upload
             </FormButton>

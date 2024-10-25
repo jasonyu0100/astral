@@ -4,7 +4,7 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
 
-export function SpacesMapSidebarScenesListInactiveItem() {
+export function SpacesViewSidebarScenesListInactiveItem() {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const scene = useContext(ContextForIdeaSceneObj);
 

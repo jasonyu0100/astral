@@ -5,13 +5,13 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpacesMap } from '../../../../../../controller/main';
+import { ContextForSpacesView } from '../../../../../../controller/main';
 
-export function SpacesMapGalleryItem() {
+export function SpacesViewGalleryItem() {
   const gallery = useContext(ContextForGalleryObj);
   const {
     actions: { goToGallery },
-  } = useContext(ContextForSpacesMap);
+  } = useContext(ContextForSpacesView);
   const hoverableController = useControllerForHoverable();
 
   return (

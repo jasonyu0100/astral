@@ -3,7 +3,7 @@ import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpacesMapNavigationUp() {
+export function SpacesViewNavigationUp() {
   const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
