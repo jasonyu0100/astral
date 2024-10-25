@@ -5,7 +5,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralButtonRoundedAction } from '@/components/button/rounded/action/main';
+import { AstralButtonRoundedAction } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';

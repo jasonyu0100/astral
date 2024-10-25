@@ -6,7 +6,7 @@ import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
-import { AstralButtonRoundedAction } from '@/components/button/rounded/action/main';
+import { AstralButtonRoundedAction } from '@/components/button/action/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
