@@ -1,13 +1,11 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralColumnsIcon } from '@/icons/columns/main';
+import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
-import { AstralTableIcon } from '@/icons/table/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesBoard,
-  SpacesBoardDataMode,
   SpacesBoardSidebarVisibility,
 } from '../../../../controller/main';
 import { ContextForSpacesBoardModals } from '../../../../modal/controller/main';
@@ -35,32 +33,10 @@ export function SpacesBoardHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralTableIcon
-        onClick={() => {
-          if (dataMode === SpacesBoardDataMode.ROWS) {
-            updateDataMode(SpacesBoardDataMode.TABLE);
-          } else {
-            updateDataMode(SpacesBoardDataMode.ROWS);
-          }
-        }}
-        className={ctwn('fill-slate-300', {
-          'fill-blue-500': dataMode === SpacesBoardDataMode.TABLE,
-        })}
-      />
-      <AstralColumnsIcon
-        onClick={() => {
-          if (dataMode === SpacesBoardDataMode.ROWS) {
-            updateDataMode(SpacesBoardDataMode.TABLE);
-          } else {
-            updateDataMode(SpacesBoardDataMode.ROWS);
-          }
-        }}
-        className={ctwn('fill-slate-300', {
-          'fill-blue-500': dataMode === SpacesBoardDataMode.ROWS,
-        })}
-      />
-      <BarDividerIndicator />
       <AstralAddIcon onClick={() => modalController.addTaskController.open()} />
+      <AstralManufacturingIcon
+        onClick={() => modalController.addTaskController.open()}
+      />
     </div>
   );
 }

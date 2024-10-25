@@ -1,45 +1,53 @@
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForSpacesViewModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
-import { AstralAddIcon } from '@/icons/add/main';
-import { AstralAlbumIcon } from '@/icons/album/main';
-import { AstralEditNoteIcon } from '@/icons/edit-note/main';
-import { AstralLinkIcon } from '@/icons/link/main';
-import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
-import { AstralSearchIcon } from '@/icons/search/main';
-import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
-import { AstralVideoCamIcon } from '@/icons/video-cam/main';
-import { AstralVoiceIcon } from '@/icons/voice/main';
+import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
+import { AstralCombineIcon } from '@/icons/combine/main';
+import { AstralDeleteIcon } from '@/icons/delete/main';
+import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
 
-export function SpacesViewPaletteSelected() {
+export function SpacesViewPaletteDefault() {
+  const {
+    state: { selectedIdeas },
+    actions: { updateSelectedIdeas, linkIdeas },
+  } = useContext(ContextForSpacesView);
+  const ideaListController = useContext(ContextForSceneIdeaList);
   const modalController = useContext(ContextForSpacesViewModals);
 
   return (
     <>
-      <AstralLinkIcon
-        onClick={() => modalController.addWebsiteUrlIdeaController.open()}
-      />
-      <AstralEditNoteIcon
-        onClick={() => modalController.addTextIdeaController.open()}
-      />
-      <AstralManufacturingIcon
-        onClick={() => modalController.addGenerateIdeaController.open()}
-      />
-      <AstralSearchIcon
-        onClick={() => modalController.addSearchIdeaController.open()}
-      />
-      <div className='flex items-center justify-center rounded-full bg-blue-500 p-[0.5rem]'>
-        <AstralAddIcon
-          onClick={() => modalController.addFileIdeaController.open()}
+      {selectedIdeas.length >= 2 && (
+        <AstralCombineIcon
+          onClick={() => {
+            modalController.combineIdeasController.open();
+          }}
         />
-      </div>
-      <AstralSmartDisplayIcon
-        onClick={() => modalController.addYouTubeUrlIdeaController.open()}
+      )}
+      {selectedIdeas.length >= 2 && (
+        <AstralShareIcon
+          onClick={() => {
+            linkIdeas();
+          }}
+        />
+      )}
+      {/* <AstralHideSourceIcon
+        onClick={() => {
+          selectedIdeas.forEach((idea) => {
+            ideaListController.actions.editActions.edit(idea.id, {
+              visible: false,
+            });
+          });
+          updateSelectedIdeas([]);
+        }}
+      /> */}
+      <AstralDeleteIcon
+        onClick={() => {
+          selectedIdeas.forEach((idea) => {
+            ideaListController.actions.deleteActions.delete(idea.id);
+          });
+          updateSelectedIdeas([]);
+        }}
       />
-      <AstralAlbumIcon
-        onClick={() => modalController.addSpotifyUrlIdeaController.open()}
-      />
-      <AstralVoiceIcon onClick={() => alert('Coming soon...')} />
-      <AstralVideoCamIcon onClick={() => alert('Coming soon...')} />
     </>
   );
 }

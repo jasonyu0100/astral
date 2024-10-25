@@ -7,14 +7,12 @@ interface Controller {
 }
 
 interface ControllerState {
-  sidebarMode: SpacesBoardSidebarMode;
   sidebarVisibility: SpacesBoardSidebarVisibility;
   dataMode: SpacesBoardDataMode;
   selectedTasks: TaskObj[];
 }
 
 interface ControllerActions {
-  updateSidebarMode: (mode: SpacesBoardSidebarMode) => void;
   updateSidebarVisibility: (visibility: SpacesBoardSidebarVisibility) => void;
   updateDataMode: (mode: SpacesBoardDataMode) => void;
   updateSelectedTasks: (logs: TaskObj[]) => void;
@@ -40,9 +38,6 @@ export enum SpacesBoardSidebarVisibility {
 
 export function useControllerForSpacesBoard(): Controller {
   const [selectedTasks, setSelectedTasks] = useState<TaskObj[]>([]);
-  const [dataMode, setDataMode] = useState<SpacesBoardDataMode>(
-    SpacesBoardDataMode.TABLE,
-  );
   const [sidebarMode, setSidebarMode] = useState<SpacesBoardSidebarMode>(
     SpacesBoardSidebarMode.CHAPTERS,
   );
@@ -54,12 +49,10 @@ export function useControllerForSpacesBoard(): Controller {
       sidebarMode: sidebarMode,
       sidebarVisibility: sidebarVisibility,
       selectedTasks: selectedTasks,
-      dataMode: dataMode,
     },
     actions: {
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       updateSidebarMode: (mode) => setSidebarMode(mode),
-      updateDataMode: (mode) => setDataMode(mode),
       updateSelectedTasks: (tasks) => setSelectedTasks(tasks),
       checkContainsSelectedTask: (task: TaskObj) =>
         selectedTasks.map((task) => task.id).includes(task.id),

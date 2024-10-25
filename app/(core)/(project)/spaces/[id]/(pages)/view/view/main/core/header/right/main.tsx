@@ -24,7 +24,7 @@ export function SpacesViewHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Create Task ({selectedIdeas.length})
+            Prepare Launch ({selectedIdeas.length})
           </p>
           <AstralArrowForwardIcon />
         </button>

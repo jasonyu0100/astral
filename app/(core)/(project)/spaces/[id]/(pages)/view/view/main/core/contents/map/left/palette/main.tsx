@@ -4,8 +4,8 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { SpacesViewPaletteSelected } from './default/main';
-import { SpacesViewPaletteDefault } from './selected/main';
+import { SpacesViewPaletteDefault } from './default/main';
+import { SpacesViewPaletteSelected } from './selected/main';
 
 export function SpacesViewPalette() {
   const {

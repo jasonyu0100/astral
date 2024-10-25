@@ -9,7 +9,6 @@ import { SpacesBoardAddFileLinkModal } from '../add/link/file/main';
 import { SpacesBoardAddTextLinkModal } from '../add/link/text/main';
 import { SpacesBoardAddSceneModal } from '../add/scene/main';
 import { SpacesBoardAddTaskModal } from '../add/task/main';
-import { SpacesBoardPostModal } from '../generate/main';
 
 export const ContextForSpacesBoardModals = createContext(
   {} as SpacesBoardModals,
@@ -18,7 +17,6 @@ export const ContextForSpacesBoardModals = createContext(
 export interface SpacesBoardModals {
   addSceneController: ContextForOpenableInterface;
   addUpdateController: ContextForOpenableInterface;
-  addPostController: ContextForOpenableInterface;
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
   addTaskController: ContextForOpenableInterface;
@@ -28,7 +26,6 @@ export interface SpacesBoardModals {
 export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
   const addSceneController = useControllerForOpenable();
   const addUpdateController = useControllerForOpenable();
-  const addPostController = useControllerForOpenable();
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
   const addTaskController = useControllerForOpenable();
@@ -39,7 +36,6 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
       value={{
         addSceneController: addSceneController,
         addUpdateController: addUpdateController,
-        addPostController: addPostController,
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
         addTaskController: addTaskController,
@@ -49,9 +45,6 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
       {children}
       <ContextForOpenable.Provider value={addSceneController}>
         <SpacesBoardAddSceneModal />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addPostController}>
-        <SpacesBoardPostModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextLinkController}>
         <SpacesBoardAddTextLinkModal />

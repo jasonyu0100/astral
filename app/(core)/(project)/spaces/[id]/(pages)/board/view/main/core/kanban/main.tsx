@@ -1,158 +1,176 @@
 import { ContextForTaskList } from '@/(server)/controller/way/list';
-import {
-  ContextForTaskObj,
-  TaskObj,
-  TaskStatus,
-} from '@/(server)/model/task/main';
-import { useContext, useEffect, useState } from 'react';
-import Sortable from 'sortablejs';
-import { SpaceJourneyListItem } from './row/item/main';
-import { SpaceJourneyRow } from './row/main';
-import { SpacesBoardKanbanListTitle } from './row/title/main';
+import { TaskStatus } from '@/(server)/model/task/main';
+import { AstralCloseIcon } from '@/icons/close/main';
+import { useContext, useState } from 'react';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ContextForSpacesBoard } from '../../../../controller/main';
+
+const ItemType = {
+  TASK: 'task',
+};
 
 export function SpacesBoardKanban() {
-  const wayListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskList);
+  const { objs: tasks } = taskListController.state;
 
-  const [todo, setTodo] = useState<TaskObj[]>([]);
-  const [inProgress, setInProgress] = useState<TaskObj[]>([]);
-  const [review, setInReview] = useState<TaskObj[]>([]);
-  const [done, setDone] = useState<TaskObj[]>([]);
-  const [populated, setPopulated] = useState(false);
-
-  useEffect(() => {
-    if (populated) return;
-    setTodo(
-      wayListController.state.objs.filter((idea) => idea.taskStatus === 'todo'),
-    );
-    setInProgress(
-      wayListController.state.objs.filter(
-        (idea) => idea.taskStatus === 'in-progress',
-      ),
-    );
-    setInReview(
-      wayListController.state.objs.filter(
-        (idea) => idea.taskStatus === 'review',
-      ),
-    );
-    setDone(
-      wayListController.state.objs.filter((idea) => idea.taskStatus === 'done'),
-    );
-    setPopulated(true);
-  }, [wayListController.state.objs]);
-
-  useEffect(() => {
-    const elTodo = document.getElementById('todo');
-    const elInProgress = document.getElementById('in-progress');
-    const elReview = document.getElementById('review');
-    const elDone = document.getElementById('done');
-
-    const handleSortEnd = async (evt: Sortable.SortableEvent) => {
-      const fromList = evt.from.id;
-      const toList = evt.to.id;
-      const itemId = evt.item.dataset.id;
-
-      if (!itemId) {
-        console.error('No item id found'); // aura
-        return;
-      }
-
-      console.log(`Item ${itemId} moved from ${fromList} to ${toList}`);
-
-      await wayListController.actions.editActions.edit(itemId, {
-        taskStatus: toList,
-      });
-    };
-
-    const sortableOptions = {
-      group: 'shared', // Set both lists to the same group
-      animation: 500,
-      onEnd: (evt: Sortable.SortableEvent) => {
-        handleSortEnd(evt); // Handle sort end
-      },
-    };
-
-    if (elTodo) Sortable.create(elTodo, sortableOptions);
-    if (elInProgress) Sortable.create(elInProgress, sortableOptions);
-    if (elReview) Sortable.create(elReview, sortableOptions);
-    if (elDone) Sortable.create(elDone, sortableOptions);
-  }, []);
+  const todos = tasks.filter((task) => task.taskStatus === TaskStatus.TODO);
+  const inprogress = tasks.filter(
+    (task) => task.taskStatus === TaskStatus.IN_PROGRESS,
+  );
+  const dones = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
 
   return (
-    <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
-      <div className='grid h-full w-full grid-rows-4'>
-        <div className='flex h-full flex-col'>
-          <SpaceJourneyRow>
-            <SpacesBoardKanbanListTitle>Todo</SpacesBoardKanbanListTitle>
-            <ul
-              id={TaskStatus.TODO}
-              className='flex h-full flex-row space-x-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {todo.map((log) => (
-                <li data-id={log.id} className='drag-item'>
-                  <ContextForTaskObj.Provider value={log}>
-                    <SpaceJourneyListItem />
-                  </ContextForTaskObj.Provider>
-                </li>
-              ))}
-            </ul>
-          </SpaceJourneyRow>
-        </div>
-        <div className='flex h-full flex-col'>
-          <SpaceJourneyRow>
-            <SpacesBoardKanbanListTitle>In-progress</SpacesBoardKanbanListTitle>
-            <ul
-              id={TaskStatus.IN_PROGRESS}
-              className='flex h-full flex-row space-x-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {inProgress.map((log) => (
-                <ContextForTaskObj.Provider value={log}>
-                  <li data-id={log.id} className='drag-item'>
-                    <SpaceJourneyListItem />
-                  </li>
-                </ContextForTaskObj.Provider>
-              ))}
-            </ul>
-          </SpaceJourneyRow>
-        </div>
-        <div className='flex h-full flex-col'>
-          <SpaceJourneyRow>
-            <SpacesBoardKanbanListTitle>Review</SpacesBoardKanbanListTitle>
-            <ul
-              id={TaskStatus.REVIEW}
-              className='flex h-full flex-row space-x-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {review.map((log) => (
-                <ContextForTaskObj.Provider value={log}>
-                  <li data-id={log.id} className='drag-item'>
-                    <SpaceJourneyListItem />
-                  </li>
-                </ContextForTaskObj.Provider>
-              ))}
-            </ul>
-          </SpaceJourneyRow>
-        </div>
-        <div className='flex h-full flex-col'>
-          <SpaceJourneyRow>
-            <SpacesBoardKanbanListTitle>Done</SpacesBoardKanbanListTitle>
-            <ul
-              id={TaskStatus.DONE}
-              className='flex h-full flex-row space-x-[1rem]'
-              style={{ height: '100%' }}
-            >
-              {done.map((log) => (
-                <ContextForTaskObj.Provider value={log}>
-                  <li data-id={log.id} className='drag-item'>
-                    <SpaceJourneyListItem />
-                  </li>
-                </ContextForTaskObj.Provider>
-              ))}
-            </ul>
-          </SpaceJourneyRow>
+    <DndProvider backend={HTML5Backend}>
+      <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
+        <div className='grid h-full w-full grid-rows-3 gap-[1rem] p-[1rem]'>
+          <KanbanRow title='Todo' tasks={todos} status={TaskStatus.TODO} />
+          <KanbanRow
+            title='In Progress'
+            tasks={inprogress}
+            status={TaskStatus.IN_PROGRESS}
+          />
+          <KanbanRow title='Done' tasks={dones} status={TaskStatus.DONE} />
         </div>
       </div>
+    </DndProvider>
+  );
+}
+
+function KanbanRow({ title, tasks, status }) {
+  const taskListController = useContext(ContextForTaskList);
+
+  const [{ isOver }, drop] = useDrop({
+    accept: ItemType.TASK,
+    drop: (item) => {
+      if (item.status !== status) {
+        taskListController.actions.editActions.edit(item.id, {
+          taskStatus: status,
+        });
+      }
+    },
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  });
+
+  return (
+    <div className='flex flex-col border-b-[1px] border-slate-300 border-opacity-30'>
+      <h2 className='mb-2 text-lg font-semibold text-slate-300'>{title}</h2>
+      <div
+        ref={drop}
+        className={`flex h-full flex-row rounded ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
+        style={{ padding: '1rem', transition: 'background-color 0.2s' }}
+      >
+        <div className='flex min-h-[50px] flex-row space-x-[1rem] pb-[1rem]'>
+          {tasks.map((task) => (
+            <KanbanTask key={task.id} task={task} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function KanbanTask({ task }) {
+  const taskListController = useContext(ContextForTaskList);
+  const spacesBoardController = useContext(ContextForSpacesBoard);
+  const [{ isDragging }, drag] = useDrag({
+    type: ItemType.TASK,
+    item: { id: task.id, status: task.taskStatus },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
+
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [isEditingDescription, setIsEditingDescription] = useState(false);
+  const [title, setTitle] = useState(task.title);
+  const [description, setDescription] = useState(task.description);
+
+  const deleteTask = () => {
+    taskListController.actions.deleteActions.delete(task.id);
+  };
+
+  const handleTitleBlur = () => {
+    taskListController.actions.editActions.edit(task.id, { title });
+    setIsEditingTitle(false);
+  };
+
+  const handleDescriptionBlur = () => {
+    taskListController.actions.editActions.edit(task.id, { description });
+    setIsEditingDescription(false);
+  };
+
+  const handleKeyDown = (e, onBlur) => {
+    if (e.key === 'Enter') {
+      onBlur();
+    }
+  };
+
+  return (
+    <div
+      ref={drag}
+      className={`h-full min-w-[200px] max-w-[260px] rounded bg-yellow-500 p-4 shadow-sm ${isDragging ? 'opacity-50' : ''}`}
+      style={{ cursor: 'move' }}
+      onClick={() => {
+        if (spacesBoardController.state.selectedTasks.includes(task.id)) {
+          spacesBoardController.actions.updateSelectedTasks(
+            spacesBoardController.state.selectedTasks.filter(
+              (id) => id !== task.id,
+            ),
+          );
+        } else {
+          spacesBoardController.actions.updateSelectedTasks([
+            ...spacesBoardController.state.selectedTasks,
+            task.id,
+          ]);
+        }
+      }}
+    >
+      <div className='flex items-start justify-between'>
+        {isEditingTitle ? (
+          <input
+            type='text'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            onBlur={handleTitleBlur}
+            onKeyDown={(e) => handleKeyDown(e, handleTitleBlur)}
+            autoFocus
+            className='border-none bg-yellow-500 text-lg font-bold outline-none'
+            style={{ width: '70%' }}
+          />
+        ) : (
+          <p
+            onClick={() => setIsEditingTitle(true)}
+            className='cursor-pointer text-lg font-bold'
+          >
+            {title}
+          </p>
+        )}
+        <button onClick={deleteTask} className='ml-[1rem]' title='Delete Task'>
+          <AstralCloseIcon className='fill-slate-50 opacity-50' />
+        </button>
+      </div>
+      {isEditingDescription ? (
+        <input
+          type='text'
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          onBlur={handleDescriptionBlur}
+          onKeyDown={(e) => handleKeyDown(e, handleDescriptionBlur)}
+          autoFocus
+          className='border-none bg-yellow-500 text-sm font-light outline-none'
+          style={{ width: '100%' }}
+        />
+      ) : (
+        <p
+          onClick={() => setIsEditingDescription(true)}
+          className='cursor-pointer text-sm font-light'
+        >
+          {description}
+        </p>
+      )}
     </div>
   );
 }
