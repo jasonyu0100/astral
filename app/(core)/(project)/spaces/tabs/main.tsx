@@ -22,8 +22,12 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
       <TabsRow>
         <SpacesTabChat tab={tab} />
         <SpacesTabMap tab={tab} />
-        <SpaceTabBoard tab={tab} />
-        <SpacesTabPost tab={tab} />
+        {process.env.VERSES_MODE !== 'false' && (
+          <>
+            <SpaceTabBoard tab={tab} />
+            <SpacesTabPost tab={tab} />
+          </>
+        )}
       </TabsRow>
     </TabsContainer>
   );
