@@ -15,7 +15,7 @@ export function SpacesChatStatusContents() {
 
   return (
     <GlassWindowFrame
-      className='flex w-full p-[2rem]'
+      className='flex h-[200px] w-full p-[2rem]'
       borderFx={borderFx['border-b']}
     >
       <GlassWindowContents className='flex w-full flex-row justify-between space-x-[1rem]'>
@@ -33,7 +33,7 @@ export function SpacesChatStatusContents() {
           </p>
         </div>
         {inProgress.map((task) => (
-          <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg border-[1px] border-white bg-yellow-500 p-[1rem]'>
+          <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
             <p className='text-lg font-bold'>
               {task.title} {task.taskStatus}
             </p>
