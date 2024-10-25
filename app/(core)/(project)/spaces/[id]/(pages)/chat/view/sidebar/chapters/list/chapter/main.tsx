@@ -31,7 +31,7 @@ export function SpacesChatSidebarChapter() {
         <GlassWindowFrame
           borderFx={borderFx['border-around']}
           roundedFx={roundedFx['rounded']}
-          className='p-[1rem]'
+          className='flex-shrink-0 p-[1rem]'
         >
           <GlassWindowContents
             className='w-full cursor-pointer'

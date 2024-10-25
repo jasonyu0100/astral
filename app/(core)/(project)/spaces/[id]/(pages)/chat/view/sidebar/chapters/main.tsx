@@ -11,9 +11,12 @@ export function SpacesChatSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
-      <GlassWindowFrame className='h-full w-full'>
-        <GlassWindowContents className='flex flex-col space-y-[1rem] p-[1rem]'>
+    <div
+      className='flex w-full flex-col overflow-auto'
+      style={{ height: '100%' }}
+    >
+      <GlassWindowFrame className='h-full w-full flex-shrink-0'>
+        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
           {chapterListController.state.more.queryResults.map((chapter) => (
             <ContextForSpaceChapterObj.Provider
               value={chapter}
