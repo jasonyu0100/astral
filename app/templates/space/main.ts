@@ -19,7 +19,7 @@ import { musicAndAudioProductionTemplate } from './new-templates/musicAndAudioPr
 import { prototypeDevelopmentTemplate } from './new-templates/prototypeDevelopmentTemplate';
 import { newStarterProjectTemplate } from './new-templates/starterTemplate';
 import { uxUiDesignTemplate } from './new-templates/uxUiDesignTemplate';
-import { videoProductionTemplate } from './old-templates/video-production';
+import { videoProductionTemplate } from './new-templates/videoMediaProductionTemplate';
 
 // SPACE
 
@@ -117,7 +117,7 @@ enum NewSpaceTemplate {
   Collaboration = '🤝 Collaboration',
   MusicProduction = '🎶 Music Production',
   ContentCreation = '🖊️ Content Creation',
-  MediaProduction = '🎥 Media Production',
+  VideoProduction = '🎥 Video Production',
   Freelancing = '💼 Freelancing',
   Campaign = '📢 Campaign',
   Hackathon = '💻 Hackathon',
@@ -136,7 +136,7 @@ const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.Collaboration]: collaborationHubTemplate,
   [NewSpaceTemplate.Campaign]: creativeCampaignTemplate,
   [NewSpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
-  [NewSpaceTemplate.MediaProduction]: videoProductionTemplate,
+  [NewSpaceTemplate.VideoProduction]: videoProductionTemplate,
   [NewSpaceTemplate.ContentCreation]: contentCreationTemplate,
   [NewSpaceTemplate.DesignJam]: uxUiDesignTemplate,
   [NewSpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
