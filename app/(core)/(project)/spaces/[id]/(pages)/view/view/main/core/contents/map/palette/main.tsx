@@ -21,9 +21,9 @@ export function SpacesViewPalette() {
       >
         <GlassWindowContents className='flex flex-col items-center justify-center space-y-[1rem]'>
           {selectedIdeas.length === 0 ? (
-            <SpacesViewPaletteSelected />
-          ) : (
             <SpacesViewPaletteDefault />
+          ) : (
+            <SpacesViewPaletteSelected />
           )}
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />

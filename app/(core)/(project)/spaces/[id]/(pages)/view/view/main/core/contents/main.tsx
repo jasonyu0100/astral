@@ -7,11 +7,11 @@ import {
   SpacesViewDirectoryMode,
 } from '../../../../controller/main';
 import { SpacesViewHistory } from './history/main';
-import { SpacesViewBack } from './map/left/back/main';
-import { SpacesViewChat } from './map/left/chat/main';
-import { SpacesViewPalette } from './map/left/palette/main';
-import { SpacesViewScreenshot } from './map/right/screenshot/main';
+import { SpacesViewBack } from './map/palette/back/main';
+import { SpacesViewChat } from './map/palette/chat/main';
+import { SpacesViewPalette } from './map/palette/main';
 import { SpacesViewScene } from './map/scene/main';
+import { SpacesViewScreenshot } from './map/screenshot/main';
 
 export function SpacesViewContents() {
   const {
@@ -42,8 +42,6 @@ export function SpacesViewContents() {
                 <SpacesViewPalette />
                 <SpacesViewBack />
                 <SpacesViewChat />
-                {/* <SpacesViewNavigationUp /> */}
-                {/* <SpacesViewNavigationDown /> */}
                 <SpacesViewScreenshot />
               </>
             )}

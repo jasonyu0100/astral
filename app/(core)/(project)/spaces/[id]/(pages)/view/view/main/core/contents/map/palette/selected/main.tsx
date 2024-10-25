@@ -6,7 +6,7 @@ import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralShareIcon } from '@/icons/share/main';
 import { useContext } from 'react';
 
-export function SpacesViewPaletteDefault() {
+export function SpacesViewPaletteSelected() {
   const {
     state: { selectedIdeas },
     actions: { updateSelectedIdeas, linkIdeas },
