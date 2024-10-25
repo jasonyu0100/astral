@@ -1,5 +1,6 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
+import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -12,7 +13,7 @@ import { ContextForSpacesChat } from '../../../../controller/main';
 export function SpacesChatInputText() {
   const messageListController = useContext(ContextForConversationMessageList);
   const openAiController = useControllerForOpenAi();
-  const spacesConversationController = useContext(ContextForSpacesChat);
+  const spacesChatController = useContext(ContextForSpacesChat);
   const [isRecording, setIsRecording] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
     null,
@@ -69,7 +70,7 @@ export function SpacesChatInputText() {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      spacesConversationController.actions.sendMessageToConversation();
+      spacesChatController.actions.sendMessageToConversation();
     }
   };
 
@@ -78,9 +79,12 @@ export function SpacesChatInputText() {
       className='h-[3.5rem] w-[600px]'
       roundedFx={roundedFx['rounded-full']}
     >
-      <GlassWindowContents className='flex w-full flex-row items-center pl-[2rem] pr-[1rem]'>
+      <GlassWindowContents className='flex w-full flex-row items-center space-x-[1rem] pl-[1rem] pr-[1rem]'>
+        <UserDisplayPictureElement
+          fileElem={spacesChatController.state.selectedUser?.dp}
+        />
         <input
-          className={`h-full flex-grow animate-pulse-slow bg-transparent font-light text-slate-300 outline-none`}
+          className={`h-full flex-grow animate-pulse-slow bg-transparent text-slate-300 outline-none`}
           placeholder='Type a message...'
           onKeyDown={handleKeyDown}
           onChange={(e) =>
