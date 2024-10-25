@@ -1,6 +1,5 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -12,8 +11,8 @@ import { ContextForSpacesBoardModals } from '../../../../modal/controller/main';
 
 export function SpacesBoardHeaderLeft() {
   const {
-    state: { dataMode, sidebarVisibility },
-    actions: { updateDataMode, updateSidebarVisibility },
+    state: { sidebarVisibility },
+    actions: { updateSidebarVisibility },
   } = useContext(ContextForSpacesBoard);
   const modalController = useContext(ContextForSpacesBoardModals);
 
@@ -34,9 +33,9 @@ export function SpacesBoardHeaderLeft() {
       />
       <BarDividerIndicator />
       <AstralAddIcon onClick={() => modalController.addTaskController.open()} />
-      <AstralManufacturingIcon
-        onClick={() => modalController.addTaskController.open()}
-      />
+      {/* <AstralManufacturingIcon
+        onClick={() => modalController.addGenerateController.open()}
+      /> */}
     </div>
   );
 }

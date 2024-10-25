@@ -8,7 +8,7 @@ import {
   SpacesBoardSidebarMode,
 } from '../../../../controller/main';
 import { SpacesBoardSidebarChapters } from '../../chapters/main';
-import { SpacesBoardSidebarAddFile } from './add/file/main';
+import { SpaceJourneySidebarAddText } from './add/text/main';
 import { SpacesLinkTextIdea } from './override/main';
 
 export function SpacesBoardSidebarList() {
@@ -35,7 +35,7 @@ export function SpacesBoardSidebarList() {
               </ContextForTaskLinkObj.Provider>
             ))}
             <HorizontalDivider />
-            <SpacesBoardSidebarAddFile />
+            <SpaceJourneySidebarAddText />
           </div>
         )}
       </div>

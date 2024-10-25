@@ -1,4 +1,3 @@
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
 import { ContextForSpacesBoard } from '../../../../controller/main';
 import { ContextForSpacesBoardModals } from '../../../../modal/controller/main';
@@ -11,7 +10,7 @@ export function SpacesBoardHeaderRight() {
 
   return (
     <div className='flex w-1/3 flex-row items-center justify-end'>
-      {selectedLogs.length === 0 && (
+      {/* {selectedLogs.length === 0 && (
         <p className='animate-pulse-slow font-bold text-slate-500'>
           No ways selected
         </p>
@@ -28,7 +27,7 @@ export function SpacesBoardHeaderRight() {
           </p>
           <AstralArrowForwardIcon />
         </button>
-      )}
+      )} */}
     </div>
   );
 }

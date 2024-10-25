@@ -7,14 +7,14 @@ interface Controller {
 }
 
 interface ControllerState {
+  sidebarMode: SpacesBoardSidebarMode;
   sidebarVisibility: SpacesBoardSidebarVisibility;
-  dataMode: SpacesBoardDataMode;
   selectedTasks: TaskObj[];
 }
 
 interface ControllerActions {
+  updateSidebarMode: (mode: SpacesBoardSidebarMode) => void;
   updateSidebarVisibility: (visibility: SpacesBoardSidebarVisibility) => void;
-  updateDataMode: (mode: SpacesBoardDataMode) => void;
   updateSelectedTasks: (logs: TaskObj[]) => void;
   checkContainsSelectedTask: (log: TaskObj) => boolean;
 }

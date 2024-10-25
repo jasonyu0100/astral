@@ -108,13 +108,20 @@ function KanbanTask({ task }) {
     }
   };
 
+  const isSelected = spacesBoardController.state.selectedTasks.includes(
+    task.id,
+  );
+
   return (
     <div
       ref={drag}
-      className={`h-full min-w-[200px] max-w-[260px] rounded bg-yellow-500 p-4 shadow-sm ${isDragging ? 'opacity-50' : ''}`}
+      className={`h-full min-w-[200px] max-w-[260px] rounded bg-yellow-500 p-4 shadow-sm ${
+        isDragging ? 'opacity-50' : ''
+      } ${isSelected ? 'border-2 border-blue-500' : 'border'}`}
       style={{ cursor: 'move' }}
       onClick={() => {
-        if (spacesBoardController.state.selectedTasks.includes(task.id)) {
+        taskListController.actions.stateActions.select(task);
+        if (isSelected) {
           spacesBoardController.actions.updateSelectedTasks(
             spacesBoardController.state.selectedTasks.filter(
               (id) => id !== task.id,
@@ -145,7 +152,7 @@ function KanbanTask({ task }) {
             onClick={() => setIsEditingTitle(true)}
             className='cursor-pointer text-lg font-bold'
           >
-            {title}
+            {title || 'Click to add title...'} {/* Placeholder text */}
           </p>
         )}
         <button onClick={deleteTask} className='ml-[1rem]' title='Delete Task'>
@@ -168,7 +175,8 @@ function KanbanTask({ task }) {
           onClick={() => setIsEditingDescription(true)}
           className='cursor-pointer text-sm font-light'
         >
-          {description}
+          {description || 'Click to add description...'}{' '}
+          {/* Placeholder text */}
         </p>
       )}
     </div>

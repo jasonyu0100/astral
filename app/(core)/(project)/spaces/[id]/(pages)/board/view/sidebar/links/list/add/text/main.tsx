@@ -1,8 +1,8 @@
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
-import { ContextForSpacesBoardModals } from '../../../../../modal/controller/main';
+import { ContextForSpacesBoardModals } from '../../../../../../modal/controller/main';
 
-export function SPaceJourneySidebarAddText() {
+export function SpaceJourneySidebarAddText() {
   const modalController = useContext(ContextForSpacesBoardModals);
 
   return (
