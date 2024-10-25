@@ -32,23 +32,28 @@ export function SpacesViewScene() {
 
   return (
     <div className='relative h-full w-full py-[2rem] pl-[8rem] pr-[2rem]'>
-      {visibleIdeas.length === 0 && <SpacesViewSceneEmpty />}
-      <div
-        className='relative z-10 h-full w-full'
-        onClick={() => updateSelectedIdeas([])}
-        ref={ref}
-      >
-        {visibleIdeas.map((idea, index) => (
-          <ContextForIndexable.Provider value={index}>
-            <ContextForIdeaObj.Provider value={idea}>
-              <SpacesViewMovable key={idea.id}>
-                <SpacesViewMovableIdea />
-              </SpacesViewMovable>
-            </ContextForIdeaObj.Provider>
-          </ContextForIndexable.Provider>
-        ))}
-        <SpacesViewContentsSceneConnections />
-      </div>
+      {visibleIdeas.length === 0 ? (
+        <SpacesViewSceneEmpty />
+      ) : (
+        <>
+          <div
+            className='relative z-10 h-full w-full'
+            onClick={() => updateSelectedIdeas([])}
+            ref={ref}
+          >
+            {visibleIdeas.map((idea, index) => (
+              <ContextForIndexable.Provider value={index}>
+                <ContextForIdeaObj.Provider value={idea}>
+                  <SpacesViewMovable key={idea.id}>
+                    <SpacesViewMovableIdea />
+                  </SpacesViewMovable>
+                </ContextForIdeaObj.Provider>
+              </ContextForIndexable.Provider>
+            ))}
+            <SpacesViewContentsSceneConnections />
+          </div>
+        </>
+      )}
     </div>
   );
 }
