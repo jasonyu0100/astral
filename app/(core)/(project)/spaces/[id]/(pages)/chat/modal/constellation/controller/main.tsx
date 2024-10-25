@@ -202,7 +202,7 @@ export function useGenerateSceneController(): Controller {
 
   async function searchYouTubeVideos(query: string) {
     const apiKey = process.env.GOOGLE_API_KEY; // Use environment variable for API key
-    const maxResults = 5; // You can change this value to adjust the number of results
+    const maxResults = 20; // You can change this value to adjust the number of results
     const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(query)}&part=snippet&type=video&maxResults=${maxResults}`;
 
     try {
@@ -233,7 +233,7 @@ export function useGenerateSceneController(): Controller {
 
     let newScene = sceneListController.state?.currentObj;
 
-    if (!newScene || ideaListController.state.objs.length >= 5) {
+    if (!newScene) {
       console.log('new scene');
       newScene = await sceneListController.actions.createActions.createScene(
         'Map',
