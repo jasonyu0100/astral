@@ -263,7 +263,6 @@ export const useControllerForTaskList = (
         taskStatus: '',
         title: '',
         description: '',
-        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushFront(newObj);
@@ -279,7 +278,6 @@ export const useControllerForTaskList = (
         taskStatus: TaskStatus.TODO,
         title: title,
         description: description,
-        summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushFront(newObj);

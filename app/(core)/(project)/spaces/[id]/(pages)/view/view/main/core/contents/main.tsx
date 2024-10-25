@@ -2,20 +2,14 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ImageBackground } from '@/components/background/img/main';
 import { AbsoluteHolder } from '@/components/holder/main';
 import { useContext } from 'react';
-import {
-  ContextForSpacesView,
-  SpacesViewDirectoryMode,
-} from '../../../../controller/main';
-import { SpacesViewHistory } from './history/main';
-import { SpacesViewBack } from './map/palette/back/main';
-import { SpacesViewChat } from './map/palette/chat/main';
+import { ContextForSpacesView } from '../../../../controller/main';
 import { SpacesViewPalette } from './map/palette/main';
 import { SpacesViewScene } from './map/scene/main';
 import { SpacesViewScreenshot } from './map/screenshot/main';
 
 export function SpacesViewContents() {
   const {
-    state: { directoryMode, screenshotRef, hideUI },
+    state: { screenshotRef, hideUI },
   } = useContext(ContextForSpacesView);
   const chapterListController = useContext(ContextForSpaceChapterList);
 
@@ -30,21 +24,13 @@ export function SpacesViewContents() {
         active
       />
       <AbsoluteHolder>
-        {directoryMode === SpacesViewDirectoryMode.DIRECTORY ? (
-          <SpacesViewHistory />
-        ) : (
+        <SpacesViewScene />
+        {/* Conditionally hide UI components based on `hideUI` state */}
+        {!hideUI && (
           <>
-            <SpacesViewScene />
-            {/* Conditionally hide UI components based on `hideUI` state */}
-            {!hideUI && (
-              <>
-                {/* <SpacesViewStatus /> */}
-                <SpacesViewPalette />
-                <SpacesViewBack />
-                <SpacesViewChat />
-                <SpacesViewScreenshot />
-              </>
-            )}
+            {/* <SpacesViewStatus /> */}
+            <SpacesViewPalette />
+            <SpacesViewScreenshot />
           </>
         )}
       </AbsoluteHolder>

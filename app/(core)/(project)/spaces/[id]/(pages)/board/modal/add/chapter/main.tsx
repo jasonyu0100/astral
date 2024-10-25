@@ -42,7 +42,6 @@ export function SpacesBoardAddChapterModal() {
         title,
         description,
         objective,
-        objective,
         background.src || '',
         user.id,
         spaceController.state.objId,

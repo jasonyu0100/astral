@@ -94,7 +94,6 @@ export function ConversationalSearchWrapper({
         `Sale - ${new Date()}`,
         'Search Query',
         'Search Query',
-        'Search Query',
         '',
         userId,
         spaceController.state.objId,

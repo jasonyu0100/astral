@@ -20,9 +20,9 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
     <TabsContainer>
       <TabsRow>
+        <SpaceTabBoard tab={tab} />
         <SpacesTabChat tab={tab} />
         <SpacesTabMap tab={tab} />
-        <SpaceTabBoard tab={tab} />
         <SpacesTabPost tab={tab} />
       </TabsRow>
     </TabsContainer>

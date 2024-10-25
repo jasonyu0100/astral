@@ -5,6 +5,7 @@ import { useControllerForGalleryList } from '@/(server)/controller/gallery/list'
 import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/(server)/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
+import { useControllerForTaskList } from '@/(server)/controller/way/list';
 import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { SpaceObj } from '@/(server)/model/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -66,6 +67,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
   );
+  const taskListController = useControllerForTaskList('');
   const chapterListController = useControllerForSpaceChapterList('');
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
@@ -94,7 +96,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
           await chapterListController.actions.createActions.createChapter(
             templateChapter.title,
             templateChapter.description,
-            templateChapter.summary,
             templateChapter.objective,
             theme.src,
             user.id,
@@ -174,6 +175,23 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
 
     console.log('SPACE CREATED', space);
     const chapters = await createChapters(space, templateSpaceChapters);
+
+    const tasks = await Promise.all(
+      templateSpaceChapters.map((template, index) =>
+        Promise.all(
+          template.tasks.map((task) =>
+            taskListController.actions.createActions.createTask(
+              chapters[index].id,
+              user.id,
+              task.title,
+              task.description,
+            ),
+          ),
+        ),
+      ),
+    );
+    console.log('TASKS CREATED', tasks);
+
     console.log('CHAPTERS CREATED', chapters);
     const members = await createMembers(space, memberIds);
     console.log('MEMBERS CREATED', members);

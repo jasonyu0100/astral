@@ -50,13 +50,13 @@ export type _TemplateChapterObj = Omit<
   SpaceChapterObj,
   'id' | 'spaceId' | 'idx' | 'created' | 'userId'
 >;
-export interface TemplateChapterObj extends _TemplateChapterObj {}
+export interface TemplateChapterObj extends _TemplateChapterObj {
+  tasks: TemplateTaskObj[];
+}
 
 export const ContextForTemplateChapter = createContext(
   {} as TemplateChapterObj,
 );
-
-// CHAT
 
 export type _TemplateChatObj = Omit<
   SpaceChapterObj,
@@ -89,14 +89,17 @@ export type _TemplateSceneObj = Omit<
   'id' | 'chapterId' | 'userId' | 'created'
 >;
 export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId'>;
-export type _TemplateLogObj = Omit<TaskObj, 'id' | 'chapterId'>;
+export type _TemplateTaskObj = Omit<
+  TaskObj,
+  'id' | 'chapterId' | 'userId' | 'created' | 'taskStatus'
+>;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
   ideas?: _TemplateIdeaObj[];
 }
 
 // VERSE
-export interface TemplateLogObj extends _TemplateLogObj {}
+export interface TemplateTaskObj extends _TemplateTaskObj {}
 
 export type _TemplatePostObj = Omit<UserPostObj, 'id' | 'chapterId'>;
 export type _TemplateCommentObj = Omit<

@@ -14,6 +14,23 @@ export const blankSpaceTemplate: TemplateSpaceObj = {
         '🖊️ This chapter provides a blank space for your project. Use it to document ideas, progress, sketches, or any other relevant material that comes up during the project’s development. You can expand on this space as your project evolves.',
       objective:
         '🎯 Provide an open, unstructured area where you can capture free-form ideas, concepts, or any project-related work without constraints.',
+      tasks: [
+        {
+          title: 'Brainstorm Initial Ideas',
+          description:
+            'Capture any initial ideas, concepts, or questions for the project. Consider what you aim to accomplish or any early thoughts on direction.',
+        },
+        {
+          title: 'Identify Project Goals',
+          description:
+            'Outline the main objectives or goals you hope to achieve with this project. This will help provide a direction as your project progresses.',
+        },
+        {
+          title: 'Document Research Notes',
+          description:
+            'Add any research or reference material relevant to your project, such as inspiration sources, articles, or similar projects.',
+        },
+      ],
     },
   ],
   objective:

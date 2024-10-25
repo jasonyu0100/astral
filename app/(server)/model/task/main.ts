@@ -14,7 +14,6 @@ export interface TaskObj {
   taskStatus: string;
   title: string;
   description: string;
-  summary: string;
   created: string;
 }
 
@@ -25,7 +24,6 @@ type TaskObj {
   chapterId: String!
   title: String!
   description: String!
-  summary: String!
   taskStatus: String!
   created: String!
 }
@@ -39,7 +37,6 @@ export const exampleTask: TaskObj = {
   chapterId: '0',
   title: 'Way Example',
   description: 'Way Description',
-  summary: 'Way Summary',
   created: new Date().toISOString(),
   taskStatus: TaskStatus.TODO,
 };
@@ -51,7 +48,6 @@ export const exampleTasks: TaskObj[] = [
     chapterId: '0',
     title: 'Way 1',
     description: 'Way Description',
-    summary: 'Way Summary',
     created: new Date().toISOString(),
     taskStatus: TaskStatus.TODO,
   },
@@ -61,7 +57,6 @@ export const exampleTasks: TaskObj[] = [
     chapterId: '0',
     title: 'Way 2',
     description: 'Way Description',
-    summary: 'Way Summary',
     created: new Date().toISOString(),
     taskStatus: TaskStatus.TODO,
   },
@@ -71,7 +66,6 @@ export const exampleTasks: TaskObj[] = [
     chapterId: '0',
     title: 'Way 3',
     description: 'Way Description',
-    summary: 'Way Summary',
     created: new Date().toISOString(),
     taskStatus: TaskStatus.TODO,
   },
