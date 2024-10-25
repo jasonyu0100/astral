@@ -73,7 +73,7 @@ const HeroSection = () => (
           <span className='text-xl font-bold text-slate-300'>Start now</span>
         </a>
         <a
-          href='mailto:business@ouros.media'
+          href='mailto:jason@astral.fun'
           className='min-w-[100px] rounded-full p-2 text-xl font-bold text-slate-300 sm:p-[2rem]'
         >
           Contact Us

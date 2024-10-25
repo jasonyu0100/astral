@@ -120,9 +120,7 @@ export default function Page() {
             </div>
             <div
               className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
-              onClick={() =>
-                (window.location.href = 'mailto:business@ouros.media')
-              }
+              onClick={() => (window.location.href = 'mailto:jason@astral.fun')}
             >
               <img
                 src='/portal/personality-m.png'
@@ -165,9 +163,7 @@ export default function Page() {
             </div>
             <div
               className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
-              onClick={() =>
-                (window.location.href = 'mailto:business@ouros.media')
-              }
+              onClick={() => (window.location.href = 'mailto:jason@astral.fun')}
             >
               <img
                 src='/portal/personality-m.png'
