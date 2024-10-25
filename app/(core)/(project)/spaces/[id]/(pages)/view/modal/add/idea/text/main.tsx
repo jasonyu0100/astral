@@ -5,7 +5,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
 import { AstralModalStep } from '@/components/step/main';
@@ -76,12 +76,12 @@ export function SpacesViewAddTextIdeaModal() {
               />
             </div>
             {text.length > 0 && (
-              <AstralButtonRoundedAction
+              <AstralRoundedActionButton
                 className='h-[4rem] w-[4rem]'
                 onClick={create}
               >
                 <AstralArrowForwardIcon />
-              </AstralButtonRoundedAction>
+              </AstralRoundedActionButton>
             )}
           </div>
         </CustomisableModalContents>

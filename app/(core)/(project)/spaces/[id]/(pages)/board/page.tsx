@@ -39,7 +39,7 @@ import { SpacesBoardView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const logId = searchParams.get('log');
+  const taskId = searchParams.get('task');
   const chapterId = searchParams.get('chapter');
   const user = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
@@ -50,12 +50,12 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const wayListController = useControllerForTaskList(
+  const taskListController = useControllerForTaskList(
     chapterListController.state.objId,
-    logId,
+    taskId,
   );
   const linkListController = useControllerForTaskLinkList(
-    wayListController.state.objId,
+    taskListController.state.objId,
   );
 
   return (
@@ -63,7 +63,7 @@ function Page({ params }: { params: { id: string } }) {
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
           <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForTaskList.Provider value={wayListController}>
+            <ContextForTaskList.Provider value={taskListController}>
               <ContextForTaskLinkList.Provider value={linkListController}>
                 <UpdateWrapper>
                   <LoadingWrapper>

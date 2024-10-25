@@ -30,6 +30,10 @@ import {
   ContextForSpaceMemberList,
   useControllerForSpaceMemberList,
 } from '@/(server)/controller/space/member/list';
+import {
+  ContextForTaskList,
+  useControllerForTaskList,
+} from '@/(server)/controller/way/list';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
@@ -71,6 +75,9 @@ function Page({ params }: { params: { id: string } }) {
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
   );
+  const taskListController = useControllerForTaskList(
+    chapterListController.state.objId,
+  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -85,19 +92,21 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForConversationMessageList.Provider
                     value={messageListController}
                   >
-                    <EffectWrapper>
-                      <UpdateWrapper>
-                        <LoadingWrapper>
-                          <ControllerWrapper>
-                            <ModalWrapper>
-                              <ViewWrapper>
-                                <SpacesChatView />
-                              </ViewWrapper>
-                            </ModalWrapper>
-                          </ControllerWrapper>
-                        </LoadingWrapper>
-                      </UpdateWrapper>
-                    </EffectWrapper>
+                    <ContextForTaskList.Provider value={taskListController}>
+                      <EffectWrapper>
+                        <UpdateWrapper>
+                          <LoadingWrapper>
+                            <ControllerWrapper>
+                              <ModalWrapper>
+                                <ViewWrapper>
+                                  <SpacesChatView />
+                                </ViewWrapper>
+                              </ModalWrapper>
+                            </ControllerWrapper>
+                          </LoadingWrapper>
+                        </UpdateWrapper>
+                      </EffectWrapper>
+                    </ContextForTaskList.Provider>
                   </ContextForConversationMessageList.Provider>
                 </ContextForSceneIdeaList.Provider>
               </ContextForIdeaSceneList.Provider>

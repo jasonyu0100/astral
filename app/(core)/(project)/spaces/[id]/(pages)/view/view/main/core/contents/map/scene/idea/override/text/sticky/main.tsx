@@ -13,7 +13,7 @@ export function SpacesViewTextStickyIdea() {
   return (
     <div
       ref={divRef}
-      className='h-full w-full bg-yellow-500 p-[1rem] shadow-lg'
+      className='h-full w-full rounded-lg bg-yellow-500 p-[1rem]'
     >
       <textarea
         className='h-full w-full resize-none bg-transparent text-lg text-black outline-none'

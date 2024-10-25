@@ -5,7 +5,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FileElem } from '@/(server)/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
@@ -68,12 +68,12 @@ export function SpacesViewAddFileIdeaModal() {
             <AstralModalStep>1</AstralModalStep>
             <FormUploadFile onChange={(file) => changeFile(file)} />
             {file.id && (
-              <AstralButtonRoundedAction
+              <AstralRoundedActionButton
                 className='h-[4rem] w-[4rem]'
                 onClick={createFileIdea}
               >
                 <AstralCheckIcon />
-              </AstralButtonRoundedAction>
+              </AstralRoundedActionButton>
             )}
           </div>
         </CustomisableModalContents>

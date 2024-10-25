@@ -1,7 +1,7 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { FileElem } from '@/(server)/model/elements/file/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
@@ -67,12 +67,12 @@ export function DashboardJournalAddFileModal() {
             <AstralModalStep>1</AstralModalStep>
             <FormUploadFile onChange={(file) => changeFile(file)} />
             {file.id && (
-              <AstralButtonRoundedAction
+              <AstralRoundedActionButton
                 className='h-[4rem] w-[4rem]'
                 onClick={addEntryToJournal}
               >
                 <AstralCheckIcon />
-              </AstralButtonRoundedAction>
+              </AstralRoundedActionButton>
             )}
           </div>
         </CustomisableModalContents>

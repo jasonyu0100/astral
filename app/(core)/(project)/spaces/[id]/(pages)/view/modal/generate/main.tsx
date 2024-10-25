@@ -8,16 +8,14 @@ import { useControllerForTaskList } from '@/(server)/controller/way/list';
 import { ElementVariant } from '@/(server)/model/elements/main';
 import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ElementIdea } from '@/components/element/idea/main';
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
@@ -150,36 +148,37 @@ export function SpacesViewGenerateLog() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Generate Task</FormTitle>
-          <FormBody>
-            <FormInput
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              title='Title'
-            />
-            <FormTextArea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              title='Description'
-              rows={8}
-            />
-            <div className='grid w-full grid-cols-3 gap-[1rem]'>
-              {selectedIdeas.map((idea) => (
-                <ContextForIdeaObj.Provider value={idea}>
-                  <ElementIdea />
-                </ContextForIdeaObj.Provider>
-              ))}
+      <CustomisableModal>
+        <CustomisableModalContents>
+          <div className='flex flex-row items-center space-x-[2rem]'>
+            <div className='flex flex-col space-y-[2rem]'>
+              <AstralTextLineInput
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder='Enter a title for the task...'
+                title='Title'
+              />
+              <AstralTextAreaInput
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                title='Description'
+                placeholder='Enter a description for the task...'
+                rows={8}
+              />
+              <div className='grid grid-cols-3 gap-[1rem]'>
+                {selectedIdeas.map((idea) => (
+                  <ContextForIdeaObj.Provider value={idea}>
+                    <ElementIdea />
+                  </ContextForIdeaObj.Provider>
+                ))}
+              </div>
             </div>
-          </FormBody>
-          <FormFooter>
-            <FormButton variant={FormButtonVariant.PRIMARY} onClick={createLog}>
-              Next
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+            <AstralRoundedActionButton onClick={createLog}>
+              <AstralCheckIcon />
+            </AstralRoundedActionButton>
+          </div>
+        </CustomisableModalContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

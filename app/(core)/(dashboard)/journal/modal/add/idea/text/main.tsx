@@ -2,7 +2,7 @@ import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/c
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
 import { AstralModalStep } from '@/components/step/main';
@@ -78,12 +78,12 @@ export function DashboardJournalAddTextStickyModal() {
               />
             </div>
             {text.length > 0 && (
-              <AstralButtonRoundedAction
+              <AstralRoundedActionButton
                 className='h-[4rem] w-[4rem]'
                 onClick={addEntryToJournal}
               >
                 <AstralArrowForwardIcon />
-              </AstralButtonRoundedAction>
+              </AstralRoundedActionButton>
             )}
           </div>
         </CustomisableModalContents>

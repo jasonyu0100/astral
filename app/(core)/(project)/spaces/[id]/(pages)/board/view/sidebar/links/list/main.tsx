@@ -1,13 +1,14 @@
 import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
 import { ElementLink } from '@/components/element/link/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesBoard,
   SpacesBoardSidebarMode,
 } from '../../../../controller/main';
 import { SpacesBoardSidebarChapters } from '../../chapters/main';
-import { SpaceJourneySidebarAddText } from './add/text/main';
+import { SpacesBoardSidebarAddFile } from './add/file/main';
 import { SpacesLinkTextIdea } from './override/main';
 
 export function SpacesBoardSidebarList() {
@@ -27,13 +28,14 @@ export function SpacesBoardSidebarList() {
         )}
 
         {sidebarMode === SpacesBoardSidebarMode.NOTES && (
-          <div className='grid grid-cols-2 gap-[1rem] p-[1rem]'>
+          <div className='flex flex-col space-y-[1rem] p-[1rem]'>
             {linkListController.state.objs.map((link) => (
               <ContextForTaskLinkObj.Provider value={link}>
                 <ElementLink textOveride={<SpacesLinkTextIdea />} />
               </ContextForTaskLinkObj.Provider>
             ))}
-            <SpaceJourneySidebarAddText />
+            <HorizontalDivider />
+            <SpacesBoardSidebarAddFile />
           </div>
         )}
       </div>

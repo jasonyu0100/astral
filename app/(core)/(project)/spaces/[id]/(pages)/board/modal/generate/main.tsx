@@ -3,7 +3,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
@@ -67,9 +67,9 @@ export function SpacesBoardGenerateTasksModal() {
               placeholder='Enter a generate prompt'
               onChange={(e) => setGeneratePrompt(e.target.value)}
             />
-            <AstralButtonRoundedAction onClick={() => generateTasks()}>
+            <AstralRoundedActionButton onClick={() => generateTasks()}>
               <AstralArrowForwardIcon />
-            </AstralButtonRoundedAction>
+            </AstralRoundedActionButton>
           </div>
         </CustomisableModalContents>
       </CustomisableModal>

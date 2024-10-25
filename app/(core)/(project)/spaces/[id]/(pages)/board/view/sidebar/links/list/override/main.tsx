@@ -10,7 +10,7 @@ export function SpacesLinkTextIdea() {
   return (
     <>
       {taskLinkObj.textElem?.variant === TextElemVariant.STICKY && (
-        <div className='aspect-square w-full bg-yellow-500 p-[1rem] text-black'>
+        <div className='aspect-square w-full rounded-lg bg-yellow-500 p-[1rem] text-black'>
           <textarea
             className='h-full w-full resize-none bg-transparent p-[1rem] text-black outline-none'
             // defaultValue={linkObj.textElem?.text}

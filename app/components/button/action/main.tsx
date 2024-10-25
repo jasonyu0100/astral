@@ -1,7 +1,7 @@
 import { ButtonInputProps } from '@/props/main';
 import { ctwn } from '@/utils/cn';
 
-export function AstralButtonRoundedAction({
+export function AstralRoundedActionButton({
   children,
   ...props
 }: ButtonInputProps) {

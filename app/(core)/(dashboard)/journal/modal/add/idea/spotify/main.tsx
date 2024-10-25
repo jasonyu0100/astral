@@ -1,7 +1,7 @@
 import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
@@ -104,12 +104,12 @@ export function DashboardJournalAddSpotifyUrlModal() {
                     loading='lazy'
                   />
                 </div>
-                <AstralButtonRoundedAction
+                <AstralRoundedActionButton
                   className='h-[4rem] w-[4rem]'
                   onClick={addEntryToJournal}
                 >
                   <AstralArrowForwardIcon />
-                </AstralButtonRoundedAction>
+                </AstralRoundedActionButton>
               </>
             )}
           </div>

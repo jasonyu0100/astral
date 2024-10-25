@@ -2,7 +2,7 @@ import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
 import { AstralCheckIcon } from '@/icons/check/main';
@@ -50,9 +50,9 @@ export function SpacesBoardAddTextLinkModal() {
                 onChange={(e) => changeText(e.target.value)}
               />
             </div>
-            <AstralButtonRoundedAction onClick={create}>
+            <AstralRoundedActionButton onClick={create}>
               <AstralCheckIcon />
-            </AstralButtonRoundedAction>
+            </AstralRoundedActionButton>
           </div>
         </CustomisableModalContents>
       </CustomisableModal>

@@ -2,7 +2,7 @@ import { useControllerForUserActivityListFromChapter } from '@/(server)/controll
 import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
@@ -55,9 +55,9 @@ export function SpacesBoardAddTaskModal() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <AstralButtonRoundedAction onClick={createTask}>
+            <AstralRoundedActionButton onClick={createTask}>
               <AstralArrowForwardIcon />
-            </AstralButtonRoundedAction>
+            </AstralRoundedActionButton>
           </div>
         </CustomisableModalContents>
       </CustomisableModal>

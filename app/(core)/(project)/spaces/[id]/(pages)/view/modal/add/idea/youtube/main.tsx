@@ -5,7 +5,7 @@ import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/
 import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { AstralButtonRoundedAction } from '@/components/button/action/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
@@ -106,12 +106,12 @@ export function SpacesViewAddYouTubeUrlModal() {
                   src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
                   title='YouTube video player'
                 />
-                <AstralButtonRoundedAction
+                <AstralRoundedActionButton
                   onClick={createIdea}
                   className='h-[4rem] w-[4rem]'
                 >
                   <AstralCheckIcon />
-                </AstralButtonRoundedAction>
+                </AstralRoundedActionButton>
               </>
             )}
           </div>

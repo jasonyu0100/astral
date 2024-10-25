@@ -10,7 +10,7 @@ export function ElementYouTube({ url }: { url: string }) {
           onDrag={(e) => e.stopPropagation()}
           src={url}
           title='YouTube video player'
-          className='aspect-video'
+          className='aspect-video flex-shrink-0'
           style={{ objectFit: 'contain', width: '100%' }}
         />
       </GlassWindowContents>
