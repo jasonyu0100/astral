@@ -1,5 +1,5 @@
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { useContext } from 'react';
 
 export function SpacesViewHeaderCenter() {

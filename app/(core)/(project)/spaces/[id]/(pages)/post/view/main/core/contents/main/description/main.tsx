@@ -1,4 +1,4 @@
-import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
+import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

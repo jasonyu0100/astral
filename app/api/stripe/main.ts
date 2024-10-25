@@ -1,6 +1,6 @@
-import { UserObj } from '@/(server)/model/user/main';
 import { amplifyClient } from '@/api/aws/graphql/main';
 import { updateUserObj } from '@/graphql/mutations';
+import { UserObj } from '@/server/model/user/main';
 
 const STRIPE_SK =
   process.env.LIVE_MODE === 'true'

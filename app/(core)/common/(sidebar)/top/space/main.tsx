@@ -1,7 +1,7 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { ContextForCurrentSpaceObj } from '@/(server)/model/space/main';
+import { ContextForCurrentSpaceObj } from '@/server/model/space/main';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import { CommonSidebarTopSpaceCover } from './cover/main';

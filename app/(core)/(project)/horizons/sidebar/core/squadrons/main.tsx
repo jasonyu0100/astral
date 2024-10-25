@@ -1,8 +1,8 @@
-import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
+import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useState } from 'react';
 

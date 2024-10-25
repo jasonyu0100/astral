@@ -1,10 +1,3 @@
-import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
@@ -14,6 +7,13 @@ import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 

@@ -1,6 +1,6 @@
-import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
-import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { ContextForPostCommentList } from '@/server/controller/post/comment/list';
+import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { useContext } from 'react';
 import { SpacesPostContentComment } from './comment/main';
 

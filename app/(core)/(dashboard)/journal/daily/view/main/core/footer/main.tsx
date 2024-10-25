@@ -1,5 +1,5 @@
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
+import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

@@ -1,4 +1,3 @@
-import { FileElem } from '@/(server)/model/elements/file/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormFooter } from '@/components/form/footer/main';
@@ -8,6 +7,7 @@ import { SearchBar } from '@/components/search-bar/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ImageInputProps } from '@/props/main';
+import { FileElem } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export default function SearchModalView() {

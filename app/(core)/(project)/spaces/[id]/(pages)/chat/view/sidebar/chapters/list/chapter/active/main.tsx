@@ -1,7 +1,7 @@
 import { ContextForSpacesChatModals } from '@/(core)/(project)/spaces/[id]/(pages)/chat/modal/controller/main';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

@@ -1,9 +1,9 @@
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAdd } from '../../../../../common/resource/add/main';
 import { FinderResource } from '../../../../../common/resource/main';

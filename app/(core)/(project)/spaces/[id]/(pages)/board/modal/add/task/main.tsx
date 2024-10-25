@@ -1,13 +1,13 @@
-import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ContextForTaskList } from '@/(server)/controller/way/list';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
 import { CustomisableModal } from '@/components/modal/general/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { ContextForTaskList } from '@/server/controller/way/list';
 import { useContext, useState } from 'react';
 
 export function SpacesBoardAddTaskModal() {

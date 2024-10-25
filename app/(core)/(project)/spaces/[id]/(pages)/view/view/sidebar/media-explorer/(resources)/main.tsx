@@ -1,4 +1,4 @@
-import { CollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
+import { CollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { createContext } from 'react';
 import { SpacesViewResourcesResults } from './results/main';
 import { SpacesViewResourcesSearch } from './search/main';

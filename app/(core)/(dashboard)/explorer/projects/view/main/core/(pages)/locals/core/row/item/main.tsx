@@ -1,10 +1,10 @@
 'use client';
 import { horizonsMap } from '@/(core)/(project)/horizons/[id]/map';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { HorizonsThumbnailElement } from '@/components/cover/horizon/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { exampleFileElem } from '@/server/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 
 export function HorizonsLocalItem() {

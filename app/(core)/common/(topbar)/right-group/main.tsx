@@ -1,6 +1,6 @@
 import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralSettingsIcon } from '@/icons/settings/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useEffect, useState } from 'react';
 import { ContextForCommonTopbarModals } from '../../modals/controller/main';
 import { TopbarAvatar } from './avatar/main';

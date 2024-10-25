@@ -1,6 +1,6 @@
-import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { exampleTask, TaskStatus } from '@/(server)/model/task/main';
 import { AstralCloseIcon } from '@/icons/close/main';
+import { ContextForTaskList } from '@/server/controller/way/list';
+import { exampleTask, TaskStatus } from '@/server/model/task/main';
 import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';

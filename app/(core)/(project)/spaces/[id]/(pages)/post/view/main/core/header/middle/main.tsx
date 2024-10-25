@@ -1,5 +1,5 @@
-import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
+import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { useContext } from 'react';
 
 export function SpacesPostHeaderMiddle() {

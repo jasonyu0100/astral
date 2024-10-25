@@ -3,11 +3,11 @@ import {
   SpacesViewDirectoryMode,
   SpacesViewSidebarMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/server/model/scene/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 

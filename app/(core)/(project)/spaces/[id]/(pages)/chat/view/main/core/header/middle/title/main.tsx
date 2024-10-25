@@ -1,4 +1,4 @@
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
 
 export default function SpacesChatHeaderMiddleTitle() {

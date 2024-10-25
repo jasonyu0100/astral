@@ -1,17 +1,17 @@
 'use client';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/(server)/controller/gallery/collection/list';
+} from '@/server/controller/gallery/collection/list';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/controller/gallery/collection/resource/list';
+} from '@/server/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
-} from '@/(server)/controller/gallery/list';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/server/controller/gallery/list';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { VaultFinderModals } from '../modals/controller/main';
 import { FinderHomeGallerysView } from './view/view';

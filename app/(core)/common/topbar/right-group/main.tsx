@@ -1,5 +1,5 @@
 import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useEffect, useState } from 'react';
 import { TopbarAvatar } from './avatar/main';
 

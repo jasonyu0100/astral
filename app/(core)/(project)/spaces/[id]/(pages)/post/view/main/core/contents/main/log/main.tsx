@@ -1,5 +1,5 @@
-import { useControllerForTaskMain } from '@/(server)/controller/way/main';
-import { ContextForPostLinkObj } from '@/(server)/model/post/link/main';
+import { useControllerForTaskMain } from '@/server/controller/way/main';
+import { ContextForPostLinkObj } from '@/server/model/post/link/main';
 import { useContext } from 'react';
 
 export function SpacesPostLog() {

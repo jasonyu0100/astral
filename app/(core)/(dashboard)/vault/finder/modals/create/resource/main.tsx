@@ -1,6 +1,3 @@
-import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
@@ -12,6 +9,9 @@ import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForGalleryCollectionMain } from '@/server/controller/gallery/collection/main';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { FileElem } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function VaultFinderCreateResourceModal() {

@@ -1,10 +1,10 @@
 'use client';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForSpaceList,
   useControllerForSpaceList,
-} from '@/(server)/controller/space/list';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/server/controller/space/list';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext, useEffect } from 'react';
 import {

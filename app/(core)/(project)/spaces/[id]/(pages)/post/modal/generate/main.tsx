@@ -1,5 +1,4 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
@@ -7,6 +6,7 @@ import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
 
 export function SpacesPostShareReviewModal() {

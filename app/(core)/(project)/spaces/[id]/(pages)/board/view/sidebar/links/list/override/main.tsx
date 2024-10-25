@@ -1,6 +1,6 @@
-import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
-import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
-import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
+import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
+import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext } from 'react';
 
 export function SpacesLinkTextIdea() {

@@ -1,5 +1,5 @@
-import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
 import { DivInputProps } from '@/props/main';
+import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
 import { ctwn } from '@/utils/cn';
 
 interface UserDpElementProps extends DivInputProps {

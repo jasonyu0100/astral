@@ -1,11 +1,11 @@
-import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { FileElemVariant } from '@/(server)/model/elements/file/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
+import { ContextForGalleryCollectionMain } from '@/server/controller/gallery/collection/main';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { FileElemVariant } from '@/server/model/elements/file/main';
+import { ElementVariant } from '@/server/model/elements/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 

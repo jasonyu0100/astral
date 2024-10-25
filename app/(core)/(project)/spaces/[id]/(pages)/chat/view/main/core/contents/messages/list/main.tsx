@@ -1,6 +1,6 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
-import { ContextForConversationMessageObj } from '@/(server)/model/conversation/message/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
+import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
+import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
 import { useContext, useEffect, useRef } from 'react';
 import { SpacesChatEmpty } from '../../empty/main';
 import { SpacesChatMessage } from './message/main';

@@ -1,12 +1,12 @@
 'use client';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { exampleHorizon } from '@/(server)/model/horizon/main';
-import { exampleSpace } from '@/(server)/model/space/main';
-import { exampleUser } from '@/(server)/model/user/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
+import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleHorizon } from '@/server/model/horizon/main';
+import { exampleSpace } from '@/server/model/space/main';
+import { exampleUser } from '@/server/model/user/main';
 import { HorizonsThumbnailElement } from './cover/horizon/main';
 import { SpaceThumbnailElement } from './cover/space/main';
 import { UserDisplayPictureElement } from './cover/user/main';

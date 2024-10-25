@@ -1,7 +1,7 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceChapterObj } from '@/(server)/model/space/chapter/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { useContext } from 'react';
 import { SpacesBoardSidebarChaptersChapter } from './item/main';
 

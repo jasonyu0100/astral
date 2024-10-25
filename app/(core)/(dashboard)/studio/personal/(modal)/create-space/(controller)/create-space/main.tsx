@@ -1,14 +1,14 @@
-import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { useControllerForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { useControllerForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { useControllerForGalleryList } from '@/(server)/controller/gallery/list';
-import { useControllerForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceList } from '@/(server)/controller/space/list';
-import { useControllerForSpaceMemberList } from '@/(server)/controller/space/member/list';
-import { useControllerForTaskList } from '@/(server)/controller/way/list';
-import { exampleFileElem, FileElem } from '@/(server)/model/elements/file/main';
-import { SpaceObj } from '@/(server)/model/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { useControllerForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
+import { useControllerForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { useControllerForGalleryList } from '@/server/controller/gallery/list';
+import { useControllerForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceList } from '@/server/controller/space/list';
+import { useControllerForSpaceMemberList } from '@/server/controller/space/member/list';
+import { useControllerForTaskList } from '@/server/controller/way/list';
+import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import { SpaceObj } from '@/server/model/space/main';
 import {
   SpaceTemplate,
   SpaceTemplateMap,

@@ -1,15 +1,15 @@
-import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { FileElem } from '@/(server)/model/elements/file/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { TextElem } from '@/(server)/model/elements/text/main';
-import { UrlElem } from '@/(server)/model/elements/url/main';
-import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ElementResource } from '@/components/element/resource/main';
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { FileElem } from '@/server/model/elements/file/main';
+import { ElementVariant } from '@/server/model/elements/main';
+import { TextElem } from '@/server/model/elements/text/main';
+import { UrlElem } from '@/server/model/elements/url/main';
+import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import {
   getFileIdeaBounds,
   getTextIdeaBounds,

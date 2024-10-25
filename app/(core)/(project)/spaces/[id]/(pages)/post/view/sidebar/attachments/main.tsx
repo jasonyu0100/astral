@@ -1,7 +1,7 @@
-import { ContextForPostAttachmentListFromPost } from '@/(server)/controller/post/attachment/list-from-post';
-import { ContextForPostAttachmentObj } from '@/(server)/model/post/attachment/main';
 import { ElementAttachment } from '@/components/element/attachment/main';
 import { GlassAreaContainer } from '@/components/glass/area/main';
+import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
+import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
 import { useContext } from 'react';
 
 export function SpacesPostSidebarAttachments() {

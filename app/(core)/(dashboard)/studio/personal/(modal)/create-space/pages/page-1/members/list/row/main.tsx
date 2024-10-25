@@ -1,6 +1,6 @@
-import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { ContextForUserConnectionObj } from '@/(server)/model/user/connection/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
+import { useControllerForUserMain } from '@/server/controller/user/main';
+import { ContextForUserConnectionObj } from '@/server/model/user/connection/main';
 import { useContext } from 'react';
 
 export function CreateSpaceCollaboratorRow({

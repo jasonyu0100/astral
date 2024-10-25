@@ -1,7 +1,7 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ImageBackground } from '@/components/background/img/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { AbsoluteHolder } from '@/components/holder/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import { SpacesBoardKanban } from './core/kanban/main';
 import { SpacesBoardHeader } from './header/main';

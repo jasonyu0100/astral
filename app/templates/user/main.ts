@@ -1,5 +1,5 @@
-import { exampleDisplayPictureFileElem } from '@/(server)/model/elements/file/main';
-import { UserObj } from '@/(server)/model/user/main';
+import { exampleDisplayPictureFileElem } from '@/server/model/elements/file/main';
+import { UserObj } from '@/server/model/user/main';
 
 export type TemplateUserObj = Omit<
   UserObj,

@@ -1,11 +1,11 @@
 import {
-  ContextForFileElem,
-  FileElem,
-} from '@/(server)/model/elements/file/main';
-import {
   UploadHandlerContext,
   useS3UploadController,
 } from '@/api/controller/s3/single/main';
+import {
+  ContextForFileElem,
+  FileElem,
+} from '@/server/model/elements/file/main';
 import { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import { UploadWrapper } from '../common/wrapper/main';

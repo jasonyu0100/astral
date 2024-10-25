@@ -1,6 +1,6 @@
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { SpacesViewResourcesBack } from '../back/main';
 import { SpacesViewAddResource } from './add/main';

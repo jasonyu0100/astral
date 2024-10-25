@@ -1,8 +1,8 @@
+import { UploadHandlerContext } from '@/api/controller/s3/single/main';
 import {
   FileElemVariant,
   getFileAccepts,
-} from '@/(server)/model/elements/file/main';
-import { UploadHandlerContext } from '@/api/controller/s3/single/main';
+} from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadFileAreaInterface() {

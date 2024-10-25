@@ -1,4 +1,3 @@
-import { ContextForGalleryCollectionMain } from '@/(server)/controller/gallery/collection/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
@@ -7,6 +6,7 @@ import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { ContextForGalleryCollectionMain } from '@/server/controller/gallery/collection/main';
 import { useContext, useState } from 'react';
 
 export function VaultFinderEditCollectionModal() {

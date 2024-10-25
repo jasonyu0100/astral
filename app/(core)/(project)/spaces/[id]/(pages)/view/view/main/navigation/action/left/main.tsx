@@ -1,6 +1,6 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { WrapperTooltip } from '@/components/tooltip/main';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

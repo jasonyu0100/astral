@@ -1,22 +1,22 @@
 'use client';
 
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForUserConnectionListFromDestination,
   useControllerForUserConnectionListFromDestination,
-} from '@/(server)/controller/user/connection/list-from-destination';
+} from '@/server/controller/user/connection/list-from-destination';
 import {
   ContextForUserConnectionListFromSource,
   useControllerForUserConnectionListFromSource,
-} from '@/(server)/controller/user/connection/list-from-source';
+} from '@/server/controller/user/connection/list-from-source';
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/(server)/controller/user/main';
+} from '@/server/controller/user/main';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
-} from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext } from 'react';
 import { ContextForProfileId } from '../layout';

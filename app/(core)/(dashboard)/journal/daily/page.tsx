@@ -1,18 +1,18 @@
 'use client';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/(server)/controller/gallery/collection/list';
+} from '@/server/controller/gallery/collection/list';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/controller/gallery/collection/resource/list';
+} from '@/server/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/(server)/controller/gallery/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/server/controller/gallery/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { DashboardJournalModals } from '../modal/controller/main';
 import { JournalDailyView } from './view/view';

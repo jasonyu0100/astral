@@ -1,6 +1,6 @@
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
-import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
-import { UrlElem, UrlElemVariant } from '@/(server)/model/elements/url/main';
+import { FileElem, FileElemVariant } from '@/server/model/elements/file/main';
+import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import { UrlElem, UrlElemVariant } from '@/server/model/elements/url/main';
 
 export async function getFileIdeaBounds(file: FileElem) {
   if (file.id === undefined) {

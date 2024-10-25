@@ -1,7 +1,7 @@
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForIdeaSceneObj } from '@/(server)/model/scene/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/server/model/scene/main';
 import { useContext } from 'react';
 
 export function SpacesViewSidebarScenesListInactiveItem() {

@@ -1,7 +1,3 @@
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { useControllerForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
 import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
@@ -12,6 +8,10 @@ import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
+import { useControllerForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { ContextForGalleryList } from '@/server/controller/gallery/list';
+import { FileElem } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function SpacesViewAddCollectionModal() {

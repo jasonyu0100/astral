@@ -1,10 +1,3 @@
-import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
-import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
@@ -14,6 +7,13 @@ import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
+import { ContextForTaskList } from '@/server/controller/way/list';
+import { FileElem } from '@/server/model/elements/file/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useState } from 'react';
 
 export function SpacesBoardAddFileLinkModal() {

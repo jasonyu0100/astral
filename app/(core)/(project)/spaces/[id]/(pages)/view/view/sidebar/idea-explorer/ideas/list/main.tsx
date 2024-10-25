@@ -1,5 +1,5 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaObj } from '@/(server)/model/idea/main';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext } from 'react';
 import { SpacesViewSidebarIdeasBack } from './back/main';
 import { SpacesViewSidebarIdeasListItem } from './item/main';

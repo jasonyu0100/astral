@@ -1,4 +1,3 @@
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
@@ -14,6 +13,7 @@ import {
 } from '@/logic/contexts/fileChangable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { useContext, useState } from 'react';
 
 export function VaultFinderCreateGalleryModal() {

@@ -1,9 +1,9 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
-import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
 import {
   ContextForFlippable,
   useControllerForFlippable,
 } from '@/logic/contexts/flippable/main';
+import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { GalleryFinderBack } from './back/main';

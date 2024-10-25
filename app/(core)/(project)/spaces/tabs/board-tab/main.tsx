@@ -1,9 +1,9 @@
 'use client';
 
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
 import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import { CreativeSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';

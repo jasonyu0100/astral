@@ -1,6 +1,3 @@
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { CustomisableModalContents } from '@/components/modal/general/container/main';
@@ -9,6 +6,9 @@ import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { FileElem } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddFileModal() {

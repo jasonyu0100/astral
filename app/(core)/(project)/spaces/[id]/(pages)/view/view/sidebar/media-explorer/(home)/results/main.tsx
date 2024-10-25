@@ -1,5 +1,5 @@
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
-import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
+import { ContextForGalleryList } from '@/server/controller/gallery/list';
+import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import { useContext } from 'react';
 import { SpacesViewGalleryAdd } from './add/main';
 import { SpacesViewGalleryItem } from './item/main';

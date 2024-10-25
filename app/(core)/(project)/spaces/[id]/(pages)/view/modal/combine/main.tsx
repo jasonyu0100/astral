@@ -1,11 +1,3 @@
-import { useControllerForUserActivityListFromChapter } from '@/(server)/controller/activity/list-from-chapter';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { TextElem, TextElemVariant } from '@/(server)/model/elements/text/main';
-import { ContextForIdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ElementIdea } from '@/components/element/idea/main';
 import { FormBody } from '@/components/form/body/main';
@@ -19,6 +11,14 @@ import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { ElementVariant } from '@/server/model/elements/main';
+import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesView } from '../../controller/main';
 

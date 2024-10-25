@@ -1,6 +1,3 @@
-import { ContextForCollectionResourceList } from '@/(server)/controller/gallery/collection/resource/list';
-import { FileElem } from '@/(server)/model/elements/file/main';
-import { ContextForCollectionResourceObj } from '@/(server)/model/gallery/collection/resource/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
 import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
@@ -10,6 +7,9 @@ import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { FileElem } from '@/server/model/elements/file/main';
+import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { useContext, useState } from 'react';
 
 export function VaultFinderEditResourceModal() {

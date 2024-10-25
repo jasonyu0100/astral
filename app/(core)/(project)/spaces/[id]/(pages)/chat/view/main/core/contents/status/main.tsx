@@ -1,8 +1,8 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForTaskList } from '@/(server)/controller/way/list';
-import { TaskStatus } from '@/(server)/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForTaskList } from '@/server/controller/way/list';
+import { TaskStatus } from '@/server/model/task/main';
 import { borderFx } from '@/style/data';
 import { useContext } from 'react';
 

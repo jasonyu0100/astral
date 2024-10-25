@@ -1,9 +1,9 @@
-import { ContextForTaskList } from '@/(server)/controller/way/list';
+import { ContextForTaskList } from '@/server/controller/way/list';
 import {
   ContextForTaskObj,
   TaskObj,
   TaskStatus,
-} from '@/(server)/model/task/main';
+} from '@/server/model/task/main';
 import { useContext, useEffect, useState } from 'react';
 import Sortable from 'sortablejs';
 import { HorizonsFieldListItem } from './row/item/main';

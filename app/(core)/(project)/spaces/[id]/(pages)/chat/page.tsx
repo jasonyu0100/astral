@@ -2,42 +2,42 @@
 import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
-import {
-  ContextForChapterConversationList,
-  useControllerForChapterConversationList,
-} from '@/(server)/controller/conversation/list';
-import {
-  ContextForConversationMessageList,
-  useControllerForConversationMessageList,
-} from '@/(server)/controller/conversation/message/list';
-import {
-  ContextForSceneIdeaList,
-  useControllerForSceneIdeaList,
-} from '@/(server)/controller/idea/list';
-import {
-  ContextForIdeaSceneList,
-  useControllerForIdeaSceneList,
-} from '@/(server)/controller/scene/list';
-import {
-  ContextForSpaceChapterList,
-  useControllerForSpaceChapterList,
-} from '@/(server)/controller/space/chapter/list';
-import {
-  ContextForSpaceMain,
-  useControllerForSpaceMain,
-} from '@/(server)/controller/space/main';
-import {
-  ContextForSpaceMemberList,
-  useControllerForSpaceMemberList,
-} from '@/(server)/controller/space/member/list';
-import {
-  ContextForTaskList,
-  useControllerForTaskList,
-} from '@/(server)/controller/way/list';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/server/controller/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/server/controller/conversation/message/list';
+import {
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/server/controller/idea/list';
+import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/server/controller/scene/list';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/server/controller/space/chapter/list';
+import {
+  ContextForSpaceMain,
+  useControllerForSpaceMain,
+} from '@/server/controller/space/main';
+import {
+  ContextForSpaceMemberList,
+  useControllerForSpaceMemberList,
+} from '@/server/controller/space/member/list';
+import {
+  ContextForTaskList,
+  useControllerForTaskList,
+} from '@/server/controller/way/list';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';

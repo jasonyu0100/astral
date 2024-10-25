@@ -1,5 +1,5 @@
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 
 export function SpacesBoardHeaderMiddle() {

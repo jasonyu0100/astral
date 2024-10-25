@@ -1,6 +1,6 @@
-import { useControllerForUserActivityListFromSpace } from '@/(server)/controller/activity/list-from-space';
-import { UserActivityVariant } from '@/(server)/model/activity/main';
-import { ContextForSpaceObj } from '@/(server)/model/space/main';
+import { useControllerForUserActivityListFromSpace } from '@/server/controller/activity/list-from-space';
+import { UserActivityVariant } from '@/server/model/activity/main';
+import { ContextForSpaceObj } from '@/server/model/space/main';
 import { useContext } from 'react';
 
 export function UserProfileSpacesRowPosts() {

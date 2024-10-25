@@ -1,10 +1,10 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
-import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
 import { ContextForFlippable } from '@/logic/contexts/flippable/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
+import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { VaultFinderEditGalleryModal } from '../../../modals/edit/gallery/main';

@@ -1,6 +1,6 @@
-import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
+import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
+import { exampleFileElem } from '@/server/model/elements/file/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 
 export function SpacesPostTitle() {

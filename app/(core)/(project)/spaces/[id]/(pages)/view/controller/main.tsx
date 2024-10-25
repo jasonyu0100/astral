@@ -1,15 +1,15 @@
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaRelationshipListFromScene } from '@/(server)/controller/idea/relationship/list-from-scene';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import { GalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
-import { GalleryObj } from '@/(server)/model/gallery/main';
-import { IdeaObj } from '@/(server)/model/idea/main';
-import { IdeaRelationshipObj } from '@/(server)/model/idea/relationship/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
+import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
+import { ContextForGalleryList } from '@/server/controller/gallery/list';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForIdeaRelationshipListFromScene } from '@/server/controller/idea/relationship/list-from-scene';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { GalleryCollectionObj } from '@/server/model/gallery/collection/main';
+import { GalleryObj } from '@/server/model/gallery/main';
+import { IdeaObj } from '@/server/model/idea/main';
+import { IdeaRelationshipObj } from '@/server/model/idea/relationship/main';
 import html2canvas from 'html2canvas';
 import { createContext, useContext, useRef, useState } from 'react';
 

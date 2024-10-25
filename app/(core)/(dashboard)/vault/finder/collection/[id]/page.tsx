@@ -8,15 +8,15 @@ import { vaultMap } from '@/(core)/(dashboard)/vault/map';
 import {
   ContextForGalleryCollectionMain,
   useControllerForGalleryCollectionMain,
-} from '@/(server)/controller/gallery/collection/main';
+} from '@/server/controller/gallery/collection/main';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/(server)/controller/gallery/collection/resource/list';
+} from '@/server/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/(server)/controller/gallery/main';
+} from '@/server/controller/gallery/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { VaultFinderModals } from '../../modals/controller/main';
 import { FinderCollectionResources } from './view/main';

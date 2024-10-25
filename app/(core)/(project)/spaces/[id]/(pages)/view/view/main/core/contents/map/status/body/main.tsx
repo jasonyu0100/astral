@@ -1,5 +1,5 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { useContext } from 'react';
 
 export function SpacesViewStatusBody() {

@@ -1,8 +1,8 @@
-import { ContextForPostKarmaList } from '@/(server)/controller/post/karma/list';
-import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
+import { ContextForPostKarmaList } from '@/server/controller/post/karma/list';
+import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

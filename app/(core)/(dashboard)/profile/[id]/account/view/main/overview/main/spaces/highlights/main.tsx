@@ -1,10 +1,10 @@
-import { useControllerForPostAttachmentListFromUser } from '@/(server)/controller/post/attachment/list-from-user';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { ContextForPostAttachmentObj } from '@/(server)/model/post/attachment/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { ElementAttachment } from '@/components/element/attachment/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { useControllerForPostAttachmentListFromUser } from '@/server/controller/post/attachment/list-from-user';
+import { ElementVariant } from '@/server/model/elements/main';
+import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 
 export function UserProfileOverviewHighlights() {

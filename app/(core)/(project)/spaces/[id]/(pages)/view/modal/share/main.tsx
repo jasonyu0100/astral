@@ -1,5 +1,3 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
 import { FormFooter } from '@/components/form/footer/main';
@@ -7,6 +5,8 @@ import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
 import { spacesMap } from '../../../../map';
 

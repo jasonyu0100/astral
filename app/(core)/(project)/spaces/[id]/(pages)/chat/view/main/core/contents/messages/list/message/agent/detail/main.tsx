@@ -1,4 +1,4 @@
-import { ContextForConversationMessageObj } from '@/(server)/model/conversation/message/main';
+import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

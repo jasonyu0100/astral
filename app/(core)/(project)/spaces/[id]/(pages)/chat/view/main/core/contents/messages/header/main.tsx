@@ -1,9 +1,9 @@
-import { ContextForChapterConversationList } from '@/(server)/controller/conversation/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
+import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';

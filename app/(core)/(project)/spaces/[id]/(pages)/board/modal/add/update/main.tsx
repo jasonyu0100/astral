@@ -1,4 +1,3 @@
-import { exampleFileElems } from '@/(server)/model/elements/file/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
@@ -13,6 +12,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { exampleFileElems } from '@/server/model/elements/file/main';
 import { glassFx } from '@/style/data';
 import { useContext, useState } from 'react';
 

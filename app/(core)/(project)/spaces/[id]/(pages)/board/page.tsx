@@ -2,29 +2,29 @@
 import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/(server)/controller/space/chapter/list';
+} from '@/server/controller/space/chapter/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/(server)/controller/space/main';
+} from '@/server/controller/space/main';
 import {
   ContextForSpaceMemberList,
   useControllerForSpaceMemberList,
-} from '@/(server)/controller/space/member/list';
+} from '@/server/controller/space/member/list';
 import {
   ContextForTaskLinkList,
   useControllerForTaskLinkList,
-} from '@/(server)/controller/way/link/list';
+} from '@/server/controller/way/link/list';
 import {
   ContextForTaskList,
   useControllerForTaskList,
-} from '@/(server)/controller/way/list';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { LoadingWrapper } from '@/components/loading/controller/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/server/controller/way/list';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';

@@ -1,4 +1,4 @@
-import { ContextForUserConnectionListFromSource } from '@/(server)/controller/user/connection/list-from-source';
+import { ContextForUserConnectionListFromSource } from '@/server/controller/user/connection/list-from-source';
 import { useContext } from 'react';
 import {
   ContextForUserProfile,

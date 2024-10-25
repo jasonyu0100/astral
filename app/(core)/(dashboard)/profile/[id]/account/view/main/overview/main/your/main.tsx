@@ -1,9 +1,9 @@
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import {
   ContextForSpaceList,
   useControllerForSpaceList,
-} from '@/(server)/controller/space/list';
-import { ContextForProfileUserObj } from '@/(server)/model/user/main';
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+} from '@/server/controller/space/list';
+import { ContextForProfileUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 import { UserProfileSpacesTable } from './table/main';
 

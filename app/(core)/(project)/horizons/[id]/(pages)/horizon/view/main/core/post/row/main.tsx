@@ -1,7 +1,7 @@
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { exampleFileElem } from '@/server/model/elements/file/main';
 import { borderFx } from '@/style/data';
 
 export function HorizonsHorizonListRow() {

@@ -1,7 +1,7 @@
-import { ContextForTaskLinkList } from '@/(server)/controller/way/link/list';
-import { ContextForTaskLinkObj } from '@/(server)/model/task/link/main';
 import { ElementLink } from '@/components/element/link/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
+import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesBoard,

@@ -1,7 +1,7 @@
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
-} from '@/(server)/model/user/main';
+} from '@/server/model/user/main';
 import { createContext, useContext, useState } from 'react';
 
 interface ControllerState {

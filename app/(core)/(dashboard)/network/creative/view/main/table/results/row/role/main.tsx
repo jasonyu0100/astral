@@ -1,4 +1,4 @@
-import { ContextForUserObj } from '@/(server)/model/user/main';
+import { ContextForUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 
 export function NetworkCreativeRowRole() {

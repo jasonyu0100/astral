@@ -1,5 +1,3 @@
-import { ContextForPostCommentList } from '@/(server)/controller/post/comment/list';
-import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
@@ -9,6 +7,8 @@ import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForPostCommentList } from '@/server/controller/post/comment/list';
+import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { useContext, useState } from 'react';
 
 export function SpacesPostAddCommentModal() {

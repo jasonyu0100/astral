@@ -1,10 +1,10 @@
 'use client';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForSpaceMemberListFromUser,
   useControllerForSpaceMemberListFromUser,
-} from '@/(server)/controller/space/member/list-from-user';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import { useGlobalUser } from '@/logic/store/user/main';
+} from '@/server/controller/space/member/list-from-user';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { StudioSpacesView } from './view/view';
 

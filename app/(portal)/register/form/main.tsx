@@ -6,10 +6,10 @@ import { PortalFormActionContainer } from '@/(portal)/common/container/form/acti
 import { PortalFormInput } from '@/(portal)/common/container/form/body/input/main';
 import { PortalFormBody } from '@/(portal)/common/container/form/body/main';
 import { PortalForm } from '@/(portal)/common/container/form/main';
-import { useControllerForGalleryList } from '@/(server)/controller/gallery/list';
-import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { useControllerForGalleryList } from '@/server/controller/gallery/list';
+import { useControllerForUserMain } from '@/server/controller/user/main';
+import { exampleFileElem } from '@/server/model/elements/file/main';
 import { useState } from 'react';
 import { PortalTextHeader } from '../../common/container/form/text-header/main';
 import { portalMap } from '../../map';

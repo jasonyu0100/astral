@@ -1,7 +1,7 @@
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 

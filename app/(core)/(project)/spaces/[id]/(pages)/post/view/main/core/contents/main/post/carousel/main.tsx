@@ -1,9 +1,9 @@
-import { ContextForPostAttachmentListFromPost } from '@/(server)/controller/post/attachment/list-from-post';
+import { ElementAttachment } from '@/components/element/attachment/main';
+import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
 import {
   ContextForPostAttachmentObj,
   examplePostAttachment,
-} from '@/(server)/model/post/attachment/main';
-import { ElementAttachment } from '@/components/element/attachment/main';
+} from '@/server/model/post/attachment/main';
 import { useContext } from 'react';
 
 export function SpacesPostContainer() {

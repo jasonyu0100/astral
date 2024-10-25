@@ -1,9 +1,9 @@
 import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForSpacesViewModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralShareIcon } from '@/icons/share/main';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { useContext } from 'react';
 
 export function SpacesViewPaletteSelected() {

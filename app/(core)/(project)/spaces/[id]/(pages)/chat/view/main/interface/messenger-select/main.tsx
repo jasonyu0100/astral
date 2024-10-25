@@ -1,7 +1,7 @@
-import { ContextForSpaceMemberList } from '@/(server)/controller/space/member/list';
-import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
-import { ContextForLoggedInUserObj, UserObj } from '@/(server)/model/user/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
+import { ContextForSpaceMemberList } from '@/server/controller/space/member/list';
+import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
+import { ContextForLoggedInUserObj, UserObj } from '@/server/model/user/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesChat } from '../../../../controller/main';
 import { SpacesChatsMember } from './member/main';

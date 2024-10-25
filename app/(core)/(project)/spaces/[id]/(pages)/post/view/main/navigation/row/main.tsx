@@ -1,6 +1,6 @@
-import { ContextForUserPostListFromChapter } from '@/(server)/controller/post/list-from-chapter';
-import { ContextForUserPostObj } from '@/(server)/model/post/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
+import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
+import { ContextForUserPostObj } from '@/server/model/post/main';
 import { useContext } from 'react';
 import { SpacesPostRowContainer } from './container/main';
 import { SpacesPostRowElement } from './element/main';

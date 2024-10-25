@@ -1,12 +1,12 @@
 import {
-  ContextForUserConnectionListFromSource,
-  useControllerForUserConnectionListFromSource,
-} from '@/(server)/controller/user/connection/list-from-source';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
-import {
   ContextForTogglable,
   useControllerForTogglable,
 } from '@/logic/contexts/togglable/main';
+import {
+  ContextForUserConnectionListFromSource,
+  useControllerForUserConnectionListFromSource,
+} from '@/server/controller/user/connection/list-from-source';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../(controller)/create-space/main';
 import { CreateSpaceAddCollaborator } from './add/main';

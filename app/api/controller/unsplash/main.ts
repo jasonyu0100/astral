@@ -1,4 +1,4 @@
-import { FileElem, FileElemVariant } from '@/(server)/model/elements/file/main';
+import { FileElem, FileElemVariant } from '@/server/model/elements/file/main';
 import { useEffect } from 'react';
 
 export const useControllerForUnsplash = () => {

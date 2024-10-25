@@ -1,6 +1,6 @@
-import { ContextForUserMain } from '@/(server)/controller/user/main';
-import { exampleFileElem } from '@/(server)/model/elements/file/main';
-import { ContextForPostCommentObj } from '@/(server)/model/post/comment/main';
+import { ContextForUserMain } from '@/server/controller/user/main';
+import { exampleFileElem } from '@/server/model/elements/file/main';
+import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

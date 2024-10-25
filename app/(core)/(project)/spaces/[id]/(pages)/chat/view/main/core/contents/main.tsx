@@ -1,7 +1,7 @@
-import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
 import { ImageBackground } from '@/components/background/img/main';
 import { AbsoluteHolder } from '@/components/holder/main';
+import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import { SpacesChatConversations } from './conversations/main';
 import { SpacesChatEmpty } from './empty/main';

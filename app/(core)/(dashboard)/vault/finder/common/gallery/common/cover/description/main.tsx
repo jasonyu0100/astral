@@ -1,5 +1,5 @@
-import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import { useContext } from 'react';
 
 export function ContainerDescription() {

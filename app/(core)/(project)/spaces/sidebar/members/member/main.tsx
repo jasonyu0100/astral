@@ -1,7 +1,7 @@
 import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
-import { useControllerForUserMain } from '@/(server)/controller/user/main';
-import { ContextForSpaceMemberObj } from '@/(server)/model/space/member/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
+import { useControllerForUserMain } from '@/server/controller/user/main';
+import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
 import { useContext } from 'react';
 
 export function SpaceSidebarMembersListMember() {

@@ -1,8 +1,8 @@
 'use client';
-import { ContextForCurrentSpaceObj } from '@/(server)/model/space/main';
-import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForCurrentSpaceObj } from '@/server/model/space/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { createContext } from 'react';
 import { CommonSidebarDefault } from './default/main';
 import { CommonSidebarModals } from './modals/controller/main';

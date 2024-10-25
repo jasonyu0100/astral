@@ -1,6 +1,6 @@
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { useContext } from 'react';
 import { ContextForSpacesView } from '../../../../../controller/main';
 

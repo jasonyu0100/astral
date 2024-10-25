@@ -1,9 +1,9 @@
-import { ContextForGalleryList } from '@/(server)/controller/gallery/list';
-import { ContextForGalleryObj } from '@/(server)/model/gallery/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
+import { ContextForGalleryList } from '@/server/controller/gallery/list';
+import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import { useContext } from 'react';
 import { GalleryFinderAdd } from '../../../../common/gallery/add/main';
 import { FinderGallery } from '../../../../common/gallery/main';

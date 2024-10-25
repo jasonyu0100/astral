@@ -1,9 +1,9 @@
-import { ContextForGalleryCollectionList } from '@/(server)/controller/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/(server)/model/gallery/collection/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
+import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
+import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';

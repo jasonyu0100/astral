@@ -1,24 +1,24 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { ContextForSceneIdeaList } from '@/(server)/controller/idea/list';
-import { useControllerForIdeaRelationshipListFromChapter } from '@/(server)/controller/idea/relationship/list-from-chapter';
-import { ContextForIdeaSceneList } from '@/(server)/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/(server)/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/(server)/controller/space/main';
-import {
-  exampleFileElem,
-  FileElemVariant,
-} from '@/(server)/model/elements/file/main';
-import { ElementVariant } from '@/(server)/model/elements/main';
-import { exampleTextElem } from '@/(server)/model/elements/text/main';
-import {
-  exampleUrlElem,
-  UrlElemVariant,
-} from '@/(server)/model/elements/url/main';
-import { exampleIdea, IdeaObj } from '@/(server)/model/idea/main';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/server/controller/idea/relationship/list-from-chapter';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
+import {
+  exampleFileElem,
+  FileElemVariant,
+} from '@/server/model/elements/file/main';
+import { ElementVariant } from '@/server/model/elements/main';
+import { exampleTextElem } from '@/server/model/elements/text/main';
+import {
+  exampleUrlElem,
+  UrlElemVariant,
+} from '@/server/model/elements/url/main';
+import { exampleIdea, IdeaObj } from '@/server/model/idea/main';
 import {
   getFileIdeaBounds,
   getTextIdeaBounds,
