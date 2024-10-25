@@ -1,17 +1,73 @@
 import { ContextForConversationMessageList } from '@/(server)/controller/conversation/message/list';
+import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { glassFx, roundedFx } from '@/style/data';
-import { useContext } from 'react';
+import { ctwn } from '@/utils/cn';
+import React, { useContext, useState } from 'react';
 import { ContextForSpacesChat } from '../../../../controller/main';
 
 export function SpacesChatInputText() {
   const messageListController = useContext(ContextForConversationMessageList);
+  const openAiController = useControllerForOpenAi();
   const spacesConversationController = useContext(ContextForSpacesChat);
+  const [isRecording, setIsRecording] = useState(false);
+  const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
+    null,
+  );
 
-  const handleKeyDown = (event: { key: string }) => {
+  // Function to start recording
+  const startRecording = async () => {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      alert('MediaDevices API not supported in your browser.');
+      return;
+    }
+    console.log('Starting recording...');
+
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const recorder = new MediaRecorder(stream);
+    const audioChunks: Blob[] = [];
+
+    recorder.ondataavailable = (event) => {
+      audioChunks.push(event.data);
+    };
+
+    recorder.onstop = async () => {
+      console.log('Recording stopped.');
+      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+      console.log('Audio Blob created, sending for transcription...');
+
+      // Send audioBlob to the OpenAI API for transcription
+      try {
+        const transcript =
+          await openAiController.actions.transcribeAudio(audioBlob);
+        console.log('Transcription received:', transcript);
+        if (transcript) {
+          messageListController.actions.stateActions.updateInputMessageText(
+            transcript,
+          );
+        }
+      } catch (error) {
+        console.error('Error during transcription:', error);
+      }
+    };
+
+    recorder.start(); // Start the recorder
+    setMediaRecorder(recorder);
+    setIsRecording(true);
+  };
+
+  // Function to stop recording
+  const stopRecording = () => {
+    if (mediaRecorder) {
+      mediaRecorder.stop(); // Stop the recording
+      setIsRecording(false);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       spacesConversationController.actions.sendMessageToConversation();
     }
@@ -25,7 +81,7 @@ export function SpacesChatInputText() {
       <GlassWindowContents className='flex w-full flex-row items-center px-[2rem]'>
         <input
           className={`h-full flex-grow animate-pulse-slow bg-transparent font-light text-slate-300 outline-none`}
-          placeholder='Type a messsadfsge...'
+          placeholder='Type a message...'
           onKeyDown={handleKeyDown}
           onChange={(e) =>
             messageListController.actions.stateActions.updateInputMessageText(
@@ -34,12 +90,26 @@ export function SpacesChatInputText() {
           }
           value={messageListController.state.more.inputMessageText}
         />
-        <AstralVoiceIcon
-          onClick={() => {
-            alert('Coming soon...');
-            // populate input message with voice over transcription
-          }}
-        />
+        <div
+          className={ctwn(
+            'flex h-[2rem] w-[2rem] items-center justify-center rounded-full',
+            {
+              'bg-red-500': isRecording,
+            },
+          )}
+        >
+          <AstralVoiceIcon
+            onClick={() => {
+              if (isRecording) {
+                stopRecording();
+                alert('Stopped recording');
+              } else {
+                startRecording();
+                alert('Started recording');
+              }
+            }}
+          />
+        </div>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>

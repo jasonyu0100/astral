@@ -10,6 +10,7 @@ interface ControllerState {}
 interface ControllerActions {
   getImageResponse: (prompt: string) => Promise<OpenAI.Images.Image[]>;
   getMessageResponse: (message: string) => Promise<string | null>;
+  transcribeAudio: (audioBlob: Blob) => Promise<string | null>; // New method
 }
 
 export const useControllerForOpenAi = (): Controller => {
@@ -51,11 +52,33 @@ export const useControllerForOpenAi = (): Controller => {
     return response.data;
   };
 
+  const transcribeAudio = async (audioBlob: Blob) => {
+    const openai = getOpenAiClient();
+    console.log(audioBlob);
+
+    // Create FormData to send the audio file
+    const formData = new FormData();
+    formData.append('file', audioBlob, 'audio.wav'); // Preferred filename
+
+    try {
+      const response = await openai.audio.transcriptions.create({
+        model: 'whisper-1', // Use the appropriate Whisper model
+        file: formData.get('file'), // Attach the audio file
+        response_format: 'text', // Expected response format
+      });
+      return response;
+    } catch (error) {
+      console.error('Error during audio transcription:', error);
+      return null; // Handle error case
+    }
+  };
+
   return {
     state: {},
     actions: {
       getImageResponse,
       getMessageResponse,
+      transcribeAudio, // Expose the new method
     },
   };
 };
