@@ -8,7 +8,10 @@ import { AstralVoiceIcon } from '@/icons/voice/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import React, { useContext, useState } from 'react';
-import { ContextForSpacesChat } from '../../../../controller/main';
+import {
+  ContextForSpacesChat,
+  SpacesChatSidebarContentMode,
+} from '../../../../controller/main';
 
 export function SpacesChatInputText() {
   const messageListController = useContext(ContextForConversationMessageList);
@@ -80,9 +83,18 @@ export function SpacesChatInputText() {
       roundedFx={roundedFx['rounded-full']}
     >
       <GlassWindowContents className='flex w-full flex-row items-center space-x-[1rem] pl-[1rem] pr-[1rem]'>
-        <UserDisplayPictureElement
-          fileElem={spacesChatController.state.selectedUser?.dp}
-        />
+        <div
+          className='cursor-pointer'
+          onClick={() =>
+            spacesChatController.actions.updateSidebarContentMode(
+              SpacesChatSidebarContentMode.MEMBERS,
+            )
+          }
+        >
+          <UserDisplayPictureElement
+            fileElem={spacesChatController.state.selectedUser?.dp}
+          />
+        </div>
         <input
           className={`h-full flex-grow animate-pulse-slow bg-transparent text-slate-300 outline-none`}
           placeholder='Type a message...'
