@@ -48,6 +48,13 @@ export function PortalRegisterForm() {
     window.location.href = studioMap.studio.personal.link;
   }
 
+  function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent default form submission
+      attemptRegister();
+    }
+  }
+
   return (
     <PortalForm>
       <PortalTextHeader />

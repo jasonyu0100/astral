@@ -19,7 +19,7 @@ import {
 import { useGlobalUser } from '@/logic/store/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext } from 'react';
-import { ContextForProfileId } from '../../layout';
+import { ContextForProfileId } from '../layout';
 import { UserProfileModals } from './(modals)/controller/main';
 import {
   ContextForUserProfile,

@@ -17,7 +17,7 @@ export default function Page() {
         polaroidHandler: _polaroidHandler,
       }}
     >
-      <RegisterView />;
+      <RegisterView />
     </PolaroidContext.Provider>
   );
 }
