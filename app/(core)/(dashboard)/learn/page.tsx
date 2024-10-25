@@ -23,11 +23,11 @@ import { useControllerForUserMain } from '@/(server)/controller/user/main';
 import { ContextForUserObj } from '@/(server)/model/user/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useContext, useEffect } from 'react';
-import { ConversationalSearchView } from './(core)/view';
 import {
   ContextForConversationalSearch,
   useControllerForConversationalSearch,
 } from './controller/chat/main';
+import { ConversationalSearchView } from './results/core/view';
 
 export default function Page() {
   const userController = useControllerForUserMain(

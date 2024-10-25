@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(dashboard)/users/[id]/map';
+import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { AstralSettingsIcon } from '@/icons/settings/main';
 import { useContext, useEffect, useState } from 'react';
@@ -22,7 +22,7 @@ export function TopbarRightGroup() {
             topbarModals.userSettingsModal.open();
           }}
         />
-        <TopbarAvatar href={userProfileMap.profile.link(userId)} />
+        <TopbarAvatar href={userProfileMap.account.link(userId)} />
       </div>
     </>
   );

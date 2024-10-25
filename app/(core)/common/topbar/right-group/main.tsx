@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(dashboard)/users/[id]/map';
+import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
 import { ContextForLoggedInUserObj } from '@/(server)/model/user/main';
 import { useContext, useEffect, useState } from 'react';
 import { TopbarAvatar } from './avatar/main';
@@ -14,7 +14,7 @@ export function TopbarRightGroup() {
   return (
     <>
       <div className='ml-auto flex flex-row items-center space-x-[2rem]'>
-        <TopbarAvatar href={userProfileMap.profile.link(userId)} />
+        <TopbarAvatar href={userProfileMap.account.link(userId)} />
       </div>
     </>
   );
