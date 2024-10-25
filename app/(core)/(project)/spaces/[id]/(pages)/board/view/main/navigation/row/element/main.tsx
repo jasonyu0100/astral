@@ -35,7 +35,7 @@ export function SpacesBoardRowElement() {
         <p
           className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}
         >
-          {index + 1}. {chapter.title}
+          {index + 1}. {chapter.title || 'Untitled'}
         </p>
       </GlassWindowContents>
       {!active ? (
