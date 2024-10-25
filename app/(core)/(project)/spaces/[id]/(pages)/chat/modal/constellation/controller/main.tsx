@@ -233,7 +233,7 @@ export function useGenerateSceneController(): Controller {
 
     let newScene = sceneListController.state?.currentObj;
 
-    if (!newScene) {
+    if (!newScene || newScene.chapterId !== chapterListController.state.objId) {
       console.log('new scene');
       newScene = await sceneListController.actions.createActions.createScene(
         'Map',
