@@ -3,7 +3,7 @@ import { ModelInterface } from '../../main';
 
 export enum TextElemVariant {
   STICKY = 'STICKY',
-  PAGE = 'PAGE',
+  ARTICLE = 'ARTICLE',
 }
 
 export interface TextElem {

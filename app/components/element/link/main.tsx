@@ -50,7 +50,7 @@ export function ElementLink({
               {linkObj.textElem?.variant === TextElemVariant.STICKY && (
                 <ElementSticky text={linkObj.textElem.text} />
               )}
-              {linkObj.textElem?.variant === TextElemVariant.PAGE && (
+              {linkObj.textElem?.variant === TextElemVariant.ARTICLE && (
                 <ElementPage text={linkObj.textElem.text} />
               )}
             </>

@@ -69,8 +69,8 @@ export function SpacesLinkTextIdea() {
           />
         </div>
       )}
-      {taskLinkObj.textElem.variant === TextElemVariant.PAGE && (
-        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[1rem] text-black shadow-md'>
+      {taskLinkObj.textElem.variant === TextElemVariant.ARTICLE && (
+        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[2rem] text-black shadow-md'>
           <label
             htmlFor={`page-textarea-${taskLinkObj.id}`}
             className='sr-only'
@@ -79,7 +79,7 @@ export function SpacesLinkTextIdea() {
           </label>
           <textarea
             id={`page-textarea-${taskLinkObj.id}`}
-            className='h-full w-full resize-none bg-transparent p-[1rem] font-bold text-slate-300 outline-none'
+            className='h-full w-full resize-none bg-transparent p-[1rem] text-lg font-light text-slate-300 outline-none'
             value={pageText}
             onChange={(e) => setPageText(e.target.value)}
             onBlur={handlePageBlur}

@@ -60,7 +60,7 @@ export async function getTextIdeaBounds(file: TextElem) {
   if (file.variant === TextElemVariant.STICKY) {
     width = 200;
     height = 200;
-  } else if (file.variant === TextElemVariant.PAGE) {
+  } else if (file.variant === TextElemVariant.ARTICLE) {
     width = 350;
     height = 250;
   }

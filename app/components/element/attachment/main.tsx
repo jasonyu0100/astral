@@ -51,7 +51,7 @@ export function ElementAttachment({
               {attachmentObj.textElem?.variant === TextElemVariant.STICKY && (
                 <ElementSticky text={attachmentObj.textElem.text} />
               )}
-              {attachmentObj.textElem?.variant === TextElemVariant.PAGE && (
+              {attachmentObj.textElem?.variant === TextElemVariant.ARTICLE && (
                 <ElementPage text={attachmentObj.textElem.text} />
               )}
             </>

@@ -50,7 +50,7 @@ export function ElementIdea({
               {ideaObj.textElem?.variant === TextElemVariant.STICKY && (
                 <ElementSticky text={ideaObj.textElem.text} />
               )}
-              {ideaObj.textElem?.variant === TextElemVariant.PAGE && (
+              {ideaObj.textElem?.variant === TextElemVariant.ARTICLE && (
                 <ElementPage text={ideaObj.textElem.text} />
               )}
             </>

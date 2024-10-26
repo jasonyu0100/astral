@@ -5,10 +5,10 @@ import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
+import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralRectangleIcon } from '@/icons/rectangle/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
-import { AstralSquareIcon } from '@/icons/square/main';
 import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { useContext, useState } from 'react';
@@ -24,7 +24,7 @@ export function SpacesViewPaletteDefault() {
           onClick={() => modalController.addFileIdeaController.open()}
         />
       </div>
-      <AstralSquareIcon
+      <AstralNoteIcon
         onClick={() => modalController.addStickyIdeaController.open()}
       />
       <AstralRectangleIcon

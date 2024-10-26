@@ -49,7 +49,7 @@ export function ElementResource({
           {resourceObj.textElem?.variant === TextElemVariant.STICKY && (
             <ElementSticky text={resourceObj.textElem.text} />
           )}
-          {resourceObj.textElem?.variant === TextElemVariant.PAGE && (
+          {resourceObj.textElem?.variant === TextElemVariant.ARTICLE && (
             <ElementPage text={resourceObj.textElem.text} />
           )}
         </>
