@@ -1,5 +1,5 @@
 'use client';
-import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaObj } from '@/server/model/idea/main';

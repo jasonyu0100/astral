@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import {
   ContextForSpacesView,
   SpacesViewSidebarVisibility,
-} from '../controller/main';
+} from '../../controller/main';
 import { SpacesViewMain } from './main/main';
 import { SpacesViewSidebar } from './sidebar/main';
 

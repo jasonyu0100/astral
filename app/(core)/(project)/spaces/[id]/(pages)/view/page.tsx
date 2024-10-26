@@ -57,11 +57,11 @@ import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
   ContextForSpacesViewChat,
   useControllerForSpacesViewChat,
-} from './controller/chat/main';
+} from '../controller/chat/main';
 import {
   ContextForSpacesView,
   useControllerForSpacesView,
-} from './controller/main';
+} from '../controller/main';
 import { SpacesViewModals } from './modal/controller/main';
 import { SpacesViewView } from './view/main';
 

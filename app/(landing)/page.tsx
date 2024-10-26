@@ -54,19 +54,17 @@ const Header = () => (
 );
 
 const HeroSection = () => (
-  <section className='grid grid-cols-1 items-center gap-[5rem] px-4 py-[3rem] sm:grid-cols-2'>
+  <section className='grid grid-cols-1 items-center gap-[5rem] px-[3rem] py-[3rem] sm:grid-cols-2'>
     <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
       <h1 className='text-center font-permanentMarker text-2xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
-        Creative spaces that flow
+        Your Creative Journey, Streamlined.
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is a dynamic creative studio built to grow with you, offering
-        powerful AI tools to bring your ideas to life. Ideal for visionaries,
-        content creators, and startup founders, Astral features Kanban boards
-        for streamlined task management, collaborative Chat for real-time
-        discussions, intuitive Mapping for visualizing ideas, and Posts for
-        capturing insights and sharing updates—all designed to provide clarity
-        and support at every stage of your creative process.
+        Astral is your creative work tracker, built to grow with you. Ideal for
+        content creators, founders, and visionaries, Astral provides Kanban
+        boards for task management, ai-collaborative Chat, visual idea Mapping,
+        and Posts to capture insights. Stay organized and supported at every
+        stage of your creative journey.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
@@ -120,15 +118,16 @@ const CallToAction = () => {
       />
       <div className='h-[3rem] sm:h-[5rem]' />
       <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
-        Transforming ideas into visual insights
+        Transforming your ideas into visual insights
       </p>
       <div className='h-[5rem] sm:h-[10rem]' />
       <a
-        href={'/learn'}
+        href={'https://calendly.com/jasonyu0100/30min'}
+        target='_blank'
         className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
       >
         <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-          schedule a look...
+          schedule a booking
         </p>
       </a>
     </section>

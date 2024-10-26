@@ -1,7 +1,7 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
-import { ContextForSpacesView } from '../../../../../controller/main';
+import { ContextForSpacesView } from '../../../../../../controller/main';
 
 export function SpacesViewGalleryCollectionsBack() {
   const {

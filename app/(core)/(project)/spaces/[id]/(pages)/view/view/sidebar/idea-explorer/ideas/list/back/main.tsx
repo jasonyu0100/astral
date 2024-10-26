@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import {
   ContextForSpacesView,
   SpacesViewSidebarMode,
-} from '../../../../../../controller/main';
+} from '../../../../../../../controller/main';
 
 export function SpacesViewSidebarIdeasBack() {
   const {

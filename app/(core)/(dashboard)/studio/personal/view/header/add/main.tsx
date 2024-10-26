@@ -4,7 +4,7 @@ import { ButtonInputProps } from '@/props/main';
 export function StudioSpacesHeaderAdd({ ...props }: ButtonInputProps) {
   return (
     <button
-      className='ml-[6rem] flex h-[80px] w-[150px] flex-col items-center justify-center rounded-[50px] bg-violet-500'
+      className='ml-[3rem] flex h-[80px] w-[150px] animate-pulse-slow flex-col items-center justify-center rounded-[50px] bg-violet-500 shadow-glow'
       {...props}
     >
       <AstralGestureIcon className='h-1/2 w-1/2' />
