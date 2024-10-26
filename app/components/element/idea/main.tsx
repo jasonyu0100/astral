@@ -6,6 +6,7 @@ import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
+import { ElementPage } from '../common/page/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
 import { ElementSticky } from '../common/sticky/main';
@@ -48,6 +49,9 @@ export function ElementIdea({
             <>
               {ideaObj.textElem?.variant === TextElemVariant.STICKY && (
                 <ElementSticky text={ideaObj.textElem.text} />
+              )}
+              {ideaObj.textElem?.variant === TextElemVariant.PAGE && (
+                <ElementPage text={ideaObj.textElem.text} />
               )}
             </>
           ) : (

@@ -6,6 +6,7 @@ import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
+import { ElementPage } from '../common/page/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
 import { ElementSticky } from '../common/sticky/main';
@@ -48,6 +49,9 @@ export function ElementLink({
             <>
               {linkObj.textElem?.variant === TextElemVariant.STICKY && (
                 <ElementSticky text={linkObj.textElem.text} />
+              )}
+              {linkObj.textElem?.variant === TextElemVariant.PAGE && (
+                <ElementPage text={linkObj.textElem.text} />
               )}
             </>
           ) : (

@@ -20,7 +20,7 @@ export function ElementAudioSquare({ src }: { src: string }) {
   return (
     <div
       className={ctwn(
-        'flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-violet-500',
+        'flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-violet-500 shadow-md',
         isPlaying ? 'animate-spin' : '', // Add spin if playing
       )}
       onClick={handleAudioToggle}

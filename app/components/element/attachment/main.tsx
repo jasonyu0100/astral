@@ -7,6 +7,7 @@ import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
+import { ElementPage } from '../common/page/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
 import { ElementSticky } from '../common/sticky/main';
@@ -49,6 +50,9 @@ export function ElementAttachment({
             <>
               {attachmentObj.textElem?.variant === TextElemVariant.STICKY && (
                 <ElementSticky text={attachmentObj.textElem.text} />
+              )}
+              {attachmentObj.textElem?.variant === TextElemVariant.PAGE && (
+                <ElementPage text={attachmentObj.textElem.text} />
               )}
             </>
           ) : (

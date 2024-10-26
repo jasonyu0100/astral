@@ -6,6 +6,7 @@ import { ContextForCollectionResourceObj } from '@/server/model/gallery/collecti
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
+import { ElementPage } from '../common/page/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
 import { ElementSticky } from '../common/sticky/main';
@@ -47,6 +48,9 @@ export function ElementResource({
         <>
           {resourceObj.textElem?.variant === TextElemVariant.STICKY && (
             <ElementSticky text={resourceObj.textElem.text} />
+          )}
+          {resourceObj.textElem?.variant === TextElemVariant.PAGE && (
+            <ElementPage text={resourceObj.textElem.text} />
           )}
         </>
       )}

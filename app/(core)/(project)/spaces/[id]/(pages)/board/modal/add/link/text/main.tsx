@@ -18,7 +18,7 @@ export function SpacesBoardAddTextLinkModal() {
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
 
-  function create() {
+  function createStickyLink() {
     linkListController.actions.createActions
       .createLinkFromTextIdea(
         user.id,
@@ -50,7 +50,7 @@ export function SpacesBoardAddTextLinkModal() {
                 onChange={(e) => changeText(e.target.value)}
               />
             </div>
-            <AstralRoundedActionButton onClick={create}>
+            <AstralRoundedActionButton onClick={createStickyLink}>
               <AstralCheckIcon />
             </AstralRoundedActionButton>
           </div>

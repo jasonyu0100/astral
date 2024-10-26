@@ -6,11 +6,12 @@ import {
 import { createContext } from 'react';
 import { SpacesViewAddCollectionModal } from '../add/collection/main';
 import { SpacesViewAddGalleryModal } from '../add/gallery/main';
+import { SpacesViewAddArticleIdeaModal } from '../add/idea/article/main';
 import { SpacesViewAddFileIdeaModal } from '../add/idea/file/main';
 import { SpacesViewAddGenerateIdeaModal } from '../add/idea/generate/main';
 import { SpacesViewAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpacesViewAddSpotifyUrlModal } from '../add/idea/spotify/main';
-import { SpacesViewAddTextIdeaModal } from '../add/idea/text/main';
+import { SpacesViewAddStickyIdeaModal } from '../add/idea/sticky/main';
 import { SpacesViewAddWebsiteUrlModal } from '../add/idea/website/main';
 import { SpacesViewAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesViewAddResourceModal } from '../add/resource/main';
@@ -27,7 +28,8 @@ export interface SpacesViewModals {
   addYouTubeUrlIdeaController: ContextForOpenableInterface;
   addSpotifyUrlIdeaController: ContextForOpenableInterface;
   addWebsiteUrlIdeaController: ContextForOpenableInterface;
-  addTextIdeaController: ContextForOpenableInterface;
+  addStickyIdeaController: ContextForOpenableInterface;
+  addArticleIdeaController: ContextForOpenableInterface;
   addResourceController: ContextForOpenableInterface;
   addSceneController: ContextForOpenableInterface;
   addSearchIdeaController: ContextForOpenableInterface;
@@ -43,7 +45,8 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
   const addYouTubeUrlIdeaController = useControllerForOpenable();
   const addSpotifyUrlIdeaController = useControllerForOpenable();
   const addWebsiteUrlIdeaController = useControllerForOpenable();
-  const addTextIdeaController = useControllerForOpenable();
+  const addStickyIdeaController = useControllerForOpenable();
+  const addArticleIdeaController = useControllerForOpenable();
   const addResourceController = useControllerForOpenable();
   const addSceneController = useControllerForOpenable();
   const addGenerateIdeaController = useControllerForOpenable();
@@ -60,7 +63,8 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
         addYouTubeUrlIdeaController: addYouTubeUrlIdeaController,
         addSpotifyUrlIdeaController: addSpotifyUrlIdeaController,
         addWebsiteUrlIdeaController: addWebsiteUrlIdeaController,
-        addTextIdeaController: addTextIdeaController,
+        addStickyIdeaController: addStickyIdeaController,
+        addArticleIdeaController: addArticleIdeaController,
         addResourceController: addResourceController,
         addSceneController: addSceneController,
         addGenerateIdeaController: addGenerateIdeaController,
@@ -88,8 +92,11 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={addSpotifyUrlIdeaController}>
         <SpacesViewAddSpotifyUrlModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addTextIdeaController}>
-        <SpacesViewAddTextIdeaModal />
+      <ContextForOpenable.Provider value={addStickyIdeaController}>
+        <SpacesViewAddStickyIdeaModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addArticleIdeaController}>
+        <SpacesViewAddArticleIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addResourceController}>
         <SpacesViewAddResourceModal />

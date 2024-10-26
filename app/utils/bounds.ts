@@ -58,8 +58,11 @@ export async function getTextIdeaBounds(file: TextElem) {
   let height = 150;
 
   if (file.variant === TextElemVariant.STICKY) {
-    width = 150;
-    height = 150;
+    width = 200;
+    height = 200;
+  } else if (file.variant === TextElemVariant.PAGE) {
+    width = 350;
+    height = 250;
   }
 
   return { width, height };
