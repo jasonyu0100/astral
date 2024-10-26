@@ -69,7 +69,7 @@ export function SpacesViewTextIdea() {
         </div>
       )}
       {ideaObj.textElem.variant === TextElemVariant.ARTICLE && (
-        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[1rem] text-black shadow-md'>
+        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-800 bg-opacity-30 p-[1rem] text-black shadow-md'>
           <label htmlFor={`page-textarea-${ideaObj.id}`} className='sr-only'>
             Page Idea Text
           </label>

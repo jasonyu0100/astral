@@ -70,7 +70,7 @@ export function SpacesLinkTextIdea() {
         </div>
       )}
       {taskLinkObj.textElem.variant === TextElemVariant.ARTICLE && (
-        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[2rem] text-black shadow-md'>
+        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-800 bg-opacity-30 p-[2rem] text-black shadow-md'>
           <label
             htmlFor={`page-textarea-${taskLinkObj.id}`}
             className='sr-only'

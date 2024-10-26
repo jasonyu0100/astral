@@ -69,7 +69,7 @@ export function SpacesViewAddArticleIdeaModal() {
         <CustomisableModalContents>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
-            <div className='aspect-[7/5] w-[400px] rounded-[1rem] bg-slate-300 bg-opacity-10 p-[2rem] shadow-md'>
+            <div className='aspect-[7/5] w-[400px] rounded-[1rem] bg-slate-800 bg-opacity-10 p-[2rem] shadow-md'>
               <textarea
                 placeholder='Enter text here...'
                 className='h-full w-full bg-transparent text-lg font-light text-slate-300 outline-none placeholder:text-slate-300'
