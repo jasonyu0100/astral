@@ -20,7 +20,7 @@ import { ElementVariant } from '@/server/model/elements/main';
 import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
 import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useState } from 'react';
-import { ContextForSpacesView } from '../../../controller/main';
+import { ContextForSpacesView } from '../../controller/main';
 
 export function SpacesViewCombineIdeas() {
   const user = useGlobalUser((state) => state.user);

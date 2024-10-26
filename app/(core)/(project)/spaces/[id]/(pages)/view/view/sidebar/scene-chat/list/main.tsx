@@ -15,8 +15,8 @@ export function SpacesViewChatSceneList() {
 
   return (
     <div
-      className='flex h-full w-full flex-col space-y-[1rem] overflow-auto p-[1rem]'
-      style={{ height: '100%' }}
+      className='flex w-full flex-col space-y-[1rem] overflow-auto p-[1rem]'
+      style={{ height: 'calc(100% - 9rem)' }}
       ref={ref}
     >
       {messageListController.state.objs.map((message) => (

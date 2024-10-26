@@ -20,7 +20,7 @@ import { ElementVariant } from '@/server/model/elements/main';
 import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useEffect, useState } from 'react';
 import { spacesMap } from '../../../../map';
-import { ContextForSpacesView } from '../../../controller/main';
+import { ContextForSpacesView } from '../../controller/main';
 
 export function SpacesViewGenerateLog() {
   const user = useGlobalUser((state) => state.user);

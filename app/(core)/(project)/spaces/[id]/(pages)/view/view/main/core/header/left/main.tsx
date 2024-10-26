@@ -4,7 +4,7 @@ import {
   SpacesViewLinkMode,
   SpacesViewSidebarContentMode,
   SpacesViewSidebarVisibility,
-} from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
+} from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCalendarIcon } from '@/icons/calendar/main';

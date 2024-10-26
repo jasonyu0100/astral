@@ -65,10 +65,6 @@ export function useControllerForSpacesViewChat() {
     const ideaHistory = ideaListController.state.objs.map((idea) => {
       if (idea.variant === ElementVariant.TEXT) {
         return `Idea - ${idea.textElem?.text}`;
-      } else if (idea.variant === ElementVariant.FILE) {
-        return `Idea: ${idea.title} - ${idea.description}`;
-      } else if (idea.variant === ElementVariant.URL) {
-        return `Idea: ${idea.title} - ${idea.description}`;
       }
     });
     return ideaHistory;

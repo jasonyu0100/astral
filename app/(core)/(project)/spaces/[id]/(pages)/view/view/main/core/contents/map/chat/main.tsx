@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import {
   ContextForSpacesView,
   SpacesViewSidebarContentMode,
-} from '../../../../../../../controller/main';
+} from '../../../../../../controller/main';
 
 export function SpacesViewChat() {
   const {
