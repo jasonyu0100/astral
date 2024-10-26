@@ -3,7 +3,7 @@ import {
   ContextForSpacesView,
   SpacesViewSidebarContentMode,
   SpacesViewSidebarMediaMode,
-} from '../../controller/main';
+} from '../../../controller/main';
 import { SpacesViewSidebarChapters } from './chapters/main';
 import { SpacesViewSidebarContainer } from './container/main';
 import { SpacesViewSidebarHeader } from './header/main';

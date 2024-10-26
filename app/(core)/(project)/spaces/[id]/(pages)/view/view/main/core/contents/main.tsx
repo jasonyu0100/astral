@@ -2,7 +2,8 @@ import { ImageBackground } from '@/components/background/img/main';
 import { AbsoluteHolder } from '@/components/holder/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
-import { ContextForSpacesView } from '../../../../controller/main';
+import { ContextForSpacesView } from '../../../../../controller/main';
+import { SpacesViewChat } from './map/chat/main';
 import { SpacesViewPalette } from './map/palette/main';
 import { SpacesViewScene } from './map/scene/main';
 import { SpacesViewScreenshot } from './map/screenshot/main';
@@ -31,6 +32,7 @@ export function SpacesViewContents() {
             {/* <SpacesViewStatus /> */}
             <SpacesViewPalette />
             <SpacesViewScreenshot />
+            <SpacesViewChat />
           </>
         )}
       </AbsoluteHolder>

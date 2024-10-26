@@ -1,8 +1,8 @@
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { useContext } from 'react';
-import { ContextForSpacesView } from '../../../../../controller/main';
 
 export function SpacesViewResourcesBack() {
   const galleryListController = useContext(ContextForGalleryList);

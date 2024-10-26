@@ -1,3 +1,4 @@
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -5,7 +6,6 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpacesView } from '../../../../../../controller/main';
 
 export function SpacesViewGalleryItem() {
   const gallery = useContext(ContextForGalleryObj);

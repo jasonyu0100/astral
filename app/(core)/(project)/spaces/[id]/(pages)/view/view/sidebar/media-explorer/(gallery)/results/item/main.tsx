@@ -1,3 +1,4 @@
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -7,7 +8,6 @@ import { ElementVariant } from '@/server/model/elements/main';
 import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpacesView } from '../../../../../../controller/main';
 
 export function SpacesViewCollectionItem() {
   const collection = useContext(ContextForGalleryCollectionObj);

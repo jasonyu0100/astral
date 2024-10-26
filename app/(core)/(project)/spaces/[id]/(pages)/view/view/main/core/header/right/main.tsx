@@ -1,6 +1,6 @@
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
-import { ContextForSpacesView } from '../../../../../controller/main';
 import { ContextForSpacesViewModals } from '../../../../../modal/controller/main';
 
 export function SpacesViewHeaderRight() {

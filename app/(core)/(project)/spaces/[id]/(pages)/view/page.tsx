@@ -55,9 +55,13 @@ import { useContext, useEffect } from 'react';
 import { SpacesSidebar } from '../../../sidebar/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
+  ContextForSpacesViewChat,
+  useControllerForSpacesViewChat,
+} from '../controller/chat/main';
+import {
   ContextForSpacesView,
   useControllerForSpacesView,
-} from './controller/main';
+} from '../controller/main';
 import { SpacesViewModals } from './modal/controller/main';
 import { SpacesViewView } from './view/main';
 
@@ -218,10 +222,13 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const mapController = useControllerForSpacesView();
+  const chatController = useControllerForSpacesViewChat();
 
   return (
     <ContextForSpacesView.Provider value={mapController}>
-      {children}
+      <ContextForSpacesViewChat.Provider value={chatController}>
+        {children}
+      </ContextForSpacesViewChat.Provider>
     </ContextForSpacesView.Provider>
   );
 }

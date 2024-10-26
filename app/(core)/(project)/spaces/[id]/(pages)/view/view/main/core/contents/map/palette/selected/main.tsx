@@ -1,4 +1,4 @@
-import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
+import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
 import { ContextForSpacesViewModals } from '@/(core)/(project)/spaces/[id]/(pages)/view/modal/controller/main';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';

@@ -23,6 +23,7 @@ interface ControllerState {
   divWidth: number;
   divHeight: number;
   selectedIdeas: IdeaObj[];
+  directoryMode: SpacesViewDirectoryMode;
   linkMode: SpacesViewLinkMode;
   mapMode: SpacesViewInteractionMode;
   sidebarMediaMode: SpacesViewSidebarMediaMode;
@@ -42,6 +43,7 @@ interface ControllerActions {
     width: number;
     height: number;
   };
+  updateDirectoryMode: (mode: SpacesViewDirectoryMode) => void;
   updateDivWidth: (width: number) => void;
   updateDivHeight: (height: number) => void;
   updateLinkMode: (mode: SpacesViewLinkMode) => void;
@@ -106,6 +108,11 @@ export enum SpacesViewLinkMode {
   OFF = 'OFF',
 }
 
+export enum SpacesViewDirectoryMode {
+  DEFAULT = 'Default',
+  DIRECTORY = 'DIRECTORY',
+}
+
 export function useControllerForSpacesView(): Controller {
   const loadingController = useContext(ContextForLoading);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -120,6 +127,9 @@ export function useControllerForSpacesView(): Controller {
   const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
   const [bubbleMode, setBubbleMode] = useState<SpacesViewBubbleMode>(
     SpacesViewBubbleMode.ON,
+  );
+  const [directoryMode, setDirectoryMode] = useState<SpacesViewDirectoryMode>(
+    SpacesViewDirectoryMode.DEFAULT,
   );
   const [isSwitchOn, setSwitch] = useState(false);
   const [listSceneMode, setListSceneMode] = useState<SpacesViewSidebarMode>(
@@ -288,6 +298,7 @@ export function useControllerForSpacesView(): Controller {
 
   return {
     state: {
+      directoryMode: directoryMode,
       isSwitchOn: isSwitchOn,
       divWidth: divWidth,
       divHeight: divHeight,
@@ -306,6 +317,7 @@ export function useControllerForSpacesView(): Controller {
       updateHideUI: (hide: boolean) => setHideUI(hide),
       takeScreenshot: takeScreenshot,
       updateDivWidth: (width) => setDivWidth(width),
+      updateDirectoryMode: (mode) => setDirectoryMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
       updateLinkMode: (mode) => setLinkMode(mode),
       updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
