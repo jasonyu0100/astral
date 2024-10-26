@@ -24,7 +24,7 @@ export function SpacesPersonalShowNoticeModal() {
             <iframe
               width='100%'
               height='100%'
-              src='https://www.youtube.com/embed/65_4Kke0TWo' // Replace with your video ID
+              src='https://www.youtube.com/embed/3m51tfnCrWk' // Replace with your video ID
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen
               title='YouTube Video'
