@@ -4,5 +4,5 @@ interface PortalGalleryPieceProps
 }
 
 export function PortalGalleryPiece({ ...props }: PortalGalleryPieceProps) {
-  return <img {...props} className='aspect-square w-full' />;
+  return <img {...props} className='aspect-square max-w-[380px]' />;
 }
