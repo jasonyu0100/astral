@@ -45,7 +45,7 @@ export function CreateSpaceModalFooter() {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
                   openableController.close();
-                  window.open(spacesMap.spaces.id.chat.link(spaceObj.id));
+                  window.open(spacesMap.spaces.id.board.link(spaceObj.id));
                   loadingController.loadingController.close();
                 });
               }}
