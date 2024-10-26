@@ -17,12 +17,12 @@ export function SpacesChatHeaderRight() {
           No messages sent
         </p>
       )}
-      {conversationLength > 0 && conversationLength < 2 && (
+      {conversationLength > 0 && conversationLength < 1 && (
         <p className='animate-pulse font-bold text-slate-400'>
-          {2 - conversationLength} more messages needed
+          {1 - conversationLength} more messages needed
         </p>
       )}
-      {conversationLength >= 2 && (
+      {conversationLength >= 1 && (
         <button
           className='flex animate-pulse-slow flex-row items-center space-x-[1rem] rounded-md bg-gradient-to-r from-purple-700 to-purple-500 px-[1rem] py-[0.5rem]'
           onClick={() => {
@@ -30,7 +30,7 @@ export function SpacesChatHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Make Constellation ({conversationLength})
+            Generate Constellation ({conversationLength})
           </p>
           <AstralArrowForwardIcon />
         </button>

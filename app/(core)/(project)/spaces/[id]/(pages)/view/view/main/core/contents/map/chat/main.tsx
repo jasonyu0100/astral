@@ -24,7 +24,7 @@ export function SpacesViewChat() {
         )}
         onClick={() => {
           if (sidebarContentMode === SpacesViewSidebarContentMode.CHAT_SCENE) {
-            updateSidebarContentMode(SpacesViewSidebarContentMode.LIST);
+            updateSidebarContentMode(SpacesViewSidebarContentMode.CHAPTERS);
           } else {
             updateSidebarContentMode(SpacesViewSidebarContentMode.CHAT_SCENE);
           }
