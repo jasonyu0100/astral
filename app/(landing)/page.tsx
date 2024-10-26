@@ -117,7 +117,7 @@ const CallToAction = () => {
       />
       <div className='h-[3rem] sm:h-[5rem]' />
       <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
-        Your chats now flow into visual insights
+        Transforming your ideas into visual insights
       </p>
       <div className='h-[5rem] sm:h-[10rem]' />
       <a
