@@ -60,10 +60,13 @@ const HeroSection = () => (
         Creative spaces that flow
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is the creative-ideation studio that grows with you. Whether
-        you're a visionary, content creator, or startup founder, Astral equips
-        you with AI-powered tools to turn your ideas into reality, providing
-        clarity and insight at every stage of the process.
+        Astral is a dynamic creative studio built to grow with you, offering
+        powerful AI tools to bring your ideas to life. Ideal for visionaries,
+        content creators, and startup founders, Astral features Kanban boards
+        for streamlined task management, collaborative Chat for real-time
+        discussions, intuitive Mapping for visualizing ideas, and Posts for
+        capturing insights and sharing updates—all designed to provide clarity
+        and support at every stage of your creative process.
       </p>
       <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
         <a
@@ -135,16 +138,20 @@ const CallToAction = () => {
 const FeaturesSection = () => {
   const features = [
     {
-      text: 'Engage in chats around defined clear objectives',
+      text: 'Engage in focused chats centered on clear objectives.',
       number: 1,
     },
     {
-      text: 'Visually expand upon your conversations and ideas.',
+      text: 'Visually expand on conversations and ideas to enhance clarity and depth.',
       number: 2,
     },
     {
-      text: 'Work with engaging visual maps in a notebook style experience.',
+      text: 'Utilize an interactive, notebook-style map to organize and track your thoughts.',
       number: 3,
+    },
+    {
+      text: 'Refine and develop ideas within dynamic visual maps, moving seamlessly from planning to execution.',
+      number: 4,
     },
   ];
 
