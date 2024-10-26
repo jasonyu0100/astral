@@ -13,7 +13,6 @@ import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getTextIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
-import { ContextForSpacesView } from '../../../../controller/main';
 
 export function SpacesViewAddTextIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
@@ -26,7 +25,6 @@ export function SpacesViewAddTextIdeaModal() {
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
-  const mapController = useContext(ContextForSpacesView);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, createContext } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 import { portalModel } from '../../model/main';
 
 export interface PolaroidContextObj {
@@ -31,7 +31,7 @@ export interface usePolaroidInterface {
 
 export const usePolaroid = () => {
   const categories = portalModel.categories.example;
-  const [flipped, changeFlipped] = useState(false);
+  const [flipped, changeFlipped] = useState(true);
   const [index, changeIndex] = useState(0);
   const [variant, changeVariant] = useState('m');
   const [transition, changeTransition] = useState('show');
