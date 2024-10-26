@@ -69,13 +69,13 @@ export function SpacesViewTextIdea() {
         </div>
       )}
       {ideaObj.textElem.variant === TextElemVariant.PAGE && (
-        <div className='aspect-[7/5] w-full flex-shrink-0 bg-green-500 p-[1rem] text-black shadow-md'>
+        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[1rem] text-black shadow-md'>
           <label htmlFor={`page-textarea-${ideaObj.id}`} className='sr-only'>
             Page Idea Text
           </label>
           <textarea
             id={`page-textarea-${ideaObj.id}`}
-            className='h-full w-full resize-none bg-transparent text-black outline-none'
+            className='h-full w-full resize-none bg-transparent font-bold text-slate-300 outline-none'
             value={pageText}
             onChange={(e) => setPageText(e.target.value)}
             onBlur={handlePageBlur}

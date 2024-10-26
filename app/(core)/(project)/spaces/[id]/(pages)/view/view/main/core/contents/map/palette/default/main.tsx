@@ -2,13 +2,13 @@ import { ContextForSpacesViewModals } from '@/(core)/(project)/spaces/[id]/(page
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
-import { AstralArticleIcon } from '@/icons/article/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { AstralNoteIcon } from '@/icons/note/main';
+import { AstralRectangleIcon } from '@/icons/rectangle/main';
 import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
+import { AstralSquareIcon } from '@/icons/square/main';
 import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { useContext, useState } from 'react';
@@ -24,17 +24,17 @@ export function SpacesViewPaletteDefault() {
           onClick={() => modalController.addFileIdeaController.open()}
         />
       </div>
-      <AstralNoteIcon
+      <AstralSquareIcon
         onClick={() => modalController.addStickyIdeaController.open()}
+      />
+      <AstralRectangleIcon
+        onClick={() => modalController.addArticleIdeaController.open()}
       />
       <AstralSearchIcon
         onClick={() => modalController.addSearchIdeaController.open()}
       />
       <AstralSmartDisplayIcon
         onClick={() => modalController.addYouTubeUrlIdeaController.open()}
-      />
-      <AstralArticleIcon
-        onClick={() => modalController.addArticleIdeaController.open()}
       />
       {showMore && (
         <>
