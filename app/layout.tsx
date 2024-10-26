@@ -13,15 +13,15 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <meta name='referrer' content='origin' />
         <script
           async
-          src='https://www.googletagmanager.com/gtag/js?id=AW-16754167285'
+          src='https://www.googletagmanager.com/gtag/js?id=AW-16754047290'
         ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-16754167285');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-16754047290');
             `,
           }}
         />

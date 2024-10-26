@@ -38,3 +38,7 @@ State of Astral: Astral is focused on mastering the flow between conversation an
 export const targetCustomer = `
 The Customer: Astral’s ideal user is a creative who collaborates and iterates with others, using Astral to turn their ideas into reality. Whether they’re working solo or within a team, our users refine their projects through feedback, discussions, and task allocation, leveraging Astral’s AI-driven workflows to create, organize, and execute. They’re content creators, project leaders, and visionaries looking to bring their brand and ideas to life through collaboration.
 `;
+
+export const videoOne = 'https://www.youtube.com/watch?v=k9y8ALInN0s';
+export const videoTwo = 'https://www.youtube.com/watch?v=QXYT0mTZQ8k';
+export const videoThree = 'https://www.youtube.com/watch?v=65_4Kke0TWo';
