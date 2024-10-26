@@ -10,6 +10,7 @@ import { SpacesViewSidebarHeader } from './header/main';
 import { SpacesViewGalleryCollectionsMode } from './media-explorer/(gallery)/main';
 import { SpacesViewSidebarHomeGallerysMode } from './media-explorer/(home)/main';
 import { SpacesViewCollectionResourcesMode } from './media-explorer/(resources)/main';
+import { SpacesViewSidebarChatScene } from './scene-chat/main';
 
 export function SpacesViewSidebar() {
   const {
@@ -31,6 +32,9 @@ export function SpacesViewSidebar() {
             <SpacesViewCollectionResourcesMode />
           )}
         </>
+      )}
+      {sidebarContentMode === SpacesViewSidebarContentMode.CHAT_SCENE && (
+        <SpacesViewSidebarChatScene />
       )}
       {sidebarContentMode === SpacesViewSidebarContentMode.CHAPTERS && (
         <>
