@@ -11,6 +11,7 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import { getTextIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 import { ContextForSpacesView } from '../../../../controller/main';
 
@@ -30,24 +31,27 @@ export function SpacesViewAddTextIdeaModal() {
     chapterListController.state.objId,
   );
 
-  function create() {
-    const { x, y, width, height } = mapController.actions.getAvailableXYWH();
+  async function create() {
+    const textElem = {
+      id: crypto.randomUUID(),
+      title: title,
+      text: text,
+      variant: variant,
+    } as TextElem;
+
+    const { width, height } = await getTextIdeaBounds(textElem);
+
     ideaListController.actions.createActions
       .createIdeaFromTextElement(
         user.id,
         sceneListController.state.objId,
         title,
         description,
-        x,
-        y,
+        0,
+        0,
         width,
         height,
-        {
-          id: crypto.randomUUID(),
-          title: title,
-          text: text,
-          variant: variant,
-        } as TextElem,
+        textElem,
         ideaListController.state.objs.length,
       )
       .then((idea) => {
