@@ -11,6 +11,7 @@ export interface PostAttachmentObj {
   postId: string;
   created: string;
   variant: string;
+  ideaId?: string;
   fileElem?: FileElem;
   textElem?: TextElem;
   urlElem?: UrlElem;
@@ -19,10 +20,11 @@ export interface PostAttachmentObj {
 export const postAttachmentGql = `
 type PostAttachmentObj {
   id: String!
-  userId: String
   postId: String!
   created: String!
   variant: String!
+  ideaId: String
+  userId: String
   fileElem: FileElem
   textElem: TextElem
   urlElem: UrlElem

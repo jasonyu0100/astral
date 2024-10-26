@@ -17,7 +17,7 @@ import { SpacesViewAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesViewAddResourceModal } from '../add/resource/main';
 import { SpacesViewAddSceneModal } from '../add/scene/main';
 import { SpacesViewCombineIdeas } from '../combine/main';
-import { SpacesViewGenerateLog } from '../generate/main';
+import { SpacesViewGeneratePost } from '../generate/main';
 
 export const ContextForSpacesViewModals = createContext({} as SpacesViewModals);
 
@@ -108,7 +108,7 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
         <SpacesViewAddSearchIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generatePlanController}>
-        <SpacesViewGenerateLog />
+        <SpacesViewGeneratePost />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateIdeaController}>
         <SpacesViewAddGenerateIdeaModal />

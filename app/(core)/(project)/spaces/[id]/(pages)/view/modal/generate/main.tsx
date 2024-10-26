@@ -10,19 +10,18 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { useControllerForIdeaRelationshipListFromChapter } from '@/server/controller/idea/relationship/list-from-chapter';
+import { useControllerForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
+import { useControllerForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { useControllerForTaskLinkList } from '@/server/controller/way/link/list';
-import { useControllerForTaskList } from '@/server/controller/way/list';
 import { ElementVariant } from '@/server/model/elements/main';
 import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useEffect, useState } from 'react';
 import { spacesMap } from '../../../../map';
 import { ContextForSpacesView } from '../../controller/main';
 
-export function SpacesViewGenerateLog() {
+export function SpacesViewGeneratePost() {
   const user = useGlobalUser((state) => state.user);
   const {
     state: { selectedIdeas },
@@ -33,19 +32,15 @@ export function SpacesViewGenerateLog() {
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const wayListController = useControllerForTaskList(
+  const postListController = useControllerForUserPostListFromChapter(
     chapterListController.state.objId,
   );
-  const linkListController = useControllerForTaskLinkList(
-    wayListController.state.objId,
+  const attachmentListController = useControllerForPostAttachmentListFromPost(
+    postListController.state.objId,
   );
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
-  const ideaRelationshipListController =
-    useControllerForIdeaRelationshipListFromChapter(
-      chapterListController.state.objId,
-    );
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -93,54 +88,33 @@ export function SpacesViewGenerateLog() {
   async function createLog() {
     loadingController.loadingController.open();
     openableController.close();
-    const log = await wayListController.actions.createActions.createTask(
-      chapterListController.state.objId,
-      user.id,
+
+    const post = await postListController.actions.createActions.createPost(
       title,
       description,
+      user.id,
+      chapterListController.state.objId,
     );
-    const links = await Promise.all(
+
+    const attachments = await Promise.all(
       selectedIdeas.map((idea) =>
-        linkListController.actions.createActions.createLinkFromIdea(
+        attachmentListController.actions.createActions.createFromIdea(
           user.id,
-          log.id,
+          post.id,
           idea,
-          spaceController.state.objId,
-          chapterListController.state.objId,
-          sceneListController.state.objId,
         ),
       ),
     );
-    await Promise.all(
-      links.slice(0, links.length - 1).map((fromLink, index) => {
-        const toLink = links[index + 1];
-        const relationshipMatch =
-          ideaRelationshipListController.actions.stateActions.getLinkMatch(
-            fromLink,
-            toLink,
-          );
-        if (relationshipMatch) {
-          return ideaRelationshipListController.actions.editActions.updateFromLink(
-            fromLink,
-            toLink,
-          );
-        } else {
-          return ideaRelationshipListController.actions.createActions.createFromLink(
-            fromLink,
-            toLink,
-          );
-        }
-      }),
-    );
+
     await activityListController.actions.createActions
-      .createFromChapterTask(
+      .createFromChapterPost(
         user.id,
         spaceController.state.objId,
         chapterListController.state.objId,
-        log.id,
+        post.id,
       )
       .then(() => {
-        window.location.href = `${spacesMap.spaces.id.board.link(
+        window.location.href = `${spacesMap.spaces.id.post.link(
           spaceController.state.objId,
         )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
       });
@@ -150,8 +124,9 @@ export function SpacesViewGenerateLog() {
     <ContextForOpenable.Provider value={openableController}>
       <CustomisableModal>
         <CustomisableModalContents>
-          <div className='flex flex-row items-center space-x-[2rem]'>
-            <div className='flex flex-col space-y-[2rem]'>
+          <div className='flex w-[800px] flex-row items-center space-x-[2rem]'>
+            <div className='flex w-full flex-col space-y-[2rem]'>
+              <p className='text-3xl font-bold text-slate-300'>Generate Post</p>
               <AstralTextLineInput
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -165,11 +140,13 @@ export function SpacesViewGenerateLog() {
                 placeholder='Enter a description for the task...'
                 rows={8}
               />
-              <div className='grid grid-cols-3 gap-[1rem]'>
+              <div className='grid h-[300px] w-full grid-cols-3 gap-[1rem] overflow-auto'>
                 {selectedIdeas.map((idea) => (
-                  <ContextForIdeaObj.Provider value={idea}>
-                    <ElementIdea />
-                  </ContextForIdeaObj.Provider>
+                  <div key={idea.id}>
+                    <ContextForIdeaObj.Provider value={idea}>
+                      <ElementIdea />
+                    </ContextForIdeaObj.Provider>
+                  </div>
                 ))}
               </div>
             </div>

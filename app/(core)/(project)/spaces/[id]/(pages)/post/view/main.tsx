@@ -22,10 +22,10 @@ export function SpacesPostView() {
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}
     >
+      <SpacesPostMain />
       {sidebarVisibility !== SpacesPostSidebarVisibility.CLOSED && (
         <SpacesPostSidebar />
       )}
-      <SpacesPostMain />
     </GlassAreaContainer>
   );
 }
