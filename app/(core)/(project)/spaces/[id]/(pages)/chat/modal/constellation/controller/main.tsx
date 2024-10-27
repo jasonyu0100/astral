@@ -375,7 +375,7 @@ export function useGenerateSceneController(): Controller {
       }),
     );
 
-    window.location.href = `${spacesMap.spaces.id.view.link(
+    window.location.href = `${spacesMap.spaces.id.scene.link(
       spaceController.state.objId,
     )}?chapter=${chapterListController.state.objId}&scene=${newScene.id}`;
   }

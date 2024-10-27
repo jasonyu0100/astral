@@ -10,11 +10,11 @@ import { CreativeSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';
 import { SpaceTabStage } from '../main';
 
-export function SpacesTabMap({ tab }: { tab?: string }) {
+export function SpacesTabScene({ tab }: { tab?: string }) {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceContext = useContext(CreativeSpacesContext);
-  const tabText = SpaceTabStage.View;
+  const tabText = SpaceTabStage.Scene;
   const active = tab === tabText;
 
   // Safely check if the necessary context values are available
@@ -24,7 +24,7 @@ export function SpacesTabMap({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.view.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
+    ? `${spacesMap.spaces.id.scene.link(spaceId)}?chapter=${chapterId ?? ''}&scene=${sceneId ?? ''}`
     : '#'; // Fallback URL if spaceId is not defined
 
   return (

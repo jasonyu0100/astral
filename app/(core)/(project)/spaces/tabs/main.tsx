@@ -3,16 +3,16 @@ import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { SpaceTabBoard } from './board-tab/main';
 import { SpacesTabChat } from './chat-tab/main';
 import { SpacesTabPost } from './flight-tab/main';
-import { SpacesTabMap } from './map-tab/main';
+import { SpacesTabScene } from './map-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
 }
 
 export enum SpaceTabStage {
-  Chat = 'Chat',
-  View = 'View',
   Board = 'Board',
+  Chat = 'Chat',
+  Scene = 'Scene',
   Post = 'Post',
 }
 
@@ -22,7 +22,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
       <TabsRow>
         <SpaceTabBoard tab={tab} />
         <SpacesTabChat tab={tab} />
-        <SpacesTabMap tab={tab} />
+        <SpacesTabScene tab={tab} />
         <SpacesTabPost tab={tab} />
       </TabsRow>
     </TabsContainer>

@@ -56,7 +56,24 @@ function KanbanRow({ title, tasks, status }) {
 
   return (
     <div className='flex flex-col border-b-[1px] border-slate-300 border-opacity-30'>
-      <h2 className='mb-2 text-lg font-semibold text-slate-300'>{title}</h2>
+      <div className='flex flex-row items-center space-x-[1rem]'>
+        {TaskStatus.TODO === status && (
+          <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-blue-500 font-bold'>
+            <p className='text-md font-bold text-slate-300'>{tasks.length}</p>
+          </div>
+        )}
+        {TaskStatus.IN_PROGRESS === status && (
+          <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-red-500 font-bold'>
+            <p className='text-md font-bold text-slate-300'>{tasks.length}</p>
+          </div>
+        )}
+        {TaskStatus.DONE === status && (
+          <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0 animate-pulse-slow items-center justify-center rounded-[1rem] bg-green-500 font-bold'>
+            <p className='text-md font-bold text-slate-300'>{tasks.length}</p>
+          </div>
+        )}
+        <h2 className='text-lg font-semibold text-slate-300'>{title}</h2>
+      </div>
       <div
         ref={drop}
         className={`flex h-full flex-row rounded ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
