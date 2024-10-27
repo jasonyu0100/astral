@@ -221,8 +221,6 @@ export function useControllerForSpacesView(): Controller {
         return ideaListController.actions.editActions.edit(idea.id, {
           x: x,
           y: y,
-          height: ideaSize, // Set height to the square size
-          width: ideaSize, // Set width to the square size
         });
       },
     );

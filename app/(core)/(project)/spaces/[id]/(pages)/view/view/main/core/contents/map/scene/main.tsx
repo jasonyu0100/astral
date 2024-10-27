@@ -31,15 +31,17 @@ export function SpacesViewScene() {
   }, []); // The empty dependency array ensures this effect runs only once after the component mounts.
 
   return (
-    <div className='relative h-full w-full py-[2rem] pl-[8rem] pr-[2rem]'>
+    <div
+      className='relative h-full w-full py-[2rem] pl-[8rem] pr-[2rem]'
+      ref={ref}
+    >
       {visibleIdeas.length === 0 ? (
         <SpacesViewSceneEmpty />
       ) : (
         <>
           <div
-            className='relative z-10 h-full w-full'
+            className='relative z-10 h-full w-full cursor-pointer'
             onClick={() => updateSelectedIdeas([])}
-            ref={ref}
           >
             {visibleIdeas.map((idea, index) => (
               <ContextForIndexable.Provider value={index}>

@@ -18,6 +18,7 @@ import { SpacesViewAddResourceModal } from '../add/resource/main';
 import { SpacesViewAddSceneModal } from '../add/scene/main';
 import { SpacesViewCombineIdeas } from '../combine/main';
 import { SpacesViewGeneratePost } from '../generate/main';
+import { SpacesViewShareViewModal } from '../share/main';
 
 export const ContextForSpacesViewModals = createContext({} as SpacesViewModals);
 
@@ -36,6 +37,7 @@ export interface SpacesViewModals {
   addGenerateIdeaController: ContextForOpenableInterface;
   generatePlanController: ContextForOpenableInterface;
   combineIdeasController: ContextForOpenableInterface;
+  shareViewController: ContextForOpenableInterface;
 }
 
 export function SpacesViewModals({ children }: { children: React.ReactNode }) {
@@ -53,6 +55,7 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
   const generatePlanController = useControllerForOpenable();
   const addSearchIdeaController = useControllerForOpenable();
   const combineIdeasController = useControllerForOpenable();
+  const shareViewController = useControllerForOpenable();
 
   return (
     <ContextForSpacesViewModals.Provider
@@ -71,6 +74,7 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
         addSearchIdeaController: addSearchIdeaController,
         generatePlanController: generatePlanController,
         combineIdeasController: combineIdeasController,
+        shareViewController: shareViewController,
       }}
     >
       {children}
@@ -115,6 +119,9 @@ export function SpacesViewModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={combineIdeasController}>
         <SpacesViewCombineIdeas />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={shareViewController}>
+        <SpacesViewShareViewModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesViewModals.Provider>
   );

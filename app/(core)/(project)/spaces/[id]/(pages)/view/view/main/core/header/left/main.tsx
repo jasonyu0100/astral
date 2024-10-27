@@ -21,6 +21,7 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
+import { ContextForSpacesViewModals } from '../../../../../modal/controller/main';
 
 export function SpacesViewHeaderLeft() {
   const {
@@ -41,6 +42,7 @@ export function SpacesViewHeaderLeft() {
       takeScreenshot,
     },
   } = useContext(ContextForSpacesView);
+  const spacesViewModalsController = useContext(ContextForSpacesViewModals);
   const user = useGlobalUser((state) => state.user);
   const space = useContext(ContextForSpaceMain);
   const galleryController = useContext(ContextForGalleryList);
@@ -127,7 +129,7 @@ export function SpacesViewHeaderLeft() {
       />
       <AstralLinkIcon
         onClick={() => {
-          alert('Coming Soon...');
+          spacesViewModalsController.shareViewController.open();
         }}
       />
       <BarDividerIndicator />

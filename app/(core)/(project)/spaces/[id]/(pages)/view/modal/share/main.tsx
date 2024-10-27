@@ -1,48 +1,43 @@
-import { FormBody } from '@/components/form/body/main';
-import { FormButton } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { spacesMap } from '../../../../map';
 
-export function SpacesViewPlanModal() {
-  const spaceController = useContext(ContextForSpaceMain);
+export function SpacesViewShareViewModal() {
   const openableController = useContext(ContextForOpenable);
-  const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Generate Plan</FormTitle>
-          <FormBody>
-            {ideaListController.state.objs.map((idea, index) => (
-              <div className='flex flex-row space-x-[1rem]'>
-                <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
-                  <p className='font-bold text-white'>{index}</p>
-                </div>
-                <img src={idea.fileElem?.src} />
-              </div>
-            ))}
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              onClick={() => {
-                window.location.href = spacesMap.spaces.id.board.link(
-                  spaceController.state.objId,
-                );
-              }}
+      <CustomisableModal>
+        <CustomisableModalContents>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='text-3xl font-bold text-slate-300'>Share View</p>
+            <GlassWindowFrame
+              className='h-[5rem] w-full p-[1rem]'
+              roundedFx={roundedFx['rounded-full']}
             >
-              Next
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+              <GlassWindowContents
+                className='flex cursor-pointer flex-row items-center space-x-[1rem]'
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  openableController.close();
+                }}
+              >
+                <p className='font-slate-300 w-[300px] overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
+                  {window.location.href}
+                </p>
+                <AstralLinkIcon />
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
+          </div>
+        </CustomisableModalContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

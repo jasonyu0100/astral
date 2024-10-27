@@ -55,7 +55,7 @@ export function SpacesViewMovable({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <div
-        className={`element absolute cursor-pointer`}
+        className={`element absolute cursor-move`}
         style={{
           width: `${ideaObj.width}px`,
           height: `${ideaObj.height}px`,
@@ -65,6 +65,13 @@ export function SpacesViewMovable({ children }: { children: React.ReactNode }) {
           scale: `${initialScale}`,
         }}
         ref={targetRef}
+        onMouseOver={() => {
+          if (selected) {
+            return;
+          } else {
+            updateSelectedIdeas([...selectedIdeas, ideaObj]);
+          }
+        }}
         onClick={(e) => {
           e.stopPropagation();
           if (hoverableController.hovered) {
