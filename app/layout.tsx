@@ -11,6 +11,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       <head>
         <title>Astral</title>
         <meta name='referrer' content='origin' />
+        <link rel='manifest' href='manifest.json' />
         <script
           async
           src='https://www.googletagmanager.com/gtag/js?id=AW-16754047290'

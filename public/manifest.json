@@ -1,0 +1,36 @@
+{
+  "name": "Astral",
+  "short_name": "Astral",
+  "display": "standalone",
+  "background_color": "#000000",
+  "description": "Astral is an open-ended creative work tracker.",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/brand/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/brand/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/brand/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/brand/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
