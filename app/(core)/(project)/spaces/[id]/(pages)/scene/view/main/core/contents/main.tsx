@@ -7,6 +7,7 @@ import { SpacesSceneChat } from './map/chat/main';
 import { SpacesScenePalette } from './map/palette/main';
 import { SpacesSceneSave } from './map/save/main';
 import { SpacesSceneScene } from './map/scene/main';
+import { SpacesSceneStatus } from './map/status/main';
 
 export function SpacesSceneContents() {
   const {
@@ -29,7 +30,7 @@ export function SpacesSceneContents() {
         {/* Conditionally hide UI components based on `hideUI` state */}
         {!hideUI && (
           <>
-            {/* <SpacesSceneStatus /> */}
+            <SpacesSceneStatus />
             <SpacesScenePalette />
             <SpacesSceneSave />
             <SpacesSceneChat />
