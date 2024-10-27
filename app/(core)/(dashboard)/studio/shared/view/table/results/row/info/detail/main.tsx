@@ -10,7 +10,7 @@ export function SpaceInfoDetail() {
     <div className='flex h-full w-full flex-col justify-center text-ellipsis'>
       <p className='text-lg font-bold text-slate-300'>{space.title}</p>
       <p className='w-full text-ellipsis text-sm font-light text-slate-300'>
-        {loggedInUser?.fname} {loggedInUser?.lname}
+        {loggedInUser?.displayName || 'Unknown'}
       </p>
     </div>
   );

@@ -10,11 +10,11 @@ export function SpacesChatMemberMessageDetail() {
   return (
     <div className='mr-auto flex flex-row items-center'>
       <img
-        src={userObj.dp?.src || exampleFileElement.src}
+        src={userObj?.dp?.src || exampleFileElement.src}
         className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
       />
       <p className='p-[0.5rem] text-left text-xs text-slate-300'>
-        from {userObj.displayName} at{' '}
+        from {userObj?.displayName} at{' '}
         {new Date(message.created).toLocaleTimeString()}
       </p>
     </div>

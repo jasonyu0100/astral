@@ -11,7 +11,7 @@ export function SpaceInfoDetail() {
         {space?.title || 'Untitled'}
       </p>
       <p className='w-full text-ellipsis text-sm font-light text-slate-300'>
-        {loggedInUser?.fname || 'Unknown'} {loggedInUser?.lname || 'Unknown'}
+        {loggedInUser?.displayName || 'Unknown'}
       </p>
     </div>
   );

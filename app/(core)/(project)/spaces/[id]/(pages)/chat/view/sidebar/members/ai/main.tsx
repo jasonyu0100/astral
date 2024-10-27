@@ -2,14 +2,14 @@ import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import { exampleChannel } from '@/server/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import { ContextForSpacesChat } from '../../../../controller/main';
 
-export function SpacesChatSidebarLoggedIn() {
-  const user = useContext(ContextForLoggedInUserObj);
+export function SpacesChatSidebarAi() {
+  const user = exampleChannel;
   const spacesConversationController = useContext(ContextForSpacesChat);
   const selected =
     spacesConversationController.state.selectedUser.id === user.id;

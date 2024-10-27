@@ -32,7 +32,7 @@ export const exampleAgent: AgentObj = {
   dp: {
     id: '0',
     src: '/llm/1.jpg',
-    ext: 'image/png',
+    ext: 'image/jpg',
     title: 'Chat GPT',
     size: 0,
     variant: 'IMAGE',

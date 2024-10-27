@@ -58,7 +58,7 @@ export function SpacesSidebarAddMemberItem() {
         <GlassWindowContents className='flex cursor-pointer flex-row items-center space-x-[1rem]'>
           <UserDisplayPictureElement fileElem={userController.state.obj.dp} />
           <p className='font-bold'>
-            {userController.state.obj.fname} {userController.state.obj.lname}
+            {userController.state.obj.displayName || 'Unknown'}
           </p>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />

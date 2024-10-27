@@ -12,7 +12,7 @@ export function ContainerDescription() {
         {gallery.title?.trim() || 'Untitled'}
       </div>
       <div className='text-md mt-[1rem] font-normal text-slate-500'>
-        {loggedInUser?.fname} {loggedInUser?.lname}
+        {loggedInUser?.displayName || 'Unknown'}
       </div>
     </div>
   );

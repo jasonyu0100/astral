@@ -75,6 +75,28 @@ export const exampleUser: UserObj = {
   degree: 0,
 };
 
+export const exampleChannel: UserObj = {
+  id: '0',
+  displayName: 'Channel',
+  journalId: '0',
+  fname: 'Channel',
+  lname: 'Channel',
+  email: 'email@example.com',
+  role: 'Channel',
+  bio: 'Been playing for X years',
+  private: false,
+  dp: {
+    id: '0',
+    src: '/brand/512x512.png',
+    ext: 'image/png',
+    title: 'Astral',
+    size: 0,
+    variant: 'IMAGE',
+  },
+  created: new Date().toISOString(),
+  degree: 0,
+};
+
 export const exampleUsers: UserObj[] = [
   {
     id: '1',

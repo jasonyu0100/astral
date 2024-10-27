@@ -29,7 +29,7 @@ export function SpacesChatSidebarMember() {
       >
         <UserDisplayPictureElement fileElem={user?.dp} />
         <p className='font-bold text-slate-300'>
-          {user?.fname} {user?.lname}
+          {user?.displayName || 'Unknown'}
         </p>
       </GlassWindowContents>
       {selected && <GlassWindowPane glassFx={glassFx['glass-20']} />}

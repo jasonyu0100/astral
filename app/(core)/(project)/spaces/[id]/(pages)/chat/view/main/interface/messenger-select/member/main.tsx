@@ -22,7 +22,7 @@ export function SpacesChatsMember({
         className='mr-2 h-[2rem] w-[2rem] rounded-full'
       /> */}
       <span className='text-slate-300'>
-        {user.state?.obj?.fname} {user.state?.obj?.lname}
+        {user.state?.obj?.displayName || 'Unknown'}
       </span>
     </div>
   );

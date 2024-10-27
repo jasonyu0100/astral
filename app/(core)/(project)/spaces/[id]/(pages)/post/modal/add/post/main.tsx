@@ -70,6 +70,12 @@ export function SpacesPostAddPostModal() {
         <FormContainer>
           <FormTitle>Create Post</FormTitle>
           <FormBody>
+            <FormUploadFiles
+              label='Attachments'
+              onChange={(files) => {
+                changeFiles(files);
+              }}
+            />
             <FormInput
               title='Title'
               value={title}
@@ -81,12 +87,6 @@ export function SpacesPostAddPostModal() {
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
               style={{ resize: 'none' }}
-            />
-            <FormUploadFiles
-              label='Attachments'
-              onChange={(files) => {
-                changeFiles(files);
-              }}
             />
           </FormBody>
           <FormFooter>

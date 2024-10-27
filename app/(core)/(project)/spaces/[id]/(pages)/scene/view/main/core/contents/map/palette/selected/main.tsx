@@ -13,7 +13,7 @@ export function SpacesScenePaletteSelected() {
 
   return (
     <>
-      <div className='flex items-center justify-center rounded-full bg-red-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
         <AstralDeleteIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
@@ -25,20 +25,24 @@ export function SpacesScenePaletteSelected() {
         />
       </div>
       {spacesSceneController.state.selectedIdeas.length >= 2 && (
-        <AstralCombineIcon
-          className='h-[2rem] w-[2rem]'
-          onClick={() => {
-            modalController.combineIdeasController.open();
-          }}
-        />
+        <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+          <AstralCombineIcon
+            className='h-[2rem] w-[2rem]'
+            onClick={() => {
+              modalController.combineIdeasController.open();
+            }}
+          />
+        </div>
       )}
       {spacesSceneController.state.selectedIdeas.length >= 2 && (
-        <AstralShareIcon
-          className='h-[2rem] w-[2rem]'
-          onClick={() => {
-            spacesSceneController.actions.linkIdeas();
-          }}
-        />
+        <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+          <AstralShareIcon
+            className='h-[2rem] w-[2rem]'
+            onClick={() => {
+              spacesSceneController.actions.linkIdeas();
+            }}
+          />
+        </div>
       )}
       {/* <AstralHideSourceIcon
         onClick={() => {

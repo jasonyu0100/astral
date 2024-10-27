@@ -33,7 +33,7 @@ export function SpacesChatMessengerSelect() {
           className='mr-2 h-[2rem] w-[2rem] rounded-full'
         />
         {/* <span className='font-bold text-slate-300'>
-          {selectedMember?.fname} {selectedMember?.lname}
+          {selectedMember?.displayName || 'Unknown'}
         </span> */}
         <AstralArrowDropUp />
       </div>

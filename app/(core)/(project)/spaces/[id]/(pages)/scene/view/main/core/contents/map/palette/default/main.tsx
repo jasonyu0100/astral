@@ -65,21 +65,23 @@ export function SpacesScenePaletteDefault() {
           />
         </>
       )}
-      {showMore ? (
-        <AstralArrowDropUp
-          className='h-[2rem] w-[2rem]'
-          onClick={() => {
-            setShowMore(false);
-          }}
-        />
-      ) : (
-        <AstralMoreVertIcon
-          className='h-[2rem] w-[2rem]'
-          onClick={() => {
-            setShowMore(true);
-          }}
-        />
-      )}
+      <div className='flex items-center justify-center rounded-full bg-purple-500 p-[0.5rem]'>
+        {showMore ? (
+          <AstralArrowDropUp
+            className='h-[2rem] w-[2rem]'
+            onClick={() => {
+              setShowMore(false);
+            }}
+          />
+        ) : (
+          <AstralMoreVertIcon
+            className='h-[2rem] w-[2rem]'
+            onClick={() => {
+              setShowMore(true);
+            }}
+          />
+        )}
+      </div>
     </>
   );
 }
