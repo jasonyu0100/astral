@@ -6,7 +6,7 @@ import { AstralSaveIcon } from '@/icons/save/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function SpacesViewScreenshot() {
+export function SpacesViewSave() {
   const spacesViewController = useContext(ContextForSpacesView);
   return (
     <div className='absolute right-[2rem] top-[0rem] z-30 flex h-full w-[4rem] flex-col items-center justify-center'>
@@ -19,7 +19,7 @@ export function SpacesViewScreenshot() {
           className='flex h-full w-full flex-col items-center justify-center bg-blue-600'
           onClick={() => spacesViewController.actions.saveAll()}
         >
-          <AstralSaveIcon />
+          <AstralSaveIcon className='h-[2rem] w-[2rem]' />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>

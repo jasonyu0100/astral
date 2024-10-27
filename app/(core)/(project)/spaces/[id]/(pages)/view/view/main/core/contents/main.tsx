@@ -5,8 +5,8 @@ import { useContext } from 'react';
 import { ContextForSpacesView } from '../../../../controller/main';
 import { SpacesViewChat } from './map/chat/main';
 import { SpacesViewPalette } from './map/palette/main';
+import { SpacesViewSave } from './map/save/main';
 import { SpacesViewScene } from './map/scene/main';
-import { SpacesViewScreenshot } from './map/screenshot/main';
 
 export function SpacesViewContents() {
   const {
@@ -31,7 +31,7 @@ export function SpacesViewContents() {
           <>
             {/* <SpacesViewStatus /> */}
             <SpacesViewPalette />
-            <SpacesViewScreenshot />
+            <SpacesViewSave />
             <SpacesViewChat />
           </>
         )}

@@ -13,7 +13,6 @@ import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
-import { AstralSortIcon } from '@/icons/sort/main';
 import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
@@ -71,12 +70,11 @@ export function SpacesViewHeaderLeft() {
           );
         }}
       />
-      <BarDividerIndicator />
       <AstralSyncAltIcon
         className={
           spacesViewController.state.linkMode === SpacesViewLinkMode.ON
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
         }
         onClick={() => {
           if (spacesViewController.state.linkMode === SpacesViewLinkMode.ON) {
@@ -89,8 +87,8 @@ export function SpacesViewHeaderLeft() {
       <AstralBubbleIcon
         className={
           spacesViewController.state.bubbleMode === SpacesViewBubbleMode.OFF
-            ? 'fill-slate-300'
-            : 'fill-blue-500'
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
         }
         onClick={() => {
           if (
@@ -106,11 +104,7 @@ export function SpacesViewHeaderLeft() {
           }
         }}
       />
-      <AstralSortIcon
-        onClick={() => {
-          spacesViewController.actions.autoSort();
-        }}
-      />
+      <BarDividerIndicator />
       <AstralFullscreenIcon
         onClick={() => {
           if (

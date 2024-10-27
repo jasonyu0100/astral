@@ -32,7 +32,7 @@ export function SpacesChatStatusContents() {
             {chapterListController.state.currentObj?.description}
           </p>
         </div>
-        {inProgress.map((task) => (
+        {inProgress.slice(0, 1).map((task) => (
           <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
             <p className='text-lg font-bold'>
               {task.title} {task.taskStatus}

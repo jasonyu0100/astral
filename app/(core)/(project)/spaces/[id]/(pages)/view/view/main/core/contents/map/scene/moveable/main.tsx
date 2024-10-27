@@ -13,12 +13,7 @@ import { SpacesViewIdeaIndicator } from './indicator/main';
 
 export function SpacesViewMovable({ children }: { children: React.ReactNode }) {
   const {
-    state: {
-      selectedIdeas,
-      bubbleMode: peopleMode,
-      linkMode: connectionMode,
-      isSwitchOn,
-    },
+    state: { selectedIdeas, bubbleMode: peopleMode },
     actions: { updateSelectedIdeas, checkContainsSelectedIdea },
   } = useContext(ContextForSpacesView);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -50,7 +45,7 @@ export function SpacesViewMovable({ children }: { children: React.ReactNode }) {
     setInitialY(ideaObj.y);
     setInitialScale(ideaObj.scale);
     setInitialRotation(ideaObj.rotation);
-  }, [isSwitchOn]);
+  }, []);
 
   return (
     <div>
