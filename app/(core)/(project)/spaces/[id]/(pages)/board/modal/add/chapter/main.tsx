@@ -13,7 +13,7 @@ import { useControllerForUserActivityListFromChapter } from '@/server/controller
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { exampleFileElement } from '@/server/model/elements/file/main';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 export function SpacesBoardAddChapterModal() {
   const spaceController = useContext(ContextForSpaceMain);
@@ -27,14 +27,6 @@ export function SpacesBoardAddChapterModal() {
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
   const [background, setBackground] = useState(exampleFileElement);
-
-  useEffect(() => {
-    if (chapterListController.state.currentObj) {
-      setTitle(chapterListController.state.currentObj.title);
-      setDescription(chapterListController.state.currentObj.description);
-      setObjective(chapterListController.state.currentObj.objective);
-    }
-  }, [chapterListController.state.currentObj]);
 
   async function createChapter() {
     const chapter =
