@@ -1,6 +1,7 @@
 import { ContextForSpacesScene } from '@/(core)/(project)/spaces/[id]/(pages)/scene/controller/main';
 import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pages)/scene/modal/controller/main';
 import { AstralCombineIcon } from '@/icons/combine/main';
+import { AstralContentCopyIcon } from '@/icons/content-copy/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralShareIcon } from '@/icons/share/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -21,6 +22,14 @@ export function SpacesScenePaletteSelected() {
               ideaListController.actions.deleteActions.delete(idea.id);
             });
             spacesSceneController.actions.updateSelectedIdeas([]);
+          }}
+        />
+      </div>
+      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+        <AstralContentCopyIcon
+          className='h-[2rem] w-[2rem]'
+          onClick={() => {
+            alert('Coming soon...');
           }}
         />
       </div>

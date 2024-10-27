@@ -16,12 +16,14 @@ export function SpacesSceneStatusBody() {
         </div>
         <p className='text-lg font-bold text-slate-300'>ideas</p>
       </div>
-      <div className='flex flex-row'>
-        <p className='text-md text-center font-light text-slate-300'>
-          Summary:{' '}
-          {sceneListController.state.currentObj?.summary || 'Open-ended'}
-        </p>
-      </div>
+      <p className='text-md font-light text-slate-300'>
+        <span className='font-bold'>Objective: </span>
+        {sceneListController.state.currentObj?.objective || 'Open-ended'}
+      </p>
+      <p className='text-md  font-light text-slate-300'>
+        <span className='font-bold'>Summary: </span>
+        {sceneListController.state.currentObj?.summary || 'Open-ended'}
+      </p>
     </div>
   );
 }

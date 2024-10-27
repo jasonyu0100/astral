@@ -65,7 +65,7 @@ export function SpacesScenePaletteDefault() {
           />
         </>
       )}
-      <div className='flex items-center justify-center rounded-full bg-purple-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
         {showMore ? (
           <AstralArrowDropUp
             className='h-[2rem] w-[2rem]'

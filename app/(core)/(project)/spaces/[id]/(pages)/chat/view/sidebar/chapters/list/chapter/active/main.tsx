@@ -2,26 +2,27 @@ import { ContextForSpacesChatModals } from '@/(core)/(project)/spaces/[id]/(page
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
-import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesChatChapterActive() {
-  const chapter = useContext(ContextForSpaceChapterObj);
+  const chapterObj = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const modalController = useContext(ContextForSpacesChatModals);
 
   return (
     <div
       className='flex w-full flex-col space-y-[0.5rem]'
-      onClick={() => chapterListController.actions.stateActions.select(chapter)}
+      onClick={() =>
+        chapterListController.actions.stateActions.select(chapterObj)
+      }
     >
-      <div className='flex w-full flex-row flex-wrap items-center justify-between'>
+      <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
         <p
-          className={ctwn(
-            'flex-grow animate-pulse-slow font-extraBold text-xl text-slate-300',
-          )}
+          className={
+            'flex-grow animate-pulse-slow font-extraBold text-xl text-slate-300'
+          }
         >
-          {chapter.title?.trim() || 'Untitled'}
+          {chapterObj.title?.trim() || 'Untitled'}
         </p>
         <AstralMoreVertIcon
           onClick={() => modalController.editChapterController.open()}

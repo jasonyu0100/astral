@@ -1,6 +1,7 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForScrollToHorizontalIndex } from '@/logic/controller/scroll-to-horizontal-index/main';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
@@ -26,7 +27,7 @@ export function SpacesSceneRowElement() {
       roundedFx={roundedFx['rounded-full']}
     >
       <GlassWindowContents
-        className='z-10 flex h-full w-full items-center px-[1rem]'
+        className='flex h-full w-full flex-row items-center justify-between space-x-[1rem] px-[1rem]'
         onClick={() => {
           sceneListController.actions.stateActions.select(scene);
           controllerForScrollToCursor.scrollToHorizontalIndex(index);
@@ -37,6 +38,11 @@ export function SpacesSceneRowElement() {
         >
           {index + 1}. {scene.title || 'Untitled'}
         </p>
+        <AstralMoreVertIcon
+          onClick={() => {
+            alert('Coming soon...');
+          }}
+        />
       </GlassWindowContents>
       {!active ? (
         <GlassWindowPane glassFx={glassFx['glass-5']} />

@@ -2,6 +2,7 @@ import { ExplorerProjectsSidebarOption } from '@/(core)/(dashboard)/explorer/pro
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
@@ -28,9 +29,16 @@ export function SpacesBoardSidebarChaptersChapter() {
           className='p-[1rem]'
         >
           <GlassWindowContents className='flex flex-col space-y-[0.5rem]'>
-            <p className={' text-xl font-bold text-slate-300'}>
-              {chapterObj.title}
-            </p>
+            <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
+              <p
+                className={
+                  'flex-grow animate-pulse-slow font-extraBold text-xl text-slate-300'
+                }
+              >
+                {chapterObj.title?.trim() || 'Untitled'}
+              </p>
+              <AstralMoreVertIcon onClick={() => alert('Coming soon...')} />
+            </div>
             <p className={'text-sm font-light text-slate-300'}>
               <span className='font-bold'>Objective: </span>
               {chapterObj.objective}
