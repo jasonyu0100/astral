@@ -24,7 +24,7 @@ export function SpacesViewHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Prepare Post ({selectedIdeas.length})
+            Generate Post ({selectedIdeas.length})
           </p>
           <AstralArrowForwardIcon />
         </button>

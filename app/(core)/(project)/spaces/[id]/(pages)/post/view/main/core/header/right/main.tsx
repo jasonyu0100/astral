@@ -1,4 +1,4 @@
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralLinkIcon } from '@/icons/link/main';
 import { useContext } from 'react';
 import { ContextForSpacesPostModals } from '../../../../../modal/controller/main';
 
@@ -13,7 +13,7 @@ export function SpacesPostHeaderRight() {
         }}
       >
         <p className='font-bold text-slate-300'>Share Horizon</p>
-        <AstralArrowForwardIcon />
+        <AstralLinkIcon />
       </button>
     </div>
   );
