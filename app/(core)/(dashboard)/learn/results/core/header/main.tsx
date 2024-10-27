@@ -4,7 +4,7 @@ export function ConversationalSearchHeader() {
       <div className='flex justify-center'></div>
       <div className='flex justify-center'>
         <p className='font-extraBold text-2xl uppercase text-slate-500'>
-          Conversational Search
+          Astral Bot
         </p>
       </div>
       <div className='flex justify-end'></div>
