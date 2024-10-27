@@ -56,6 +56,7 @@ interface ControllerActions {
   updateSidebarVisibility: (visibility: SpacesViewSidebarVisibility) => void;
   linkIdeas: () => Promise<IdeaRelationshipObj[]>;
   selectAll: () => void;
+  deselectAll: () => void;
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
@@ -349,6 +350,9 @@ export function useControllerForSpacesView(): Controller {
       getAvailableXYWH: getAvailableXYWH,
       selectAll: () => {
         setSelectedIdeas(ideaListController.state.objs);
+      },
+      deselectAll: () => {
+        setSelectedIdeas([]);
       },
       linkIdeas: linkIdeas,
     },

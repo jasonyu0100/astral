@@ -69,6 +69,7 @@ export function SpacesViewMovable({ children }: { children: React.ReactNode }) {
           if (selected) {
             return;
           } else {
+            hoverableController.onHover();
             updateSelectedIdeas([...selectedIdeas, ideaObj]);
           }
         }}
