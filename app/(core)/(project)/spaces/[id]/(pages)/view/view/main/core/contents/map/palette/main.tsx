@@ -13,13 +13,13 @@ export function SpacesViewPalette() {
   } = useContext(ContextForSpacesView);
 
   return (
-    <div className='absolute left-[2rem] top-[0rem] z-30 flex h-full w-[4rem] flex-col items-center justify-center'>
+    <div className='absolute left-[1rem] top-[0rem] z-30 flex h-full w-[6rem] flex-col items-center justify-center'>
       <GlassWindowFrame
-        className='w-[4rem] py-[2rem]'
+        className='w-[6rem] py-[2rem]'
         roundedFx={roundedFx['rounded-full']}
         borderFx={borderFx['border-around']}
       >
-        <GlassWindowContents className='flex flex-col items-center justify-center space-y-[1rem]'>
+        <GlassWindowContents className='flex flex-col items-center justify-center space-y-[2rem]'>
           {selectedIdeas.length === 0 ? (
             <SpacesViewPaletteDefault />
           ) : (

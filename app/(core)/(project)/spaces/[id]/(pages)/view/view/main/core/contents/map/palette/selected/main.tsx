@@ -18,6 +18,7 @@ export function SpacesViewPaletteSelected() {
     <>
       {selectedIdeas.length >= 2 && (
         <AstralCombineIcon
+          className='h-[2rem] w-[2rem]'
           onClick={() => {
             modalController.combineIdeasController.open();
           }}
@@ -25,6 +26,7 @@ export function SpacesViewPaletteSelected() {
       )}
       {selectedIdeas.length >= 2 && (
         <AstralShareIcon
+          className='h-[2rem] w-[2rem]'
           onClick={() => {
             linkIdeas();
           }}
@@ -41,6 +43,7 @@ export function SpacesViewPaletteSelected() {
         }}
       /> */}
       <AstralDeleteIcon
+        className='h-[2rem] w-[2rem]'
         onClick={() => {
           selectedIdeas.forEach((idea) => {
             ideaListController.actions.deleteActions.delete(idea.id);

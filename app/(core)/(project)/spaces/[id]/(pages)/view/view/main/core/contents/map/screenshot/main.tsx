@@ -2,14 +2,12 @@ import { ContextForSpacesView } from '@/(core)/(project)/spaces/[id]/(pages)/vie
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { AstralCameraIcon } from '@/icons/camera/main';
+import { AstralSaveIcon } from '@/icons/save/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
 export function SpacesViewScreenshot() {
-  const {
-    actions: { takeScreenshot },
-  } = useContext(ContextForSpacesView);
+  const spacesViewController = useContext(ContextForSpacesView);
   return (
     <div className='absolute right-[2rem] top-[0rem] z-30 flex h-full w-[4rem] flex-col items-center justify-center'>
       <GlassWindowFrame
@@ -17,8 +15,11 @@ export function SpacesViewScreenshot() {
         borderFx={borderFx['border-all']}
         className='h-[4rem] w-[4rem]'
       >
-        <GlassWindowContents className='flex h-full w-full flex-col items-center justify-center'>
-          <AstralCameraIcon onClick={takeScreenshot} />
+        <GlassWindowContents
+          className='flex h-full w-full flex-col items-center justify-center bg-blue-600'
+          onClick={() => spacesViewController.actions.saveAll()}
+        >
+          <AstralSaveIcon />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>

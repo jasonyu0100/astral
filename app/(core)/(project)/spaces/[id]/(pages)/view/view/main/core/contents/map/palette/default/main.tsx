@@ -19,46 +19,62 @@ export function SpacesViewPaletteDefault() {
 
   return (
     <>
-      <div className='flex items-center justify-center rounded-full bg-blue-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-purple-500 p-[0.5rem]'>
         <AstralAddIcon
+          className='h-[2rem] w-[2rem]'
           onClick={() => modalController.addFileIdeaController.open()}
         />
       </div>
       <AstralNoteIcon
+        className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addStickyIdeaController.open()}
       />
       <AstralRectangleIcon
+        className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addArticleIdeaController.open()}
       />
       <AstralSearchIcon
+        className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addSearchIdeaController.open()}
       />
       <AstralSmartDisplayIcon
+        className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addYouTubeUrlIdeaController.open()}
       />
       {showMore && (
         <>
           <AstralAlbumIcon
+            className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addSpotifyUrlIdeaController.open()}
           />
           <AstralManufacturingIcon
+            className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addGenerateIdeaController.open()}
           />
           <AstralLinkIcon
+            className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addWebsiteUrlIdeaController.open()}
           />
-          <AstralVoiceIcon onClick={() => alert('Coming soon...')} />
-          <AstralVideoCamIcon onClick={() => alert('Coming soon...')} />
+          <AstralVoiceIcon
+            className='h-[2rem] w-[2rem]'
+            onClick={() => alert('Coming soon...')}
+          />
+          <AstralVideoCamIcon
+            className='h-[2rem] w-[2rem]'
+            onClick={() => alert('Coming soon...')}
+          />
         </>
       )}
       {showMore ? (
         <AstralArrowDropUp
+          className='h-[2rem] w-[2rem]'
           onClick={() => {
             setShowMore(false);
           }}
         />
       ) : (
         <AstralMoreVertIcon
+          className='h-[2rem] w-[2rem]'
           onClick={() => {
             setShowMore(true);
           }}

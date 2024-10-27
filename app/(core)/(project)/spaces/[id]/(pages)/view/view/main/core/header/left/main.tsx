@@ -8,10 +8,10 @@ import {
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCalendarIcon } from '@/icons/calendar/main';
-import { AstralDownloadIcon } from '@/icons/download/main';
+import { AstralCameraIcon } from '@/icons/camera/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
-import { AstralSaveIcon } from '@/icons/save/main';
+import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSortIcon } from '@/icons/sort/main';
 import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
@@ -38,6 +38,7 @@ export function SpacesViewHeaderLeft() {
       updateSidebarVisibility,
       autoSort,
       selectAll,
+      takeScreenshot,
     },
   } = useContext(ContextForSpacesView);
   const user = useGlobalUser((state) => state.user);
@@ -119,18 +120,16 @@ export function SpacesViewHeaderLeft() {
         }
       />
       <BarDividerIndicator />
-      <AstralDownloadIcon
+      <AstralCameraIcon
+        onClick={() => {
+          takeScreenshot();
+        }}
+      />
+      <AstralLinkIcon
         onClick={() => {
           alert('Coming Soon...');
         }}
       />
-      <AstralSaveIcon
-        onClick={() => {
-          ideaListController.actions.editActions.sync().then(() => {
-            alert('save all');
-          });
-        }}
-      />{' '}
       <BarDividerIndicator />
     </div>
   );

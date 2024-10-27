@@ -61,6 +61,7 @@ interface ControllerActions {
   goToCollection: (collection: GalleryCollectionObj) => void;
   takeScreenshot: () => void;
   updateHideUI: (hide: boolean) => void;
+  saveAll: () => void;
 }
 
 export const ContextForSpacesView = createContext({} as Controller);
@@ -296,6 +297,12 @@ export function useControllerForSpacesView(): Controller {
     return ideaRelationships;
   };
 
+  const saveAll = async () => {
+    ideaListController.actions.editActions.sync().then(() => {
+      alert('save all');
+    });
+  };
+
   return {
     state: {
       directoryMode: directoryMode,
@@ -314,6 +321,7 @@ export function useControllerForSpacesView(): Controller {
       hideUI: hideUI,
     },
     actions: {
+      saveAll: saveAll,
       updateHideUI: (hide: boolean) => setHideUI(hide),
       takeScreenshot: takeScreenshot,
       updateDivWidth: (width) => setDivWidth(width),
