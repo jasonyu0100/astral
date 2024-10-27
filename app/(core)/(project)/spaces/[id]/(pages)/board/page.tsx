@@ -29,6 +29,7 @@ import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { SpacesSidebar } from '../../../sidebar/main';
+import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
   ContextForSpacesBoard,
@@ -132,11 +133,13 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
     <DashboardContainer fullHeight>
-      <SpacesSidebar />
-      <DashboardContent>
-        <SpaceTabs tab={SpaceTabStage.Board} />
-        <DashboardBody>{children}</DashboardBody>
-      </DashboardContent>
+      <SpacesSidebarModals>
+        <SpacesSidebar />
+        <DashboardContent>
+          <SpaceTabs tab={SpaceTabStage.Board} />
+          <DashboardBody>{children}</DashboardBody>
+        </DashboardContent>
+      </SpacesSidebarModals>
     </DashboardContainer>
   );
 }

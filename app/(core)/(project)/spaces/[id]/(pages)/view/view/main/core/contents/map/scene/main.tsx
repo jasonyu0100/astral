@@ -31,10 +31,7 @@ export function SpacesViewScene() {
   }, []); // The empty dependency array ensures this effect runs only once after the component mounts.
 
   return (
-    <div
-      className='relative h-full w-full py-[2rem] pl-[8rem] pr-[2rem]'
-      ref={ref}
-    >
+    <div className='relative h-full w-full' ref={ref}>
       {visibleIdeas.length === 0 ? (
         <SpacesViewSceneEmpty />
       ) : (

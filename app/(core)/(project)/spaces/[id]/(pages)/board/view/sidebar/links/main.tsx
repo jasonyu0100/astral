@@ -4,6 +4,7 @@ import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
 import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext } from 'react';
 import { SpacesBoardSidebarAddFile } from './list/add/file/main';
+import { SpaceBoardSidebarAddText } from './list/add/text/main';
 import { SpacesLinkTextIdea } from './list/override/main';
 
 export function SpacesBoardSidebarLinksList() {
@@ -18,6 +19,7 @@ export function SpacesBoardSidebarLinksList() {
       ))}
       <HorizontalDivider />
       <SpacesBoardSidebarAddFile />
+      <SpaceBoardSidebarAddText />
     </div>
   );
 }
