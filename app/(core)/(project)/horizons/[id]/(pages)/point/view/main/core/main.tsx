@@ -1,5 +1,5 @@
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
-import { exampleFileElems } from '@/server/model/elements/file/main';
+import { exampleFileElements } from '@/server/model/elements/file/main';
 import { HorizonQuadrantBacking } from './backing/main';
 import { HorizonsPointHemisphere } from './hemisphere/main';
 import { HorizonsPointQuadrant } from './quadrant/main';
@@ -14,7 +14,7 @@ export function HorizonsPointMainCore() {
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
-            {exampleFileElems.map((elem) => (
+            {exampleFileElements.map((elem) => (
               <UserDisplayPictureElement fileElem={elem} />
             ))}
           </HorizonQuadrantBacking>
@@ -25,7 +25,7 @@ export function HorizonsPointMainCore() {
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
-            {exampleFileElems.map((elem) => (
+            {exampleFileElements.map((elem) => (
               <UserDisplayPictureElement fileElem={elem} />
             ))}
           </HorizonQuadrantBacking>
@@ -38,7 +38,7 @@ export function HorizonsPointMainCore() {
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
-            {exampleFileElems.map((elem) => (
+            {exampleFileElements.map((elem) => (
               <UserDisplayPictureElement fileElem={elem} />
             ))}
           </HorizonQuadrantBacking>
@@ -49,7 +49,7 @@ export function HorizonsPointMainCore() {
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
-            {exampleFileElems.map((elem) => (
+            {exampleFileElements.map((elem) => (
               <UserDisplayPictureElement fileElem={elem} />
             ))}
           </HorizonQuadrantBacking>

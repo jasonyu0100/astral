@@ -11,6 +11,7 @@ interface ControllerActions {
   getImageResponse: (prompt: string) => Promise<OpenAI.Images.Image[]>;
   getMessageResponse: (message: string) => Promise<string | null>;
   transcribeAudio: (audioBlob: Blob) => Promise<string | null>; // New method
+  analyzeImage: (imageUrl: string) => Promise<string | null>; // New method for analyzing images
 }
 
 export const useControllerForOpenAi = (): Controller => {
@@ -73,12 +74,38 @@ export const useControllerForOpenAi = (): Controller => {
     }
   };
 
+  const analyzeImage = async (imageUrl: string) => {
+    const openai = getOpenAiClient();
+
+    try {
+      const response = await openai.chat.completions.create({
+        model: 'gpt-4o-mini', // Ensure you are using the correct model for image analysis
+        messages: [
+          {
+            role: 'user',
+            content: 'What’s in this image?',
+          },
+        ],
+        images: [
+          {
+            url: imageUrl,
+          },
+        ],
+      });
+      return response.choices[0].message.content; // Assuming the model returns the analysis in this format
+    } catch (error) {
+      console.error('Error during image analysis:', error);
+      return null; // Handle error case
+    }
+  };
+
   return {
     state: {},
     actions: {
       getImageResponse,
       getMessageResponse,
-      transcribeAudio, // Expose the new method
+      transcribeAudio, // Expose the audio transcription method
+      analyzeImage, // Expose the new image analysis method
     },
   };
 };

@@ -1,7 +1,7 @@
 import { ContextForUploadsController } from '@/api/controller/s3/multiple/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { ContextForFileElem } from '@/server/model/elements/file/main';
+import { ContextForFileElement } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';
 import { UploadedFileEntry } from '../../common/entry/main';
@@ -14,12 +14,12 @@ export function UploadFilesList() {
     <GlassWindowFrame>
       <GlassWindowContents className='flex flex-col'>
         {uploadsHandler.files.map((file, i) => (
-          <ContextForFileElem.Provider value={file} key={file.id}>
+          <ContextForFileElement.Provider value={file} key={file.id}>
             <UploadedFileEntry key={file.id}>
               <UploadedFileEntryBody />
               <UploadedEntryRemove i={i} />
             </UploadedFileEntry>
-          </ContextForFileElem.Provider>
+          </ContextForFileElement.Provider>
         ))}
       </GlassWindowContents>
     </GlassWindowFrame>

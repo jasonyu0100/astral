@@ -3,7 +3,7 @@ import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { exampleHorizon } from '@/server/model/horizon/main';
 import { exampleSpace } from '@/server/model/space/main';
 import { exampleUser } from '@/server/model/user/main';
@@ -84,16 +84,16 @@ export default function Page() {
           <FormButton>Button</FormButton>
           <FormDescription>Form Description</FormDescription>
           <FormSearchImage
-            fileElem={exampleFileElem}
+            fileElem={exampleFileElement}
             label='search image'
             onChange={() => {}}
           />
           <FormUploadFile
-            defaultFileElem={exampleFileElem}
+            defaultFileElem={exampleFileElement}
             onChange={() => {}}
             label={'test'}
           />
-          <ImagePreview fileElem={exampleFileElem} />
+          <ImagePreview fileElem={exampleFileElement} />
           <FormInput title='test' />
           <FormSelect title='test'>
             <option>test</option>

@@ -9,7 +9,10 @@ import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesChatEditSpaceModal() {
@@ -18,7 +21,7 @@ export function SpacesChatEditSpaceModal() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
-  const [thumbnail, setThumbnail] = useState<FileElem>(exampleFileElem);
+  const [thumbnail, setThumbnail] = useState<FileElement>(exampleFileElement);
 
   useEffect(() => {
     if (spaceMainController.state.obj) {

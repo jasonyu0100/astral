@@ -17,10 +17,13 @@ import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/server/model/elements/text/main';
 import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useState } from 'react';
-import { ContextForSpacesView } from '../../../controller/main';
+import { ContextForSpacesView } from '../../controller/main';
 
 export function SpacesViewCombineIdeas() {
   const user = useGlobalUser((state) => state.user);
@@ -76,8 +79,8 @@ export function SpacesViewCombineIdeas() {
           id: crypto.randomUUID(),
           title: 'Combined Idea',
           text: combinationDescription,
-          variant: TextElemVariant.STICKY,
-        } as TextElem,
+          variant: TextElementVariant.STICKY,
+        } as TextElement,
         ideaListController.state.objs.length,
       );
     updateSelectedIdeas([idea]);

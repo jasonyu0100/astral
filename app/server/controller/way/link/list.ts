@@ -6,9 +6,9 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem } from '@/server/model/elements/text/main';
+import { TextElement } from '@/server/model/elements/text/main';
 import { IdeaObj } from '@/server/model/idea/main';
 import { TaskLinkObj, taskLinkModel } from '@/server/model/task/link/main';
 import { createContext, useMemo, useState } from 'react';
@@ -47,14 +47,14 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     logId: string,
     title: string,
     description: string,
-    file: FileElem,
+    file: FileElement,
   ) => Promise<TargetObj>;
   createLinkFromTextIdea: (
     userId: string,
     logId: string,
     title: string,
     description: string,
-    text: TextElem,
+    text: TextElement,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -297,7 +297,7 @@ export const useControllerForTaskLinkList = (
       logId: string,
       title: string,
       description: string,
-      file: FileElem,
+      file: FileElement,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
@@ -320,7 +320,7 @@ export const useControllerForTaskLinkList = (
       logId: string,
       title: string,
       description: string,
-      text: TextElem,
+      text: TextElement,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),

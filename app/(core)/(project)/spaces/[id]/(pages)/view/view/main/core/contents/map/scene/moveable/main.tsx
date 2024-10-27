@@ -2,7 +2,7 @@
 import {
   ContextForSpacesView,
   SpacesViewBubbleMode,
-} from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
+} from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaObj } from '@/server/model/idea/main';

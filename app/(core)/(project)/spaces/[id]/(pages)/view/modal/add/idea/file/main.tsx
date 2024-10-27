@@ -10,7 +10,7 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
@@ -24,7 +24,7 @@ export function SpacesViewAddFileIdeaModal() {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
-  const [file, changeFile] = useState({} as FileElem);
+  const [file, changeFile] = useState({} as FileElement);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );

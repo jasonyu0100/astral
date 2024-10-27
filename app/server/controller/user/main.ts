@@ -6,7 +6,7 @@ import {
   BaseGatherActions,
   BaseStateActions,
 } from '@/server/controller/main';
-import { exampleDisplayPictureFileElem } from '@/server/model/elements/file/main';
+import { exampleDisplayPictureFileElement } from '@/server/model/elements/file/main';
 import { UserObj } from '@/server/model/user/main';
 import bcrypt from 'bcryptjs';
 import { createContext, useMemo, useState } from 'react';
@@ -167,7 +167,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
         email: email,
         passwordHash: passwordHash,
         created: new Date().toISOString(),
-        dp: exampleDisplayPictureFileElem,
+        dp: exampleDisplayPictureFileElement,
         displayName: `${fname} ${lname}`,
         role: role,
         bio: `${fname} ${lname} - ${role}`,

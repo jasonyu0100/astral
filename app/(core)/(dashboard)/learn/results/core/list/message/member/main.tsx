@@ -1,6 +1,6 @@
 import { useControllerForUserMain } from '@/server/controller/user/main';
 import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 
 export function SpaceMapMemberMessage() {
@@ -12,7 +12,7 @@ export function SpaceMapMemberMessage() {
     <div className=' ml-auto flex max-w-[500px] flex-col'>
       <div className='mr-auto flex flex-row items-center'>
         <img
-          src={userObj.dp?.src || exampleFileElem.src}
+          src={userObj.dp?.src || exampleFileElement.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
         <p className='p-[0.5rem] text-left text-xs text-slate-300'>

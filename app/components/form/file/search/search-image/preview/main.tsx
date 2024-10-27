@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { borderFx, glassFx } from '@/style/data';
 import { useContext } from 'react';
 
@@ -16,7 +16,7 @@ export function SearchImagePreview() {
     <GlassWindowFrame borderFx={borderFx['border-around']}>
       <GlassWindowContents
         className='cursor-pointer'
-        onClick={() => onChange({} as FileElem)}
+        onClick={() => onChange({} as FileElement)}
       >
         <div className='flex h-full w-full flex-row items-center justify-between pr-[2rem]'>
           {file?.src && (

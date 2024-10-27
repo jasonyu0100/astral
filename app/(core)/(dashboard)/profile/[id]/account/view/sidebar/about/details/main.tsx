@@ -1,11 +1,11 @@
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { ContextForProfileUserObj } from '@/server/model/user/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function UserProfileAboutDetails() {
   const profileUser = useContext(ContextForProfileUserObj);
   const [displayPicture, setDisplayPicture] = useState(
-    profileUser?.dp || exampleFileElem,
+    profileUser?.dp || exampleFileElement,
   );
   const [displayName, setDisplayName] = useState(
     profileUser?.displayName || 'DisplayName',
@@ -16,7 +16,7 @@ export function UserProfileAboutDetails() {
     if (profileUser) {
       setDisplayName(profileUser.displayName);
       setEmail(profileUser.email);
-      setDisplayPicture(profileUser.dp || exampleFileElem);
+      setDisplayPicture(profileUser.dp || exampleFileElement);
     }
   }, [profileUser]);
 

@@ -9,7 +9,10 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/server/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getTextIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
@@ -33,8 +36,8 @@ export function SpacesViewAddStickyIdeaModal() {
       id: crypto.randomUUID(),
       title: title,
       text: text,
-      variant: TextElemVariant.STICKY,
-    } as TextElem;
+      variant: TextElementVariant.STICKY,
+    } as TextElement;
 
     const { width, height } = await getTextIdeaBounds(textElem);
 

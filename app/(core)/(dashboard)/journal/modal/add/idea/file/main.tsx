@@ -8,7 +8,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddFileModal() {
@@ -16,7 +16,7 @@ export function DashboardJournalAddFileModal() {
   const [journalId, setJournalId] = useState('' as string);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
-  const [file, changeFile] = useState({} as FileElem);
+  const [file, changeFile] = useState({} as FileElement);
   const collectionListController = useContext(ContextForGalleryCollectionList);
   const resourceListController = useContext(ContextForCollectionResourceList);
   const openableController = useContext(ContextForOpenable);

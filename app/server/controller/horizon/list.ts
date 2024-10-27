@@ -6,7 +6,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { horizonModel, HorizonObj } from '@/server/model/horizon/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -256,7 +256,7 @@ export const useControllerForHorizonList = (
         userId: '',
         title: '',
         description: '',
-        thumbnail: exampleFileElem,
+        thumbnail: exampleFileElement,
         category: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);

@@ -9,14 +9,14 @@ import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import {
-  exampleFileElem,
-  FileElemVariant,
+  exampleFileElement,
+  FileElementVariant,
 } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { exampleTextElem } from '@/server/model/elements/text/main';
+import { exampleTextElement } from '@/server/model/elements/text/main';
 import {
-  exampleUrlElem,
-  UrlElemVariant,
+  exampleUrlElement,
+  UrlElementVariant,
 } from '@/server/model/elements/url/main';
 import { exampleIdea, IdeaObj } from '@/server/model/idea/main';
 import {
@@ -130,9 +130,9 @@ export function useGenerateSceneController(): Controller {
                 images.map((image: unknown) => ({
                   ...exampleIdea,
                   fileElem: {
-                    ...exampleFileElem,
+                    ...exampleFileElement,
                     src: image.src,
-                    variant: FileElemVariant.IMAGE,
+                    variant: FileElementVariant.IMAGE,
                   },
                   variant: ElementVariant.FILE,
                 })),
@@ -150,9 +150,9 @@ export function useGenerateSceneController(): Controller {
                   return {
                     ...exampleIdea,
                     urlElem: {
-                      ...exampleUrlElem,
+                      ...exampleUrlElement,
                       url: `https://www.youtube.com/embed/${result.id.videoId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`,
-                      variant: UrlElemVariant.YOUTUBE,
+                      variant: UrlElementVariant.YOUTUBE,
                     },
                     variant: ElementVariant.URL,
                   };
@@ -183,10 +183,10 @@ export function useGenerateSceneController(): Controller {
         return {
           ...exampleIdea,
           urlElem: {
-            ...exampleUrlElem,
+            ...exampleUrlElement,
             title: item.title,
             url: item.link,
-            variant: UrlElemVariant.WEBSITE,
+            variant: UrlElementVariant.WEBSITE,
           },
           title: item.title,
           variant: ElementVariant.URL,
@@ -231,10 +231,22 @@ export function useGenerateSceneController(): Controller {
     openableController.close();
     loadingController.loadingController.open();
 
-    let newScene = sceneListController.state?.currentObj;
+    let newScene = sceneListController.state.currentObj;
 
-    if (!newScene || newScene.chapterId !== chapterListController.state.objId) {
-      console.log('new scene');
+    console.log(newScene);
+
+    if (selectedIdeas.length === 0) {
+      alert('No ideas selected');
+      loadingController.loadingController.close();
+      openableController.open();
+      return;
+    }
+
+    if (
+      !newScene?.id ||
+      newScene.chapterId !== chapterListController.state.objId
+    ) {
+      console.log('new scene', chapterListController.state.objId);
       newScene = await sceneListController.actions.createActions.createScene(
         'Map',
         'A map of the scene',
@@ -274,24 +286,26 @@ export function useGenerateSceneController(): Controller {
 
     const ideas = await Promise.all(
       selectedIdeas.map(async (idea, index) => {
-        let width = 150;
-        let height = 150;
+        let width = 200;
+        let height = 200;
 
         // Determine the width and height of each idea based on its variant
         if (idea.variant === ElementVariant.TEXT) {
-          const bounds = await getFileIdeaBounds(
-            idea.fileElem || exampleFileElem,
+          const bounds = await getTextIdeaBounds(
+            idea.textElem || exampleTextElement,
           );
           width = bounds.width;
           height = bounds.height;
         } else if (idea.variant === ElementVariant.FILE) {
-          const bounds = await getTextIdeaBounds(
-            idea.textElem || exampleTextElem,
+          const bounds = await getFileIdeaBounds(
+            idea.fileElem || exampleFileElement,
           );
           width = bounds.width;
           height = bounds.height;
         } else if (idea.variant === ElementVariant.URL) {
-          const bounds = await getUrlIdeaBounds(idea.urlElem || exampleUrlElem);
+          const bounds = await getUrlIdeaBounds(
+            idea.urlElem || exampleUrlElement,
+          );
           width = bounds.width;
           height = bounds.height;
         }
@@ -315,7 +329,7 @@ export function useGenerateSceneController(): Controller {
             yPos,
             width,
             height,
-            idea?.textElem || exampleTextElem,
+            idea?.textElem || exampleTextElement,
             ideaListController.state.objs.length + index,
           );
         } else if (idea.variant === ElementVariant.FILE) {
@@ -328,7 +342,7 @@ export function useGenerateSceneController(): Controller {
             yPos,
             width,
             height,
-            idea?.fileElem || exampleFileElem,
+            idea?.fileElem || exampleFileElement,
             ideaListController.state.objs.length + index,
           );
         } else if (idea.variant === ElementVariant.URL) {
@@ -341,7 +355,7 @@ export function useGenerateSceneController(): Controller {
             yPos,
             width,
             height,
-            idea?.urlElem || exampleUrlElem,
+            idea?.urlElem || exampleUrlElement,
             ideaListController.state.objs.length + index,
           );
         }

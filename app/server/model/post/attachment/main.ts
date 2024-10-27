@@ -1,7 +1,10 @@
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { ModelInterface } from '@/server/model/main';
 import { createContext } from 'react';
 
@@ -12,9 +15,9 @@ export interface PostAttachmentObj {
   created: string;
   variant: string;
   ideaId?: string;
-  fileElem?: FileElem;
-  textElem?: TextElem;
-  urlElem?: UrlElem;
+  fileElem?: FileElement;
+  textElem?: TextElement;
+  urlElem?: UrlElement;
 }
 
 export const postAttachmentGql = `
@@ -41,7 +44,7 @@ export const examplePostAttachment: PostAttachmentObj = {
   created: new Date().toISOString(),
   userId: '0',
   variant: ElementVariant.FILE,
-  fileElem: exampleFileElem,
+  fileElem: exampleFileElement,
 };
 
 export const examplePostAttachments: PostAttachmentObj[] = [
@@ -51,7 +54,7 @@ export const examplePostAttachments: PostAttachmentObj[] = [
     created: new Date().toISOString(),
     userId: '0',
     variant: ElementVariant.FILE,
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
   },
   {
     id: '1',
@@ -59,7 +62,7 @@ export const examplePostAttachments: PostAttachmentObj[] = [
     created: new Date().toISOString(),
     userId: '0',
     variant: ElementVariant.FILE,
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
   },
   {
     id: '2',
@@ -67,7 +70,7 @@ export const examplePostAttachments: PostAttachmentObj[] = [
     created: new Date().toISOString(),
     userId: '0',
     variant: ElementVariant.FILE,
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
   },
 ];
 

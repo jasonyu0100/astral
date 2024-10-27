@@ -1,6 +1,6 @@
 import { generateUploadURL } from '@/api/aws/s3/main';
 import {
-  FileElem,
+  FileElement,
   getFileVariantFromMimeType,
 } from '@/server/model/elements/file/main';
 import { ChangeEvent, createContext, useMemo, useState } from 'react';
@@ -11,18 +11,20 @@ export interface UploadActions {
 }
 
 export interface UploadHandlerObj {
-  fileElem: FileElem;
-  defaultFileElem?: FileElem;
+  fileElem: FileElement;
+  defaultFileElem?: FileElement;
   uploadActions: UploadActions;
 }
 
 export const UploadHandlerContext = createContext({} as UploadHandlerObj);
 
-export const useS3UploadController = (value?: FileElem): UploadHandlerObj => {
-  const [file, changeFile] = useState({} as FileElem);
+export const useS3UploadController = (
+  value?: FileElement,
+): UploadHandlerObj => {
+  const [file, changeFile] = useState({} as FileElement);
 
   const uploadActions: UploadActions = {
-    clearFile: () => changeFile({} as FileElem),
+    clearFile: () => changeFile({} as FileElement),
     uploadFile: async (event) => {
       const files: File[] = event.target.files
         ? Array.from(event.target.files)
@@ -44,7 +46,7 @@ export const useS3UploadController = (value?: FileElem): UploadHandlerObj => {
 
       const fileSrc = uploadUrl.split('?')[0];
 
-      const filePayload: FileElem = {
+      const filePayload: FileElement = {
         id: crypto.randomUUID(),
         src: fileSrc,
         title: fileName,

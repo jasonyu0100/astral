@@ -7,7 +7,10 @@ import { useControllerForSpaceChapterList } from '@/server/controller/space/chap
 import { ContextForSpaceList } from '@/server/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/server/controller/space/member/list';
 import { useControllerForTaskList } from '@/server/controller/way/list';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { SpaceObj } from '@/server/model/space/main';
 import {
   SpaceTemplate,
@@ -19,8 +22,8 @@ import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {
   title: string;
   updateTitle: (title: string) => void;
-  thumbnail: FileElem;
-  updateThumbnail: (thumbnail: FileElem) => void;
+  thumbnail: FileElement;
+  updateThumbnail: (thumbnail: FileElement) => void;
   description: string;
   updateDescription: (description: string) => void;
   category: SpaceTemplate;
@@ -76,7 +79,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
   const [category, changeCategory] = useState(SpaceTemplate.BlankSpace);
-  const [theme, changeTheme] = useState<FileElem>(exampleFileElem);
+  const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
   const [hours, changeHours] = useState(10);
   const [target, changeTarget] = useState(
     moment(new Date()).add(1, 'week').toISOString(),
@@ -208,7 +211,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     category,
     updateCategory: (category: SpaceTemplate) => changeCategory(category),
     thumbnail: theme,
-    updateThumbnail: (thumbnail: FileElem) => changeTheme(thumbnail),
+    updateThumbnail: (thumbnail: FileElement) => changeTheme(thumbnail),
     description,
     updateDescription: (description: string) => changeDescription(description),
     memberIds: memberIds,

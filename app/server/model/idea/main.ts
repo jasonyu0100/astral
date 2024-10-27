@@ -1,7 +1,10 @@
-import { FileElem, exampleFileElem } from '@/server/model/elements/file/main';
+import {
+  FileElement,
+  exampleFileElement,
+} from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { ModelInterface } from '@/server/model/main';
 import { createContext } from 'react';
 
@@ -29,9 +32,9 @@ export interface IdeaObj {
   scale: number;
   rotation: number;
   variant: string;
-  fileElem?: FileElem;
-  textElem?: TextElem;
-  urlElem?: UrlElem;
+  fileElem?: FileElement;
+  textElem?: TextElement;
+  urlElem?: UrlElement;
   created: string;
 }
 
@@ -77,7 +80,7 @@ export const exampleIdea: IdeaObj = {
   height: 100,
   scale: 1,
   rotation: 0,
-  fileElem: exampleFileElem,
+  fileElem: exampleFileElement,
   variant: ElementVariant.FILE,
   created: new Date().toISOString(),
 };
@@ -98,7 +101,7 @@ export const exampleIdeas: IdeaObj[] = [
     height: 100,
     scale: 1,
     rotation: 0,
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
     variant: ElementVariant.FILE,
     created: new Date().toISOString(),
   },
@@ -117,7 +120,7 @@ export const exampleIdeas: IdeaObj[] = [
     height: 100,
     scale: 1,
     rotation: 0,
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
     variant: ElementVariant.FILE,
     created: new Date().toISOString(),
   },
@@ -136,7 +139,7 @@ export const exampleIdeas: IdeaObj[] = [
     height: 100,
     scale: 1,
     rotation: 0,
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
     variant: ElementVariant.FILE,
     created: new Date().toISOString(),
   },

@@ -1,5 +1,5 @@
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { createContext } from 'react';
 import { SearchImageLabel } from './label/main';
 import { SearchImagePreview } from './preview/main';
@@ -12,8 +12,8 @@ export function FormSearchImage({
   onChange,
   label,
 }: {
-  fileElem: FileElem;
-  onChange: (fileElem: FileElem) => void;
+  fileElem: FileElement;
+  onChange: (fileElem: FileElement) => void;
   label: string;
 }) {
   return (

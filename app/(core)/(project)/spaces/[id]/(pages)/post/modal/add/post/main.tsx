@@ -14,7 +14,7 @@ import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/a
 import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function SpacesPostAddPostModal() {
@@ -33,7 +33,7 @@ export function SpacesPostAddPostModal() {
 
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [files, changeFiles] = useState([] as FileElem[]);
+  const [files, changeFiles] = useState([] as FileElement[]);
 
   async function createPost() {
     if (files.length === 0) {

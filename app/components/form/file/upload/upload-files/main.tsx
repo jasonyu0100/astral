@@ -2,7 +2,10 @@ import {
   ContextForUploadsController,
   useS3UploadsController,
 } from '@/api/controller/s3/multiple/main';
-import { FileElem, FileElemVariant } from '@/server/model/elements/file/main';
+import {
+  FileElement,
+  FileElementVariant,
+} from '@/server/model/elements/file/main';
 import { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import { UploadFilesArea } from './area/main';
@@ -13,9 +16,9 @@ export function FormUploadFiles({
   label,
   variant,
 }: {
-  onChange: (files: FileElem[]) => void;
+  onChange: (files: FileElement[]) => void;
   label: string;
-  variant?: FileElemVariant;
+  variant?: FileElementVariant;
 }) {
   const uploadsHandler = useS3UploadsController(variant);
 

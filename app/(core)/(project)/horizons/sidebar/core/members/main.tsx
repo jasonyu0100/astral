@@ -3,12 +3,15 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useState } from 'react';
 
 export function HorizonsSidebarMembersList() {
-  const [other, setOther] = useState<FileElem[]>([exampleFileElem]);
+  const [other, setOther] = useState<FileElement[]>([exampleFileElement]);
   const indexToLetter = (index: number) => String.fromCharCode(65 + index);
   return (
     <div className='flex w-full flex-col items-center space-y-[2rem] rounded-full'>
@@ -42,7 +45,7 @@ export function HorizonsSidebarMembersList() {
                   alert('You can only add up to 4 members');
                   return;
                 } else {
-                  setOther([...other, exampleFileElem]);
+                  setOther([...other, exampleFileElement]);
                 }
               }}
             >

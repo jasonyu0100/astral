@@ -2,7 +2,7 @@ import {
   ContextForSpacesView,
   SpacesViewDirectoryMode,
   SpacesViewSidebarMode,
-} from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
+} from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';

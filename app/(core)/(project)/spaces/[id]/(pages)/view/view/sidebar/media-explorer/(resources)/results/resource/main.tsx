@@ -4,10 +4,10 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import {
@@ -33,7 +33,7 @@ export function SpacesViewResourceResource() {
   async function addResourceToScene() {
     let idea;
     if (resource.variant === ElementVariant.FILE) {
-      const file = resource.fileElem || ({} as FileElem);
+      const file = resource.fileElem || ({} as FileElement);
       const { width, height } = await getFileIdeaBounds(file);
 
       idea =
@@ -50,7 +50,7 @@ export function SpacesViewResourceResource() {
           ideaListController.state.objs.length,
         );
     } else if (resource.variant === ElementVariant.TEXT) {
-      const text = resource.textElem || ({} as TextElem);
+      const text = resource.textElem || ({} as TextElement);
       const { width, height } = await getTextIdeaBounds(text);
 
       idea =
@@ -67,7 +67,7 @@ export function SpacesViewResourceResource() {
           ideaListController.state.objs.length,
         );
     } else if (resource.variant === ElementVariant.URL) {
-      const url = resource.urlElem || ({} as UrlElem);
+      const url = resource.urlElem || ({} as UrlElement);
       const { width, height } = await getUrlIdeaBounds(url);
 
       idea =
@@ -80,7 +80,7 @@ export function SpacesViewResourceResource() {
           0,
           width,
           height,
-          resource.urlElem || ({} as UrlElem),
+          resource.urlElem || ({} as UrlElement),
           ideaListController.state.objs.length,
         );
     }

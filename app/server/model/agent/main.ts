@@ -1,11 +1,11 @@
 import { createContext } from 'react';
-import { FileElem } from '../elements/file/main';
+import { FileElement } from '../elements/file/main';
 import { ModelInterface } from '../main';
 
 export interface AgentObj {
   id: string;
   name: string;
-  dp: FileElem;
+  dp: FileElement;
   role: string;
   bio: string;
   created: string;

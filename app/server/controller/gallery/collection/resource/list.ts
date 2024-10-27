@@ -6,10 +6,10 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import {
   collectionResourceModel,
   CollectionResourceObj,
@@ -42,21 +42,21 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     collectionId: string,
     title: string,
     description: string,
-    fileElem: FileElem,
+    fileElem: FileElement,
   ) => Promise<TargetObj>;
   createFromUrl: (
     userId: string,
     collectionId: string,
     title: string,
     description: string,
-    urlElem: UrlElem,
+    urlElem: UrlElement,
   ) => Promise<TargetObj>;
   createFromText: (
     userId: string,
     collectionId: string,
     title: string,
     description: string,
-    textElem: TextElem,
+    textElem: TextElement,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -283,7 +283,7 @@ export const useControllerForCollectionResourceList = (
       collectionId: string,
       title: string,
       description: string,
-      fileElem: FileElem,
+      fileElem: FileElement,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
@@ -305,7 +305,7 @@ export const useControllerForCollectionResourceList = (
       collectionId: string,
       title: string,
       description: string,
-      textElem: TextElem,
+      textElem: TextElement,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
@@ -327,7 +327,7 @@ export const useControllerForCollectionResourceList = (
       collectionId: string,
       title: string,
       description: string,
-      urlElem: UrlElem,
+      urlElem: UrlElement,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,

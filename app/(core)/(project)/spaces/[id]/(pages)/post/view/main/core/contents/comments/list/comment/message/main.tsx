@@ -1,5 +1,5 @@
 import { ContextForUserMain } from '@/server/controller/user/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
@@ -13,7 +13,7 @@ export function SpacesPostCommentMessage() {
       <div className='flex w-full flex-row items-center space-x-[1rem]'>
         <img
           className='aspect-square h-[3rem] rounded-full'
-          src={exampleFileElem.src}
+          src={exampleFileElement.src}
         />
         <p className='text-xl font-bold text-slate-300'>
           {userController.state.obj.displayName}{' '}

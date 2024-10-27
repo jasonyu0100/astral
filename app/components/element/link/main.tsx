@@ -1,7 +1,7 @@
-import { FileElemVariant } from '@/server/model/elements/file/main';
+import { FileElementVariant } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElemVariant } from '@/server/model/elements/text/main';
-import { UrlElemVariant } from '@/server/model/elements/url/main';
+import { TextElementVariant } from '@/server/model/elements/text/main';
+import { UrlElementVariant } from '@/server/model/elements/url/main';
 import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
@@ -29,16 +29,16 @@ export function ElementLink({
     <>
       {linkObj.variant === ElementVariant.FILE && (
         <>
-          {linkObj.fileElem?.variant === FileElemVariant.IMAGE && (
+          {linkObj.fileElem?.variant === FileElementVariant.IMAGE && (
             <ElementImage src={linkObj.fileElem.src} />
           )}
-          {linkObj.fileElem?.variant === FileElemVariant.VIDEO && (
+          {linkObj.fileElem?.variant === FileElementVariant.VIDEO && (
             <ElementVideo src={linkObj.fileElem.src} />
           )}
-          {linkObj.fileElem?.variant === FileElemVariant.AUDIO && (
+          {linkObj.fileElem?.variant === FileElementVariant.AUDIO && (
             <ElementAudioSquare src={linkObj.fileElem.src} />
           )}
-          {linkObj.fileElem?.variant === FileElemVariant.PDF && (
+          {linkObj.fileElem?.variant === FileElementVariant.PDF && (
             <ElementPdf src={linkObj.fileElem.src} />
           )}
         </>
@@ -47,10 +47,10 @@ export function ElementLink({
         <>
           {!textOveride ? (
             <>
-              {linkObj.textElem?.variant === TextElemVariant.STICKY && (
+              {linkObj.textElem?.variant === TextElementVariant.STICKY && (
                 <ElementSticky text={linkObj.textElem.text} />
               )}
-              {linkObj.textElem?.variant === TextElemVariant.ARTICLE && (
+              {linkObj.textElem?.variant === TextElementVariant.ARTICLE && (
                 <ElementPage text={linkObj.textElem.text} />
               )}
             </>
@@ -61,13 +61,13 @@ export function ElementLink({
       )}
       {linkObj.variant === ElementVariant.URL && (
         <>
-          {linkObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
+          {linkObj.urlElem?.variant === UrlElementVariant.YOUTUBE && (
             <ElementYouTube url={linkObj.urlElem.url} />
           )}
-          {linkObj.urlElem?.variant === UrlElemVariant.SPOTIFY && (
+          {linkObj.urlElem?.variant === UrlElementVariant.SPOTIFY && (
             <ElementSpotify url={linkObj.urlElem.url} />
           )}
-          {linkObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
+          {linkObj.urlElem?.variant === UrlElementVariant.WEBSITE && (
             <ElementWebsite
               url={linkObj.urlElem.url}
               title={linkObj.urlElem.title}

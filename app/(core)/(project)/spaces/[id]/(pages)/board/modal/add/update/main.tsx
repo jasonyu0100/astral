@@ -12,7 +12,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { exampleFileElems } from '@/server/model/elements/file/main';
+import { exampleFileElements } from '@/server/model/elements/file/main';
 import { glassFx } from '@/style/data';
 import { useContext, useState } from 'react';
 
@@ -51,7 +51,7 @@ export function SpacesBoardAddUpdateModal() {
             <GlassWindowFrame className='p-[1rem]'>
               <GlassWindowContents className='flex flex-col space-y-[1rem]'>
                 <div className='flex flex-col space-y-[1rem]'>
-                  {exampleFileElems.map((fileElem) => (
+                  {exampleFileElements.map((fileElem) => (
                     <div className='flex flex-row items-center space-x-[1rem] font-bold'>
                       <UserDisplayPictureElement fileElem={fileElem} />
                       <p>First name</p>

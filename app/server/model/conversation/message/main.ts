@@ -1,6 +1,6 @@
-import { FileElem } from '@/server/model/elements/file/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { FileElement } from '@/server/model/elements/file/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { ModelInterface } from '@/server/model/main';
 import { createContext } from 'react';
 export interface ConversationMessageObj {
@@ -13,9 +13,9 @@ export interface ConversationMessageObj {
   message: string;
   hasAttachment: boolean;
   variant?: string;
-  fileElem?: FileElem;
-  textElem?: TextElem;
-  urlElem?: UrlElem;
+  fileElem?: FileElement;
+  textElem?: TextElement;
+  urlElem?: UrlElement;
 }
 
 export const conversationMessageGql = `

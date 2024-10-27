@@ -6,7 +6,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
 import { PostAttachmentObj } from '@/server/model/post/attachment/main';
 import { TaskLinkObj } from '@/server/model/task/link/main';
@@ -41,7 +41,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
   createFromFile: (
     userId: string,
     postId: string,
-    file: FileElem,
+    file: FileElement,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -296,7 +296,11 @@ export const useControllerForPostAttachmentListFromUser = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromFile: async (userId: string, postId: string, file: FileElem) => {
+    createFromFile: async (
+      userId: string,
+      postId: string,
+      file: FileElement,
+    ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,

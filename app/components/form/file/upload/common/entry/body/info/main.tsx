@@ -1,8 +1,8 @@
-import { ContextForFileElem } from '@/server/model/elements/file/main';
+import { ContextForFileElement } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryInfo() {
-  const file = useContext(ContextForFileElem);
+  const file = useContext(ContextForFileElement);
   return (
     <div className='flex flex-col'>
       <p className='text-lg font-bold text-slate-500'>{file.title}</p>

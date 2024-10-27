@@ -10,7 +10,7 @@ import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserMain } from '@/server/controller/user/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext, useState } from 'react';
@@ -22,7 +22,7 @@ export function EditProfileModal() {
   const userObj = userController.state.obj;
   const openableController = useContext(ContextForOpenable);
   const [enabled, setEnabled] = useState(userObj?.private);
-  const [file, changeFile] = useState({} as FileElem);
+  const [file, changeFile] = useState({} as FileElement);
 
   const handleToggle = () => {
     setEnabled(!enabled);

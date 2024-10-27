@@ -7,7 +7,7 @@ import {
   BaseListStateActions,
 } from '@/server/controller/list';
 import { agentModel, AgentObj } from '@/server/model/agent/main';
-import { exampleDisplayPictureFileElem } from '@/server/model/elements/file/main';
+import { exampleDisplayPictureFileElement } from '@/server/model/elements/file/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = AgentObj;
@@ -254,7 +254,7 @@ export const useControllerForAgentList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         name: '',
-        dp: exampleDisplayPictureFileElem,
+        dp: exampleDisplayPictureFileElement,
         role: '',
         bio: '',
       };

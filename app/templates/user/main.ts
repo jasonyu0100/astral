@@ -1,4 +1,4 @@
-import { exampleDisplayPictureFileElem } from '@/server/model/elements/file/main';
+import { exampleDisplayPictureFileElement } from '@/server/model/elements/file/main';
 import { UserObj } from '@/server/model/user/main';
 
 export type TemplateUserObj = Omit<
@@ -31,7 +31,7 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         fname: 'Musician',
         lname: 'Musician',
         email: 'music@music.com',
-        dp: exampleDisplayPictureFileElem,
+        dp: exampleDisplayPictureFileElement,
         role: 'Musician',
         bio: 'I like music',
         degree: 0,
@@ -42,7 +42,7 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         fname: 'Producer',
         lname: 'Producer',
         email: 'producing@music.com',
-        dp: exampleDisplayPictureFileElem,
+        dp: exampleDisplayPictureFileElement,
         role: 'Producer',
         bio: 'I like producing',
         degree: 5,
@@ -53,7 +53,7 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         fname: 'Singer',
         lname: 'Singer',
         email: 'singer@music.com',
-        dp: exampleDisplayPictureFileElem,
+        dp: exampleDisplayPictureFileElement,
         role: 'Singer',
         bio: 'I like Singing',
         degree: 3,

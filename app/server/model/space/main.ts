@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { createContext } from 'react';
-import { FileElem, exampleFileElem } from '../elements/file/main';
+import { FileElement, exampleFileElement } from '../elements/file/main';
 import { ModelInterface } from '../main';
 export interface SpaceObj {
   id: string;
@@ -12,7 +12,7 @@ export interface SpaceObj {
   objective: string;
   summary: string;
   created: string;
-  thumbnail: FileElem;
+  thumbnail: FileElement;
   hours: number;
   target: string;
   category: string;
@@ -55,7 +55,7 @@ export const exampleSpace: SpaceObj = {
   description: 'Space Objective',
   summary: 'Space Summary',
   created: new Date().toISOString(),
-  thumbnail: exampleFileElem,
+  thumbnail: exampleFileElement,
   category: 'Space Category',
   hours: 10,
   target: moment(new Date()).add(7, 'd').toISOString(),
@@ -74,7 +74,7 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Objective',
     summary: 'Space Summary',
     created: new Date().toISOString(),
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     category: 'Space Category',
     hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
@@ -91,7 +91,7 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Objective',
     summary: 'Space Summary',
     created: new Date().toISOString(),
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     category: 'Space Category',
     hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
@@ -108,7 +108,7 @@ export const exampleSpaces: SpaceObj[] = [
     description: 'Space Objective',
     summary: 'Space Summary',
     created: new Date().toISOString(),
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     category: 'Space Category',
     hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),

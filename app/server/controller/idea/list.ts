@@ -6,10 +6,10 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { IdeaColumn, ideaModel, IdeaObj } from '@/server/model/idea/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -43,7 +43,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     y: number,
     width: number,
     height: number,
-    fileElem: FileElem,
+    fileElem: FileElement,
     idx: number,
   ) => Promise<TargetObj>;
   createIdeaFromUrlElement: (
@@ -55,7 +55,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     y: number,
     width: number,
     height: number,
-    urlElem: UrlElem,
+    urlElem: UrlElement,
     idx: number,
   ) => Promise<TargetObj>;
   createIdeaFromTextElement: (
@@ -67,7 +67,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     y: number,
     width: number,
     height: number,
-    textElem: TextElem,
+    textElem: TextElement,
     idx: number,
   ) => Promise<TargetObj>;
 }

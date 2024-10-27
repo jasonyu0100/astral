@@ -9,7 +9,7 @@ import { PortalForm } from '@/(portal)/common/container/form/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForGalleryList } from '@/server/controller/gallery/list';
 import { useControllerForUserMain } from '@/server/controller/user/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { useState } from 'react';
 import { PortalTextHeader } from '../../common/container/form/text-header/main';
 import { portalMap } from '../../map';
@@ -37,7 +37,7 @@ export function PortalRegisterForm() {
         user.id,
         'Journal',
         'My journal',
-        exampleFileElem,
+        exampleFileElement,
       );
     const update = await userController.actions.editActions.edit({
       ...user,

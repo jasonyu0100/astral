@@ -12,7 +12,7 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesChatAddChapterModal() {
@@ -26,7 +26,7 @@ export function SpacesChatAddChapterModal() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
-  const [background, setBackground] = useState(exampleFileElem);
+  const [background, setBackground] = useState(exampleFileElement);
 
   useEffect(() => {
     if (chapterListController.state.currentObj) {

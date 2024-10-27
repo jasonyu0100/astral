@@ -1,6 +1,6 @@
-import { FileElem } from '@/server/model/elements/file/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import { FileElement } from '@/server/model/elements/file/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { createContext } from 'react';
 
 export enum ValueTermsVariant {
@@ -19,9 +19,9 @@ export interface ValueTerms {
   float?: number;
   amount?: number;
   url?: string;
-  fileElem?: FileElem;
-  textElem?: TextElem;
-  urlElem?: UrlElem;
+  fileElem?: FileElement;
+  textElem?: TextElement;
+  urlElem?: UrlElement;
   agreement: boolean;
   settled: boolean;
   created: string;

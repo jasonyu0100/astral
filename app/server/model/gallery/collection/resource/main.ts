@@ -2,12 +2,12 @@ import { ElementVariant } from '@/server/model/elements/main';
 import { ModelInterface } from '@/server/model/main';
 import { createContext } from 'react';
 import {
-  FileElem,
-  exampleFileElem,
-  exampleFileElems,
+  FileElement,
+  exampleFileElement,
+  exampleFileElements,
 } from '../../../elements/file/main';
-import { TextElem } from '../../../elements/text/main';
-import { UrlElem } from '../../../elements/url/main';
+import { TextElement } from '../../../elements/text/main';
+import { UrlElement } from '../../../elements/url/main';
 
 export interface CollectionResourceObj {
   id: string;
@@ -15,9 +15,9 @@ export interface CollectionResourceObj {
   collectionId: string;
   title: string;
   description: string;
-  fileElem?: FileElem;
-  textElem?: TextElem;
-  urlElem?: UrlElem;
+  fileElem?: FileElement;
+  textElem?: TextElement;
+  urlElem?: UrlElement;
   variant: string;
   created: string;
 }
@@ -46,13 +46,13 @@ export const exampleCollectionResource: CollectionResourceObj = {
   collectionId: '0',
   title: 'Example Resource',
   description: 'Example Resource Description',
-  fileElem: exampleFileElem,
+  fileElem: exampleFileElement,
   variant: ElementVariant.FILE,
   created: new Date().toISOString(),
 };
 
 export const exampleCollectionResources: CollectionResourceObj[] = [
-  ...exampleFileElems.map((fileElem, i) => {
+  ...exampleFileElements.map((fileElem, i) => {
     return {
       id: i.toString(),
       userId: '0',

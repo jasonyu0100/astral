@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FileElemVariant } from '@/server/model/elements/file/main';
+import { FileElementVariant } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElemVariant } from '@/server/model/elements/text/main';
-import { UrlElemVariant } from '@/server/model/elements/url/main';
+import { TextElementVariant } from '@/server/model/elements/text/main';
+import { UrlElementVariant } from '@/server/model/elements/url/main';
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
@@ -30,16 +30,16 @@ export function ElementAttachment({
     <>
       {attachmentObj.variant === ElementVariant.FILE && (
         <>
-          {attachmentObj.fileElem?.variant === FileElemVariant.IMAGE && (
+          {attachmentObj.fileElem?.variant === FileElementVariant.IMAGE && (
             <ElementImage src={attachmentObj.fileElem.src} />
           )}
-          {attachmentObj.fileElem?.variant === FileElemVariant.VIDEO && (
+          {attachmentObj.fileElem?.variant === FileElementVariant.VIDEO && (
             <ElementVideo src={attachmentObj.fileElem.src} />
           )}
-          {attachmentObj.fileElem?.variant === FileElemVariant.AUDIO && (
+          {attachmentObj.fileElem?.variant === FileElementVariant.AUDIO && (
             <ElementAudioSquare src={attachmentObj.fileElem.src} />
           )}
-          {attachmentObj.fileElem?.variant === FileElemVariant.PDF && (
+          {attachmentObj.fileElem?.variant === FileElementVariant.PDF && (
             <ElementPdf src={attachmentObj.fileElem.src} />
           )}
         </>
@@ -48,10 +48,12 @@ export function ElementAttachment({
         <>
           {!textOveride ? (
             <>
-              {attachmentObj.textElem?.variant === TextElemVariant.STICKY && (
+              {attachmentObj.textElem?.variant ===
+                TextElementVariant.STICKY && (
                 <ElementSticky text={attachmentObj.textElem.text} />
               )}
-              {attachmentObj.textElem?.variant === TextElemVariant.ARTICLE && (
+              {attachmentObj.textElem?.variant ===
+                TextElementVariant.ARTICLE && (
                 <ElementPage text={attachmentObj.textElem.text} />
               )}
             </>
@@ -62,13 +64,13 @@ export function ElementAttachment({
       )}
       {attachmentObj.variant === ElementVariant.URL && (
         <>
-          {attachmentObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
+          {attachmentObj.urlElem?.variant === UrlElementVariant.YOUTUBE && (
             <ElementYouTube url={attachmentObj.urlElem.url} />
           )}
-          {attachmentObj.urlElem?.variant === UrlElemVariant.SPOTIFY && (
+          {attachmentObj.urlElem?.variant === UrlElementVariant.SPOTIFY && (
             <ElementSpotify url={attachmentObj.urlElem.url} />
           )}
-          {attachmentObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
+          {attachmentObj.urlElem?.variant === UrlElementVariant.WEBSITE && (
             <ElementWebsite
               url={attachmentObj.urlElem.url}
               title={attachmentObj.urlElem.title}

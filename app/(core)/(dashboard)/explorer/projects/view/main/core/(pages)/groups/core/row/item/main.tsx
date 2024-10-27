@@ -4,7 +4,7 @@ import { HorizonsThumbnailElement } from '@/components/cover/horizon/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 
 export function HorizonsGroupRowItem() {
@@ -21,7 +21,7 @@ export function HorizonsGroupRowItem() {
         }}
         className='flex h-full w-full cursor-pointer flex-col justify-between space-y-[1rem]'
       >
-        <HorizonsThumbnailElement fileElem={exampleFileElem} />
+        <HorizonsThumbnailElement fileElem={exampleFileElement} />
         <div className='flex flex-col'>
           <p className='text-lg font-bold text-slate-300'>Group Name</p>
         </div>

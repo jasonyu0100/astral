@@ -7,15 +7,15 @@ import { SearchBar } from '@/components/search-bar/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ImageInputProps } from '@/props/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export default function SearchModalView() {
   const fileChangable = useContext(ContextForFileChangable);
   const openableController = useContext(ContextForOpenable);
-  const [images, changeImages] = useState<FileElem[]>([]);
+  const [images, changeImages] = useState<FileElement[]>([]);
   const [query, changeQuery] = useState('');
-  const [selected, changeSelected] = useState({} as FileElem);
+  const [selected, changeSelected] = useState({} as FileElement);
   const { searchImage } = useControllerForUnsplash();
 
   useEffect(() => {
@@ -77,7 +77,7 @@ export default function SearchModalView() {
 }
 
 interface SearchImageProps extends ImageInputProps {
-  image: FileElem;
+  image: FileElement;
   active: boolean;
 }
 

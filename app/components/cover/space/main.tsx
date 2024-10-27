@@ -1,5 +1,5 @@
 import { DivInputProps } from '@/props/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 
 export enum SpaceThumbnailVariant {
   PLAIN = 'PLAIN',
@@ -7,7 +7,7 @@ export enum SpaceThumbnailVariant {
 }
 interface SpaceThumbnailElementProps extends DivInputProps {
   variant?: SpaceThumbnailVariant;
-  fileElem: FileElem;
+  fileElem: FileElement;
 }
 
 export function SpaceThumbnailElement({

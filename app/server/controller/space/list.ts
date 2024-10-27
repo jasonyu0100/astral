@@ -6,7 +6,10 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { spaceModel, SpaceObj } from '@/server/model/space/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -32,7 +35,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     description: string,
     objective: string,
     userId: string,
-    thumbnail: FileElem,
+    thumbnail: FileElement,
     category: string,
     galleryId: string,
     collectionId: string,
@@ -262,7 +265,7 @@ export const useControllerForSpaceList = (
         userId: '',
         title: '',
         description: '',
-        thumbnail: exampleFileElem,
+        thumbnail: exampleFileElement,
         category: '',
         galleryId: '',
         hours: 100,
@@ -294,7 +297,7 @@ export const useControllerForSpaceList = (
       description: string,
       objective: string,
       userId: string,
-      thumbnail: FileElem,
+      thumbnail: FileElement,
       category: string,
       galleryId: string,
       collectionId: string,

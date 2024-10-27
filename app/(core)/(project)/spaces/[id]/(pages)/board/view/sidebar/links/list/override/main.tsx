@@ -1,5 +1,8 @@
 import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
-import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/server/model/elements/text/main';
 import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext, useState } from 'react';
 
@@ -25,7 +28,7 @@ export function SpacesLinkTextIdea() {
     linkListController.actions.stateActions.updateObj(taskLinkObj.id, {
       ...taskLinkObj,
       textElem: {
-        ...(taskLinkObj.textElem || ({} as TextElem)),
+        ...(taskLinkObj.textElem || ({} as TextElement)),
         text: newText,
       },
     });
@@ -41,7 +44,7 @@ export function SpacesLinkTextIdea() {
     linkListController.actions.stateActions.updateObj(taskLinkObj.id, {
       ...taskLinkObj,
       textElem: {
-        ...(taskLinkObj.textElem || ({} as TextElem)),
+        ...(taskLinkObj.textElem || ({} as TextElement)),
         text: newText,
       },
     });
@@ -52,7 +55,7 @@ export function SpacesLinkTextIdea() {
 
   return (
     <>
-      {taskLinkObj.textElem.variant === TextElemVariant.STICKY && (
+      {taskLinkObj.textElem.variant === TextElementVariant.STICKY && (
         <div className='aspect-square w-full rounded-lg bg-yellow-500 p-[1rem] text-black shadow-md'>
           <label
             htmlFor={`sticky-textarea-${taskLinkObj.id}`}
@@ -69,7 +72,7 @@ export function SpacesLinkTextIdea() {
           />
         </div>
       )}
-      {taskLinkObj.textElem.variant === TextElemVariant.ARTICLE && (
+      {taskLinkObj.textElem.variant === TextElementVariant.ARTICLE && (
         <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-800 bg-opacity-30 p-[2rem] text-black shadow-md'>
           <label
             htmlFor={`page-textarea-${taskLinkObj.id}`}

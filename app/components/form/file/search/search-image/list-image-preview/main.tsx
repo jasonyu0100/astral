@@ -1,5 +1,5 @@
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 
 export function SearchImageListPreview() {
@@ -24,7 +24,7 @@ export function SearchImageListPreview() {
       <button
         className='h-[4rem] w-[4rem] rounded-full'
         onClick={() => {
-          updateFileElem({} as FileElem);
+          updateFileElem({} as FileElement);
         }}
       >
         <svg

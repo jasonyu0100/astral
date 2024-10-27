@@ -6,7 +6,10 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { galleryModel, GalleryObj } from '@/server/model/gallery/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -35,7 +38,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     title: string,
     description: string,
-    thumbnail: FileElem,
+    thumbnail: FileElement,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -277,7 +280,7 @@ export const useControllerForGalleryList = (
         userId: '',
         title: '',
         description: '',
-        thumbnail: exampleFileElem,
+        thumbnail: exampleFileElement,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

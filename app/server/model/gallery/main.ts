@@ -1,12 +1,12 @@
 import { createContext } from 'react';
-import { FileElem, exampleFileElem } from '../elements/file/main';
+import { FileElement, exampleFileElement } from '../elements/file/main';
 import { ModelInterface } from '../main';
 export interface GalleryObj {
   id: string;
   userId: string;
   title: string;
   description: string;
-  thumbnail: FileElem;
+  thumbnail: FileElement;
   created: string;
 }
 
@@ -28,7 +28,7 @@ export const exampleGallery: GalleryObj = {
   userId: '0',
   title: 'Example Gallery',
   description: 'Example Gallery Description',
-  thumbnail: exampleFileElem,
+  thumbnail: exampleFileElement,
   created: new Date().toISOString(),
 };
 
@@ -38,7 +38,7 @@ export const exampleGallerys: GalleryObj[] = [
     userId: '0',
     title: 'Example Gallery',
     description: 'Example Gallery Description',
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     created: new Date().toISOString(),
   },
   {
@@ -46,7 +46,7 @@ export const exampleGallerys: GalleryObj[] = [
     userId: '0',
     title: 'Example Gallery',
     description: 'Example Gallery Description',
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     created: new Date().toISOString(),
   },
 ];

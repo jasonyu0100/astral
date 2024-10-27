@@ -9,6 +9,7 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ConversationObj } from '@/server/model/conversation/main';
 import { ConversationMessageObj } from '@/server/model/conversation/message/main';
+import { FileElementVariant } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
 import { createContext, useContext } from 'react';
 
@@ -65,6 +66,10 @@ export function useControllerForSpacesViewChat() {
     const ideaHistory = ideaListController.state.objs.map((idea) => {
       if (idea.variant === ElementVariant.TEXT) {
         return `Idea - ${idea.textElem?.text}`;
+      } else if (idea.variant === ElementVariant.FILE) {
+        if (idea.fileElem?.fileType === FileElementVariant.IMAGE) {
+          return `Idea - Image`;
+        }
       }
     });
     return ideaHistory;

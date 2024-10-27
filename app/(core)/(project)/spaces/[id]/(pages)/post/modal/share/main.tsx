@@ -1,37 +1,45 @@
-import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { CustomisableModalContents } from '@/components/modal/general/container/main';
+import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function SpacesPostShareReviewModal() {
+export function SpacesPostSharePostModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Share Review</FormTitle>
-          <FormBody></FormBody>
-          <FormFooter>
-            <FormButton
-              onClick={() => {
-                window.location.href = spacesMap.spaces.id.chat.link(
-                  spaceController.state.objId,
-                );
-              }}
+      <CustomisableModal>
+        <CustomisableModalContents>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='text-3xl font-bold text-slate-300'>Share Post</p>
+            <GlassWindowFrame
+              className='h-[5rem] w-full p-[1rem]'
+              roundedFx={roundedFx['rounded-full']}
             >
-              Copy
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+              <GlassWindowContents
+                className='flex cursor-pointer flex-row items-center space-x-[1rem]'
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  openableController.close();
+                }}
+              >
+                <p className='font-slate-300 w-[300px] overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
+                  {window.location.href}
+                </p>
+                <AstralLinkIcon />
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
+          </div>
+        </CustomisableModalContents>
+      </CustomisableModal>
     </ContextForOpenable.Provider>
   );
 }

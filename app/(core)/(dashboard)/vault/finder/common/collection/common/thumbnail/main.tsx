@@ -4,7 +4,7 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { ContextForGalleryCollectionMain } from '@/server/controller/gallery/collection/main';
 import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { FileElemVariant } from '@/server/model/elements/file/main';
+import { FileElementVariant } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
@@ -16,8 +16,8 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
 
   const visualResources = resources?.filter(
     (resource) =>
-      resource.fileElem?.variant === FileElemVariant.IMAGE ||
-      resource.fileElem?.variant === FileElemVariant.VIDEO,
+      resource.fileElem?.variant === FileElementVariant.IMAGE ||
+      resource.fileElem?.variant === FileElementVariant.VIDEO,
   );
 
   return (
@@ -41,12 +41,13 @@ export function CollectionThumbnail({ empty }: { empty?: boolean }) {
                 .filter((resource) => resource.variant === ElementVariant.FILE)
                 .filter(
                   (resource) =>
-                    resource.fileElem?.variant === FileElemVariant.IMAGE,
+                    resource.fileElem?.variant === FileElementVariant.IMAGE,
                 )
                 .slice(0, 6)
                 .map((resource) => (
                   <div className='w-full'>
-                    {resource.fileElem?.variant === FileElemVariant.IMAGE && (
+                    {resource.fileElem?.variant ===
+                      FileElementVariant.IMAGE && (
                       <img
                         alt='thumbnail'
                         className='h-full w-full object-contain'

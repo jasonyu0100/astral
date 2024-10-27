@@ -8,7 +8,7 @@ import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { useContext, useState } from 'react';
 
@@ -18,7 +18,9 @@ export function VaultFinderEditResourceModal() {
   const resource = useContext(ContextForCollectionResourceObj);
   const [title, changeTitle] = useState(resource.title);
   const [description, changeDescription] = useState(resource.description);
-  const [file, changeFile] = useState(resource?.fileElem || ({} as FileElem));
+  const [file, changeFile] = useState(
+    resource?.fileElem || ({} as FileElement),
+  );
 
   return (
     <ContextForOpenable.Provider value={openableController}>

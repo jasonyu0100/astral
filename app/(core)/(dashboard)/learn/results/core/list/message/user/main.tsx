@@ -1,5 +1,5 @@
 import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
@@ -10,7 +10,7 @@ export function SpaceMapUserMessage() {
     <div className=' ml-auto flex max-w-[500px] flex-col'>
       <div className='ml-auto flex flex-row items-center'>
         <img
-          src={exampleFileElem.src}
+          src={exampleFileElement.src}
           className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
         />
         <p className='p-[0.5rem] text-xs text-slate-300'>

@@ -1,7 +1,7 @@
-import { FileElemVariant } from '@/server/model/elements/file/main';
+import { FileElementVariant } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { TextElemVariant } from '@/server/model/elements/text/main';
-import { UrlElemVariant } from '@/server/model/elements/url/main';
+import { TextElementVariant } from '@/server/model/elements/text/main';
+import { UrlElementVariant } from '@/server/model/elements/url/main';
 import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { ElementAudioSquare } from '../common/audio/square/main';
@@ -30,39 +30,39 @@ export function ElementResource({
     <>
       {resourceObj.variant === ElementVariant.FILE && (
         <>
-          {resourceObj.fileElem?.variant === FileElemVariant.IMAGE && (
+          {resourceObj.fileElem?.variant === FileElementVariant.IMAGE && (
             <ElementImage src={resourceObj.fileElem.src} />
           )}
-          {resourceObj.fileElem?.variant === FileElemVariant.VIDEO && (
+          {resourceObj.fileElem?.variant === FileElementVariant.VIDEO && (
             <ElementVideo src={resourceObj.fileElem.src} />
           )}
-          {resourceObj.fileElem?.variant === FileElemVariant.AUDIO && (
+          {resourceObj.fileElem?.variant === FileElementVariant.AUDIO && (
             <ElementAudioSquare src={resourceObj.fileElem.src} />
           )}
-          {resourceObj.fileElem?.variant === FileElemVariant.PDF && (
+          {resourceObj.fileElem?.variant === FileElementVariant.PDF && (
             <ElementPdf src={resourceObj.fileElem.src} />
           )}
         </>
       )}
       {resourceObj.variant === ElementVariant.TEXT && (
         <>
-          {resourceObj.textElem?.variant === TextElemVariant.STICKY && (
+          {resourceObj.textElem?.variant === TextElementVariant.STICKY && (
             <ElementSticky text={resourceObj.textElem.text} />
           )}
-          {resourceObj.textElem?.variant === TextElemVariant.ARTICLE && (
+          {resourceObj.textElem?.variant === TextElementVariant.ARTICLE && (
             <ElementPage text={resourceObj.textElem.text} />
           )}
         </>
       )}
       {resourceObj.variant === ElementVariant.URL && (
         <>
-          {resourceObj.urlElem?.variant === UrlElemVariant.YOUTUBE && (
+          {resourceObj.urlElem?.variant === UrlElementVariant.YOUTUBE && (
             <ElementYouTube url={resourceObj.urlElem.url} />
           )}
-          {resourceObj.urlElem?.variant === UrlElemVariant.SPOTIFY && (
+          {resourceObj.urlElem?.variant === UrlElementVariant.SPOTIFY && (
             <ElementSpotify url={resourceObj.urlElem.url} />
           )}
-          {resourceObj.urlElem?.variant === UrlElemVariant.WEBSITE && (
+          {resourceObj.urlElem?.variant === UrlElementVariant.WEBSITE && (
             <ElementWebsite
               url={resourceObj.urlElem.url}
               title={resourceObj.urlElem.title}

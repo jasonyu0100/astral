@@ -1,5 +1,5 @@
 import { useControllerForUserMain } from '@/server/controller/user/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { ContextForUserConnectionObj } from '@/server/model/user/connection/main';
 import { ContextForUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
@@ -16,7 +16,7 @@ export function UserProfileConnectionsTableRow() {
         <UserProfileConnectionsRowNumber />
         <div className='flex flex-row items-center space-x-[2rem]'>
           <img
-            src={user?.dp?.src || exampleFileElem.src}
+            src={user?.dp?.src || exampleFileElement.src}
             className='h-[3rem] w-[3rem] rounded-full object-cover'
           />
           <div className='flex flex-col justify-center'>

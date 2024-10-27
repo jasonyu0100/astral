@@ -10,7 +10,10 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { UrlElem, UrlElemVariant } from '@/server/model/elements/url/main';
+import {
+  UrlElement,
+  UrlElementVariant,
+} from '@/server/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getUrlIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
@@ -50,8 +53,8 @@ export function SpacesViewAddYouTubeUrlModal() {
       id: crypto.randomUUID(),
       title: `Youtube ${youtubeId}`,
       url: `https://www.youtube.com/embed/${youtubeId}`,
-      variant: UrlElemVariant.YOUTUBE,
-    } as UrlElem;
+      variant: UrlElementVariant.YOUTUBE,
+    } as UrlElement;
 
     const { width, height } = await getUrlIdeaBounds(urlIdea);
 

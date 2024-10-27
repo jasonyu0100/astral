@@ -6,7 +6,7 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { userModel, UserObj } from '@/server/model/user/main';
 import { createContext, useMemo, useState } from 'react';
 
@@ -257,7 +257,7 @@ export const useControllerForUserList = (
         lname: '',
         displayName: '',
         email: '',
-        dp: exampleFileElem,
+        dp: exampleFileElement,
         role: '',
         bio: '',
         journalId: '',

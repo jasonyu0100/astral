@@ -10,7 +10,10 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { UrlElem, UrlElemVariant } from '@/server/model/elements/url/main';
+import {
+  UrlElement,
+  UrlElementVariant,
+} from '@/server/model/elements/url/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getUrlIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
@@ -49,8 +52,8 @@ export function SpacesViewAddSpotifyUrlModal() {
       id: crypto.randomUUID(),
       title: `Spotify ${spotifyId}`,
       url: `https://open.spotify.com/embed/track/${spotifyId}`,
-      variant: UrlElemVariant.SPOTIFY,
-    } as UrlElem;
+      variant: UrlElementVariant.SPOTIFY,
+    } as UrlElement;
 
     const { width, height } = await getUrlIdeaBounds(urlIdea);
 
@@ -68,8 +71,8 @@ export function SpacesViewAddSpotifyUrlModal() {
           id: crypto.randomUUID(),
           title: `Spotify ${spotifyId}`,
           url: `https://open.spotify.com/embed/track/${spotifyId}`,
-          variant: UrlElemVariant.SPOTIFY,
-        } as UrlElem,
+          variant: UrlElementVariant.SPOTIFY,
+        } as UrlElement,
         ideaListController.state.objs.length,
       );
     await activityListController.actions.createActions.createFromChapterSceneIdea(

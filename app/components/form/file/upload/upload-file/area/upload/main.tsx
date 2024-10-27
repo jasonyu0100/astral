@@ -1,6 +1,6 @@
 import { UploadHandlerContext } from '@/api/controller/s3/single/main';
 import {
-  FileElemVariant,
+  FileElementVariant,
   getFileAccepts,
 } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
@@ -10,7 +10,7 @@ export function UploadFileAreaInterface() {
 
   return (
     <input
-      accept={getFileAccepts(FileElemVariant.ANY)}
+      accept={getFileAccepts(FileElementVariant.ANY)}
       type='file'
       id='fileInput'
       className='absolute inset-0 h-full w-full cursor-pointer opacity-0'

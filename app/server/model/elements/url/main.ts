@@ -1,28 +1,21 @@
 import { createContext } from 'react';
 import { ModelInterface } from '../../main';
 
-export enum UrlElemVariant {
+export enum UrlElementVariant {
   YOUTUBE = 'YOUTUBE',
   SPOTIFY = 'SPOTIFY',
   WEBSITE = 'WEBSITE',
 }
 
-export interface UrlElem {
+export interface UrlElement {
   id: string;
   url: string;
   title: string;
   variant: string;
 }
 
-export const urlElemGql = `
-type UrlElem {
-  id: String!
-  url: String
-  title: String
-  variant: String
-}
-
-type UrlElemInput {
+export const urlElementGql = `
+type UrlElement {
   id: String!
   url: String
   title: String
@@ -30,41 +23,41 @@ type UrlElemInput {
 }
 `;
 
-export const ContextForUrlElem = createContext<UrlElem>({} as UrlElem);
+export const ContextForUrlElement = createContext<UrlElement>({} as UrlElement);
 
-export const exampleUrlElem: UrlElem = {
+export const exampleUrlElement: UrlElement = {
   id: '0',
   title: 'passion.png',
   url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-  variant: UrlElemVariant.YOUTUBE,
+  variant: UrlElementVariant.YOUTUBE,
 };
 
-export const exampleUrlElems: UrlElem[] = [
+export const exampleUrlElements: UrlElement[] = [
   {
     id: '0',
     title: 'passion.png',
     url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-    variant: UrlElemVariant.YOUTUBE,
+    variant: UrlElementVariant.YOUTUBE,
   },
   {
     id: '0',
     title: 'passion.png',
     url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-    variant: UrlElemVariant.YOUTUBE,
+    variant: UrlElementVariant.YOUTUBE,
   },
   {
     id: '0',
     title: 'passion.png',
     url: 'https://www.youtube.com/watch?v=AcsCP1C_Zd8',
-    variant: UrlElemVariant.YOUTUBE,
+    variant: UrlElementVariant.YOUTUBE,
   },
 ];
 
-export const urlElemModel: ModelInterface<UrlElem> = {
+export const urlElementModel: ModelInterface<UrlElement> = {
   name: 'link',
-  example: exampleUrlElem,
-  examples: exampleUrlElems,
-  gql: urlElemGql,
+  example: exampleUrlElement,
+  examples: exampleUrlElements,
+  gql: urlElementGql,
   parentKey: '',
   children: [],
 };

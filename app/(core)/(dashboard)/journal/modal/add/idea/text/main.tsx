@@ -6,14 +6,17 @@ import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/server/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddTextStickyModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const [journalId, setJournalId] = useState('' as string);
-  const [variant, changeVariant] = useState<string>(TextElemVariant.STICKY);
+  const [variant, changeVariant] = useState<string>(TextElementVariant.STICKY);
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
@@ -58,7 +61,7 @@ export function DashboardJournalAddTextStickyModal() {
         title: title,
         text: text,
         variant: variant,
-      } as TextElem,
+      } as TextElement,
     );
 
     openableController.close();

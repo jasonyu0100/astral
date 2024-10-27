@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { ModelInterface } from '../../main';
 
-export enum FileElemVariant {
+export enum FileElementVariant {
   IMAGE = 'IMAGE',
   VIDEO = 'VIDEO',
   AUDIO = 'AUDIO',
@@ -9,7 +9,7 @@ export enum FileElemVariant {
   ANY = 'ANY',
 }
 
-export interface FileElem {
+export interface FileElement {
   id: string;
   src: string;
   ext: string;
@@ -18,17 +18,8 @@ export interface FileElem {
   variant: string;
 }
 
-export const fileElemGql = `
+export const fileElementGql = `
 type FileElem {
-  id: String!
-  src: String
-  ext: String
-  title: String
-  size: Int
-  variant: String
-}
-
-input FileElemInput {
   id: String!
   src: String
   ext: String
@@ -38,34 +29,36 @@ input FileElemInput {
 }
 `;
 
-export const ContextForFileElem = createContext<FileElem>({} as FileElem);
+export const ContextForFileElement = createContext<FileElement>(
+  {} as FileElement,
+);
 
-export const exampleFileElem: FileElem = {
+export const exampleFileElement: FileElement = {
   id: '0',
   title: 'vinyl.png',
   size: 0,
   src: `/stock/vinyl.png`,
   ext: 'image/png',
-  variant: FileElemVariant.IMAGE,
+  variant: FileElementVariant.IMAGE,
 };
 
-export const exampleDisplayPictureFileElem: FileElem = {
+export const exampleDisplayPictureFileElement: FileElement = {
   id: '0',
   title: 'avatar',
   size: 0,
   src: `/brand/display-picture-astral.png`,
   ext: 'image/png',
-  variant: FileElemVariant.IMAGE,
+  variant: FileElementVariant.IMAGE,
 };
 
-export const exampleFileElems: FileElem[] = [
+export const exampleFileElements: FileElement[] = [
   {
     id: '0',
     title: 'vinyl',
     size: 0,
     src: `/stock/vinyl.png`,
     ext: 'image/png',
-    variant: FileElemVariant.IMAGE,
+    variant: FileElementVariant.IMAGE,
   },
   {
     id: '0',
@@ -73,7 +66,7 @@ export const exampleFileElems: FileElem[] = [
     size: 0,
     src: `/stock/passion.png`,
     ext: 'image/png',
-    variant: FileElemVariant.IMAGE,
+    variant: FileElementVariant.IMAGE,
   },
   {
     id: '1',
@@ -81,7 +74,7 @@ export const exampleFileElems: FileElem[] = [
     size: 0,
     src: `/stock/nature.png`,
     ext: 'image/png',
-    variant: FileElemVariant.IMAGE,
+    variant: FileElementVariant.IMAGE,
   },
   {
     id: '2',
@@ -89,7 +82,7 @@ export const exampleFileElems: FileElem[] = [
     size: 0,
     src: `/stock/launch.png`,
     ext: 'image/png',
-    variant: FileElemVariant.IMAGE,
+    variant: FileElementVariant.IMAGE,
   },
   {
     id: '3',
@@ -97,47 +90,49 @@ export const exampleFileElems: FileElem[] = [
     size: 0,
     src: `/stock/personal.png`,
     ext: 'image/png',
-    variant: FileElemVariant.IMAGE,
+    variant: FileElementVariant.IMAGE,
   },
 ];
 
-export const fileElemModel: ModelInterface<FileElem> = {
+export const fileElementModel: ModelInterface<FileElement> = {
   name: 'file',
-  example: exampleFileElem,
-  examples: exampleFileElems,
-  gql: fileElemGql,
+  example: exampleFileElement,
+  examples: exampleFileElements,
+  gql: fileElementGql,
   children: [],
   parentKey: '',
 };
 
-export function getFileAccepts(variant: FileElemVariant) {
+export function getFileAccepts(variant: FileElementVariant) {
   switch (variant) {
-    case FileElemVariant.IMAGE:
+    case FileElementVariant.IMAGE:
       return 'image/*';
-    case FileElemVariant.VIDEO:
+    case FileElementVariant.VIDEO:
       return 'video/*';
-    case FileElemVariant.AUDIO:
+    case FileElementVariant.AUDIO:
       return 'audio/*';
     default:
       return '*';
   }
 }
 
-export function getFileVariantFromMimeType(mimeType: string): FileElemVariant {
+export function getFileVariantFromMimeType(
+  mimeType: string,
+): FileElementVariant {
   if (mimeType.includes('image')) {
-    return FileElemVariant.IMAGE;
+    return FileElementVariant.IMAGE;
   }
   if (mimeType.includes('video')) {
-    return FileElemVariant.VIDEO;
+    return FileElementVariant.VIDEO;
   }
   if (mimeType.includes('audio')) {
-    return FileElemVariant.AUDIO;
+    return FileElementVariant.AUDIO;
   }
   if (mimeType.includes('text')) {
-    return FileElemVariant.IMAGE;
+    return FileElementVariant.IMAGE;
   }
   if (mimeType.includes('application/pdf')) {
-    return FileElemVariant.PDF;
+    return FileElementVariant.PDF;
   }
-  return FileElemVariant.IMAGE;
+  return FileElementVariant.IMAGE;
 }

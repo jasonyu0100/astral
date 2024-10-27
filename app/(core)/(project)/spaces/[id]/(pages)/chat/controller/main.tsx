@@ -8,7 +8,7 @@ import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ConversationObj } from '@/server/model/conversation/main';
 import { ConversationMessageObj } from '@/server/model/conversation/message/main';
 import { ElementVariant } from '@/server/model/elements/main';
-import { exampleTextElem } from '@/server/model/elements/text/main';
+import { exampleTextElement } from '@/server/model/elements/text/main';
 import { exampleIdea, IdeaObj } from '@/server/model/idea/main';
 import {
   ContextForLoggedInUserObj,
@@ -211,7 +211,7 @@ export function useControllerForSpacesChat() {
       return {
         ...exampleIdea,
         textElem: {
-          ...exampleTextElem,
+          ...exampleTextElement,
           text: insight.text,
         },
         variant: ElementVariant.TEXT,

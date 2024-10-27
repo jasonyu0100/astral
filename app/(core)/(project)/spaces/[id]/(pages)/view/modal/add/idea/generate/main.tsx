@@ -12,7 +12,10 @@ import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
@@ -28,7 +31,7 @@ export function SpacesViewAddGenerateIdeaModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const [file, changeFile] = useState({} as FileElem);
+  const [file, changeFile] = useState({} as FileElement);
   const [title, changeTitle] = useState('' as string);
   const [prompt, changePrompt] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
@@ -88,8 +91,8 @@ export function SpacesViewAddGenerateIdeaModal() {
                   getImageResponse(prompt).then((res) => {
                     openableController.open();
                     changeFile({
-                      ...exampleFileElem,
-                      src: res[0].url || exampleFileElem.src,
+                      ...exampleFileElement,
+                      src: res[0].url || exampleFileElement.src,
                     });
                     loadingController.loadingController.close();
                   });

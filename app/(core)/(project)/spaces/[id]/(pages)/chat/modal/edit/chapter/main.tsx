@@ -9,7 +9,7 @@ import { FormTitle } from '@/components/form/title/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesChatEditChapterModal() {
@@ -18,7 +18,7 @@ export function SpacesChatEditChapterModal() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
-  const [background, setBackground] = useState(exampleFileElem);
+  const [background, setBackground] = useState(exampleFileElement);
 
   useEffect(() => {
     if (chapterListController.state.currentObj) {

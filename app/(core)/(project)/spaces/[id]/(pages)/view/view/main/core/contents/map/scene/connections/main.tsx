@@ -1,7 +1,7 @@
 import {
   ContextForSpacesView,
   SpacesViewLinkMode,
-} from '@/(core)/(project)/spaces/[id]/(pages)/controller/main';
+} from '@/(core)/(project)/spaces/[id]/(pages)/view/controller/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaRelationshipListFromScene } from '@/server/controller/idea/relationship/list-from-scene';
 import { useContext } from 'react';

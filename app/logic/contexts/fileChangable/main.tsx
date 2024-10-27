@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
-import { FileElem } from '../../../server/model/elements/file/main';
+import { FileElement } from '../../../server/model/elements/file/main';
 
 interface ContextForFileChangableInterface {
-  fileElem: FileElem;
-  updateFileElem: (fileElem: FileElem) => void;
+  fileElem: FileElement;
+  updateFileElem: (fileElem: FileElement) => void;
 }
 
 export const ContextForFileChangable = createContext(
@@ -12,10 +12,10 @@ export const ContextForFileChangable = createContext(
 
 export const useControllerForFileChangable =
   (): ContextForFileChangableInterface => {
-    const [fileElem, setFileElem] = useState({} as FileElem);
+    const [fileElem, setFileElem] = useState({} as FileElement);
 
     return {
       fileElem,
-      updateFileElem: (fileElem: FileElem) => setFileElem(fileElem),
+      updateFileElem: (fileElem: FileElement) => setFileElem(fileElem),
     };
   };

@@ -2,14 +2,17 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useState } from 'react';
 
 export function HorizonsSidebarSquadronsList() {
-  const [other, setOther] = useState<FileElem[]>([
-    exampleFileElem,
-    exampleFileElem,
+  const [other, setOther] = useState<FileElement[]>([
+    exampleFileElement,
+    exampleFileElement,
   ]);
 
   const indexToLetter = (index: number) => String.fromCharCode(65 + index);
@@ -40,7 +43,7 @@ export function HorizonsSidebarSquadronsList() {
               alert('You can only add up to 5 members');
               return;
             } else {
-              setOther([...other, exampleFileElem]);
+              setOther([...other, exampleFileElement]);
             }
           }}
         >

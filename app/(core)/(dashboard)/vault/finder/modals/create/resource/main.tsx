@@ -11,7 +11,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryCollectionMain } from '@/server/controller/gallery/collection/main';
 import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function VaultFinderCreateResourceModal() {
@@ -21,7 +21,7 @@ export function VaultFinderCreateResourceModal() {
   const openableController = useContext(ContextForOpenable);
   const [name, changeName] = useState('');
   const [description, changeDescription] = useState('');
-  const [file, changeFile] = useState({} as FileElem);
+  const [file, changeFile] = useState({} as FileElement);
 
   async function createResource() {
     resourceListController.actions.createActions

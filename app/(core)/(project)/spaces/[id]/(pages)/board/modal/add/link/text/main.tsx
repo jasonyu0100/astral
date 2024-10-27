@@ -5,7 +5,10 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
 import { ContextForTaskList } from '@/server/controller/way/list';
-import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/server/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useState } from 'react';
 
@@ -29,8 +32,8 @@ export function SpacesBoardAddTextLinkModal() {
           id: crypto.randomUUID(),
           title: title,
           text: text,
-          variant: TextElemVariant.STICKY,
-        } as TextElem,
+          variant: TextElementVariant.STICKY,
+        } as TextElement,
       )
       .then(() => {
         openableController.close();

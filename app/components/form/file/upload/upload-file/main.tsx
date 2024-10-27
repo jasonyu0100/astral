@@ -3,8 +3,8 @@ import {
   useS3UploadController,
 } from '@/api/controller/s3/single/main';
 import {
-  ContextForFileElem,
-  FileElem,
+  ContextForFileElement,
+  FileElement,
 } from '@/server/model/elements/file/main';
 import { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
@@ -17,8 +17,8 @@ export function FormUploadFile({
   onChange,
   label,
 }: {
-  defaultFileElem?: FileElem;
-  onChange: (fileElem: FileElem) => void;
+  defaultFileElem?: FileElement;
+  onChange: (fileElem: FileElement) => void;
   label?: string;
 }) {
   const uploadHandler = useS3UploadController(defaultFileElem);
@@ -30,12 +30,12 @@ export function FormUploadFile({
 
   return (
     <UploadHandlerContext.Provider value={uploadHandler}>
-      <ContextForFileElem.Provider value={file} key={file.id}>
+      <ContextForFileElement.Provider value={file} key={file.id}>
         <UploadWrapper>
           {label && <UploadFileLabel>{label}</UploadFileLabel>}
           {file.id === undefined ? <UploadFileArea /> : <UploadedFile />}
         </UploadWrapper>
-      </ContextForFileElem.Provider>
+      </ContextForFileElement.Provider>
     </UploadHandlerContext.Provider>
   );
 }

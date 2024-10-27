@@ -1,7 +1,7 @@
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { exampleFileElem } from '@/server/model/elements/file/main';
+import { exampleFileElement } from '@/server/model/elements/file/main';
 import { borderFx } from '@/style/data';
 
 export function HorizonsHorizonListRow() {
@@ -23,7 +23,7 @@ export function UserComment() {
   return (
     <div className='flex w-full flex-row justify-between'>
       <div className='flex flex-row items-center space-x-[1rem]'>
-        <UserDisplayPictureElement fileElem={exampleFileElem} />
+        <UserDisplayPictureElement fileElem={exampleFileElement} />
         <p className='font-bold text-slate-300'>John Smith</p>
         <p className='font-bold text-slate-300'>-</p>
         <p className='font-bold text-slate-300'>

@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FileElem, exampleFileElem } from '../elements/file/main';
+import { FileElement, exampleFileElement } from '../elements/file/main';
 import { ModelInterface } from '../main';
 
 export interface HorizonObj {
@@ -8,7 +8,7 @@ export interface HorizonObj {
   title: string;
   description: string;
   created: string;
-  thumbnail: FileElem;
+  thumbnail: FileElement;
   category: string;
 }
 
@@ -32,7 +32,7 @@ export const exampleHorizon: HorizonObj = {
   title: 'Horizon Example',
   description: 'Horizon Description',
   created: new Date().toISOString(),
-  thumbnail: exampleFileElem,
+  thumbnail: exampleFileElement,
   category: 'Horizon Category',
 };
 
@@ -43,7 +43,7 @@ export const exampleHorizons: HorizonObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     created: new Date().toISOString(),
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     category: 'Horizon Category',
   },
   {
@@ -52,7 +52,7 @@ export const exampleHorizons: HorizonObj[] = [
     title: 'Horizon Example',
     description: 'Horizon Description',
     created: new Date().toISOString(),
-    thumbnail: exampleFileElem,
+    thumbnail: exampleFileElement,
     category: 'Horizon Category',
   },
 ];

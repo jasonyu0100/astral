@@ -7,7 +7,7 @@ import { createContext } from 'react';
 import { SpacesPostAddCommentModal } from '../add/comment/main';
 import { SpacesPostAddPostModal } from '../add/post/main';
 import { SpacesPostAddSceneModal } from '../add/scene/main';
-import { SpacesPostShareReviewModal } from '../share/main';
+import { SpacesPostSharePostModal } from '../share/main';
 
 export const ContextForSpacesPostModals = createContext({} as SpacesPostModals);
 
@@ -43,7 +43,7 @@ export function SpacesPostModals({ children }: { children: React.ReactNode }) {
         <SpacesPostAddCommentModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={shareReviewController}>
-        <SpacesPostShareReviewModal />
+        <SpacesPostSharePostModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addPostController}>
         <SpacesPostAddPostModal />

@@ -1,6 +1,9 @@
-import { exampleFileElem, FileElem } from '@/server/model/elements/file/main';
-import { TextElem } from '@/server/model/elements/text/main';
-import { UrlElem } from '@/server/model/elements/url/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/server/model/elements/file/main';
+import { TextElement } from '@/server/model/elements/text/main';
+import { UrlElement } from '@/server/model/elements/url/main';
 import { ModelInterface } from '@/server/model/main';
 import { createContext } from 'react';
 
@@ -17,9 +20,9 @@ export interface TaskLinkObj {
   title: string;
   description: string;
   variant: string;
-  fileElem?: FileElem;
-  textElem?: TextElem;
-  urlElem?: UrlElem;
+  fileElem?: FileElement;
+  textElem?: TextElement;
+  urlElem?: UrlElement;
   created: string;
 }
 
@@ -55,7 +58,7 @@ export const exampleTaskLink: TaskLinkObj = {
   title: 'Task Link Example',
   description: 'Task Link Description',
   variant: 'file',
-  fileElem: exampleFileElem,
+  fileElem: exampleFileElement,
   created: new Date().toISOString(),
   fromIdea: false,
 };
@@ -68,7 +71,7 @@ export const exampleTaskLinks: TaskLinkObj[] = [
     title: 'Task Link Example',
     description: 'Task Link Description',
     variant: 'file',
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
     created: new Date().toISOString(),
     fromIdea: false,
   },
@@ -79,7 +82,7 @@ export const exampleTaskLinks: TaskLinkObj[] = [
     title: 'Task Link Example',
     description: 'Task Link Description',
     variant: 'file',
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
     created: new Date().toISOString(),
     fromIdea: false,
   },
@@ -90,7 +93,7 @@ export const exampleTaskLinks: TaskLinkObj[] = [
     title: 'Task Link Example',
     description: 'Task Link Description',
     variant: 'file',
-    fileElem: exampleFileElem,
+    fileElem: exampleFileElement,
     created: new Date().toISOString(),
     fromIdea: false,
   },

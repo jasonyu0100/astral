@@ -12,7 +12,7 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
 import { ContextForTaskList } from '@/server/controller/way/list';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useState } from 'react';
 
@@ -25,7 +25,7 @@ export function SpacesBoardAddFileLinkModal() {
   const wayListController = useContext(ContextForTaskList);
   const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
-  const [file, changeFile] = useState({} as FileElem);
+  const [file, changeFile] = useState({} as FileElement);
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );

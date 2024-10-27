@@ -1,5 +1,8 @@
 import { createContext } from 'react';
-import { FileElem, exampleDisplayPictureFileElem } from '../elements/file/main';
+import {
+  FileElement,
+  exampleDisplayPictureFileElement,
+} from '../elements/file/main';
 import { ModelInterface } from '../main';
 
 export interface UserObj {
@@ -9,7 +12,7 @@ export interface UserObj {
   displayName: string;
   journalId: string;
   email: string;
-  dp: FileElem;
+  dp: FileElement;
   private: boolean;
   role: string;
   bio: string;
@@ -67,7 +70,7 @@ export const exampleUser: UserObj = {
   role: 'Musician',
   bio: 'Been playing for X years',
   private: false,
-  dp: exampleDisplayPictureFileElem,
+  dp: exampleDisplayPictureFileElement,
   created: new Date().toISOString(),
   degree: 0,
 };
@@ -83,7 +86,7 @@ export const exampleUsers: UserObj[] = [
     role: 'Musician',
     private: false,
     bio: 'Been playing for X years',
-    dp: exampleDisplayPictureFileElem,
+    dp: exampleDisplayPictureFileElement,
     created: new Date().toISOString(),
     degree: 0,
   },
@@ -97,7 +100,7 @@ export const exampleUsers: UserObj[] = [
     email: 'jane@example.com',
     role: 'Musician',
     bio: 'Been playing for X years',
-    dp: exampleDisplayPictureFileElem,
+    dp: exampleDisplayPictureFileElement,
     created: new Date().toISOString(),
     degree: 0,
   },

@@ -8,7 +8,10 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { UrlElem, UrlElemVariant } from '@/server/model/elements/url/main';
+import {
+  UrlElement,
+  UrlElementVariant,
+} from '@/server/model/elements/url/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddWebsiteUrlModal() {
@@ -57,8 +60,8 @@ export function DashboardJournalAddWebsiteUrlModal() {
         id: crypto.randomUUID(),
         title: websiteUrl,
         url: websiteUrl,
-        variant: UrlElemVariant.WEBSITE,
-      } as UrlElem,
+        variant: UrlElementVariant.WEBSITE,
+      } as UrlElement,
     );
 
     openableController.close();

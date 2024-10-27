@@ -1,14 +1,14 @@
 import {
-  ContextForFileElem,
-  FileElemVariant,
+  ContextForFileElement,
+  FileElementVariant,
 } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryPreview() {
-  const file = useContext(ContextForFileElem);
+  const file = useContext(ContextForFileElement);
   return (
     <>
-      {file.variant === FileElemVariant.AUDIO && (
+      {file.variant === FileElementVariant.AUDIO && (
         <div
           className='flex aspect-square h-[100px] w-[100px] cursor-pointer items-center justify-center'
           onClick={() => {
@@ -53,20 +53,20 @@ export function UploadedFileEntryPreview() {
           />
         </div>
       )}
-      {file.variant === FileElemVariant.VIDEO && (
+      {file.variant === FileElementVariant.VIDEO && (
         <video
           src={file.src}
           className='aspect-square h-[100px]  bg-black object-contain'
         />
       )}
-      {file.variant === FileElemVariant.IMAGE && (
+      {file.variant === FileElementVariant.IMAGE && (
         <img
           src={file.src}
           alt={file.title}
           className='aspect-square h-[100px]  bg-black object-contain'
         />
       )}
-      {file.variant === FileElemVariant.PDF && (
+      {file.variant === FileElementVariant.PDF && (
         <div className='relative h-[100px] w-full'>
           <iframe
             src={`https://drive.google.com/viewerng/viewer?embedded=true&url=${encodeURIComponent(file.src)}`}

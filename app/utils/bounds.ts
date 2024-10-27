@@ -1,8 +1,17 @@
-import { FileElem, FileElemVariant } from '@/server/model/elements/file/main';
-import { TextElem, TextElemVariant } from '@/server/model/elements/text/main';
-import { UrlElem, UrlElemVariant } from '@/server/model/elements/url/main';
+import {
+  FileElement,
+  FileElementVariant,
+} from '@/server/model/elements/file/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/server/model/elements/text/main';
+import {
+  UrlElement,
+  UrlElementVariant,
+} from '@/server/model/elements/url/main';
 
-export async function getFileIdeaBounds(file: FileElem) {
+export async function getFileIdeaBounds(file: FileElement) {
   if (file.id === undefined) {
     return { width: 150, height: 150 };
   }
@@ -10,16 +19,16 @@ export async function getFileIdeaBounds(file: FileElem) {
   let width = 150;
   let height = 150;
 
-  if (file.variant === FileElemVariant.IMAGE) {
+  if (file.variant === FileElementVariant.IMAGE) {
     width = 150;
     height = 150;
-  } else if (file.variant === FileElemVariant.VIDEO) {
+  } else if (file.variant === FileElementVariant.VIDEO) {
     width = 150;
     height = 100;
-  } else if (file.variant === FileElemVariant.AUDIO) {
+  } else if (file.variant === FileElementVariant.AUDIO) {
     width = 150;
     height = 150;
-  } else if (file.variant === FileElemVariant.PDF) {
+  } else if (file.variant === FileElementVariant.PDF) {
     width = 400;
     height = 400;
   }
@@ -27,7 +36,7 @@ export async function getFileIdeaBounds(file: FileElem) {
   return { width, height };
 }
 
-export async function getUrlIdeaBounds(file: UrlElem) {
+export async function getUrlIdeaBounds(file: UrlElement) {
   if (file.id === undefined) {
     return { width: 150, height: 150 };
   }
@@ -35,13 +44,13 @@ export async function getUrlIdeaBounds(file: UrlElem) {
   let width = 150;
   let height = 150;
 
-  if (file.variant === UrlElemVariant.SPOTIFY) {
+  if (file.variant === UrlElementVariant.SPOTIFY) {
     width = 300;
     height = 80;
-  } else if (file.variant === UrlElemVariant.YOUTUBE) {
+  } else if (file.variant === UrlElementVariant.YOUTUBE) {
     width = 400;
     height = 225;
-  } else if (file.variant === UrlElemVariant.WEBSITE) {
+  } else if (file.variant === UrlElementVariant.WEBSITE) {
     width = 150;
     height = 50;
   }
@@ -49,7 +58,7 @@ export async function getUrlIdeaBounds(file: UrlElem) {
   return { width, height };
 }
 
-export async function getTextIdeaBounds(file: TextElem) {
+export async function getTextIdeaBounds(file: TextElement) {
   if (file.id === undefined) {
     return { width: 150, height: 150 };
   }
@@ -57,10 +66,10 @@ export async function getTextIdeaBounds(file: TextElem) {
   let width = 150;
   let height = 150;
 
-  if (file.variant === TextElemVariant.STICKY) {
+  if (file.variant === TextElementVariant.STICKY) {
     width = 200;
     height = 200;
-  } else if (file.variant === TextElemVariant.ARTICLE) {
+  } else if (file.variant === TextElementVariant.ARTICLE) {
     width = 350;
     height = 250;
   }

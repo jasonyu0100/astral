@@ -11,7 +11,7 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { useControllerForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
 import { ContextForGalleryMain } from '@/server/controller/gallery/main';
-import { FileElem } from '@/server/model/elements/file/main';
+import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function DashboardJournalAddCollectionModal() {
@@ -22,7 +22,7 @@ export function DashboardJournalAddCollectionModal() {
   const openableController = useContext(ContextForOpenable);
   const [title, changeTitle] = useState('');
   const [description, changeDescription] = useState('');
-  const [files, changeFiles] = useState([] as FileElem[]);
+  const [files, changeFiles] = useState([] as FileElement[]);
 
   async function createCollection() {
     collectionListController.actions.createActions
