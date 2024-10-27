@@ -7,6 +7,9 @@ export function TopbarLeftGroup() {
       <TopbarLink href={studioMap.studio.personal.link}>HOME</TopbarLink>
       <TopbarLink href='/learn'>LEARN</TopbarLink>
       <TopbarLink href='/pricing'>PRICING</TopbarLink>
+      <TopbarLink href='https://auora.atlassian.net/servicedesk/customer/portal/1'>
+        SUPPORT
+      </TopbarLink>
     </div>
   );
 }

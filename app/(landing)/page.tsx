@@ -37,6 +37,12 @@ const Header = () => (
         <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
           PRICING
         </a>
+        <a
+          href='https://auora.atlassian.net/servicedesk/customer/portal/1'
+          className='text-sm font-bold text-white sm:text-lg'
+        >
+          SUPPORT
+        </a>
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>
