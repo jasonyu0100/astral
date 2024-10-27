@@ -26,11 +26,11 @@ export function SpacesChatSearchArticlesContent() {
         </GlassWindowContents>
       </GlassWindowFrame>
       <div style={{ height: '100%' }} className='flex flex-col overflow-auto'>
-        <div className='flex flex-shrink-0 flex-col space-y-[1rem] p-[2rem]'>
+        <div className='grid w-full grid-cols-5 gap-[2rem]'>
           {generateSceneController.state.articleResults.map((articleResult) => (
             <GlassWindowFrame
               roundedFx={roundedFx.rounded}
-              className={ctwn('w-full', {
+              className={ctwn('aspect-square w-full', {
                 'rounded border-[2px] border-blue-500':
                   selected.includes(articleResult),
               })}
