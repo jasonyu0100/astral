@@ -63,8 +63,8 @@ export function SpacesSceneAddSpotifyUrlModal() {
         sceneListController.state.objId,
         title,
         description,
-        0,
-        0,
+        Math.ceil(Math.random() * 200),
+        Math.ceil(Math.random() * 200),
         width,
         height,
         {

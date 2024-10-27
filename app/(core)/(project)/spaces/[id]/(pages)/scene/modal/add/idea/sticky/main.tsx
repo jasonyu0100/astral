@@ -31,7 +31,7 @@ export function SpacesSceneAddStickyIdeaModal() {
     chapterListController.state.objId,
   );
 
-  async function create() {
+  async function createSticky() {
     const textElem = {
       id: crypto.randomUUID(),
       title: title,
@@ -47,8 +47,8 @@ export function SpacesSceneAddStickyIdeaModal() {
         sceneListController.state.objId,
         title,
         description,
-        0,
-        0,
+        Math.ceil(Math.random() * 200),
+        Math.ceil(Math.random() * 200),
         width,
         height,
         textElem,
@@ -82,7 +82,7 @@ export function SpacesSceneAddStickyIdeaModal() {
             {text.length > 0 && (
               <AstralRoundedActionButton
                 className='h-[4rem] w-[4rem]'
-                onClick={create}
+                onClick={createSticky}
               >
                 <AstralArrowForwardIcon />
               </AstralRoundedActionButton>
