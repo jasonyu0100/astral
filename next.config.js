@@ -5,11 +5,6 @@
 const { loadEnvConfig } = require('@next/env');
 loadEnvConfig('.');
 
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development', // Disable PWA in development
-});
-
 // Merge with your existing nextConfig
 const nextConfig = {
   reactStrictMode: false,
@@ -56,4 +51,4 @@ const nextConfig = {
 };
 
 // Export the configuration by wrapping it with withPWA
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;

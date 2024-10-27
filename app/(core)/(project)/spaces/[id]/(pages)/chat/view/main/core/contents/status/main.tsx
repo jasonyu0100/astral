@@ -14,33 +14,35 @@ export function SpacesChatStatusContents() {
   );
 
   return (
-    <GlassWindowFrame
-      className='flex h-[200px] w-full p-[2rem]'
-      borderFx={borderFx['border-b']}
-    >
-      <GlassWindowContents className='flex w-full flex-row justify-between space-x-[1rem]'>
-        <div className='flex flex-col space-y-[1rem]'>
-          <p className='text-2xl font-bold text-slate-300'>
-            {chapterListController.state.currentObj?.title}
-          </p>
-          <p className='text-lg font-light text-slate-300'>
-            <span className='font-bold'>Objective: </span>
-            {chapterListController.state.currentObj?.objective}
-          </p>
-          <p className='text-lg font-light text-slate-300'>
-            <span className='font-bold'>Summary: </span>
-            {chapterListController.state.currentObj?.description}
-          </p>
-        </div>
-        {inProgress.slice(0, 1).map((task) => (
-          <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
-            <p className='text-lg font-bold'>
-              {task.title} {task.taskStatus}
+    <div className='h-[200px] p-[1rem]'>
+      <GlassWindowFrame
+        className='flex h-full w-full p-[1rem]'
+        borderFx={borderFx['border-b']}
+      >
+        <GlassWindowContents className='flex w-full flex-row justify-between space-x-[1rem]'>
+          <div className='flex flex-col space-y-[1rem]'>
+            <p className='text-2xl font-bold text-slate-300'>
+              {chapterListController.state.currentObj?.title}
             </p>
-            <p className='text-sm font-light'>{task.description}</p>
+            <p className='text-lg font-light text-slate-300'>
+              <span className='font-bold'>Objective: </span>
+              {chapterListController.state.currentObj?.objective}
+            </p>
+            <p className='text-lg font-light text-slate-300'>
+              <span className='font-bold'>Summary: </span>
+              {chapterListController.state.currentObj?.description}
+            </p>
           </div>
-        ))}
-      </GlassWindowContents>
-    </GlassWindowFrame>
+          {inProgress.slice(0, 1).map((task) => (
+            <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
+              <p className='text-lg font-bold'>
+                {task.title} {task.taskStatus}
+              </p>
+              <p className='text-sm font-light'>{task.description}</p>
+            </div>
+          ))}
+        </GlassWindowContents>
+      </GlassWindowFrame>
+    </div>
   );
 }
