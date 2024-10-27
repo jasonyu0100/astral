@@ -45,9 +45,9 @@ export function SpacesChatStatusContents() {
           {inProgress.slice(0, 1).map((task) => (
             <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
               <div className='flex flex-col'>
-                <div className='flex w-full flex-row justify-between'>
+                <div className='flex w-full flex-row justify-between space-x-[1rem]'>
                   <p className='text-lg font-bold'>{task.title}</p>
-                  <div className='flex h-[2.5rem] w-[2.5rem] flex-shrink-0 items-center justify-center rounded-full bg-red-500'>
+                  <div className='flex h-[2rem] w-[2rem] flex-shrink-0 items-center justify-center rounded-full bg-red-500'>
                     <p className='text-md font-bold text-slate-300'>
                       {inProgress.length}
                     </p>
