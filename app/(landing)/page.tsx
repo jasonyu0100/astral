@@ -222,7 +222,7 @@ const FeaturesSection = () => {
 const Map = () => {
   return (
     <div
-      className=' hidden h-[800px] w-full flex-col items-center justify-center py-[100px] lg:flex '
+      className=' hidden h-[700px] w-full flex-col items-center justify-center py-[100px] lg:flex '
       style={{ zoom: 1 }}
     >
       <div className='relative h-full w-[1500px]'>
@@ -615,6 +615,59 @@ function SocialProof() {
   );
 }
 
+const Testimonials = () => {
+  const testimonials = [
+    {
+      name: 'Alex Johnson',
+      role: 'Content Creator',
+      text: 'Astral has transformed the way I organize my creative projects. The visual mapping and AI chat make brainstorming so much smoother!',
+      image: '/landing/stock/male-1.png',
+    },
+    {
+      name: 'Sam Patel',
+      role: 'Creative',
+      text: 'Astral helped me map my ideas visually, which was incredibly helpful for aligning my project goals and keeping track of progress.',
+      image: '/landing/stock/male-2.png',
+    },
+    {
+      name: 'Maria Wodobo',
+      role: 'Founder',
+      text: 'Using Astral feels like having an entire creative team at my fingertips. The tools are intuitive, and the workflow management is a game-changer!',
+      image: '/landing/stock/female-2.png',
+    },
+  ];
+
+  return (
+    <section className='px-4 py-16'>
+      <h2 className='mb-10 text-center text-4xl font-bold text-slate-300'>
+        What Our Users Say
+      </h2>
+      <div className='flex flex-row flex-wrap items-center justify-center gap-8 px-4'>
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className='flex aspect-video h-[250px] w-[320px] animate-pulse-slow flex-col rounded-lg border border-slate-300 border-opacity-30 bg-slate-500 bg-opacity-30 p-6 shadow-lg'
+          >
+            <p className='text-md mb-4 font-bold text-slate-300'>
+              "{testimonial.text}"
+            </p>
+            <div className='flex items-center space-x-4'>
+              <img
+                className='h-12 w-12 rounded-full'
+                src={testimonial.image}
+                alt={`${testimonial.name}'s profile`}
+              />
+              <p className='font-bold text-slate-300'>
+                {testimonial.name}, {testimonial.role}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
 export default function Page() {
   return (
     <PortalBackground>
@@ -628,6 +681,8 @@ export default function Page() {
       <Question />
       <div className='h-[5rem] sm:h-[10rem]' />
       <Map />
+      <Testimonials />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <CallToAction />
       <div className='h-[5rem] sm:h-[10rem]' />
       <HorizontalDivider />
