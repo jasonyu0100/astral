@@ -18,7 +18,7 @@ export function SpacesChatStatusContents() {
   return (
     <div className='h-[200px] p-[1rem]'>
       <GlassWindowFrame
-        className='flex h-full w-full p-[1rem]'
+        className='flex h-full w-full'
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents className='flex w-full flex-row justify-between space-x-[1rem]'>
@@ -33,14 +33,16 @@ export function SpacesChatStatusContents() {
                 </p>
               </div>
             </div>
-            <p className='text-lg font-light text-slate-300'>
-              <span className='font-bold'>Objective: </span>
-              {chapterListController.state.currentObj?.objective}
-            </p>
-            <p className='text-lg font-light text-slate-300'>
-              <span className='font-bold'>Summary: </span>
-              {chapterListController.state.currentObj?.description}
-            </p>
+            <div className='flex flex-col space-y-[0.5rem]'>
+              <p className='text-lg font-light text-slate-300'>
+                <span className='font-bold'>Objective: </span>
+                {chapterListController.state.currentObj?.objective}
+              </p>
+              <p className='text-lg font-light text-slate-300'>
+                <span className='font-bold'>Summary: </span>
+                {chapterListController.state.currentObj?.description}
+              </p>
+            </div>
           </div>
           {inProgress.slice(0, 1).map((task) => (
             <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>

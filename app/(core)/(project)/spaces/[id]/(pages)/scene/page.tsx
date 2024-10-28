@@ -48,6 +48,10 @@ import {
   ContextForSpaceMemberList,
   useControllerForSpaceMemberList,
 } from '@/server/controller/space/member/list';
+import {
+  ContextForTaskList,
+  useControllerForTaskList,
+} from '@/server/controller/way/list';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -110,6 +114,10 @@ function Page({ params }: { params: { id: string } }) {
       sceneListController.state.objId,
     );
 
+  const taskListController = useControllerForTaskList(
+    chapterListController.state.objId,
+  );
+
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
@@ -133,19 +141,23 @@ function Page({ params }: { params: { id: string } }) {
                           <ContextForIdeaRelationshipListFromScene.Provider
                             value={ideaRelationshipListController}
                           >
-                            <EffectWrapper>
-                              <UpdateWrapper>
-                                <LoadingWrapper>
-                                  <ControllerWrapper>
-                                    <ModalWrapper>
-                                      <ViewWrapper>
-                                        <SpacesSceneView />
-                                      </ViewWrapper>
-                                    </ModalWrapper>
-                                  </ControllerWrapper>
-                                </LoadingWrapper>
-                              </UpdateWrapper>
-                            </EffectWrapper>
+                            <ContextForTaskList.Provider
+                              value={taskListController}
+                            >
+                              <EffectWrapper>
+                                <UpdateWrapper>
+                                  <LoadingWrapper>
+                                    <ControllerWrapper>
+                                      <ModalWrapper>
+                                        <ViewWrapper>
+                                          <SpacesSceneView />
+                                        </ViewWrapper>
+                                      </ModalWrapper>
+                                    </ControllerWrapper>
+                                  </LoadingWrapper>
+                                </UpdateWrapper>
+                              </EffectWrapper>
+                            </ContextForTaskList.Provider>
                           </ContextForIdeaRelationshipListFromScene.Provider>
                         </ContextForConversationMessageList.Provider>
                       </ContextForChapterConversationList.Provider>
