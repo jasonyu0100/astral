@@ -8,6 +8,8 @@ import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { FaLinkedin, FaYoutube } from 'react-icons/fa';
+
 import { ctwn } from '@/utils/cn';
 import {
   Accordion,
@@ -576,6 +578,29 @@ function ChatWithAstralCTA() {
   );
 }
 
+function SocialFooter() {
+  return (
+    <footer className='flex items-center justify-center space-x-6 text-slate-300'>
+      <a
+        href='https://linkedin.com/company/astral-fun'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='hover:text-slate-100'
+      >
+        <FaLinkedin size={24} />
+      </a>
+      <a
+        href='https://www.youtube.com/@astral-fun'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='hover:text-slate-100'
+      >
+        <FaYoutube size={24} />
+      </a>
+    </footer>
+  );
+}
+
 export default function Page() {
   return (
     <PortalBackground>
@@ -609,6 +634,7 @@ export default function Page() {
       <div className='h-[2rem] sm:h-[5rem]' />
       <FooterCTA />
       <div className='h-[2rem] sm:h-[5rem]' />
+      <SocialFooter />
     </PortalBackground>
   );
 }
