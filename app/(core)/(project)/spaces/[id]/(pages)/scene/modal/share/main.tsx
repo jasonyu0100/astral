@@ -1,8 +1,8 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { glassFx, roundedFx } from '@/style/data';
@@ -13,8 +13,8 @@ export function SpacesSceneShareViewModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
-        <CustomisableModalContents>
+      <AstralModal>
+        <AstralModalBodyWrapper>
           <div className='flex flex-col space-y-[1rem]'>
             <p className='text-3xl font-bold text-slate-300'>Share View</p>
             <GlassWindowFrame
@@ -36,8 +36,8 @@ export function SpacesSceneShareViewModal() {
               <GlassWindowPane glassFx={glassFx['glass-10']} />
             </GlassWindowFrame>
           </div>
-        </CustomisableModalContents>
-      </CustomisableModal>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

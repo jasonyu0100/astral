@@ -1,6 +1,6 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForTaskLinkList } from '@/server/controller/way/link/list';
@@ -42,8 +42,8 @@ export function SpacesBoardAddTextLinkModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
-        <CustomisableModalContents>
+      <AstralModal>
+        <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <div className='aspect-square h-full space-y-[2rem] bg-yellow-500 p-[2rem]'>
               <textarea
@@ -57,8 +57,8 @@ export function SpacesBoardAddTextLinkModal() {
               <AstralCheckIcon />
             </AstralRoundedActionButton>
           </div>
-        </CustomisableModalContents>
-      </CustomisableModal>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

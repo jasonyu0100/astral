@@ -1,12 +1,14 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormSearchImage } from '@/components/form/file/search/search-image/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { FileSearchImage } from '@/components/form/file/search-image/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import {
@@ -46,42 +48,47 @@ export function SpacesChatEditSpaceModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Edit Space</FormTitle>
-          <FormBody>
-            <FormSearchImage
-              fileElem={thumbnail}
-              onChange={(file) => setThumbnail(file)}
-              label='Theme'
-            />
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <FormTextArea
-              title='Objective'
-              rows={5}
-              value={objective}
-              onChange={(e) => setObjective(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-            <FormTextArea
-              title='Description'
-              rows={5}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton variant={FormButtonVariant.PRIMARY} onClick={editSpace}>
-              Edit
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Edit Space</AstralModalTitle>
+              <FileSearchImage
+                fileElem={thumbnail}
+                onChange={(file) => setThumbnail(file)}
+                label='Theme'
+              />
+              <AstralTextLineInput
+                title='Title'
+                placeholder='Enter title'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <AstralTextAreaInput
+                title='Objective'
+                placeholder='Enter objective'
+                rows={5}
+                value={objective}
+                onChange={(e) => setObjective(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+              <AstralTextAreaInput
+                title='Description'
+                placeholder='Enter description'
+                rows={5}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={editSpace}>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

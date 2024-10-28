@@ -1,7 +1,7 @@
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
-import { FormSearchImage } from '@/components/form/file/search/search-image/main';
+import { FileSearchImage } from '@/components/form/file/search-image/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormContainer } from '@/components/form/main';
@@ -44,7 +44,7 @@ export function VaultFinderCreateGalleryModal() {
           <FormContainer>
             <FormTitle>Create Gallery</FormTitle>
             <FormBody>
-              <FormSearchImage
+              <FileSearchImage
                 fileElem={fileChangableController.fileElem}
                 onChange={fileChangableController.updateFileElem}
                 label='Thumbnail'

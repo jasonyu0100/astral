@@ -1,6 +1,6 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -40,8 +40,8 @@ export function SpacesBoardDirectChatModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
-        <CustomisableModalContents>
+      <AstralModal>
+        <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <div className='aspect-square h-full space-y-[2rem] bg-yellow-500 p-[2rem]'>
               <input
@@ -59,8 +59,8 @@ export function SpacesBoardDirectChatModal() {
               <AstralArrowForwardIcon />
             </AstralRoundedActionButton>
           </div>
-        </CustomisableModalContents>
-      </CustomisableModal>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

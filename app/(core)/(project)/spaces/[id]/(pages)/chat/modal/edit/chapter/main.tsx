@@ -1,12 +1,15 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormSearchImage } from '@/components/form/file/search/search-image/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { FileSearchImage } from '@/components/form/file/search-image/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralDeleteIcon } from '@/icons/delete/main';
+import { AstralSaveIcon } from '@/icons/save/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { exampleFileElement } from '@/server/model/elements/file/main';
@@ -55,51 +58,50 @@ export function SpacesChatEditChapterModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Edit Chapter</FormTitle>
-          <FormBody>
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <FormTextArea
-              title='Objective'
-              rows={5}
-              value={objective}
-              onChange={(e) => setObjective(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-            <FormTextArea
-              title='Description'
-              rows={5}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-            <FormSearchImage
-              fileElem={background}
-              label='Background (optional)'
-              onChange={(file) => setBackground(file)}
-            ></FormSearchImage>
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              variant={FormButtonVariant.PRIMARY}
-              onClick={editChapter}
-            >
-              Edit
-            </FormButton>
-            <FormButton
-              variant={FormButtonVariant.SECONDARY}
-              onClick={deleteChapter}
-            >
-              Delete
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Edit Chapter</AstralModalTitle>
+              <AstralTextLineInput
+                title='Title'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <AstralTextAreaInput
+                title='Objective'
+                rows={5}
+                value={objective}
+                onChange={(e) => setObjective(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+              <AstralTextAreaInput
+                title='Description'
+                rows={5}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+              <FileSearchImage
+                fileElem={background}
+                label='Background (optional)'
+                onChange={(file) => setBackground(file)}
+              ></FileSearchImage>
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={editChapter}>
+                <AstralSaveIcon />
+              </AstralRoundedActionButton>
+              <AstralRoundedActionButton
+                onClick={deleteChapter}
+                className='bg-gradient-to-br from-slate-600 to-slate-400'
+              >
+                <AstralDeleteIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

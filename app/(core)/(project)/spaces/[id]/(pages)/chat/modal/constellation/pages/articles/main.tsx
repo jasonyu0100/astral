@@ -13,15 +13,12 @@ export function SpacesChatSearchArticlesContent() {
   return (
     <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
       <GlassWindowFrame
-        className='flex-shrink-0 p-[2rem]'
+        className='flex-shrink-0 py-[1rem]'
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents>
-          <p className='flex-shrink-0 text-3xl font-light text-slate-300'>
+          <p className='flex-shrink-0 text-xl font-light text-slate-300'>
             {generateSceneController.state.articleSearchQuery}
-          </p>
-          <p className='flex-shrink-0 text-3xl font-black text-slate-300'>
-            ({generateSceneController.state.articleResults.length} results)
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>
@@ -65,7 +62,7 @@ export function SpacesChatSearchArticlesContent() {
                   </div>
                 </div>
               </GlassWindowContents>
-              <GlassWindowPane glassFx={glassFx['glass-10']} />
+              <GlassWindowPane glassFx={glassFx['glass-20']} />
             </GlassWindowFrame>
           ))}
         </div>

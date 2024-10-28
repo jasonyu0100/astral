@@ -1,6 +1,6 @@
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { FormSearchImage } from '@/components/form/file/search/search-image/main';
+import { FileSearchImage } from '@/components/form/file/search-image/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormSelect } from '@/components/form/select/main';
 import { SpaceTemplate } from '@/templates/space/main';
@@ -23,7 +23,7 @@ export function CreateSpaceModalPageOne() {
 
   return (
     <FormBody>
-      <FormSearchImage
+      <FileSearchImage
         fileElem={thumbnail}
         onChange={(file) => updateThumbnail(file)}
         label='Theme'

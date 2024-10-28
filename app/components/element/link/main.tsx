@@ -4,9 +4,9 @@ import { TextElementVariant } from '@/server/model/elements/text/main';
 import { UrlElementVariant } from '@/server/model/elements/url/main';
 import { ContextForTaskLinkObj } from '@/server/model/task/link/main';
 import { useContext } from 'react';
+import { ElementArticle } from '../common/article/main';
 import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
-import { ElementPage } from '../common/page/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
 import { ElementSticky } from '../common/sticky/main';
@@ -51,7 +51,7 @@ export function ElementLink({
                 <ElementSticky text={linkObj.textElem.text} />
               )}
               {linkObj.textElem?.variant === TextElementVariant.ARTICLE && (
-                <ElementPage text={linkObj.textElem.text} />
+                <ElementArticle text={linkObj.textElem.text} />
               )}
             </>
           ) : (

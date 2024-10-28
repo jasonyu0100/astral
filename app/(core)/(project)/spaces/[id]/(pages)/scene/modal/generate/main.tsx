@@ -4,8 +4,8 @@ import { ElementIdea } from '@/components/element/idea/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -122,8 +122,8 @@ export function SpacesSceneGeneratePost() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
-        <CustomisableModalContents>
+      <AstralModal>
+        <AstralModalBodyWrapper>
           <div className='flex w-[800px] flex-row items-center space-x-[2rem]'>
             <div className='flex w-full flex-col space-y-[2rem]'>
               <p className='text-3xl font-bold text-slate-300'>Generate Post</p>
@@ -154,8 +154,8 @@ export function SpacesSceneGeneratePost() {
               <AstralCheckIcon />
             </AstralRoundedActionButton>
           </div>
-        </CustomisableModalContents>
-      </CustomisableModal>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

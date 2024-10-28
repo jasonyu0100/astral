@@ -8,14 +8,12 @@ export function SpacesPostMainPost() {
     ContextForPostAttachmentListFromPost,
   );
   return (
-    <div className='flex w-full flex-row items-center justify-between space-x-[3rem]'>
-      <div className='grid w-full grid-cols-3 gap-[1rem] rounded-[1rem] bg-slate-800 bg-opacity-30 p-[2rem]'>
-        {attachmentListController.state.objs.map((attachment) => (
-          <ContextForPostAttachmentObj.Provider value={attachment}>
-            <ElementAttachment />
-          </ContextForPostAttachmentObj.Provider>
-        ))}
-      </div>
+    <div className='grid w-full grid-cols-4 gap-[1rem] rounded-[1rem] bg-slate-950 bg-opacity-30 p-[1rem] py-[2rem] shadow-glow'>
+      {attachmentListController.state.objs.map((attachment) => (
+        <ContextForPostAttachmentObj.Provider value={attachment}>
+          <ElementAttachment />
+        </ContextForPostAttachmentObj.Provider>
+      ))}
     </div>
   );
 }

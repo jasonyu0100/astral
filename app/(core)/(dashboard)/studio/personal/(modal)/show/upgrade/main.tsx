@@ -1,4 +1,4 @@
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 
@@ -7,7 +7,7 @@ export function SpacesPersonalShowNoticeModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal></CustomisableModal>
+      <AstralModal></AstralModal>
     </ContextForOpenable.Provider>
   );
 }

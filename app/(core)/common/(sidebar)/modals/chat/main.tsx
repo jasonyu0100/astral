@@ -1,4 +1,4 @@
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext } from 'react';
@@ -9,7 +9,7 @@ export function SidebarUserChatModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal></CustomisableModal>
+      <AstralModal></AstralModal>
     </ContextForOpenable.Provider>
   );
 }

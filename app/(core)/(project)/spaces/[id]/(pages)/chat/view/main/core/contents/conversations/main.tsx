@@ -1,16 +1,15 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { AstralAddIcon } from '@/icons/add/main';
-import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function SpacesChatConversations() {
-  const user = useGlobalUser((state) => state.user);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const conversationListController = useContext(
     ContextForChapterConversationList,
@@ -43,7 +42,7 @@ export function SpacesChatConversations() {
             <GlassWindowPane glassFx={glassFx['glass-5']} />
           </GlassWindowFrame>
         ))}
-        <GlassWindowFrame
+        {/* <GlassWindowFrame
           className='h-[2rem] w-[2rem]'
           roundedFx={roundedFx['rounded-full']}
         >
@@ -53,7 +52,7 @@ export function SpacesChatConversations() {
             )}
             onClick={() => {
               conversationListController.actions.createActions.createConversation(
-                user.id,
+                loggedInUser.id,
                 chapterListController.state.objId,
               );
             }}
@@ -61,7 +60,7 @@ export function SpacesChatConversations() {
             <AstralAddIcon className='h-[1/2] w-[1/2]' />
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
-        </GlassWindowFrame>
+        </GlassWindowFrame> */}
       </div>
     </div>
   );

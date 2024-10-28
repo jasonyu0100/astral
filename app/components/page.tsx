@@ -14,7 +14,7 @@ import { FormTextArea } from './form/area/main';
 import { FormBody } from './form/body/main';
 import { FormButton } from './form/button/main';
 import { FormDescription } from './form/description/main';
-import { FormSearchImage } from './form/file/search/search-image/main';
+import { FileSearchImage } from './form/file/search-image/main';
 import { FormUploadFile } from './form/file/upload/upload-file/main';
 import { ImagePreview } from './form/image-preview/main';
 import { FormInput } from './form/input/main';
@@ -83,7 +83,7 @@ export default function Page() {
           <FormTextArea title='test' />
           <FormButton>Button</FormButton>
           <FormDescription>Form Description</FormDescription>
-          <FormSearchImage
+          <FileSearchImage
             fileElem={exampleFileElement}
             label='search image'
             onChange={() => {}}

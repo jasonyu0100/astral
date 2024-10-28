@@ -19,10 +19,10 @@ export function CreateSpaceEditChapter() {
       onMouseLeave={hoverableController.onUnhover}
     >
       <div className='flex flex-row items-center'>
-        <p className='text-lg font-bold'>{index + 1}.</p>
+        <p className='text-lg font-bold text-slate-300'>{index + 1}.</p>
         <input
           placeholder='Enter your title...'
-          className='w-full rounded px-1 text-lg font-bold outline-none'
+          className='w-full rounded bg-transparent px-1 text-lg font-bold text-slate-300 outline-none'
           value={templateChapter.title}
           onChange={(e) =>
             updateTemplateProjectChapters(
@@ -48,7 +48,7 @@ export function CreateSpaceEditChapter() {
       <textarea
         value={templateChapter.objective}
         placeholder='Enter your description...'
-        className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light outline-none'
+        className='flex w-full flex-grow resize-none appearance-none bg-transparent  font-light text-slate-300 outline-none'
         onChange={(e) =>
           updateTemplateProjectChapters(
             templateProjectChapters.map((c, i) =>

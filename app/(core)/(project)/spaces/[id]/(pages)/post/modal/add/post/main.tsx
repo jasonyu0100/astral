@@ -1,12 +1,11 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
@@ -66,39 +65,40 @@ export function SpacesPostAddPostModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Create Post</FormTitle>
-          <FormBody>
-            <FormUploadFiles
-              label='Attachments'
-              onChange={(files) => {
-                changeFiles(files);
-              }}
-            />
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-            <FormTextArea
-              title='Description'
-              rows={8}
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              variant={FormButtonVariant.PRIMARY}
-              onClick={createPost}
-            >
-              Next
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <div className='flex w-[800px] flex-row items-center space-x-[2rem]'>
+            <div className='flex w-full flex-col space-y-[2rem]'>
+              <AstralModalTitle>Create Post</AstralModalTitle>
+              <AstralTextLineInput
+                title='Title'
+                placeholder='Enter title'
+                value={title}
+                onChange={(e) => changeTitle(e.target.value)}
+              />
+              <AstralTextAreaInput
+                title='Description'
+                placeholder='Enter description'
+                rows={8}
+                value={description}
+                onChange={(e) => changeDescription(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+              <FormUploadFiles
+                label='Attachments'
+                onChange={(files) => {
+                  changeFiles(files);
+                }}
+              />
+            </div>
+            <div className='flex flex-shrink-0 flex-col space-y-[1rem]'>
+              <AstralRoundedActionButton onClick={createPost}>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </div>
+          </div>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

@@ -10,17 +10,14 @@ export function SpacesChatSearchImageryContent() {
   const selected = generateSceneController.state.selectedIdeas;
 
   return (
-    <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
+    <div className='flex h-full w-full flex-col space-y-[1rem]'>
       <GlassWindowFrame
-        className='flex-shrink-0 p-[2rem]'
+        className='flex-shrink-0 py-[1rem]'
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents>
-          <p className='flex-shrink-0 text-3xl font-light text-slate-300'>
+          <p className='flex-shrink-0 text-xl font-light text-slate-300'>
             {generateSceneController.state.imageryKeywords}
-          </p>
-          <p className='flex-shrink-0 text-3xl font-black text-slate-300'>
-            ({generateSceneController.state.imageryResults.length} results)
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>

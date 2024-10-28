@@ -17,8 +17,7 @@ export function FormSelect({
       <div className='relative flex h-[4rem] w-full flex-col items-center border-b-[1px] border-slate-500'>
         <select
           title='position'
-          className='h-full w-full appearance-none border-none px-[0.5rem] text-lg font-bold
-          outline-none'
+          className='h-full w-full appearance-none border-none bg-transparent px-[0.5rem] text-lg font-bold text-slate-300 outline-none'
           {...props}
           value={props.value}
           onChange={props.onChange}

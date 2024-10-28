@@ -48,6 +48,25 @@ export function SpacesSceneHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
+      <AstralFullscreenIcon
+        onClick={() => {
+          if (
+            SpacesSceneController.state.selectedIdeas.length ===
+            ideaListController.state.objs.length
+          ) {
+            SpacesSceneController.actions.deselectAll();
+          } else {
+            SpacesSceneController.actions.selectAll();
+          }
+        }}
+        className={
+          SpacesSceneController.state.selectedIdeas.length >=
+            ideaListController.state.objs.length &&
+          SpacesSceneController.state.selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+      />
       <AstralCalendarIcon
         onClick={() => {
           SpacesSceneController.actions.goToGallery(
@@ -70,6 +89,7 @@ export function SpacesSceneHeaderLeft() {
           );
         }}
       />
+      <BarDividerIndicator />
       <AstralSyncAltIcon
         className={
           SpacesSceneController.state.linkMode === SpacesSceneLinkMode.ON
@@ -109,26 +129,6 @@ export function SpacesSceneHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralFullscreenIcon
-        onClick={() => {
-          if (
-            SpacesSceneController.state.selectedIdeas.length ===
-            ideaListController.state.objs.length
-          ) {
-            SpacesSceneController.actions.deselectAll();
-          } else {
-            SpacesSceneController.actions.selectAll();
-          }
-        }}
-        className={
-          SpacesSceneController.state.selectedIdeas.length >=
-            ideaListController.state.objs.length &&
-          SpacesSceneController.state.selectedIdeas.length > 0
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-      />
-      <BarDividerIndicator />
       <AstralCameraIcon
         onClick={() => {
           SpacesSceneController.actions.takeScreenshot();
@@ -139,7 +139,6 @@ export function SpacesSceneHeaderLeft() {
           SpacesSceneModalsController.shareViewController.open();
         }}
       />
-      <BarDividerIndicator />
     </div>
   );
 }

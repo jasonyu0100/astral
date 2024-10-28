@@ -1,6 +1,6 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -68,8 +68,8 @@ export function SpacesSceneAddStickyIdeaModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
-        <CustomisableModalContents>
+      <AstralModal>
+        <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <div className='aspect-square h-full bg-yellow-500 p-[2rem] shadow-md'>
@@ -88,8 +88,8 @@ export function SpacesSceneAddStickyIdeaModal() {
               </AstralRoundedActionButton>
             )}
           </div>
-        </CustomisableModalContents>
-      </CustomisableModal>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

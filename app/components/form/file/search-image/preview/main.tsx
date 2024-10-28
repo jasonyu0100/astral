@@ -27,7 +27,7 @@ export function SearchImagePreview() {
           )}
           {file?.src && (
             <div className='ml-[2rem] flex flex-grow flex-col space-y-[0.5rem]'>
-              <p className='text-lg font-light capitalize text-slate-500'>
+              <p className='text-lg font-light capitalize text-slate-300'>
                 {file?.title}
               </p>
             </div>

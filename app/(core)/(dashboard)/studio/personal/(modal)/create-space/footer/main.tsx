@@ -1,7 +1,8 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
+import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
@@ -17,30 +18,28 @@ export function CreateSpaceModalFooter() {
     switch (pagableController.page) {
       case 0:
         return (
-          <FormFooter>
-            <FormButton
-              variant={FormButtonVariant.PRIMARY}
+          <>
+            <AstralRoundedActionButton
               onClick={() => {
                 pagableController.updatePage(1);
               }}
             >
-              Next
-            </FormButton>
-          </FormFooter>
+              <AstralArrowForwardIcon />
+            </AstralRoundedActionButton>
+          </>
         );
       case 1: {
         return (
-          <FormFooter>
-            <FormButton
-              variant={FormButtonVariant.SECONDARY}
+          <>
+            <AstralRoundedActionButton
+              className='bg-gradient-to-br from-slate-400 to-slate-400'
               onClick={() => {
                 pagableController.updatePage(0);
               }}
             >
-              Prev
-            </FormButton>
-            <FormButton
-              variant={FormButtonVariant.PRIMARY}
+              <AstralArrowBackIcon />
+            </AstralRoundedActionButton>
+            <AstralRoundedActionButton
               onClick={() => {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
@@ -50,9 +49,9 @@ export function CreateSpaceModalFooter() {
                 });
               }}
             >
-              Create
-            </FormButton>
-          </FormFooter>
+              <AstralArrowForwardIcon />
+            </AstralRoundedActionButton>
+          </>
         );
       }
     }

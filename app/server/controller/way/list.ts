@@ -265,7 +265,7 @@ export const useControllerForTaskList = (
         description: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -280,7 +280,7 @@ export const useControllerForTaskList = (
         description: description,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;

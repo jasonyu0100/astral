@@ -1,4 +1,4 @@
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 
@@ -7,7 +7,7 @@ export function SpacesPersonalShowNoticeModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
+      <AstralModal>
         <div
           className='flex h-full w-full items-center justify-center'
           style={{
@@ -32,7 +32,7 @@ export function SpacesPersonalShowNoticeModal() {
             ></iframe>
           </div>
         </div>
-      </CustomisableModal>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

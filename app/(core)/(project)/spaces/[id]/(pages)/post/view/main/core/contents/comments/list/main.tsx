@@ -8,7 +8,7 @@ export function SpacesPostList() {
   const commentListController = useContext(ContextForPostCommentList);
 
   return (
-    <div className='flex w-full flex-col space-y-[2rem] py-[2rem]'>
+    <div className='flex w-full flex-col space-y-[2rem]'>
       <p className='font-extraBold text-xl text-slate-300'>
         Comments ({commentListController.state.objs.length})
       </p>

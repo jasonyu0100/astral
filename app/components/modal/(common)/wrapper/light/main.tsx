@@ -1,4 +1,4 @@
-export function ModalContainerLightWrapper({
+export function ModalContainerBlurWrapper({
   children,
 }: {
   children?: React.ReactNode;

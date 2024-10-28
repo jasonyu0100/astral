@@ -12,12 +12,12 @@ export function SpacesChatSearchTextContent() {
   return (
     <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
       <GlassWindowFrame
-        className='flex-shrink-0 p-[2rem]'
+        className='flex-shrink-0 py-[2rem]'
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents>
-          <p className='flex-shrink-0 text-3xl font-light text-slate-300'>
-            {generateSceneController.state.textSummary}
+          <p className='flex-shrink-0 text-xl font-light text-slate-300'>
+            {generateSceneController.state.textResults.length} Text Results
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>

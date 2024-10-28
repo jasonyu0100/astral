@@ -1,6 +1,6 @@
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormSearchImage } from '@/components/form/file/search/search-image/main';
+import { FileSearchImage } from '@/components/form/file/search-image/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormContainer } from '@/components/form/main';
@@ -62,7 +62,7 @@ export function SpacesSceneAddSearchIdeaModal() {
         <FormContainer>
           <FormTitle>Search Image</FormTitle>
           <FormBody>
-            <FormSearchImage
+            <FileSearchImage
               fileElem={file}
               onChange={(file) => changeFile(file)}
               label='Thumbnail'

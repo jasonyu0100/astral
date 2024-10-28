@@ -5,9 +5,9 @@ import { TextElementVariant } from '@/server/model/elements/text/main';
 import { UrlElementVariant } from '@/server/model/elements/url/main';
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
 import { useContext } from 'react';
+import { ElementArticle } from '../common/article/main';
 import { ElementAudioSquare } from '../common/audio/square/main';
 import { ElementImage } from '../common/image/main';
-import { ElementPage } from '../common/page/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';
 import { ElementSticky } from '../common/sticky/main';
@@ -54,7 +54,7 @@ export function ElementAttachment({
               )}
               {attachmentObj.textElem?.variant ===
                 TextElementVariant.ARTICLE && (
-                <ElementPage text={attachmentObj.textElem.text} />
+                <ElementArticle text={attachmentObj.textElem.text} />
               )}
             </>
           ) : (

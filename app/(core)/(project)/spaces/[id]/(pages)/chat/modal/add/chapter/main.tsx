@@ -1,7 +1,7 @@
 import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormSearchImage } from '@/components/form/file/search/search-image/main';
+import { FileSearchImage } from '@/components/form/file/search-image/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormContainer } from '@/components/form/main';
@@ -71,11 +71,11 @@ export function SpacesChatAddChapterModal() {
               onChange={(e) => setDescription(e.target.value)}
               style={{ resize: 'none' }}
             />
-            <FormSearchImage
+            <FileSearchImage
               fileElem={background}
               label='Background (optional)'
               onChange={(file) => setBackground(file)}
-            ></FormSearchImage>
+            ></FileSearchImage>
           </FormBody>
           <FormFooter>
             <FormButton

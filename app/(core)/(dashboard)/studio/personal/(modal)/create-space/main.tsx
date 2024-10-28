@@ -1,7 +1,10 @@
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
@@ -22,13 +25,19 @@ export function CreateSpaceModalView() {
       <ContextForOpenable.Provider value={openableController}>
         <ContextForPagable.Provider value={pagableController}>
           <LoadingWrapper>
-            <PolaroidModal>
-              <FormContainer>
-                <FormTitle>Create Space</FormTitle>
-                <CreateSpaceModalPages />
-                <CreateSpaceModalFooter />
-              </FormContainer>
-            </PolaroidModal>
+            <AstralModal>
+              <AstralModalBodyWrapper>
+                <AstralModalBody>
+                  <AstralModalBodyContents>
+                    <AstralModalTitle>Create Space</AstralModalTitle>
+                    <CreateSpaceModalPages />
+                  </AstralModalBodyContents>
+                  <AstralModalBodyAction>
+                    <CreateSpaceModalFooter />
+                  </AstralModalBodyAction>
+                </AstralModalBody>
+              </AstralModalBodyWrapper>
+            </AstralModal>
           </LoadingWrapper>
         </ContextForPagable.Provider>
       </ContextForOpenable.Provider>

@@ -10,7 +10,7 @@ export function SpacesChatSearchMediaContent() {
   const selected = generateSceneController.state.selectedIdeas;
 
   return (
-    <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
+    <div className='flex h-full w-full flex-col space-y-[1rem]'>
       <GlassWindowFrame
         className='flex-shrink-0 p-[2rem]'
         borderFx={borderFx['border-b']}
@@ -24,7 +24,7 @@ export function SpacesChatSearchMediaContent() {
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>
-      <div className='grid w-full grid-cols-3 gap-[1rem] p-[1rem]'>
+      <div className='grid w-full grid-cols-3 gap-[1rem]'>
         {generateSceneController.state.mediaResults?.map(
           (mediaResult, index) => (
             <div

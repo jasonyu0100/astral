@@ -7,7 +7,7 @@ import { SearchButton } from './search-button/main';
 
 export const SearchImageContext = createContext({});
 
-export function FormSearchImage({
+export function FileSearchImage({
   fileElem: fileElem,
   onChange,
   label,

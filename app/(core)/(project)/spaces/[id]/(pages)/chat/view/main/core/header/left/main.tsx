@@ -1,4 +1,9 @@
+import { BarDividerIndicator } from '@/components/indicator/bar/main';
+import { AstralAddIcon } from '@/icons/add/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
+import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -11,8 +16,15 @@ export function SpacesChatHeaderLeft() {
     state: { sidebarVisibility },
     actions: { updateSidebarVisibility },
   } = useContext(ContextForSpacesChat);
+
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const conversationListController = useContext(
+    ContextForChapterConversationList,
+  );
+
   return (
-    <div className='flex w-1/3 flex-row'>
+    <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
       <AstralSidebarLeftIcon
         className={ctwn({
           'rotate-180 transform':
@@ -23,6 +35,15 @@ export function SpacesChatHeaderLeft() {
             sidebarVisibility === SpacesChatSidebarVisibility.CLOSED
               ? SpacesChatSidebarVisibility.OPEN
               : SpacesChatSidebarVisibility.CLOSED,
+          );
+        }}
+      />
+      <BarDividerIndicator />
+      <AstralAddIcon
+        onClick={() => {
+          conversationListController.actions.createActions.createConversation(
+            loggedInUser.id,
+            chapterListController.state.objId,
           );
         }}
       />

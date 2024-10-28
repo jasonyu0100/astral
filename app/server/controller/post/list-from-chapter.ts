@@ -271,7 +271,7 @@ export const useControllerForUserPostListFromChapter = (
         summary: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -292,7 +292,7 @@ export const useControllerForUserPostListFromChapter = (
         postStatus: UserPostStatus.PENDING,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushFront(newObj);
+      const newObjs = stateActions.pushBack(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;

@@ -1,8 +1,8 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
@@ -72,8 +72,8 @@ export function SpacesSceneAddGenerateIdeaModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <CustomisableModal>
-        <CustomisableModalContents>
+      <AstralModal>
+        <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <input
@@ -109,8 +109,8 @@ export function SpacesSceneAddGenerateIdeaModal() {
               </>
             )}
           </div>
-        </CustomisableModalContents>
-      </CustomisableModal>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

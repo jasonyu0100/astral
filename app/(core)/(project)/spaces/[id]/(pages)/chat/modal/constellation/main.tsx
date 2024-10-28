@@ -1,6 +1,7 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { CustomisableModalContents } from '@/components/modal/general/container/main';
-import { CustomisableModal } from '@/components/modal/general/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
@@ -24,17 +25,12 @@ export function SpacesChatConstellationModal() {
       <ContextForGenerateSceneController.Provider
         value={generateSceneController}
       >
-        <CustomisableModal>
-          <CustomisableModalContents className='w-full'>
-            <div
-              className='flex w-full flex-col justify-center'
-              style={{ height: '100%' }}
-            >
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <div
-                  className='flex w-full flex-row items-center justify-center space-x-[2rem] overflow-auto'
-                  style={{ height: '800px' }}
-                >
+        <AstralModal>
+          <AstralModalBodyWrapper className='w-full'>
+            <div className='flex w-full flex-col' style={{ height: '100%' }}>
+              <AstralModalTitle>Generate Constellation</AstralModalTitle>
+              <div className='flex w-full flex-row items-center space-x-[2rem]'>
+                <div className='flex h-[800px] w-full flex-row items-center justify-center overflow-auto'>
                   {generateSceneController.state.tab ===
                     GenerateSceneTab.TEXT && <SpacesChatSearchTextContent />}
                   {generateSceneController.state.tab ===
@@ -59,8 +55,8 @@ export function SpacesChatConstellationModal() {
               </div>
               <SpacesChatConstellationTabs />
             </div>
-          </CustomisableModalContents>
-        </CustomisableModal>
+          </AstralModalBodyWrapper>
+        </AstralModal>
       </ContextForGenerateSceneController.Provider>
     </ContextForOpenable.Provider>
   );
