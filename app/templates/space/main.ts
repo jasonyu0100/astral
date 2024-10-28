@@ -9,15 +9,16 @@ import { TaskObj } from '@/server/model/task/main';
 import { createContext } from 'react';
 import { blankSpaceTemplate } from './new-templates/blankSpaceTemplate';
 import { collaborationHubTemplate } from './new-templates/collaborationHubTemplate';
-import { contentCreationTemplate } from './new-templates/contentCreationTemplate';
 import { creativeCampaignTemplate } from './new-templates/creativeCampaignTemplate';
+import { eventPlanningTemplate } from './new-templates/eventPlanningTemplate';
 import { freelancingTaskTemplate } from './new-templates/freelancingTaskTemplate';
-import { hackathonProjectTemplate } from './new-templates/hackathonProjectTemplate';
 import { ideationTemplate } from './new-templates/ideationTemplate';
 import { meetingTemplate } from './new-templates/meetingTemplate';
 import { musicAndAudioProductionTemplate } from './new-templates/musicAndAudioProductionTemplate';
 import { prototypeDevelopmentTemplate } from './new-templates/prototypeDevelopmentTemplate';
-import { newStarterProjectTemplate } from './new-templates/starterTemplate';
+import { startupTemplate } from './new-templates/startupTemplate';
+import { storyboardTemplate } from './new-templates/storyboardingTemplate';
+import { userTestingTemplate } from './new-templates/userTestingTemplate';
 import { uxUiDesignTemplate } from './new-templates/uxUiDesignTemplate';
 import { videoProductionTemplate } from './new-templates/videoMediaProductionTemplate';
 
@@ -114,35 +115,37 @@ export interface TemplatePostObj extends _TemplatePostObj {
 // TEMPLATES
 enum NewSpaceTemplate {
   BlankSpace = '🟡 Blank Space',
-  Starter = '🚀 Starter',
   Ideation = '💡 Ideation',
-  MeetingMinutes = '📝 Meeting Minutes',
-  Collaboration = '🤝 Collaboration',
-  MusicProduction = '🎶 Music Production',
-  ContentCreation = '🖊️ Content Creation',
-  VideoProduction = '🎥 Video Production',
-  Freelancing = '💼 Freelancing',
-  Campaign = '📢 Campaign',
-  Hackathon = '💻 Hackathon',
-  Prototype = '🔧 Prototype',
+  Minutes = '📝 Minutes',
+  Storyboarding = '📖 Storyboarding',
+  UserTesting = '👥 User Testing',
   DesignJam = '🎨 Design Jam',
+  EventPlanning = '🎉 Event Planning',
+  VideoProduction = '🎥 Video Production',
+  MusicProduction = '🎶 Music Production',
+  FreelancingProject = '💼 Freelancing Task',
+  MarketingCampaign = '📢 Marketing Campaign',
+  Prototype = '🔧 Prototype',
+  Startup = '🚀 Startup',
+  Collaboration = '🤝 Collaboration Hub',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.BlankSpace]: blankSpaceTemplate,
-  [NewSpaceTemplate.MeetingMinutes]: meetingTemplate,
-  [NewSpaceTemplate.Starter]: newStarterProjectTemplate,
-  [NewSpaceTemplate.Freelancing]: freelancingTaskTemplate,
+  [NewSpaceTemplate.Minutes]: meetingTemplate,
+  [NewSpaceTemplate.FreelancingProject]: freelancingTaskTemplate,
   [NewSpaceTemplate.Ideation]: ideationTemplate,
-  [NewSpaceTemplate.Hackathon]: hackathonProjectTemplate,
+  [NewSpaceTemplate.Startup]: startupTemplate,
   [NewSpaceTemplate.Collaboration]: collaborationHubTemplate,
-  [NewSpaceTemplate.Campaign]: creativeCampaignTemplate,
+  [NewSpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
   [NewSpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
   [NewSpaceTemplate.VideoProduction]: videoProductionTemplate,
-  [NewSpaceTemplate.ContentCreation]: contentCreationTemplate,
   [NewSpaceTemplate.DesignJam]: uxUiDesignTemplate,
   [NewSpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
+  [NewSpaceTemplate.Storyboarding]: storyboardTemplate,
+  [NewSpaceTemplate.UserTesting]: userTestingTemplate,
+  [NewSpaceTemplate.EventPlanning]: eventPlanningTemplate,
 };
 
 export {

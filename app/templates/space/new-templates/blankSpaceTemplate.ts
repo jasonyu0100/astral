@@ -30,6 +30,30 @@ export const blankSpaceTemplate: TemplateSpaceObj = {
           description:
             'Add any research or reference material relevant to your project, such as inspiration sources, articles, or similar projects.',
         },
+        {
+          title: 'Gather Team Feedback',
+          description:
+            'Share your initial ideas and goals with your team and gather their feedback to refine your project direction.',
+        },
+      ],
+    },
+    {
+      title: '📊 Planning',
+      description:
+        '🗂️ This chapter focuses on planning the next steps for your project, defining key milestones, and establishing a timeline.',
+      objective:
+        '📅 Outline a clear plan of action to guide your project from ideation to execution.',
+      tasks: [
+        {
+          title: 'Define Key Milestones',
+          description:
+            'Establish major milestones to track your project’s progress and ensure you stay on schedule.',
+        },
+        {
+          title: 'Create a Timeline',
+          description:
+            'Map out a timeline for completing each phase of your project, from ideation to execution and review.',
+        },
       ],
     },
   ],
