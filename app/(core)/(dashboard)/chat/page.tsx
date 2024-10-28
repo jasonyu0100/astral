@@ -61,9 +61,9 @@ export default function Page() {
                 value={messageListController}
               >
                 <LoadingWrapper>
-                  <ConversationalSearchWrapper>
+                  <AstralChatPage>
                     <ConversationalSearchView />
-                  </ConversationalSearchWrapper>
+                  </AstralChatPage>
                 </LoadingWrapper>
               </ContextForConversationMessageList.Provider>
             </ContextForChapterConversationList.Provider>
@@ -74,11 +74,7 @@ export default function Page() {
   );
 }
 
-export function ConversationalSearchWrapper({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function AstralChatPage({ children }: { children: React.ReactNode }) {
   const userId = 'cf0b9d9f-896c-4d84-b982-957a3ca1234b';
   const spaceController = useContext(ContextForSpaceMain);
   const conversationalSearchController = useControllerForConversationalSearch();

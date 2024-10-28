@@ -1,4 +1,6 @@
 'use client';
+
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { ctwn } from '@/utils/cn';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
@@ -26,7 +28,7 @@ export const stripeProducts = {
   },
 };
 
-export function getPlanName(priceId: string) {
+export function getPlanName(priceId) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
       return 'Standard Monthly';
@@ -37,11 +39,11 @@ export function getPlanName(priceId: string) {
     case stripeProducts.pro.yearly:
       return 'Pro Yearly';
     default:
-      return 'Community Monthly';
+      return 'Community Free';
   }
 }
 
-export function getPlanPrice(priceId: string) {
+export function getPlanPrice(priceId) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
       return '$20 / Month';
@@ -52,22 +54,50 @@ export function getPlanPrice(priceId: string) {
     case stripeProducts.pro.yearly:
       return '$480 / Year';
     default:
-      return 'Community Free';
+      return 'Free';
   }
+}
+
+function MemberPricingCard({
+  title,
+  price,
+  description,
+  imageSrc,
+  onClick,
+}: {
+  title: string;
+  price: string;
+  description?: string;
+  imageSrc: string;
+  onClick: () => void;
+}) {
+  return (
+    <div
+      className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+      onClick={onClick}
+    >
+      <img src={imageSrc} className='aspect-square w-full bg-black' />
+      <div className='flex h-full w-full flex-col justify-center'>
+        <p className='font-extraBold text-3xl'>{title}</p>
+        <p className='text-lg font-bold'>{price}</p>
+        {description && <p className='text-center text-sm'>{description}</p>}
+      </div>
+    </div>
+  );
 }
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState('yearly');
 
-  function triggerCheckout(priceId: string) {
+  function triggerCheckout(priceId) {
     window.location.href = `/stripe/checkout?priceId=${priceId}`;
   }
 
   return (
-    <div className='flex flex-col space-y-[2rem]'>
+    <div className='flex h-full w-full flex-col justify-center space-y-[2rem] overflow-auto'>
       <Tabs
         defaultValue='yearly'
-        className='flex w-full flex-col items-center'
+        className='flex w-full flex-col items-center justify-center'
         value={activeTab}
       >
         <TabsList className='h-[80px] w-[500px] rounded bg-slate-700 p-[5px]'>
@@ -91,89 +121,63 @@ export default function Page() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value='yearly' className='mt-[2rem]'>
-          <div className='flex h-[500px] flex-row space-x-[2rem]'>
-            <div
-              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-4'>
+            <MemberPricingCard
+              title='Community'
+              price='Free'
+              imageSrc='/portal/personality-f.png'
+              onClick={() => {
+                window.location.href = studioMap.studio.personal.link;
+              }}
+            />
+            <MemberPricingCard
+              title='Standard'
+              price='$90 / year'
+              imageSrc='/portal/producer-f.png'
               onClick={() => triggerCheckout(stripeProducts.standard.yearly)}
-            >
-              <img
-                src='/portal/producer-f.png'
-                className='aspect-square w-full bg-black'
-              />
-              <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>$90 / year</p>
-              </div>
-            </div>
-            <div
-              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+            />
+            <MemberPricingCard
+              title='Pro'
+              price='$240 / year'
+              imageSrc='/portal/producer-m.png'
               onClick={() => triggerCheckout(stripeProducts.pro.yearly)}
-            >
-              <img
-                src='/portal/producer-m.png'
-                className='aspect-square w-full bg-black'
-              />
-              <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>$240 / year</p>
-              </div>
-            </div>
-            <div
-              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+            />
+            <MemberPricingCard
+              title='Enterprise'
+              price='Contact us'
+              imageSrc='/portal/personality-m.png'
               onClick={() => (window.location.href = 'mailto:jason@astral.fun')}
-            >
-              <img
-                src='/portal/personality-m.png'
-                className='aspect-square w-full bg-black'
-              />
-              <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Enterprise</p>
-                <p className='text-lg font-bold'>Contact us</p>
-              </div>
-            </div>
+            />
           </div>
         </TabsContent>
         <TabsContent value='monthly' className='mt-[2rem]'>
-          <div className='flex h-[500px] flex-row space-x-[2rem]'>
-            <div
-              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-4'>
+            <MemberPricingCard
+              title='Community'
+              price='Free'
+              imageSrc='/portal/personality-f.png'
+              onClick={() => {
+                window.location.href = studioMap.studio.personal.link;
+              }}
+            />
+            <MemberPricingCard
+              title='Standard'
+              price='$10 / month'
+              imageSrc='/portal/performer-m.png'
               onClick={() => triggerCheckout(stripeProducts.standard.monthly)}
-            >
-              <img
-                src='/portal/performer-m.png'
-                className='aspect-square w-full bg-black'
-              />
-              <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Individual</p>
-                <p className='text-lg font-bold'>$10 / month</p>
-              </div>
-            </div>
-            <div
-              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+            />
+            <MemberPricingCard
+              title='Pro'
+              price='$25 / month'
+              imageSrc='/portal/performer-f.png'
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
-            >
-              <img
-                src='/portal/performer-f.png'
-                className='aspect-square w-full bg-black'
-              />
-              <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Team</p>
-                <p className='text-lg font-bold'>$25 / month</p>
-              </div>
-            </div>
-            <div
-              className='flex aspect-[13/16] h-full flex-shrink-0 cursor-pointer flex-col items-center border-[3px] border-black bg-white p-[20px] pb-[0px]'
+            />
+            <MemberPricingCard
+              title='Enterprise'
+              price='Contact us'
+              imageSrc='/portal/personality-m.png'
               onClick={() => (window.location.href = 'mailto:jason@astral.fun')}
-            >
-              <img
-                src='/portal/personality-m.png'
-                className='aspect-square w-full bg-black'
-              />
-              <div className='flex h-full w-full flex-col justify-center'>
-                <p className='font-extraBold text-3xl'>Enterprise</p>
-                <p className='text-lg font-bold'>Contact us</p>
-              </div>
-            </div>
+            />
           </div>
         </TabsContent>
       </Tabs>

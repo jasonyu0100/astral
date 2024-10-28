@@ -4,6 +4,9 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCalendarIcon } from '@/icons/calendar/main';
+import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import {
@@ -31,17 +34,11 @@ const Header = () => (
         <a href='/' className='text-sm font-bold text-white sm:text-lg'>
           HOME
         </a>
-        <a href='/learn' className='text-sm font-bold text-white sm:text-lg'>
-          LEARN
+        <a href='/chat' className='text-sm font-bold text-white sm:text-lg'>
+          CHAT
         </a>
         <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
           PRICING
-        </a>
-        <a
-          href='https://auora.atlassian.net/servicedesk/customer/portal/1'
-          className='text-sm font-bold text-white sm:text-lg'
-        >
-          SUPPORT
         </a>
       </nav>
     </div>
@@ -63,7 +60,7 @@ const HeroSection = () => (
   <section className='grid grid-cols-1 items-center gap-[5rem] px-[3rem] py-[3rem] sm:grid-cols-2'>
     <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
       <h1 className='text-center font-permanentMarker text-2xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
-        Your Creative Journey, Streamlined.
+        Your Creative Journey, Streamlined
       </h1>
       <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
         Astral is your creative work tracker, built to grow with you. Ideal for
@@ -77,7 +74,7 @@ const HeroSection = () => (
           href='/register'
           className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[5rem] sm:px-[1rem]'
         >
-          <span className='text-xl font-bold text-slate-300'>Start now</span>
+          <span className='text-xl font-bold text-slate-300'>Start today</span>
         </a>
         <a
           href='mailto:jason@astral.fun'
@@ -127,15 +124,18 @@ const CallToAction = () => {
         Transforming your ideas into visual insights
       </p>
       <div className='h-[5rem] sm:h-[10rem]' />
-      <a
-        href={'https://calendly.com/jasonyu0100/30min'}
-        target='_blank'
-        className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
-      >
-        <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-          schedule a booking
-        </p>
-      </a>
+      <div className='flex flex-row space-x-[1rem]'>
+        <a
+          href={'https://calendly.com/jasonyu0100/30min'}
+          target='_blank'
+          className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+        >
+          <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+            schedule a booking
+          </p>
+          <AstralCalendarIcon />
+        </a>
+      </div>
     </section>
   );
 };
@@ -333,6 +333,7 @@ const FooterCTA = () => (
       <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
         Start your creative journey today
       </p>
+      <AstralArrowForwardIcon />
     </a>
   </footer>
 );
@@ -384,15 +385,21 @@ function MembershipSection() {
           <br />
           <div className='mt-8'>
             {activeTab === 'yearly' && (
-              <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+              <div className='grid grid-cols-1 gap-6 md:grid-cols-4'>
                 <MemberPricingCard
-                  title='Creator'
+                  title='Community'
+                  price='Free'
+                  description='Ideal for solo creatives looking to get started with basic project management.'
+                  imageSrc='/portal/personality-f.png'
+                />
+                <MemberPricingCard
+                  title='Standard'
                   price='$90 / year'
                   description='Best for individual creators looking to organize and execute their ideas.'
                   imageSrc='/portal/producer-f.png'
                 />
                 <MemberPricingCard
-                  title='Team Pro'
+                  title='Pro'
                   price='$240 / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
@@ -406,15 +413,21 @@ function MembershipSection() {
               </div>
             )}
             {activeTab === 'monthly' && (
-              <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
+              <div className='grid grid-cols-1 gap-6 md:grid-cols-4'>
                 <MemberPricingCard
-                  title='Creator'
+                  title='Community'
+                  price='Free'
+                  description='Ideal for solo creatives looking to get started with basic project management.'
+                  imageSrc='/portal/personality-f.png'
+                />
+                <MemberPricingCard
+                  title='Standard'
                   price='$10 / month'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
                   imageSrc='/portal/performer-m.png'
                 />
                 <MemberPricingCard
-                  title='Team Pro'
+                  title='Pro'
                   price='$25 / month'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
                   imageSrc='/portal/performer-f.png'
@@ -549,6 +562,20 @@ function FAQSection() {
   );
 }
 
+function ChatWithAstralCTA() {
+  return (
+    <a
+      href={'/chat'}
+      className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+    >
+      <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+        chat with astral
+      </p>
+      <AstralChatIndicatorIcon />
+    </a>
+  );
+}
+
 export default function Page() {
   return (
     <PortalBackground>
@@ -574,6 +601,8 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
+      <ChatWithAstralCTA />
+      <div className='h-[5rem] sm:h-[10rem]' />
       <MembershipSection />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />

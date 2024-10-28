@@ -1,4 +1,4 @@
-import { AstralSearchIcon } from '@/icons/search/main';
+import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
 import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
 import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
@@ -26,8 +26,8 @@ export function ConversationalSearchChatList() {
           window.location.href = `/register`;
         }}
       >
-        <p className='font-bold text-slate-300'>Continue</p>
-        <AstralSearchIcon />
+        <p className='font-bold text-slate-300'>Register</p>
+        <AstralChevronUpIcon />
       </div>
       <div
         ref={ref}

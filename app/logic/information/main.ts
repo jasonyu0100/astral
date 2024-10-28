@@ -39,6 +39,39 @@ export const targetCustomer = `
 The Customer: Astral’s ideal user is a creative who collaborates to bring their ideas to life. Whether working solo or in a team, users leverage Astral’s AI-driven workflows to refine projects through feedback and organized task management. They are content creators, project leaders, and visionaries eager to enhance their creative processes and outcomes.
 `;
 
-export const videoOne = 'https://www.youtube.com/watch?v=k9y8ALInN0s';
-export const videoTwo = 'https://www.youtube.com/watch?v=QXYT0mTZQ8k';
-export const videoThree = 'https://www.youtube.com/watch?v=65_4Kke0TWo';
+export const keyFeatures = `
+Key Features:
+  - AI-Powered Task Generation: Automatically convert ideas and discussions into actionable tasks.
+  - Visual Project Mapping: Organize projects visually for a streamlined workflow.
+  - Real-Time Collaboration Tools: Instantly collaborate with team members or clients.
+  - Intelligent Insights & Recommendations: Gain insights on task prioritization and next steps.
+  - Flexible Workflow Management: Tailor layouts and organize tasks by priority or category.
+  - Progress Tracking and Analytics: Track milestones, deadlines, and key metrics.
+  - Community Access (Free Tier): Engage with like-minded creatives in the Astral network.
+`;
+
+export const faq = `
+FAQs:
+  - Is there a free version of Astral? Yes, Astral offers a free Community tier for solo creatives.
+  - What platforms does Astral integrate with? Currently integrates with Slack, Google Drive, and Notion.
+  - Is Astral secure? Yes, Astral prioritizes data privacy with industry-standard encryption.
+`;
+
+export const roadmap = `
+Product Roadmap:
+  - Near-Term: Enhanced AI features, mobile app, and expanded integrations.
+  - Long-Term Vision: A complete creative ecosystem with automated tasks and strong community involvement.
+`;
+
+export const communityEngagement = `
+Community Engagement and Events:
+  - Monthly Webinars: Best practices in creative project management.
+  - Community Channels: Join discussions and Q&A sessions on Slack and Discord.
+`;
+
+export const supportResources = `
+Support and Resources:
+  - Customer Support: Live chat and email support available.
+  - Knowledge Base: 24/7 access to FAQs, tutorials, and troubleshooting guides.
+  - Video Tutorials: Step-by-step video guides for new users.
+`;

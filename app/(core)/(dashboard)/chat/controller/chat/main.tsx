@@ -1,9 +1,14 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import {
+  communityEngagement,
   currentState,
   description,
+  faq,
+  keyFeatures,
   landingDescription,
   pitch,
+  roadmap,
+  supportResources,
   targetCustomer,
 } from '@/logic/information/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -100,6 +105,11 @@ export function useControllerForConversationalSearch() {
       `${landingDescription}`,
       `${currentState}`,
       `${targetCustomer}`,
+      `${keyFeatures}`,
+      `${faq}`,
+      `${roadmap}`,
+      `${communityEngagement}`,
+      `${supportResources}`,
       `This is the message history:`,
       ...getMessageHistory(),
       `Reply to the user message try to get them to click the search button. Remind them that conversational insights are being generated from the conversation to create actionable change.`,
