@@ -58,43 +58,47 @@ const Header = () => (
   </header>
 );
 
-const HeroSection = () => (
-  <section className='grid grid-cols-1 items-center gap-[5rem] px-[3rem] py-[3rem] sm:grid-cols-2'>
-    <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
-      <h1 className='text-center font-permanentMarker text-2xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
-        Your Creative Journey, Streamlined
-      </h1>
-      <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-        Astral is your creative work tracker, built to grow with you. Ideal for
-        content creators, founders, and visionaries, Astral provides Kanban
-        boards for task management, ai-collaborative Chat, visual idea Mapping,
-        and Posts to capture insights. Stay organized and supported at every
-        stage of your creative journey.
-      </p>
-      <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
-        <a
-          href='/register'
-          className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[5rem] sm:px-[1rem]'
-        >
-          <span className='text-xl font-bold text-slate-300'>Start today</span>
-        </a>
-        <a
-          href='mailto:jason@astral.fun'
-          className='min-w-[100px] rounded-full p-2 text-xl font-bold text-slate-300 sm:p-[2rem]'
-        >
-          Contact Us
-        </a>
+const HeroSection = () => {
+  return (
+    <section className='grid grid-cols-1 items-center gap-[5rem] px-[3rem] py-[3rem] sm:grid-cols-2'>
+      <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
+        <h1 className='text-center font-permanentMarker text-2xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
+          Your Creative Journey, Streamlined
+        </h1>
+        <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
+          Astral is your creative work tracker, built to grow with you. Ideal
+          for content creators, founders, and visionaries, Astral provides
+          Kanban boards for task management, ai-collaborative Chat, visual idea
+          Mapping, and Posts to capture insights. Stay organized and supported
+          at every stage of your creative journey.
+        </p>
+        <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
+          <a
+            href='/register'
+            className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[5rem] sm:px-[1rem]'
+          >
+            <span className='text-xl font-bold text-slate-300'>
+              Start today
+            </span>
+          </a>
+          <a
+            href='mailto:jason@astral.fun'
+            className='min-w-[100px] rounded-full p-2 text-xl font-bold text-slate-300 sm:p-[2rem]'
+          >
+            Contact Us
+          </a>
+        </div>
       </div>
-    </div>
-    <div className='w-full px-0 sm:px-[2rem]'>
-      <img
-        src='/landing/hero.png'
-        className='w-full rounded-[2rem] object-contain shadow-glow'
-        alt='Hero Image'
-      />
-    </div>
-  </section>
-);
+      <div className='w-full px-0 sm:px-[2rem]'>
+        <img
+          src='/landing/hero-1.png'
+          className='w-full rounded-[2rem] object-contain shadow-glow'
+          alt='Hero Image'
+        />
+      </div>
+    </section>
+  );
+};
 
 const Question = () => (
   <p className='w-full animate-pulse-slow text-center text-3xl font-bold text-slate-400 sm:text-5xl'>
@@ -601,12 +605,23 @@ function SocialFooter() {
   );
 }
 
+function SocialProof() {
+  return (
+    <div className='flex w-full flex-row items-center space-x-[2rem] p-[2rem]'>
+      <img src='/landing/product-hunt.png' className='w-[100px]' />
+      <img src='/landing/build-club.png' className='w-[200px]' />
+      {/* <img src='/landing/ofa.jpg' className='w-[100px] rounded-full' /> */}
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <PortalBackground>
       <Header />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HeroSection />
+      <SocialProof />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[5rem] sm:h-[10rem]' />
