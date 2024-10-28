@@ -7,8 +7,8 @@ export function SpacesPostMain() {
   return (
     <div className='flex flex-grow flex-col'>
       <div className='flex flex-col space-y-[2rem] px-[4rem] py-[2rem]'>
-        <SpacesPostTitle />
         <SpacesPostMainPost />
+        <SpacesPostTitle />
         <SpacesPostDescription />
       </div>
       <SpacesPostComments />

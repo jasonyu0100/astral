@@ -4,7 +4,6 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { useContext } from 'react';
 import { ContextForSpacesScene } from '../../../../controller/main';
 import { SpacesSceneChat } from './map/chat/main';
-import { SpacesSceneInProgress } from './map/in-progress/main';
 import { SpacesScenePalette } from './map/palette/main';
 import { SpacesSceneSave } from './map/save/main';
 import { SpacesSceneScene } from './map/scene/main';
@@ -35,7 +34,7 @@ export function SpacesSceneContents() {
             <SpacesScenePalette />
             <SpacesSceneSave />
             <SpacesSceneChat />
-            <SpacesSceneInProgress />
+            {/* <SpacesSceneInProgress /> */}
           </>
         )}
       </AbsoluteHolder>

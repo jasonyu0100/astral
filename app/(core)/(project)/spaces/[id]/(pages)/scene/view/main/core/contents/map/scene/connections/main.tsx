@@ -61,7 +61,7 @@ export function SpacesSceneContentsSceneConnections() {
               const sigmoidWeight = sigmoid(normalisedWeight);
 
               // Scale stroke width using the sigmoid weight
-              const maxStrokeWidth = 10;
+              const maxStrokeWidth = 5;
               const minStrokeWidth = 1;
               const strokeWidth =
                 sigmoidWeight * (maxStrokeWidth - minStrokeWidth) +
