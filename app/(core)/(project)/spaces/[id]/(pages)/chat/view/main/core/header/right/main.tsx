@@ -30,7 +30,7 @@ export function SpacesChatHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Generate Constellation ({conversationLength})
+            Generate Scene ({conversationLength})
           </p>
           <AstralArrowForwardIcon />
         </button>

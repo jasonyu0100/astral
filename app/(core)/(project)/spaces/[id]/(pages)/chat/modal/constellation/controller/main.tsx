@@ -390,9 +390,11 @@ export function useGenerateSceneController(): Controller {
       }),
     );
 
-    window.location.href = `${spacesMap.spaces.id.scene.link(
-      spaceController.state.objId,
-    )}?chapter=${chapterListController.state.objId}&scene=${newScene.id}`;
+    setTimeout(() => {
+      window.location.href = `${spacesMap.spaces.id.scene.link(
+        spaceController.state.objId,
+      )}?chapter=${chapterListController.state.objId}&scene=${newScene.id}`;
+    }, 1000);
   }
   return {
     state: {

@@ -6,7 +6,6 @@ import {
 import { createContext } from 'react';
 import { SpacesPostAddCommentModal } from '../add/comment/main';
 import { SpacesPostAddPostModal } from '../add/post/main';
-import { SpacesPostAddSceneModal } from '../add/scene/main';
 import { SpacesPostEditChapterModal } from '../edit/chapter/main';
 import { SpacesPostEditSpaceModal } from '../edit/space/main';
 import { SpacesPostSharePostModal } from '../share/main';
@@ -23,7 +22,6 @@ export interface SpacesPostModals {
 }
 
 export function SpacesPostModals({ children }: { children: React.ReactNode }) {
-  const addSceneController = useControllerForOpenable();
   const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
   const addPostController = useControllerForOpenable();
@@ -34,7 +32,6 @@ export function SpacesPostModals({ children }: { children: React.ReactNode }) {
     <ContextForSpacesPostModals.Provider
       value={
         {
-          addSceneController,
           addCommentController,
           shareReviewController,
           addPostController,
@@ -44,9 +41,6 @@ export function SpacesPostModals({ children }: { children: React.ReactNode }) {
       }
     >
       {children}
-      <ContextForOpenable.Provider value={addSceneController}>
-        <SpacesPostAddSceneModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addCommentController}>
         <SpacesPostAddCommentModal />
       </ContextForOpenable.Provider>

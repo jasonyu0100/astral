@@ -40,7 +40,7 @@ export function SpacesChatConstellationModal() {
               <AstralModalBodyWrapper>
                 <AstralModalBody>
                   <AstralModalBodyContents>
-                    <AstralModalTitle>Generate Constellation</AstralModalTitle>
+                    <AstralModalTitle>Generate Scene</AstralModalTitle>
                     <AstralTextLineInput
                       title='Title'
                       placeholder='Enter title'
@@ -86,7 +86,7 @@ export function SpacesChatConstellationModal() {
               <AstralModalBodyWrapper className='w-full'>
                 <AstralModalBody className='h-full w-full'>
                   <AstralModalBodyContents>
-                    <AstralModalTitle>Generate Constellation</AstralModalTitle>
+                    <AstralModalTitle>Generate Scene</AstralModalTitle>
                     <div className='flex h-[800px] w-full flex-row items-center justify-center overflow-auto'>
                       {generateSceneController.state.tab ===
                         GenerateSceneTab.TEXT && (

@@ -1,11 +1,13 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
@@ -46,29 +48,34 @@ export function SpacesSceneAddSceneModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Add Scene</FormTitle>
-          <FormBody>
-            <FormInput
-              title='Name'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-            <FormTextArea
-              title='Objective'
-              placeholder='Set an objective for your scene'
-              rows={8}
-              value={objective}
-              onChange={(e) => changeObjective(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createScene}>Add</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Add Scene</AstralModalTitle>
+              <AstralTextLineInput
+                title='Title'
+                placeholder='Enter a title for your scene'
+                value={title}
+                onChange={(e) => changeTitle(e.target.value)}
+              />
+              <AstralTextAreaInput
+                title='Objective'
+                placeholder='Set an objective for your scene'
+                rows={8}
+                value={objective}
+                onChange={(e) => changeObjective(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={createScene}>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

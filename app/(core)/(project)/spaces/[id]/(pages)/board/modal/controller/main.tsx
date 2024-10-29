@@ -7,7 +7,6 @@ import { createContext } from 'react';
 import { SpacesBoardAddChapterModal } from '../add/chapter/main';
 import { SpacesBoardAddFileLinkModal } from '../add/link/file/main';
 import { SpacesBoardAddTextLinkModal } from '../add/link/text/main';
-import { SpacesBoardAddSceneModal } from '../add/scene/main';
 import { SpacesBoardAddTaskModal } from '../add/task/main';
 import { SpacesBoardEditChapterModal } from '../edit/chapter/main';
 import { SpacesBoardEditSpaceModal } from '../edit/space/main';
@@ -18,7 +17,6 @@ export const ContextForSpacesBoardModals = createContext(
 );
 
 export interface SpacesBoardModals {
-  addSceneController: ContextForOpenableInterface;
   addUpdateController: ContextForOpenableInterface;
   addTextLinkController: ContextForOpenableInterface;
   addFileLinkController: ContextForOpenableInterface;
@@ -30,7 +28,6 @@ export interface SpacesBoardModals {
 }
 
 export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
-  const addSceneController = useControllerForOpenable();
   const addUpdateController = useControllerForOpenable();
   const addFileLinkController = useControllerForOpenable();
   const addTextLinkController = useControllerForOpenable();
@@ -43,7 +40,6 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
   return (
     <ContextForSpacesBoardModals.Provider
       value={{
-        addSceneController: addSceneController,
         addUpdateController: addUpdateController,
         addFileLinkController: addFileLinkController,
         addTextLinkController: addTextLinkController,
@@ -55,9 +51,6 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
-      <ContextForOpenable.Provider value={addSceneController}>
-        <SpacesBoardAddSceneModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addTextLinkController}>
         <SpacesBoardAddTextLinkModal />
       </ContextForOpenable.Provider>
