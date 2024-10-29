@@ -29,6 +29,17 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16754047290/vdu2CJ-p8uEZELry-bQ-',
+      'value': 1.0,
+      'currency': 'AUD'
+  });
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(h,o,t,j,a,r){
                 h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
                 h._hjSettings={hjid:5185395,hjsv:6};
