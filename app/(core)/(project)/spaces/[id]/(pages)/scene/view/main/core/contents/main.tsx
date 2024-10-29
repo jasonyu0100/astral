@@ -23,7 +23,7 @@ export function SpacesSceneContents() {
     >
       <ImageBackground
         src={chapterListController.state.currentObj?.bg}
-        active
+        // active
       />
       <AbsoluteHolder>
         <SpacesSceneScene />

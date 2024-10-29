@@ -18,7 +18,7 @@ export function SpacesChatContents() {
     >
       <ImageBackground
         src={chapterListController.state.currentObj?.bg}
-        active
+        // active
       />
       <AbsoluteHolder>
         {messageListController.state.objs.length === 0 ? (

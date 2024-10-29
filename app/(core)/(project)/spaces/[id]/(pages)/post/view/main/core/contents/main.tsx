@@ -15,7 +15,7 @@ export function SpacesPostContents() {
     <div className='relative' style={{ width: '100%', height: '100%' }}>
       <ImageBackground
         src={chapterListController.state.currentObj?.bg}
-        active
+        // active
       />
       <AbsoluteHolder>
         <GlassAreaContainer

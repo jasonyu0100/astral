@@ -1,3 +1,4 @@
+import { publicSpaceMap } from '@/(core)/(public)/public/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -26,12 +27,17 @@ export function SpacesPostSharePostModal() {
               <GlassWindowContents
                 className='flex cursor-pointer flex-row items-center space-x-[1rem]'
                 onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
+                  navigator.clipboard.writeText(
+                    publicSpaceMap.account.link(spaceController.state.objId),
+                  );
+                  window.location.href = publicSpaceMap.account.link(
+                    spaceController.state.objId,
+                  );
                   openableController.close();
                 }}
               >
                 <p className='font-slate-300 w-[300px] overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
-                  {window.location.href}
+                  {publicSpaceMap.account.link(spaceController.state.objId)}
                 </p>
                 <AstralLinkIcon />
               </GlassWindowContents>

@@ -6,14 +6,14 @@ import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
-import { CreativeSpacesContext } from '../../[id]/layout';
+import { CreativePrivateSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';
 import { SpaceTabStage } from '../main';
 
 export function SpacesTabScene({ tab }: { tab?: string }) {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spaceContext = useContext(CreativeSpacesContext);
+  const spaceContext = useContext(CreativePrivateSpacesContext);
   const tabText = SpaceTabStage.Scene;
   const active = tab === tabText;
 

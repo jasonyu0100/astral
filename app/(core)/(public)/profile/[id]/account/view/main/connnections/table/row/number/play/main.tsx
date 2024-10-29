@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
+import { userProfileMap } from '@/(core)/(public)/profile/[id]/map';
 import { AstralPlayIcon } from '@/icons/play/main';
 import { ContextForUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';

@@ -11,7 +11,7 @@ import { GalleryObj } from '@/server/model/gallery/main';
 import { IdeaObj } from '@/server/model/idea/main';
 import { IdeaRelationshipObj } from '@/server/model/idea/relationship/main';
 import html2canvas from 'html2canvas';
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 
 interface Controller {
   state: ControllerState;
@@ -207,10 +207,6 @@ export function useControllerForSpacesScene(): Controller {
       alert('save all');
     });
   };
-
-  useEffect(() => {
-    setSelectedIdeas([]);
-  }, [sceneListController.state.objId]);
 
   return {
     state: {

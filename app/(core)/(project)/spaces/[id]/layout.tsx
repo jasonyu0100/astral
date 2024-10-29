@@ -1,13 +1,14 @@
 'use client';
 import { createContext } from 'react';
 
-interface CreativeSpacesContextObj {
+interface CreativePrivateSpacesContextObj {
   spaceId: string;
 }
 
-export const CreativeSpacesContext = createContext<CreativeSpacesContextObj>(
-  {} as CreativeSpacesContextObj,
-);
+export const CreativePrivateSpacesContext =
+  createContext<CreativePrivateSpacesContextObj>(
+    {} as CreativePrivateSpacesContextObj,
+  );
 
 export default function Layout({
   children,
@@ -18,8 +19,8 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <CreativeSpacesContext.Provider value={{ spaceId: params.id }}>
+    <CreativePrivateSpacesContext.Provider value={{ spaceId: params.id }}>
       {children}
-    </CreativeSpacesContext.Provider>
+    </CreativePrivateSpacesContext.Provider>
   );
 }

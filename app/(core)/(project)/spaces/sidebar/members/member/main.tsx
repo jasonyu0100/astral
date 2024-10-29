@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(dashboard)/profile/[id]/map';
+import { userProfileMap } from '@/(core)/(public)/profile/[id]/map';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { useControllerForUserMain } from '@/server/controller/user/main';
 import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';

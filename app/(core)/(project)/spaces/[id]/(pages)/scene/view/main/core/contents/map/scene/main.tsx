@@ -5,7 +5,6 @@ import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useEffect, useRef } from 'react';
 import { ContextForSpacesScene } from '../../../../../../controller/main';
 import { SpacesSceneContentsSceneConnections } from './connections/main';
-import { SpacesSceneSceneEmpty } from './empty/main';
 import { SpacesSceneMovableIdea } from './idea/main';
 import { SpacesSceneMovable } from './moveable/main';
 
@@ -30,29 +29,21 @@ export function SpacesSceneScene() {
 
   return (
     <div className='relative h-full w-full' ref={ref}>
-      {visibleIdeas.length === 0 ? (
-        <SpacesSceneSceneEmpty />
-      ) : (
-        <>
-          <div
-            className='relative z-10 h-full w-full cursor-pointer'
-            onClick={() =>
-              spacesSceneController.actions.updateSelectedIdeas([])
-            }
-          >
-            {visibleIdeas.map((idea, index) => (
-              <ContextForIndexable.Provider value={index}>
-                <ContextForIdeaObj.Provider value={idea}>
-                  <SpacesSceneMovable key={idea.id}>
-                    <SpacesSceneMovableIdea />
-                  </SpacesSceneMovable>
-                </ContextForIdeaObj.Provider>
-              </ContextForIndexable.Provider>
-            ))}
-            <SpacesSceneContentsSceneConnections />
-          </div>
-        </>
-      )}
+      <div
+        className='relative z-10 h-full w-full cursor-pointer'
+        onClick={() => spacesSceneController.actions.updateSelectedIdeas([])}
+      >
+        {visibleIdeas.map((idea, index) => (
+          <ContextForIndexable.Provider value={index}>
+            <ContextForIdeaObj.Provider value={idea}>
+              <SpacesSceneMovable key={idea.id}>
+                <SpacesSceneMovableIdea />
+              </SpacesSceneMovable>
+            </ContextForIdeaObj.Provider>
+          </ContextForIndexable.Provider>
+        ))}
+        <SpacesSceneContentsSceneConnections />
+      </div>
     </div>
   );
 }

@@ -42,7 +42,7 @@ function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
   const taskId = searchParams.get('task');
   const chapterId = searchParams.get('chapter');
-  const user = useGlobalUser((state) => state.user);
+  const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const spaceMemberListController = useControllerForSpaceMemberList(
     spaceMainController.state.objId,
@@ -60,7 +60,7 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   return (
-    <ContextForLoggedInUserObj.Provider value={user}>
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
           <ContextForSpaceChapterList.Provider value={chapterListController}>

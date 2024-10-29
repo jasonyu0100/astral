@@ -5,13 +5,13 @@ import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
-import { CreativeSpacesContext } from '../../[id]/layout';
+import { CreativePrivateSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';
 import { SpaceTabStage } from '../main';
 
 export function SpaceTabBoard({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spaceContext = useContext(CreativeSpacesContext);
+  const spaceContext = useContext(CreativePrivateSpacesContext);
   const tabText = SpaceTabStage.Board;
   const active = tab === tabText;
 

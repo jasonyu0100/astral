@@ -19,7 +19,7 @@ export function SpacesBoardMain() {
       <div className='relative h-full w-full'>
         <ImageBackground
           src={chapterListController.state.currentObj?.bg}
-          active
+          // active
         />
         <AbsoluteHolder>
           <SpacesBoardKanban key={chapterListController.state.objId} />
