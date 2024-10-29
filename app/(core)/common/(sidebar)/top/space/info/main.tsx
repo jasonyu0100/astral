@@ -21,23 +21,18 @@ export function CommonSidebarTopSpaceInfo() {
   return (
     <div
       id={CommonSidebarTopSpaceInfo.name}
-      className={ctwn('flex-col items-center justify-center', {
-        'opacity-50': !active,
-        'opacity-100': active,
-      })}
+      className={ctwn(
+        'w-full flex-col items-center justify-center overflow-hidden',
+        {
+          'opacity-50': !active,
+          'opacity-100': active,
+        },
+      )}
     >
-      <p
-        className={ctwn(
-          'h-[25px] overflow-hidden text-xl font-bold leading-7 text-slate-300',
-        )}
-      >
+      <p className={'whitespace-nowrap text-xl font-bold text-slate-300'}>
         {spaceName?.trim() || 'Untitled'}
       </p>
-      <p
-        className={ctwn(
-          'h-[25px] text-base font-normal leading-normal text-slate-300',
-        )}
-      >
+      <p className={'whitespace-nowrap font-light text-slate-300'}>
         {userName?.trim() || 'Untitled'}
       </p>
     </div>

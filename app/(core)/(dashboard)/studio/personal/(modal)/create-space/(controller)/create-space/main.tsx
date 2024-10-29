@@ -70,9 +70,9 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     chapterListController.state.objId,
   );
   const spaceMembersListController = useControllerForSpaceMemberList('');
-  const [title, changeTitle] = useState('Starter space');
-  const [description, changeDescription] = useState('My Space');
-  const [category, changeCategory] = useState(SpaceTemplate.Ideation);
+  const [title, changeTitle] = useState('Tutorial space');
+  const [description, changeDescription] = useState('Description for my space');
+  const [category, changeCategory] = useState(SpaceTemplate.TutorialSpace);
   const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
   const [memberIds, changeMemberIds] = useState<string[]>([]);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(

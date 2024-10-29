@@ -18,6 +18,7 @@ import { musicAndAudioProductionTemplate } from './templates/musicAndAudioProduc
 import { prototypeDevelopmentTemplate } from './templates/prototypeDevelopmentTemplate';
 import { startupTemplate } from './templates/startupTemplate';
 import { storyboardTemplate } from './templates/storyboardingTemplate';
+import { tutorialSpaceTemplate } from './templates/tutorialSpaceTemplate';
 import { userTestingTemplate } from './templates/userTestingTemplate';
 import { uxUiDesignTemplate } from './templates/uxUiDesignTemplate';
 import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
@@ -116,6 +117,7 @@ export interface TemplatePostObj extends _TemplatePostObj {
 // TEMPLATES
 enum NewSpaceTemplate {
   BlankSpace = '🟡 Blank Space',
+  TutorialSpace = '📚 Tutorial Space',
   Ideation = '💡 Ideation',
   Minutes = '📝 Minutes',
   Storyboarding = '📖 Storyboarding',
@@ -135,9 +137,10 @@ enum NewSpaceTemplate {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.BlankSpace]: blankSpaceTemplate,
+  [NewSpaceTemplate.TutorialSpace]: tutorialSpaceTemplate,
+  [NewSpaceTemplate.Ideation]: ideationTemplate,
   [NewSpaceTemplate.Minutes]: meetingTemplate,
   [NewSpaceTemplate.FreelancingProject]: freelancingTaskTemplate,
-  [NewSpaceTemplate.Ideation]: ideationTemplate,
   [NewSpaceTemplate.WorkProject]: workProjectTemplate,
   [NewSpaceTemplate.Startup]: startupTemplate,
   [NewSpaceTemplate.CollaborationSpace]: collaborationHubTemplate,

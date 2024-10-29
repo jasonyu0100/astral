@@ -52,11 +52,11 @@ module.exports = {
         },
         pulseSlow: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.8' },
+          '50%': { opacity: '0.75' },
         },
         breatheSlow: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.3' },
+          '50%': { opacity: '0.25' },
         },
         breatheFast: {
           '0%, 100%': { opacity: '1' },
