@@ -1,8 +1,7 @@
-import { FormTextArea } from '@/components/form/area/main';
 import { FormBody } from '@/components/form/body/main';
-import { FileSearchImage } from '@/components/form/file/search-image/main';
-import { FormInput } from '@/components/form/input/main';
 import { FormSelect } from '@/components/form/select/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
 import { SpaceTemplate } from '@/templates/space/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../(controller)/create-space/main';
@@ -23,11 +22,11 @@ export function CreateSpaceModalPageOne() {
 
   return (
     <FormBody>
-      <FileSearchImage
+      {/* <FileSearchImage
         fileElem={thumbnail}
         onChange={(file) => updateThumbnail(file)}
         label='Theme'
-      />
+      /> */}
       <FormSelect
         title='Project Type'
         value={category}
@@ -41,13 +40,13 @@ export function CreateSpaceModalPageOne() {
           </option>
         ))}
       </FormSelect>
-      <FormInput
+      <AstralTextLineInput
         title='Title'
         placeholder='A title for the space'
         value={title}
         onChange={(e) => updateTitle(e.target.value)}
       />
-      <FormTextArea
+      <AstralTextAreaInput
         title='Description'
         placeholder='A description for the space'
         rows={3}

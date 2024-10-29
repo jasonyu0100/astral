@@ -3,6 +3,7 @@ import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
@@ -49,7 +50,7 @@ export function CreateSpaceModalFooter() {
                 });
               }}
             >
-              <AstralArrowForwardIcon />
+              <AstralCheckIcon />
             </AstralRoundedActionButton>
           </>
         );

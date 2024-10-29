@@ -36,6 +36,10 @@ import {
   ContextForSpaceMemberList,
   useControllerForSpaceMemberList,
 } from '@/server/controller/space/member/list';
+import {
+  ContextForUserMain,
+  useControllerForUserMain,
+} from '@/server/controller/user/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -57,6 +61,9 @@ function Page({ params }: { params: { id: string } }) {
 
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
+  const userMainController = useControllerForUserMain(
+    spaceMainController.state.obj.userId,
+  );
   const spaceMemberListController = useControllerForSpaceMemberList(
     spaceMainController.state.objId,
   );
@@ -83,39 +90,45 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForSpaceMain.Provider value={spaceMainController}>
-        <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
-          <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForUserPostListFromChapter.Provider
-              value={postListController}
-            >
-              <ContextForPostKarmaList.Provider value={postKarmaListController}>
-                <ContextForPostAttachmentListFromPost.Provider
-                  value={attachmentListController}
+      <ContextForUserMain.Provider value={userMainController}>
+        <ContextForSpaceMain.Provider value={spaceMainController}>
+          <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
+            <ContextForSpaceChapterList.Provider value={chapterListController}>
+              <ContextForUserPostListFromChapter.Provider
+                value={postListController}
+              >
+                <ContextForPostKarmaList.Provider
+                  value={postKarmaListController}
                 >
-                  <ContextForPostCommentList.Provider
-                    value={commentListController}
+                  <ContextForPostAttachmentListFromPost.Provider
+                    value={attachmentListController}
                   >
-                    <ContextForPostLinkList.Provider value={linkListController}>
-                      <UpdateWrapper>
-                        <LoadingWrapper>
-                          <ControllerWrapper>
-                            <ModalWrapper>
-                              <ViewWrapper>
-                                <SpacesPageView />
-                              </ViewWrapper>
-                            </ModalWrapper>
-                          </ControllerWrapper>
-                        </LoadingWrapper>
-                      </UpdateWrapper>
-                    </ContextForPostLinkList.Provider>
-                  </ContextForPostCommentList.Provider>
-                </ContextForPostAttachmentListFromPost.Provider>
-              </ContextForPostKarmaList.Provider>
-            </ContextForUserPostListFromChapter.Provider>
-          </ContextForSpaceChapterList.Provider>
-        </ContextForSpaceMemberList.Provider>
-      </ContextForSpaceMain.Provider>
+                    <ContextForPostCommentList.Provider
+                      value={commentListController}
+                    >
+                      <ContextForPostLinkList.Provider
+                        value={linkListController}
+                      >
+                        <UpdateWrapper>
+                          <LoadingWrapper>
+                            <ControllerWrapper>
+                              <ModalWrapper>
+                                <ViewWrapper>
+                                  <SpacesPageView />
+                                </ViewWrapper>
+                              </ModalWrapper>
+                            </ControllerWrapper>
+                          </LoadingWrapper>
+                        </UpdateWrapper>
+                      </ContextForPostLinkList.Provider>
+                    </ContextForPostCommentList.Provider>
+                  </ContextForPostAttachmentListFromPost.Provider>
+                </ContextForPostKarmaList.Provider>
+              </ContextForUserPostListFromChapter.Provider>
+            </ContextForSpaceChapterList.Provider>
+          </ContextForSpaceMemberList.Provider>
+        </ContextForSpaceMain.Provider>
+      </ContextForUserMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
 }
