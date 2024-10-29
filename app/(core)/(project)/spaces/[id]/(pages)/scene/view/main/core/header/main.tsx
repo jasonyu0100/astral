@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
 import { SpacesSceneHeaderLeft } from './left/main';
+import { SpacesSceneHeaderMiddle } from './middle/main';
 import { SpacesSceneHeaderRight } from './right/main';
 
 export function SpacesSceneHeader() {
@@ -12,7 +13,7 @@ export function SpacesSceneHeader() {
       glassFx={glassFx['glass-5']}
     >
       <SpacesSceneHeaderLeft />
-      {/* <SpacesSceneHeaderCenter /> */}
+      <SpacesSceneHeaderMiddle />
       <SpacesSceneHeaderRight />
     </GlassAreaContainer>
   );

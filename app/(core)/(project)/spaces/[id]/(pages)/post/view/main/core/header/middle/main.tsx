@@ -1,16 +1,25 @@
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
+import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
+import { ContextForSpacesPostModals } from '../../../../../modal/controller/main';
 
 export function SpacesPostHeaderMiddle() {
-  const postListController = useContext(ContextForUserPostListFromChapter);
+  const spacesBoardModalController = useContext(ContextForSpacesPostModals);
+  const spaceMainController = useContext(ContextForSpaceMain);
 
   return (
     <div className='flex w-1/3 flex-row items-center justify-center space-x-[1rem]'>
-      <p className='text-lg font-light text-slate-300'>
-        review - {postListController.state?.currentObj?.title || 'None'}
-      </p>
-      <AstralChevronRightIcon />
+      <div
+        className='flex cursor-pointer flex-row space-x-[1rem]'
+        onClick={() => {
+          spacesBoardModalController.editSpaceController.open();
+        }}
+      >
+        <p className='text-center text-lg font-bold text-slate-300'>
+          {spaceMainController.state.obj?.title?.trim() || 'Untitled'}
+        </p>
+        <AstralChevronRightIcon />
+      </div>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
-import { ContextForSpacesBoardModals } from '../../../../modal/controller/main';
+import { ContextForSpacesSceneModals } from '../../../../../modal/controller/main';
 
-export function SpacesBoardHeaderMiddle() {
-  const spacesBoardModalController = useContext(ContextForSpacesBoardModals);
+export function SpacesSceneHeaderMiddle() {
+  const spacesBoardModalController = useContext(ContextForSpacesSceneModals);
   const spaceMainController = useContext(ContextForSpaceMain);
 
   return (

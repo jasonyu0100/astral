@@ -1,9 +1,10 @@
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
@@ -97,10 +98,10 @@ export function SpacesSidebarAddMemberModal() {
       }}
     >
       <ContextForOpenable.Provider value={openableController}>
-        <PolaroidModal>
-          <FormContainer>
-            <FormTitle>Add Member</FormTitle>
-            <FormBody>
+        <AstralModal>
+          <AstralModalBodyWrapper>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Add Member</AstralModalTitle>
               {followingListController.state.objs
                 .filter(
                   (member) => availableMemberIds.includes(member.destinationId), // Only display available members
@@ -115,18 +116,17 @@ export function SpacesSidebarAddMemberModal() {
                     </ContextForUserConnectionObj.Provider>
                   </ContextForIndexable.Provider>
                 ))}
-            </FormBody>
-            <FormFooter>
-              <FormButton
-                variant={FormButtonVariant.PRIMARY}
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton
                 onClick={addMembers}
                 disabled={memberIds.length === 0} // Disable button if no members are selected
               >
-                Add
-              </FormButton>
-            </FormFooter>
-          </FormContainer>
-        </PolaroidModal>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBodyWrapper>
+        </AstralModal>
       </ContextForOpenable.Provider>
     </ContextForSpacesSidebarAddMember.Provider>
   );

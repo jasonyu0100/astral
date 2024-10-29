@@ -8,8 +8,10 @@ import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
+import { ContextForSpacesSceneModals } from '../../../../modal/controller/main';
 
 export function SpacesSceneSidebarChaptersChapter() {
+  const spacesSceneModalsController = useContext(ContextForSpacesSceneModals);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapterObj = useContext(ContextForSpaceChapterObj);
   const selected = chapterListController.state.objId === chapterObj.id;
@@ -37,7 +39,11 @@ export function SpacesSceneSidebarChaptersChapter() {
               >
                 {chapterObj.title?.trim() || 'Untitled'}
               </p>
-              <AstralMoreVertIcon onClick={() => alert('Coming soon...')} />
+              <AstralMoreVertIcon
+                onClick={() =>
+                  spacesSceneModalsController.editChapterController.open()
+                }
+              />
             </div>
             <p className={'text-sm font-light text-slate-300'}>
               <span className='font-bold'>Objective: </span>

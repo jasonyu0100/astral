@@ -21,7 +21,7 @@ export function SpacesSidebarAddMemberItem() {
 
   return (
     <div
-      className='space-x-[1rem flex cursor-pointer flex-row items-center'
+      className='flex cursor-pointer flex-row items-center space-x-[1rem]'
       onClick={() => {
         if (
           addMemberController.state.memberIds.includes(
@@ -43,7 +43,7 @@ export function SpacesSidebarAddMemberItem() {
     >
       <div
         className={ctwn(
-          'flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-slate-300 font-bold text-white',
+          'flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-slate-500 font-bold text-white',
           {
             'bg-blue-500': selected,
           },
@@ -57,7 +57,7 @@ export function SpacesSidebarAddMemberItem() {
       >
         <GlassWindowContents className='flex cursor-pointer flex-row items-center space-x-[1rem]'>
           <UserDisplayPictureElement fileElem={userController.state.obj.dp} />
-          <p className='font-bold'>
+          <p className='font-bold text-slate-300'>
             {userController.state.obj.displayName || 'Unknown'}
           </p>
         </GlassWindowContents>

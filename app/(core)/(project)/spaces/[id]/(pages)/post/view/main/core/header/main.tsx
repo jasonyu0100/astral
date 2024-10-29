@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
 import { SpacesPostHeaderLeft } from './left/main';
+import { SpacesPostHeaderMiddle } from './middle/main';
 import { SpacesPostHeaderRight } from './right/main';
 
 export function SpacesPostHeader() {
@@ -12,7 +13,7 @@ export function SpacesPostHeader() {
       className={`flex items-center justify-between px-[1rem]`}
     >
       <SpacesPostHeaderLeft />
-      {/* <SpacesPostHeaderMiddle /> */}
+      <SpacesPostHeaderMiddle />
       <SpacesPostHeaderRight />
     </GlassAreaContainer>
   );

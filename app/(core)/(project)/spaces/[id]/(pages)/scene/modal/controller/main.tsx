@@ -17,6 +17,8 @@ import { SpacesSceneAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesSceneAddResourceModal } from '../add/resource/main';
 import { SpacesSceneAddSceneModal } from '../add/scene/main';
 import { SpacesSceneCombineIdeas } from '../combine/main';
+import { SpacesSceneEditChapterModal } from '../edit/chapter/main';
+import { SpacesSceneEditSpaceModal } from '../edit/space/main';
 import { SpacesSceneGeneratePost } from '../generate/main';
 import { SpacesSceneShareViewModal } from '../share/main';
 
@@ -40,6 +42,8 @@ export interface SpacesSceneModals {
   generatePlanController: ContextForOpenableInterface;
   combineIdeasController: ContextForOpenableInterface;
   shareViewController: ContextForOpenableInterface;
+  editChapterController: ContextForOpenableInterface;
+  editSpaceController: ContextForOpenableInterface;
 }
 
 export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
@@ -58,6 +62,8 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
   const addSearchIdeaController = useControllerForOpenable();
   const combineIdeasController = useControllerForOpenable();
   const shareViewController = useControllerForOpenable();
+  const editChapterController = useControllerForOpenable();
+  const editSpaceController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSceneModals.Provider
@@ -77,6 +83,8 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
         generatePlanController: generatePlanController,
         combineIdeasController: combineIdeasController,
         shareViewController: shareViewController,
+        editChapterController: editChapterController,
+        editSpaceController: editSpaceController,
       }}
     >
       {children}
@@ -124,6 +132,12 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={shareViewController}>
         <SpacesSceneShareViewModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editChapterController}>
+        <SpacesSceneEditChapterModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editSpaceController}>
+        <SpacesSceneEditSpaceModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSceneModals.Provider>
   );

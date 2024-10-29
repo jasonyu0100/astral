@@ -8,7 +8,7 @@ export function SpacesPostMainPost() {
     ContextForPostAttachmentListFromPost,
   );
   return (
-    <div className='grid w-full grid-cols-4 gap-[1rem] rounded-[1rem] bg-slate-950 bg-opacity-30 p-[1rem] py-[2rem] shadow-glow'>
+    <div className='grid w-full grid-cols-4 items-center gap-[1rem] rounded-[1rem] bg-slate-950 bg-opacity-30 p-[1rem] py-[2rem] shadow-glow'>
       {attachmentListController.state.objs.map((attachment) => (
         <ContextForPostAttachmentObj.Provider value={attachment}>
           <ElementAttachment />

@@ -1,6 +1,7 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
 import { SpacesBoardHeaderLeft } from './left/main';
+import { SpacesBoardHeaderMiddle } from './middle/main';
 import { SpacesBoardHeaderRight } from './right/main';
 
 export function SpacesBoardHeader() {
@@ -12,7 +13,7 @@ export function SpacesBoardHeader() {
       className={`flex items-center justify-between px-[1rem]`}
     >
       <SpacesBoardHeaderLeft />
-      {/* <SpacesBoardHeaderMiddle /> */}
+      <SpacesBoardHeaderMiddle />
       <SpacesBoardHeaderRight />
     </GlassAreaContainer>
   );

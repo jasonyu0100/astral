@@ -15,7 +15,7 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { exampleFileElement } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
-export function SpacesChatEditChapterModal() {
+export function SpacesSceneEditChapterModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const [title, setTitle] = useState('');

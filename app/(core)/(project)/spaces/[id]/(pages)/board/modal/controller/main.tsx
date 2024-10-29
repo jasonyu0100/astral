@@ -9,6 +9,8 @@ import { SpacesBoardAddFileLinkModal } from '../add/link/file/main';
 import { SpacesBoardAddTextLinkModal } from '../add/link/text/main';
 import { SpacesBoardAddSceneModal } from '../add/scene/main';
 import { SpacesBoardAddTaskModal } from '../add/task/main';
+import { SpacesBoardEditChapterModal } from '../edit/chapter/main';
+import { SpacesBoardEditSpaceModal } from '../edit/space/main';
 import { SpacesBoardGenerateTasksModal } from '../generate/main';
 
 export const ContextForSpacesBoardModals = createContext(
@@ -23,6 +25,8 @@ export interface SpacesBoardModals {
   addTaskController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
   addGenerateController: ContextForOpenableInterface;
+  editChapterController: ContextForOpenableInterface;
+  editSpaceController: ContextForOpenableInterface;
 }
 
 export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
@@ -33,6 +37,8 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
   const addTaskController = useControllerForOpenable();
   const addChapterController = useControllerForOpenable();
   const addGenerateController = useControllerForOpenable();
+  const editChapterController = useControllerForOpenable();
+  const editSpaceController = useControllerForOpenable();
 
   return (
     <ContextForSpacesBoardModals.Provider
@@ -44,6 +50,8 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
         addTaskController: addTaskController,
         addChapterController: addChapterController,
         addGenerateController: addGenerateController,
+        editChapterController: editChapterController,
+        editSpaceController: editSpaceController,
       }}
     >
       {children}
@@ -64,6 +72,12 @@ export function SpacesBoardModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateController}>
         <SpacesBoardGenerateTasksModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editChapterController}>
+        <SpacesBoardEditChapterModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editSpaceController}>
+        <SpacesBoardEditSpaceModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesBoardModals.Provider>
   );
