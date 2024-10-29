@@ -666,7 +666,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className='flex aspect-video h-[250px] w-[320px] animate-pulse-slow flex-col rounded-lg border border-slate-300 border-opacity-30 bg-slate-500 bg-opacity-30 p-6 shadow-lg'
+            className='flex aspect-video h-[250px] w-[320px] animate-pulse-slow flex-col justify-between rounded-lg border border-slate-300 border-opacity-30 bg-slate-500 bg-opacity-30 p-6 shadow-lg'
           >
             <p className='text-md mb-4 font-bold text-slate-300'>
               "{testimonial.text}"
