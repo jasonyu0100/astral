@@ -7,20 +7,20 @@ import { SpaceChapterObj } from '@/server/model/space/chapter/main';
 import { SpaceObj } from '@/server/model/space/main';
 import { TaskObj } from '@/server/model/task/main';
 import { createContext } from 'react';
-import { blankSpaceTemplate } from './new-templates/blankSpaceTemplate';
-import { collaborationHubTemplate } from './new-templates/collaborationHubTemplate';
-import { creativeCampaignTemplate } from './new-templates/creativeCampaignTemplate';
-import { eventPlanningTemplate } from './new-templates/eventPlanningTemplate';
-import { freelancingTaskTemplate } from './new-templates/freelancingTaskTemplate';
-import { ideationTemplate } from './new-templates/ideationTemplate';
-import { meetingTemplate } from './new-templates/meetingTemplate';
-import { musicAndAudioProductionTemplate } from './new-templates/musicAndAudioProductionTemplate';
-import { prototypeDevelopmentTemplate } from './new-templates/prototypeDevelopmentTemplate';
-import { startupTemplate } from './new-templates/startupTemplate';
-import { storyboardTemplate } from './new-templates/storyboardingTemplate';
-import { userTestingTemplate } from './new-templates/userTestingTemplate';
-import { uxUiDesignTemplate } from './new-templates/uxUiDesignTemplate';
-import { videoProductionTemplate } from './new-templates/videoMediaProductionTemplate';
+import { blankSpaceTemplate } from './templates/blankSpaceTemplate';
+import { collaborationHubTemplate } from './templates/collaborationHubTemplate';
+import { creativeCampaignTemplate } from './templates/creativeCampaignTemplate';
+import { eventPlanningTemplate } from './templates/eventPlanningTemplate';
+import { freelancingTaskTemplate } from './templates/freelancingTaskTemplate';
+import { ideationTemplate } from './templates/ideationTemplate';
+import { meetingTemplate } from './templates/meetingTemplate';
+import { musicAndAudioProductionTemplate } from './templates/musicAndAudioProductionTemplate';
+import { prototypeDevelopmentTemplate } from './templates/prototypeDevelopmentTemplate';
+import { startupTemplate } from './templates/startupTemplate';
+import { storyboardTemplate } from './templates/storyboardingTemplate';
+import { userTestingTemplate } from './templates/userTestingTemplate';
+import { uxUiDesignTemplate } from './templates/uxUiDesignTemplate';
+import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
 
 // SPACE
 

@@ -8,7 +8,7 @@ import {
 } from '@/logic/contexts/openable/main';
 import { borderFx } from '@/style/data';
 import { useContext } from 'react';
-import SearchModalView from '../(modal)/view';
+import SearchImageModal from '../modal/main';
 
 export function SearchButton() {
   const fileChangableController = useContext(ContextForFileChangable);
@@ -17,7 +17,7 @@ export function SearchButton() {
   return (
     <>
       <ContextForOpenable.Provider value={openableController}>
-        <SearchModalView />
+        <SearchImageModal />
       </ContextForOpenable.Provider>
       <GlassWindowFrame
         className='p-[1rem]'

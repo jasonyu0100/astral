@@ -29,6 +29,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           title: 'Determine Target Audience',
           description: 'Define who you want to reach with your music.',
         },
+        {
+          title: 'Research Inspiration',
+          description: 'Gather examples of similar music for reference.',
+        },
+        {
+          title: 'Set Initial Goals',
+          description: 'Decide on project goals and milestones.',
+        },
       ],
     },
     {
@@ -53,6 +61,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           description:
             'Try various chord progressions to find the right feel for the song.',
         },
+        {
+          title: 'Develop Rhythm Patterns',
+          description: 'Work on rhythm sections like drum beats and basslines.',
+        },
+        {
+          title: 'Refine Song Structure',
+          description: 'Adjust the composition for cohesion and flow.',
+        },
       ],
     },
     {
@@ -75,6 +91,15 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
         {
           title: 'Plan Transitions',
           description: 'Design smooth transitions between different sections.',
+        },
+        {
+          title: 'Add Fills and Breaks',
+          description:
+            'Incorporate musical elements to add interest and variety.',
+        },
+        {
+          title: 'Review Arrangement Flow',
+          description: 'Ensure that the song flows well from start to finish.',
         },
       ],
     },
@@ -100,6 +125,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           description:
             'Check and adjust audio levels during recording for optimal quality.',
         },
+        {
+          title: 'Record Multiple Takes',
+          description: 'Capture several takes to choose the best performance.',
+        },
+        {
+          title: 'Organize Recordings',
+          description: 'Label and store recordings systematically.',
+        },
       ],
     },
     {
@@ -122,6 +155,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           title: 'Refine Sound Design',
           description:
             'Adjust sounds and layers to achieve the desired depth and character.',
+        },
+        {
+          title: 'Layer Tracks',
+          description: 'Blend layers of instruments and effects for richness.',
+        },
+        {
+          title: 'Sound Check',
+          description: 'Listen to the production on multiple audio systems.',
         },
       ],
     },
@@ -147,6 +188,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           description:
             'Ensure that dynamics are consistent and effective throughout the mix.',
         },
+        {
+          title: 'EQ Each Track',
+          description: 'Use equalization to enhance clarity and separation.',
+        },
+        {
+          title: 'Apply Automation',
+          description: 'Automate volume and effect changes for a dynamic mix.',
+        },
       ],
     },
     {
@@ -171,6 +220,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           description:
             'Create multiple versions of the track for distribution (digital, CD, etc.).',
         },
+        {
+          title: 'Apply Final EQ and Compression',
+          description: 'Balance final frequencies and dynamics for clarity.',
+        },
+        {
+          title: 'Conduct Final Quality Check',
+          description: 'Listen to the mastered track on various systems.',
+        },
       ],
     },
     {
@@ -194,6 +251,14 @@ export const musicAndAudioProductionTemplate: TemplateSpaceObj = {
           title: 'Engage with Audience',
           description:
             'Organize a launch event or virtual release party to connect with fans.',
+        },
+        {
+          title: 'Set Up Social Media Campaigns',
+          description: 'Plan posts, ads, and promotions for release.',
+        },
+        {
+          title: 'Reach Out to Media Outlets',
+          description: 'Contact blogs, radio, and influencers for coverage.',
         },
       ],
     },

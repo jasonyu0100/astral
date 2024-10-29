@@ -35,8 +35,16 @@ export enum GenerateSceneTab {
   VAULT = 'Vault',
 }
 
+export enum GenerateScenePage {
+  PAGE_ONE = 'Page One',
+  PAGE_TWO = 'Page Two',
+}
+
 interface ControllerState {
+  page: GenerateScenePage;
   tab: GenerateSceneTab;
+  title: string;
+  objective: string;
   articleSearchQuery: string;
   mediaSearchQuery: string;
   imageryKeywords: string;
@@ -49,8 +57,11 @@ interface ControllerState {
 }
 
 interface ControllerActions {
-  createMap: () => Promise<void>;
+  updatePage: (page: GenerateScenePage) => void;
   updateTab: (tab: GenerateSceneTab) => void;
+  createMap: () => Promise<void>;
+  updateTitle: (title: string) => void;
+  updateObjective: (objective: string) => void;
   updateArticleSearchQuery: (query: string) => void;
   updateMediaSearchQuery: (query: string) => void;
   updateImageryKeywords: (keywords: string) => void;
@@ -74,6 +85,10 @@ export const ContextForGenerateSceneController = createContext(
 export function useGenerateSceneController(): Controller {
   const user = useGlobalUser((state) => state.user);
   const [tab, setTab] = useState(GenerateSceneTab.TEXT);
+  const [page, setPage] = useState(GenerateScenePage.PAGE_ONE);
+  // Title, Objective
+  const [title, setTitle] = useState('');
+  const [objective, setObjective] = useState('');
   // Results
   const [textResults, setTextResults] = useState<IdeaObj[]>([]);
   const [articlesResults, setArticlesResults] = useState<IdeaObj[]>([]);
@@ -248,9 +263,9 @@ export function useGenerateSceneController(): Controller {
     ) {
       console.log('new scene', chapterListController.state.objId);
       newScene = await sceneListController.actions.createActions.createScene(
-        'Map',
-        'A map of the scene',
-        'A map of the scene',
+        title,
+        '',
+        objective,
         user.id,
         chapterListController.state.objId,
       );
@@ -381,7 +396,10 @@ export function useGenerateSceneController(): Controller {
   }
   return {
     state: {
-      tab,
+      page: page,
+      tab: tab,
+      title: title,
+      objective: objective,
       articleSearchQuery: articleSearchQuery,
       imageryKeywords: imageryKeywords,
       mediaSearchQuery: mediaSearchQuery,
@@ -393,6 +411,9 @@ export function useGenerateSceneController(): Controller {
       selectedIdeas: selectedIdeas,
     },
     actions: {
+      updateTitle: (title: string) => setTitle(title),
+      updateObjective: (objective: string) => setObjective(objective),
+      updatePage: (page: GenerateScenePage) => setPage(page),
       createMap: createMap,
       updateTab: (tab: GenerateSceneTab) => setTab(tab),
       updateArticleSearchQuery: (query: string) => setArticleSearchQuery(query),

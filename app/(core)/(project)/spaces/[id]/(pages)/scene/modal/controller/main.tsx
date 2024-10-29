@@ -18,6 +18,7 @@ import { SpacesSceneAddResourceModal } from '../add/resource/main';
 import { SpacesSceneAddSceneModal } from '../add/scene/main';
 import { SpacesSceneCombineIdeas } from '../combine/main';
 import { SpacesSceneEditChapterModal } from '../edit/chapter/main';
+import { SpacesSceneEditSceneModal } from '../edit/scene/main';
 import { SpacesSceneEditSpaceModal } from '../edit/space/main';
 import { SpacesSceneGeneratePost } from '../generate/main';
 import { SpacesSceneShareViewModal } from '../share/main';
@@ -44,6 +45,7 @@ export interface SpacesSceneModals {
   shareViewController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
   editSpaceController: ContextForOpenableInterface;
+  editSceneController: ContextForOpenableInterface;
 }
 
 export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
@@ -64,6 +66,7 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
   const shareViewController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
+  const editSceneController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSceneModals.Provider
@@ -85,6 +88,7 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
         shareViewController: shareViewController,
         editChapterController: editChapterController,
         editSpaceController: editSpaceController,
+        editSceneController: editSceneController,
       }}
     >
       {children}
@@ -138,6 +142,9 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSpaceController}>
         <SpacesSceneEditSpaceModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editSceneController}>
+        <SpacesSceneEditSceneModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSceneModals.Provider>
   );

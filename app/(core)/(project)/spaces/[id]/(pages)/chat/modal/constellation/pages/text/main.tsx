@@ -1,13 +1,14 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
+import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { borderFx } from '@/style/data';
-import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import { ContextForGenerateSceneController } from '../../controller/main';
+import { SpacesChatGenerateTextItem } from './item/main';
 
-export function SpacesChatSearchTextContent() {
+export function SpacesChatGenerateTextContent() {
   const generateSceneController = useContext(ContextForGenerateSceneController);
-  const selected = generateSceneController.state.selectedIdeas;
 
   return (
     <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
@@ -21,33 +22,13 @@ export function SpacesChatSearchTextContent() {
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>
-      <div className='grid w-full grid-cols-5 gap-[2rem]'>
-        {generateSceneController.state.textResults.map((textResult) => (
-          <div
-            className={ctwn(
-              'aspect-square cursor-pointer bg-yellow-500 p-[1rem]',
-              {
-                'rounded border-[2px] border-blue-500':
-                  selected.includes(textResult),
-              },
-            )}
-            onClick={() => {
-              if (selected.includes(textResult)) {
-                generateSceneController.actions.updateSelectedIdeas(
-                  selected.filter((idea) => idea !== textResult),
-                );
-              } else {
-                generateSceneController.actions.updateSelectedIdeas([
-                  ...generateSceneController.state.selectedIdeas,
-                  textResult,
-                ]);
-              }
-            }}
-          >
-            <p className='h-full w-full font-bold'>
-              {textResult.textElem?.text}
-            </p>
-          </div>
+      <div className='grid w-full grid-cols-4 gap-[2rem]'>
+        {generateSceneController.state.textResults.map((textResult, index) => (
+          <ContextForIndexable.Provider value={index}>
+            <ContextForIdeaObj.Provider value={textResult}>
+              <SpacesChatGenerateTextItem />
+            </ContextForIdeaObj.Provider>
+          </ContextForIndexable.Provider>
         ))}
       </div>
     </div>

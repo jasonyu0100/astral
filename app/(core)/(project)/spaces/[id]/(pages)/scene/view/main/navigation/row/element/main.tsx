@@ -9,6 +9,7 @@ import { ContextForIdeaSceneObj } from '@/server/model/scene/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
+import { ContextForSpacesSceneModals } from '../../../../../modal/controller/main';
 
 export function SpacesSceneRowElement() {
   const index = useContext(ContextForIndexable);
@@ -18,6 +19,7 @@ export function SpacesSceneRowElement() {
   const controllerForScrollToCursor = useContext(
     ContextForScrollToHorizontalIndex,
   );
+  const spacesSceneModalsController = useContext(ContextForSpacesSceneModals);
 
   return (
     <GlassWindowFrame
@@ -40,7 +42,7 @@ export function SpacesSceneRowElement() {
         </p>
         <AstralMoreVertIcon
           onClick={() => {
-            alert('Coming soon...');
+            spacesSceneModalsController.editSceneController.open();
           }}
         />
       </GlassWindowContents>
