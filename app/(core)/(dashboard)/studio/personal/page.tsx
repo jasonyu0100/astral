@@ -70,7 +70,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
     }
     if (
       spaceListController.state.objs.length > 2 &&
-      spaceListController.state.objs.length < 10
+      spaceListController.state.objs.length < 5
     ) {
       spacesPersonalModalController.showNoticeController.open();
     } else {

@@ -21,6 +21,7 @@ import { storyboardTemplate } from './templates/storyboardingTemplate';
 import { userTestingTemplate } from './templates/userTestingTemplate';
 import { uxUiDesignTemplate } from './templates/uxUiDesignTemplate';
 import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
+import { workProjectTemplate } from './templates/workProjectTemplate';
 
 // SPACE
 
@@ -127,7 +128,8 @@ enum NewSpaceTemplate {
   MarketingCampaign = '📢 Marketing Campaign',
   Prototype = '🔧 Prototype',
   Startup = '🚀 Startup',
-  Collaboration = '🤝 Collaboration Hub',
+  CollaborationSpace = '🤝 Collaboration Space',
+  WorkProject = '💼 Work Project',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -136,8 +138,9 @@ const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.Minutes]: meetingTemplate,
   [NewSpaceTemplate.FreelancingProject]: freelancingTaskTemplate,
   [NewSpaceTemplate.Ideation]: ideationTemplate,
+  [NewSpaceTemplate.WorkProject]: workProjectTemplate,
   [NewSpaceTemplate.Startup]: startupTemplate,
-  [NewSpaceTemplate.Collaboration]: collaborationHubTemplate,
+  [NewSpaceTemplate.CollaborationSpace]: collaborationHubTemplate,
   [NewSpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
   [NewSpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
   [NewSpaceTemplate.VideoProduction]: videoProductionTemplate,
