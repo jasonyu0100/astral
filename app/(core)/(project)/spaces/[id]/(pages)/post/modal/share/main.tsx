@@ -30,13 +30,14 @@ export function SpacesPostSharePostModal() {
                   navigator.clipboard.writeText(
                     publicSpaceMap.account.link(spaceController.state.objId),
                   );
-                  window.location.href = publicSpaceMap.account.link(
-                    spaceController.state.objId,
+                  window.open(
+                    publicSpaceMap.account.link(spaceController.state.objId),
                   );
                   openableController.close();
                 }}
               >
-                <p className='font-slate-300 w-[300px] overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
+                <p className='font-slate-300 overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
+                  www.astral.fun
                   {publicSpaceMap.account.link(spaceController.state.objId)}
                 </p>
                 <AstralLinkIcon />

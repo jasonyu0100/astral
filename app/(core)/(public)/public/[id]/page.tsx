@@ -83,7 +83,7 @@ function Page({ params }: { params: { id: string } }) {
     postListController.state.objId,
   );
 
-  const [page, setPage] = useState(PublicSpacePage.SPACE);
+  const [page, setPage] = useState(PublicSpacePage.CHAPTERS);
 
   return (
     <ContextForLoggedInUserObj.Provider value={user}>
@@ -194,19 +194,21 @@ function Page({ params }: { params: { id: string } }) {
 
                                   <HorizontalDivider />
                                   <GlassWindowFrame
-                                    className='w-full px-[1rem] py-[2rem]'
+                                    className='h-full w-full px-[1rem] py-[2rem]'
                                     roundedFx={roundedFx.rounded}
                                   >
-                                    <GlassWindowContents className='grid w-full grid-cols-4 gap-[1rem]'>
-                                      {attachmentListController.state.objs.map(
-                                        (attachment) => (
-                                          <ContextForPostAttachmentObj.Provider
-                                            value={attachment}
-                                          >
-                                            <ElementAttachment />
-                                          </ContextForPostAttachmentObj.Provider>
-                                        ),
-                                      )}
+                                    <GlassWindowContents className='h-full w-full overflow-auto pr-[1rem]'>
+                                      <div className='grid w-full grid-cols-4 items-center justify-items-center gap-[1rem]'>
+                                        {attachmentListController.state.objs.map(
+                                          (attachment) => (
+                                            <ContextForPostAttachmentObj.Provider
+                                              value={attachment}
+                                            >
+                                              <ElementAttachment />
+                                            </ContextForPostAttachmentObj.Provider>
+                                          ),
+                                        )}
+                                      </div>
                                     </GlassWindowContents>
                                     <GlassWindowPane
                                       glassFx={glassFx['glass-10']}

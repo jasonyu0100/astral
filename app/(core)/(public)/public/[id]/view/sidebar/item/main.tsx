@@ -11,7 +11,9 @@ export function PublicSpaceSidebarItem() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const publicSpaceController = useContext(ContextForPublicSpace);
-  const selected = chapterListController.state.objId === chapter.id;
+  const selected =
+    chapterListController.state.objId === chapter.id &&
+    publicSpaceController.state.page === PublicSpacePage.CHAPTERS;
 
   return (
     <GlassWindowFrame
