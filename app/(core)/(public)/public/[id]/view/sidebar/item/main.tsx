@@ -4,17 +4,15 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { useControllerForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForPublicSpace, PublicSpacePage } from '../../../page';
+import { ContextForPublicSpace } from '../../../page';
 
 export function PublicSpaceSidebarItem() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const publicSpaceController = useContext(ContextForPublicSpace);
-  const selected =
-    chapterListController.state.objId === chapter.id &&
-    publicSpaceController.state.page === PublicSpacePage.CHAPTERS;
+  const selected = chapterListController.state.objId === chapter.id;
   const postListController = useControllerForUserPostListFromChapter(
     chapter.id,
   );
@@ -25,13 +23,11 @@ export function PublicSpaceSidebarItem() {
         <GlassWindowFrame
           className='w-full flex-shrink-0'
           roundedFx={roundedFx.rounded}
+          borderFx={selected ? borderFx['border-around'] : borderFx['none']}
         >
           <GlassWindowContents
             className='flex cursor-pointer flex-col space-y-[1rem] p-[1rem]'
             onClick={() => {
-              publicSpaceController.actions.updatePage(
-                PublicSpacePage.CHAPTERS,
-              );
               chapterListController.actions.stateActions.select(chapter);
             }}
           >

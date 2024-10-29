@@ -8,7 +8,7 @@ import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext, useState } from 'react';
 
-export function PublicSpacesPagesInput() {
+export function PublicSpacesPageInput() {
   const [message, setMessage] = useState('');
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const postListController = useContext(ContextForUserPostListFromChapter);

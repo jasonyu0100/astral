@@ -4,7 +4,7 @@ import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
-export function PublicSpacesPagesCommentMessage() {
+export function PublicSpacesPageCommentMessage() {
   const userController = useContext(ContextForUserMain);
   const commentObj = useContext(ContextForPostCommentObj);
 

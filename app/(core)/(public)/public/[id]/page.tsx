@@ -32,12 +32,12 @@ import {
 } from '@/server/controller/space/main';
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useSearchParams } from 'next/navigation';
 import { createContext, useState } from 'react';
-import { PublicSpacesPagesComments } from './view/main/comments/main';
-import { PublicSpacesPagesKarma } from './view/main/karma/main';
+import { PublicSpacesPageComments } from './view/main/comments/main';
+import { PublicSpacesPageKarma } from './view/main/karma/main';
 import { PublicSpaceSidebar } from './view/sidebar/main';
 
 export enum PublicSpacePage {
@@ -114,80 +114,67 @@ function Page({ params }: { params: { id: string } }) {
                       className='relative flex h-full w-full flex-col'
                       style={{ height: 'calc(100% - 4rem)' }}
                     >
-                      <div className='flex h-full w-full flex-row space-x-[2rem]'>
-                        <PublicSpaceSidebar />
-                        {page === PublicSpacePage.SPACE && (
-                          <GlassWindowFrame
-                            className='h-full flex-grow'
-                            roundedFx={roundedFx.rounded}
-                          >
-                            <GlassWindowContents className='flex flex-col space-y-[2rem] overflow-auto p-[2rem]'>
-                              <h1
-                                className='cursor-pointer text-2xl font-bold text-slate-300'
-                                onClick={() => {
-                                  setPage(PublicSpacePage.SPACE);
-                                }}
+                      <GlassWindowFrame className='h-full w-full'>
+                        <GlassWindowContents className='flex h-full w-full flex-row overflow-auto'>
+                          <div className='flex h-full flex-grow flex-col space-y-[2rem] p-[4rem]'>
+                            {page === PublicSpacePage.SPACE && (
+                              <GlassWindowFrame
+                                className='h-full flex-grow'
+                                roundedFx={roundedFx.rounded}
                               >
-                                Home
-                              </h1>
-                              <HorizontalDivider />
-                              <div className='flex w-full flex-row items-center space-x-[1rem]'>
-                                <div className='flex w-full flex-col space-y-[1rem]'>
-                                  <img
-                                    className='max-h-[600px] w-full'
-                                    src={
-                                      chapterListController.state.currentObj?.bg
-                                    }
-                                  />
-                                  <h1 className='text-3xl font-bold text-slate-300'>
-                                    {spaceMainController.state.obj?.title}
-                                  </h1>
-                                  <p className='text-lg font-bold text-slate-300'>
-                                    {spaceMainController.state.obj?.description}
-                                  </p>
-                                </div>
-                              </div>
-                              <div className='space-y-[0.5rem]'>
-                                <p className=' text-sm font-light text-white'>
-                                  {getFormattedDate(
-                                    new Date(
-                                      spaceMainController.state.obj?.created ??
-                                        '',
-                                    ),
-                                  )}
-                                </p>
-                              </div>
-                            </GlassWindowContents>
-                            {/* <GlassWindowPane glassFx={glassFx['glass-10']} /> */}
-                          </GlassWindowFrame>
-                        )}
-                        {page === PublicSpacePage.CHAPTERS && (
-                          <>
-                            <GlassWindowFrame className='h-full flex-grow'>
-                              <GlassWindowContents className='flex h-full flex-col space-y-[2rem] overflow-auto p-[2rem]'>
-                                <h1 className='text-2xl font-bold text-slate-300'>
-                                  <span
-                                    className='cursor-pointer'
+                                <GlassWindowContents className='flex flex-col space-y-[2rem] overflow-auto p-[2rem]'>
+                                  <h1
+                                    className='cursor-pointer text-2xl font-bold text-slate-300'
                                     onClick={() => {
                                       setPage(PublicSpacePage.SPACE);
                                     }}
                                   >
                                     Home
-                                  </span>{' '}
-                                  /{' '}
-                                  {
-                                    chapterListController.state.currentObj
-                                      ?.title
-                                  }
-                                </h1>
-
-                                <HorizontalDivider />
+                                  </h1>
+                                  <HorizontalDivider />
+                                  <div className='flex w-full flex-row items-center space-x-[1rem]'>
+                                    <div className='flex w-full flex-col space-y-[1rem]'>
+                                      <img
+                                        className='max-h-[600px] w-full'
+                                        src={
+                                          chapterListController.state.currentObj
+                                            ?.bg
+                                        }
+                                      />
+                                      <h1 className='text-3xl font-bold text-slate-300'>
+                                        {spaceMainController.state.obj?.title}
+                                      </h1>
+                                      <p className='text-lg font-bold text-slate-300'>
+                                        {
+                                          spaceMainController.state.obj
+                                            ?.description
+                                        }
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className='space-y-[0.5rem]'>
+                                    <p className=' text-sm font-light text-white'>
+                                      {getFormattedDate(
+                                        new Date(
+                                          spaceMainController.state.obj
+                                            ?.created ?? '',
+                                        ),
+                                      )}
+                                    </p>
+                                  </div>
+                                </GlassWindowContents>
+                                {/* <GlassWindowPane glassFx={glassFx['glass-10']} /> */}
+                              </GlassWindowFrame>
+                            )}
+                            {page === PublicSpacePage.CHAPTERS && (
+                              <>
                                 <GlassWindowFrame
-                                  className='h-[600px] w-full flex-shrink-0 px-[1rem] py-[2rem]'
+                                  className='h-[600px] w-full flex-shrink-0 bg-slate-900 px-[1rem] py-[2rem]'
                                   roundedFx={roundedFx.rounded}
+                                  borderFx={borderFx['border-around']}
                                 >
                                   <GlassWindowContents className='h-full w-full overflow-auto pr-[1rem]'>
-                                    <div className='grid h-full w-full grid-cols-4 items-center justify-items-center gap-[1rem]'>
+                                    <div className='grid h-full w-full grid-cols-4 justify-items-center gap-[1rem]'>
                                       {attachmentListController.state.objs
                                         .length === 0 && (
                                         <p className='text-3xl font-black text-slate-300'>
@@ -209,7 +196,13 @@ function Page({ params }: { params: { id: string } }) {
                                     glassFx={glassFx['glass-10']}
                                   />
                                 </GlassWindowFrame>
-
+                                <h1 className='text-2xl font-bold text-slate-300'>
+                                  {
+                                    chapterListController.state.currentObj
+                                      ?.title
+                                  }
+                                </h1>
+                                <HorizontalDivider />
                                 <div className='flex w-full flex-row items-center space-x-[1rem]'>
                                   <div className='flex w-full flex-col space-y-[1rem]'>
                                     <h1 className='text-3xl font-bold text-slate-300'>
@@ -225,7 +218,7 @@ function Page({ params }: { params: { id: string } }) {
                                       }
                                     </p>
                                   </div>
-                                  <PublicSpacesPagesKarma />
+                                  <PublicSpacesPageKarma />
                                 </div>
                                 <div className='space-y-[0.5rem]'>
                                   <p className=' text-sm font-light text-white'>
@@ -237,13 +230,14 @@ function Page({ params }: { params: { id: string } }) {
                                     )}
                                   </p>
                                 </div>
-                                <PublicSpacesPagesComments />
-                              </GlassWindowContents>
-                              {/* <GlassWindowPane glassFx={glassFx['glass-10']} /> */}
-                            </GlassWindowFrame>
-                          </>
-                        )}
-                      </div>
+                                <PublicSpacesPageComments />
+                              </>
+                            )}
+                          </div>
+                          <PublicSpaceSidebar />
+                        </GlassWindowContents>
+                        <GlassWindowPane glassFx={glassFx['glass-10']} />
+                      </GlassWindowFrame>
                     </div>
                   </ContextForPublicSpace.Provider>
                 </ContextForPostCommentList.Provider>

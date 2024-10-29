@@ -1,7 +1,7 @@
 const baseUrl = `/public`;
 
 export const publicSpaceMap = {
-  account: {
+  space: {
     link: (id: string) => `${baseUrl}/${id}/`,
   },
   link: baseUrl,

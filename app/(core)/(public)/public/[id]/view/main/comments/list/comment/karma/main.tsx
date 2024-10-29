@@ -6,7 +6,7 @@ import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function PublicSpacesPagesCommentKarma() {
+export function PublicSpacesPageCommentKarma() {
   const commentObj = useContext(ContextForPostCommentObj);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const commentKarmaListController = useContext(ContextForCommentKarmaList);

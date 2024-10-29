@@ -15,4 +15,5 @@ export const roundedFx = {
   'rounded-b': 'rounded-b-[1rem] overflow-hidden',
   'rounded-l': 'rounded-l-[1rem] overflow-hidden',
   'rounded-full': 'rounded-full overflow-hidden',
+  none: '',
 };

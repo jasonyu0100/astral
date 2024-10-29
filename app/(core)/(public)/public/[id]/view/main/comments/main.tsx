@@ -1,14 +1,14 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { PublicSpacesPagesInput } from './input/main';
-import { PublicSpacesPagesList } from './list/main';
+import { PublicSpacesPageInput } from './input/main';
+import { PublicSpacesPageList } from './list/main';
 
-export function PublicSpacesPagesComments() {
+export function PublicSpacesPageComments() {
   return (
-    <GlassWindowFrame className='flex h-full w-full border-slate-300 border-opacity-30'>
+    <GlassWindowFrame className='flex h-full w-full border-slate-300 border-opacity-30 pb-[2rem]'>
       <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
-        <PublicSpacesPagesInput />
-        <PublicSpacesPagesList />
+        <PublicSpacesPageInput />
+        <PublicSpacesPageList />
       </GlassWindowContents>
     </GlassWindowFrame>
   );

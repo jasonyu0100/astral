@@ -13,7 +13,7 @@ export enum SpaceTabStage {
   Board = 'Board',
   Chat = 'Chat',
   Scene = 'Scene',
-  Pages = 'Pages',
+  Page = 'Page',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {

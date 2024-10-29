@@ -10,10 +10,10 @@ import {
 } from '@/server/controller/user/main';
 import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { useContext } from 'react';
-import { PublicSpacesPagesCommentKarma } from './karma/main';
-import { PublicSpacesPagesCommentMessage } from './message/main';
+import { PublicSpacesPageCommentKarma } from './karma/main';
+import { PublicSpacesPageCommentMessage } from './message/main';
 
-export function PublicSpacesPagesContentComment() {
+export function PublicSpacesPageContentComment() {
   const commentObj = useContext(ContextForPostCommentObj);
   const commentUser = useControllerForUserMain(commentObj.userId);
   const commentKarma = useControllerForCommentKarmaList(commentObj.id);
@@ -23,8 +23,8 @@ export function PublicSpacesPagesContentComment() {
       <ContextForCommentKarmaList.Provider value={commentKarma}>
         <GlassWindowFrame className='w-full'>
           <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>
-            <PublicSpacesPagesCommentMessage />
-            <PublicSpacesPagesCommentKarma />
+            <PublicSpacesPageCommentMessage />
+            <PublicSpacesPageCommentKarma />
           </GlassWindowContents>
         </GlassWindowFrame>
       </ContextForCommentKarmaList.Provider>
