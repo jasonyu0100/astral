@@ -12,7 +12,7 @@ export function PublicSpaceSidebar() {
 
   return (
     <GlassWindowFrame
-      className='w-[500px] flex-shrink-0 p-[1rem]'
+      className='w-[350px] flex-shrink-0 p-[1rem]'
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] overflow-auto pr-[1rem]'>

@@ -38,7 +38,8 @@ import { glassFx, roundedFx } from '@/style/data';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useSearchParams } from 'next/navigation';
 import { createContext, useState } from 'react';
-import { SpacesPostKarma } from './view/main/karma/main';
+import { PublicSpacesPostComments } from './view/main/comments/main';
+import { PublicSpacesPostKarma } from './view/main/karma/main';
 import { PublicSpaceSidebar } from './view/sidebar/main';
 
 export enum PublicSpacePage {
@@ -122,6 +123,7 @@ function Page({ params }: { params: { id: string } }) {
                         />
                         <AbsoluteHolder>
                           <div className='flex h-full w-full flex-row space-x-[3rem] p-[2rem]'>
+                            <PublicSpaceSidebar />
                             {page === PublicSpacePage.SPACE && (
                               <GlassWindowFrame
                                 className='h-full flex-grow'
@@ -171,88 +173,87 @@ function Page({ params }: { params: { id: string } }) {
                               </GlassWindowFrame>
                             )}
                             {page === PublicSpacePage.CHAPTERS && (
-                              <GlassWindowFrame
-                                className='h-full flex-grow'
-                                roundedFx={roundedFx.rounded}
-                              >
-                                <GlassWindowContents className='flex flex-col space-y-[2rem] px-[2rem]'>
-                                  <h1 className='text-2xl font-bold text-slate-300'>
-                                    <span
-                                      className='cursor-pointer'
-                                      onClick={() => {
-                                        setPage(PublicSpacePage.SPACE);
-                                      }}
-                                    >
-                                      Home
-                                    </span>{' '}
-                                    /{' '}
-                                    {
-                                      chapterListController.state.currentObj
-                                        ?.title
-                                    }
-                                  </h1>
+                              <>
+                                <GlassWindowFrame className='h-full flex-grow'>
+                                  <GlassWindowContents className='flex h-full flex-col space-y-[2rem] overflow-auto px-[2rem]'>
+                                    <h1 className='text-2xl font-bold text-slate-300'>
+                                      <span
+                                        className='cursor-pointer'
+                                        onClick={() => {
+                                          setPage(PublicSpacePage.SPACE);
+                                        }}
+                                      >
+                                        Home
+                                      </span>{' '}
+                                      /{' '}
+                                      {
+                                        chapterListController.state.currentObj
+                                          ?.title
+                                      }
+                                    </h1>
 
-                                  <HorizontalDivider />
-                                  <GlassWindowFrame
-                                    className='h-[800px] w-full px-[1rem] py-[2rem]'
-                                    roundedFx={roundedFx.rounded}
-                                  >
-                                    <GlassWindowContents className='h-full w-full overflow-auto pr-[1rem]'>
-                                      <div className='grid h-full w-full grid-cols-4 items-center justify-items-center gap-[1rem]'>
-                                        {attachmentListController.state.objs
-                                          .length === 0 && (
-                                          <p className='text-3xl font-black text-slate-300'>
-                                            NONE
-                                          </p>
-                                        )}
-                                        {attachmentListController.state.objs.map(
-                                          (attachment) => (
-                                            <ContextForPostAttachmentObj.Provider
-                                              value={attachment}
-                                            >
-                                              <ElementAttachment />
-                                            </ContextForPostAttachmentObj.Provider>
+                                    <HorizontalDivider />
+                                    <GlassWindowFrame
+                                      className='h-[800px] w-full flex-shrink-0 px-[1rem] py-[2rem]'
+                                      roundedFx={roundedFx.rounded}
+                                    >
+                                      <GlassWindowContents className='h-full w-full overflow-auto pr-[1rem]'>
+                                        <div className='grid h-full w-full grid-cols-4 items-center justify-items-center gap-[1rem]'>
+                                          {attachmentListController.state.objs
+                                            .length === 0 && (
+                                            <p className='text-3xl font-black text-slate-300'>
+                                              NONE
+                                            </p>
+                                          )}
+                                          {attachmentListController.state.objs.map(
+                                            (attachment) => (
+                                              <ContextForPostAttachmentObj.Provider
+                                                value={attachment}
+                                              >
+                                                <ElementAttachment />
+                                              </ContextForPostAttachmentObj.Provider>
+                                            ),
+                                          )}
+                                        </div>
+                                      </GlassWindowContents>
+                                      <GlassWindowPane
+                                        glassFx={glassFx['glass-10']}
+                                      />
+                                    </GlassWindowFrame>
+
+                                    <div className='flex w-full flex-row items-center space-x-[1rem]'>
+                                      <div className='flex w-full flex-col space-y-[1rem]'>
+                                        <h1 className='text-3xl font-bold text-slate-300'>
+                                          {
+                                            postListController.state.currentObj
+                                              ?.title
+                                          }
+                                        </h1>
+                                        <p className='text-lg font-bold text-slate-300'>
+                                          {
+                                            postListController.state.currentObj
+                                              ?.description
+                                          }
+                                        </p>
+                                      </div>
+                                      <PublicSpacesPostKarma />
+                                    </div>
+                                    <div className='space-y-[0.5rem]'>
+                                      <p className=' text-sm font-light text-white'>
+                                        {getFormattedDate(
+                                          new Date(
+                                            postListController.state.currentObj
+                                              ?.created ?? '',
                                           ),
                                         )}
-                                      </div>
-                                    </GlassWindowContents>
-                                    <GlassWindowPane
-                                      glassFx={glassFx['glass-10']}
-                                    />
-                                  </GlassWindowFrame>
-
-                                  <div className='flex w-full flex-row items-center space-x-[1rem]'>
-                                    <div className='flex w-full flex-col space-y-[1rem]'>
-                                      <h1 className='text-3xl font-bold text-slate-300'>
-                                        {
-                                          postListController.state.currentObj
-                                            ?.title
-                                        }
-                                      </h1>
-                                      <p className='text-lg font-bold text-slate-300'>
-                                        {
-                                          postListController.state.currentObj
-                                            ?.description
-                                        }
                                       </p>
                                     </div>
-                                    <SpacesPostKarma />
-                                  </div>
-                                  <div className='space-y-[0.5rem]'>
-                                    <p className=' text-sm font-light text-white'>
-                                      {getFormattedDate(
-                                        new Date(
-                                          postListController.state.currentObj
-                                            ?.created ?? '',
-                                        ),
-                                      )}
-                                    </p>
-                                  </div>
-                                </GlassWindowContents>
-                                {/* <GlassWindowPane glassFx={glassFx['glass-10']} /> */}
-                              </GlassWindowFrame>
+                                    <PublicSpacesPostComments />
+                                  </GlassWindowContents>
+                                  {/* <GlassWindowPane glassFx={glassFx['glass-10']} /> */}
+                                </GlassWindowFrame>
+                              </>
                             )}
-                            <PublicSpaceSidebar />
                           </div>
                         </AbsoluteHolder>
                       </AbsoluteHolder>

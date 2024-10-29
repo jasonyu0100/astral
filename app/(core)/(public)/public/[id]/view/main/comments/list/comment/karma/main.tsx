@@ -1,17 +1,17 @@
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
-import { ContextForPostKarmaList } from '@/server/controller/post/karma/list';
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
+import { ContextForCommentKarmaList } from '@/server/controller/post/comment/karma/list';
+import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function PublicSpacesPostKarma() {
+export function SpacesPostCommentKarma() {
+  const commentObj = useContext(ContextForPostCommentObj);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
-  const postListController = useContext(ContextForUserPostListFromChapter);
-  const postKarmaListController = useContext(ContextForPostKarmaList);
+  const commentKarmaListController = useContext(ContextForCommentKarmaList);
 
-  const karmaVotes = postKarmaListController.state.objs;
+  const karmaVotes = commentKarmaListController.state.objs;
   const cumulativeKarma = karmaVotes.reduce(
     (acc, obj) => acc + (obj.neutrality === true ? 1 : -1),
     0,
@@ -25,12 +25,12 @@ export function PublicSpacesPostKarma() {
 
   async function upvote() {
     if (userKarma) {
-      postKarmaListController.actions.editActions.edit(userKarma.id, {
+      commentKarmaListController.actions.editActions.edit(userKarma.id, {
         neutrality: true,
       });
     } else {
-      postKarmaListController.actions.createActions.createKarma(
-        postListController.state.objId,
+      commentKarmaListController.actions.createActions.createKarma(
+        commentObj.id,
         loggedInUser?.id,
         true,
       );
@@ -39,12 +39,12 @@ export function PublicSpacesPostKarma() {
 
   async function downvote() {
     if (userKarma) {
-      postKarmaListController.actions.editActions.edit(userKarma.id, {
+      commentKarmaListController.actions.editActions.edit(userKarma.id, {
         neutrality: false,
       });
     } else {
-      postKarmaListController.actions.createActions.createKarma(
-        postListController.state.objId,
+      commentKarmaListController.actions.createActions.createKarma(
+        commentObj.id,
         loggedInUser?.id,
         false,
       );
@@ -52,17 +52,17 @@ export function PublicSpacesPostKarma() {
   }
 
   return (
-    <div className='flex flex-col items-center'>
-      <AstralArrowDropUp
-        className={ctwn('h-[3rem] w-[3rem]', {
-          'fill-blue-500': userVote === 1,
-          'fill-slate-500': userVote === -1,
+    <div className='flex flex-row items-center space-x-[0.5rem] pl-[4rem]'>
+      <AstralArrowDropDown
+        className={ctwn('h-[1.5rem] w-[1.5rem]', {
+          'fill-red-500': userVote === -1,
+          'fill-slate-500': userVote === 1,
           'fill-slate-300': userVote === 0,
         })}
-        onClick={() => upvote()}
+        onClick={() => downvote()}
       />
       <p
-        className={ctwn('text-xl font-bold text-slate-300', {
+        className={ctwn('text-center text-sm font-bold text-slate-300', {
           'text-red-300': userVote === -1,
           'text-blue-300': userVote === 1,
           'text-slate-500': userVote === 0,
@@ -70,13 +70,13 @@ export function PublicSpacesPostKarma() {
       >
         {cumulativeKarma}
       </p>
-      <AstralArrowDropDown
-        className={ctwn('h-[3rem] w-[3rem]', {
-          'fill-red-500': userVote === -1,
-          'fill-slate-500': userVote === 1,
+      <AstralArrowDropUp
+        className={ctwn('h-[1.5rem] w-[1.5rem]', {
+          'fill-blue-500': userVote === 1,
+          'fill-slate-500': userVote === -1,
           'fill-slate-300': userVote === 0,
         })}
-        onClick={() => downvote()}
+        onClick={() => upvote()}
       />
     </div>
   );
