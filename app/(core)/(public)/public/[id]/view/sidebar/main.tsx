@@ -11,18 +11,20 @@ export function PublicSpaceSidebar() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <GlassWindowFrame
-      className='w-[350px] flex-shrink-0 p-[1rem]'
-      roundedFx={roundedFx.rounded}
-    >
-      <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] overflow-auto pr-[1rem]'>
-        {chapterListController.state.objs.map((chapter) => (
-          <ContextForSpaceChapterObj.Provider value={chapter}>
-            <PublicSpaceSidebarItem />
-          </ContextForSpaceChapterObj.Provider>
-        ))}
-      </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-10']} />
-    </GlassWindowFrame>
+    <div className='p-[2rem]'>
+      <GlassWindowFrame
+        className='h-full w-[350px] flex-shrink-0 p-[1rem]'
+        roundedFx={roundedFx.rounded}
+      >
+        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] overflow-auto pr-[1rem]'>
+          {chapterListController.state.objs.map((chapter) => (
+            <ContextForSpaceChapterObj.Provider value={chapter}>
+              <PublicSpaceSidebarItem />
+            </ContextForSpaceChapterObj.Provider>
+          ))}
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
+      </GlassWindowFrame>
+    </div>
   );
 }

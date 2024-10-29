@@ -12,8 +12,8 @@ export const spacesMap = {
       board: {
         link: (id: string) => `${baseUrl}/${id}/board`,
       },
-      post: {
-        link: (id: string) => `${baseUrl}/${id}/post`,
+      pages: {
+        link: (id: string) => `${baseUrl}/${id}/pages`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

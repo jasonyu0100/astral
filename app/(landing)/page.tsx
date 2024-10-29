@@ -33,13 +33,23 @@ const Header = () => (
         alt='Brand Logo'
       />
       <nav className='flex space-x-2 sm:space-x-[3rem]'>
-        <a href='/' className='text-sm font-bold text-white sm:text-lg'>
-          HOME
+        <a
+          href='https://www.youtube.com/@astral-fun'
+          target='_blank'
+          className='text-sm font-bold uppercase text-white sm:text-lg'
+        >
+          LEARN
         </a>
-        <a href='/chat' className='text-sm font-bold text-white sm:text-lg'>
+        <a
+          href='/chat'
+          className='text-sm font-bold uppercase text-white sm:text-lg'
+        >
           CHAT
         </a>
-        <a href='/pricing' className='text-sm font-bold text-white sm:text-lg'>
+        <a
+          href='/pricing'
+          className='text-sm font-bold uppercase text-white sm:text-lg'
+        >
           PRICING
         </a>
       </nav>
@@ -66,11 +76,11 @@ const HeroSection = () => {
           Your Creative Journey, Streamlined
         </h1>
         <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-          Astral is your creative work tracker, built to grow with you. Ideal
-          for content creators, founders, and visionaries, Astral provides
-          Kanban boards for task management, ai-collaborative Chat, visual idea
-          Mapping, and Posts to capture insights. Stay organized and supported
-          at every stage of your creative journey.
+          Astral is your go-to tracker for creative work, designed to evolve
+          with you. Perfect for content creators, founders, and visionaries,
+          Astral offers Kanban boards for task management, AI-powered Chat,
+          visual Mapping for ideas, and Pages to capture insights. Stay
+          organized and inspired at every stage of your creative journey.
         </p>
         <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
           <a
@@ -607,10 +617,20 @@ function SocialFooter() {
 
 function SocialProof() {
   return (
-    <div className='flex w-full flex-row items-center space-x-[2rem] p-[2rem]'>
-      <img src='/landing/product-hunt.png' className='w-[100px]' />
-      <img src='/landing/build-club.png' className='w-[200px]' />
-      {/* <img src='/landing/ofa.jpg' className='w-[100px] rounded-full' /> */}
+    <div className='flex w-full flex-col space-y-[1rem] px-[3rem]'>
+      <p className='font-bold text-slate-300'>As featured on...</p>
+      <div className='flex w-full flex-row items-center space-x-[2rem]'>
+        <a href='https://www.producthunt.com/products/astral-5' target='_blank'>
+          <img src='/landing/product-hunt.png' className='w-[100px]' />
+        </a>
+        <a
+          href='https://www.smh.com.au/technology/from-side-hustle-to-buzzy-ai-start-up-build-club-raises-1-8-million-20241010-p5khd6.html'
+          target='_blank'
+        >
+          <img src='/landing/build-club.png' className='w-[200px]' />
+        </a>
+        {/* <img src='/landing/ofa.jpg' className='w-[100px] rounded-full' /> */}
+      </div>
     </div>
   );
 }

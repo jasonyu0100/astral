@@ -4,7 +4,7 @@ import { TopbarLink } from './link/main';
 export function TopbarLeftGroup() {
   return (
     <div className='flex h-full flex-row items-center space-x-[3rem]'>
-      <TopbarLink href={studioMap.studio.personal.link}>HOME</TopbarLink>
+      <TopbarLink href={studioMap.studio.personal.link}>STUDIO</TopbarLink>
       <TopbarLink href='https://www.youtube.com/@astral-fun' target='_blank'>
         LEARN
       </TopbarLink>
