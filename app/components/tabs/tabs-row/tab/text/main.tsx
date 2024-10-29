@@ -13,7 +13,7 @@ export function TabText({
         'h-[3rem] w-[7rem] text-2xl font-bold lowercase text-slate-300',
         {
           'animate-pulse-slow text-slate-500': !active,
-          'text-slate-300': active,
+          'animate-pulse text-slate-300': active,
         },
       )}
     >

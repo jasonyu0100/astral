@@ -11,21 +11,27 @@ import { SpacesSceneMovable } from './moveable/main';
 export function SpacesSceneScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
   const spacesSceneController = useContext(ContextForSpacesScene);
-  const visibleIdeas = ideaListController.state.objs.filter(
-    (idea) => idea.visible,
-  );
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (ref.current) {
-      const width = ref.current.offsetWidth;
-      const height = ref.current.offsetHeight;
-      spacesSceneController.actions.updateDivWidth(width);
-      spacesSceneController.actions.updateDivHeight(height);
+    const updateDimensions = () => {
+      if (ref.current) {
+        const width = ref.current.offsetWidth;
+        const height = ref.current.offsetHeight;
+        spacesSceneController.actions.updateDivWidth(width);
+        spacesSceneController.actions.updateDivHeight(height);
+      }
+    };
 
-      // You can perform other actions with the width and height here.
-    }
-  }, []); // The empty dependency array ensures this effect runs only once after the component mounts.
+    // Initial dimension update
+    updateDimensions();
+
+    // Update dimensions on window resize
+    window.addEventListener('resize', updateDimensions);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, [spacesSceneController.actions]); // Ensure the effect re-runs if actions change
 
   return (
     <div className='relative h-full w-full' ref={ref}>
@@ -33,10 +39,10 @@ export function SpacesSceneScene() {
         className='relative z-10 h-full w-full cursor-pointer'
         onClick={() => spacesSceneController.actions.updateSelectedIdeas([])}
       >
-        {visibleIdeas.map((idea, index) => (
-          <ContextForIndexable.Provider value={index}>
+        {ideaListController.state.objs.map((idea, index) => (
+          <ContextForIndexable.Provider key={idea.id} value={index}>
             <ContextForIdeaObj.Provider value={idea}>
-              <SpacesSceneMovable key={idea.id}>
+              <SpacesSceneMovable>
                 <SpacesSceneMovableIdea />
               </SpacesSceneMovable>
             </ContextForIdeaObj.Provider>

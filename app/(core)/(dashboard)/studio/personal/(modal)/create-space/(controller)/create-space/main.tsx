@@ -1,7 +1,5 @@
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { useControllerForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { useControllerForGalleryList } from '@/server/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/server/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/server/controller/space/member/list';
@@ -57,13 +55,6 @@ export const ContextForCreateSpace = createContext({} as CreateSpaceController);
 export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const spaceListController = useContext(ContextForSpaceList);
-  const galleryListController = useControllerForGalleryList(user.id);
-  const collectionListController = useControllerForGalleryCollectionList(
-    galleryListController.state.objId,
-  );
-  // const resourceListController = useControllerForCollectionResourceList(
-  //   collectionListController.state.objId,
-  // );
   const taskListController = useControllerForTaskList('');
   const chapterListController = useControllerForSpaceChapterList('');
   const activityListController = useControllerForUserActivityListFromChapter(
@@ -122,36 +113,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   }
 
   async function createSpace() {
-    const gallery =
-      await galleryListController.actions.createActions.createGallery(
-        user.id,
-        `${title || 'Untitled'} Gallery`,
-        'Gallery for space',
-        theme,
-      );
-    console.log('GALLERY CREATED', gallery);
-
-    const collection =
-      await collectionListController.actions.createActions.createCollection(
-        'Starter Collection',
-        'Collection for starter spaces',
-        gallery.id,
-      );
-    console.log('COLLECTION CREATED', collection);
-
-    // const starterResourecs = await Promise.all(
-    //   exampleFileElems.map((fileElem) =>
-    //     resourceListController.actions.createActions.createFromFile(
-    //       user.id,
-    //       collection.id,
-    //       'Starter Resource',
-    //       '',
-    //       fileElem,
-    //     ),
-    //   ),
-    // );
-    // console.log('RESOURCES CREATED', starterResourecs);
-
     const space =
       await spaceListController.actions.createActions.createFromTemplate(
         title,
@@ -160,8 +121,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         user.id,
         theme,
         category,
-        gallery.id,
-        collection.id,
       );
 
     console.log('SPACE CREATED', space);

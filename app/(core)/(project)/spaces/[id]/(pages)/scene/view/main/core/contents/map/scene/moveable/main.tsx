@@ -47,7 +47,7 @@ export function SpacesSceneMovable({
     setInitialY(ideaObj.y);
     setInitialScale(ideaObj.scale);
     setInitialRotation(ideaObj.rotation);
-  }, []);
+  }, [spacesSceneController.state.updateToggle]);
 
   return (
     <div>

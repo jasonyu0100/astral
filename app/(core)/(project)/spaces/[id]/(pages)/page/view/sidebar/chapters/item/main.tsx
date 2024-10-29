@@ -47,11 +47,11 @@ export function SpacesPageSidebarChaptersChapter() {
             </div>
             <p className={'text-sm font-light text-slate-300'}>
               <span className='font-bold'>Objective: </span>
-              {chapterObj.objective}
+              {chapterObj?.objective || 'No objective'}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
               <span className='font-bold'>Summary: </span>
-              {chapterObj.description}
+              {chapterObj?.description || 'No summary'}
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-20']} />
@@ -65,11 +65,11 @@ export function SpacesPageSidebarChaptersChapter() {
         >
           <GlassWindowContents>
             <p className={ctwn('text-lg font-bold text-slate-300')}>
-              {chapterObj.title}
+              {chapterObj?.title || 'Untitled'}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
               <span className='font-bold'>Objective: </span>
-              {chapterObj.objective}
+              {chapterObj?.objective || 'No objective'}
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />

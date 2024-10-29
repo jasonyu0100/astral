@@ -1,4 +1,3 @@
-import { ContextForLoading } from '@/components/loading/controller/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -19,6 +18,7 @@ interface Controller {
 }
 
 interface ControllerState {
+  updateToggle: boolean;
   divWidth: number;
   divHeight: number;
   selectedIdeas: IdeaObj[];
@@ -52,9 +52,11 @@ interface ControllerActions {
   goToHome: () => void;
   goToGallery: (gallery: GalleryObj) => void;
   goToCollection: (collection: GalleryCollectionObj) => void;
+  goToGalleryThenCollection: (gallery: GalleryObj) => void;
   takeScreenshot: () => void;
   updateHideUI: (hide: boolean) => void;
   saveAll: () => void;
+  sortIdeas: () => void;
 }
 
 export const ContextForSpacesScene = createContext({} as Controller);
@@ -108,7 +110,6 @@ export enum SpacesSceneDirectoryMode {
 }
 
 export function useControllerForSpacesScene(): Controller {
-  const loadingController = useContext(ContextForLoading);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceController = useContext(ContextForSpaceMain);
@@ -143,6 +144,7 @@ export function useControllerForSpacesScene(): Controller {
   const [sidebarVisibility, setSidebarVisibility] = useState(
     SpacesSceneSidebarVisibility.OPEN,
   );
+  const [updateToggle, setUpdateToggle] = useState(false);
 
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
@@ -185,6 +187,44 @@ export function useControllerForSpacesScene(): Controller {
     }, 500);
   };
 
+  const distributeIdeasEvenly = async () => {
+    const items = ideaListController.state.objs;
+    const itemCount = items.length;
+
+    // Calculate optimal rows and columns to form a square-like grid
+    const columns = Math.ceil(Math.sqrt(itemCount));
+    const rows = Math.ceil(itemCount / columns);
+
+    // Calculate cell width and height based on div dimensions and the number of columns and rows
+    const cellWidth = divWidth / columns;
+    const cellHeight = divHeight / rows;
+
+    // Calculate padding to center items within each cell, creating flexible gaps
+    const editPromises = items.map(async (idea, index) => {
+      const ideaWidth = idea.width;
+      const ideaHeight = idea.height;
+
+      // Calculate row and column for the current item
+      const row = Math.floor(index / columns);
+      const col = index % columns;
+
+      // Calculate x and y positions by centering each item within its cell
+      const x = col * cellWidth + (cellWidth - ideaWidth) / 2;
+      const y = row * cellHeight + (cellHeight - ideaHeight) / 2;
+
+      return ideaListController.actions.editActions.edit(idea.id, {
+        x: Math.ceil(x + Math.random() * 50),
+        y: Math.ceil(y + Math.random() * 50),
+        width: Math.ceil(ideaWidth),
+        height: Math.ceil(ideaHeight),
+      });
+    });
+
+    // Wait for all edit promises to complete
+    await Promise.all(editPromises);
+    setUpdateToggle(!updateToggle);
+  };
+
   const linkIdeas = async () => {
     const ideaRelationships = await Promise.all(
       selectedIdeas.slice(0, selectedIdeas.length - 1).map((idea, index) => {
@@ -210,6 +250,7 @@ export function useControllerForSpacesScene(): Controller {
 
   return {
     state: {
+      updateToggle,
       directoryMode: directoryMode,
       divWidth: divWidth,
       divHeight: divHeight,
@@ -249,6 +290,10 @@ export function useControllerForSpacesScene(): Controller {
         collectionListController.actions.stateActions.select(collection);
         changeSidebarMediaMode(SpacesSceneSidebarMediaMode.Collection);
       },
+      goToGalleryThenCollection: (gallery: GalleryObj) => {
+        galleryListController.actions.stateActions.select(gallery);
+        changeSidebarMediaMode(SpacesSceneSidebarMediaMode.Collection);
+      },
       checkContainsSelectedIdea: (idea: IdeaObj) =>
         selectedIdeas.map((idea) => idea.id).includes(idea.id),
       selectAll: () => {
@@ -258,6 +303,7 @@ export function useControllerForSpacesScene(): Controller {
         setSelectedIdeas([]);
       },
       linkIdeas: linkIdeas,
+      sortIdeas: distributeIdeasEvenly,
     },
   };
 }

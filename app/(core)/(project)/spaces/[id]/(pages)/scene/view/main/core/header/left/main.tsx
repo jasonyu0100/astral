@@ -1,7 +1,7 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
-import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { AstralCameraIcon } from '@/icons/camera/main';
+import { AstralCategoryIcon } from '@/icons/category/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralLinkIcon } from '@/icons/link/main';
@@ -10,7 +10,6 @@ import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -23,10 +22,9 @@ import {
 import { ContextForSpacesSceneModals } from '../../../../../modal/controller/main';
 
 export function SpacesSceneHeaderLeft() {
-  const SpacesSceneController = useContext(ContextForSpacesScene);
-  const SpacesSceneModalsController = useContext(ContextForSpacesSceneModals);
+  const spacesSceneController = useContext(ContextForSpacesScene);
+  const spacesSceneModalsController = useContext(ContextForSpacesSceneModals);
   const user = useGlobalUser((state) => state.user);
-  const space = useContext(ContextForSpaceMain);
   const galleryController = useContext(ContextForGalleryList);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
@@ -35,12 +33,12 @@ export function SpacesSceneHeaderLeft() {
       <AstralSidebarLeftIcon
         className={ctwn({
           'rotate-180 transform':
-            SpacesSceneController.state.sidebarVisibility ===
+            spacesSceneController.state.sidebarVisibility ===
             SpacesSceneSidebarVisibility.CLOSED,
         })}
         onClick={() => {
-          SpacesSceneController.actions.updateSidebarVisibility(
-            SpacesSceneController.state.sidebarVisibility ===
+          spacesSceneController.actions.updateSidebarVisibility(
+            spacesSceneController.state.sidebarVisibility ===
               SpacesSceneSidebarVisibility.CLOSED
               ? SpacesSceneSidebarVisibility.OPEN
               : SpacesSceneSidebarVisibility.CLOSED,
@@ -51,40 +49,33 @@ export function SpacesSceneHeaderLeft() {
       <AstralFullscreenIcon
         onClick={() => {
           if (
-            SpacesSceneController.state.selectedIdeas.length ===
+            spacesSceneController.state.selectedIdeas.length ===
             ideaListController.state.objs.length
           ) {
-            SpacesSceneController.actions.deselectAll();
+            spacesSceneController.actions.deselectAll();
           } else {
-            SpacesSceneController.actions.selectAll();
+            spacesSceneController.actions.selectAll();
           }
         }}
         className={
-          SpacesSceneController.state.selectedIdeas.length >=
+          spacesSceneController.state.selectedIdeas.length >=
             ideaListController.state.objs.length &&
-          SpacesSceneController.state.selectedIdeas.length > 0
+          spacesSceneController.state.selectedIdeas.length > 0
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
       />
-      <AstralCalendarIcon
+      <AstralCategoryIcon
         onClick={() => {
-          SpacesSceneController.actions.goToGallery(
-            galleryController.actions.stateActions.find(user.journalId),
-          );
-          SpacesSceneController.actions.updateSidebarContentMode(
-            SpacesSceneSidebarContentMode.EXPLORER,
-          );
+          spacesSceneController.actions.sortIdeas();
         }}
       />
       <AstralFolderIcon
         onClick={() => {
-          SpacesSceneController.actions.goToGallery(
-            galleryController.actions.stateActions.find(
-              space.state.obj.galleryId,
-            ),
+          spacesSceneController.actions.goToGalleryThenCollection(
+            galleryController.actions.stateActions.find(user.journalId),
           );
-          SpacesSceneController.actions.updateSidebarContentMode(
+          spacesSceneController.actions.updateSidebarContentMode(
             SpacesSceneSidebarContentMode.EXPLORER,
           );
         }}
@@ -92,17 +83,17 @@ export function SpacesSceneHeaderLeft() {
       <BarDividerIndicator />
       <AstralSyncAltIcon
         className={
-          SpacesSceneController.state.linkMode === SpacesSceneLinkMode.ON
+          spacesSceneController.state.linkMode === SpacesSceneLinkMode.ON
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (SpacesSceneController.state.linkMode === SpacesSceneLinkMode.ON) {
-            SpacesSceneController.actions.updateLinkMode(
+          if (spacesSceneController.state.linkMode === SpacesSceneLinkMode.ON) {
+            spacesSceneController.actions.updateLinkMode(
               SpacesSceneLinkMode.OFF,
             );
           } else {
-            SpacesSceneController.actions.updateLinkMode(
+            spacesSceneController.actions.updateLinkMode(
               SpacesSceneLinkMode.ON,
             );
           }
@@ -110,19 +101,19 @@ export function SpacesSceneHeaderLeft() {
       />
       <AstralBubbleIcon
         className={
-          SpacesSceneController.state.bubbleMode === SpacesSceneBubbleMode.OFF
+          spacesSceneController.state.bubbleMode === SpacesSceneBubbleMode.OFF
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
         onClick={() => {
           if (
-            SpacesSceneController.state.bubbleMode === SpacesSceneBubbleMode.OFF
+            spacesSceneController.state.bubbleMode === SpacesSceneBubbleMode.OFF
           ) {
-            SpacesSceneController.actions.updateBubbleMode(
+            spacesSceneController.actions.updateBubbleMode(
               SpacesSceneBubbleMode.ON,
             );
           } else {
-            SpacesSceneController.actions.updateBubbleMode(
+            spacesSceneController.actions.updateBubbleMode(
               SpacesSceneBubbleMode.OFF,
             );
           }
@@ -131,12 +122,12 @@ export function SpacesSceneHeaderLeft() {
       <BarDividerIndicator />
       <AstralCameraIcon
         onClick={() => {
-          SpacesSceneController.actions.takeScreenshot();
+          spacesSceneController.actions.takeScreenshot();
         }}
       />
       <AstralLinkIcon
         onClick={() => {
-          SpacesSceneModalsController.shareViewController.open();
+          spacesSceneModalsController.shareViewController.open();
         }}
       />
     </div>

@@ -9,7 +9,7 @@ import { SpacesSceneRowElement } from './element/main';
 
 export function SpacesSceneNavigationRow() {
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const spacesMapModalController = useContext(ContextForSpacesSceneModals);
+  const spacesSceneModalController = useContext(ContextForSpacesSceneModals);
 
   return (
     <SpacesSceneRowContainer>
@@ -22,7 +22,7 @@ export function SpacesSceneNavigationRow() {
       ))}
       <SpacesSceneRowAdd
         onClick={() => {
-          spacesMapModalController.addSceneController.open();
+          spacesSceneModalController.addSceneController.open();
         }}
       />
     </SpacesSceneRowContainer>

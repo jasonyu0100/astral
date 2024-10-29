@@ -1,9 +1,9 @@
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
-import { ContextForSpacesChatModals } from '../../../../../modal/controller/main';
+import { ContextForSpacesPageModals } from '../../../../modal/controller/main';
 
-export function SpacesChatSidebarChaptersAdd() {
-  const modalController = useContext(ContextForSpacesChatModals);
+export function SpacesPageSidebarChaptersAdd() {
+  const modalController = useContext(ContextForSpacesPageModals);
 
   return (
     <div className='flex w-full flex-row items-center justify-center'>

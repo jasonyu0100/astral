@@ -2,12 +2,12 @@ import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pag
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
+import { AstralImageIcon } from '@/icons/image/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralRectangleIcon } from '@/icons/rectangle/main';
-import { AstralSearchIcon } from '@/icons/search/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
@@ -33,7 +33,7 @@ export function SpacesScenePaletteDefault() {
         className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addArticleIdeaController.open()}
       />
-      <AstralSearchIcon
+      <AstralImageIcon
         className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addSearchIdeaController.open()}
       />

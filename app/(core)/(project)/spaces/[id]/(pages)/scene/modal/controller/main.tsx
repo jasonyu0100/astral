@@ -4,6 +4,7 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
+import { SpacesSceneAddChapterModal } from '../add/chapter/main';
 import { SpacesSceneAddCollectionModal } from '../add/collection/main';
 import { SpacesSceneAddGalleryModal } from '../add/gallery/main';
 import { SpacesSceneAddArticleIdeaModal } from '../add/idea/article/main';
@@ -46,6 +47,7 @@ export interface SpacesSceneModals {
   editChapterController: ContextForOpenableInterface;
   editSpaceController: ContextForOpenableInterface;
   editSceneController: ContextForOpenableInterface;
+  addChapterController: ContextForOpenableInterface;
 }
 
 export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
@@ -67,6 +69,7 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
   const editSceneController = useControllerForOpenable();
+  const addChapterController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSceneModals.Provider
@@ -89,6 +92,7 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
         editChapterController: editChapterController,
         editSpaceController: editSpaceController,
         editSceneController: editSceneController,
+        addChapterController: addChapterController,
       }}
     >
       {children}
@@ -145,6 +149,9 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSceneController}>
         <SpacesSceneEditSceneModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addChapterController}>
+        <SpacesSceneAddChapterModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSceneModals.Provider>
   );

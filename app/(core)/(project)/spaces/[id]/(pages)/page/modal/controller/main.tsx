@@ -4,6 +4,7 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
+import { SpacesPageAddChapterModal } from '../add/chapter/main';
 import { SpacesPageAddCommentModal } from '../add/comment/main';
 import { SpacesPageAddPostModal } from '../add/post/main';
 import { SpacesPageEditChapterModal } from '../edit/chapter/main';
@@ -19,6 +20,7 @@ export interface SpacesPageModals {
   shareReviewController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
   editSpaceController: ContextForOpenableInterface;
+  addChapterController: ContextForOpenableInterface;
 }
 
 export function SpacesPageModals({ children }: { children: React.ReactNode }) {
@@ -27,16 +29,18 @@ export function SpacesPageModals({ children }: { children: React.ReactNode }) {
   const addPostController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
+  const addChapterController = useControllerForOpenable();
 
   return (
     <ContextForSpacesPageModals.Provider
       value={
         {
-          addCommentController,
-          shareReviewController,
-          addPostController,
+          addCommentController: addCommentController,
+          shareReviewController: shareReviewController,
+          addPostController: addPostController,
           editChapterController: editChapterController,
           editSpaceController: editSpaceController,
+          addChapterController: addChapterController,
         } as SpacesPageModals
       }
     >
@@ -55,6 +59,9 @@ export function SpacesPageModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSpaceController}>
         <SpacesPageEditSpaceModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addChapterController}>
+        <SpacesPageAddChapterModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesPageModals.Provider>
   );
