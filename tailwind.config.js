@@ -52,7 +52,7 @@ module.exports = {
         },
         pulseSlow: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.85' },
+          '50%': { opacity: '0.8' },
         },
         breatheSlow: {
           '0%, 100%': { opacity: '1' },
@@ -60,7 +60,7 @@ module.exports = {
         },
         breatheFast: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.4' },
+          '50%': { opacity: '0.5' },
         },
         activate: {
           '0%': { opacity: '0.25' },

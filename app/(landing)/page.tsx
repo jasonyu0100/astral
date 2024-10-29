@@ -85,15 +85,15 @@ const HeroSection = () => {
         <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
           <a
             href='/register'
-            className='flex h-[3rem] min-w-[200px] max-w-[400px] flex-grow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[5rem] sm:px-[1rem]'
+            className='flex h-[4rem] min-w-[200px] max-w-[400px] flex-grow animate-pulse-slow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[6rem] sm:px-[1rem]'
           >
-            <span className='text-xl font-bold text-slate-300'>
-              Start today
+            <span className='font-extraBold text-2xl text-slate-300'>
+              Free Trial
             </span>
           </a>
           <a
             href='mailto:jason@astral.fun'
-            className='min-w-[100px] rounded-full p-2 text-xl font-bold text-slate-300 sm:p-[2rem]'
+            className='min-w-[100px] rounded-full p-2 text-2xl font-bold text-slate-300 sm:p-[2rem]'
           >
             Contact Us
           </a>
@@ -102,7 +102,7 @@ const HeroSection = () => {
       <div className='w-full px-0 sm:px-[2rem]'>
         <img
           src='/landing/hero-1.png'
-          className='w-full rounded-[2rem] object-contain shadow-glow'
+          className='w-full rounded-[1rem] object-contain shadow-glow'
           alt='Hero Image'
         />
       </div>
@@ -617,7 +617,7 @@ function SocialFooter() {
 
 function SocialProof() {
   return (
-    <div className='flex w-full flex-col space-y-[1rem] px-[3rem]'>
+    <div className='flex w-full flex-col space-y-[1rem] px-[3rem] py-[1rem]'>
       <p className='font-bold text-slate-300'>As featured on...</p>
       <div className='flex w-full flex-row items-center space-x-[2rem]'>
         <a href='https://www.producthunt.com/products/astral-5' target='_blank'>
@@ -697,16 +697,16 @@ export default function Page() {
       <SocialProof />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
-      <div className='h-[5rem] sm:h-[10rem]' />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <Question />
-      <div className='h-[5rem] sm:h-[10rem]' />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <Map />
       <Testimonials />
       <div className='h-[2rem] sm:h-[5rem]' />
       <CallToAction />
-      <div className='h-[5rem] sm:h-[10rem]' />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
-      <div className='h-[5rem] sm:h-[10rem]' />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <FeaturesSection />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
@@ -716,8 +716,11 @@ export default function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <ChatWithAstralCTA />
-      <div className='h-[5rem] sm:h-[10rem]' />
+      <div className='h-[2rem] sm:h-[5rem]' />
+      <HorizontalDivider />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <MembershipSection />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
