@@ -194,11 +194,17 @@ function Page({ params }: { params: { id: string } }) {
 
                                   <HorizontalDivider />
                                   <GlassWindowFrame
-                                    className='h-full w-full px-[1rem] py-[2rem]'
+                                    className='h-[800px] w-full px-[1rem] py-[2rem]'
                                     roundedFx={roundedFx.rounded}
                                   >
                                     <GlassWindowContents className='h-full w-full overflow-auto pr-[1rem]'>
-                                      <div className='grid w-full grid-cols-4 items-center justify-items-center gap-[1rem]'>
+                                      <div className='grid h-full w-full grid-cols-4 items-center justify-items-center gap-[1rem]'>
+                                        {attachmentListController.state.objs
+                                          .length === 0 && (
+                                          <p className='text-3xl font-black text-slate-300'>
+                                            NONE
+                                          </p>
+                                        )}
                                         {attachmentListController.state.objs.map(
                                           (attachment) => (
                                             <ContextForPostAttachmentObj.Provider

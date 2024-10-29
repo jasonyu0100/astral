@@ -12,7 +12,7 @@ export function SpacesPostHeaderRight() {
           spacesPostModalController.shareReviewController.open();
         }}
       >
-        <p className='font-bold text-slate-300'>Share Horizon</p>
+        <p className='font-bold text-slate-300'>Share Post</p>
         <AstralLinkIcon />
       </button>
     </div>

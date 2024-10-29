@@ -62,7 +62,7 @@ const HeroSection = () => {
   return (
     <section className='grid grid-cols-1 items-center gap-[5rem] px-[3rem] py-[3rem] sm:grid-cols-2'>
       <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
-        <h1 className='text-center font-permanentMarker text-2xl font-bold text-slate-300 sm:text-left sm:text-8xl'>
+        <h1 className='text-center font-extraBold text-2xl text-slate-300 sm:text-left sm:text-8xl'>
           Your Creative Journey, Streamlined
         </h1>
         <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>

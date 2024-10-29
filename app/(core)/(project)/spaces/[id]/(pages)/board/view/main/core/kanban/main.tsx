@@ -23,7 +23,7 @@ export function SpacesBoardKanban() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div
-        style={{ width: '100%', height: 'calc(100% - 5rem)' }}
+        style={{ width: '100%', height: 'calc(100%)' }}
         className='overflow-auto'
       >
         <div className='grid h-full w-full grid-rows-3 gap-[1rem] p-[1rem]'>
