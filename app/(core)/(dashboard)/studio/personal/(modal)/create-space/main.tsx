@@ -8,39 +8,32 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
-import {
-  ContextForCreateSpace,
-  useControllerForCreateSpace,
-} from './(controller)/create-space/main';
 import { CreateSpaceModalFooter } from './footer/main';
 import { CreateSpaceModalPages } from './pages/main';
 
 export function CreateSpaceModalView() {
-  const createSpaceController = useControllerForCreateSpace();
   const pagableController = useContext(ContextForPagable);
   const openableController = useContext(ContextForOpenable);
 
   return (
-    <ContextForCreateSpace.Provider value={createSpaceController}>
-      <ContextForOpenable.Provider value={openableController}>
-        <ContextForPagable.Provider value={pagableController}>
-          <LoadingWrapper>
-            <AstralModal>
-              <AstralModalBodyWrapper>
-                <AstralModalBody>
-                  <AstralModalBodyContents>
-                    <AstralModalTitle>Create Space</AstralModalTitle>
-                    <CreateSpaceModalPages />
-                  </AstralModalBodyContents>
-                  <AstralModalBodyAction>
-                    <CreateSpaceModalFooter />
-                  </AstralModalBodyAction>
-                </AstralModalBody>
-              </AstralModalBodyWrapper>
-            </AstralModal>
-          </LoadingWrapper>
-        </ContextForPagable.Provider>
-      </ContextForOpenable.Provider>
-    </ContextForCreateSpace.Provider>
+    <ContextForOpenable.Provider value={openableController}>
+      <ContextForPagable.Provider value={pagableController}>
+        <LoadingWrapper>
+          <AstralModal>
+            <AstralModalBodyWrapper>
+              <AstralModalBody>
+                <AstralModalBodyContents>
+                  <AstralModalTitle>Create Space</AstralModalTitle>
+                  <CreateSpaceModalPages />
+                </AstralModalBodyContents>
+                <AstralModalBodyAction>
+                  <CreateSpaceModalFooter />
+                </AstralModalBodyAction>
+              </AstralModalBody>
+            </AstralModalBodyWrapper>
+          </AstralModal>
+        </LoadingWrapper>
+      </ContextForPagable.Provider>
+    </ContextForOpenable.Provider>
   );
 }

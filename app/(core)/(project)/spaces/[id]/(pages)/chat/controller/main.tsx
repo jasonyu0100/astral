@@ -40,6 +40,8 @@ interface ControllerActions {
   summariseConversationIntoNotes: () => Promise<IdeaObj[]>;
   summariseConversationIntoKeywords: () => Promise<string>;
   summariseConversationIntoSearchTerm: () => Promise<string>;
+  summariseConversationIntoTitle: () => Promise<string>;
+  summariseConversationIntoObjective: () => Promise<string>;
 }
 
 export enum SpacesChatSidebarVisibility {
@@ -231,6 +233,34 @@ export function useControllerForSpacesChat() {
     return agentResponse;
   }
 
+  async function summariseConversationIntoTitle() {
+    const messageHistory = [
+      ...getMessageHistory(),
+      `
+      Summarise conversation into a single title as per the conversation history. E.G "Productivity Tips"
+      `,
+    ];
+
+    const messagePrompt = messageHistory.join('\n');
+
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
+    return agentResponse;
+  }
+
+  async function summariseConversationIntoObjective() {
+    const messageHistory = [
+      ...getMessageHistory(),
+      `
+      Summarise conversation into a single objective as per the conversation history. E.G "Improve productivity by 10%"
+      `,
+    ];
+
+    const messagePrompt = messageHistory.join('\n');
+
+    const agentResponse = (await getMessageResponse(messagePrompt)) || '';
+    return agentResponse;
+  }
+
   async function summariseConversationIntoKeywords() {
     const messageHistory = [
       ...getMessageHistory(),
@@ -328,6 +358,8 @@ export function useControllerForSpacesChat() {
     },
     actions: {
       sendMessageToConversation: sendMessageToConversation,
+      summariseConversationIntoTitle: summariseConversationIntoTitle,
+      summariseConversationIntoObjective: summariseConversationIntoObjective,
       summariseConversationIntoSearchTerm: summariseConversationIntoSearchTerm,
       summariseConversationIntoNotes,
       summariseConversationIntoQuery: summariseConversationIntoQuery,

@@ -1,7 +1,6 @@
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { useControllerForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { useControllerForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
 import { useControllerForGalleryList } from '@/server/controller/gallery/list';
 import { useControllerForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/server/controller/space/list';
@@ -17,7 +16,6 @@ import {
   SpaceTemplateMap,
   TemplateChapterObj,
 } from '@/templates/space/main';
-import moment from 'moment';
 import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {
   title: string;
@@ -39,10 +37,6 @@ export interface PageTwo {
 }
 
 export interface PageThree {
-  hours: number;
-  updateHours: (hours: number) => void;
-  target: string;
-  updateTarget: (target: string) => void;
   memberIds: string[];
   updateMemberIds: (memberIds: string[]) => void;
 }
@@ -67,26 +61,22 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const collectionListController = useControllerForGalleryCollectionList(
     galleryListController.state.objId,
   );
-  const resourceListController = useControllerForCollectionResourceList(
-    collectionListController.state.objId,
-  );
+  // const resourceListController = useControllerForCollectionResourceList(
+  //   collectionListController.state.objId,
+  // );
   const taskListController = useControllerForTaskList('');
   const chapterListController = useControllerForSpaceChapterList('');
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
   const spaceMembersListController = useControllerForSpaceMemberList('');
-  const [title, changeTitle] = useState('');
-  const [description, changeDescription] = useState('');
+  const [title, changeTitle] = useState('Starter space');
+  const [description, changeDescription] = useState('My Space');
   const [category, changeCategory] = useState(SpaceTemplate.BlankSpace);
   const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
-  const [hours, changeHours] = useState(10);
-  const [target, changeTarget] = useState(
-    moment(new Date()).add(1, 'week').toISOString(),
-  );
   const [memberIds, changeMemberIds] = useState<string[]>([]);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
-    [] as TemplateChapterObj[],
+    SpaceTemplateMap[category].chapters,
   );
 
   async function createChapters(
@@ -172,8 +162,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
         category,
         gallery.id,
         collection.id,
-        hours,
-        target,
       );
 
     console.log('SPACE CREATED', space);
@@ -228,10 +216,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const pageThree: PageThree = {
     memberIds: memberIds,
     updateMemberIds: (members: string[]) => changeMemberIds(members),
-    hours: hours,
-    updateHours: (hours: number) => changeHours(hours),
-    target: target,
-    updateTarget: (target: string) => changeTarget(target),
   };
 
   return {

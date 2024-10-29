@@ -39,8 +39,6 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     category: string,
     galleryId: string,
     collectionId: string,
-    hours: number,
-    target: string,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -301,8 +299,6 @@ export const useControllerForSpaceList = (
       category: string,
       galleryId: string,
       collectionId: string,
-      hours: number,
-      target: string,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
@@ -314,8 +310,8 @@ export const useControllerForSpaceList = (
         category: category,
         galleryId: galleryId,
         collectionId: collectionId,
-        hours: hours,
-        target: target,
+        hours: 0,
+        target: '',
         completed: false,
         starred: false,
         objective: objective,

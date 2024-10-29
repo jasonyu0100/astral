@@ -103,7 +103,7 @@ export function useGenerateSceneController(): Controller {
   const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
 
   const loadingController = useContext(ContextForLoading);
-  const spacesConversationController = useContext(ContextForSpacesChat);
+  const spacesChatController = useContext(ContextForSpacesChat);
   const openableController = useContext(ContextForOpenable);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -118,16 +118,27 @@ export function useGenerateSceneController(): Controller {
 
   useEffect(() => {
     if (openableController.opened) {
+      spacesChatController.actions
+        .summariseConversationIntoTitle()
+        .then((title) => setTitle(title));
+      spacesChatController.actions
+        .summariseConversationIntoObjective()
+        .then((objective) => setObjective(objective));
+    }
+  }, [openableController.opened]);
+
+  useEffect(() => {
+    if (openableController.opened) {
       loadingController.loadingController.open();
       if (tab === GenerateSceneTab.TEXT) {
-        spacesConversationController.actions
+        spacesChatController.actions
           .summariseConversationIntoNotes()
           .then((ideas) => {
             setTextResults(ideas);
             loadingController.loadingController.close();
           });
       } else if (tab === GenerateSceneTab.ARTICLES) {
-        spacesConversationController.actions
+        spacesChatController.actions
           .summariseConversationIntoQuery()
           .then((query) => {
             setArticleSearchQuery(query);
@@ -136,7 +147,7 @@ export function useGenerateSceneController(): Controller {
             });
           });
       } else if (tab === GenerateSceneTab.IMAGERY) {
-        spacesConversationController.actions
+        spacesChatController.actions
           .summariseConversationIntoKeywords()
           .then((keywords) => {
             setImageryKeywords(keywords);
@@ -156,7 +167,7 @@ export function useGenerateSceneController(): Controller {
             });
           });
       } else if (tab === GenerateSceneTab.MEDIA) {
-        spacesConversationController.actions
+        spacesChatController.actions
           .summariseConversationIntoSearchTerm()
           .then((searchTerm) => {
             searchYouTubeVideos(searchTerm).then((results) => {
@@ -396,6 +407,7 @@ export function useGenerateSceneController(): Controller {
       )}?chapter=${chapterListController.state.objId}&scene=${newScene.id}`;
     }, 1000);
   }
+
   return {
     state: {
       page: page,

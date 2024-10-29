@@ -12,17 +12,20 @@ const ItemType = {
 
 export function SpacesBoardKanban() {
   const taskListController = useContext(ContextForTaskList);
-  const { objs: tasks } = taskListController.state;
+  const { objs: objs } = taskListController.state;
 
-  const todos = tasks.filter((task) => task.taskStatus === TaskStatus.TODO);
-  const inprogress = tasks.filter(
+  const todos = objs.filter((task) => task.taskStatus === TaskStatus.TODO);
+  const inprogress = objs.filter(
     (task) => task.taskStatus === TaskStatus.IN_PROGRESS,
   );
-  const dones = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
+  const dones = objs.filter((task) => task.taskStatus === TaskStatus.DONE);
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div style={{ width: '100%', height: '100%' }} className='overflow-auto'>
+      <div
+        style={{ width: '100%', height: 'calc(100% - 5rem)' }}
+        className='overflow-auto'
+      >
         <div className='grid h-full w-full grid-rows-3 gap-[1rem] p-[1rem]'>
           <KanbanRow title='Todo' tasks={todos} status={TaskStatus.TODO} />
           <KanbanRow
