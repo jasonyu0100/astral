@@ -5,7 +5,7 @@ export function PolaroidModalContainer({
 }) {
   return (
     <div
-      className='aspect-[13/16] h-3/4 bg-white p-[3rem]'
+      className='h-3/4 bg-white p-[3rem] md:aspect-[13/16]'
       id={PolaroidModalContainer.name}
       onClick={(e) => {
         e.stopPropagation();

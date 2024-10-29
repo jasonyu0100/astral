@@ -12,7 +12,10 @@ export default function protectedUnderAstralAuth(Component: any) {
     function checkMobile() {
       const isMobile = /Mobi|Android/i.test(navigator.userAgent);
       if (isMobile) {
-        window.location.href = portalMap.portal.reserve.link;
+        alert(
+          "Astral doesn't support mobile devices. Please use a desktop browser.",
+        );
+        window.location.href = '/';
       } else if (!isAuthed) {
         window.location.href = portalMap.portal.login.link;
         return null;
