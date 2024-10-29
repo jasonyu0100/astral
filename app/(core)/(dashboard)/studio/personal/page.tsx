@@ -61,7 +61,8 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       const created = new Date(loggedInUser.created);
       const now = new Date();
       const diff = now.getTime() - created.getTime();
-      if (diff < 1000 * 60 * 15) {
+      if (diff < 1000 * 60 * 5) {
+        // HARD LOCK IN STARTER FOR 5 minutes
         createSpaceController.createSpace().then((space) => {
           window.location.href = spacesMap.spaces.id.board.link(space.id);
         });
@@ -69,7 +70,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
     }
     if (
       spaceListController.state.objs.length > 2 &&
-      spaceListController.state.objs.length < 5
+      spaceListController.state.objs.length < 10
     ) {
       spacesPersonalModalController.showNoticeController.open();
     } else {
