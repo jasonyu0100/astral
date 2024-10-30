@@ -7,6 +7,14 @@ export enum TaskStatus {
   REVIEW = 'review',
   DONE = 'done',
 }
+
+export enum ChapterTaskStatus {
+  COMPLETE = 'complete',
+  TODO = 'todo',
+  IN_PROGRESS = 'in-progress',
+  WAITING = 'pending',
+  EMPTY = 'empty',
+}
 export interface TaskObj {
   id: string;
   userId: string;

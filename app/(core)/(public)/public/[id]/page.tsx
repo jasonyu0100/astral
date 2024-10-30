@@ -38,7 +38,7 @@ import { useSearchParams } from 'next/navigation';
 import { createContext, useState } from 'react';
 import { PublicSpaceChapters } from './view/main/chapters/main';
 import { PublicSpaceSpace } from './view/main/space/main';
-import { PublicSpaceidebar } from './view/sidebar/main';
+import { PublicSpaceSidebar } from './view/sidebar/main';
 
 export enum PublicSpacePage {
   SPACE = 'space',
@@ -128,7 +128,7 @@ function Page({ params }: { params: { id: string } }) {
                                 <PublicSpaceChapters />
                               )}
                             </div>
-                            <PublicSpaceidebar />
+                            <PublicSpaceSidebar />
                           </GlassWindowContents>
                           <GlassWindowPane glassFx={glassFx['glass-10']} />
                         </GlassWindowFrame>
