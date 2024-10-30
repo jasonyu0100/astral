@@ -6,7 +6,12 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { taskModel, TaskObj, TaskStatus } from '@/server/model/task/main';
+import {
+  ChapterTaskStatus,
+  taskModel,
+  TaskObj,
+  TaskStatus,
+} from '@/server/model/task/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = TaskObj;
@@ -372,3 +377,47 @@ export const useControllerForTaskList = (
 };
 
 export const ContextForTaskList = createContext({} as Controller);
+
+export function calculateCompletionColor(taskListController: Controller) {
+  const tasks = taskListController.state.objs;
+  const todo = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.TODO,
+  );
+  const inprogress = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.IN_PROGRESS,
+  );
+  const done = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.DONE,
+  );
+  function calculateCompletion() {
+    if (tasks.length === done.length) {
+      return ChapterTaskStatus.COMPLETE; // All tasks are done
+    } else if (tasks.length === 0) {
+      return ChapterTaskStatus.EMPTY; // No tasks
+    } else if (inprogress.length > 0) {
+      return ChapterTaskStatus.IN_PROGRESS; // In progress
+    } else if (inprogress.length === 0 && done.length > 0) {
+      return ChapterTaskStatus.WAITING;
+    } else if (inprogress.length === 0 && done.length === 0) {
+      return ChapterTaskStatus.TODO;
+    } else if (todo.length >= 0) {
+      return ChapterTaskStatus.TODO;
+    }
+    return ChapterTaskStatus.EMPTY;
+  }
+  const chapterTaskStatus = calculateCompletion();
+  switch (chapterTaskStatus) {
+    case ChapterTaskStatus.COMPLETE:
+      return 'bg-green-500';
+    case ChapterTaskStatus.IN_PROGRESS:
+      return 'bg-yellow-500';
+    case ChapterTaskStatus.TODO:
+      return 'bg-red-500';
+    case ChapterTaskStatus.WAITING:
+      return 'bg-blue-500';
+    case ChapterTaskStatus.EMPTY:
+      return 'bg-slate-500'; // No tasks at all
+    default:
+      return 'bg-red-500';
+  }
+}

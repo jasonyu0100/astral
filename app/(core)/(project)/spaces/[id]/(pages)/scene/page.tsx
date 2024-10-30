@@ -91,13 +91,9 @@ function Page({ params }: { params: { id: string } }) {
     sceneListController.state.objId,
   );
   const user = useGlobalUser((state) => state.user);
-  const galleryListController = useControllerForGalleryList(
-    user?.id,
-    spaceMainController.state.obj.galleryId,
-  );
+  const galleryListController = useControllerForGalleryList(user?.id);
   const collectionListController = useControllerForGalleryCollectionList(
     galleryListController.state.objId,
-    spaceMainController.state.obj.collectionId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,

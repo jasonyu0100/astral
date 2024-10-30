@@ -3,6 +3,10 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import {
+  ContextForTaskList,
+  calculateCompletionColor,
+} from '@/server/controller/way/list';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
@@ -15,6 +19,8 @@ export function SpacesChatSidebarChapter() {
   const active =
     chapterListController.actions.stateActions.checkActive(chapterObj);
   const spacesChatModalController = useContext(ContextForSpacesChatModals);
+  const taskListController = useContext(ContextForTaskList);
+  const completionColor = calculateCompletionColor(taskListController);
 
   return (
     <>
@@ -32,13 +38,18 @@ export function SpacesChatSidebarChapter() {
               }
             >
               <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-                <p
-                  className={
-                    'flex-grow animate-pulse-slow font-extraBold text-xl text-slate-300'
-                  }
-                >
-                  {chapterObj.title?.trim() || 'Untitled'}
-                </p>
+                <div className='flex flex-row items-center space-x-[1rem]'>
+                  <div
+                    className={`h-[1rem] w-[1rem] animate-pulse rounded-full ${completionColor} flex-shrink-0`}
+                  ></div>
+                  <p
+                    className={
+                      'flex-grow animate-pulse-slow font-extraBold text-xl text-slate-300'
+                    }
+                  >
+                    {chapterObj.title?.trim() || 'Untitled'}
+                  </p>
+                </div>
                 <AstralMoreVertIcon
                   onClick={() =>
                     spacesChatModalController.editChapterController.open()

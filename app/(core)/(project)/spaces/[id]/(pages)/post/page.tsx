@@ -40,6 +40,10 @@ import {
   ContextForUserMain,
   useControllerForUserMain,
 } from '@/server/controller/user/main';
+import {
+  ContextForTaskList,
+  useControllerForTaskList,
+} from '@/server/controller/way/list';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -88,6 +92,10 @@ function Page({ params }: { params: { id: string } }) {
     postListController.state.objId,
   );
 
+  const taskListController = useControllerForTaskList(
+    chapterListController.state.objId,
+  );
+
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForUserMain.Provider value={userMainController}>
@@ -109,17 +117,19 @@ function Page({ params }: { params: { id: string } }) {
                       <ContextForPostLinkList.Provider
                         value={linkListController}
                       >
-                        <UpdateWrapper>
-                          <LoadingWrapper>
-                            <ControllerWrapper>
-                              <ModalWrapper>
-                                <ViewWrapper>
-                                  <SpacesPostView />
-                                </ViewWrapper>
-                              </ModalWrapper>
-                            </ControllerWrapper>
-                          </LoadingWrapper>
-                        </UpdateWrapper>
+                        <ContextForTaskList.Provider value={taskListController}>
+                          <UpdateWrapper>
+                            <LoadingWrapper>
+                              <ControllerWrapper>
+                                <ModalWrapper>
+                                  <ViewWrapper>
+                                    <SpacesPostView />
+                                  </ViewWrapper>
+                                </ModalWrapper>
+                              </ControllerWrapper>
+                            </LoadingWrapper>
+                          </UpdateWrapper>
+                        </ContextForTaskList.Provider>
                       </ContextForPostLinkList.Provider>
                     </ContextForPostCommentList.Provider>
                   </ContextForPostAttachmentListFromPost.Provider>
