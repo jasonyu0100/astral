@@ -10,16 +10,14 @@ import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { ChapterTaskStatus, TaskStatus } from '@/server/model/task/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForPublicSpace, PublicSpacePage } from '../../../../page';
+import { ContextForPublicSpace } from '../../../page';
 
 export function PublicSpaceidebarItem() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const publicSpaceController = useContext(ContextForPublicSpace);
-  const selected =
-    chapterListController.state.objId === chapter.id &&
-    publicSpaceController.state.page === PublicSpacePage.CHAPTERS;
+  const selected = chapterListController.state.objId === chapter.id;
   const taskListController = useControllerForTaskList(chapter.id);
   const tasks = taskListController.state.objs;
   const todo = taskListController.state.objs.filter(
@@ -80,7 +78,6 @@ export function PublicSpaceidebarItem() {
           className={`flex cursor-pointer flex-col space-y-[1rem] p-[1rem]`}
           onClick={() => {
             chapterListController.actions.stateActions.select(chapter);
-            publicSpaceController.actions.updatePage(PublicSpacePage.CHAPTERS);
           }}
         >
           <div className='flex w-full justify-between space-x-[1rem]'>
@@ -108,6 +105,9 @@ export function PublicSpaceidebarItem() {
           </div>
           {selected && (
             <>
+              <p className='text-sm font-light text-slate-300'>
+                {chapter.objective}
+              </p>
               <p className='text-sm font-light text-slate-300'>
                 {chapter.description}
               </p>

@@ -13,10 +13,13 @@ export function PublicSpacePost() {
   );
 
   return (
-    <div className='flex w-full flex-col items-center space-y-[2rem]'>
+    <div
+      className='flex w-full flex-col items-center space-y-[2rem]'
+      style={{ height: '100%' }}
+    >
       <div className='w-full flex-shrink-0 columns-4 gap-[1rem] space-y-[1rem]'>
         {attachmentListController.state.objs.length === 0 && (
-          <p className='text-3xl font-black text-slate-300'>NONE</p>
+          <p className='text-3xl font-black text-slate-300'>NO POSTS</p>
         )}
         {attachmentListController.state.objs.map((attachment) => (
           <ContextForPostAttachmentObj.Provider value={attachment}>

@@ -36,11 +36,9 @@ export function SpacesChatStatusContents() {
             </div>
             <div className='flex flex-col space-y-[0.5rem]'>
               <p className='text-lg font-light text-slate-300'>
-                <span className='font-bold'>Objective: </span>
                 {chapterListController.state.currentObj?.objective}
               </p>
               <p className='text-lg font-light text-slate-300'>
-                <span className='font-bold'>Summary: </span>
                 {chapterListController.state.currentObj?.description}
               </p>
             </div>

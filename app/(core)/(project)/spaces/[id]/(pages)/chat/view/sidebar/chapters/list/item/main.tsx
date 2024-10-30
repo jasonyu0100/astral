@@ -46,12 +46,10 @@ export function SpacesChatSidebarChapter() {
                 />
               </div>
               <p className='font-md w-full text-sm font-light text-slate-300'>
-                <span className='font-bold'>Objective: </span>
                 {chapterListController.state.currentObj?.objective ||
                   'Open-ended'}
               </p>
               <p className='font-md w-full text-sm font-light text-slate-300'>
-                <span className='font-bold'>Summary: </span>
                 {chapterListController.state.currentObj?.description ||
                   'Open-ended'}
               </p>

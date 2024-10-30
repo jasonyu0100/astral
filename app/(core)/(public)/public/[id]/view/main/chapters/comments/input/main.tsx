@@ -24,7 +24,7 @@ export function PublicSpacePageInput() {
 
   return (
     <div className='flex flex-col space-y-[2rem]'>
-      <div className='flex flex-row items-center justify-between space-x-[1rem]'>
+      <div className='flex flex-row items-center justify-between space-x-[2rem]'>
         <GlassWindowFrame
           className='h-[6rem] w-full'
           roundedFx={roundedFx.rounded}
@@ -37,7 +37,7 @@ export function PublicSpacePageInput() {
               onChange={(e) => setMessage(e.target.value)}
             ></input>
           </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
         <div className='flex flex-row items-center justify-end space-x-[1rem]'>
           <div

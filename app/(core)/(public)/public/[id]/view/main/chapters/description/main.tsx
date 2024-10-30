@@ -13,7 +13,7 @@ export function PublicSpaceDescription() {
     <>
       <div className='flex w-full flex-row items-center space-x-[1rem]'>
         <div className='flex w-full flex-col space-y-[1rem]'>
-          <div className='flex w-full flex-col justify-between space-y-[1rem] px-[1rem]'>
+          <div className='flex w-full flex-col justify-between space-y-[1rem]'>
             <div className='flex flex-row items-center space-x-[1rem]'>
               <img
                 className='aspect-square h-[3rem] rounded-full'

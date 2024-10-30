@@ -35,9 +35,8 @@ import {
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { glassFx } from '@/style/data';
 import { useSearchParams } from 'next/navigation';
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
 import { PublicSpaceChapters } from './view/main/chapters/main';
-import { PublicSpaceSpace } from './view/main/space/main';
 import { PublicSpaceSidebar } from './view/sidebar/main';
 
 export enum PublicSpacePage {
@@ -50,13 +49,9 @@ interface Controller {
   actions: ControllerActions;
 }
 
-interface ControllerState {
-  page: PublicSpacePage;
-}
+interface ControllerState {}
 
-interface ControllerActions {
-  updatePage: (page: PublicSpacePage) => void;
-}
+interface ControllerActions {}
 
 export const ContextForPublicSpace = createContext({} as Controller);
 
@@ -85,8 +80,6 @@ function Page({ params }: { params: { id: string } }) {
     postListController.state.objId,
   );
 
-  const [page, setPage] = useState(PublicSpacePage.CHAPTERS);
-
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForUserMain.Provider value={userMainController}>
@@ -104,14 +97,8 @@ function Page({ params }: { params: { id: string } }) {
                   >
                     <ContextForPublicSpace.Provider
                       value={{
-                        state: {
-                          page: page,
-                        },
-                        actions: {
-                          updatePage: (page: PublicSpacePage) => {
-                            setPage(page);
-                          },
-                        },
+                        state: {},
+                        actions: {},
                       }}
                     >
                       <div
@@ -121,12 +108,7 @@ function Page({ params }: { params: { id: string } }) {
                         <GlassWindowFrame className='h-full w-full'>
                           <GlassWindowContents className='flex h-full w-full flex-row space-x-[4rem] overflow-auto px-[4rem]'>
                             <div className='flex h-full flex-grow flex-col space-y-[2rem] py-[4rem]'>
-                              {page === PublicSpacePage.SPACE && (
-                                <PublicSpaceSpace />
-                              )}
-                              {page === PublicSpacePage.CHAPTERS && (
-                                <PublicSpaceChapters />
-                              )}
+                              <PublicSpaceChapters />
                             </div>
                             <PublicSpaceSidebar />
                           </GlassWindowContents>

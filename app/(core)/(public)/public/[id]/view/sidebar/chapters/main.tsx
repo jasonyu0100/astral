@@ -3,14 +3,12 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { PublicSpaceidebarItem } from './item/main';
+import { PublicSpaceidebarItem } from '../item/main';
 
 export function PublicSpaceSidebarChapters() {
-  const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
@@ -19,7 +17,7 @@ export function PublicSpaceSidebarChapters() {
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-around']}
     >
-      <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] pr-[1rem]'>
+      <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem]'>
         <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
           <p className='text-2xl font-bold text-slate-300'>Chapters</p>
           <div className='flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-blue-500'>

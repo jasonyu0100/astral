@@ -49,6 +49,7 @@ export function PublicSpaceSidebarSpace() {
               navigator.clipboard.writeText(
                 `astral.fun${publicSpaceMap.space.link(spaceMainController.state.objId)}`,
               );
+              alert('Link copied to clipboard!');
             }}
             className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'
           >

@@ -24,7 +24,7 @@ export function SpacesPostInput() {
 
   return (
     <div className='flex flex-col space-y-[2rem]'>
-      <div className='flex flex-row items-center justify-between space-x-[1rem]'>
+      <div className='flex flex-row items-center justify-between space-x-[2rem]'>
         <GlassWindowFrame
           className='h-[6rem] w-full'
           roundedFx={roundedFx.rounded}

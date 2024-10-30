@@ -46,11 +46,9 @@ export function SpacesSceneSidebarChaptersChapter() {
               />
             </div>
             <p className={'text-sm font-light text-slate-300'}>
-              <span className='font-bold'>Objective: </span>
               {chapterObj?.objective || 'No objective'}
             </p>
             <p className={'text-sm font-light text-slate-300'}>
-              <span className='font-bold'>Summary: </span>
               {chapterObj?.description || 'No summary'}
             </p>
           </GlassWindowContents>
