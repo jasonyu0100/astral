@@ -19,7 +19,7 @@ export function UserProfileOverviewHighlights() {
   return (
     <GlassWindowFrame className='w-full' roundedFx={roundedFx['rounded']}>
       <GlassWindowContents className='flex w-full flex-col'>
-        <div className='grid grid-cols-5 items-center justify-items-center gap-[1rem] p-[1rem]'>
+        <div className='columns-4 gap-[1rem] space-y-[1rem] p-[1rem]'>
           {attachmentListController.state.objs
             .filter((attachment) => ElementVariant.FILE === attachment.variant)
             .map((attachment) => (

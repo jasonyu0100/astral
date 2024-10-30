@@ -53,30 +53,30 @@ export function SpacesPostCommentKarma() {
 
   return (
     <div className='flex flex-row items-center space-x-[0.5rem] pl-[4rem]'>
-      <AstralArrowDropDown
+      <AstralArrowDropUp
         className={ctwn('h-[1.5rem] w-[1.5rem]', {
-          'fill-red-500': userVote === -1,
-          'fill-slate-500': userVote === 1,
+          'fill-red-500': userVote === 1,
+          'fill-slate-500': userVote === -1,
           'fill-slate-300': userVote === 0,
         })}
-        onClick={() => downvote()}
+        onClick={() => upvote()}
       />
       <p
         className={ctwn('text-center text-sm font-bold text-slate-300', {
-          'text-red-300': userVote === -1,
-          'text-blue-300': userVote === 1,
+          'text-blue-300': userVote === -1,
+          'text-red-300': userVote === 1,
           'text-slate-500': userVote === 0,
         })}
       >
         {cumulativeKarma}
       </p>
-      <AstralArrowDropUp
+      <AstralArrowDropDown
         className={ctwn('h-[1.5rem] w-[1.5rem]', {
-          'fill-blue-500': userVote === 1,
-          'fill-slate-500': userVote === -1,
+          'fill-blue-500': userVote === -1,
+          'fill-slate-500': userVote === 1,
           'fill-slate-300': userVote === 0,
         })}
-        onClick={() => upvote()}
+        onClick={() => downvote()}
       />
     </div>
   );

@@ -55,7 +55,7 @@ export function PublicSpacePageKarma() {
     <div className='flex flex-col items-center'>
       <AstralArrowDropUp
         className={ctwn('h-[3rem] w-[3rem]', {
-          'fill-blue-500': userVote === 1,
+          'fill-red-500': userVote === 1,
           'fill-slate-500': userVote === -1,
           'fill-slate-300': userVote === 0,
         })}
@@ -63,8 +63,8 @@ export function PublicSpacePageKarma() {
       />
       <p
         className={ctwn('text-xl font-bold text-slate-300', {
-          'text-red-300': userVote === -1,
-          'text-blue-300': userVote === 1,
+          'text-blue-300': userVote === -1,
+          'text-red-300': userVote === 1,
           'text-slate-500': userVote === 0,
         })}
       >
@@ -72,7 +72,7 @@ export function PublicSpacePageKarma() {
       </p>
       <AstralArrowDropDown
         className={ctwn('h-[3rem] w-[3rem]', {
-          'fill-red-500': userVote === -1,
+          'fill-blue-500': userVote === -1,
           'fill-slate-500': userVote === 1,
           'fill-slate-300': userVote === 0,
         })}

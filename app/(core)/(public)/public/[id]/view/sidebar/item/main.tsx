@@ -21,37 +21,44 @@ export function PublicSpaceidebarItem() {
 
   return (
     <>
-      {postListController.state.objs.length > 0 ? (
-        <GlassWindowFrame
-          className='w-full flex-shrink-0'
-          roundedFx={roundedFx.rounded}
-          borderFx={selected ? borderFx['border-around'] : borderFx['none']}
+      <GlassWindowFrame
+        className='w-full flex-shrink-0'
+        roundedFx={roundedFx.rounded}
+        borderFx={borderFx['border-around']}
+      >
+        <GlassWindowContents
+          className='flex cursor-pointer flex-col space-y-[1rem] p-[1rem]'
+          onClick={() => {
+            if (selected) {
+              publicSpaceController.actions.updatePage(PublicSpacePage.SPACE);
+            } else {
+              chapterListController.actions.stateActions.select(chapter);
+              publicSpaceController.actions.updatePage(
+                PublicSpacePage.CHAPTERS,
+              );
+            }
+          }}
         >
-          <GlassWindowContents
-            className='flex cursor-pointer flex-col space-y-[1rem] p-[1rem]'
-            onClick={() => {
-              if (selected) {
-                publicSpaceController.actions.updatePage(PublicSpacePage.SPACE);
-              } else {
-                chapterListController.actions.stateActions.select(chapter);
-                publicSpaceController.actions.updatePage(
-                  PublicSpacePage.CHAPTERS,
-                );
-              }
-            }}
-          >
+          <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
             <h1 className='text-xl font-bold text-slate-300'>
               {chapter.title}
             </h1>
+            <div className='flex h-[2rem] w-[2rem] flex-shrink-0 items-center justify-center rounded-full bg-red-500'>
+              <p className='font-bold text-slate-300'>
+                {postListController.state.objs.length}
+              </p>
+            </div>
+          </div>
+          {selected && (
             <p className='text-sm font-light text-slate-300'>
               {chapter.description}
             </p>
-          </GlassWindowContents>
-          {selected && <GlassWindowPane glassFx={glassFx['glass-10']} />}
-        </GlassWindowFrame>
-      ) : (
-        <></>
-      )}
+          )}
+        </GlassWindowContents>
+        <GlassWindowPane
+          glassFx={selected ? glassFx['glass-20'] : glassFx['glass-5']}
+        />
+      </GlassWindowFrame>
     </>
   );
 }

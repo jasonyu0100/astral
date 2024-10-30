@@ -119,8 +119,8 @@ function Page({ params }: { params: { id: string } }) {
                         style={{ height: 'calc(100% - 4rem)' }}
                       >
                         <GlassWindowFrame className='h-full w-full'>
-                          <GlassWindowContents className='flex h-full w-full flex-row overflow-auto'>
-                            <div className='flex h-full flex-grow flex-col space-y-[2rem] p-[4rem]'>
+                          <GlassWindowContents className='flex h-full w-full flex-row space-x-[4rem] overflow-auto px-[4rem]'>
+                            <div className='flex h-full flex-grow flex-col space-y-[2rem] py-[4rem]'>
                               {page === PublicSpacePage.SPACE && (
                                 <PublicSpaceSpace />
                               )}

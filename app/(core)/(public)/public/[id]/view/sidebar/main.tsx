@@ -18,29 +18,53 @@ export function PublicSpaceidebar() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <div className='flex flex-shrink-0 flex-col space-y-[2rem] p-[4rem]'>
+    <div className='flex flex-shrink-0 flex-col space-y-[2rem] py-[4rem]'>
+      <GlassWindowFrame
+        className='w-[400px] flex-shrink-0 p-[1rem]'
+        roundedFx={roundedFx.rounded}
+        borderFx={borderFx['border-around']}
+      >
+        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] pr-[1rem]'>
+          <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
+            <p className='text-2xl font-bold text-slate-300'>Chapters</p>
+            <div className='flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-blue-500'>
+              <p className='font-bold text-slate-300'>
+                {chapterListController.state.objs.length}
+              </p>
+            </div>
+          </div>
+          <HorizontalDivider />
+          {chapterListController.state.objs.map((chapter) => (
+            <ContextForSpaceChapterObj.Provider value={chapter}>
+              <PublicSpaceidebarItem />
+            </ContextForSpaceChapterObj.Provider>
+          ))}
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-10']} />
+      </GlassWindowFrame>
       <GlassWindowFrame
         className='h-[250px] w-[400px] flex-shrink-0 p-[1rem]'
         roundedFx={roundedFx.rounded}
         borderFx={borderFx['border-around']}
       >
-        <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem] pr-[1rem]'>
+        <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem]'>
           <div className='flex flex-col space-y-[1rem]'>
             <div className='flex flex-row items-center justify-between space-x-[1rem]'>
-              <p className='text-xl font-bold text-slate-300'>
+              <p className='font-extraBold text-2xl text-slate-300'>
                 {spaceMainController.state.obj.title}
               </p>
-              <AstralEditIcon
-                onClick={() => {
-                  window.open(
-                    spacesMap.spaces.id.board.link(
-                      spaceMainController.state.objId,
-                    ),
-                  );
-                }}
-              />
+              <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+                <AstralEditIcon
+                  onClick={() => {
+                    window.open(
+                      spacesMap.spaces.id.board.link(
+                        spaceMainController.state.objId,
+                      ),
+                    );
+                  }}
+                />
+              </div>
             </div>
-            <HorizontalDivider />
             <p className='text-sm font-light text-slate-300'>
               {spaceMainController.state.obj.description}
             </p>
@@ -66,29 +90,6 @@ export function PublicSpaceidebar() {
             </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           </GlassWindowFrame>
-        </GlassWindowContents>
-        <GlassWindowPane glassFx={glassFx['glass-10']} />
-      </GlassWindowFrame>
-      <GlassWindowFrame
-        className='w-[400px] flex-shrink-0 p-[1rem]'
-        roundedFx={roundedFx.rounded}
-        borderFx={borderFx['border-around']}
-      >
-        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] pr-[1rem]'>
-          <div className='flex flex-row space-x-[1rem]'>
-            <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
-              <p className='font-bold text-slate-300'>
-                {chapterListController.state.objs.length}
-              </p>
-            </div>
-            <p className='text-xl font-bold text-slate-300'>Chapters</p>
-          </div>
-          <HorizontalDivider />
-          {chapterListController.state.objs.map((chapter) => (
-            <ContextForSpaceChapterObj.Provider value={chapter}>
-              <PublicSpaceidebarItem />
-            </ContextForSpaceChapterObj.Provider>
-          ))}
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>

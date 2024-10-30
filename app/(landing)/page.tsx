@@ -33,17 +33,17 @@ const Header = () => (
       />
       <nav className='flex space-x-2 sm:space-x-[3rem]'>
         <a
+          href='/'
+          className='text-sm font-bold uppercase text-white sm:text-lg'
+        >
+          HOME
+        </a>
+        <a
           href='https://www.youtube.com/@astral-fun'
           target='_blank'
           className='text-sm font-bold uppercase text-white sm:text-lg'
         >
           LEARN
-        </a>
-        <a
-          href='/chat'
-          className='text-sm font-bold uppercase text-white sm:text-lg'
-        >
-          CHAT
         </a>
         <a
           href='/pricing'
