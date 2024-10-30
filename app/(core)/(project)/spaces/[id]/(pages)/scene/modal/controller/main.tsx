@@ -22,6 +22,7 @@ import { SpacesSceneEditChapterModal } from '../edit/chapter/main';
 import { SpacesSceneEditSceneModal } from '../edit/scene/main';
 import { SpacesSceneEditSpaceModal } from '../edit/space/main';
 import { SpacesSceneGeneratePost } from '../generate/main';
+import { SpacesSceneMigrateSceneModal } from '../migrate/main';
 import { SpacesSceneShareViewModal } from '../share/main';
 
 export const ContextForSpacesSceneModals = createContext(
@@ -48,6 +49,7 @@ export interface SpacesSceneModals {
   editSpaceController: ContextForOpenableInterface;
   editSceneController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
+  migrateSceneController: ContextForOpenableInterface;
 }
 
 export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
@@ -70,6 +72,7 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
   const editSpaceController = useControllerForOpenable();
   const editSceneController = useControllerForOpenable();
   const addChapterController = useControllerForOpenable();
+  const migrateSceneController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSceneModals.Provider
@@ -93,6 +96,7 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
         editSpaceController: editSpaceController,
         editSceneController: editSceneController,
         addChapterController: addChapterController,
+        migrateSceneController: migrateSceneController,
       }}
     >
       {children}
@@ -152,6 +156,9 @@ export function SpacesSceneModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addChapterController}>
         <SpacesSceneAddChapterModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={migrateSceneController}>
+        <SpacesSceneMigrateSceneModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSceneModals.Provider>
   );

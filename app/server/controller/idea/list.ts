@@ -75,6 +75,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     x: number,
     y: number,
   ) => Promise<TargetObj>;
+  duplicateWithScene: (target: TargetObj, sceneId: string) => Promise<IdeaObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -443,6 +444,21 @@ export const useControllerForSceneIdeaList = (
         created: new Date().toISOString(),
         x: x,
         y: y,
+      };
+      const newObj = await gqlDbWrapper.createObj(datedCopy);
+      const index = objs.findIndex((obj) => obj.id === target.id);
+      const newObjs = stateActions.pushIndex(newObj, index);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    duplicateWithScene: async (target: TargetObj, sceneId: string) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { id, ...copyObj } = target;
+      const datedCopy = {
+        ...copyObj,
+        created: new Date().toISOString(),
+        sceneId: sceneId,
       };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);

@@ -11,7 +11,7 @@ import { useContext } from 'react';
 export function SpacesScenePaletteSelected() {
   const spacesSceneController = useContext(ContextForSpacesScene);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const modalController = useContext(ContextForSpacesSceneModals);
+  const spacesSceneModalController = useContext(ContextForSpacesSceneModals);
 
   return (
     <>
@@ -38,7 +38,7 @@ export function SpacesScenePaletteSelected() {
         <AstralForwardIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
-            spacesSceneController.actions.copyIdeas();
+            spacesSceneModalController.migrateSceneController.open();
           }}
         />
       </div>
@@ -47,7 +47,7 @@ export function SpacesScenePaletteSelected() {
           <AstralCombineIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
-              modalController.combineIdeasController.open();
+              spacesSceneModalController.combineIdeasController.open();
             }}
           />
         </div>

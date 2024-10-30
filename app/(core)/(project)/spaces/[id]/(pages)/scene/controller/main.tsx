@@ -1,3 +1,4 @@
+import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -9,6 +10,7 @@ import { GalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { GalleryObj } from '@/server/model/gallery/main';
 import { IdeaObj } from '@/server/model/idea/main';
 import { IdeaRelationshipObj } from '@/server/model/idea/relationship/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import html2canvas from 'html2canvas';
 import { createContext, useContext, useRef, useState } from 'react';
 
@@ -106,12 +108,16 @@ export enum SpacesSceneDirectoryMode {
 }
 
 export function useControllerForSpacesScene(): Controller {
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceController = useContext(ContextForSpaceMain);
   const sceneListController = useContext(ContextForIdeaSceneList);
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
   const ideaRelationshipListController = useContext(
     ContextForIdeaRelationshipListFromScene,
   );
@@ -261,6 +267,18 @@ export function useControllerForSpacesScene(): Controller {
           idea,
           idea.x + 100,
           idea.y + 100,
+        ),
+      ),
+    );
+
+    await Promise.all(
+      copiedIdeas.map((idea) =>
+        activityListController.actions.createActions.createFromChapterSceneIdea(
+          loggedInUser.id,
+          spaceController.state.objId,
+          chapterListController.state.objId,
+          sceneListController.state.objId,
+          idea.id,
         ),
       ),
     );
