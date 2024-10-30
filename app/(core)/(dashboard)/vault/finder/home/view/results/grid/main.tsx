@@ -17,10 +17,7 @@ export function FinderHomeGallerysGrid() {
     <ContextForOpenable.Provider value={openableController}>
       <VaultFinderCreateGalleryModal />
       <div className='h-full flex-grow overflow-auto'>
-        <div
-          className='grid grid-cols-3 gap-[2rem] pr-[2rem]'
-          style={{ height: '100%' }}
-        >
+        <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
           {galleryListController.state.more.queryResults.map((gallery) => (
             <ContextForGalleryObj.Provider value={gallery} key={gallery.id}>
               <FinderGallery key={gallery.id} />

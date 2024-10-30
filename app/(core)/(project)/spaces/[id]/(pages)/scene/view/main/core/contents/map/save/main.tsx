@@ -9,7 +9,7 @@ import { ContextForSpacesScene } from '../../../../../../controller/main';
 export function SpacesSceneSave() {
   const spacesSceneController = useContext(ContextForSpacesScene);
   return (
-    <div className='absolute right-[2rem] top-[0rem] z-30 flex h-full w-[4rem] flex-col items-center justify-center'>
+    <div className='absolute right-[2rem] top-[2rem] z-30 flex w-[4rem] flex-col items-center justify-center'>
       <GlassWindowFrame
         roundedFx={roundedFx['rounded-full']}
         borderFx={borderFx['border-all']}

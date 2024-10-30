@@ -1,7 +1,9 @@
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { AstralEditIcon } from '@/icons/edit/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
@@ -9,9 +11,9 @@ import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { publicSpaceMap } from '../../map';
-import { PublicSpaceSidebarItem } from './item/main';
+import { PublicSpaceidebarItem } from './item/main';
 
-export function PublicSpaceSidebar() {
+export function PublicSpaceidebar() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
 
@@ -27,6 +29,15 @@ export function PublicSpaceSidebar() {
             <p className='text-xl font-bold text-slate-300'>
               {spaceMainController.state.obj.title}
             </p>
+            <AstralEditIcon
+              onClick={() => {
+                window.open(
+                  spacesMap.spaces.id.board.link(
+                    spaceMainController.state.objId,
+                  ),
+                );
+              }}
+            />
           </div>
           <HorizontalDivider />
           <p className='text-sm font-light text-slate-300'>
@@ -66,7 +77,7 @@ export function PublicSpaceSidebar() {
           <HorizontalDivider />
           {chapterListController.state.objs.map((chapter) => (
             <ContextForSpaceChapterObj.Provider value={chapter}>
-              <PublicSpaceSidebarItem />
+              <PublicSpaceidebarItem />
             </ContextForSpaceChapterObj.Provider>
           ))}
         </GlassWindowContents>

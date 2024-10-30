@@ -280,7 +280,6 @@ export function useGenerateSceneController(): Controller {
         user.id,
         chapterListController.state.objId,
       );
-      console.log(newScene);
     }
 
     const virtualScreenWidth = 1200;

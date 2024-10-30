@@ -70,6 +70,11 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     textElem: TextElement,
     idx: number,
   ) => Promise<TargetObj>;
+  duplicateWithXY: (
+    target: TargetObj,
+    x: number,
+    y: number,
+  ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -420,8 +425,25 @@ export const useControllerForSceneIdeaList = (
       return newObj;
     },
     duplicate: async (target: TargetObj) => {
-      const copyObj = target as Omit<TargetObj, 'id'>;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { id, ...copyObj } = target;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
+      const newObj = await gqlDbWrapper.createObj(datedCopy);
+      const index = objs.findIndex((obj) => obj.id === target.id);
+      const newObjs = stateActions.pushIndex(newObj, index);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    duplicateWithXY: async (target: TargetObj, x: number, y: number) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { id, ...copyObj } = target;
+      const datedCopy = {
+        ...copyObj,
+        created: new Date().toISOString(),
+        x: x,
+        y: y,
+      };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);
       const newObjs = stateActions.pushIndex(newObj, index);

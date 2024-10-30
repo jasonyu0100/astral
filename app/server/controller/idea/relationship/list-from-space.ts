@@ -270,7 +270,8 @@ export const useControllerForIdeaRelationshipListFromSpace = (
       return newObj;
     },
     duplicate: async (target: TargetObj) => {
-      const copyObj = target as Omit<TargetObj, 'id'>;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { id, ...copyObj } = target;
       const datedCopy = { ...copyObj, created: new Date().toISOString() };
       const newObj = await gqlDbWrapper.createObj(datedCopy);
       const index = objs.findIndex((obj) => obj.id === target.id);

@@ -8,7 +8,7 @@ export function TabsBackButton({ ...props }: LinkInputProps) {
       {...props}
       className='mr-[3rem] flex h-[3rem] w-[2rem] flex-col items-start justify-center'
     >
-      <AstralArrowCircleLeftIcon />
+      <AstralArrowCircleLeftIcon className='h-[2.5rem] w-[2.5rem]' />
     </Link>
   );
 }

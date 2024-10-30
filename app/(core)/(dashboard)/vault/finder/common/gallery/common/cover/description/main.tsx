@@ -1,18 +1,20 @@
-import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryObj } from '@/server/model/gallery/main';
+import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function ContainerDescription() {
-  const loggedInUser = useGlobalUser((state) => state.user);
-  const gallery = useContext(ContextForGalleryObj);
+  const galleryObj = useContext(ContextForGalleryObj);
 
   return (
     <div className='flex w-full flex-grow flex-col p-[1rem]'>
-      <div className='animate-pulse font-extraBold text-xl text-slate-300'>
-        {gallery.title?.trim() || 'Untitled'}
+      <div className='font-extraBold text-2xl text-slate-300'>
+        {galleryObj.title?.trim() || 'Untitled'}
       </div>
-      <div className='text-md mt-[1rem] font-normal text-slate-500'>
-        {loggedInUser?.displayName || 'Unknown'}
+      <div className='font-extraBold text-2xl text-slate-300'>
+        {galleryObj.description}
+      </div>
+      <div className='mt-[1rem] text-sm font-light text-slate-300'>
+        {getFormattedDate(new Date(galleryObj.created))}
       </div>
     </div>
   );

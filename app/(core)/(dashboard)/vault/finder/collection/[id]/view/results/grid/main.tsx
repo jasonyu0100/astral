@@ -19,7 +19,7 @@ export function FinderCollectionResourcesGrid() {
         <VaultFinderCreateResourceModal />
       </ContextForOpenable.Provider>
       <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
-        <div className='grid grid-cols-4 gap-[2rem] pr-[2rem]'>
+        <div className='grid grid-cols-5 gap-[1rem] pr-[2rem]'>
           {resourceListController.state.more.queryResults.map((resource) => (
             <ContextForCollectionResourceObj.Provider
               value={resource}

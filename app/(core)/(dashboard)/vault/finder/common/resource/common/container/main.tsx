@@ -1,19 +1,23 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { DivInputProps } from '@/props/main';
-import { ctwn } from '@/utils/cn';
+import { borderFx, roundedFx } from '@/style/data';
 
 interface InputProps extends DivInputProps {
   onClick?: () => void;
   children?: React.ReactNode;
 }
 
-export function ResourceContainer({ children, onClick, ...props }: InputProps) {
+export function ResourceContainer({ children, onClick }: InputProps) {
   return (
-    <GlassWindowFrame className={ctwn(`aspect-square w-full`, props.className)}>
+    <GlassWindowFrame
+      className='aspect-square'
+      borderFx={borderFx['border-around']}
+      roundedFx={roundedFx.rounded}
+    >
       <GlassWindowContents
         onClick={onClick}
-        className={`flex w-full cursor-pointer flex-col items-center justify-center`}
+        className={`flex w-full cursor-pointer flex-col justify-evenly`}
       >
         {children}
       </GlassWindowContents>

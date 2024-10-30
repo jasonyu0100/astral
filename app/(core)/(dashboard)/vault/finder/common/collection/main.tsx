@@ -3,16 +3,16 @@ import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collectio
 import Link from 'next/link';
 import { useContext } from 'react';
 import { CollectionContainer } from './common/container/main';
-import { CollectionThumbnail } from './common/thumbnail/main';
+import { CollectionDescription } from './common/description/main';
 
 export function FinderCollection() {
   const collection = useContext(ContextForGalleryCollectionObj);
 
   return (
-    <Link href={vaultMap.vault.finder.collection.id.link(collection.id)}>
-      <CollectionContainer className='w-full'>
-        <CollectionThumbnail />
-      </CollectionContainer>
-    </Link>
+    <CollectionContainer>
+      <Link href={vaultMap.vault.finder.collection.id.link(collection.id)}>
+        <CollectionDescription />
+      </Link>
+    </CollectionContainer>
   );
 }

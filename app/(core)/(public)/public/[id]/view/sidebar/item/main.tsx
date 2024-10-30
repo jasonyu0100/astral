@@ -6,13 +6,15 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForPublicSpace } from '../../../page';
+import { ContextForPublicSpace, PublicSpacePage } from '../../../page';
 
-export function PublicSpaceSidebarItem() {
+export function PublicSpaceidebarItem() {
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const publicSpaceController = useContext(ContextForPublicSpace);
-  const selected = chapterListController.state.objId === chapter.id;
+  const selected =
+    chapterListController.state.objId === chapter.id &&
+    publicSpaceController.state.page === PublicSpacePage.CHAPTERS;
   const postListController = useControllerForUserPostListFromChapter(
     chapter.id,
   );
@@ -28,7 +30,14 @@ export function PublicSpaceSidebarItem() {
           <GlassWindowContents
             className='flex cursor-pointer flex-col space-y-[1rem] p-[1rem]'
             onClick={() => {
-              chapterListController.actions.stateActions.select(chapter);
+              if (selected) {
+                publicSpaceController.actions.updatePage(PublicSpacePage.SPACE);
+              } else {
+                chapterListController.actions.stateActions.select(chapter);
+                publicSpaceController.actions.updatePage(
+                  PublicSpacePage.CHAPTERS,
+                );
+              }
             }}
           >
             <h1 className='text-xl font-bold text-slate-300'>

@@ -21,7 +21,7 @@ export function GalleryContainer({ onClick, children, ...props }: InputProps) {
       <GlassWindowContents className='flex flex-col' onClick={onClick}>
         {children}
       </GlassWindowContents>
-      <GlassWindowPane glassFx={glassFx['glass-5']} />
+      <GlassWindowPane glassFx={glassFx['glass-20']} />
     </GlassWindowFrame>
   );
 }

@@ -47,6 +47,7 @@ interface ControllerActions {
   checkContainsSelectedIdea: (ideaObj: IdeaObj) => boolean;
   updateSidebarVisibility: (visibility: SpacesSceneSidebarVisibility) => void;
   linkIdeas: () => Promise<IdeaRelationshipObj[]>;
+  copyIdeas: () => Promise<IdeaObj[]>;
   selectAll: () => void;
   deselectAll: () => void;
   goToHome: () => void;
@@ -187,6 +188,40 @@ export function useControllerForSpacesScene(): Controller {
     }, 500);
   };
 
+  const saveAndContainWithinDiv = async () => {
+    const divWidth = 1000;
+    const divHeight = 1000;
+
+    const items = ideaListController.state.objs;
+
+    const editPromises = items.map(async (idea) => {
+      let { x, y, width, height } = idea;
+
+      // Scale width and height to fit within div bounds if they exceed div size
+      if (width > divWidth) width = divWidth;
+      if (height > divHeight) height = divHeight;
+
+      // Adjust x position if the item overflows on the left or right side
+      if (x < 0) x = 0;
+      if (x + width > divWidth) x = divWidth - width;
+
+      // Adjust y position if the item overflows on the top or bottom side
+      if (y < 0) y = 0;
+      if (y + height > divHeight) y = divHeight - height;
+
+      // Update item position and size if changes were made
+      return ideaListController.actions.editActions.edit(idea.id, {
+        x: x,
+        y: y,
+        width: width,
+        height: height,
+      });
+    });
+
+    // Wait for all the promises to complete
+    await Promise.all(editPromises);
+  };
+
   const distributeIdeasEvenly = async () => {
     const items = ideaListController.state.objs;
     const itemCount = items.length;
@@ -225,6 +260,20 @@ export function useControllerForSpacesScene(): Controller {
     setUpdateToggle(!updateToggle);
   };
 
+  const copyIdeas = async () => {
+    const copiedIdeas = await Promise.all(
+      selectedIdeas.map(async (idea) =>
+        ideaListController.actions.createActions.duplicateWithXY(
+          idea,
+          idea.x + 100,
+          idea.y + 100,
+        ),
+      ),
+    );
+
+    return copiedIdeas;
+  };
+
   const linkIdeas = async () => {
     const ideaRelationships = await Promise.all(
       selectedIdeas.slice(0, selectedIdeas.length - 1).map((idea, index) => {
@@ -243,7 +292,7 @@ export function useControllerForSpacesScene(): Controller {
   };
 
   const saveAll = async () => {
-    ideaListController.actions.editActions.sync().then(() => {
+    saveAndContainWithinDiv().then(() => {
       alert('save all');
     });
   };
@@ -303,6 +352,7 @@ export function useControllerForSpacesScene(): Controller {
         setSelectedIdeas([]);
       },
       linkIdeas: linkIdeas,
+      copyIdeas: copyIdeas,
       sortIdeas: distributeIdeasEvenly,
     },
   };

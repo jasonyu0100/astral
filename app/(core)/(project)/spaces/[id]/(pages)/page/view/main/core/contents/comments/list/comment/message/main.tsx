@@ -5,7 +5,7 @@ import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function SpacesPageCommentMessage() {
-  const userController = useContext(ContextForUserMain);
+  const userMainController = useContext(ContextForUserMain);
   const commentObj = useContext(ContextForPostCommentObj);
 
   return (
@@ -13,10 +13,10 @@ export function SpacesPageCommentMessage() {
       <div className='flex w-full flex-row items-center space-x-[1rem]'>
         <img
           className='aspect-square h-[3rem] rounded-full'
-          src={userController.state.obj?.dp?.src || exampleFileElement.src}
+          src={userMainController.state.obj?.dp?.src || exampleFileElement.src}
         />
         <p className='text-xl font-bold text-slate-300'>
-          {userController.state.obj.displayName || 'Unknown'}{' '}
+          {userMainController.state.obj.displayName || 'Unknown'}{' '}
           <span className='text-lg text-slate-500'>
             - {getFormmatedTimeDifference(new Date(commentObj.created))}
           </span>

@@ -1,5 +1,6 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { DivInputProps } from '@/props/main';
 import {
   ContextForGalleryCollectionMain,
@@ -10,7 +11,7 @@ import {
   useControllerForCollectionResourceList,
 } from '@/server/controller/gallery/collection/resource/list';
 import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
-import { ctwn } from '@/utils/cn';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import React, { useContext } from 'react';
 
 interface InputProps extends DivInputProps {
@@ -30,15 +31,14 @@ export function CollectionContainer({ children, ...props }: InputProps) {
     <ContextForGalleryCollectionMain.Provider value={collectionMainController}>
       <ContextForCollectionResourceList.Provider value={resourceListController}>
         <GlassWindowFrame
-          name={CollectionContainer.name}
-          className={ctwn(`w-full`, props.className)}
+          className='aspect-[3/2] w-full'
+          roundedFx={roundedFx.rounded}
+          borderFx={borderFx['border-all']}
         >
-          <GlassWindowContents
-            className='flex flex-col items-center'
-            onClick={props.onClick}
-          >
+          <GlassWindowContents className='flex h-full w-full flex-col p-[1rem]'>
             {children}
           </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-20']} />
         </GlassWindowFrame>
       </ContextForCollectionResourceList.Provider>
     </ContextForGalleryCollectionMain.Provider>

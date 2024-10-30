@@ -29,7 +29,7 @@ export function SpacesScenePaletteSelected() {
         <AstralContentCopyIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
-            alert('Coming soon...');
+            spacesSceneController.actions.copyIdeas();
           }}
         />
       </div>

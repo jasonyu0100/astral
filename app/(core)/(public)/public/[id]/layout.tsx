@@ -5,7 +5,7 @@ interface CreativePublicSpaceContextObj {
   spaceId: string;
 }
 
-export const CreativePublicSpacesContext =
+export const CreativePublicSpaceContext =
   createContext<CreativePublicSpaceContextObj>(
     {} as CreativePublicSpaceContextObj,
   );
@@ -19,8 +19,8 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <CreativePublicSpacesContext.Provider value={{ spaceId: params.id }}>
+    <CreativePublicSpaceContext.Provider value={{ spaceId: params.id }}>
       {children}
-    </CreativePublicSpacesContext.Provider>
+    </CreativePublicSpaceContext.Provider>
   );
 }
