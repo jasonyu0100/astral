@@ -5,7 +5,6 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
-import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { FaLinkedin, FaYoutube } from 'react-icons/fa';
@@ -139,19 +138,6 @@ const CallToAction = () => {
       <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
         Transforming your ideas into visual insights
       </p>
-      <div className='h-[5rem] sm:h-[10rem]' />
-      <div className='flex flex-row space-x-[1rem]'>
-        <a
-          href={'https://calendly.com/jasonyu0100/30min'}
-          target='_blank'
-          className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
-        >
-          <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-            schedule a booking
-          </p>
-          <AstralCalendarIcon />
-        </a>
-      </div>
     </section>
   );
 };
@@ -401,14 +387,14 @@ function MembershipSection() {
           <br />
           <div className='mt-8'>
             {activeTab === 'yearly' && (
-              <div className='grid grid-cols-1 gap-6 md:grid-cols-4'>
+              <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                 <MemberPricingCard
                   title='Community'
                   price='Free'
                   description='Ideal for solo creatives looking to get started with basic project management.'
                   imageSrc='/portal/personality-f.png'
                 />
-                <MemberPricingCard
+                {/* <MemberPricingCard
                   title='Standard'
                   price='$90 / year'
                   description='Best for individual creators looking to organize and execute their ideas.'
@@ -419,7 +405,7 @@ function MembershipSection() {
                   price='$240 / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
-                />
+                /> */}
                 <MemberPricingCard
                   title='Enterprise Scale'
                   price='Custom Pricing'
@@ -429,14 +415,14 @@ function MembershipSection() {
               </div>
             )}
             {activeTab === 'monthly' && (
-              <div className='grid grid-cols-1 gap-6 md:grid-cols-4'>
+              <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
                 <MemberPricingCard
                   title='Community'
                   price='Free'
                   description='Ideal for solo creatives looking to get started with basic project management.'
                   imageSrc='/portal/personality-f.png'
                 />
-                <MemberPricingCard
+                {/* <MemberPricingCard
                   title='Standard'
                   price='$10 / month'
                   description='Ideal for solo creatives to streamline projects and bring ideas to life.'
@@ -447,7 +433,7 @@ function MembershipSection() {
                   price='$25 / month'
                   description='Built for teams that require advanced collaboration tools and real-time project insights.'
                   imageSrc='/portal/performer-f.png'
-                />
+                /> */}
                 <MemberPricingCard
                   title='Enterprise Scale'
                   price='Custom Pricing'
@@ -688,6 +674,23 @@ const Testimonials = () => {
   );
 };
 
+function ScheduleBooking() {
+  return (
+    <div className='flex flex-row space-x-[1rem]'>
+      <a
+        href={'https://calendly.com/jasonyu0100/30min'}
+        target='_blank'
+        className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+      >
+        <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+          schedule a booking
+        </p>
+        <AstralCalendarIcon />
+      </a>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <PortalBackground>
@@ -705,6 +708,8 @@ export default function Page() {
       <div className='h-[2rem] sm:h-[5rem]' />
       <CallToAction />
       <div className='h-[2rem] sm:h-[5rem]' />
+      {/* <ScheduleBooking />
+      <div className='h-[2rem] sm:h-[5rem]' /> */}
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FeaturesSection />

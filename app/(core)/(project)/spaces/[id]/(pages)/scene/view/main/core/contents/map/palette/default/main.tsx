@@ -1,11 +1,11 @@
 import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pages)/scene/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
-import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
+import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
+import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralImageIcon } from '@/icons/image/main';
 import { AstralLinkIcon } from '@/icons/link/main';
-import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
-import { AstralMoreVertIcon } from '@/icons/more-vert/main';
+import { AstralMoreIcon } from '@/icons/more/main';
 import { AstralNoteIcon } from '@/icons/note/main';
 import { AstralRectangleIcon } from '@/icons/rectangle/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
@@ -47,7 +47,7 @@ export function SpacesScenePaletteDefault() {
             className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addSpotifyUrlIdeaController.open()}
           />
-          <AstralManufacturingIcon
+          <AstralBookSparkIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addGenerateIdeaController.open()}
           />
@@ -67,14 +67,14 @@ export function SpacesScenePaletteDefault() {
       )}
       <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
         {showMore ? (
-          <AstralArrowDropUp
+          <AstralArrowBackIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
               setShowMore(false);
             }}
           />
         ) : (
-          <AstralMoreVertIcon
+          <AstralMoreIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
               setShowMore(true);

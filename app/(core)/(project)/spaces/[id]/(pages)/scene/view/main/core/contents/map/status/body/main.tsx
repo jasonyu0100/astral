@@ -7,7 +7,7 @@ export function SpacesSceneStatusBody() {
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
-    <div className='flex h-full w-full flex-col justify-end space-y-[1rem] px-[2rem] py-[1rem]'>
+    <div className='flex h-full w-full flex-col space-y-[1rem] py-[1rem]'>
       <div className='flex flex-row items-center space-x-[1rem]'>
         <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
           <p className='text-lg font-bold text-slate-300'>

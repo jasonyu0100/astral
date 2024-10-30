@@ -13,7 +13,7 @@ export function NetworkCreativeTableResults() {
   const userListController = useContext(ContextForUserPublicList);
 
   return (
-    <div className={`flex w-full flex-col pt-[2rem]`}>
+    <div className={`flex w-full flex-col py-[2rem]`}>
       {userListController.state.objs
         .filter((obj) => obj.id !== loggedInUser?.id)
         .map((obj, index) => (

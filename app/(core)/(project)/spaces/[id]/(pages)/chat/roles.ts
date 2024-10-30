@@ -1,7 +1,7 @@
 export enum ConversationRole {
   NoteTaker = '📝 Note Taker',
-  Questioner = '❓ Questioner',
   Answerer = '💬 Answerer',
+  Questioner = '❓ Questioner',
   Summariser = '📚 Summariser',
   Ideator = '💡 Ideator',
   Creative = '🎨 Creative',

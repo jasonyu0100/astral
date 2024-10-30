@@ -121,7 +121,7 @@ export default function Page() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value='yearly' className='mt-[2rem]'>
-          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-2'>
             <MemberPricingCard
               title='Community'
               price='Free'
@@ -130,7 +130,7 @@ export default function Page() {
                 window.location.href = studioMap.studio.personal.link;
               }}
             />
-            <MemberPricingCard
+            {/* <MemberPricingCard
               title='Standard'
               price='$90 / year'
               imageSrc='/portal/producer-f.png'
@@ -141,7 +141,7 @@ export default function Page() {
               price='$240 / year'
               imageSrc='/portal/producer-m.png'
               onClick={() => triggerCheckout(stripeProducts.pro.yearly)}
-            />
+            /> */}
             <MemberPricingCard
               title='Enterprise'
               price='Contact us'
@@ -151,7 +151,7 @@ export default function Page() {
           </div>
         </TabsContent>
         <TabsContent value='monthly' className='mt-[2rem]'>
-          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-2'>
             <MemberPricingCard
               title='Community'
               price='Free'
@@ -160,7 +160,7 @@ export default function Page() {
                 window.location.href = studioMap.studio.personal.link;
               }}
             />
-            <MemberPricingCard
+            {/* <MemberPricingCard
               title='Standard'
               price='$10 / month'
               imageSrc='/portal/performer-m.png'
@@ -171,7 +171,7 @@ export default function Page() {
               price='$25 / month'
               imageSrc='/portal/performer-f.png'
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
-            />
+            /> */}
             <MemberPricingCard
               title='Enterprise'
               price='Contact us'

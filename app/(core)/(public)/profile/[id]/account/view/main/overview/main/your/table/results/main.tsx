@@ -8,7 +8,7 @@ import { AccountSpacesRowWrapper } from './wrapper/main';
 export function UserProfileSpacesTableResults() {
   const spaceListHandler = useContext(ContextForSpaceList);
   return (
-    <div className='w-full'>
+    <div className='w-full py-[1rem]'>
       {spaceListHandler.state.objs?.map((space, index) => (
         <ContextForSpaceObj.Provider value={space} key={space.id}>
           <ContextForIndexable.Provider value={index}>

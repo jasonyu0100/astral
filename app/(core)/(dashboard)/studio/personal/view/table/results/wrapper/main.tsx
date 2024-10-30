@@ -14,8 +14,8 @@ export function StudioSpacesRowWrapper({
   return (
     <ContextForHoverable.Provider value={hoverableController}>
       <div
-        className={`flex h-full w-full flex-row items-center justify-between ${
-          hoverableController.hovered ? 'bg-slate-500 bg-opacity-30' : ''
+        className={`flex h-full w-full flex-row items-center justify-between rounded-[1rem] ${
+          hoverableController.hovered ? 'bg-slate-400 bg-opacity-30' : ''
         }`}
         onMouseOver={() => hoverableController.onHover()}
         onMouseOut={() => hoverableController.onUnhover()}

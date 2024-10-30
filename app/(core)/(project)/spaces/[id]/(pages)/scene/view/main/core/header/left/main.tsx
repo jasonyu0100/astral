@@ -2,6 +2,7 @@ import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCameraIcon } from '@/icons/camera/main';
 import { AstralCategoryIcon } from '@/icons/category/main';
+import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
 import { AstralLinkIcon } from '@/icons/link/main';
@@ -46,41 +47,7 @@ export function SpacesSceneHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralFullscreenIcon
-        onClick={() => {
-          if (
-            spacesSceneController.state.selectedIdeas.length ===
-            ideaListController.state.objs.length
-          ) {
-            spacesSceneController.actions.deselectAll();
-          } else {
-            spacesSceneController.actions.selectAll();
-          }
-        }}
-        className={
-          spacesSceneController.state.selectedIdeas.length >=
-            ideaListController.state.objs.length &&
-          spacesSceneController.state.selectedIdeas.length > 0
-            ? 'fill-blue-500'
-            : 'fill-slate-300'
-        }
-      />
-      <AstralCategoryIcon
-        onClick={() => {
-          spacesSceneController.actions.sortIdeas();
-        }}
-      />
-      <AstralFolderIcon
-        onClick={() => {
-          spacesSceneController.actions.goToGalleryThenCollection(
-            galleryController.actions.stateActions.find(user.journalId),
-          );
-          spacesSceneController.actions.updateSidebarContentMode(
-            SpacesSceneSidebarContentMode.EXPLORER,
-          );
-        }}
-      />
-      <BarDividerIndicator />
+      <AstralCursorIcon />
       <AstralSyncAltIcon
         className={
           spacesSceneController.state.linkMode === SpacesSceneLinkMode.ON
@@ -120,6 +87,30 @@ export function SpacesSceneHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
+      <AstralFullscreenIcon
+        onClick={() => {
+          if (
+            spacesSceneController.state.selectedIdeas.length ===
+            ideaListController.state.objs.length
+          ) {
+            spacesSceneController.actions.deselectAll();
+          } else {
+            spacesSceneController.actions.selectAll();
+          }
+        }}
+        className={
+          spacesSceneController.state.selectedIdeas.length >=
+            ideaListController.state.objs.length &&
+          spacesSceneController.state.selectedIdeas.length > 0
+            ? 'fill-blue-500'
+            : 'fill-slate-300'
+        }
+      />
+      <AstralCategoryIcon
+        onClick={() => {
+          spacesSceneController.actions.sortIdeas();
+        }}
+      />
       <AstralCameraIcon
         onClick={() => {
           spacesSceneController.actions.takeScreenshot();
@@ -128,6 +119,16 @@ export function SpacesSceneHeaderLeft() {
       <AstralLinkIcon
         onClick={() => {
           spacesSceneModalsController.shareViewController.open();
+        }}
+      />
+      <AstralFolderIcon
+        onClick={() => {
+          spacesSceneController.actions.goToGalleryThenCollection(
+            galleryController.actions.stateActions.find(user.journalId),
+          );
+          spacesSceneController.actions.updateSidebarContentMode(
+            SpacesSceneSidebarContentMode.EXPLORER,
+          );
         }}
       />
     </div>

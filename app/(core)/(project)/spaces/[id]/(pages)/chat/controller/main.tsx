@@ -80,7 +80,7 @@ export function useControllerForSpacesChat() {
       SpacesChatSidebarContentMode.CHAPTERS,
     );
   const [aiChatRole, setAiChatRole] = useState<ConversationRole>(
-    ConversationRole.NoteTaker,
+    ConversationRole.Answerer,
   );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesChatSidebarVisibility>(SpacesChatSidebarVisibility.OPEN);

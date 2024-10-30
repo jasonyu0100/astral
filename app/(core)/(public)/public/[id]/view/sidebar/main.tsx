@@ -25,24 +25,26 @@ export function PublicSpaceidebar() {
         borderFx={borderFx['border-around']}
       >
         <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem] pr-[1rem]'>
-          <div className='flex flex-row items-center justify-between space-x-[1rem]'>
-            <p className='text-xl font-bold text-slate-300'>
-              {spaceMainController.state.obj.title}
+          <div className='flex flex-col space-y-[1rem]'>
+            <div className='flex flex-row items-center justify-between space-x-[1rem]'>
+              <p className='text-xl font-bold text-slate-300'>
+                {spaceMainController.state.obj.title}
+              </p>
+              <AstralEditIcon
+                onClick={() => {
+                  window.open(
+                    spacesMap.spaces.id.board.link(
+                      spaceMainController.state.objId,
+                    ),
+                  );
+                }}
+              />
+            </div>
+            <HorizontalDivider />
+            <p className='text-sm font-light text-slate-300'>
+              {spaceMainController.state.obj.description}
             </p>
-            <AstralEditIcon
-              onClick={() => {
-                window.open(
-                  spacesMap.spaces.id.board.link(
-                    spaceMainController.state.objId,
-                  ),
-                );
-              }}
-            />
           </div>
-          <HorizontalDivider />
-          <p className='text-sm font-light text-slate-300'>
-            {spaceMainController.state.obj.description}
-          </p>
           <GlassWindowFrame
             className='h-[50px] w-full flex-shrink-0 p-[1rem]'
             roundedFx={roundedFx['rounded-full']}
@@ -73,7 +75,14 @@ export function PublicSpaceidebar() {
         borderFx={borderFx['border-around']}
       >
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] pr-[1rem]'>
-          <p className='text-xl font-bold text-slate-300'>Chapters</p>
+          <div className='flex flex-row space-x-[1rem]'>
+            <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
+              <p className='font-bold text-slate-300'>
+                {chapterListController.state.objs.length}
+              </p>
+            </div>
+            <p className='text-xl font-bold text-slate-300'>Chapters</p>
+          </div>
           <HorizontalDivider />
           {chapterListController.state.objs.map((chapter) => (
             <ContextForSpaceChapterObj.Provider value={chapter}>

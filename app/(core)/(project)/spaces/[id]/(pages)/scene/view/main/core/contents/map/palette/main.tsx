@@ -11,13 +11,13 @@ export function SpacesScenePalette() {
   const spacesSceneController = useContext(ContextForSpacesScene);
 
   return (
-    <div className='absolute left-[1rem] top-[0rem] z-30 flex h-full w-[6rem] flex-col items-center justify-center'>
+    <div className='absolute bottom-[1rem] left-[1rem] z-30 flex h-[6rem] w-full flex-row items-center justify-center'>
       <GlassWindowFrame
-        className='w-[6rem] py-[2rem]'
+        className='h-full px-[2rem]'
         roundedFx={roundedFx['rounded-full']}
         borderFx={borderFx['border-around']}
       >
-        <GlassWindowContents className='flex flex-col items-center justify-center space-y-[2rem]'>
+        <GlassWindowContents className='flex flex-row items-center justify-center space-x-[2rem]'>
           {spacesSceneController.state.selectedIdeas.length === 0 ? (
             <SpacesScenePaletteDefault />
           ) : (

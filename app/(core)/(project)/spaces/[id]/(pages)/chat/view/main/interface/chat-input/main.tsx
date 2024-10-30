@@ -6,7 +6,6 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
 import { glassFx, roundedFx } from '@/style/data';
-import { ctwn } from '@/utils/cn';
 import React, { useContext, useState } from 'react';
 import {
   ContextForSpacesChat,
@@ -96,7 +95,7 @@ export function SpacesChatInputText() {
           />
         </div>
         <input
-          className={`h-full flex-grow animate-pulse-slow bg-transparent text-slate-300 outline-none`}
+          className={`h-full flex-grow bg-transparent text-slate-300 outline-none`}
           placeholder='Type a message...'
           onKeyDown={handleKeyDown}
           onChange={(e) =>
@@ -107,14 +106,7 @@ export function SpacesChatInputText() {
           value={messageListController.state.more.inputMessageText}
         />
         <div
-          className={ctwn(
-            'flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full',
-          )}
-          style={{
-            backgroundColor: isRecording
-              ? 'rgba(239, 68, 68, 0.7)'
-              : 'rgba(156, 163, 175, 0.3)', // red with opacity if recording, slate with opacity otherwise
-          }}
+          className={`flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full ${isRecording ? 'animate-pulse bg-red-500 bg-opacity-70' : 'bg-slate-300 bg-opacity-30'}`}
         >
           <AstralVoiceIcon
             onClick={() => {

@@ -3,7 +3,7 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { useContext } from 'react';
 import { SpacesChatSidebarChaptersAdd } from './add/main';
-import { SpacesChatSidebarChapter } from './chapter/main';
+import { SpacesChatSidebarChapter } from './item/main';
 
 export function SpacesChatSidebarChaptersList() {
   const chapterListController = useContext(ContextForSpaceChapterList);

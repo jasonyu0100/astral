@@ -12,7 +12,7 @@ export function SpacesSceneInProgress() {
   return (
     <div className='absolute right-[1rem] top-[1rem] z-10 flex h-[200px] flex-shrink-0 flex-col items-center justify-center'>
       {inProgressTask ? (
-        <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
+        <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg border-[1px] border-slate-300 bg-yellow-500 p-[1rem]'>
           <div className='flex flex-col'>
             <div className='flex w-full flex-row justify-between space-x-[1rem]'>
               <p className='text-lg font-bold'>{inProgressTask.title}</p>

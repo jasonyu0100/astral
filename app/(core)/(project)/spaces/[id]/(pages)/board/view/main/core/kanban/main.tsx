@@ -1,6 +1,10 @@
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { ContextForTaskList } from '@/server/controller/way/list';
 import { exampleTask, TaskStatus } from '@/server/model/task/main';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -60,29 +64,42 @@ function KanbanRow({ title, tasks, status }) {
   return (
     <div className='flex flex-col border-b-[1px] border-slate-300 border-opacity-30'>
       <div className='flex flex-row items-center space-x-[1rem]'>
-        {TaskStatus.TODO === status && (
-          <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-blue-500 font-bold'>
-            <p className='text-md font-bold text-slate-300'>{tasks.length}</p>
-          </div>
-        )}
-        {TaskStatus.IN_PROGRESS === status && (
-          <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-red-500 font-bold'>
-            <p className='text-md font-bold text-slate-300'>{tasks.length}</p>
-          </div>
-        )}
-        {TaskStatus.DONE === status && (
-          <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0 animate-pulse-slow items-center justify-center rounded-[1rem] bg-green-500 font-bold'>
-            <p className='text-md font-bold text-slate-300'>{tasks.length}</p>
-          </div>
-        )}
-        <h2 className='text-lg font-semibold text-slate-300'>{title}</h2>
+        <GlassWindowFrame
+          roundedFx={roundedFx['rounded-full']}
+          borderFx={borderFx['border-around']}
+        >
+          <GlassWindowContents className='flex flex-row items-center space-x-[1rem] px-[1rem] py-[0.5rem]'>
+            {TaskStatus.TODO === status && (
+              <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-blue-500 font-bold'>
+                <p className='text-md font-bold text-slate-300'>
+                  {tasks.length}
+                </p>
+              </div>
+            )}
+            {TaskStatus.IN_PROGRESS === status && (
+              <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-red-500 font-bold'>
+                <p className='text-md font-bold text-slate-300'>
+                  {tasks.length}
+                </p>
+              </div>
+            )}
+            {TaskStatus.DONE === status && (
+              <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0 animate-pulse-slow items-center justify-center rounded-[1rem] bg-green-500 font-bold'>
+                <p className='text-md font-bold text-slate-300'>
+                  {tasks.length}
+                </p>
+              </div>
+            )}
+            <h2 className='text-lg font-semibold text-slate-300'>{title}</h2>
+          </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-10']} />
+        </GlassWindowFrame>
       </div>
       <div
         ref={drop}
-        className={`flex h-full flex-row rounded ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
-        style={{ padding: '1rem', transition: 'background-color 0.2s' }}
+        className={`flex h-full flex-row rounded py-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
       >
-        <div className='flex min-h-[50px] flex-row space-x-[1rem] pb-[1rem]'>
+        <div className='flex min-h-[50px] flex-row space-x-[1rem]'>
           {tasks.map((task) => (
             <KanbanTask key={task.id} task={task} />
           ))}

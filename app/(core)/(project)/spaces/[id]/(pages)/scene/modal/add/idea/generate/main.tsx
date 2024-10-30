@@ -1,11 +1,12 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
+import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralCheckIcon } from '@/icons/check/main';
-import { AstralManufacturingIcon } from '@/icons/manufacturing/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -76,15 +77,14 @@ export function SpacesSceneAddGenerateIdeaModal() {
         <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
-            <input
+            <AstralTextLineInput
               placeholder='Enter an image prompt'
-              className='h-[3rem] flex-shrink-0 border-b border-slate-300 border-opacity-30 bg-transparent text-slate-300 outline-none'
               title='Prompt'
               value={prompt}
               onChange={(e) => changePrompt(e.target.value)}
             />
             <div className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'>
-              <AstralManufacturingIcon
+              <AstralBookSparkIcon
                 onClick={() => {
                   loadingController.loadingController.open();
                   openableController.close();

@@ -1,20 +1,29 @@
 import { NetworkCreativeRowAbout } from './about/main';
 import { NetworkCreativeRowActivity } from './activity/main';
-import { NetworkCreativeRowBacks } from './backs/main';
-import { NetworkCreativeRowCollabs } from './collabs/main';
 import { NetworkCreativeRowNumber } from './number/main';
 import { NetworkCreativeRowRole } from './role/main';
+import { NetworkCreativeRowSpaces } from './spaces/main';
 
 export function NetworkCreativeTableRow() {
   return (
-    <div className='grid w-full grid-cols-7 items-center border-slate-300 border-opacity-30 py-[2rem]'>
-      <NetworkCreativeRowNumber />
-      <NetworkCreativeRowAbout />
+    <div className='grid w-full grid-cols-8 items-center border-slate-300 border-opacity-30 py-[2rem]'>
+      <div>
+        <NetworkCreativeRowNumber />
+      </div>
+      <div className='col-span-2'>
+        <NetworkCreativeRowAbout />
+      </div>
+      <div>
+        <NetworkCreativeRowRole />
+      </div>
+      <div>
+        <NetworkCreativeRowSpaces />
+      </div>
       <div></div>
-      <NetworkCreativeRowRole />
-      <NetworkCreativeRowCollabs />
-      <NetworkCreativeRowBacks />
-      <NetworkCreativeRowActivity />
+      <div></div>
+      <div>
+        <NetworkCreativeRowActivity />
+      </div>
     </div>
   );
 }

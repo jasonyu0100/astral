@@ -67,10 +67,6 @@ export function SpacesSceneSidebarChaptersChapter() {
             <p className={ctwn('text-lg font-bold text-slate-300')}>
               {chapterObj?.title || 'Untitled'}
             </p>
-            <p className={'text-sm font-light text-slate-300'}>
-              <span className='font-bold'>Objective: </span>
-              {chapterObj?.objective || 'No objective'}
-            </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>

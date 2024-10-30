@@ -15,7 +15,7 @@ export function SpacesSceneChat() {
   return (
     <div
       className={ctwn(
-        'absolute bottom-[2rem] right-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center rounded-full bg-emerald-500',
+        'absolute bottom-[2rem] left-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center rounded-full bg-emerald-500',
         {
           'bg-slate-500':
             sidebarContentMode !== SpacesSceneSidebarContentMode.CHAT_SCENE,
