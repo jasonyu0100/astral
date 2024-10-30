@@ -1,7 +1,7 @@
 'use client';
 
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
-import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main';
+import { TabBlueShard } from '@/components/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
@@ -27,7 +27,7 @@ export function SpaceTabProgress({ tab }: { tab?: string }) {
   return (
     <Tab href={url}>
       <TabText active={active}>{tabText}</TabText>
-      <TabOrangeShard active={active} />
+      <TabBlueShard active={active} />
     </Tab>
   );
 }

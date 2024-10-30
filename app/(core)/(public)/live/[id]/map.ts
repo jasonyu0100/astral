@@ -1,7 +1,7 @@
-const baseUrl = `/public`;
+const baseUrl = `/live`;
 
-export const publicSpaceMap = {
-  space: {
+export const liveMap = {
+  live: {
     link: (id: string) => `${baseUrl}/${id}/`,
   },
   link: baseUrl,

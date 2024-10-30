@@ -7,7 +7,7 @@ import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { publicSpaceMap } from '../../../map';
+import { liveMap } from '../../../map';
 
 export function PublicSpaceSidebarSpace() {
   const spaceMainController = useContext(ContextForSpaceMain);
@@ -47,7 +47,7 @@ export function PublicSpaceSidebarSpace() {
           <GlassWindowContents
             onClick={() => {
               navigator.clipboard.writeText(
-                `astral.fun${publicSpaceMap.space.link(spaceMainController.state.objId)}`,
+                `astral.fun${liveMap.live.link(spaceMainController.state.objId)}`,
               );
               alert('Link copied to clipboard!');
             }}
@@ -56,7 +56,7 @@ export function PublicSpaceSidebarSpace() {
             <AstralLinkIcon className='h-[2rem] w-[2rem]' />
             <p className='max-w-[300px] overflow-hidden whitespace-nowrap font-bold text-slate-300'>
               astral.fun
-              {publicSpaceMap.space.link(spaceMainController.state.obj.id)}
+              {liveMap.live.link(spaceMainController.state.obj.id)}
             </p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />

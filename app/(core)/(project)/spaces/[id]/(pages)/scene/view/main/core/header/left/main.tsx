@@ -1,11 +1,8 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
-import { AstralCameraIcon } from '@/icons/camera/main';
 import { AstralCategoryIcon } from '@/icons/category/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
-import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
-import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -16,6 +13,7 @@ import { useContext } from 'react';
 import {
   ContextForSpacesScene,
   SpacesSceneBubbleMode,
+  SpacesSceneInteractionMode,
   SpacesSceneLinkMode,
   SpacesSceneSidebarContentMode,
   SpacesSceneSidebarVisibility,
@@ -47,7 +45,28 @@ export function SpacesSceneHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralCursorIcon />
+      <AstralCursorIcon
+        className={
+          spacesSceneController.state.interactionMode ===
+          SpacesSceneInteractionMode.CURSOR
+            ? 'fill-slate-300'
+            : 'fill-blue-500'
+        }
+        onClick={() => {
+          if (
+            spacesSceneController.state.interactionMode ===
+            SpacesSceneInteractionMode.CURSOR
+          ) {
+            spacesSceneController.actions.updateInteractionMode(
+              SpacesSceneInteractionMode.SELECTOR,
+            );
+          } else {
+            spacesSceneController.actions.updateInteractionMode(
+              SpacesSceneInteractionMode.CURSOR,
+            );
+          }
+        }}
+      />
       <AstralSyncAltIcon
         className={
           spacesSceneController.state.linkMode === SpacesSceneLinkMode.ON
@@ -87,7 +106,22 @@ export function SpacesSceneHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralFullscreenIcon
+      <AstralFolderIcon
+        onClick={() => {
+          spacesSceneController.actions.goToGalleryThenCollection(
+            galleryController.actions.stateActions.find(user.journalId),
+          );
+          spacesSceneController.actions.updateSidebarContentMode(
+            SpacesSceneSidebarContentMode.EXPLORER,
+          );
+        }}
+      />
+      <AstralCategoryIcon
+        onClick={() => {
+          spacesSceneController.actions.sortIdeas();
+        }}
+      />
+      {/* <AstralFullscreenIcon
         onClick={() => {
           if (
             spacesSceneController.state.selectedIdeas.length ===
@@ -105,13 +139,8 @@ export function SpacesSceneHeaderLeft() {
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
-      />
-      <AstralCategoryIcon
-        onClick={() => {
-          spacesSceneController.actions.sortIdeas();
-        }}
-      />
-      <AstralCameraIcon
+      /> */}
+      {/* <AstralCameraIcon
         onClick={() => {
           spacesSceneController.actions.takeScreenshot();
         }}
@@ -120,17 +149,7 @@ export function SpacesSceneHeaderLeft() {
         onClick={() => {
           spacesSceneModalsController.shareViewController.open();
         }}
-      />
-      <AstralFolderIcon
-        onClick={() => {
-          spacesSceneController.actions.goToGalleryThenCollection(
-            galleryController.actions.stateActions.find(user.journalId),
-          );
-          spacesSceneController.actions.updateSidebarContentMode(
-            SpacesSceneSidebarContentMode.EXPLORER,
-          );
-        }}
-      />
+      /> */}
     </div>
   );
 }

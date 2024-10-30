@@ -1,4 +1,4 @@
-import { publicSpaceMap } from '@/(core)/(public)/public/[id]/map';
+import { liveMap } from '@/(core)/(public)/live/[id]/map';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralShareIcon } from '@/icons/share/main';
@@ -44,7 +44,7 @@ export function SpacesPostHeaderLeft() {
         <AstralShareIcon
           onClick={() => {
             navigator.clipboard.writeText(
-              `astral.fun${publicSpaceMap.space.link(spaceMainController.state.objId)}`,
+              `astral.fun${liveMap.live.link(spaceMainController.state.objId)}`,
             );
             spacesPostModalController.shareReviewController.open();
           }}

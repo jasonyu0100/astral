@@ -2,6 +2,7 @@
 import {
   ContextForSpacesScene,
   SpacesSceneBubbleMode,
+  SpacesSceneInteractionMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/scene/controller/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -66,11 +67,16 @@ export function SpacesSceneMovable({
           if (selected) {
             return;
           } else {
-            hoverableController.onHover();
-            spacesSceneController.actions.updateSelectedIdeas([
-              ...spacesSceneController.state.selectedIdeas,
-              ideaObj,
-            ]);
+            if (
+              spacesSceneController.state.interactionMode ===
+              SpacesSceneInteractionMode.SELECTOR
+            ) {
+              hoverableController.onHover();
+              spacesSceneController.actions.updateSelectedIdeas([
+                ...spacesSceneController.state.selectedIdeas,
+                ideaObj,
+              ]);
+            }
           }
         }}
         onClick={(e) => {

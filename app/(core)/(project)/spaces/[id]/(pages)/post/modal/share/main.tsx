@@ -1,4 +1,4 @@
-import { publicSpaceMap } from '@/(core)/(public)/public/[id]/map';
+import { liveMap } from '@/(core)/(public)/live/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -28,17 +28,15 @@ export function SpacesPostSharePostModal() {
                 className='flex cursor-pointer flex-row items-center space-x-[1rem]'
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `astral.fun${publicSpaceMap.space.link(spaceController.state.objId)}`,
+                    `astral.fun${liveMap.live.link(spaceController.state.objId)}`,
                   );
-                  window.open(
-                    publicSpaceMap.space.link(spaceController.state.objId),
-                  );
+                  window.open(liveMap.live.link(spaceController.state.objId));
                   openableController.close();
                 }}
               >
                 <p className='font-slate-300 overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
                   www.astral.fun
-                  {publicSpaceMap.space.link(spaceController.state.objId)}
+                  {liveMap.live.link(spaceController.state.objId)}
                 </p>
                 <AstralLinkIcon />
               </GlassWindowContents>

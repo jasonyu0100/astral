@@ -1,4 +1,4 @@
-import { publicSpaceMap } from '@/(core)/(public)/public/[id]/map';
+import { liveMap } from '@/(core)/(public)/live/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -32,11 +32,9 @@ export function StudioSpacesRowMore() {
               className='flex cursor-pointer flex-row space-x-[1rem]'
               onClick={() => {
                 navigator.clipboard.writeText(
-                  `astral.fun${publicSpaceMap.space.link(spaceListController.state.objId)}`,
+                  `astral.fun${liveMap.live.link(spaceListController.state.objId)}`,
                 );
-                window.open(
-                  publicSpaceMap.space.link(spaceListController.state.objId),
-                );
+                window.open(liveMap.live.link(spaceListController.state.objId));
               }}
             >
               <AstralLinkIcon />

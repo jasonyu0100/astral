@@ -24,7 +24,7 @@ interface ControllerState {
   selectedIdeas: IdeaObj[];
   directoryMode: SpacesSceneDirectoryMode;
   linkMode: SpacesSceneLinkMode;
-  mapMode: SpacesSceneInteractionMode;
+  interactionMode: SpacesSceneInteractionMode;
   sidebarMediaMode: SpacesSceneSidebarMediaMode;
   sidebarContentMode: SpacesSceneSidebarContentMode;
   sidebarMode: SpacesSceneSidebarMode;
@@ -69,12 +69,7 @@ export enum SpacesSceneSidebarVisibility {
 
 export enum SpacesSceneInteractionMode {
   CURSOR = 'Cursor',
-  SELECTED = 'Selected',
-}
-
-export enum SpacesSceneIdeaMode {
-  DEFAULT = 'Default',
-  INFORMATION = 'Information',
+  SELECTOR = 'Selector',
 }
 
 export enum SpacesSceneBubbleMode {
@@ -130,9 +125,8 @@ export function useControllerForSpacesScene(): Controller {
   const [listSceneMode, setListSceneMode] = useState<SpacesSceneSidebarMode>(
     SpacesSceneSidebarMode.SCENES,
   );
-  const [mapMode, setMode] = useState<SpacesSceneInteractionMode>(
-    SpacesSceneInteractionMode.SELECTED,
-  );
+  const [interactionMode, setInteractionMode] =
+    useState<SpacesSceneInteractionMode>(SpacesSceneInteractionMode.CURSOR);
   const [listMode, setListMode] = useState<SpacesSceneSidebarContentMode>(
     SpacesSceneSidebarContentMode.CHAPTERS,
   );
@@ -306,7 +300,7 @@ export function useControllerForSpacesScene(): Controller {
       linkMode: linkMode,
       selectedIdeas: selectedIdeas,
       bubbleMode: bubbleMode,
-      mapMode: mapMode,
+      interactionMode: interactionMode,
       sidebarMediaMode: sidebarMediaMode,
       sidebarContentMode: listMode,
       sidebarMode: listSceneMode,
@@ -324,7 +318,7 @@ export function useControllerForSpacesScene(): Controller {
       updateLinkMode: (mode) => setLinkMode(mode),
       updateSelectedIdeas: (ideas) => setSelectedIdeas(ideas),
       updateBubbleMode: (mode) => setBubbleMode(mode),
-      updateInteractionMode: (mode) => setMode(mode),
+      updateInteractionMode: (mode) => setInteractionMode(mode),
       updateSidebarContentMode: (mode) => setListMode(mode),
       updateSidebarMode: (mode) => setListSceneMode(mode),
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),

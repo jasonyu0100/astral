@@ -1,7 +1,7 @@
 'use client';
 
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '@/components/tabs/tabs-row/tab/shard/blue/main';
+import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
@@ -30,7 +30,7 @@ export function SpacesTabChat({ tab }: { tab?: string }) {
   return (
     <Tab href={url}>
       <TabText active={active}>{tabText}</TabText>
-      <TabBlueShard active={active} />
+      <TabOrangeShard active={active} />
     </Tab>
   );
 }
