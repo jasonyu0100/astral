@@ -10,7 +10,7 @@ export function TabText({
   return (
     <div
       className={ctwn(
-        'h-[3rem] w-[7rem] text-2xl font-bold lowercase text-slate-300',
+        'h-[2.5rem] w-[7rem] text-2xl font-bold lowercase text-slate-300',
         {
           'animate-pulse-slow text-slate-500': !active,
           'animate-pulse text-slate-300': active,
