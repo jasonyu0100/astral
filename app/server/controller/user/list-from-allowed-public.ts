@@ -139,7 +139,7 @@ export const useControllerForUserPublicList = (
       } else {
         const results = objs.filter((obj) => {
           const regex = new RegExp(query, 'i');
-          return regex.test(obj.id);
+          return regex.test(obj.displayName);
         });
         changeQueryResults(results);
         return results;
@@ -157,7 +157,7 @@ export const useControllerForUserPublicList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.displayName);
           });
           changeQueryResults(results);
           return results;
@@ -170,7 +170,7 @@ export const useControllerForUserPublicList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.displayName);
           });
           changeQueryResults(results);
           return results;

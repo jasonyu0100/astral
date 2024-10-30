@@ -14,7 +14,7 @@ export function NetworkCreativeTableResults() {
 
   return (
     <div className={`flex w-full flex-col py-[2rem]`}>
-      {userListController.state.objs
+      {userListController.state.more.queryResults
         .filter((obj) => obj.id !== loggedInUser?.id)
         .map((obj, index) => (
           <ContextForIndexable.Provider value={index} key={obj.id}>
