@@ -1,5 +1,5 @@
 import { EmptyMain } from '@/components/empty/main';
 
 export function SpacesPostEmpty() {
-  return <EmptyMain>PAGE</EmptyMain>;
+  return <EmptyMain>NO POST</EmptyMain>;
 }

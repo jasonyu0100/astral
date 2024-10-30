@@ -6,17 +6,17 @@ import { TabPurpleShard } from '@/components/tabs/tabs-row/tab/shard/purple/main
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
-import { SpaceTabBoard } from './board-tab/main';
 import { SpacesTabChat } from './chat-tab/main';
 import { SpacesTabPages } from './flight-tab/main';
 import { SpacesTabScene } from './map-tab/main';
+import { SpaceTabProgress } from './progress-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
 }
 
 export enum SpaceTabStage {
-  Board = 'Board',
+  Progress = 'Progress',
   Chat = 'Chat',
   Scene = 'Scene',
   Post = 'Post',
@@ -27,7 +27,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
     <TabsContainer>
       <TabsRow>
-        <SpaceTabBoard tab={tab} />
+        <SpaceTabProgress tab={tab} />
         <SpacesTabChat tab={tab} />
         <SpacesTabScene tab={tab} />
         <SpacesTabPages tab={tab} />

@@ -1,7 +1,7 @@
 import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pages)/scene/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
-import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
+import { AstralArrowLeft } from '@/icons/arrow-left/main';
 import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralImageIcon } from '@/icons/image/main';
 import { AstralLinkIcon } from '@/icons/link/main';
@@ -67,7 +67,7 @@ export function SpacesScenePaletteDefault() {
       )}
       <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
         {showMore ? (
-          <AstralArrowBackIcon
+          <AstralArrowLeft
             className='h-[2rem] w-[2rem]'
             onClick={() => {
               setShowMore(false);

@@ -3,131 +3,130 @@ import { TemplateSpaceObj } from '../main';
 export const tutorialSpaceTemplate: TemplateSpaceObj = {
   title: '🚀 Project Tutorial Space',
   description:
-    'A guided tutorial space introducing you to the main project features: board, chat, scene, and pages. Explore task management, brainstorming, idea mapping, and sharing in a structured walkthrough. Note: This is a tutorial; your real spaces will have even more flexibility and features.',
+    'A guided tutorial space introducing you to the main project features: Progress, Chat, Scene, Post, Live, and Reflection. Learn to manage tasks, brainstorm ideas, map out concepts, share updates, and reflect on your progress. Note: This is a tutorial; your real spaces will offer even more flexibility and features.',
   summary:
     'A structured guide to using each workspace feature effectively, setting up your project for seamless creativity and organization.',
   category: 'Tutorial',
   chapters: [
     {
-      title: '📋 Board',
+      title: '📋 Progress',
       description:
-        'board is your organizational hub for tasks, structured with "To Do," "In Progress," and "Done" columns. It’s ideal for tracking progress and informing discussions in other areas, like chat.',
+        'Progress is your task board, organized with "To Do," "In Progress," and "Done" columns. It’s perfect for tracking each phase and planning discussions in other areas, like Chat.',
       objective:
-        'Master task management by setting up a clear workflow, using board to organize, prioritize, and track project activities.',
+        'Learn to manage tasks by setting up a workflow using Progress to organize, prioritize, and track activities.',
       tasks: [
         {
           title: 'Create Initial Tasks',
           description:
-            'Add initial tasks to "To Do" for each key step of your project. These might include research, brainstorming, and early-stage development.',
+            'Add tasks to "To Do" for each main step of your project, like research, brainstorming, or early development.',
         },
         {
           title: 'Organize by Priority (Optional)',
           description:
-            'Reorder tasks by priority to maintain focus on the most critical steps first.',
+            'Reorder tasks by priority to keep focus on the most important steps first.',
         },
         {
           title: 'Track Progress in "In Progress"',
           description:
-            'Move tasks to "In Progress" when you start working on them. This visual progress helps manage your focus and informs ongoing ideas in chat.',
+            'Move tasks to "In Progress" when you start working on them. This visual update helps with focus and informs ongoing ideas in Chat.',
         },
         {
           title: 'Review and Mark as Done',
           description:
-            'Once complete, move tasks to "Done" for a record of progress. This can inform future iterations and decisions.',
+            'When finished, move tasks to "Done" for a record of progress that can help with future planning.',
         },
       ],
     },
     {
       title: '💬 Chat',
       description:
-        'chat is an open-ended space for brainstorming with AI, noting ideas, and summarizing insights. Conversations here can provide structure to ideas that evolve into visual plans in scene.',
+        'Chat is your collaborative space to brainstorm with AI, jot down ideas, and record voice notes for quick updates. Use it as a central hub to explore thoughts and keep track of ideas that can be further developed in Scene.',
       objective:
-        'Learn to utilize chat as a collaborative space for creative thinking, documentation, and informal project discussions.',
+        'Learn to use Chat as a space for real-time brainstorming, note-taking, and quick voice memos to capture ideas as they come up.',
       tasks: [
         {
-          title: 'Begin a Chat with AI',
+          title: 'Start a Chat with AI',
           description:
-            'Initiate a conversation with AI to brainstorm ideas, clarify project goals, or explore questions related to your tasks on board.',
+            'Chat with AI to brainstorm, clarify goals, or get insights for your tasks in Progress.',
         },
         {
-          title: 'Note Down Key Thoughts',
+          title: 'Record a Voice Memo',
           description:
-            'Use chat as a space for jotting down ideas as they come up. Think of this as your creative notepad.',
+            'Use voice memos to capture ideas quickly. These notes can be referenced or expanded upon later.',
         },
         {
-          title: 'Create Summaries (Optional)',
+          title: 'Note Key Ideas',
           description:
-            'Summarize key points from conversations or brainstorming sessions to easily reference later.',
+            'Jot down thoughts and use Chat as a creative notepad for brainstorming.',
         },
         {
-          title: 'Save Useful Insights for Scene',
+          title: 'Mark Insights for Scene',
           description:
-            'Mark ideas or insights that may be useful for visual mapping in scene. This helps streamline your workflow.',
+            'Highlight useful ideas that you’d like to explore visually in Scene.',
         },
       ],
     },
     {
       title: '🌌 Scene',
       description:
-        'scene is a visual space to map ideas from chat, creating a constellation of thoughts. Use it to connect concepts, explore relationships, and identify patterns that help shape your project direction.',
+        'Scene is your visual space to map ideas from Chat. Move thoughts around, add text, images, and media from YouTube, Spotify, and more to create a dynamic layout.',
       objective:
-        'Learn to visually map ideas for better clarity, and to develop a cohesive structure from brainstorming to implementation.',
+        'Learn to visually organize ideas, build connections, and create a structure for your project.',
       tasks: [
         {
           title: 'Map Key Ideas from Chat',
           description:
-            'Take central concepts from chat and create nodes in scene, allowing you to see connections visually.',
+            'Turn main ideas from Chat into nodes in Scene, creating a visual map of connections.',
         },
         {
           title: 'Link Related Ideas',
           description:
-            'Connect related nodes to form relationships and pathways, creating a more organized structure for your project.',
+            'Connect related nodes to form an organized structure for your project.',
         },
         {
-          title: 'Group Ideas into Categories (Optional)',
+          title: 'Add Media and Notes',
           description:
-            'Create groupings of related ideas to help organize thoughts into specific categories or themes.',
-        },
-        {
-          title: 'Refine Structure and Add Notes',
-          description:
-            'Add notes to each node, expanding on ideas or adding context to support the bigger picture.',
+            'Enhance nodes with images, notes, or external media for a comprehensive visual scene.',
         },
       ],
     },
     {
-      title: '🌍 Pages',
+      title: '📝 Post',
       description:
-        'pages serves as the public-facing space for sharing your project’s ideas and insights. Create summaries from scene and build a clear narrative to present your work.',
+        'Post lets you share key insights from Scene. Create posts from scratch or based on scenes to present project highlights and updates in a clear, public format.',
       objective:
-        'Learn to present and share your project ideas in a polished, public-facing format, making them accessible to others.',
+        'Learn to create posts from Scene or from scratch to share progress updates and insights with your audience.',
       tasks: [
         {
-          title: 'Create a Summary from Scene',
+          title: 'Create a Post from Scene',
           description:
-            'Distill key ideas from scene into a concise summary to prepare for public sharing.',
+            'Turn elements from Scene into a post that highlights your project’s key points.',
         },
         {
-          title: 'Build a Draft of Your Public Page',
+          title: 'Add Content and Media',
           description:
-            'Create a structured layout for your public page, ensuring your ideas are clear and engaging.',
-        },
-        {
-          title: 'Add Visuals or Media (Optional)',
-          description:
-            'Enhance your page with visuals or other media to illustrate concepts and make your content more engaging.',
-        },
-        {
-          title: 'Publish and Gather Feedback',
-          description:
-            'Once ready, publish your page and invite feedback. Use this to refine future iterations.',
+            'Make posts more engaging with images or media that illustrate your ideas.',
         },
       ],
     },
     {
-      title: '🔎 Review and Reflect',
+      title: '📺 Live',
       description:
-        'This chapter provides space to reflect on the tutorial, note improvements, and explore additional resources for ongoing learning.',
+        'Live combines Progress and Post to show your project’s journey, organized by chapters. Track each phase’s status and posts to get a complete view of the workspace.',
+      objective:
+        'Learn to use Live as an overview of the project’s progression, combining updates from Progress and Post in a real-time, chapter-based format.',
+      tasks: [
+        {
+          title: 'Review Project Progress',
+          description:
+            'View the project’s overall status in Live, with updates organized by chapters.',
+        },
+      ],
+    },
+    {
+      title: '🔎 Reflection',
+      description:
+        'Reflection is your space to review key learnings, note any areas for improvement, and set goals for future projects. This can help with refining your workflow and gathering insights for ongoing learning.',
       objective:
         'Encourage reflection on what you’ve learned in this tutorial space, and set goals for future work.',
       tasks: [
@@ -150,5 +149,5 @@ export const tutorialSpaceTemplate: TemplateSpaceObj = {
     },
   ],
   objective:
-    '📖 This tutorial guides you through using the main project features in a structured format, preparing you for flexible, real spaces. Explore, document, and refine your ideas as you navigate from ideation to public sharing.',
+    '📖 This tutorial guides you through using the main project features in a structured format, preparing you for flexible, real spaces. Explore, document, and refine your ideas as you navigate from brainstorming to sharing your project’s progress.',
 };

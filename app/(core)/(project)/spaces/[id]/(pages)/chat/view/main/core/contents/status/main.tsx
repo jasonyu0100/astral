@@ -44,7 +44,7 @@ export function SpacesChatStatusContents() {
             </div>
           </div>
           {inProgressTask ? (
-            <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
+            <div className='h-[200px] w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
               <div className='flex flex-col'>
                 <div className='flex w-full flex-row justify-between space-x-[1rem]'>
                   <p className='text-lg font-bold'>{inProgressTask.title}</p>
@@ -60,7 +60,7 @@ export function SpacesChatStatusContents() {
               </div>
             </div>
           ) : (
-            <div className='h-[200px] min-w-[200px] max-w-[250px] overflow-auto rounded-lg bg-yellow-500 p-[1rem]'>
+            <div className='h-[200px] w-[250px] overflow-auto rounded-lg border-[1px] border-slate-300 bg-yellow-500 p-[1rem]'>
               <p className='text-lg font-bold'>No task in-progress</p>
             </div>
           )}

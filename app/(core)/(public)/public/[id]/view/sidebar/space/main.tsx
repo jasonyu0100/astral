@@ -27,7 +27,7 @@ export function PublicSpaceSidebarSpace() {
               <AstralEditIcon
                 onClick={() => {
                   window.open(
-                    spacesMap.spaces.id.board.link(
+                    spacesMap.spaces.id.progress.link(
                       spaceMainController.state.objId,
                     ),
                   );

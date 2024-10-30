@@ -14,11 +14,11 @@ import { ContextForPublicSpace } from '../../../page';
 
 export function PublicSpaceidebarItem() {
   const spaceMainController = useContext(ContextForSpaceMain);
-  const chapter = useContext(ContextForSpaceChapterObj);
+  const chapterObj = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const publicSpaceController = useContext(ContextForPublicSpace);
-  const selected = chapterListController.state.objId === chapter.id;
-  const taskListController = useControllerForTaskList(chapter.id);
+  const selected = chapterListController.state.objId === chapterObj.id;
+  const taskListController = useControllerForTaskList(chapterObj.id);
   const tasks = taskListController.state.objs;
   const todo = taskListController.state.objs.filter(
     (task) => task.taskStatus === TaskStatus.TODO,
@@ -30,27 +30,26 @@ export function PublicSpaceidebarItem() {
     (task) => task.taskStatus === TaskStatus.DONE,
   );
 
-  const completion = calculateCompletion();
-  const completionColor = calculateCompletionColor(completion);
+  const completionColor = calculateCompletionColor();
 
-  function calculateCompletion() {
-    if (tasks.length === done.length) {
-      return ChapterTaskStatus.COMPLETE; // All tasks are done
-    } else if (tasks.length === 0) {
-      return ChapterTaskStatus.EMPTY; // No tasks
-    } else if (inprogress.length > 0) {
-      return ChapterTaskStatus.IN_PROGRESS; // In progress
-    } else if (inprogress.length === 0 && done.length > 0) {
-      return ChapterTaskStatus.WAITING;
-    } else if (inprogress.length === 0 && done.length === 0) {
-      return ChapterTaskStatus.TODO;
-    } else if (todo.length >= 0) {
-      return ChapterTaskStatus.TODO;
+  function calculateCompletionColor() {
+    function calculateCompletion() {
+      if (tasks.length === done.length) {
+        return ChapterTaskStatus.COMPLETE; // All tasks are done
+      } else if (tasks.length === 0) {
+        return ChapterTaskStatus.EMPTY; // No tasks
+      } else if (inprogress.length > 0) {
+        return ChapterTaskStatus.IN_PROGRESS; // In progress
+      } else if (inprogress.length === 0 && done.length > 0) {
+        return ChapterTaskStatus.WAITING;
+      } else if (inprogress.length === 0 && done.length === 0) {
+        return ChapterTaskStatus.TODO;
+      } else if (todo.length >= 0) {
+        return ChapterTaskStatus.TODO;
+      }
+      return ChapterTaskStatus.EMPTY;
     }
-    return ChapterTaskStatus.EMPTY;
-  }
-
-  function calculateCompletionColor(chapterTaskStatus: ChapterTaskStatus) {
+    const chapterTaskStatus = calculateCompletion();
     switch (chapterTaskStatus) {
       case ChapterTaskStatus.COMPLETE:
         return 'bg-green-500';
@@ -77,7 +76,7 @@ export function PublicSpaceidebarItem() {
         <GlassWindowContents
           className={`flex cursor-pointer flex-col space-y-[1rem] p-[1rem]`}
           onClick={() => {
-            chapterListController.actions.stateActions.select(chapter);
+            chapterListController.actions.stateActions.select(chapterObj);
           }}
         >
           <div className='flex w-full justify-between space-x-[1rem]'>
@@ -85,18 +84,18 @@ export function PublicSpaceidebarItem() {
               <div
                 className={`h-[1rem] w-[1rem] animate-pulse rounded-full ${completionColor} flex-shrink-0`}
               ></div>
-              <h1 className='text-xl font-bold text-slate-300'>
-                {chapter.title}
-              </h1>
+              <p className='text-xl font-bold text-slate-300'>
+                {chapterObj.title}
+              </p>
             </div>
             {selected && (
               <div className='flex h-[2rem] w-[2rem] flex-shrink-0 items-center justify-center rounded-full bg-slate-500'>
                 <AstralColumnsIcon
                   onClick={() => {
                     window.open(
-                      `${spacesMap.spaces.id.board.link(
+                      `${spacesMap.spaces.id.progress.link(
                         spaceMainController.state.objId,
-                      )}?chapter=${chapter.id}`,
+                      )}?chapter=${chapterObj.id}`,
                     );
                   }}
                 />
@@ -106,10 +105,10 @@ export function PublicSpaceidebarItem() {
           {selected && (
             <>
               <p className='text-sm font-light text-slate-300'>
-                {chapter.objective}
+                {chapterObj.objective}
               </p>
               <p className='text-sm font-light text-slate-300'>
-                {chapter.description}
+                {chapterObj.description}
               </p>
             </>
           )}

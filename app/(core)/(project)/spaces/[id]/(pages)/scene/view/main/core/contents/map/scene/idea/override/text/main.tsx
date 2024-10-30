@@ -57,7 +57,7 @@ export function SpacesSceneTextIdea() {
       {ideaObj.textElem.variant === TextElementVariant.STICKY && (
         <div
           ref={divRef}
-          className='aspect-square h-full w-full rounded-lg border-[1px] border-slate-300 bg-yellow-500 p-[1rem] shadow-md'
+          className='aspect-square h-full w-full rounded-lg bg-yellow-500 p-[1rem] shadow-md'
         >
           <label htmlFor={`sticky-textarea-${ideaObj.id}`} className='sr-only'>
             Sticky Idea Text
