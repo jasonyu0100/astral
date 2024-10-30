@@ -8,7 +8,7 @@ import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { ContextForSpaceList } from '@/server/controller/space/list';
 import { ContextForSpaceObj } from '@/server/model/space/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { glassFx } from '@/style/data';
 import {
   Popover,
   PopoverContent,
@@ -26,7 +26,7 @@ export function StudioSpacesRowMore() {
         <AstralMoreVertIcon />
       </PopoverTrigger>
       <PopoverContent>
-        <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
+        <GlassWindowFrame className='p-[1rem]'>
           <GlassWindowContents className='flex flex-col space-y-[1rem]'>
             <div
               className='flex cursor-pointer flex-row space-x-[1rem]'

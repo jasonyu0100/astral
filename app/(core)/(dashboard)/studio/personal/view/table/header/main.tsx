@@ -12,7 +12,7 @@ export function StudioSpacesTableHeader() {
           <div className='col-span-2'>
             <p className='text-sm font-bold text-slate-500'>Space</p>
           </div>
-          <div className='flex items-center justify-center'>
+          <div>
             <p className='text-sm font-bold text-slate-500'>Type</p>
           </div>
           <div></div>

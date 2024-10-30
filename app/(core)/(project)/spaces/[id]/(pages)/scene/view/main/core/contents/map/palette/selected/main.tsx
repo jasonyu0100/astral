@@ -3,6 +3,7 @@ import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pag
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralContentCopyIcon } from '@/icons/content-copy/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
+import { AstralForwardIcon } from '@/icons/forward/main';
 import { AstralShareIcon } from '@/icons/share/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { useContext } from 'react';
@@ -27,6 +28,14 @@ export function SpacesScenePaletteSelected() {
       </div>
       <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
         <AstralContentCopyIcon
+          className='h-[2rem] w-[2rem]'
+          onClick={() => {
+            spacesSceneController.actions.copyIdeas();
+          }}
+        />
+      </div>
+      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+        <AstralForwardIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
             spacesSceneController.actions.copyIdeas();

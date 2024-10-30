@@ -1,12 +1,13 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton } from '@/components/form/button/main';
-import { FileSearchImage } from '@/components/form/file/search-image/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import {
   ContextForFileChangable,
   useControllerForFileChangable,
@@ -40,33 +41,34 @@ export function SpacesSceneAddGalleryModal() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <ContextForFileChangable.Provider value={fileChangableController}>
-        <PolaroidModal>
-          <FormContainer>
-            <FormTitle>Create Gallery</FormTitle>
-            <FormBody>
-              <FileSearchImage
-                fileElem={fileChangableController.fileElem}
-                onChange={fileChangableController.updateFileElem}
-                label='Thumbnail'
-              />
-              <FormInput
-                title='Title'
-                value={title}
-                onChange={(e) => changeTitle(e.target.value)}
-              />
-              <FormTextArea
-                title='Description'
-                rows={5}
-                value={description}
-                onChange={(e) => changeDescription(e.target.value)}
-                style={{ resize: 'none' }}
-              />
-            </FormBody>
-            <FormFooter>
-              <FormButton onClick={createGallery}>Create</FormButton>
-            </FormFooter>
-          </FormContainer>
-        </PolaroidModal>
+        <AstralModal>
+          <AstralModalBodyWrapper>
+            <AstralModalBody>
+              <AstralModalBodyContents>
+                <AstralModalTitle>Create Gallery</AstralModalTitle>
+                <AstralTextLineInput
+                  title='Title'
+                  placeholder='Enter title'
+                  value={title}
+                  onChange={(e) => changeTitle(e.target.value)}
+                />
+                <AstralTextAreaInput
+                  title='Description'
+                  rows={5}
+                  placeholder='Enter description'
+                  value={description}
+                  onChange={(e) => changeDescription(e.target.value)}
+                  style={{ resize: 'none' }}
+                />
+              </AstralModalBodyContents>
+              <AstralModalBodyAction>
+                <AstralRoundedActionButton onClick={createGallery}>
+                  <AstralArrowForwardIcon />
+                </AstralRoundedActionButton>
+              </AstralModalBodyAction>
+            </AstralModalBody>
+          </AstralModalBodyWrapper>
+        </AstralModal>
       </ContextForFileChangable.Provider>
     </ContextForOpenable.Provider>
   );

@@ -14,13 +14,13 @@ export function UserProfileSpacesRow() {
       <UserProfileSpacesRowInfo />
       <UserProfileSpacesRowCategory />
       <div></div>
-      <UserProfileSpacesRowIndicator />
       <div className='col-span-2 grid grid-cols-4'>
         <UserProfileSpacesRowDays />
         <UserProfileSpacesRowIdeas />
         <UserProfileSpacesRowLogs />
         <UserProfileSpacesRowPosts />
       </div>
+      <UserProfileSpacesRowIndicator />
     </div>
   );
 }

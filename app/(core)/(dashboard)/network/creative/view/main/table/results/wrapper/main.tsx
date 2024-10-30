@@ -1,12 +1,8 @@
 'use client';
-import { GlassWindowContents } from '@/components/glass/window/contents/main';
-import { GlassWindowFrame } from '@/components/glass/window/main';
-import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import {
   ContextForHoverable,
   useControllerForHoverable,
 } from '@/logic/contexts/hoverable/main';
-import { glassFx, roundedFx } from '@/style/data';
 
 export function NetworkCreativeRowWrapper({
   children,
@@ -18,20 +14,13 @@ export function NetworkCreativeRowWrapper({
   return (
     <ContextForHoverable.Provider value={hoverableController}>
       <div
-        className='w-full'
+        className={`flex h-full w-full flex-row items-center justify-between ${
+          hoverableController.hovered ? 'bg-slate-500 bg-opacity-30' : ''
+        }`}
         onMouseOver={() => hoverableController.onHover()}
         onMouseOut={() => hoverableController.onUnhover()}
       >
-        <GlassWindowFrame className='w-full' roundedFx={roundedFx.rounded}>
-          <GlassWindowContents
-            className={`flex h-full w-full flex-row items-center justify-between`}
-          >
-            {children}
-          </GlassWindowContents>
-          <GlassWindowPane
-            glassFx={`${hoverableController.hovered && glassFx['glass-10']}`}
-          />
-        </GlassWindowFrame>
+        {children}
       </div>
     </ContextForHoverable.Provider>
   );

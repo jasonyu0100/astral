@@ -13,7 +13,7 @@ export function StudioSpacesTableResults() {
   );
 
   return (
-    <div className='w-full px-[3rem] py-[1rem]'>
+    <div className='w-full px-[3rem]'>
       {spaceMemberListController.state.objs?.map((member, index) => (
         <ContextForIndexable.Provider value={index}>
           <ContextForSpaceMemberObj.Provider value={member} key={member.id}>

@@ -1,4 +1,3 @@
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import {
   ContextForSpaceList,
   useControllerForSpaceList,
@@ -14,8 +13,6 @@ export function UserProfileOverviewYour() {
   return (
     <ContextForSpaceList.Provider value={spaceListController}>
       <div className='flex w-full flex-col space-y-[2rem]'>
-        <p className='text-2xl font-bold text-slate-300'>Spaces</p>
-        <HorizontalDivider />
         <UserProfileSpacesTable />
       </div>
     </ContextForSpaceList.Provider>

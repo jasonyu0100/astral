@@ -1,12 +1,14 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { FileSearchImage } from '@/components/form/file/search-image/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
@@ -48,45 +50,47 @@ export function SpacesBoardAddChapterModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Add Chapter</FormTitle>
-          <FormBody>
-            <FormInput
-              title='Title'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <FormTextArea
-              title='Objective'
-              rows={5}
-              value={objective}
-              onChange={(e) => setObjective(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-            <FormTextArea
-              title='Description'
-              rows={5}
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-            <FileSearchImage
-              fileElem={background}
-              label='Background (optional)'
-              onChange={(file) => setBackground(file)}
-            ></FileSearchImage>
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              variant={FormButtonVariant.PRIMARY}
-              onClick={createChapter}
-            >
-              Add
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Add Chapter</AstralModalTitle>
+              <AstralTextLineInput
+                title='Title'
+                placeholder='Enter title'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <AstralTextAreaInput
+                title='Objective'
+                placeholder='Enter objective'
+                rows={5}
+                value={objective}
+                onChange={(e) => setObjective(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+              <AstralTextAreaInput
+                title='Description'
+                placeholder='Enter description'
+                rows={5}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+              <FileSearchImage
+                fileElem={background}
+                label='Background (optional)'
+                onChange={(file) => setBackground(file)}
+              ></FileSearchImage>
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={createChapter}>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

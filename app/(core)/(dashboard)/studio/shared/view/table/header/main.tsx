@@ -3,7 +3,7 @@ import { borderFx } from '@/style/data';
 
 export function StudioSpacesTableHeader() {
   return (
-    <div className='w-full px-[3rem]'>
+    <div className='w-full px-[3rem] pt-[3rem]'>
       <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
         <div className='grid w-full grid-cols-8 items-center py-[1rem]'>
           <div>
@@ -12,7 +12,7 @@ export function StudioSpacesTableHeader() {
           <div className='col-span-2'>
             <p className='text-sm font-bold text-slate-500'>Space</p>
           </div>
-          <div className='flex items-center justify-center'>
+          <div>
             <p className='text-sm font-bold text-slate-500'>Type</p>
           </div>
           <div></div>
