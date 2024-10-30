@@ -69,27 +69,6 @@ function KanbanRow({ title, tasks, status }) {
           borderFx={borderFx['border-around']}
         >
           <GlassWindowContents className='flex flex-row items-center space-x-[1rem] px-[1rem] py-[0.5rem]'>
-            {TaskStatus.TODO === status && (
-              <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-blue-500 font-bold'>
-                <p className='text-md font-bold text-slate-300'>
-                  {tasks.length}
-                </p>
-              </div>
-            )}
-            {TaskStatus.IN_PROGRESS === status && (
-              <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0  animate-pulse-slow items-center justify-center rounded-[1rem] bg-yellow-500 font-bold'>
-                <p className='text-md font-bold text-slate-300'>
-                  {tasks.length}
-                </p>
-              </div>
-            )}
-            {TaskStatus.DONE === status && (
-              <div className=' flex h-[1.5rem] w-[1.5rem] flex-shrink-0 animate-pulse-slow items-center justify-center rounded-[1rem] bg-green-500 font-bold'>
-                <p className='text-md font-bold text-slate-300'>
-                  {tasks.length}
-                </p>
-              </div>
-            )}
             <h2 className='text-lg font-semibold text-slate-300'>{title}</h2>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />
@@ -152,7 +131,7 @@ function KanbanTask({ task }) {
   return (
     <div
       ref={drag}
-      className={`h-full min-w-[200px] max-w-[260px] rounded border-slate-300 bg-yellow-500 p-4 shadow-sm ${
+      className={`h-full w-[250px] flex-shrink-0 rounded border-slate-300 bg-yellow-500 p-4 shadow-sm ${
         isDragging ? 'opacity-50' : ''
       } ${isSelected ? 'border-2 border-blue-500' : 'border'}`}
       style={{ cursor: 'move' }}

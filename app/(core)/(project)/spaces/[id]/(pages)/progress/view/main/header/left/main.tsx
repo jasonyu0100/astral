@@ -1,5 +1,6 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
+import { AstralEditSquareIcon } from '@/icons/edit-square/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -33,9 +34,9 @@ export function SpacesProgressHeaderLeft() {
       />
       <BarDividerIndicator />
       <AstralAddIcon onClick={() => modalController.addTaskController.open()} />
-      {/* <AstralManufacturingIcon
-        onClick={() => modalController.addGenerateController.open()}
-      /> */}
+      <AstralEditSquareIcon
+        onClick={() => alert('Task generation coming soon')}
+      />
     </div>
   );
 }

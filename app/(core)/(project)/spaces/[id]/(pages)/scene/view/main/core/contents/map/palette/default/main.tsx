@@ -2,12 +2,12 @@ import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pag
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralArrowLeft } from '@/icons/arrow-left/main';
+import { AstralArticleIcon } from '@/icons/article/main';
 import { AstralBookSparkIcon } from '@/icons/book-spark/main';
+import { AstralEditSquareIcon } from '@/icons/edit-square/main';
 import { AstralImageIcon } from '@/icons/image/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralMoreIcon } from '@/icons/more/main';
-import { AstralNoteIcon } from '@/icons/note/main';
-import { AstralRectangleIcon } from '@/icons/rectangle/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
@@ -25,11 +25,11 @@ export function SpacesScenePaletteDefault() {
           onClick={() => modalController.addFileIdeaController.open()}
         />
       </div>
-      <AstralNoteIcon
+      <AstralEditSquareIcon
         className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addStickyIdeaController.open()}
       />
-      <AstralRectangleIcon
+      <AstralArticleIcon
         className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addArticleIdeaController.open()}
       />

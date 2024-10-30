@@ -4,7 +4,7 @@ import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralContentCopyIcon } from '@/icons/content-copy/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralForwardIcon } from '@/icons/forward/main';
-import { AstralShareIcon } from '@/icons/share/main';
+import { AstralPolylineIcon } from '@/icons/polyline/main';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { useContext } from 'react';
 
@@ -54,7 +54,7 @@ export function SpacesScenePaletteSelected() {
       )}
       {spacesSceneController.state.selectedIdeas.length >= 2 && (
         <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
-          <AstralShareIcon
+          <AstralPolylineIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
               spacesSceneController.actions.linkIdeas();

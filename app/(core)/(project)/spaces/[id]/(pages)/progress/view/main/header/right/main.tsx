@@ -9,7 +9,7 @@ export function SpacesProgressHeaderRight() {
     <div className='flex w-1/3 flex-row items-center justify-end'>
       {spacesProgressController.state.selectedTasks.length === 0 && (
         <p className='animate-pulse-slow font-bold text-slate-500'>
-          Not selected
+          No tasks selected
         </p>
       )}
       {spacesProgressController.state.selectedTasks.length > 0 && (
@@ -20,7 +20,7 @@ export function SpacesProgressHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Generate Chaper (
+            Generate Conversation (
             {spacesProgressController.state.selectedTasks.length})
           </p>
           <AstralArrowForwardIcon />
