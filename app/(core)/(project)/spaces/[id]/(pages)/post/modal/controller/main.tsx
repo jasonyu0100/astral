@@ -5,7 +5,6 @@ import {
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
 import { SpacesPostAddChapterModal } from '../add/chapter/main';
-import { SpacesPostAddCommentModal } from '../add/comment/main';
 import { SpacesPostAddPostModal } from '../add/post/main';
 import { SpacesPostEditChapterModal } from '../edit/chapter/main';
 import { SpacesPostEditSpaceModal } from '../edit/space/main';
@@ -16,7 +15,6 @@ export const ContextForSpacesPostModals = createContext({} as SpacesPostModals);
 export interface SpacesPostModals {
   addSceneController: ContextForOpenableInterface;
   addPostController: ContextForOpenableInterface;
-  addCommentController: ContextForOpenableInterface;
   shareReviewController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
   editSpaceController: ContextForOpenableInterface;
@@ -24,7 +22,6 @@ export interface SpacesPostModals {
 }
 
 export function SpacesPostModals({ children }: { children: React.ReactNode }) {
-  const addCommentController = useControllerForOpenable();
   const shareReviewController = useControllerForOpenable();
   const addPostController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
@@ -35,7 +32,6 @@ export function SpacesPostModals({ children }: { children: React.ReactNode }) {
     <ContextForSpacesPostModals.Provider
       value={
         {
-          addCommentController: addCommentController,
           shareReviewController: shareReviewController,
           addPostController: addPostController,
           editChapterController: editChapterController,
@@ -45,9 +41,6 @@ export function SpacesPostModals({ children }: { children: React.ReactNode }) {
       }
     >
       {children}
-      <ContextForOpenable.Provider value={addCommentController}>
-        <SpacesPostAddCommentModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={shareReviewController}>
         <SpacesPostSharePostModal />
       </ContextForOpenable.Provider>
