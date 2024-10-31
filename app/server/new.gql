@@ -445,13 +445,6 @@ input CreatePostKarmaObjInput {
   neutrality: Boolean!
 }
 
-input CreatePostLinkObjInput {
-  postId: String!
-  userId: String!
-  logId: String!
-  created: String!
-}
-
 input CreatePostMemberObjInput {
   postId: String!
   userId: String!
@@ -535,13 +528,6 @@ input CreateSpaceMemberObjInput {
   created: String!
 }
 
-input CreateSpaceMemberTermsObjInput {
-  title: String!
-  description: String!
-  created: String!
-  end: String!
-}
-
 input CreateSpaceObjInput {
   userId: String!
   title: String!
@@ -598,31 +584,10 @@ input CreateUserBackerObjInput {
   userId: String!
   created: String!
 }
-
-input CreateUserBackerTermsObjInput {
-  title: String!
-  description: String!
-  created: String!
-  end: String!
-}
-
-input CreateUserCollaboratorObjInput {
-  userId: String!
-  collaboratorId: String!
-  created: String!
-}
-
 input CreateUserConnectionObjInput {
   sourceId: String!
   destinationId: String!
   created: String!
-}
-
-input CreateUserConnectionTermsObjInput {
-  title: String!
-  description: String!
-  created: String!
-  end: String!
 }
 
 input CreateUserObjInput {
@@ -660,12 +625,6 @@ input CreateUserReservationObjInput {
   lname: String!
   email: String!
   role: String!
-  created: String!
-}
-
-input CreateUserSupporterObjInput {
-  userId: String!
-  supporterId: String!
   created: String!
 }
 
@@ -791,10 +750,6 @@ input DeletePostKarmaObjInput {
   id: String!
 }
 
-input DeletePostLinkObjInput {
-  id: String!
-}
-
 input DeletePostMemberObjInput {
   id: String!
 }
@@ -830,11 +785,6 @@ input DeleteSpaceIdeaRelationshipObjInput {
 input DeleteSpaceMemberObjInput {
   id: String!
 }
-
-input DeleteSpaceMemberTermsObjInput {
-  id: String!
-}
-
 input DeleteSpaceObjInput {
   id: String!
 }
@@ -855,19 +805,7 @@ input DeleteUserBackerObjInput {
   id: String!
 }
 
-input DeleteUserBackerTermsObjInput {
-  id: String!
-}
-
-input DeleteUserCollaboratorObjInput {
-  id: String!
-}
-
 input DeleteUserConnectionObjInput {
-  id: String!
-}
-
-input DeleteUserConnectionTermsObjInput {
   id: String!
 }
 
@@ -880,10 +818,6 @@ input DeleteUserPostObjInput {
 }
 
 input DeleteUserReservationObjInput {
-  id: String!
-}
-
-input DeleteUserSupporterObjInput {
   id: String!
 }
 
@@ -1130,19 +1064,6 @@ type PostKarmaObjConnection {
   nextToken: String
 }
 
-type PostLinkObj {
-  id: String!
-  postId: String!
-  userId: String!
-  logId: String!
-  created: String!
-}
-
-type PostLinkObjConnection {
-  items: [PostLinkObj]
-  nextToken: String
-}
-
 type PostMemberObj {
   id: String!
   postId: String!
@@ -1277,19 +1198,6 @@ type SpaceMemberObj {
 
 type SpaceMemberObjConnection {
   items: [SpaceMemberObj]
-  nextToken: String
-}
-
-type SpaceMemberTermsObj {
-  id: String!
-  title: String!
-  description: String!
-  created: String!
-  end: String!
-}
-
-type SpaceMemberTermsObjConnection {
-  items: [SpaceMemberTermsObj]
   nextToken: String
 }
 
@@ -1627,14 +1535,6 @@ input TablePostKarmaObjFilterInput {
   neutrality: TableBooleanFilterInput
 }
 
-input TablePostLinkObjFilterInput {
-  id: TableStringFilterInput
-  postId: TableStringFilterInput
-  userId: TableStringFilterInput
-  logId: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
 input TablePostMemberObjFilterInput {
   id: TableStringFilterInput
   postId: TableStringFilterInput
@@ -1724,14 +1624,6 @@ input TableSpaceMemberObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableSpaceMemberTermsObjFilterInput {
-  id: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  end: TableStringFilterInput
-}
-
 input TableSpaceObjFilterInput {
   id: TableStringFilterInput
   userId: TableStringFilterInput
@@ -1808,34 +1700,11 @@ input TableUserBackerObjFilterInput {
   created: TableStringFilterInput
 }
 
-input TableUserBackerTermsObjFilterInput {
-  id: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  end: TableStringFilterInput
-}
-
-input TableUserCollaboratorObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  collaboratorId: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
 input TableUserConnectionObjFilterInput {
   id: TableStringFilterInput
   sourceId: TableStringFilterInput
   destinationId: TableStringFilterInput
   created: TableStringFilterInput
-}
-
-input TableUserConnectionTermsObjFilterInput {
-  id: TableStringFilterInput
-  title: TableStringFilterInput
-  description: TableStringFilterInput
-  created: TableStringFilterInput
-  end: TableStringFilterInput
 }
 
 input TableUserObjFilterInput {
@@ -1872,13 +1741,6 @@ input TableUserReservationObjFilterInput {
   lname: TableStringFilterInput
   email: TableStringFilterInput
   role: TableStringFilterInput
-  created: TableStringFilterInput
-}
-
-input TableUserSupporterObjFilterInput {
-  id: TableStringFilterInput
-  userId: TableStringFilterInput
-  supporterId: TableStringFilterInput
   created: TableStringFilterInput
 }
 
@@ -2203,14 +2065,6 @@ input UpdatePostKarmaObjInput {
   neutrality: Boolean
 }
 
-input UpdatePostLinkObjInput {
-  id: String!
-  postId: String
-  userId: String
-  logId: String
-  created: String
-}
-
 input UpdatePostMemberObjInput {
   id: String!
   postId: String
@@ -2303,14 +2157,6 @@ input UpdateSpaceMemberObjInput {
   created: String
 }
 
-input UpdateSpaceMemberTermsObjInput {
-  id: String!
-  title: String
-  description: String
-  created: String
-  end: String
-}
-
 input UpdateSpaceObjInput {
   id: String!
   userId: String
@@ -2373,34 +2219,11 @@ input UpdateUserBackerObjInput {
   created: String
 }
 
-input UpdateUserBackerTermsObjInput {
-  id: String!
-  title: String
-  description: String
-  created: String
-  end: String
-}
-
-input UpdateUserCollaboratorObjInput {
-  id: String!
-  userId: String
-  collaboratorId: String
-  created: String
-}
-
 input UpdateUserConnectionObjInput {
   id: String!
   sourceId: String
   destinationId: String
   created: String
-}
-
-input UpdateUserConnectionTermsObjInput {
-  id: String!
-  title: String
-  description: String
-  created: String
-  end: String
 }
 
 input UpdateUserObjInput {
@@ -2441,13 +2264,6 @@ input UpdateUserReservationObjInput {
   lname: String
   email: String
   role: String
-  created: String
-}
-
-input UpdateUserSupporterObjInput {
-  id: String!
-  userId: String
-  supporterId: String
   created: String
 }
 
@@ -2504,31 +2320,6 @@ type UserBackerObjConnection {
   nextToken: String
 }
 
-type UserBackerTermsObj {
-  id: String!
-  title: String!
-  description: String!
-  created: String!
-  end: String!
-}
-
-type UserBackerTermsObjConnection {
-  items: [UserBackerTermsObj]
-  nextToken: String
-}
-
-type UserCollaboratorObj {
-  id: String!
-  userId: String!
-  collaboratorId: String!
-  created: String!
-}
-
-type UserCollaboratorObjConnection {
-  items: [UserCollaboratorObj]
-  nextToken: String
-}
-
 type UserConnectionObj {
   id: String!
   sourceId: String!
@@ -2538,19 +2329,6 @@ type UserConnectionObj {
 
 type UserConnectionObjConnection {
   items: [UserConnectionObj]
-  nextToken: String
-}
-
-type UserConnectionTermsObj {
-  id: String!
-  title: String!
-  description: String!
-  created: String!
-  end: String!
-}
-
-type UserConnectionTermsObjConnection {
-  items: [UserConnectionTermsObj]
   nextToken: String
 }
 
@@ -2610,18 +2388,6 @@ type UserReservationObjConnection {
   nextToken: String
 }
 
-type UserSupporterObj {
-  id: String!
-  userId: String!
-  supporterId: String!
-  created: String!
-}
-
-type UserSupporterObjConnection {
-  items: [UserSupporterObj]
-  nextToken: String
-}
-
 type Mutation {
   createChapterSceneObj(input: CreateChapterSceneObjInput!): ChapterSceneObj
   updateChapterSceneObj(input: UpdateChapterSceneObjInput!): ChapterSceneObj
@@ -2659,18 +2425,6 @@ type Mutation {
   createSpaceMemberObj(input: CreateSpaceMemberObjInput!): SpaceMemberObj
   updateSpaceMemberObj(input: UpdateSpaceMemberObjInput!): SpaceMemberObj
   deleteSpaceMemberObj(input: DeleteSpaceMemberObjInput!): SpaceMemberObj
-  createUserCollaboratorObj(
-    input: CreateUserCollaboratorObjInput!
-  ): UserCollaboratorObj
-  updateUserCollaboratorObj(
-    input: UpdateUserCollaboratorObjInput!
-  ): UserCollaboratorObj
-  deleteUserCollaboratorObj(
-    input: DeleteUserCollaboratorObjInput!
-  ): UserCollaboratorObj
-  createUserSupporterObj(input: CreateUserSupporterObjInput!): UserSupporterObj
-  updateUserSupporterObj(input: UpdateUserSupporterObjInput!): UserSupporterObj
-  deleteUserSupporterObj(input: DeleteUserSupporterObjInput!): UserSupporterObj
   createUserReservationObj(
     input: CreateUserReservationObjInput!
   ): UserReservationObj
@@ -2722,33 +2476,6 @@ type Mutation {
   deleteUserConnectionObj(
     input: DeleteUserConnectionObjInput!
   ): UserConnectionObj
-  createUserConnectionTermsObj(
-    input: CreateUserConnectionTermsObjInput!
-  ): UserConnectionTermsObj
-  updateUserConnectionTermsObj(
-    input: UpdateUserConnectionTermsObjInput!
-  ): UserConnectionTermsObj
-  deleteUserConnectionTermsObj(
-    input: DeleteUserConnectionTermsObjInput!
-  ): UserConnectionTermsObj
-  createUserBackerTermsObj(
-    input: CreateUserBackerTermsObjInput!
-  ): UserBackerTermsObj
-  updateUserBackerTermsObj(
-    input: UpdateUserBackerTermsObjInput!
-  ): UserBackerTermsObj
-  deleteUserBackerTermsObj(
-    input: DeleteUserBackerTermsObjInput!
-  ): UserBackerTermsObj
-  createSpaceMemberTermsObj(
-    input: CreateSpaceMemberTermsObjInput!
-  ): SpaceMemberTermsObj
-  updateSpaceMemberTermsObj(
-    input: UpdateSpaceMemberTermsObjInput!
-  ): SpaceMemberTermsObj
-  deleteSpaceMemberTermsObj(
-    input: DeleteSpaceMemberTermsObjInput!
-  ): SpaceMemberTermsObj
   createChapterSessionContributorObj(
     input: CreateChapterSessionContributorObjInput!
   ): ChapterSessionContributorObj
@@ -2833,9 +2560,6 @@ type Mutation {
   createPostKarmaObj(input: CreatePostKarmaObjInput!): PostKarmaObj
   updatePostKarmaObj(input: UpdatePostKarmaObjInput!): PostKarmaObj
   deletePostKarmaObj(input: DeletePostKarmaObjInput!): PostKarmaObj
-  createPostLinkObj(input: CreatePostLinkObjInput!): PostLinkObj
-  updatePostLinkObj(input: UpdatePostLinkObjInput!): PostLinkObj
-  deletePostLinkObj(input: DeletePostLinkObjInput!): PostLinkObj
   createPostMemberObj(input: CreatePostMemberObjInput!): PostMemberObj
   updatePostMemberObj(input: UpdatePostMemberObjInput!): PostMemberObj
   deletePostMemberObj(input: DeletePostMemberObjInput!): PostMemberObj
@@ -2972,18 +2696,6 @@ type Query {
     limit: Int
     nextToken: String
   ): SpaceMemberObjConnection
-  getUserCollaboratorObj(id: String!): UserCollaboratorObj
-  listUserCollaboratorObjs(
-    filter: TableUserCollaboratorObjFilterInput
-    limit: Int
-    nextToken: String
-  ): UserCollaboratorObjConnection
-  getUserSupporterObj(id: String!): UserSupporterObj
-  listUserSupporterObjs(
-    filter: TableUserSupporterObjFilterInput
-    limit: Int
-    nextToken: String
-  ): UserSupporterObjConnection
   getUserReservationObj(id: String!): UserReservationObj
   listUserReservationObjs(
     filter: TableUserReservationObjFilterInput
@@ -3026,18 +2738,6 @@ type Query {
     limit: Int
     nextToken: String
   ): UserConnectionObjConnection
-  getUserConnectionTermsObj(id: String!): UserConnectionTermsObj
-  listUserConnectionTermsObjs(
-    filter: TableUserConnectionTermsObjFilterInput
-    limit: Int
-    nextToken: String
-  ): UserConnectionTermsObjConnection
-  getUserBackerTermsObj(id: String!): UserBackerTermsObj
-  listUserBackerTermsObjs(
-    filter: TableUserBackerTermsObjFilterInput
-    limit: Int
-    nextToken: String
-  ): UserBackerTermsObjConnection
   getChapterSessionContributorObj(id: String!): ChapterSessionContributorObj
   listChapterSessionContributorObjs(
     filter: TableChapterSessionContributorObjFilterInput
@@ -3122,12 +2822,6 @@ type Query {
     limit: Int
     nextToken: String
   ): PostKarmaObjConnection
-  getPostLinkObj(id: String!): PostLinkObj
-  listPostLinkObjs(
-    filter: TablePostLinkObjFilterInput
-    limit: Int
-    nextToken: String
-  ): PostLinkObjConnection
   getPostMemberObj(id: String!): PostMemberObj
   listPostMemberObjs(
     filter: TablePostMemberObjFilterInput
@@ -3392,39 +3086,6 @@ type Subscription {
     spaceId: String
     userId: String
   ): SpaceMemberObj @aws_subscribe(mutations: ["deleteSpaceMemberObj"])
-  onCreateUserCollaboratorObj(
-    id: String
-    userId: String
-    collaboratorId: String
-  ): UserCollaboratorObj
-    @aws_subscribe(mutations: ["createUserCollaboratorObj"])
-  onUpdateUserCollaboratorObj(
-    id: String
-    userId: String
-    collaboratorId: String
-  ): UserCollaboratorObj
-    @aws_subscribe(mutations: ["updateUserCollaboratorObj"])
-  onDeleteUserCollaboratorObj(
-    id: String
-    userId: String
-    collaboratorId: String
-  ): UserCollaboratorObj
-    @aws_subscribe(mutations: ["deleteUserCollaboratorObj"])
-  onCreateUserSupporterObj(
-    id: String
-    userId: String
-    supporterId: String
-  ): UserSupporterObj @aws_subscribe(mutations: ["createUserSupporterObj"])
-  onUpdateUserSupporterObj(
-    id: String
-    userId: String
-    supporterId: String
-  ): UserSupporterObj @aws_subscribe(mutations: ["updateUserSupporterObj"])
-  onDeleteUserSupporterObj(
-    id: String
-    userId: String
-    supporterId: String
-  ): UserSupporterObj @aws_subscribe(mutations: ["deleteUserSupporterObj"])
   onCreateUserReservationObj(
     id: String
     fname: String
@@ -3569,75 +3230,6 @@ type Subscription {
     connectedId: String
     created: String
   ): UserConnectionObj @aws_subscribe(mutations: ["deleteUserConnectionObj"])
-  onCreateUserConnectionTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): UserConnectionTermsObj
-    @aws_subscribe(mutations: ["createUserConnectionTermsObj"])
-  onUpdateUserConnectionTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): UserConnectionTermsObj
-    @aws_subscribe(mutations: ["updateUserConnectionTermsObj"])
-  onDeleteUserConnectionTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): UserConnectionTermsObj
-    @aws_subscribe(mutations: ["deleteUserConnectionTermsObj"])
-  onCreateUserBackerTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): UserBackerTermsObj @aws_subscribe(mutations: ["createUserBackerTermsObj"])
-  onUpdateUserBackerTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): UserBackerTermsObj @aws_subscribe(mutations: ["updateUserBackerTermsObj"])
-  onDeleteUserBackerTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): UserBackerTermsObj @aws_subscribe(mutations: ["deleteUserBackerTermsObj"])
-  onCreateSpaceMemberTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): SpaceMemberTermsObj
-    @aws_subscribe(mutations: ["createSpaceMemberTermsObj"])
-  onUpdateSpaceMemberTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): SpaceMemberTermsObj
-    @aws_subscribe(mutations: ["updateSpaceMemberTermsObj"])
-  onDeleteSpaceMemberTermsObj(
-    id: String
-    title: String
-    description: String
-    created: String
-    end: String
-  ): SpaceMemberTermsObj
-    @aws_subscribe(mutations: ["deleteSpaceMemberTermsObj"])
   onCreateChapterSessionContributorObj(
     id: String
     sessionId: String
@@ -3938,27 +3530,6 @@ type Subscription {
     created: String
     neutrality: Boolean
   ): PostKarmaObj @aws_subscribe(mutations: ["deletePostKarmaObj"])
-  onCreatePostLinkObj(
-    id: String
-    postId: String
-    userId: String
-    logId: String
-    created: String
-  ): PostLinkObj @aws_subscribe(mutations: ["createPostLinkObj"])
-  onUpdatePostLinkObj(
-    id: String
-    postId: String
-    userId: String
-    logId: String
-    created: String
-  ): PostLinkObj @aws_subscribe(mutations: ["updatePostLinkObj"])
-  onDeletePostLinkObj(
-    id: String
-    postId: String
-    userId: String
-    logId: String
-    created: String
-  ): PostLinkObj @aws_subscribe(mutations: ["deletePostLinkObj"])
   onCreatePostMemberObj(
     id: String
     postId: String
