@@ -2,7 +2,7 @@ import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { ContextForTaskList } from '@/server/controller/way/list';
+import { ContextForTaskList } from '@/server/controller/task/list';
 import { TaskStatus } from '@/server/model/task/main';
 import { useContext } from 'react';
 

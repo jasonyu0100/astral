@@ -1,4 +1,4 @@
-import { taskLinkDbWrapper } from '@/server/client/task/link/main';
+import { taskDbWrapper } from '@/server/client/task/main';
 import {
   BaseListCreateActions,
   BaseListDeleteActions,
@@ -6,16 +6,17 @@ import {
   BaseListGatherActions,
   BaseListStateActions,
 } from '@/server/controller/list';
-import { FileElement } from '@/server/model/elements/file/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { TextElement } from '@/server/model/elements/text/main';
-import { IdeaObj } from '@/server/model/idea/main';
-import { TaskLinkObj, taskLinkModel } from '@/server/model/task/link/main';
+import {
+  ChapterTaskStatus,
+  taskModel,
+  TaskObj,
+  TaskStatus,
+} from '@/server/model/task/main';
 import { createContext, useMemo, useState } from 'react';
 
-type TargetObj = TaskLinkObj;
-const gqlDbWrapper = taskLinkDbWrapper;
-const listIdKey = taskLinkModel.parentKey;
+type TargetObj = TaskObj;
+const gqlDbWrapper = taskDbWrapper;
+const listIdKey = taskModel.parentKey;
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -34,27 +35,17 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createLinkFromIdea: (
-    userId: string,
-    logId: string,
-    idea: IdeaObj,
-    spaceId: string,
+  createTask: (
     chapterId: string,
-    sceneId: string,
-  ) => Promise<TargetObj>;
-  createLinkFromFileIdea: (
     userId: string,
-    logId: string,
     title: string,
     description: string,
-    file: FileElement,
   ) => Promise<TargetObj>;
-  createLinkFromTextIdea: (
+  createBacklogTask: (
+    chapterId: string,
     userId: string,
-    logId: string,
     title: string,
     description: string,
-    text: TextElement,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -72,7 +63,7 @@ interface Controller {
   actions: ControllerActions;
 }
 
-export const useControllerForTaskLinkList = (
+export const useControllerForTaskList = (
   listId: string | boolean | number,
   initialId?: string | undefined | null,
 ): Controller => {
@@ -183,7 +174,7 @@ export const useControllerForTaskLinkList = (
         } else {
           const results = newObjs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.title);
           });
           changeQueryResults(results);
           return results;
@@ -196,7 +187,7 @@ export const useControllerForTaskLinkList = (
         } else {
           const results = objs.filter((obj) => {
             const regex = new RegExp(newQuery, 'i');
-            return regex.test(obj.id);
+            return regex.test(obj.title);
           });
           changeQueryResults(results);
           return results;
@@ -255,7 +246,6 @@ export const useControllerForTaskLinkList = (
       const sortedObjs = stateActions.sortedViaDate(objs);
       const reverseObjs = sortedObjs.reverse();
       changeObjs(reverseObjs);
-      changeQueryResults(reverseObjs);
       changeId(reverseObjs.at(0)?.id || '');
       return reverseObjs;
     },
@@ -280,11 +270,10 @@ export const useControllerForTaskLinkList = (
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: '',
-        taskId: '',
+        chapterId: '',
+        taskStatus: '',
         title: '',
         description: '',
-        variant: '',
-        fromIdea: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -292,75 +281,29 @@ export const useControllerForTaskLinkList = (
       changeId(newObj.id);
       return newObj;
     },
-    createLinkFromFileIdea: async (
-      userId: string,
-      logId: string,
-      title: string,
-      description: string,
-      file: FileElement,
-    ) => {
+    createTask: async (chapterId, userId, title, description) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
-        taskId: logId,
-        title: title,
-        description: description,
-        variant: ElementVariant.FILE,
-        fileElem: file,
-        fromIdea: false,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createLinkFromTextIdea: async (
-      userId: string,
-      logId: string,
-      title: string,
-      description: string,
-      text: TextElement,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        taskId: logId,
-        title: title,
-        description: description,
-        variant: ElementVariant.TEXT,
-        textElem: text,
-        fromIdea: false,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createLinkFromIdea: async (
-      userId: string,
-      logId: string,
-      idea: IdeaObj,
-      spaceId: string,
-      chapterId: string,
-      sceneId: string,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        taskId: logId,
-        title: idea.title,
-        description: idea.description,
-        variant: idea.variant,
-        fileElem: idea.fileElem,
-        textElem: idea.textElem,
-        urlElem: idea.urlElem,
-        ideaId: idea.id,
-        spaceId: spaceId,
         chapterId: chapterId,
-        sceneId: sceneId,
-        fromIdea: true,
+        taskStatus: TaskStatus.TODO,
+        title: title,
+        description: description,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createBacklogTask: async (chapterId, userId, title, description) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        chapterId: chapterId,
+        taskStatus: TaskStatus.BACKLOG,
+        title: title,
+        description: description,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -440,11 +383,9 @@ export const useControllerForTaskLinkList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
+      controllerActions.gatherActions.gatherFromBeginning().then(() => {
         if (initialId) {
-          if (objs.find((obj) => obj.id === initialId)) {
-            stateActions.selectViaId(initialId);
-          }
+          stateActions.selectViaId(initialId);
         }
       });
     }
@@ -456,4 +397,48 @@ export const useControllerForTaskLinkList = (
   };
 };
 
-export const ContextForTaskLinkList = createContext({} as Controller);
+export const ContextForTaskList = createContext({} as Controller);
+
+export function calculateCompletionColor(taskListController: Controller) {
+  const tasks = taskListController.state.objs;
+  const todo = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.TODO,
+  );
+  const inprogress = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.IN_PROGRESS,
+  );
+  const done = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.DONE,
+  );
+  function calculateCompletion() {
+    if (tasks.length === done.length) {
+      return ChapterTaskStatus.COMPLETE; // All tasks are done
+    } else if (tasks.length === 0) {
+      return ChapterTaskStatus.EMPTY; // No tasks
+    } else if (inprogress.length > 0) {
+      return ChapterTaskStatus.IN_PROGRESS; // In progress
+    } else if (inprogress.length === 0 && done.length > 0) {
+      return ChapterTaskStatus.WAITING;
+    } else if (inprogress.length === 0 && done.length === 0) {
+      return ChapterTaskStatus.TODO;
+    } else if (todo.length >= 0) {
+      return ChapterTaskStatus.TODO;
+    }
+    return ChapterTaskStatus.EMPTY;
+  }
+  const chapterTaskStatus = calculateCompletion();
+  switch (chapterTaskStatus) {
+    case ChapterTaskStatus.COMPLETE:
+      return 'bg-green-500';
+    case ChapterTaskStatus.IN_PROGRESS:
+      return 'bg-yellow-500';
+    case ChapterTaskStatus.TODO:
+      return 'bg-red-500';
+    case ChapterTaskStatus.WAITING:
+      return 'bg-blue-500';
+    case ChapterTaskStatus.EMPTY:
+      return 'bg-slate-500'; // No tasks at all
+    default:
+      return 'bg-red-500';
+  }
+}

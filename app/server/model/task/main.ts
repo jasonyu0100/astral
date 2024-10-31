@@ -2,9 +2,9 @@ import { ModelInterface } from '@/server/model/main';
 import { createContext } from 'react';
 
 export enum TaskStatus {
+  BACKLOG = 'backlog',
   TODO = 'todo',
   IN_PROGRESS = 'in-progress',
-  REVIEW = 'review',
   DONE = 'done',
 }
 

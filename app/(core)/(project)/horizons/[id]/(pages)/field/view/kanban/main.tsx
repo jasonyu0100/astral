@@ -1,4 +1,4 @@
-import { ContextForTaskList } from '@/server/controller/way/list';
+import { ContextForTaskList } from '@/server/controller/task/list';
 import {
   ContextForTaskObj,
   TaskObj,
@@ -139,7 +139,7 @@ export function HorizonsFieldKanban() {
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
-              id={TaskStatus.REVIEW}
+              id={TaskStatus.BACKLOG}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >

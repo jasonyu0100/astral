@@ -3,7 +3,7 @@ import { useControllerForUserActivityListFromChapter } from '@/server/controller
 import { useControllerForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/server/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/server/controller/space/member/list';
-import { useControllerForTaskList } from '@/server/controller/way/list';
+import { useControllerForTaskList } from '@/server/controller/task/list';
 import {
   exampleFileElement,
   FileElement,

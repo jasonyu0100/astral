@@ -11,7 +11,10 @@ export function SpacesProgressSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <div className='flex w-full flex-col' style={{ height: '100%' }}>
+    <div
+      className='flex w-full flex-col overflow-auto'
+      style={{ height: '100%' }}
+    >
       <GlassWindowFrame className='h-full w-full flex-shrink-0'>
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
           {chapterListController.state.objs.map((chapter) => (

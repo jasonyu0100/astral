@@ -4,6 +4,7 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
+import { SpacesProgressAddBacklogTaskModal } from '../add/backlog-task/main';
 import { SpacesProgressAddChapterModal } from '../add/chapter/main';
 import { SpacesProgressAddTaskModal } from '../add/task/main';
 import { SpacesProgressEditChapterModal } from '../edit/chapter/main';
@@ -17,6 +18,7 @@ export const ContextForSpacesProgressModals = createContext(
 export interface SpacesProgressModals {
   addUpdateController: ContextForOpenableInterface;
   addTaskController: ContextForOpenableInterface;
+  addBacklogTaskController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
   addGenerateController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
@@ -34,6 +36,7 @@ export function SpacesProgressModals({
   const addGenerateController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
+  const addBacklogTaskController = useControllerForOpenable();
 
   return (
     <ContextForSpacesProgressModals.Provider
@@ -44,6 +47,7 @@ export function SpacesProgressModals({
         addGenerateController: addGenerateController,
         editChapterController: editChapterController,
         editSpaceController: editSpaceController,
+        addBacklogTaskController: addBacklogTaskController,
       }}
     >
       {children}
@@ -61,6 +65,9 @@ export function SpacesProgressModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSpaceController}>
         <SpacesProgressEditSpaceModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addBacklogTaskController}>
+        <SpacesProgressAddBacklogTaskModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesProgressModals.Provider>
   );

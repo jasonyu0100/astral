@@ -9,7 +9,7 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { ContextForTaskList } from '@/server/controller/way/list';
+import { ContextForTaskList } from '@/server/controller/task/list';
 import { useContext, useState } from 'react';
 
 export function SpacesProgressGenerateTasksModal() {

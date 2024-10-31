@@ -19,7 +19,7 @@ import {
 import {
   ContextForTaskList,
   useControllerForTaskList,
-} from '@/server/controller/way/list';
+} from '@/server/controller/task/list';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';

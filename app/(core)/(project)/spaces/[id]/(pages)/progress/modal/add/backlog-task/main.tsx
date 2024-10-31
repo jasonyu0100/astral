@@ -14,7 +14,7 @@ import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ContextForTaskList } from '@/server/controller/task/list';
 import { useContext, useState } from 'react';
 
-export function SpacesProgressAddTaskModal() {
+export function SpacesProgressAddBacklogTaskModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
@@ -26,13 +26,14 @@ export function SpacesProgressAddTaskModal() {
     chapterListController.state.objId,
   );
 
-  async function createTask() {
-    const task = await taskListController.actions.createActions.createTask(
-      chapterListController.state.objId,
-      user.id,
-      title,
-      description,
-    );
+  async function createBacklogTask() {
+    const task =
+      await taskListController.actions.createActions.createBacklogTask(
+        chapterListController.state.objId,
+        user.id,
+        title,
+        description,
+      );
     await activityListController.actions.createActions.createFromChapterTask(
       user.id,
       spaceController.state.objId,
@@ -48,7 +49,7 @@ export function SpacesProgressAddTaskModal() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <AstralModalTitle>Add to Todo</AstralModalTitle>
+              <AstralModalTitle>Add to Backlog</AstralModalTitle>
               <div className='aspect-square w-[400px] space-y-[2rem] bg-yellow-500 p-[2rem]'>
                 <input
                   placeholder='Enter title here...'
@@ -63,7 +64,7 @@ export function SpacesProgressAddTaskModal() {
               </div>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
-              <AstralRoundedActionButton onClick={createTask}>
+              <AstralRoundedActionButton onClick={createBacklogTask}>
                 <AstralArrowForwardIcon />
               </AstralRoundedActionButton>
             </AstralModalBodyAction>

@@ -1,14 +1,18 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralCloseIcon } from '@/icons/close/main';
-import { ContextForTaskList } from '@/server/controller/way/list';
+import { ContextForTaskList } from '@/server/controller/task/list';
 import { exampleTask, TaskStatus } from '@/server/model/task/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { ContextForSpacesProgress } from '../../../../controller/main';
+import {
+  ContextForSpacesProgress,
+  SpacesProgressSidebarMode,
+} from '../../../../controller/main';
 
 const ItemType = {
   TASK: 'task',
@@ -152,7 +156,7 @@ function KanbanTask({ task }) {
         }
       }}
     >
-      <div className='flex items-start justify-between'>
+      <div className='flex items-start justify-between space-x-[1rem]'>
         {isEditingTitle ? (
           <input
             type='text'
@@ -172,9 +176,23 @@ function KanbanTask({ task }) {
             {title || 'Click to add title...'} {/* Placeholder text */}
           </p>
         )}
-        <button onClick={deleteTask} className='ml-[1rem]' title='Delete Task'>
-          <AstralCloseIcon className='fill-slate-50 opacity-50' />
-        </button>
+        <div className='flex flex-row space-x-[1rem]'>
+          <button
+            onClick={() => {
+              taskListController.actions.editActions.edit(task.id, {
+                taskStatus: TaskStatus.BACKLOG,
+              });
+              spacesProgressController.actions.updateSidebarMode(
+                SpacesProgressSidebarMode.BACKLOG,
+              );
+            }}
+          >
+            <AstralBackIndicatorIcon className='fill-slate-50 opacity-50' />
+          </button>
+          <button onClick={deleteTask}>
+            <AstralCloseIcon className='fill-slate-50 opacity-50' />
+          </button>
+        </div>
       </div>
       {isEditingDescription ? (
         <input

@@ -5,7 +5,7 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralColumnsIcon } from '@/icons/columns/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { useControllerForTaskList } from '@/server/controller/way/list';
+import { useControllerForTaskList } from '@/server/controller/task/list';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { ChapterTaskStatus, TaskStatus } from '@/server/model/task/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';

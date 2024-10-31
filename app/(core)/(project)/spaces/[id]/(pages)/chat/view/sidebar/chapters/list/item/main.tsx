@@ -6,7 +6,7 @@ import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/li
 import {
   ContextForTaskList,
   calculateCompletionColor,
-} from '@/server/controller/way/list';
+} from '@/server/controller/task/list';
 import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
