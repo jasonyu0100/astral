@@ -1,14 +1,14 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 
-export function StudioSpacesContainer({
+export function StudioSharedContainer({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
     <GlassAreaContainer
-      name={StudioSpacesContainer.name}
+      name={StudioSharedContainer.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-10']}
       borderFx={borderFx['border-around']}

@@ -3,7 +3,7 @@
 import { ContextForSpaceObj } from '@/server/model/space/main';
 import { useContext } from 'react';
 
-export function StudioSpacesRowCategory() {
+export function StudioPersonalRowCategory() {
   const space = useContext(ContextForSpaceObj);
 
   return (

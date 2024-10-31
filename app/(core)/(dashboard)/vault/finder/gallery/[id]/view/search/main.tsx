@@ -20,7 +20,7 @@ export function FinderGalleryCollectionsSearch() {
         >
           <input
             className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
-            placeholder='Search within...'
+            placeholder='Search...'
             onChange={(e) => {
               collectionListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,

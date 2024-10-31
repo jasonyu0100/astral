@@ -4,7 +4,7 @@ import {
   useControllerForHoverable,
 } from '@/logic/contexts/hoverable/main';
 
-export function StudioSpacesRowWrapper({
+export function StudioPersonalRowWrapper({
   children,
 }: {
   children: React.ReactNode;

@@ -16,7 +16,7 @@ import {
   ContextForCreateSpace,
   useControllerForCreateSpace,
 } from './(modal)/create-space/(controller)/create-space/main';
-import { StudioSpacesView } from './view/view';
+import { StudioPersonalView } from './view/view';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
@@ -28,7 +28,7 @@ function Page() {
         <SpacesPersonalModals>
           <ControllerWrapper>
             <EffectWrapper>
-              <StudioSpacesView />
+              <StudioPersonalView />
             </EffectWrapper>
           </ControllerWrapper>
         </SpacesPersonalModals>

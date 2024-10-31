@@ -1,29 +1,29 @@
-import { StudioSpacesRowIndicator } from './activity/main';
-import { StudioSpacesRowCategory } from './category/main';
-import { StudioSpacesRowInfo } from './info/main';
-import { StudioSpacesRowMore } from './more/main';
-import { StudioSpacesRowNumber } from './number/main';
-import { StudioSpacesRowDays } from './stat/day/main';
-import { StudioSpacesRowIdeas } from './stat/ideas/main';
-import { StudioSpacesRowLogs } from './stat/logs/main';
-import { StudioSpacesRowPosts } from './stat/posts/main';
+import { StudioPersonalRowIndicator } from './activity/main';
+import { StudioPersonalRowCategory } from './category/main';
+import { StudioPersonalRowInfo } from './info/main';
+import { StudioPersonalRowMore } from './more/main';
+import { StudioPersonalRowNumber } from './number/main';
+import { StudioPersonalRowDays } from './stat/day/main';
+import { StudioPersonalRowIdeas } from './stat/ideas/main';
+import { StudioPersonalRowLogs } from './stat/logs/main';
+import { StudioPersonalRowPosts } from './stat/posts/main';
 
-export function StudioSpacesRow() {
+export function StudioPersonalRow() {
   return (
     <>
       <div className='grid w-full grid-cols-8 py-[2rem]'>
-        <StudioSpacesRowNumber />
-        <StudioSpacesRowInfo />
-        <StudioSpacesRowCategory />
-        <StudioSpacesRowIndicator />
+        <StudioPersonalRowNumber />
+        <StudioPersonalRowInfo />
+        <StudioPersonalRowCategory />
+        <StudioPersonalRowIndicator />
         <div className='col-span-2 grid grid-cols-4'>
-          <StudioSpacesRowDays />
-          <StudioSpacesRowIdeas />
-          <StudioSpacesRowLogs />
-          <StudioSpacesRowPosts />
+          <StudioPersonalRowDays />
+          <StudioPersonalRowIdeas />
+          <StudioPersonalRowLogs />
+          <StudioPersonalRowPosts />
         </div>
         <div className='flex items-center justify-center'>
-          <StudioSpacesRowMore />
+          <StudioPersonalRowMore />
         </div>
       </div>
     </>

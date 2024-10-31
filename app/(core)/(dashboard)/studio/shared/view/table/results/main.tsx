@@ -4,10 +4,10 @@ import { ContextForSpaceMemberListFromUser } from '@/server/controller/space/mem
 import { ContextForSpaceObj } from '@/server/model/space/main';
 import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
 import { useContext } from 'react';
-import { StudioSpacesRow } from './row/main';
-import { StudioSpacesRowWrapper } from './wrapper/main';
+import { StudioSharedRow } from './row/main';
+import { StudioSharedRowWrapper } from './wrapper/main';
 
-export function StudioSpacesTableResults() {
+export function StudioSharedTableResults() {
   const spaceMemberListController = useContext(
     ContextForSpaceMemberListFromUser,
   );
@@ -33,9 +33,9 @@ function StudioSharedSpace() {
     <>
       {spaceMainController.state.obj && (
         <ContextForSpaceObj.Provider value={spaceMainController.state.obj}>
-          <StudioSpacesRowWrapper>
-            <StudioSpacesRow />
-          </StudioSpacesRowWrapper>
+          <StudioSharedRowWrapper>
+            <StudioSharedRow />
+          </StudioSharedRowWrapper>
         </ContextForSpaceObj.Provider>
       )}
     </>

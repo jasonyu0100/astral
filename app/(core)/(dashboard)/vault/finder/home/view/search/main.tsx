@@ -21,7 +21,7 @@ export function FinderHomeGallerysSearch() {
         >
           <input
             className='h-full w-full animate-pulse-slow rounded-full bg-transparent px-[2rem] text-2xl font-bold text-slate-300 outline-none'
-            placeholder='Find purpose...'
+            placeholder='Search...'
             onChange={(e) =>
               galleryListController.actions.stateActions.searchAndUpdateQuery(
                 e.target.value,

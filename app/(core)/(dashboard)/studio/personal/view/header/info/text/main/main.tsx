@@ -1,4 +1,4 @@
-export function StudioSpacesHeaderTextMain({
+export function StudioPersonalHeaderTextMain({
   children,
 }: {
   children?: React.ReactNode;

@@ -1,17 +1,17 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { StudioSpacesTableHeader } from './header/main';
-import { StudioSpacesTableResults } from './results/main';
+import { StudioSharedTableHeader } from './header/main';
+import { StudioSharedTableResults } from './results/main';
 
-export function StudioSpacesTable() {
+export function StudioSharedTable() {
   return (
     <GlassAreaContainer
       sizeFx='flex-grow'
-      name={StudioSpacesTable.name}
+      name={StudioSharedTable.name}
       className={`divide-y-[1px] divide-slate-500 divide-opacity-30 overflow-auto`}
     >
       <div className='flex w-full flex-col'>
-        <StudioSpacesTableHeader />
-        <StudioSpacesTableResults />
+        <StudioSharedTableHeader />
+        <StudioSharedTableResults />
       </div>
     </GlassAreaContainer>
   );

@@ -3,7 +3,7 @@ import { AstralPlayIcon } from '@/icons/play/main';
 import { ContextForSpaceObj } from '@/server/model/space/main';
 import { useContext } from 'react';
 
-export function StudioSpacesNumberPlay() {
+export function StudioSharedNumberPlay() {
   const space = useContext(ContextForSpaceObj);
 
   return (

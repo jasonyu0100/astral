@@ -1,7 +1,7 @@
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { borderFx } from '@/style/data';
 
-export function StudioSpacesTableHeader() {
+export function StudioPersonalTableHeader() {
   return (
     <div className='w-full px-[3rem]'>
       <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>

@@ -3,7 +3,7 @@ import { UserActivityVariant } from '@/server/model/activity/main';
 import { ContextForSpaceObj } from '@/server/model/space/main';
 import { useContext } from 'react';
 
-export function StudioSpacesRowPosts() {
+export function StudioSharedRowPosts() {
   const spaceObj = useContext(ContextForSpaceObj);
   const reviewactivityListController =
     useControllerForUserActivityListFromSpace(spaceObj.id);

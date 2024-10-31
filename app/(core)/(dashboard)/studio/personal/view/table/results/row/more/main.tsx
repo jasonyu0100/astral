@@ -16,7 +16,7 @@ import {
 } from '@radix-ui/react-popover';
 import { useContext } from 'react';
 
-export function StudioSpacesRowMore() {
+export function StudioPersonalRowMore() {
   const spaceListController = useContext(ContextForSpaceList);
   const spaceObj = useContext(ContextForSpaceObj);
 
@@ -38,7 +38,7 @@ export function StudioSpacesRowMore() {
               }}
             >
               <AstralLinkIcon />
-              <p className='font-bold text-slate-300'>View Public</p>
+              <p className='font-bold text-slate-300'>View Live</p>
             </div>
             <HorizontalDivider />
             <div

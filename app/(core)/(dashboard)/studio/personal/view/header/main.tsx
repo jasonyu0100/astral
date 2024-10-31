@@ -11,10 +11,10 @@ import {
 } from '@/logic/contexts/pagination/main';
 import { glassFx } from '@/style/data';
 import { CreateSpaceModalView } from '../../(modal)/create-space/main';
-import { StudioSpacesHeaderAdd } from './add/main';
-import { StudioSpacesHeaderInfo } from './info/main';
+import { StudioPersonalHeaderAdd } from './add/main';
+import { StudioPersonalHeaderInfo } from './info/main';
 
-export function StudioSpacesHeader() {
+export function StudioPersonalHeader() {
   const openableController = useControllerForOpenable();
   const pageableController = useControllerForPagable();
 
@@ -27,11 +27,11 @@ export function StudioSpacesHeader() {
       </ContextForOpenable.Provider>
       <GlassWindowFrame
         className='w-full px-[4rem] py-[2rem]'
-        name={StudioSpacesHeader.name}
+        name={StudioPersonalHeader.name}
       >
         <GlassWindowContents className='flex flex-row items-center'>
-          <StudioSpacesHeaderInfo />
-          <StudioSpacesHeaderAdd
+          <StudioPersonalHeaderInfo />
+          <StudioPersonalHeaderAdd
             onClick={() => {
               openableController.open();
             }}

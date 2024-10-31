@@ -6,7 +6,7 @@ import {
 } from '@/server/controller/space/member/list-from-user';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
-import { StudioSpacesView } from './view/view';
+import { StudioSharedView } from './view/view';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
@@ -19,7 +19,7 @@ function Page() {
       <ContextForSpaceMemberListFromUser.Provider
         value={spaceMemberListController}
       >
-        <StudioSpacesView />
+        <StudioSharedView />
       </ContextForSpaceMemberListFromUser.Provider>
     </ContextForLoggedInUserObj.Provider>
   );

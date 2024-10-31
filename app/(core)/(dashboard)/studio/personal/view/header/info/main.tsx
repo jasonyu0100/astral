@@ -1,12 +1,12 @@
 'use client';
-import { StudioSpacesHeaderCover } from './cover/main';
-import { StudioSpacesHeaderText } from './text/main';
+import { StudioPersonalHeaderCover } from './cover/main';
+import { StudioPersonalHeaderText } from './text/main';
 
-export function StudioSpacesHeaderInfo() {
+export function StudioPersonalHeaderInfo() {
   return (
     <div className='flex h-full flex-row items-center space-x-[2rem]'>
-      <StudioSpacesHeaderCover />
-      <StudioSpacesHeaderText />
+      <StudioPersonalHeaderCover />
+      <StudioPersonalHeaderText />
     </div>
   );
 }

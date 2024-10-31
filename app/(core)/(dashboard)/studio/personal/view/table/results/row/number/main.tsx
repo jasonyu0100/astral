@@ -2,14 +2,14 @@
 
 import { ContextForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext } from 'react';
-import { StudioSpacesNumberPlay } from './play/main';
-import { StudioSpacesNumberText } from './text/main';
+import { StudioPersonalNumberPlay } from './play/main';
+import { StudioPersonalNumberText } from './text/main';
 
-export function StudioSpacesRowNumber() {
+export function StudioPersonalRowNumber() {
   const { hovered } = useContext(ContextForHoverable);
   return (
     <div className='flex w-full flex-row items-center justify-center'>
-      {hovered ? <StudioSpacesNumberPlay /> : <StudioSpacesNumberText />}
+      {hovered ? <StudioPersonalNumberPlay /> : <StudioPersonalNumberText />}
     </div>
   );
 }

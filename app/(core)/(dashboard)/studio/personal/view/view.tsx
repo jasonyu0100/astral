@@ -1,13 +1,13 @@
 'use client';
-import { StudioSpacesContainer } from './container/main';
-import { StudioSpacesHeader } from './header/main';
-import { StudioSpacesTable } from './table/main';
+import { StudioPersonalContainer } from './container/main';
+import { StudioPersonalHeader } from './header/main';
+import { StudioPersonalTable } from './table/main';
 
-export function StudioSpacesView() {
+export function StudioPersonalView() {
   return (
-    <StudioSpacesContainer>
-      <StudioSpacesHeader />
-      <StudioSpacesTable />
-    </StudioSpacesContainer>
+    <StudioPersonalContainer>
+      <StudioPersonalHeader />
+      <StudioPersonalTable />
+    </StudioPersonalContainer>
   );
 }

@@ -1,7 +1,7 @@
 import { ContextForSpaceObj } from '@/server/model/space/main';
 import { useContext } from 'react';
 
-export function StudioSpacesRowDays() {
+export function StudioPersonalRowDays() {
   const space = useContext(ContextForSpaceObj);
   const timeDiff = new Date().getTime() - new Date(space.created).getTime();
   const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));

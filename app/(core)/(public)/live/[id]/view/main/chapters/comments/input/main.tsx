@@ -32,7 +32,7 @@ export function PublicSpacePageInput() {
           <GlassWindowContents>
             <input
               className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent p-[2rem] font-bold text-slate-300 outline-none'
-              placeholder='Venture forth...'
+              placeholder='Search...'
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></input>
