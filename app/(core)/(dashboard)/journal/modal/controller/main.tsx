@@ -4,7 +4,6 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { DashboardJournalAddCollectionModal } from '../add/collection/main';
 import { DashboardJournalAddFileModal } from '../add/idea/file/main';
 import { DashboardJournalAddSpotifyUrlModal } from '../add/idea/spotify/main';
 import { DashboardJournalAddTextStickyModal } from '../add/idea/text/main';
@@ -16,7 +15,6 @@ export const ContextForDashboardJournalModals = createContext(
 );
 
 export interface DashboardJournalModalsController {
-  addCollectionModal: ContextForOpenableInterface;
   addFileModal: ContextForOpenableInterface;
   addUrlSpotifyModal: ContextForOpenableInterface;
   addUrlYouTubeModal: ContextForOpenableInterface;
@@ -29,7 +27,6 @@ export function DashboardJournalModals({
 }: {
   children: React.ReactNode;
 }) {
-  const addCollectionModal = useControllerForOpenable();
   const addFileModal = useControllerForOpenable();
   const addUrlSpotifyModal = useControllerForOpenable();
   const addUrlYouTubeModal = useControllerForOpenable();
@@ -39,7 +36,6 @@ export function DashboardJournalModals({
   return (
     <ContextForDashboardJournalModals.Provider
       value={{
-        addCollectionModal: addCollectionModal,
         addFileModal: addFileModal,
         addUrlSpotifyModal: addUrlSpotifyModal,
         addUrlYouTubeModal: addUrlYouTubeModal,
@@ -48,9 +44,6 @@ export function DashboardJournalModals({
       }}
     >
       {children}
-      <ContextForOpenable.Provider value={addCollectionModal}>
-        <DashboardJournalAddCollectionModal />
-      </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addFileModal}>
         <DashboardJournalAddFileModal />
       </ContextForOpenable.Provider>

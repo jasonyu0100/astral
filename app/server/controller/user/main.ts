@@ -39,7 +39,7 @@ interface CreateActions extends BaseCreateActions<TargetObj> {
     role: string,
     email: string,
     password: string,
-  ): Promise<TargetObj>;
+  ): Promise<TargetObj | undefined>;
 }
 interface DeleteActions extends BaseDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -65,6 +65,16 @@ export const useControllerForUserMain = (objId: string): Controller => {
 
   const stateActions: StateActions = {
     checkEmail: async (email: string) => {
+      // Email validation regex pattern
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Check if email is valid
+      if (!emailRegex.test(email)) {
+        alert('Invalid email format');
+        return false; // Invalid email format
+      }
+
+      // Proceed with database query if email is valid
       const users = await gqlDbWrapper.listFromVariables({
         filter: {
           email: {
@@ -72,8 +82,10 @@ export const useControllerForUserMain = (objId: string): Controller => {
           },
         },
       });
+
       return users.length > 0;
     },
+
     polarAuth: async (email: string) => {
       console.log(email);
       alert('Authing email via Polaroid');
@@ -157,8 +169,8 @@ export const useControllerForUserMain = (objId: string): Controller => {
       password: string,
     ) => {
       const emailCheck = await stateActions.checkEmail(email);
-      if (emailCheck) {
-        return {} as TargetObj;
+      if (emailCheck !== true) {
+        return undefined;
       }
       const passwordHash = await bcrypt.hash(password, 10);
       const user = await gqlDbWrapper.createObj({

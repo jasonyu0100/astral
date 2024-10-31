@@ -45,7 +45,7 @@ export function VaultFinderCreateResourceModal() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <AstralModalTitle>Add Reesource</AstralModalTitle>
+              <AstralModalTitle>Add Resource</AstralModalTitle>
               <AstralUploadFile
                 onChange={(file) => changeFile(file)}
                 label='File'

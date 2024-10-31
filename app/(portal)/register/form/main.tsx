@@ -32,20 +32,24 @@ export function PortalRegisterForm() {
       email,
       password,
     );
-    const journal =
-      await galleryListController.actions.createActions.createGallery(
-        user.id,
-        'Journal',
-        'My journal',
-        exampleFileElement,
-      );
-    const update = await userController.actions.editActions.edit({
-      ...user,
-      journalId: journal.id,
-    });
-    register(update);
-    alert('Register Success');
-    window.location.href = studioMap.studio.personal.link;
+    if (!user) {
+      return;
+    } else {
+      const journal =
+        await galleryListController.actions.createActions.createGallery(
+          user.id,
+          'Journal',
+          'My journal',
+          exampleFileElement,
+        );
+      const update = await userController.actions.editActions.edit({
+        ...user,
+        journalId: journal.id,
+      });
+      register(update);
+      alert('Register Success');
+      window.location.href = studioMap.studio.personal.link;
+    }
   }
 
   function handleKeyPress(event) {
