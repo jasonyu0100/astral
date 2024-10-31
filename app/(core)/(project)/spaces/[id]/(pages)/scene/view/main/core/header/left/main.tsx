@@ -110,7 +110,7 @@ export function SpacesSceneHeaderLeft() {
             galleryController.actions.stateActions.find(user.journalId),
           );
           spacesSceneController.actions.updateSidebarContentMode(
-            SpacesSceneSidebarContentMode.EXPLORER,
+            SpacesSceneSidebarContentMode.JOURNAL,
           );
         }}
       />

@@ -86,7 +86,7 @@ export enum SpacesSceneSidebarMediaMode {
 }
 
 export enum SpacesSceneSidebarContentMode {
-  EXPLORER = 'Explorer',
+  JOURNAL = 'Journal',
   CHAT_SCENE = 'Chat Scene',
   CHAPTERS = 'Chapters',
 }

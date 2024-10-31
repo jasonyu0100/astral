@@ -20,7 +20,7 @@ export function SpacesSceneSidebar() {
   return (
     <SpacesSceneSidebarContainer>
       <SpacesSceneSidebarHeader />
-      {sidebarContentMode === SpacesSceneSidebarContentMode.EXPLORER && (
+      {sidebarContentMode === SpacesSceneSidebarContentMode.JOURNAL && (
         <>
           {sidebarMediaMode === SpacesSceneSidebarMediaMode.Home && (
             <SpacesSceneSidebarHomeGallerysMode />

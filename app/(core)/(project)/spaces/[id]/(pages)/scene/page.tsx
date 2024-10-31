@@ -93,7 +93,7 @@ function Page({ params }: { params: { id: string } }) {
   const user = useGlobalUser((state) => state.user);
   const galleryListController = useControllerForGalleryList(user?.id);
   const collectionListController = useControllerForGalleryCollectionList(
-    galleryListController.state.objId,
+    user.journalId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
