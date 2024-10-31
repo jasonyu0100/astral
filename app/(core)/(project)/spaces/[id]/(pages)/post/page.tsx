@@ -17,10 +17,6 @@ import {
   useControllerForPostKarmaList,
 } from '@/server/controller/post/karma/list';
 import {
-  ContextForPostLinkList,
-  useControllerForPostLinkList,
-} from '@/server/controller/post/link/list';
-import {
   ContextForUserPostListFromChapter,
   useControllerForUserPostListFromChapter,
 } from '@/server/controller/post/list-from-chapter';
@@ -88,9 +84,6 @@ function Page({ params }: { params: { id: string } }) {
   const attachmentListController = useControllerForPostAttachmentListFromPost(
     postListController.state.objId,
   );
-  const linkListController = useControllerForPostLinkList(
-    postListController.state.objId,
-  );
 
   const taskListController = useControllerForTaskList(
     chapterListController.state.objId,
@@ -114,23 +107,19 @@ function Page({ params }: { params: { id: string } }) {
                     <ContextForPostCommentList.Provider
                       value={commentListController}
                     >
-                      <ContextForPostLinkList.Provider
-                        value={linkListController}
-                      >
-                        <ContextForTaskList.Provider value={taskListController}>
-                          <UpdateWrapper>
-                            <LoadingWrapper>
-                              <ControllerWrapper>
-                                <ModalWrapper>
-                                  <ViewWrapper>
-                                    <SpacesPostView />
-                                  </ViewWrapper>
-                                </ModalWrapper>
-                              </ControllerWrapper>
-                            </LoadingWrapper>
-                          </UpdateWrapper>
-                        </ContextForTaskList.Provider>
-                      </ContextForPostLinkList.Provider>
+                      <ContextForTaskList.Provider value={taskListController}>
+                        <UpdateWrapper>
+                          <LoadingWrapper>
+                            <ControllerWrapper>
+                              <ModalWrapper>
+                                <ViewWrapper>
+                                  <SpacesPostView />
+                                </ViewWrapper>
+                              </ModalWrapper>
+                            </ControllerWrapper>
+                          </LoadingWrapper>
+                        </UpdateWrapper>
+                      </ContextForTaskList.Provider>
                     </ContextForPostCommentList.Provider>
                   </ContextForPostAttachmentListFromPost.Provider>
                 </ContextForPostKarmaList.Provider>
