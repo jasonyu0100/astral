@@ -1,9 +1,9 @@
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { useControllerForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/server/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/server/controller/space/member/list';
-import { useControllerForTaskList } from '@/server/controller/task/list';
+import { ContextForTaskList } from '@/server/controller/task/list';
 import {
   exampleFileElement,
   FileElement,
@@ -55,10 +55,10 @@ export const ContextForCreateSpace = createContext({} as CreateSpaceController);
 export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const spaceListController = useContext(ContextForSpaceList);
-  const taskListController = useControllerForTaskList('');
-  const chapterListController = useControllerForSpaceChapterList('');
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const taskListController = useContext(ContextForTaskList);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const spaceMembersListController = useControllerForSpaceMemberList('');
   const [title, changeTitle] = useState('Tutorial space');

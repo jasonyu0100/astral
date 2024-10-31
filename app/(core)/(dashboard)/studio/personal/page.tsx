@@ -2,9 +2,21 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
+  ContextForUserActivityListFromChapter,
+  useControllerForUserActivityListFromChapter,
+} from '@/server/controller/activity/list-from-chapter';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/server/controller/space/chapter/list';
+import {
   ContextForSpaceList,
   useControllerForSpaceList,
 } from '@/server/controller/space/list';
+import {
+  ContextForTaskList,
+  useControllerForTaskList,
+} from '@/server/controller/task/list';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext, useEffect } from 'react';
@@ -21,17 +33,33 @@ import { StudioPersonalView } from './view/view';
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceListController = useControllerForSpaceList(loggedInUser?.id);
+  const chapterListController = useControllerForSpaceChapterList('');
+  const taskListController = useControllerForTaskList(
+    chapterListController.state.objId,
+  );
+  const chapterActivityListController =
+    useControllerForUserActivityListFromChapter(
+      chapterListController.state.objId,
+    );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceList.Provider value={spaceListController}>
-        <SpacesPersonalModals>
-          <ControllerWrapper>
-            <EffectWrapper>
-              <StudioPersonalView />
-            </EffectWrapper>
-          </ControllerWrapper>
-        </SpacesPersonalModals>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForTaskList.Provider value={taskListController}>
+            <ContextForUserActivityListFromChapter.Provider
+              value={chapterActivityListController}
+            >
+              <SpacesPersonalModals>
+                <ControllerWrapper>
+                  <EffectWrapper>
+                    <StudioPersonalView />
+                  </EffectWrapper>
+                </ControllerWrapper>
+              </SpacesPersonalModals>
+            </ContextForUserActivityListFromChapter.Provider>
+          </ContextForTaskList.Provider>
+        </ContextForSpaceChapterList.Provider>
       </ContextForSpaceList.Provider>
     </ContextForLoggedInUserObj.Provider>
   );

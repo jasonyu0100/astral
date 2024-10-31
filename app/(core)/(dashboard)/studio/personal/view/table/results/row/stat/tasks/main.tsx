@@ -2,18 +2,18 @@ import { ContextForUserActivityListFromSpace } from '@/server/controller/activit
 import { UserActivityVariant } from '@/server/model/activity/main';
 import { useContext } from 'react';
 
-export function StudioSharedRowIdeas() {
+export function StudioPersonalRowTasks() {
   const spaceActivityListController = useContext(
     ContextForUserActivityListFromSpace,
   );
-  const ideas = spaceActivityListController.state.objs.filter(
-    (update) => update.variant === UserActivityVariant.IDEA,
+  const logs = spaceActivityListController.state.objs.filter(
+    (update) => update.variant === UserActivityVariant.TASK,
   );
 
   return (
     <div className='flex flex-row items-center justify-center'>
       <p className='text-center text-sm font-bold text-slate-300'>
-        {ideas.length}
+        {logs.length}
       </p>
     </div>
   );

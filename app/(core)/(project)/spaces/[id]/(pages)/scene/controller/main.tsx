@@ -189,9 +189,6 @@ export function useControllerForSpacesScene(): Controller {
   };
 
   const saveAndContainWithinDiv = async () => {
-    const divWidth = 1000;
-    const divHeight = 1000;
-
     const items = ideaListController.state.objs;
 
     const editPromises = items.map(async (idea) => {
@@ -213,8 +210,10 @@ export function useControllerForSpacesScene(): Controller {
       return ideaListController.actions.editActions.edit(idea.id, {
         x: x,
         y: y,
-        width: width,
-        height: height,
+        width: idea.width,
+        height: idea.height,
+        scale: idea.scale,
+        rotation: idea.rotation,
       });
     });
 
