@@ -23,7 +23,7 @@ export function SpacesSceneInProgress() {
 
   return (
     <div className='absolute right-[1rem] top-[1rem] z-10 flex h-[200px] flex-shrink-0 flex-col items-center justify-center'>
-      {taskListController.state.currentObj ? (
+      {currentTask ? (
         <div className='flex h-[200px] w-[250px] flex-shrink-0 flex-col justify-between overflow-auto rounded-lg border-[1px] border-slate-300 bg-yellow-500 p-[1rem]'>
           <div className='flex flex-col'>
             <div className='flex w-full flex-row justify-between space-x-[1rem]'>

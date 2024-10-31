@@ -11,11 +11,11 @@ import { useContext, useEffect } from 'react';
 import {
   ContextForSpacesPersonalModals,
   SpacesPersonalModals,
-} from './(modal)/controller/main';
+} from './modal/controller/main';
 import {
   ContextForCreateSpace,
   useControllerForCreateSpace,
-} from './(modal)/create-space/(controller)/create-space/main';
+} from './modal/create-space/(controller)/create-space/main';
 import { StudioPersonalView } from './view/view';
 
 function Page() {

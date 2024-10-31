@@ -10,7 +10,7 @@ import {
   useControllerForPagable,
 } from '@/logic/contexts/pagination/main';
 import { glassFx } from '@/style/data';
-import { CreateSpaceModalView } from '../../(modal)/create-space/main';
+import { CreateSpaceModalView } from '../../modal/create-space/main';
 import { StudioPersonalHeaderAdd } from './add/main';
 import { StudioPersonalHeaderInfo } from './info/main';
 

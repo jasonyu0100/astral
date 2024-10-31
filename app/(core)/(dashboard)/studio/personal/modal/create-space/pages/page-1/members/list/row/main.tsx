@@ -18,7 +18,7 @@ export function CreateSpaceCollaboratorRow({
       onClick={onClick}
     >
       <UserDisplayPictureElement fileElem={user?.dp} />
-      <p className='font-bold'>{user?.displayName}</p>
+      <p className='font-bold text-slate-300'>{user?.displayName}</p>
     </div>
   );
 }
