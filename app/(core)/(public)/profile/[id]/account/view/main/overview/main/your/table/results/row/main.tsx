@@ -9,18 +9,17 @@ import { UserProfileSpacesRowPosts } from './stat/posts/main';
 
 export function UserProfileSpacesRow() {
   return (
-    <div className='grid w-full grid-cols-8 py-[2rem]'>
+    <div className='grid w-full grid-cols-7 py-[2rem]'>
       <UserProfileSpacesRowNumber />
       <UserProfileSpacesRowInfo />
       <UserProfileSpacesRowCategory />
-      <div></div>
+      <UserProfileSpacesRowIndicator />
       <div className='col-span-2 grid grid-cols-4'>
         <UserProfileSpacesRowDays />
         <UserProfileSpacesRowIdeas />
         <UserProfileSpacesRowLogs />
         <UserProfileSpacesRowPosts />
       </div>
-      <UserProfileSpacesRowIndicator />
     </div>
   );
 }

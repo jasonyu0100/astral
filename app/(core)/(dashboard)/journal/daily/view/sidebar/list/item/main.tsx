@@ -5,7 +5,6 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { getFormattedAMPM } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
 export function JournalDailySidebarListItem() {
@@ -31,7 +30,6 @@ export function JournalDailySidebarListItem() {
           }
         >
           <p className='text-md whitespace-nowrap p-[1rem] font-light text-slate-300'>
-            {getFormattedAMPM(new Date(collectionObj.created))} {' - '}
             {collectionObj.title?.trim() || 'Untitled'}
           </p>
         </GlassWindowContents>

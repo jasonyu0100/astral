@@ -13,9 +13,11 @@ export function StudioSpacesTableHeader() {
             <p className='text-sm font-bold text-slate-500'>Space</p>
           </div>
           <div>
-            <p className='text-sm font-bold text-slate-500'>Type</p>
+            <p className='text-sm font-bold text-slate-500'></p>
           </div>
-          <div></div>
+          <div>
+            <p className='text-center text-sm font-bold text-slate-500'></p>
+          </div>
           <div className='col-span-2 grid grid-cols-4'>
             <p className='text-center text-lg font-bold text-slate-300'>🗓️</p>
             <p className='text-center text-lg font-bold text-slate-300'>💡</p>

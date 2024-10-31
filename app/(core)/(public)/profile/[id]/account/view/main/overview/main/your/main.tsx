@@ -6,7 +6,7 @@ import { ContextForProfileUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 import { UserProfileSpacesTable } from './table/main';
 
-export function UserProfileOverviewYour() {
+export function UserProfileOverviewSpaces() {
   const profileUser = useContext(ContextForProfileUserObj);
   const spaceListController = useControllerForSpaceList(profileUser?.id);
 

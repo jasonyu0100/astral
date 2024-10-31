@@ -129,7 +129,7 @@ const CallToAction = () => {
       /> */}
       <iframe
         src='https://www.youtube.com/embed/3m51tfnCrWk'
-        className='aspect-video w-[3/4] flex-shrink-0 rounded-[3rem] shadow-glow sm:w-3/4'
+        className='aspect-video w-[3/4] flex-shrink-0 rounded-[1rem] shadow-glow sm:w-3/4'
         allow='autoplay; encrypted-media'
         allowFullScreen
         title='YouTube video'

@@ -2,7 +2,6 @@ import { createContext, useState } from 'react';
 
 export enum ProfilePage {
   Spaces = 'Spaces',
-  Highlights = 'Highlights',
 }
 
 interface ControllerState {
