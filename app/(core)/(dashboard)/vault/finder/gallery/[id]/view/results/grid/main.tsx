@@ -1,3 +1,4 @@
+import { VaultFinderModals } from '@/(core)/(dashboard)/vault/finder/modals/controller/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
@@ -26,7 +27,9 @@ export function FinderGalleryCollectionsGrid() {
                 value={collection}
                 key={collection.id}
               >
-                <FinderCollection key={collection.id} />
+                <VaultFinderModals>
+                  <FinderCollection key={collection.id} />
+                </VaultFinderModals>
               </ContextForGalleryCollectionObj.Provider>
             ),
           )}

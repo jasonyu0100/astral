@@ -1,6 +1,6 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { FileSearchImage } from '@/components/form/file/search-image/main';
 import { FormInput } from '@/components/form/input/main';
+import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
 import { AstralModalBody } from '@/components/modal/astral/body/main';
@@ -65,7 +65,7 @@ export function SpacesSceneAddSearchIdeaModal() {
           <AstralModalBody>
             <AstralModalBodyContents>
               <AstralModalTitle>Search Image</AstralModalTitle>
-              <FileSearchImage
+              <AstralSearchImage
                 fileElem={file}
                 onChange={(file) => changeFile(file)}
                 label='Thumbnail'

@@ -23,7 +23,7 @@ export function FinderGalleryCollectionsBreadcrumbs() {
           galleryMainController.state.objId,
         )}
       >
-        {galleryMainController.state.obj.title}
+        {galleryMainController.state.obj?.title || 'Untitled'}
       </VaultFinderBreadcrumbItem>
     </VaultFinderBreadcrumbs>
   );

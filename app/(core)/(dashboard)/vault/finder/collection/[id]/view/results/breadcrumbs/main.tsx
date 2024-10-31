@@ -25,7 +25,7 @@ export function FinderCollectionResourcesBreadcrumbs() {
           galleryMainController.state.objId,
         )}
       >
-        {galleryMainController.state.obj.title}
+        {galleryMainController.state.obj?.title || 'Untitled'}
       </VaultFinderBreadcrumbItem>
       <VaultFinderBreadcrumbDivider />
       <VaultFinderBreadcrumbItem
@@ -34,7 +34,7 @@ export function FinderCollectionResourcesBreadcrumbs() {
           collectionMainController.state.objId,
         )}
       >
-        {collectionMainController.state.obj.title}
+        {collectionMainController.state.obj?.title || 'Untitled'}
       </VaultFinderBreadcrumbItem>
     </VaultFinderBreadcrumbs>
   );

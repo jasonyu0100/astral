@@ -1,10 +1,10 @@
 import { FormBody } from '@/components/form/body/main';
 import { FormButton } from '@/components/form/button/main';
-import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormInput } from '@/components/form/input/main';
 import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
+import { AstralUploadFiles } from '@/components/form/upload/upload-files/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
@@ -62,7 +62,7 @@ export function DashboardJournalAddCollectionModal() {
               value={description}
               onChange={(e) => changeDescription(e.target.value)}
             />
-            <FormUploadFiles
+            <AstralUploadFiles
               onChange={(files) => changeFiles(files)}
               label={'Files'}
             />

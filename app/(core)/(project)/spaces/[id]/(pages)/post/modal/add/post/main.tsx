@@ -1,5 +1,5 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
+import { AstralUploadFiles } from '@/components/form/upload/upload-files/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModal } from '@/components/modal/astral/main';
@@ -84,7 +84,7 @@ export function SpacesPostAddPostModal() {
                 onChange={(e) => changeDescription(e.target.value)}
                 style={{ resize: 'none' }}
               />
-              <FormUploadFiles
+              <AstralUploadFiles
                 label='Attachments'
                 onChange={(files) => {
                   changeFiles(files);

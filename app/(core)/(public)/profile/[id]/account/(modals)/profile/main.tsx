@@ -1,10 +1,10 @@
 import { portalMap } from '@/(portal)/map';
 import { FormBody } from '@/components/form/body/main';
 import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
 import { FormFooter } from '@/components/form/footer/main';
 import { FormContainer } from '@/components/form/main';
 import { FormTitle } from '@/components/form/title/main';
+import { AstralUploadFile } from '@/components/form/upload/upload-file/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -38,7 +38,7 @@ export function EditProfileModal() {
         <FormContainer>
           <FormTitle>Profile {userObj?.fname}</FormTitle>
           <FormBody>
-            <FormUploadFile
+            <AstralUploadFile
               defaultFileElem={userObj?.dp}
               label='Attachments'
               onChange={(file) => {

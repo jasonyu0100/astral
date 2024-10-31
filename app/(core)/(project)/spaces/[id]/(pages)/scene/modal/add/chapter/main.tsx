@@ -1,5 +1,5 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { FileSearchImage } from '@/components/form/file/search-image/main';
+import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
@@ -77,11 +77,11 @@ export function SpacesSceneAddChapterModal() {
                 onChange={(e) => setDescription(e.target.value)}
                 style={{ resize: 'none' }}
               />
-              <FileSearchImage
+              <AstralSearchImage
                 fileElem={background}
                 label='Background (optional)'
                 onChange={(file) => setBackground(file)}
-              ></FileSearchImage>
+              ></AstralSearchImage>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={createChapter}>

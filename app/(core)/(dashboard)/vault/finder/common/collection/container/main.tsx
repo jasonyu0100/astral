@@ -15,17 +15,16 @@ import { borderFx, glassFx, roundedFx } from '@/style/data';
 import React, { useContext } from 'react';
 
 interface InputProps extends DivInputProps {
-  onClick?: () => void;
   children?: React.ReactNode;
 }
 
-export function CollectionContainer({ children, ...props }: InputProps) {
-  const collection = useContext(ContextForGalleryCollectionObj);
+export function CollectionContainer({ children }: InputProps) {
+  const collectionObj = useContext(ContextForGalleryCollectionObj);
   const collectionMainController = useControllerForGalleryCollectionMain(
-    collection.id,
+    collectionObj.id,
   );
   const resourceListController = useControllerForCollectionResourceList(
-    collection.id,
+    collectionObj.id,
   );
   return (
     <ContextForGalleryCollectionMain.Provider value={collectionMainController}>
@@ -35,7 +34,7 @@ export function CollectionContainer({ children, ...props }: InputProps) {
           roundedFx={roundedFx.rounded}
           borderFx={borderFx['border-all']}
         >
-          <GlassWindowContents className='flex h-full w-full flex-col p-[1rem]'>
+          <GlassWindowContents className='flex h-full w-full flex-col'>
             {children}
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-20']} />

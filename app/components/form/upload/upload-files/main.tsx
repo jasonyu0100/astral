@@ -11,7 +11,7 @@ import { UploadFileLabel } from '../common/label/main';
 import { UploadFilesArea } from './area/main';
 import { UploadFilesList } from './list/main';
 
-export function FormUploadFiles({
+export function AstralUploadFiles({
   onChange,
   label,
   variant,

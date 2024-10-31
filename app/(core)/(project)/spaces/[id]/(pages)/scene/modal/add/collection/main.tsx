@@ -1,11 +1,14 @@
-import { FormBody } from '@/components/form/body/main';
-import { FormButton } from '@/components/form/button/main';
-import { FormUploadFiles } from '@/components/form/file/upload/upload-files/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralUploadFiles } from '@/components/form/upload/upload-files/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
@@ -46,32 +49,36 @@ export function SpacesSceneAddCollectionModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Create Collection</FormTitle>
-          <FormBody>
-            <FormInput
-              placeholder='Title'
-              title='Title'
-              value={title}
-              onChange={(e) => changeTitle(e.target.value)}
-            />
-            <FormInput
-              placeholder='Description'
-              title='Description'
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-            />
-            <FormUploadFiles
-              onChange={(files) => changeFiles(files)}
-              label={'Files'}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton onClick={createCollection}>Create</FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Create Collection</AstralModalTitle>
+              <AstralTextLineInput
+                placeholder='Title'
+                title='Title'
+                value={title}
+                onChange={(e) => changeTitle(e.target.value)}
+              />
+              <AstralTextAreaInput
+                placeholder='Description'
+                title='Description'
+                value={description}
+                onChange={(e) => changeDescription(e.target.value)}
+              />
+              <AstralUploadFiles
+                onChange={(files) => changeFiles(files)}
+                label={'Files'}
+              />
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={createCollection}>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

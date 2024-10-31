@@ -12,7 +12,7 @@ import { UploadWrapper } from '../common/wrapper/main';
 import { UploadFileArea } from './area/main';
 import { UploadedFile } from './uploaded/main';
 
-export function FormUploadFile({
+export function AstralUploadFile({
   defaultFileElem: defaultFileElem,
   onChange,
   label,
@@ -30,10 +30,10 @@ export function FormUploadFile({
 
   return (
     <UploadHandlerContext.Provider value={uploadHandler}>
-      <ContextForFileElement.Provider value={file} key={file.id}>
+      <ContextForFileElement.Provider value={file} key={file?.id}>
         <UploadWrapper>
           {label && <UploadFileLabel>{label}</UploadFileLabel>}
-          {file.id === undefined ? <UploadFileArea /> : <UploadedFile />}
+          {file?.id === undefined ? <UploadFileArea /> : <UploadedFile />}
         </UploadWrapper>
       </ContextForFileElement.Provider>
     </UploadHandlerContext.Provider>

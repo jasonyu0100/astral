@@ -1,12 +1,14 @@
-import { FormTextArea } from '@/components/form/area/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormInput } from '@/components/form/input/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralUploadFile } from '@/components/form/upload/upload-file/main';
+import { AstralTextAreaInput } from '@/components/input/area/main';
+import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
@@ -39,37 +41,38 @@ export function SpacesSceneAddResourceModal() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Add Media</FormTitle>
-          <FormBody>
-            <FormUploadFile
-              onChange={(file) => changeFile(file)}
-              label='File'
-            />
-            <FormInput
-              title='Title'
-              value={name}
-              onChange={(e) => changeName(e.target.value)}
-            />
-            <FormTextArea
-              title='Description'
-              rows={5}
-              value={description}
-              onChange={(e) => changeDescription(e.target.value)}
-              style={{ resize: 'none' }}
-            />
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              onClick={createResource}
-              variant={FormButtonVariant.PRIMARY}
-            >
-              Upload
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Add Resource</AstralModalTitle>
+              <AstralUploadFile
+                onChange={(file) => changeFile(file)}
+                label='File'
+              />
+              <AstralTextLineInput
+                title='Title'
+                placeholder='Enter a title for your media'
+                value={name}
+                onChange={(e) => changeName(e.target.value)}
+              />
+              <AstralTextAreaInput
+                title='Description'
+                placeholder='Enter a description for your media'
+                rows={5}
+                value={description}
+                onChange={(e) => changeDescription(e.target.value)}
+                style={{ resize: 'none' }}
+              />
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={createResource}>
+                <AstralArrowForwardIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }

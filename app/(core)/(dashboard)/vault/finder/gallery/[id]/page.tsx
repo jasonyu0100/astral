@@ -1,4 +1,5 @@
 'use client';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
@@ -11,11 +12,13 @@ import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
 } from '@/server/controller/gallery/main';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { VaultFinderModals } from '../../modals/controller/main';
 import { FinderGalleryCollections } from './view/view';
 
 function Page({ params }: { params: { id: string } }) {
+  const loggedInUser = useGlobalUser((state) => state.user);
   const galleryMainController = useControllerForGalleryMain(params.id);
   const collectionListController = useControllerForGalleryCollectionList(
     galleryMainController.state.objId,
@@ -25,19 +28,21 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   return (
-    <ContextForGalleryMain.Provider value={galleryMainController}>
-      <ContextForGalleryCollectionList.Provider
-        value={collectionListController}
-      >
-        <ContextForCollectionResourceList.Provider
-          value={resourceListController}
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForGalleryMain.Provider value={galleryMainController}>
+        <ContextForGalleryCollectionList.Provider
+          value={collectionListController}
         >
-          <VaultFinderModals>
-            <FinderGalleryCollections />
-          </VaultFinderModals>
-        </ContextForCollectionResourceList.Provider>
-      </ContextForGalleryCollectionList.Provider>
-    </ContextForGalleryMain.Provider>
+          <ContextForCollectionResourceList.Provider
+            value={resourceListController}
+          >
+            <VaultFinderModals>
+              <FinderGalleryCollections />
+            </VaultFinderModals>
+          </ContextForCollectionResourceList.Provider>
+        </ContextForGalleryCollectionList.Provider>
+      </ContextForGalleryMain.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

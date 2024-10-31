@@ -1,5 +1,5 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { FormUploadFile } from '@/components/form/file/upload/upload-file/main';
+import { AstralUploadFile } from '@/components/form/upload/upload-file/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
@@ -65,7 +65,7 @@ export function DashboardJournalAddFileModal() {
         <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
-            <FormUploadFile onChange={(file) => changeFile(file)} />
+            <AstralUploadFile onChange={(file) => changeFile(file)} />
             {file.id && (
               <AstralRoundedActionButton
                 className='h-[4rem] w-[4rem]'

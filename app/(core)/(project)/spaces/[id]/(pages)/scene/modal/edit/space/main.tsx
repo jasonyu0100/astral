@@ -1,5 +1,5 @@
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { FileSearchImage } from '@/components/form/file/search-image/main';
+import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
@@ -53,7 +53,7 @@ export function SpacesSceneEditSpaceModal() {
           <AstralModalBody>
             <AstralModalBodyContents>
               <AstralModalTitle>Edit Space</AstralModalTitle>
-              <FileSearchImage
+              <AstralSearchImage
                 fileElem={thumbnail}
                 onChange={(file) => setThumbnail(file)}
                 label='Theme'

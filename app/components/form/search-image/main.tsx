@@ -7,7 +7,7 @@ import { SearchButton } from './search-button/main';
 
 export const SearchImageContext = createContext({});
 
-export function FileSearchImage({
+export function AstralSearchImage({
   fileElem: fileElem,
   onChange,
   label,

@@ -12,13 +12,14 @@ import {
   ContextForGalleryList,
   useControllerForGalleryList,
 } from '@/server/controller/gallery/list';
+import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { VaultFinderModals } from '../modals/controller/main';
 import { FinderHomeGallerysView } from './view/view';
 
 function Page() {
-  const user = useGlobalUser((state) => state.user);
-  const galleryListController = useControllerForGalleryList(user.id);
+  const loggedInUser = useGlobalUser((state) => state.user);
+  const galleryListController = useControllerForGalleryList(loggedInUser.id);
   const collectionListController = useControllerForGalleryCollectionList(
     galleryListController.state.objId,
   );
@@ -27,19 +28,21 @@ function Page() {
   );
 
   return (
-    <ContextForGalleryList.Provider value={galleryListController}>
-      <ContextForGalleryCollectionList.Provider
-        value={collectionListController}
-      >
-        <ContextForCollectionResourceList.Provider
-          value={resourceListController}
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForGalleryList.Provider value={galleryListController}>
+        <ContextForGalleryCollectionList.Provider
+          value={collectionListController}
         >
-          <VaultFinderModals>
-            <FinderHomeGallerysView />
-          </VaultFinderModals>
-        </ContextForCollectionResourceList.Provider>
-      </ContextForGalleryCollectionList.Provider>
-    </ContextForGalleryList.Provider>
+          <ContextForCollectionResourceList.Provider
+            value={resourceListController}
+          >
+            <VaultFinderModals>
+              <FinderHomeGallerysView />
+            </VaultFinderModals>
+          </ContextForCollectionResourceList.Provider>
+        </ContextForGalleryCollectionList.Provider>
+      </ContextForGalleryList.Provider>
+    </ContextForLoggedInUserObj.Provider>
   );
 }
 

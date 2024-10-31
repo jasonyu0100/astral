@@ -14,12 +14,12 @@ import { FormTextArea } from './form/area/main';
 import { FormBody } from './form/body/main';
 import { FormButton } from './form/button/main';
 import { FormDescription } from './form/description/main';
-import { FileSearchImage } from './form/file/search-image/main';
-import { FormUploadFile } from './form/file/upload/upload-file/main';
 import { ImagePreview } from './form/image-preview/main';
 import { FormInput } from './form/input/main';
+import { AstralSearchImage } from './form/search-image/main';
 import { FormSelect } from './form/select/main';
 import { FormTitle } from './form/title/main';
+import { AstralUploadFile } from './form/upload/upload-file/main';
 import { BarDividerIndicator } from './indicator/bar/main';
 import { HorizontalDivider } from './indicator/divider/horizontal/main';
 import { VerticalDivider } from './indicator/divider/vertical/main';
@@ -83,12 +83,12 @@ export default function Page() {
           <FormTextArea title='test' />
           <FormButton>Button</FormButton>
           <FormDescription>Form Description</FormDescription>
-          <FileSearchImage
+          <AstralSearchImage
             fileElem={exampleFileElement}
             label='search image'
             onChange={() => {}}
           />
-          <FormUploadFile
+          <AstralUploadFile
             defaultFileElem={exampleFileElement}
             onChange={() => {}}
             label={'test'}

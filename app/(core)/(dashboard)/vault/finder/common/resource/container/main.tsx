@@ -1,7 +1,8 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { DivInputProps } from '@/props/main';
-import { borderFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 
 interface InputProps extends DivInputProps {
   onClick?: () => void;
@@ -21,6 +22,7 @@ export function ResourceContainer({ children, onClick }: InputProps) {
       >
         {children}
       </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
     </GlassWindowFrame>
   );
 }
