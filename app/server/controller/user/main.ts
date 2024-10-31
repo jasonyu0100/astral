@@ -75,7 +75,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
       }
 
       // Proceed with database query if email is valid
-      const users = await gqlDbWrapper.listFromVariables({
+      const usersWithSameEmail = await gqlDbWrapper.listFromVariables({
         filter: {
           email: {
             eq: email,
@@ -83,7 +83,11 @@ export const useControllerForUserMain = (objId: string): Controller => {
         },
       });
 
-      return users.length > 0;
+      if (usersWithSameEmail.length > 0) {
+        return false;
+      }
+
+      return true;
     },
 
     polarAuth: async (email: string) => {
@@ -169,7 +173,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
       password: string,
     ) => {
       const emailCheck = await stateActions.checkEmail(email);
-      if (emailCheck !== true) {
+      if (!emailCheck) {
         return undefined;
       }
       const passwordHash = await bcrypt.hash(password, 10);
