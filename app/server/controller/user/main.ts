@@ -84,6 +84,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
       });
 
       if (usersWithSameEmail.length > 0) {
+        alert('Email already registered');
         return false;
       }
 
