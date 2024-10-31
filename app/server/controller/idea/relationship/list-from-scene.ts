@@ -8,7 +8,6 @@ import {
 } from '@/server/controller/list';
 import { IdeaObj } from '@/server/model/idea/main';
 import { IdeaRelationshipObj } from '@/server/model/idea/relationship/main';
-import { TaskLinkObj } from '@/server/model/task/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaRelationshipObj;
@@ -32,10 +31,6 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromLink: (
-    fromLink: TaskLinkObj,
-    toLink: TaskLinkObj,
-  ) => Promise<TargetObj>;
   createFromIdea: (
     fromIdea: IdeaObj,
     toIdea: IdeaObj,
@@ -276,26 +271,6 @@ export const useControllerForIdeaRelationshipListFromScene = (
         toSceneId: '',
         toIdeaId: '',
         weight: 0,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromLink: async (fromLink: TaskLinkObj, toLink: TaskLinkObj) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        spaceId: fromLink.spaceId || '',
-        fromUserId: fromLink.userId || '',
-        fromChapterId: fromLink.chapterId || '',
-        fromSceneId: fromLink.sceneId || '',
-        fromIdeaId: fromLink.ideaId || '',
-        toUserId: toLink.userId || '',
-        toChapterId: toLink.chapterId || '',
-        toSceneId: toLink.sceneId || '',
-        toIdeaId: toLink.ideaId || '',
-        weight: 1,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

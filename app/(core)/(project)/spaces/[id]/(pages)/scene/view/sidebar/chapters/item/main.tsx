@@ -19,8 +19,8 @@ export function SpacesSceneSidebarChaptersChapter() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapterObj = useContext(ContextForSpaceChapterObj);
   const selected = chapterListController.state.objId === chapterObj.id;
-  const taskListController = useContext(ContextForTaskList);
-  const completionColor = calculateCompletionColor(taskListController);
+  const contextTaskListController = useContext(ContextForTaskList);
+  const completionColor = calculateCompletionColor(contextTaskListController);
 
   return (
     <div

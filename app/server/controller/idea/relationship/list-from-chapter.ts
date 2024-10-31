@@ -8,7 +8,6 @@ import {
 } from '@/server/controller/list';
 import { IdeaObj } from '@/server/model/idea/main';
 import { IdeaRelationshipObj } from '@/server/model/idea/relationship/main';
-import { TaskLinkObj } from '@/server/model/task/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = IdeaRelationshipObj;
@@ -29,18 +28,9 @@ interface ControllerMoreState {
   queryResults: TargetObj[];
 }
 
-interface StateActions extends BaseListStateActions<TargetObj> {
-  getLinkMatch: (
-    fromLink: TaskLinkObj,
-    toLink: TaskLinkObj,
-  ) => TargetObj | undefined;
-}
+interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromLink: (
-    fromLink: TaskLinkObj,
-    toLink: TaskLinkObj,
-  ) => Promise<TargetObj>;
   createFromIdea: (
     fromIdea: IdeaObj,
     toIdea: IdeaObj,
@@ -49,12 +39,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     sceneId: string,
   ) => Promise<TargetObj>;
 }
-interface EditActions extends BaseListEditActions<TargetObj> {
-  updateFromLink: (
-    fromLink: TaskLinkObj,
-    toLink: TaskLinkObj,
-  ) => Promise<TargetObj>;
-}
+interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
   stateActions: StateActions;
@@ -229,12 +214,6 @@ export const useControllerForIdeaRelationshipListFromChapter = (
     deleteIds: (ids: string[]) => {
       changeObjs((prev) => prev.filter((obj) => !ids.includes(obj.id)));
     },
-    getLinkMatch: (fromLink: TaskLinkObj, toLink: TaskLinkObj) => {
-      return objs.find(
-        (obj) =>
-          obj.fromIdeaId === fromLink.ideaId && obj.toIdeaId === toLink.ideaId,
-      );
-    },
   };
 
   const gatherActions: GatherActions = {
@@ -292,26 +271,6 @@ export const useControllerForIdeaRelationshipListFromChapter = (
         toSceneId: '',
         toIdeaId: '',
         weight: 0,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromLink: async (fromLink: TaskLinkObj, toLink: TaskLinkObj) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        spaceId: fromLink.spaceId || '',
-        fromUserId: fromLink.userId || '',
-        fromChapterId: fromLink.chapterId || '',
-        fromSceneId: fromLink.sceneId || '',
-        fromIdeaId: fromLink.ideaId || '',
-        toUserId: toLink.userId || '',
-        toChapterId: toLink.chapterId || '',
-        toSceneId: toLink.sceneId || '',
-        toIdeaId: toLink.ideaId || '',
-        weight: 1,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -379,24 +338,6 @@ export const useControllerForIdeaRelationshipListFromChapter = (
       );
       changeObjs(updatedObjs);
       return updatedObjs;
-    },
-    updateFromLink: async (fromLink: TaskLinkObj, toLink: TaskLinkObj) => {
-      const match = stateActions.getLinkMatch(fromLink, toLink);
-      if (match) {
-        const updatedObj = await gqlDbWrapper.updateObj(match.id, {
-          weight: match.weight + 1,
-        });
-        changeObjs((prev) =>
-          prev.map((chat) => (chat.id === match.id ? updatedObj : chat)),
-        );
-        changeQueryResults((prev) =>
-          prev.map((chat) => (chat.id === match.id ? updatedObj : chat)),
-        );
-        changeId(updatedObj.id);
-        return updatedObj;
-      } else {
-        return createActions.createFromLink(fromLink, toLink);
-      }
     },
   };
 

@@ -30,7 +30,7 @@ export enum SpacesProgressDataMode {
 
 export enum SpacesProgressSidebarMode {
   CHAPTERS = 'CHAPTERS',
-  NOTES = 'NOTES',
+  BACKLOG = 'BACKLOG',
 }
 
 export enum SpacesProgressSidebarVisibility {

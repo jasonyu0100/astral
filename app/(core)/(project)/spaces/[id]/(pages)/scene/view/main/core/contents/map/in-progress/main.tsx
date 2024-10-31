@@ -1,11 +1,13 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
+import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ContextForTaskList } from '@/server/controller/way/list';
 import { TaskStatus } from '@/server/model/task/main';
 import { useContext } from 'react';
 
 export function SpacesSceneInProgress() {
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const taskListController = useContext(ContextForTaskList);
   const spaceMainController = useContext(ContextForSpaceMain);
   const inProgress = taskListController.state.objs.filter(

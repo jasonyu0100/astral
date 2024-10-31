@@ -1,7 +1,7 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
+import { SpacesProgressSidebarChapters } from './chapters/main';
 import { SpacesProgressSidebarHeader } from './header/main';
-import { SpacesProgressSidebarList } from './links/list/main';
 
 export function SpacesProgressSidebar() {
   return (
@@ -12,7 +12,7 @@ export function SpacesProgressSidebar() {
       className={`flex flex-col items-center overflow-hidden`}
     >
       <SpacesProgressSidebarHeader />
-      <SpacesProgressSidebarList />
+      <SpacesProgressSidebarChapters />
     </GlassAreaContainer>
   );
 }

@@ -17,10 +17,6 @@ import {
   useControllerForSpaceMemberList,
 } from '@/server/controller/space/member/list';
 import {
-  ContextForTaskLinkList,
-  useControllerForTaskLinkList,
-} from '@/server/controller/way/link/list';
-import {
   ContextForTaskList,
   useControllerForTaskList,
 } from '@/server/controller/way/list';
@@ -55,9 +51,6 @@ function Page({ params }: { params: { id: string } }) {
     chapterListController.state.objId,
     taskId,
   );
-  const linkListController = useControllerForTaskLinkList(
-    taskListController.state.objId,
-  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -65,19 +58,17 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
           <ContextForSpaceChapterList.Provider value={chapterListController}>
             <ContextForTaskList.Provider value={taskListController}>
-              <ContextForTaskLinkList.Provider value={linkListController}>
-                <UpdateWrapper>
-                  <LoadingWrapper>
-                    <ControllerWrapper>
-                      <ModalWrapper>
-                        <ViewWrapper>
-                          <SpacesProgressView />
-                        </ViewWrapper>
-                      </ModalWrapper>
-                    </ControllerWrapper>
-                  </LoadingWrapper>
-                </UpdateWrapper>
-              </ContextForTaskLinkList.Provider>
+              <UpdateWrapper>
+                <LoadingWrapper>
+                  <ControllerWrapper>
+                    <ModalWrapper>
+                      <ViewWrapper>
+                        <SpacesProgressView />
+                      </ViewWrapper>
+                    </ModalWrapper>
+                  </ControllerWrapper>
+                </LoadingWrapper>
+              </UpdateWrapper>
             </ContextForTaskList.Provider>
           </ContextForSpaceChapterList.Provider>
         </ContextForSpaceMemberList.Provider>

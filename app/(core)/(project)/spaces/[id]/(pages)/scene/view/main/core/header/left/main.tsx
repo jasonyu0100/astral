@@ -7,7 +7,6 @@ import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -18,14 +17,13 @@ import {
   SpacesSceneSidebarContentMode,
   SpacesSceneSidebarVisibility,
 } from '../../../../../controller/main';
-import { ContextForSpacesSceneModals } from '../../../../../modal/controller/main';
 
 export function SpacesSceneHeaderLeft() {
   const spacesSceneController = useContext(ContextForSpacesScene);
-  const spacesSceneModalsController = useContext(ContextForSpacesSceneModals);
+  // const spacesSceneModalsController = useContext(ContextForSpacesSceneModals);
   const user = useGlobalUser((state) => state.user);
   const galleryController = useContext(ContextForGalleryList);
-  const ideaListController = useContext(ContextForSceneIdeaList);
+  // const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>

@@ -8,7 +8,7 @@ export function StudioSpacesRowLogs() {
   const reviewactivityListController =
     useControllerForUserActivityListFromSpace(spaceObj.id);
   const logs = reviewactivityListController.state.objs.filter(
-    (update) => update.variant === UserActivityVariant.WAY,
+    (update) => update.variant === UserActivityVariant.TASK,
   );
 
   return (

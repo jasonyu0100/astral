@@ -49,18 +49,18 @@ export function SpacesProgressSidebarHeader() {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
-            onClick={() => updateSidebarMode(SpacesProgressSidebarMode.NOTES)}
+            onClick={() => updateSidebarMode(SpacesProgressSidebarMode.BACKLOG)}
           >
             <p
               className={ctwn('font-bold text-slate-500', {
                 'text-slate-300':
-                  sidebarMode === SpacesProgressSidebarMode.NOTES,
+                  sidebarMode === SpacesProgressSidebarMode.BACKLOG,
               })}
             >
-              Notes
+              Backlog
             </p>
           </GlassWindowContents>
-          {sidebarMode === SpacesProgressSidebarMode.NOTES && (
+          {sidebarMode === SpacesProgressSidebarMode.BACKLOG && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>

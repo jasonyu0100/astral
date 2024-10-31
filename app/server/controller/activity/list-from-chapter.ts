@@ -54,7 +54,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     userId: string,
     spaceId: string,
     chapterId: string,
-    logId: string,
+    taskId: string,
   ) => Promise<TargetObj>;
   createFromChapterChapterConversation: (
     userId: string,
@@ -380,17 +380,17 @@ export const useControllerForUserActivityListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
-    createFromChapterTask: async (userId, spaceId, chapterId, logId) => {
+    createFromChapterTask: async (userId, spaceId, chapterId, taskId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
         chapterId: chapterId,
-        wayId: logId,
+        taskId: taskId,
         added: false,
         spaceId: spaceId,
         title: '',
         description: '',
         created: new Date().toISOString(),
-        variant: UserActivityVariant.WAY,
+        variant: UserActivityVariant.TASK,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

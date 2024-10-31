@@ -10,7 +10,6 @@ import { FileElement } from '@/server/model/elements/file/main';
 import { ElementVariant } from '@/server/model/elements/main';
 import { IdeaObj } from '@/server/model/idea/main';
 import { PostAttachmentObj } from '@/server/model/post/attachment/main';
-import { TaskLinkObj } from '@/server/model/task/link/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = PostAttachmentObj;
@@ -34,11 +33,6 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createFromLink: (
-    userId: string,
-    postId: string,
-    link: TaskLinkObj,
-  ) => Promise<TargetObj>;
   createFromIdea: (
     userId: string,
     postId: string,
@@ -275,26 +269,6 @@ export const useControllerForPostAttachmentListFromPost = (
         userId: '',
         postId: '',
         variant: '',
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromLink: async (
-      userId: string,
-      postId: string,
-      link: TaskLinkObj,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        userId: userId,
-        postId: postId,
-        variant: link.variant,
-        textElem: link.textElem,
-        fileElem: link.fileElem,
-        urlElem: link.urlElem,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
