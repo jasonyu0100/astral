@@ -2,6 +2,7 @@
 import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
+import { portalMap } from '@/(portal)/map';
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
@@ -44,7 +45,17 @@ import {
   ContextForUserMain,
   useControllerForUserMain,
 } from '@/server/controller/user/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import {
+  ContextForSpaceVisibility,
+  SpaceVisibility,
+} from '@/server/model/space/main';
+import {
+  ContextForLoggedInUserObj,
+  ContextForUserPageRole,
+  ContextForUserProfileVisibility,
+  UserPageRole,
+  UserProfileVisibility,
+} from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
@@ -98,8 +109,8 @@ function Page({ params }: { params: { id: string } }) {
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
-      <ContextForUserMain.Provider value={userMainController}>
-        <ContextForSpaceMain.Provider value={spaceMainController}>
+      <ContextForSpaceMain.Provider value={spaceMainController}>
+        <ContextForUserMain.Provider value={userMainController}>
           <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
             <ContextForSpaceChapterList.Provider value={chapterListController}>
               <ContextForUserPostListFromChapter.Provider
@@ -118,17 +129,21 @@ function Page({ params }: { params: { id: string } }) {
                         <ContextForUserActivityListFromChapter.Provider
                           value={activityListController}
                         >
-                          <UpdateWrapper>
-                            <LoadingWrapper>
-                              <ControllerWrapper>
-                                <ModalWrapper>
-                                  <ViewWrapper>
-                                    <SpacesPreviewView />
-                                  </ViewWrapper>
-                                </ModalWrapper>
-                              </ControllerWrapper>
-                            </LoadingWrapper>
-                          </UpdateWrapper>
+                          <PermissionWrapper>
+                            <RedirectWrapper>
+                              <UpdateWrapper>
+                                <LoadingWrapper>
+                                  <ControllerWrapper>
+                                    <ModalWrapper>
+                                      <ViewWrapper>
+                                        <SpacesPreviewView />
+                                      </ViewWrapper>
+                                    </ModalWrapper>
+                                  </ControllerWrapper>
+                                </LoadingWrapper>
+                              </UpdateWrapper>
+                            </RedirectWrapper>
+                          </PermissionWrapper>
                         </ContextForUserActivityListFromChapter.Provider>
                       </ContextForTaskList.Provider>
                     </ContextForPostCommentList.Provider>
@@ -137,10 +152,65 @@ function Page({ params }: { params: { id: string } }) {
               </ContextForUserPostListFromChapter.Provider>
             </ContextForSpaceChapterList.Provider>
           </ContextForSpaceMemberList.Provider>
-        </ContextForSpaceMain.Provider>
-      </ContextForUserMain.Provider>
+        </ContextForUserMain.Provider>
+      </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
+}
+
+function PermissionWrapper({ children }: { children: React.ReactNode }) {
+  const spaceMainController = useContext(ContextForSpaceMain);
+  const userMainController = useContext(ContextForUserMain);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const spaceMemberListController = useContext(ContextForSpaceMemberList);
+
+  const isOwner = loggedInUser?.id === spaceMainController.state.obj.userId;
+  const isMember = spaceMemberListController.state.objs.some(
+    (member) => member.userId === loggedInUser?.id,
+  );
+
+  const pageRole = isOwner
+    ? UserPageRole.OWNER
+    : isMember
+      ? UserPageRole.MEMBER
+      : spaceMainController.state.obj.visibility === SpaceVisibility.PUBLIC
+        ? UserPageRole.VIEWER
+        : UserPageRole.NONE;
+
+  return (
+    <>
+      <ContextForUserPageRole.Provider value={pageRole}>
+        <ContextForSpaceVisibility.Provider
+          value={spaceMainController.state.obj.visibility as SpaceVisibility}
+        >
+          <ContextForUserProfileVisibility.Provider
+            value={
+              userMainController.state.obj.visibility as UserProfileVisibility
+            }
+          >
+            {children}
+          </ContextForUserProfileVisibility.Provider>
+        </ContextForSpaceVisibility.Provider>
+      </ContextForUserPageRole.Provider>
+    </>
+  );
+}
+
+function RedirectWrapper({ children }: { children: React.ReactNode }) {
+  const pageRole = useContext(ContextForUserPageRole);
+  const userMainController = useContext(ContextForUserMain);
+
+  useEffect(() => {
+    if (userMainController.state.objId) {
+      if (pageRole === UserPageRole.NONE) {
+        window.location.href = portalMap.portal.register.link;
+      } else if (pageRole === UserPageRole.VIEWER) {
+        window.location.href = portalMap.portal.login.link;
+      }
+    }
+  }, [userMainController.state.objId, pageRole]);
+
+  return <>{children}</>;
 }
 
 function ModalWrapper({ children }: { children: React.ReactNode }) {

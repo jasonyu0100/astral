@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { SpacesPreviewKarma } from './karma/main';
 import { SpacesPreviewTitle } from './title/main';
 
-export function SpacesPreviewDescription() {
+export function SpacesPreviewPostDescription() {
   const postObj = useContext(ContextForUserPostObj);
 
   return (

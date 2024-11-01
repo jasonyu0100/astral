@@ -4,7 +4,7 @@ import { ContextForUserPostListFromChapter } from '@/server/controller/post/list
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
 import { useContext } from 'react';
 
-export function SpacesPreviewMainPostContents() {
+export function SpacesPreviewPostContents() {
   const attachmentListController = useContext(
     ContextForPostAttachmentListFromPost,
   );

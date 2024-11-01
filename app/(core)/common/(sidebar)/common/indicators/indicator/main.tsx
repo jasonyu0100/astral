@@ -20,8 +20,9 @@ export function CommonSidebarIndicator({ children, ...props }: InputProps) {
 }
 export enum CommonSidebarIndicatorType {
   Studio = 'Studio',
-  Vault = 'Vault',
+  Updates = 'Updates',
   Journal = 'Journal',
   Network = 'Network',
   Explorer = 'Explorer',
+  Vault = 'Vault',
 }

@@ -6,9 +6,7 @@ export function UserProfileOverviewMain() {
 
   return (
     <ContextForProfile.Provider value={profileController}>
-      <div className='h-full w-full'>
-        <UserProfileOverviewPages />
-      </div>
+      <UserProfileOverviewPages />
     </ContextForProfile.Provider>
   );
 }

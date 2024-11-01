@@ -9,12 +9,11 @@ export function SpaceSidebarMembersListMember() {
   const user = useControllerForUserMain(spaceMemberObj.userId);
 
   return (
-    <div
-      onClick={() => {
-        window.location.href = userProfileMap.account.link(user.state.objId);
-      }}
+    <a
+      className='cursor-pointer'
+      href={userProfileMap.account.link(user.state.objId)}
     >
       <UserDisplayPictureElement fileElem={user.state.obj?.dp} />
-    </div>
+    </a>
   );
 }

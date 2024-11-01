@@ -1,14 +1,14 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { SpacesPreviewInput } from './input/main';
-import { SpacesPreviewList } from './list/main';
+import { SpacesPreviewPostCommentInput } from './input/main';
+import { SpacesPreviewPostCommentList } from './list/main';
 
-export function SpacesPreviewComments() {
+export function SpacesPreviewPostComments() {
   return (
     <GlassWindowFrame className='flex h-full w-full border-slate-300 border-opacity-30'>
       <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
-        <SpacesPreviewInput />
-        <SpacesPreviewList />
+        <SpacesPreviewPostCommentInput />
+        <SpacesPreviewPostCommentList />
       </GlassWindowContents>
     </GlassWindowFrame>
   );

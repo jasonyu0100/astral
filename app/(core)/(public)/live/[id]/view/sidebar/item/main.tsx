@@ -2,7 +2,7 @@ import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { AstralColumnsIcon } from '@/icons/columns/main';
+import { AstralEditIcon } from '@/icons/edit/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useControllerForTaskList } from '@/server/controller/task/list';
@@ -95,8 +95,8 @@ export function PublicSpaceidebarItem() {
               </p>
             </div>
             {selected && (
-              <div className='flex h-[2rem] w-[2rem] flex-shrink-0 items-center justify-center rounded-full bg-slate-500'>
-                <AstralColumnsIcon
+              <div className='flex h-[3rem] w-[3rem] flex-shrink-0 items-center justify-center rounded-full bg-slate-500'>
+                <AstralEditIcon
                   onClick={() => {
                     window.open(
                       `${spacesMap.spaces.id.progress.link(

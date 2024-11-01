@@ -7,7 +7,7 @@ export function StudioPersonalRowInfo() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <div className='col-span-2 flex flex-row items-center justify-center space-x-[1rem]'>
+    <div className='col-span-2 flex flex-col justify-center space-y-[0.5rem]'>
       <p className='text-lg font-bold text-slate-300'>
         {space?.title || 'Untitled'}
       </p>

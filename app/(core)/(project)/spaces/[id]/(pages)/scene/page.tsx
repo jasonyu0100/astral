@@ -2,6 +2,7 @@
 import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
+import { portalMap } from '@/(portal)/map';
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
@@ -56,7 +57,21 @@ import {
   ContextForTaskList,
   useControllerForTaskList,
 } from '@/server/controller/task/list';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import {
+  ContextForUserMain,
+  useControllerForUserMain,
+} from '@/server/controller/user/main';
+import {
+  ContextForSpaceVisibility,
+  SpaceVisibility,
+} from '@/server/model/space/main';
+import {
+  ContextForLoggedInUserObj,
+  ContextForUserPageRole,
+  ContextForUserProfileVisibility,
+  UserPageRole,
+  UserProfileVisibility,
+} from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
@@ -79,9 +94,13 @@ function Page({ params }: { params: { id: string } }) {
   const sceneId = searchParams.get('scene');
   const chapterId = searchParams.get('chapter');
 
+  const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const spaceMemberListController = useControllerForSpaceMemberList(
     spaceMainController.state.objId,
+  );
+  const userMainController = useControllerForUserMain(
+    spaceMainController.state.obj.userId,
   );
   const chapterListController = useControllerForSpaceChapterList(
     spaceMainController.state.objId,
@@ -94,10 +113,9 @@ function Page({ params }: { params: { id: string } }) {
   const ideaListController = useControllerForSceneIdeaList(
     sceneListController.state.objId,
   );
-  const user = useGlobalUser((state) => state.user);
-  const galleryListController = useControllerForGalleryList(user?.id);
+  const galleryListController = useControllerForGalleryList(loggedInUser?.id);
   const collectionListController = useControllerForGalleryCollectionList(
-    user.journalId,
+    loggedInUser.journalId,
   );
   const resourceListController = useControllerForCollectionResourceList(
     collectionListController.state.objId,
@@ -123,60 +141,121 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   return (
-    <ContextForLoggedInUserObj.Provider value={user}>
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
-        <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
-          <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForIdeaSceneList.Provider value={sceneListController}>
-              <ContextForSceneIdeaList.Provider value={ideaListController}>
-                <ContextForGalleryList.Provider value={galleryListController}>
-                  <ContextForGalleryCollectionList.Provider
-                    value={collectionListController}
-                  >
-                    <ContextForCollectionResourceList.Provider
-                      value={resourceListController}
+        <ContextForUserMain.Provider value={userMainController}>
+          <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
+            <ContextForSpaceChapterList.Provider value={chapterListController}>
+              <ContextForIdeaSceneList.Provider value={sceneListController}>
+                <ContextForSceneIdeaList.Provider value={ideaListController}>
+                  <ContextForGalleryList.Provider value={galleryListController}>
+                    <ContextForGalleryCollectionList.Provider
+                      value={collectionListController}
                     >
-                      <ContextForChapterConversationList.Provider
-                        value={conversationListController}
+                      <ContextForCollectionResourceList.Provider
+                        value={resourceListController}
                       >
-                        <ContextForConversationMessageList.Provider
-                          value={messageListController}
+                        <ContextForChapterConversationList.Provider
+                          value={conversationListController}
                         >
-                          <ContextForIdeaRelationshipListFromScene.Provider
-                            value={ideaRelationshipListController}
+                          <ContextForConversationMessageList.Provider
+                            value={messageListController}
                           >
-                            <ContextForTaskList.Provider
-                              value={taskListController}
+                            <ContextForIdeaRelationshipListFromScene.Provider
+                              value={ideaRelationshipListController}
                             >
-                              <ContextForUserActivityListFromChapter.Provider
-                                value={activityListController}
+                              <ContextForTaskList.Provider
+                                value={taskListController}
                               >
-                                <UpdateWrapper>
-                                  <LoadingWrapper>
-                                    <ControllerWrapper>
-                                      <ModalWrapper>
-                                        <ViewWrapper>
-                                          <SpacesSceneView />
-                                        </ViewWrapper>
-                                      </ModalWrapper>
-                                    </ControllerWrapper>
-                                  </LoadingWrapper>
-                                </UpdateWrapper>
-                              </ContextForUserActivityListFromChapter.Provider>
-                            </ContextForTaskList.Provider>
-                          </ContextForIdeaRelationshipListFromScene.Provider>
-                        </ContextForConversationMessageList.Provider>
-                      </ContextForChapterConversationList.Provider>
-                    </ContextForCollectionResourceList.Provider>
-                  </ContextForGalleryCollectionList.Provider>
-                </ContextForGalleryList.Provider>
-              </ContextForSceneIdeaList.Provider>
-            </ContextForIdeaSceneList.Provider>
-          </ContextForSpaceChapterList.Provider>
-        </ContextForSpaceMemberList.Provider>
+                                <ContextForUserActivityListFromChapter.Provider
+                                  value={activityListController}
+                                >
+                                  <PermissionWrapper>
+                                    <RedirectWrapper>
+                                      <UpdateWrapper>
+                                        <LoadingWrapper>
+                                          <ControllerWrapper>
+                                            <ModalWrapper>
+                                              <ViewWrapper>
+                                                <SpacesSceneView />
+                                              </ViewWrapper>
+                                            </ModalWrapper>
+                                          </ControllerWrapper>
+                                        </LoadingWrapper>
+                                      </UpdateWrapper>
+                                    </RedirectWrapper>
+                                  </PermissionWrapper>
+                                </ContextForUserActivityListFromChapter.Provider>
+                              </ContextForTaskList.Provider>
+                            </ContextForIdeaRelationshipListFromScene.Provider>
+                          </ContextForConversationMessageList.Provider>
+                        </ContextForChapterConversationList.Provider>
+                      </ContextForCollectionResourceList.Provider>
+                    </ContextForGalleryCollectionList.Provider>
+                  </ContextForGalleryList.Provider>
+                </ContextForSceneIdeaList.Provider>
+              </ContextForIdeaSceneList.Provider>
+            </ContextForSpaceChapterList.Provider>
+          </ContextForSpaceMemberList.Provider>
+        </ContextForUserMain.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>
   );
+}
+
+function PermissionWrapper({ children }: { children: React.ReactNode }) {
+  const spaceMainController = useContext(ContextForSpaceMain);
+  const userMainController = useContext(ContextForUserMain);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const spaceMemberListController = useContext(ContextForSpaceMemberList);
+
+  const isOwner = loggedInUser?.id === spaceMainController.state.obj.userId;
+  const isMember = spaceMemberListController.state.objs.some(
+    (member) => member.userId === loggedInUser?.id,
+  );
+
+  const pageRole = isOwner
+    ? UserPageRole.OWNER
+    : isMember
+      ? UserPageRole.MEMBER
+      : spaceMainController.state.obj.visibility === SpaceVisibility.PUBLIC
+        ? UserPageRole.VIEWER
+        : UserPageRole.NONE;
+
+  return (
+    <>
+      <ContextForUserPageRole.Provider value={pageRole}>
+        <ContextForSpaceVisibility.Provider
+          value={spaceMainController.state.obj.visibility as SpaceVisibility}
+        >
+          <ContextForUserProfileVisibility.Provider
+            value={
+              userMainController.state.obj.visibility as UserProfileVisibility
+            }
+          >
+            {children}
+          </ContextForUserProfileVisibility.Provider>
+        </ContextForSpaceVisibility.Provider>
+      </ContextForUserPageRole.Provider>
+    </>
+  );
+}
+
+function RedirectWrapper({ children }: { children: React.ReactNode }) {
+  const pageRole = useContext(ContextForUserPageRole);
+  const userMainController = useContext(ContextForUserMain);
+
+  useEffect(() => {
+    if (userMainController.state.objId) {
+      if (pageRole === UserPageRole.NONE) {
+        window.location.href = portalMap.portal.register.link;
+      } else if (pageRole === UserPageRole.VIEWER) {
+        window.location.href = portalMap.portal.login.link;
+      }
+    }
+  }, [userMainController.state.objId, pageRole]);
+
+  return <>{children}</>;
 }
 
 function ModalWrapper({ children }: { children: React.ReactNode }) {

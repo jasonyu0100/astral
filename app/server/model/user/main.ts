@@ -5,6 +5,25 @@ import {
 } from '../elements/file/main';
 import { ModelInterface } from '../main';
 
+export enum UserPageRole {
+  OWNER = 'OWNER',
+  MEMBER = 'MEMBER',
+  VIEWER = 'VIEWER',
+  NONE = '',
+}
+
+export const ContextForUserPageRole = createContext('' as UserPageRole);
+
+export enum UserProfileVisibility {
+  PUBLIC = 'PUBLIC',
+  PRIVATE = 'PRIVATE',
+  NONE = '',
+}
+
+export const ContextForUserProfileVisibility = createContext(
+  '' as UserProfileVisibility,
+);
+
 export interface UserObj {
   id: string;
   fname: string;
@@ -14,6 +33,7 @@ export interface UserObj {
   email: string;
   dp: FileElement;
   private: boolean;
+  visibility: string;
   role: string;
   bio: string;
   created: string;

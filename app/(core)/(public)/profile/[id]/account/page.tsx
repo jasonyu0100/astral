@@ -16,6 +16,10 @@ import {
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
+  ContextForUserPageRole,
+  ContextForUserProfileVisibility,
+  UserPageRole,
+  UserProfileVisibility,
 } from '@/server/model/user/main';
 import protectedUnderAstralAuth from '@/utils/isAuth';
 import { useContext } from 'react';
@@ -48,9 +52,11 @@ function Page() {
               value={fromDestinationFollowingController}
             >
               <UserProfileModals>
-                <ProfileControllerWrapper>
-                  <UserProfileView />
-                </ProfileControllerWrapper>
+                <PermissionWrapper>
+                  <ControllerWrapper>
+                    <UserProfileView />
+                  </ControllerWrapper>
+                </PermissionWrapper>
               </UserProfileModals>
             </ContextForUserConnectionListFromDestination.Provider>
           </ContextForUserConnectionListFromSource.Provider>
@@ -60,7 +66,34 @@ function Page() {
   );
 }
 
-function ProfileControllerWrapper({ children }: { children: React.ReactNode }) {
+function PermissionWrapper({ children }: { children: React.ReactNode }) {
+  const userMainController = useContext(ContextForUserMain);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+
+  const isOwner = loggedInUser?.id === userMainController.state.objId;
+
+  const pageRole = isOwner
+    ? UserPageRole.OWNER
+    : userMainController.state.obj.visibility === UserProfileVisibility.PUBLIC
+      ? UserPageRole.VIEWER
+      : UserPageRole.NONE;
+
+  return (
+    <>
+      <ContextForUserPageRole.Provider value={pageRole}>
+        <ContextForUserProfileVisibility.Provider
+          value={
+            userMainController.state.obj.visibility as UserProfileVisibility
+          }
+        >
+          {children}
+        </ContextForUserProfileVisibility.Provider>
+      </ContextForUserPageRole.Provider>
+    </>
+  );
+}
+
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const controller = useControllerForUserProfile();
 
   return (

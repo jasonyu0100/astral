@@ -17,7 +17,7 @@ export function PublicSpaceChapterList() {
           ))}
         </>
       ) : (
-        <div className='h-[500px]'>
+        <div className='h-[800px]'>
           <PublicSpaceChaptersEmpty />
         </div>
       )}

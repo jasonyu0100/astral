@@ -1,6 +1,4 @@
 import { ElementAttachment } from '@/components/element/attachment/main';
-import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
 import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
@@ -13,7 +11,7 @@ export function PublicSpacePostContents() {
   );
   return (
     <>
-      <div className='w-full flex-shrink-0 columns-4 gap-[1rem] space-y-[1rem]'>
+      <div className='w-full flex-shrink-0 columns-3 gap-[1rem] space-y-[1rem]'>
         {attachmentListController.state.objs.map((attachment) => (
           <ContextForPostAttachmentObj.Provider value={attachment}>
             <div className='flex flex-col space-y-[1rem]'>
@@ -22,7 +20,7 @@ export function PublicSpacePostContents() {
           </ContextForPostAttachmentObj.Provider>
         ))}
       </div>
-      <div className='flex flex-row items-center space-x-[1rem]'>
+      {/* <div className='flex flex-row items-center space-x-[1rem]'>
         <AstralArrowBackIcon
           onClick={() => postListController.actions.stateActions.goPrev()}
         />
@@ -35,7 +33,7 @@ export function PublicSpacePostContents() {
         <AstralArrowForwardIcon
           onClick={() => postListController.actions.stateActions.goNext()}
         />
-      </div>
+      </div> */}
     </>
   );
 }

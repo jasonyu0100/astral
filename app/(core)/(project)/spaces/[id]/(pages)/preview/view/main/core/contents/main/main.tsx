@@ -1,3 +1,4 @@
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { useControllerForUserMain } from '@/server/controller/user/main';
 import {
@@ -11,7 +12,7 @@ import {
   SpacesPreviewFeedView,
 } from '../../../../../controller/main';
 import { SpacesPreviewBreadcrumbs } from './breadcrumbs/main';
-import { SpacesPreviewChapterPosts } from './chapter/main';
+import { SpacesPreviewChapterList } from './chapter/main';
 import { SpacesPreviewMainPost } from './post/main';
 
 export function SpacesPreviewMain() {
@@ -25,10 +26,11 @@ export function SpacesPreviewMain() {
     <ContextForUserObj.Provider value={userMainController.state.obj}>
       <div className='flex flex-col space-y-[2rem] px-[4rem] py-[2rem]'>
         <SpacesPreviewBreadcrumbs />
+        <HorizontalDivider />
         {spacesPreviewController.state.feedView ===
           SpacesPreviewFeedView.CHAPTER && (
           <>
-            <SpacesPreviewChapterPosts />
+            <SpacesPreviewChapterList />
           </>
         )}
         {spacesPreviewController.state.feedView ===

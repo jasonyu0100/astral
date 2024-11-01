@@ -4,7 +4,7 @@ import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { useContext } from 'react';
 import { SpacesPreviewContentComment } from './comment/main';
 
-export function SpacesPreviewList() {
+export function SpacesPreviewPostCommentList() {
   const commentListController = useContext(ContextForPostCommentList);
 
   return (

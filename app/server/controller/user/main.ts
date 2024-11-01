@@ -7,7 +7,7 @@ import {
   BaseStateActions,
 } from '@/server/controller/main';
 import { exampleDisplayPictureFileElement } from '@/server/model/elements/file/main';
-import { UserObj } from '@/server/model/user/main';
+import { UserObj, UserProfileVisibility } from '@/server/model/user/main';
 import bcrypt from 'bcryptjs';
 import { createContext, useMemo, useState } from 'react';
 const STRIPE_SK =
@@ -190,6 +190,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
         bio: `${fname} ${lname} - ${role}`,
         journalId: '',
         private: false,
+        visibility: UserProfileVisibility.PUBLIC,
         degree: 0,
       });
       return user;

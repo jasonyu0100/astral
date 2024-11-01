@@ -2,19 +2,21 @@ import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralSelectInput } from '@/components/input/select/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
 import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import {
   exampleFileElement,
   FileElement,
 } from '@/server/model/elements/file/main';
+import { SpaceVisibility } from '@/server/model/space/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesChatEditSpaceModal() {
@@ -24,6 +26,9 @@ export function SpacesChatEditSpaceModal() {
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
   const [thumbnail, setThumbnail] = useState<FileElement>(exampleFileElement);
+  const [visibility, setVisibility] = useState<SpaceVisibility>(
+    SpaceVisibility.PUBLIC,
+  );
 
   useEffect(() => {
     if (spaceMainController.state.obj) {
@@ -31,6 +36,9 @@ export function SpacesChatEditSpaceModal() {
       setDescription(spaceMainController.state.obj.description);
       setObjective(spaceMainController.state.obj.objective);
       setThumbnail(spaceMainController.state.obj.thumbnail);
+      setVisibility(
+        spaceMainController.state.obj.visibility as SpaceVisibility,
+      );
     }
   }, [spaceMainController.state.obj]);
 
@@ -41,6 +49,7 @@ export function SpacesChatEditSpaceModal() {
       description,
       objective,
       thumbnail,
+      visibility,
     };
     await spaceMainController.actions.editActions.edit(payload);
     openableController.close();
@@ -79,11 +88,22 @@ export function SpacesChatEditSpaceModal() {
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 style={{ resize: 'none' }}
-              />
+              />{' '}
+              <div className='flex flex-row space-x-[1rem]'>
+                <AstralSelectInput
+                  value={visibility}
+                  onChange={(e) =>
+                    setVisibility(e.target.value as SpaceVisibility)
+                  }
+                >
+                  <option value={SpaceVisibility.PUBLIC}>Public</option>
+                  <option value={SpaceVisibility.PRIVATE}>Private</option>
+                </AstralSelectInput>
+              </div>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={editSpace}>
-                <AstralArrowForwardIcon />
+                <AstralCheckIcon />
               </AstralRoundedActionButton>
             </AstralModalBodyAction>
           </AstralModalBody>

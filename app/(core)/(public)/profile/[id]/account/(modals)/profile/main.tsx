@@ -9,12 +9,14 @@ import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralLogoutIcon } from '@/icons/logout/main';
-import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useControllerForUserMain } from '@/server/controller/user/main';
 import { FileElement } from '@/server/model/elements/file/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import {
+  ContextForLoggedInUserObj,
+  UserProfileVisibility,
+} from '@/server/model/user/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext, useState } from 'react';
 
@@ -24,14 +26,12 @@ export function EditProfileModal() {
   const userController = useControllerForUserMain(loggedInUser?.id);
   const userObj = userController.state.obj;
   const openableController = useContext(ContextForOpenable);
-  const [enabled, setEnabled] = useState(userObj?.private);
   const [file, changeFile] = useState({} as FileElement);
 
-  const handleToggle = () => {
-    setEnabled(!enabled);
+  const updateVisibility = (visibility: UserProfileVisibility) => {
     userController.actions.editActions.edit({
       ...userObj,
-      private: !enabled,
+      visibility: visibility,
     });
   };
 
@@ -60,15 +60,15 @@ export function EditProfileModal() {
                 Joined: {getFormattedDate(new Date(userObj?.created))}
               </p>
               <div className='flex flex-row space-x-[1rem]'>
-                <p className='font-bold text-slate-300'>
-                  Status: {userObj?.private ? 'Private' : 'Public'}
-                </p>
-                <button
-                  className='flex h-[3rem] w-[3rem] items-center justify-center rounded bg-blue-500'
-                  onClick={handleToggle}
+                <select
+                  value={userObj.visibility}
+                  onChange={(e) =>
+                    updateVisibility(e.target.value as UserProfileVisibility)
+                  }
                 >
-                  <AstralSyncAltIcon />
-                </button>
+                  <option value={UserProfileVisibility.PUBLIC}>Public</option>
+                  <option value={UserProfileVisibility.PRIVATE}>Private</option>
+                </select>
               </div>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
@@ -77,7 +77,9 @@ export function EditProfileModal() {
                   userController.actions.editActions.edit({
                     ...userObj,
                     dp: file,
+                    visibility: userObj.visibility,
                   });
+                  openableController.close();
                 }}
               >
                 <AstralCheckIcon />

@@ -10,7 +10,11 @@ import {
   exampleFileElement,
   FileElement,
 } from '@/server/model/elements/file/main';
-import { spaceModel, SpaceObj } from '@/server/model/space/main';
+import {
+  spaceModel,
+  SpaceObj,
+  SpaceVisibility,
+} from '@/server/model/space/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = SpaceObj;
@@ -269,6 +273,7 @@ export const useControllerForSpaceList = (
         starred: false,
         summary: '',
         objective: '',
+        visibility: SpaceVisibility.PUBLIC,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -308,6 +313,7 @@ export const useControllerForSpaceList = (
         completed: false,
         starred: false,
         objective: objective,
+        visibility: SpaceVisibility.PUBLIC,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

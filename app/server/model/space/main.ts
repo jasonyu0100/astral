@@ -2,6 +2,14 @@ import moment from 'moment';
 import { createContext } from 'react';
 import { FileElement, exampleFileElement } from '../elements/file/main';
 import { ModelInterface } from '../main';
+
+export enum SpaceVisibility {
+  PUBLIC = 'PUBLIC',
+  PRIVATE = 'PRIVATE',
+  NONE = '',
+}
+
+export const ContextForSpaceVisibility = createContext('' as SpaceVisibility);
 export interface SpaceObj {
   id: string;
   userId: string;
@@ -16,6 +24,7 @@ export interface SpaceObj {
   category: string;
   completed: boolean;
   starred: boolean;
+  visibility: string;
 }
 
 export const spaceGql = `
@@ -33,6 +42,7 @@ type SpaceObj {
   target: String!
   completed: Boolean!
   starred: Boolean!
+  visibility: String
 }
 `;
 

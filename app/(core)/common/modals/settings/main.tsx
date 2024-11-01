@@ -4,6 +4,7 @@ import { portalMap } from '@/(portal)/map';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
@@ -29,47 +30,44 @@ export function UserSettingsModal() {
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <AstralModalBodyContents>
-            <AstralModalTitle>User Settings</AstralModalTitle>
-            <h1 className='text-2xl font-bold text-slate-300'>
-              Plan: {planName}
-            </h1>
-            <h1 className='text-2xl font-bold text-slate-300'>
-              Price: {planPrice}
-            </h1>
-          </AstralModalBodyContents>
-          <AstralModalBodyAction>
-            {planName === 'Community Monthly' && (
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Plan</AstralModalTitle>
+              <h1 className='text-2xl font-bold text-slate-300'>{planName}</h1>
+              <h1 className='text-xl font-light text-slate-300'>{planPrice}</h1>
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              {planName === 'Community Monthly' && (
+                <AstralRoundedActionButton
+                  onClick={() => {
+                    window.location.href = '/pricing';
+                  }}
+                >
+                  <AstralCreditCardIcon />
+                </AstralRoundedActionButton>
+              )}
+              {planName !== 'Community Monthly' && (
+                <AstralRoundedActionButton
+                  onClick={() => {
+                    window.location.href =
+                      stripeMap.stripe.billing.existing.link;
+                  }}
+                >
+                  <AstralCreditCardIcon />
+                </AstralRoundedActionButton>
+              )}
               <AstralRoundedActionButton
                 className='from-slate-500 to-slate-600'
                 onClick={() => {
-                  window.location.href = '/pricing';
+                  alert('Logging out');
+                  window.location.href = portalMap.portal.login.link;
+                  logout();
                 }}
               >
-                <AstralCreditCardIcon />
+                <AstralLogoutIcon />
               </AstralRoundedActionButton>
-            )}
-            {planName !== 'Community Monthly' && (
-              <AstralRoundedActionButton
-                className='from-slate-500 to-slate-600'
-                onClick={() => {
-                  window.location.href = stripeMap.stripe.billing.existing.link;
-                }}
-              >
-                <AstralCreditCardIcon />
-              </AstralRoundedActionButton>
-            )}
-            <AstralRoundedActionButton
-              className='from-slate-500 to-slate-600'
-              onClick={() => {
-                alert('Logging out');
-                window.location.href = portalMap.portal.login.link;
-                logout();
-              }}
-            >
-              <AstralLogoutIcon />
-            </AstralRoundedActionButton>
-          </AstralModalBodyAction>
+            </AstralModalBodyAction>
+          </AstralModalBody>
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>

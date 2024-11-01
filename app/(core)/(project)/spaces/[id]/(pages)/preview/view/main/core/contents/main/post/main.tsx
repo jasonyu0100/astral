@@ -1,15 +1,15 @@
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
-import { SpacesPreviewComments } from './comments/main';
-import { SpacesPreviewMainPostContents } from './contents/main';
-import { SpacesPreviewDescription } from './description/main';
+import { SpacesPreviewPostComments } from './comments/main';
+import { SpacesPreviewPostContents } from './contents/main';
+import { SpacesPreviewPostDescription } from './description/main';
 
 export function SpacesPreviewMainPost() {
   return (
     <>
-      <SpacesPreviewDescription />
-      <SpacesPreviewMainPostContents />
+      <SpacesPreviewPostDescription />
+      <SpacesPreviewPostContents />
       <HorizontalDivider />
-      <SpacesPreviewComments />
+      <SpacesPreviewPostComments />
     </>
   );
 }

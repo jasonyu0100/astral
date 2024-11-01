@@ -1,16 +1,27 @@
+import {
+  ContextForSpaceList,
+  useControllerForSpaceList,
+} from '@/server/controller/space/list';
+import { ContextForProfileUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 import { ContextForProfile, ProfilePage } from '../controller/main';
-import { UserProfileOverviewSpaces } from './your/main';
+import { UserProfileSpacesTable } from './table/main';
 
 export function UserProfileOverviewPages() {
   const profileController = useContext(ContextForProfile);
+  const profileUser = useContext(ContextForProfileUserObj);
+  const spaceListController = useControllerForSpaceList(profileUser?.id);
 
   return (
     <div className='h-full w-full p-[2rem]'>
       <div className='h-full w-full overflow-auto pr-[2rem]'>
         <div className='flex w-full flex-col'>
           {profileController.state.page === ProfilePage.Spaces && (
-            <UserProfileOverviewSpaces />
+            <ContextForSpaceList.Provider value={spaceListController}>
+              <div className='flex w-full flex-col space-y-[2rem]'>
+                <UserProfileSpacesTable />
+              </div>
+            </ContextForSpaceList.Provider>
           )}
         </div>
       </div>

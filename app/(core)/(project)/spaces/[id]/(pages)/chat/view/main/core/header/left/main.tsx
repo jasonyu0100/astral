@@ -1,7 +1,6 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralCloseIcon } from '@/icons/close/main';
-import { AstralForumIcon } from '@/icons/forum/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
@@ -56,11 +55,11 @@ export function SpacesChatHeaderLeft() {
           );
         }}
       />
-      <AstralForumIcon
+      {/* <AstralForumIcon
         onClick={() => {
           alert('Simulated conversations coming soon');
         }}
-      />
+      /> */}
     </div>
   );
 }
