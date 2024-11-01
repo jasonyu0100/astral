@@ -1,7 +1,4 @@
-import { ImageBackground } from '@/components/background/img/main';
-import { AbsoluteHolder } from '@/components/holder/main';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import { ContextForSpacesScene } from '../../../../controller/main';
 import { SpacesSceneInterface } from './map/interface/main';
@@ -13,7 +10,6 @@ export function SpacesSceneContents() {
     state: { screenshotRef, hideUI },
   } = useContext(ContextForSpacesScene);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
     <div
@@ -21,24 +17,18 @@ export function SpacesSceneContents() {
       style={{ width: '100%', height: '100%' }}
       className='relative flex flex-col items-center'
     >
-      <ImageBackground
-        src={chapterListController.state.currentObj?.bg}
-        // active
-      />
-      <AbsoluteHolder>
-        <>
-          {sceneListController.state.objs.length > 0 ? (
-            <>
-              <SpacesSceneScene />
-              {!hideUI && <SpacesSceneInterface />}
-            </>
-          ) : (
-            <>
-              <SpacesSceneSceneEmpty />
-            </>
-          )}
-        </>
-      </AbsoluteHolder>
+      <>
+        {sceneListController.state.objs.length > 0 ? (
+          <>
+            <SpacesSceneScene />
+            {!hideUI && <SpacesSceneInterface />}
+          </>
+        ) : (
+          <>
+            <SpacesSceneSceneEmpty />
+          </>
+        )}
+      </>
     </div>
   );
 }

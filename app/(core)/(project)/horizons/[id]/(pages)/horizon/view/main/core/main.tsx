@@ -1,5 +1,3 @@
-import { ImageBackground } from '@/components/background/img/main';
-import { AbsoluteHolder } from '@/components/holder/main';
 import { HorizonsHorizonPost } from './post/main';
 import { HorizonsHorizonStatus } from './status/main';
 
@@ -11,21 +9,18 @@ export function HorizonsHorizonMain() {
       }}
       className='relative flex w-full flex-col overflow-auto'
     >
-      <ImageBackground />
-      <AbsoluteHolder>
-        <div className='h-full w-full'>
-          <div className='h-full w-full overflow-auto p-[2rem]'>
-            <div className='flex w-full flex-col space-y-[4rem]'>
-              <HorizonsHorizonStatus />
-              <HorizonsHorizonPost />
-              <HorizonsHorizonStatus />
-              <HorizonsHorizonPost />
-              <HorizonsHorizonStatus />
-              <HorizonsHorizonPost />
-            </div>
+      <div className='h-full w-full'>
+        <div className='h-full w-full overflow-auto p-[2rem]'>
+          <div className='flex w-full flex-col space-y-[4rem]'>
+            <HorizonsHorizonStatus />
+            <HorizonsHorizonPost />
+            <HorizonsHorizonStatus />
+            <HorizonsHorizonPost />
+            <HorizonsHorizonStatus />
+            <HorizonsHorizonPost />
           </div>
         </div>
-      </AbsoluteHolder>
+      </div>
     </div>
   );
 }

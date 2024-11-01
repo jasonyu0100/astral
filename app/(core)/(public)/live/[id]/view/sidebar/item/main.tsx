@@ -10,7 +10,10 @@ import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { ChapterTaskStatus, TaskStatus } from '@/server/model/task/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForPublicSpace } from '../../../page';
+import {
+  ContextForPublicSpace,
+  PublicSpaceFeedView,
+} from '../../../controller/main';
 
 export function PublicSpaceidebarItem() {
   const spaceMainController = useContext(ContextForSpaceMain);
@@ -77,6 +80,9 @@ export function PublicSpaceidebarItem() {
           className={`flex cursor-pointer flex-col space-y-[1rem] p-[1rem]`}
           onClick={() => {
             chapterListController.actions.stateActions.select(chapterObj);
+            publicSpaceController.actions.updateFeedView(
+              PublicSpaceFeedView.CHAPTER,
+            );
           }}
         >
           <div className='flex w-full justify-between space-x-[1rem]'>

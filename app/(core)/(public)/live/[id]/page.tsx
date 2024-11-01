@@ -1,8 +1,5 @@
 'use client';
 
-import { GlassWindowContents } from '@/components/glass/window/contents/main';
-import { GlassWindowFrame } from '@/components/glass/window/main';
-import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForPostAttachmentListFromPost,
@@ -33,27 +30,12 @@ import {
   useControllerForUserMain,
 } from '@/server/controller/user/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import { glassFx } from '@/style/data';
 import { useSearchParams } from 'next/navigation';
-import { createContext } from 'react';
-import { PublicSpaceChapters } from './view/main/chapters/main';
-import { PublicSpaceSidebar } from './view/sidebar/main';
-
-export enum PublicSpacePage {
-  SPACE = 'space',
-  CHAPTERS = 'chapters',
-}
-
-interface Controller {
-  state: ControllerState;
-  actions: ControllerActions;
-}
-
-interface ControllerState {}
-
-interface ControllerActions {}
-
-export const ContextForPublicSpace = createContext({} as Controller);
+import {
+  ContextForPublicSpace,
+  useControllerForPublicSpace,
+} from './controller/main';
+import { PublicSpaceView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -80,6 +62,8 @@ function Page({ params }: { params: { id: string } }) {
     postListController.state.objId,
   );
 
+  const publicSpaceController = useControllerForPublicSpace();
+
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForUserMain.Provider value={userMainController}>
@@ -96,25 +80,9 @@ function Page({ params }: { params: { id: string } }) {
                     value={commentListController}
                   >
                     <ContextForPublicSpace.Provider
-                      value={{
-                        state: {},
-                        actions: {},
-                      }}
+                      value={publicSpaceController}
                     >
-                      <div
-                        className='relative flex h-full w-full flex-col'
-                        style={{ height: 'calc(100% - 4rem)' }}
-                      >
-                        <GlassWindowFrame className='h-full w-full'>
-                          <GlassWindowContents className='flex h-full w-full flex-row space-x-[4rem] overflow-auto px-[4rem]'>
-                            <div className='flex h-full flex-grow flex-col space-y-[2rem] py-[4rem]'>
-                              <PublicSpaceChapters />
-                            </div>
-                            <PublicSpaceSidebar />
-                          </GlassWindowContents>
-                          <GlassWindowPane glassFx={glassFx['glass-10']} />
-                        </GlassWindowFrame>
-                      </div>
+                      <PublicSpaceView />
                     </ContextForPublicSpace.Provider>
                   </ContextForPostCommentList.Provider>
                 </ContextForPostAttachmentListFromPost.Provider>
