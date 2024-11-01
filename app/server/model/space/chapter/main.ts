@@ -9,7 +9,6 @@ export interface SpaceChapterObj {
   description: string;
   objective: string;
   idx: number;
-  bg?: string;
   created: string;
 }
 
@@ -22,7 +21,6 @@ type SpaceChapterObj {
   description: String!
 	objective: String!
 	idx: Int!
-  bg: string
   created: String!
 }
   `;

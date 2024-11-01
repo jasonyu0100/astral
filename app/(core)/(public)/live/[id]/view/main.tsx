@@ -13,8 +13,8 @@ export function PublicSpaceView() {
     >
       <GlassWindowFrame className='h-full w-full'>
         <GlassWindowContents className='flex h-full w-full flex-row space-x-[4rem] overflow-auto px-[4rem]'>
-          <PublicSpaceMain />
           <PublicSpaceSidebar />
+          <PublicSpaceMain />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>
