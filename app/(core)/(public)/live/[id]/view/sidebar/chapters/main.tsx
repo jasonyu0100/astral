@@ -20,12 +20,6 @@ export function PublicSpaceSidebarChapters() {
       <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem]'>
         <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
           <p className='text-2xl font-bold text-slate-300'>Chapters</p>
-          <div className='flex h-[3rem] items-center justify-center rounded-full bg-blue-500 px-[1rem]'>
-            <p className='font-bold text-slate-300'>
-              {chapterListController.state.index + 1} of{' '}
-              {chapterListController.state.objs.length}
-            </p>
-          </div>
         </div>
         <HorizontalDivider />
         {chapterListController.state.objs.map((chapter) => (
