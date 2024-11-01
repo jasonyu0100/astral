@@ -8,7 +8,7 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ContextForTaskList } from '@/server/controller/task/list';
@@ -22,8 +22,8 @@ export function SpacesProgressAddTaskModal() {
   const taskListController = useContext(ContextForTaskList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
 
   async function createTask() {

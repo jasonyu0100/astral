@@ -1,6 +1,6 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
 import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -43,8 +43,8 @@ export function useControllerForSpacesSceneChat() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
 
   function formatMessage(message: ConversationMessageObj) {

@@ -5,6 +5,10 @@ import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
+  ContextForUserActivityListFromChapter,
+  useControllerForUserActivityListFromChapter,
+} from '@/server/controller/activity/list-from-chapter';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/server/controller/space/chapter/list';
@@ -51,6 +55,9 @@ function Page({ params }: { params: { id: string } }) {
     chapterListController.state.objId,
     taskId,
   );
+  const activityListController = useControllerForUserActivityListFromChapter(
+    chapterListController.state.objId,
+  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -58,17 +65,21 @@ function Page({ params }: { params: { id: string } }) {
         <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
           <ContextForSpaceChapterList.Provider value={chapterListController}>
             <ContextForTaskList.Provider value={taskListController}>
-              <UpdateWrapper>
-                <LoadingWrapper>
-                  <ControllerWrapper>
-                    <ModalWrapper>
-                      <ViewWrapper>
-                        <SpacesProgressView />
-                      </ViewWrapper>
-                    </ModalWrapper>
-                  </ControllerWrapper>
-                </LoadingWrapper>
-              </UpdateWrapper>
+              <ContextForUserActivityListFromChapter.Provider
+                value={activityListController}
+              >
+                <UpdateWrapper>
+                  <LoadingWrapper>
+                    <ControllerWrapper>
+                      <ModalWrapper>
+                        <ViewWrapper>
+                          <SpacesProgressView />
+                        </ViewWrapper>
+                      </ModalWrapper>
+                    </ControllerWrapper>
+                  </LoadingWrapper>
+                </UpdateWrapper>
+              </ContextForUserActivityListFromChapter.Provider>
             </ContextForTaskList.Provider>
           </ContextForSpaceChapterList.Provider>
         </ContextForSpaceMemberList.Provider>

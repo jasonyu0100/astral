@@ -4,7 +4,7 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
@@ -27,8 +27,8 @@ export function SpacesSceneAddStickyIdeaModal() {
   const [title, changeTitle] = useState<string>('');
   const [description, changeDescription] = useState<string>('');
   const [text, changeText] = useState<string>('');
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
 
   async function createSticky() {

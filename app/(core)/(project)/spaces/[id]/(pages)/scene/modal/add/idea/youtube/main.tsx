@@ -5,7 +5,7 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
@@ -25,8 +25,8 @@ export function SpacesSceneAddYouTubeUrlModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const [title, changeTitle] = useState('');
   const [youtubeId, changeYoutubeId] = useState('');

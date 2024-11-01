@@ -10,7 +10,7 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
@@ -22,8 +22,8 @@ export function SpacesSceneAddSceneModal() {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const [title, changeTitle] = useState('');
   const [objective, changeObjective] = useState('');

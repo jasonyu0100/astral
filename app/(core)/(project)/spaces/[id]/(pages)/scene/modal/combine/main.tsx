@@ -11,7 +11,7 @@ import { PolaroidModal } from '@/components/modal/polaroid/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
@@ -38,8 +38,8 @@ export function SpacesSceneCombineIdeas() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const [combinationDescription, setCombinationDescription] = useState('');
 

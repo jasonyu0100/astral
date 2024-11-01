@@ -1,4 +1,4 @@
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
 import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
@@ -115,8 +115,8 @@ export function useControllerForSpacesScene(): Controller {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const galleryListController = useContext(ContextForGalleryList);
   const collectionListController = useContext(ContextForGalleryCollectionList);
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const ideaRelationshipListController = useContext(
     ContextForIdeaRelationshipListFromScene,

@@ -12,8 +12,8 @@ export const spacesMap = {
       scene: {
         link: (id: string) => `${baseUrl}/${id}/scene`,
       },
-      post: {
-        link: (id: string) => `${baseUrl}/${id}/post`,
+      preview: {
+        link: (id: string) => `${baseUrl}/${id}/preview`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

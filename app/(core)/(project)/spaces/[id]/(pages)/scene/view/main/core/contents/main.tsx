@@ -1,19 +1,18 @@
 import { ImageBackground } from '@/components/background/img/main';
 import { AbsoluteHolder } from '@/components/holder/main';
+import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import { ContextForSpacesScene } from '../../../../controller/main';
-import { SpacesSceneChat } from './map/chat/main';
-import { SpacesSceneInProgress } from './map/in-progress/main';
-import { SpacesScenePalette } from './map/palette/main';
-import { SpacesSceneSave } from './map/save/main';
+import { SpacesSceneInterface } from './map/interface/main';
+import { SpacesSceneSceneEmpty } from './map/scene/empty/main';
 import { SpacesSceneScene } from './map/scene/main';
-import { SpacesSceneStatus } from './map/status/main';
 
 export function SpacesSceneContents() {
   const {
     state: { screenshotRef, hideUI },
   } = useContext(ContextForSpacesScene);
+  const sceneListController = useContext(ContextForIdeaSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
@@ -27,17 +26,18 @@ export function SpacesSceneContents() {
         // active
       />
       <AbsoluteHolder>
-        <SpacesSceneScene />
-        {/* Conditionally hide UI components based on `hideUI` state */}
-        {!hideUI && (
-          <>
-            <SpacesSceneStatus />
-            <SpacesScenePalette />
-            <SpacesSceneSave />
-            <SpacesSceneChat />
-            <SpacesSceneInProgress />
-          </>
-        )}
+        <>
+          {sceneListController.state.objs.length > 0 ? (
+            <>
+              <SpacesSceneScene />
+              {!hideUI && <SpacesSceneInterface />}
+            </>
+          ) : (
+            <>
+              <SpacesSceneSceneEmpty />
+            </>
+          )}
+        </>
       </AbsoluteHolder>
     </div>
   );

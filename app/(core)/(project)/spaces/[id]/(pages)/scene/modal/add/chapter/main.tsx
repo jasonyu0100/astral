@@ -11,7 +11,7 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { exampleFileElement } from '@/server/model/elements/file/main';
@@ -22,8 +22,8 @@ export function SpacesSceneAddChapterModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const openableController = useContext(ContextForOpenable);
   const user = useGlobalUser((state) => state.user);
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.currentObj?.id || '',
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

@@ -1,6 +1,6 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
 import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
@@ -70,8 +70,8 @@ export function useControllerForSpacesChat() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const loggedInUser = useContext(ContextForLoggedInUserObj);
 

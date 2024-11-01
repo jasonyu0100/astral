@@ -9,7 +9,7 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
+import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
 import { useControllerForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
 import { useControllerForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
@@ -38,8 +38,8 @@ export function SpacesSceneGeneratePost() {
   const attachmentListController = useControllerForPostAttachmentListFromPost(
     postListController.state.objId,
   );
-  const activityListController = useControllerForUserActivityListFromChapter(
-    chapterListController.state.objId,
+  const activityListController = useContext(
+    ContextForUserActivityListFromChapter,
   );
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -114,7 +114,7 @@ export function SpacesSceneGeneratePost() {
         post.id,
       )
       .then(() => {
-        window.location.href = `${spacesMap.spaces.id.post.link(
+        window.location.href = `${spacesMap.spaces.id.preview.link(
           spaceController.state.objId,
         )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
       });
