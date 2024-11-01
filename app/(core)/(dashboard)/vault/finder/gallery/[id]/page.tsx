@@ -13,7 +13,7 @@ import {
   useControllerForGalleryMain,
 } from '@/server/controller/gallery/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { VaultFinderModals } from '../../modals/controller/main';
 import { FinderGalleryCollections } from './view/view';
 
@@ -46,4 +46,4 @@ function Page({ params }: { params: { id: string } }) {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

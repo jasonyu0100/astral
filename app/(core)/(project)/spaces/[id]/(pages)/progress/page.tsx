@@ -40,7 +40,7 @@ import {
   UserPageRole,
   UserProfileVisibility,
 } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { SpacesSidebar } from '../../../sidebar/main';
@@ -227,4 +227,4 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

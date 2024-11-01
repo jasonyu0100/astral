@@ -3,7 +3,7 @@
 import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { HorizonSidebar } from '../../../sidebar/main';
 import { HorizonTabs, HorizonTabStage } from '../../../tabs/main';
 import {
@@ -41,4 +41,4 @@ function ViewWrapper({ children }: { children?: React.ReactNode }) {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

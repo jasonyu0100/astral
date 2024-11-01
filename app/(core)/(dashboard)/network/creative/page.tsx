@@ -5,7 +5,7 @@ import {
   useControllerForUserPublicList,
 } from '@/server/controller/user/list-from-allowed-public';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import {
   ContextForNetworkCreative,
   useControllerForNetworkCreative,
@@ -37,4 +37,4 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

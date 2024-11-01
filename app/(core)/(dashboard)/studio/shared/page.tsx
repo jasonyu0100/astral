@@ -5,7 +5,7 @@ import {
   useControllerForSpaceMemberListFromUser,
 } from '@/server/controller/space/member/list-from-user';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { StudioSharedView } from './view/view';
 
 function Page() {
@@ -25,4 +25,4 @@ function Page() {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

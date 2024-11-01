@@ -32,7 +32,6 @@ export function SpacesSceneShareViewModal() {
                 }}
               >
                 <p className='font-slate-300 w-[300px] overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
-                  astral.fun
                   {spacesMap.spaces.id.scene.link(
                     spaceMainController.state.objId,
                   )}

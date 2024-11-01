@@ -9,6 +9,7 @@ import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { FaLinkedin, FaYoutube } from 'react-icons/fa';
 
+import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { ctwn } from '@/utils/cn';
 import {
   Accordion,
@@ -691,7 +692,7 @@ function ScheduleBooking() {
   );
 }
 
-export default function Page() {
+function Page() {
   return (
     <PortalBackground>
       <Header />
@@ -736,3 +737,5 @@ export default function Page() {
     </PortalBackground>
   );
 }
+
+export default Page;

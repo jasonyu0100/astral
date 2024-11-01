@@ -2,8 +2,9 @@
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { stripeExistingBillingSession } from '@/api/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import PrivateAstralPage from '@/utils/private-astral-page';
 
-export default function Page() {
+function Page() {
   const user = useGlobalUser((state) => state.user);
 
   async function openExistingCustomerBillingSession() {
@@ -35,3 +36,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);

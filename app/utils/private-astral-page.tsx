@@ -4,7 +4,7 @@ import { portalMap } from '@/(portal)/map';
 import Cookies from 'js-cookie';
 import { useEffect } from 'react';
 
-export default function protectedUnderAstralAuth(Component: any) {
+export default function PrivateAstralPage(Component: any) {
   return (props: any) => {
     const userCookie = Cookies.get('user') || '';
     const isAuthed = userCookie ? JSON.parse(userCookie)?.id != null : false;

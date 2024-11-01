@@ -7,6 +7,7 @@ import { exampleFileElement } from '@/server/model/elements/file/main';
 import { exampleHorizon } from '@/server/model/horizon/main';
 import { exampleSpace } from '@/server/model/space/main';
 import { exampleUser } from '@/server/model/user/main';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { HorizonsThumbnailElement } from './cover/horizon/main';
 import { SpaceThumbnailElement } from './cover/space/main';
 import { UserDisplayPictureElement } from './cover/user/main';
@@ -29,7 +30,7 @@ import { PolaroidModal } from './modal/polaroid/main';
 import { ColorfulText } from './text/colorful/main';
 import { TimerComponent } from './timer/main';
 
-export default function Page() {
+function Page() {
   const polaroidModalController = useControllerForOpenable();
   const feltModalController = useControllerForOpenable();
 
@@ -105,3 +106,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);

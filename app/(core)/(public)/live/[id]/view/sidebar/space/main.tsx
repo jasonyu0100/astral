@@ -55,7 +55,6 @@ export function PublicSpaceSidebarSpace() {
           >
             <AstralLinkIcon className='h-[2rem] w-[2rem]' />
             <p className='max-w-[300px] overflow-hidden whitespace-nowrap font-bold text-slate-300'>
-              astral.fun
               {liveMap.live.link(spaceMainController.state.obj.id)}
             </p>
           </GlassWindowContents>

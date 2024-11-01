@@ -13,7 +13,7 @@ import {
   useControllerForGalleryMain,
 } from '@/server/controller/gallery/main';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { DashboardJournalModals } from '../modal/controller/main';
 import { JournalDailyView } from './view/view';
 
@@ -47,4 +47,4 @@ function Page() {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

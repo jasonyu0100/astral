@@ -18,7 +18,7 @@ import {
   useControllerForTaskList,
 } from '@/server/controller/task/list';
 import { ContextForLoggedInUserObj } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { useContext, useEffect } from 'react';
 import {
   ContextForSpacesPersonalModals,
@@ -108,4 +108,4 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

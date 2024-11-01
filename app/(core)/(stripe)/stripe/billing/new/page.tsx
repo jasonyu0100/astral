@@ -5,10 +5,11 @@ import {
   stripeProcessSubscription,
 } from '@/api/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-export default function Page() {
+function Page() {
   const user = useGlobalUser((state) => state.user);
   const update = useGlobalUser((state) => state.update);
   const searchParams = useSearchParams();
@@ -52,3 +53,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);

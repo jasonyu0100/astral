@@ -1,5 +1,6 @@
 'use client';
 import { stripeCheckoutSession } from '@/api/stripe/main';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import {
   EmbeddedCheckout,
   EmbeddedCheckoutProvider,
@@ -16,7 +17,7 @@ const stripePromise = loadStripe(STRIPE_PK || '');
 
 console.log('STRIPE_PK', STRIPE_PK, process.env.LIVE_MODE);
 
-export default function Page() {
+function Page() {
   const searchParams = useSearchParams();
   const priceId = searchParams.get('priceId');
   const [clientSecret, changeClientSecret] = useState('');
@@ -51,3 +52,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);

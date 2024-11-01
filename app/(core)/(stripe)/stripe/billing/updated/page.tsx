@@ -1,7 +1,8 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import PrivateAstralPage from '@/utils/private-astral-page';
 
-export default function Page() {
+function Page() {
   // Need to process subscription changes with webhooks
   return (
     <div className='flex flex-col space-y-[1rem]'>
@@ -20,3 +21,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);

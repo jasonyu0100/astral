@@ -2,6 +2,7 @@
 
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { ctwn } from '@/utils/cn';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useState } from 'react';
 
@@ -86,7 +87,7 @@ function MemberPricingCard({
   );
 }
 
-export default function Page() {
+function Page() {
   const [activeTab, setActiveTab] = useState('yearly');
 
   function triggerCheckout(priceId) {
@@ -184,3 +185,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);

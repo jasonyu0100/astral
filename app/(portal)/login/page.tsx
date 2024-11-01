@@ -2,7 +2,7 @@
 import { PolaroidContext, usePolaroid } from '../common/handler/polaroid/main';
 import { LoginView } from './view';
 
-export default function Page() {
+function Page() {
   const { categories, flipped, index, transition, variant, _polaroidHandler } =
     usePolaroid();
 
@@ -21,3 +21,5 @@ export default function Page() {
     </PolaroidContext.Provider>
   );
 }
+
+export default Page;

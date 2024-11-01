@@ -22,6 +22,7 @@ import {
 } from '@/server/controller/space/main';
 import { useControllerForUserMain } from '@/server/controller/user/main';
 import { ContextForUserObj } from '@/server/model/user/main';
+import PublicAstralPage from '@/utils/public-astral-page';
 import { useContext, useEffect } from 'react';
 import {
   ContextForConversationalSearch,
@@ -29,7 +30,7 @@ import {
 } from './controller/chat/main';
 import { ConversationalSearchView } from './results/core/view';
 
-export default function Page() {
+function Page() {
   const userController = useControllerForUserMain(
     'cf0b9d9f-896c-4d84-b982-957a3ca1234b',
   );
@@ -128,3 +129,5 @@ I’m your AI assistant, here to help you explore how Astral can supercharge you
     </ContextForConversationalSearch.Provider>
   );
 }
+
+export default PublicAstralPage(Page);

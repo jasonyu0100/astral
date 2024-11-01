@@ -1,5 +1,5 @@
 'use client';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 import {
   ContextForExplorerProjects,
   useControllerForExplorerProjects,
@@ -23,4 +23,4 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

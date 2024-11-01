@@ -1,5 +1,5 @@
 'use client';
-import protectedUnderAstralAuth from '@/utils/isAuth';
+import PrivateAstralPage from '@/utils/private-astral-page';
 
 function Page() {
   return (
@@ -9,4 +9,4 @@ function Page() {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PrivateAstralPage(Page);

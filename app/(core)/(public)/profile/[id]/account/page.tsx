@@ -1,5 +1,6 @@
 'use client';
 
+import { portalMap } from '@/(portal)/map';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForUserConnectionListFromDestination,
@@ -21,8 +22,8 @@ import {
   UserPageRole,
   UserProfileVisibility,
 } from '@/server/model/user/main';
-import protectedUnderAstralAuth from '@/utils/isAuth';
-import { useContext } from 'react';
+import PublicAstralPage from '@/utils/public-astral-page';
+import { useContext, useEffect } from 'react';
 import { ContextForProfileId } from '../layout';
 import { UserProfileModals } from './(modals)/controller/main';
 import {
@@ -53,9 +54,11 @@ function Page() {
             >
               <UserProfileModals>
                 <PermissionWrapper>
-                  <ControllerWrapper>
-                    <UserProfileView />
-                  </ControllerWrapper>
+                  <RedirectWrapper>
+                    <ControllerWrapper>
+                      <UserProfileView />
+                    </ControllerWrapper>
+                  </RedirectWrapper>
                 </PermissionWrapper>
               </UserProfileModals>
             </ContextForUserConnectionListFromDestination.Provider>
@@ -78,6 +81,8 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
       ? UserPageRole.VIEWER
       : UserPageRole.NONE;
 
+  console.log(userMainController.state.obj.visibility);
+
   return (
     <>
       <ContextForUserPageRole.Provider value={pageRole}>
@@ -93,6 +98,21 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+function RedirectWrapper({ children }: { children: React.ReactNode }) {
+  const pageRole = useContext(ContextForUserPageRole);
+  const userMainController = useContext(ContextForUserMain);
+
+  useEffect(() => {
+    if (userMainController.state.objId) {
+      if (pageRole === UserPageRole.NONE) {
+        window.location.href = portalMap.portal.register.link;
+      }
+    }
+  }, [userMainController.state.objId, pageRole]);
+
+  return <>{children}</>;
+}
+
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const controller = useControllerForUserProfile();
 
@@ -103,4 +123,4 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default protectedUnderAstralAuth(Page);
+export default PublicAstralPage(Page);

@@ -45,6 +45,7 @@ import {
   UserPageRole,
   UserProfileVisibility,
 } from '@/server/model/user/main';
+import PublicAstralPage from '@/utils/public-astral-page';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import {
@@ -205,4 +206,4 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-export default Page;
+export default PublicAstralPage(Page);

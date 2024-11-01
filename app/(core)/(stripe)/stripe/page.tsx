@@ -1,7 +1,8 @@
 'use client';
-import { loadStripe } from '@stripe/stripe-js';
 
-export default function Page() {
+import PrivateAstralPage from '@/utils/private-astral-page';
+
+function Page() {
   return (
     <div className='flex h-screen w-full flex-col items-center justify-center'>
       <h1>SUBSCRIBE</h1>
@@ -9,3 +10,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default PrivateAstralPage(Page);
