@@ -6,17 +6,17 @@ import {
 import { ModelInterface } from '../main';
 
 export enum UserPageRole {
-  OWNER = 'OWNER',
-  MEMBER = 'MEMBER',
-  VIEWER = 'VIEWER',
+  OWNER = 'Owner',
+  MEMBER = 'Member',
+  VIEWER = 'Viewer',
   NONE = '',
 }
 
 export const ContextForUserPageRole = createContext('' as UserPageRole);
 
 export enum UserProfileVisibility {
-  PUBLIC = 'PUBLIC',
-  PRIVATE = 'PRIVATE',
+  PUBLIC = 'Public',
+  PRIVATE = 'Private',
   NONE = '',
 }
 

@@ -4,8 +4,8 @@ import { FileElement, exampleFileElement } from '../elements/file/main';
 import { ModelInterface } from '../main';
 
 export enum SpaceVisibility {
-  PUBLIC = 'PUBLIC',
-  PRIVATE = 'PRIVATE',
+  PUBLIC = 'Public',
+  PRIVATE = 'Private',
   NONE = '',
 }
 
