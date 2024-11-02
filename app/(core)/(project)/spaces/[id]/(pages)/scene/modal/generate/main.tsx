@@ -94,6 +94,7 @@ export function SpacesSceneGeneratePost() {
       description,
       user.id,
       chapterListController.state.objId,
+      spaceController.state.objId,
     );
 
     const attachments = await Promise.all(
@@ -114,7 +115,7 @@ export function SpacesSceneGeneratePost() {
         post.id,
       )
       .then(() => {
-        window.location.href = `${spacesMap.spaces.id.preview.link(
+        window.location.href = `${spacesMap.spaces.id.inbox.link(
           spaceController.state.objId,
         )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
       });

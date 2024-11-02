@@ -1,4 +1,3 @@
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 import {
   ContextForPublicSpace,
@@ -12,9 +11,8 @@ export function PublicSpaceMain() {
   const publicSpaceController = useContext(ContextForPublicSpace);
 
   return (
-    <div className='flex h-full flex-grow flex-col space-y-[2rem] py-[4rem]'>
+    <div className='flex h-full flex-grow flex-col'>
       <PublicSpaceBreadcrumbs />
-      <HorizontalDivider />
       {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAPTER && (
         <>
           <PublicSpaceChapterList />

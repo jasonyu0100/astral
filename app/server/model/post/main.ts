@@ -11,6 +11,7 @@ export interface UserPostObj {
   id: string;
   userId: string;
   chapterId: string;
+  spaceId: string;
   title: string;
   description: string;
   summary: string;
@@ -23,6 +24,7 @@ type UserPostObj {
   id: String!
   userId: String!
   chapterId: String!
+  spaceId: String!
   title: String!
   description: String!
   summary: String!
@@ -38,6 +40,7 @@ export const exampleUserPost: UserPostObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
+  spaceId: '0',
   title: 'Post Example',
   description: 'Post Description',
   summary: 'Post Summary',
@@ -50,6 +53,7 @@ export const exampleUserPosts: UserPostObj[] = [
     id: '0',
     userId: '0',
     chapterId: '0',
+    spaceId: '0',
     title: 'Post Example',
     summary: 'Post Summary',
     postStatus: UserPostStatus.PENDING,
@@ -60,6 +64,7 @@ export const exampleUserPosts: UserPostObj[] = [
     id: '1',
     userId: '0',
     chapterId: '0',
+    spaceId: '0',
     title: 'Post Example',
     summary: 'Post Summary',
     postStatus: UserPostStatus.PENDING,
@@ -70,6 +75,7 @@ export const exampleUserPosts: UserPostObj[] = [
     id: '2',
     userId: '0',
     chapterId: '0',
+    spaceId: '0',
     title: 'Post Example',
     summary: 'Post Summary',
     postStatus: UserPostStatus.PENDING,

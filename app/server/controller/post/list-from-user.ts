@@ -29,14 +29,7 @@ interface ControllerMoreState {
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createPost(
-    title: string,
-    summary: string,
-    userId: string,
-    chapterId: string,
-  ): Promise<TargetObj>;
-}
+interface CreateActions extends BaseListCreateActions<TargetObj> {}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -265,27 +258,7 @@ export const useControllerForUserPostListFromUser = (
         description: '',
         postStatus: UserPostStatus.PENDING,
         summary: '',
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createPost: async (
-      title: string,
-      description: string,
-      userId: string,
-      chapterId: string,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        created: new Date().toISOString(),
-        chapterId: chapterId,
-        title: title,
-        description: description,
-        summary: description,
-        userId: userId,
-        postStatus: UserPostStatus.PENDING,
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

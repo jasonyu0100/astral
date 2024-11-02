@@ -13,7 +13,7 @@ export function HorizontalDivider({
       className={`flex h-[0px] w-full flex-shrink-0 flex-row items-center ${props.className}`}
     >
       <div
-        className={`h-[1px] w-full bg-slate-500 bg-opacity-30 ${dividerFx || ''}`}
+        className={`h-[1px] w-full bg-slate-300 bg-opacity-30 ${dividerFx || ''}`}
       />
     </div>
   );

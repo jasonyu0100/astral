@@ -1,39 +1,33 @@
 import { ElementAttachment } from '@/components/element/attachment/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
+import { borderFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
 export function PublicSpacePostContents() {
-  const postListController = useContext(ContextForUserPostListFromChapter);
   const attachmentListController = useContext(
     ContextForPostAttachmentListFromPost,
   );
   return (
-    <>
-      <div className='w-full flex-shrink-0 columns-3 gap-[1rem] space-y-[1rem]'>
-        {attachmentListController.state.objs.map((attachment) => (
-          <ContextForPostAttachmentObj.Provider value={attachment}>
-            <div className='flex flex-col space-y-[1rem]'>
+    <GlassWindowFrame
+      className='flex-shrink-0'
+      roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
+    >
+      <GlassWindowContents className='flex w-full flex-col  space-y-[2rem] p-[2rem]'>
+        <div className='grid w-full grid-cols-4 gap-[1rem]'>
+          {attachmentListController.state.objs.length === 0 && (
+            <p className='text-3xl font-black text-slate-300'>NONE</p>
+          )}
+          {attachmentListController.state.objs.map((attachment) => (
+            <ContextForPostAttachmentObj.Provider value={attachment}>
               <ElementAttachment />
-            </div>
-          </ContextForPostAttachmentObj.Provider>
-        ))}
-      </div>
-      {/* <div className='flex flex-row items-center space-x-[1rem]'>
-        <AstralArrowBackIcon
-          onClick={() => postListController.actions.stateActions.goPrev()}
-        />
-        <div className='flex h-[2rem] flex-shrink-0 items-center justify-center rounded-full'>
-          <p className='font-bold text-slate-300'>
-            {postListController.state.index + 1} of{''}
-            {postListController.state.objs.length}
-          </p>
+            </ContextForPostAttachmentObj.Provider>
+          ))}
         </div>
-        <AstralArrowForwardIcon
-          onClick={() => postListController.actions.stateActions.goNext()}
-        />
-      </div> */}
-    </>
+      </GlassWindowContents>
+    </GlassWindowFrame>
   );
 }

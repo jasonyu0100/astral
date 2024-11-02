@@ -12,7 +12,7 @@ export function PublicSpaceView() {
       style={{ height: 'calc(100% - 4rem)' }}
     >
       <GlassWindowFrame className='h-full w-full'>
-        <GlassWindowContents className='flex h-full w-full flex-row space-x-[4rem] overflow-auto px-[4rem]'>
+        <GlassWindowContents className='flex h-full w-full flex-row space-x-[2rem] overflow-auto p-[2rem]'>
           <PublicSpaceSidebar />
           <PublicSpaceMain />
         </GlassWindowContents>

@@ -39,6 +39,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     summary: string,
     userId: string,
     chapterId: string,
+    spaceId: string,
   ): Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -269,6 +270,7 @@ export const useControllerForUserPostListFromChapter = (
         description: '',
         postStatus: UserPostStatus.PENDING,
         summary: '',
+        spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -281,10 +283,12 @@ export const useControllerForUserPostListFromChapter = (
       description: string,
       userId: string,
       chapterId: string,
+      spaceId: string,
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         chapterId: chapterId,
+        spaceId: spaceId,
         title: title,
         description: description,
         summary: description,
