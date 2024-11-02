@@ -1,4 +1,4 @@
-import { userDbWrapper } from '@/architecture/client/user/main'; // Ensure this path is correct
+import { userDbWrapper } from '@/architecture/client/user/main';
 import { Amplify } from 'aws-amplify';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
