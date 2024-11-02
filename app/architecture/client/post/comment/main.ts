@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { PostCommentObj } from '@/architecture/model/post/comment/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createPostCommentObj,
   deletePostCommentObj,

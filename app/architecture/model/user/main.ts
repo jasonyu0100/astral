@@ -93,6 +93,7 @@ export const exampleUser: UserObj = {
   dp: exampleDisplayPictureFileElement,
   created: new Date().toISOString(),
   degree: 0,
+  visibility: UserProfileVisibility.PUBLIC,
 };
 
 export const exampleChannel: UserObj = {
@@ -115,6 +116,7 @@ export const exampleChannel: UserObj = {
   },
   created: new Date().toISOString(),
   degree: 0,
+  visibility: UserProfileVisibility.PUBLIC,
 };
 
 export const exampleUsers: UserObj[] = [
@@ -131,6 +133,7 @@ export const exampleUsers: UserObj[] = [
     dp: exampleDisplayPictureFileElement,
     created: new Date().toISOString(),
     degree: 0,
+    visibility: UserProfileVisibility.PUBLIC,
   },
   {
     id: '2',
@@ -145,6 +148,7 @@ export const exampleUsers: UserObj[] = [
     dp: exampleDisplayPictureFileElement,
     created: new Date().toISOString(),
     degree: 0,
+    visibility: UserProfileVisibility.PUBLIC,
   },
 ];
 

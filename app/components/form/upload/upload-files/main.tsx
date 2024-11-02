@@ -1,11 +1,11 @@
 import {
-  ContextForUploadsController,
-  useS3UploadsController,
-} from '@/api/controller/s3/multiple/main';
-import {
   FileElement,
   FileElementVariant,
 } from '@/architecture/model/elements/file/main';
+import {
+  ContextForUploadsController,
+  useS3UploadsController,
+} from '@/external/controller/s3/multiple/main';
 import { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import { UploadFilesArea } from './area/main';

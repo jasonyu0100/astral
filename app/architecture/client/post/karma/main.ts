@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { PostKarmaObj } from '@/architecture/model/post/karma/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createPostKarmaObj,
   deletePostKarmaObj,

@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { HorizonUserMemberObj } from '@/architecture/model/horizon/member/user/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createHorizonUserMemberObj,
   deleteHorizonUserMemberObj,

@@ -1,5 +1,5 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { UserConnectionObj } from '@/architecture/model/user/connection/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createUserConnectionObj,
   deleteUserConnectionObj,

@@ -1,5 +1,5 @@
 'use client';
-import { stripeCheckoutSession } from '@/api/stripe/main';
+import { stripeCheckoutSession } from '@/external/stripe/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import {
   EmbeddedCheckout,

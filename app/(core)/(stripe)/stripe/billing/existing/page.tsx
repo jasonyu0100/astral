@@ -1,6 +1,6 @@
 'use client';
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { stripeExistingBillingSession } from '@/api/stripe/main';
+import { stripeExistingBillingSession } from '@/external/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 

@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { QuadrantMemberObj } from '@/architecture/model/horizon/decision/quadrant/member/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createQuadrantMemberObj,
   deleteQuadrantMemberObj,

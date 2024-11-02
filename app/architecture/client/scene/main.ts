@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { IdeaSceneObj } from '@/architecture/model/scene/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createIdeaSceneObj,
   deleteIdeaSceneObj,

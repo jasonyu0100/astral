@@ -1,5 +1,5 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { HorizonObj } from '@/architecture/model/horizon/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createHorizonObj,
   deleteHorizonObj,

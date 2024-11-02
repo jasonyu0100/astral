@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { ArcSectionObj } from '@/architecture/model/horizon/arc/section/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createArcSectionObj,
   deleteArcSectionObj,

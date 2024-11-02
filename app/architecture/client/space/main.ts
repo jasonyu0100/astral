@@ -1,5 +1,5 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { SpaceObj } from '@/architecture/model/space/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createSpaceObj,
   deleteSpaceObj,

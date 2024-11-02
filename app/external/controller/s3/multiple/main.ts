@@ -1,9 +1,9 @@
-import { generateUploadURL } from '@/api/aws/s3/main';
 import {
   FileElement,
   FileElementVariant,
   getFileVariantFromMimeType,
 } from '@/architecture/model/elements/file/main';
+import { generateUploadURL } from '@/external/aws/s3/main';
 import { ChangeEvent, createContext, useState } from 'react';
 
 interface Actions {

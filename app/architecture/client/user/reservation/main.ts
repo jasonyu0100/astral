@@ -1,5 +1,5 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { UserReservationObj } from '@/architecture/model/user/reservation/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createUserReservationObj,
   deleteUserReservationObj,

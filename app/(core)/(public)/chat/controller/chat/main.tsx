@@ -1,4 +1,3 @@
-import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { useControllerForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
@@ -7,6 +6,7 @@ import { ContextForSpaceChapterList } from '@/architecture/controller/space/chap
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { ConversationObj } from '@/architecture/model/conversation/main';
 import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
+import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import {
   communityEngagement,
   currentState,

@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { CollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createCollectionResourceObj,
   deleteCollectionResourceObj,

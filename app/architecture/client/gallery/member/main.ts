@@ -1,5 +1,5 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GalleryMemberObj } from '@/architecture/model/gallery/member/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createGalleryMemberObj,
   deleteGalleryMemberObj,

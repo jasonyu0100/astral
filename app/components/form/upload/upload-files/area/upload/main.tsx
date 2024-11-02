@@ -1,8 +1,8 @@
-import { ContextForUploadsController } from '@/api/controller/s3/multiple/main';
 import {
   FileElementVariant,
   getFileAccepts,
 } from '@/architecture/model/elements/file/main';
+import { ContextForUploadsController } from '@/external/controller/s3/multiple/main';
 import { useContext } from 'react';
 
 export function UploadFilesAreaInterface() {

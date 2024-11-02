@@ -1,4 +1,4 @@
-import { ContextForUploadsController } from '@/api/controller/s3/multiple/main';
+import { ContextForUploadsController } from '@/external/controller/s3/multiple/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { useContext } from 'react';
 

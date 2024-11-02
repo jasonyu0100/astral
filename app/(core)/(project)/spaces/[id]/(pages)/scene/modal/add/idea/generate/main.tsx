@@ -1,4 +1,3 @@
-import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
@@ -15,6 +14,7 @@ import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
+import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';

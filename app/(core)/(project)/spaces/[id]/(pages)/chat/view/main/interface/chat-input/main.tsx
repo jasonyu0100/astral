@@ -1,9 +1,9 @@
-import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { glassFx, roundedFx } from '@/style/data';
 import React, { useContext, useState } from 'react';

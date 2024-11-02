@@ -1,6 +1,6 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { GqlDbWrapper } from '@/architecture/client/main';
 import { PostMemberObj } from '@/architecture/model/post/member/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createPostMemberObj,
   deletePostMemberObj,

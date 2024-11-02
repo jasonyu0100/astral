@@ -1,5 +1,5 @@
-import { amplifyClient } from '@/api/aws/graphql/main';
 import { AgentObj } from '@/architecture/model/agent/main';
+import { amplifyClient } from '@/external/aws/graphql/main';
 import {
   createAgentObj,
   deleteAgentObj,

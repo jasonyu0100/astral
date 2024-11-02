@@ -1,4 +1,3 @@
-import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
@@ -14,6 +13,7 @@ import {
   exampleUser,
   UserObj,
 } from '@/architecture/model/user/main';
+import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { ConversationRole, roleDescriptions } from '../roles';

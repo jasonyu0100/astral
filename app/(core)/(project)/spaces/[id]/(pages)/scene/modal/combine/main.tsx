@@ -1,4 +1,3 @@
-import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
@@ -19,6 +18,7 @@ import { FormTitle } from '@/components/form/title/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';

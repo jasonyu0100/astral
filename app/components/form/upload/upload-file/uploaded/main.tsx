@@ -1,7 +1,7 @@
-import { UploadHandlerContext } from '@/api/controller/s3/single/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { UploadHandlerContext } from '@/external/controller/s3/single/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { borderFx, glassFx } from '@/style/data';
 import { useContext } from 'react';

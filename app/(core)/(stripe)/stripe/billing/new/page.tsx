@@ -3,7 +3,7 @@ import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import {
   stripeNewBillingSession,
   stripeProcessSubscription,
-} from '@/api/stripe/main';
+} from '@/external/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useSearchParams } from 'next/navigation';

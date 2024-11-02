@@ -1,4 +1,3 @@
-import { useControllerForOpenAi } from '@/api/controller/openai/main';
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { useControllerForPostAttachmentListFromPost } from '@/architecture/controller/post/attachment/list-from-post';
 import { useControllerForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
@@ -14,6 +13,7 @@ import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
