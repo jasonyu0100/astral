@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": "./", // Set the base URL for the module resolution
+    "paths": {
+      "@/*": ["./*"] // Maps @ to the root of your project
+    }
+  },
+  "include": ["index.ts", "api/**/*.ts"], // Include all TypeScript files
+  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist directories
+}
