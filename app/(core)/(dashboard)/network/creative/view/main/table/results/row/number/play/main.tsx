@@ -1,6 +1,6 @@
 import { userProfileMap } from '@/(core)/(public)/profile/[id]/map';
+import { ContextForUserObj } from '@/architecture/model/user/main';
 import { AstralPlayIcon } from '@/icons/play/main';
-import { ContextForUserObj } from '@/server/model/user/main';
 import { useContext } from 'react';
 
 export function NetworkCreativeNumberPlay() {

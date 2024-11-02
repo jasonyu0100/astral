@@ -2,7 +2,7 @@ import { ContextForUploadsController } from '@/api/controller/s3/multiple/main';
 import {
   FileElementVariant,
   getFileAccepts,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadFilesAreaInterface() {

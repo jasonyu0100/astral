@@ -1,11 +1,11 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralLinkIcon } from '@/icons/link/main';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { exampleFileElement } from '@/server/model/elements/file/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { liveMap } from '../../../map';

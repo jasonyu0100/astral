@@ -1,7 +1,7 @@
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 

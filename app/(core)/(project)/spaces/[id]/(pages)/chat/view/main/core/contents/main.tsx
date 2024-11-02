@@ -1,4 +1,4 @@
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { useContext } from 'react';
 import { SpacesChatConversations } from './conversations/main';
 import { SpacesChatEmpty } from './empty/main';

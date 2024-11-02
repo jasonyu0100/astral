@@ -1,9 +1,9 @@
+import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';

@@ -1,8 +1,8 @@
 import { ContextForSpacesSidebarModals } from '@/(core)/(project)/spaces/sidebar/modal/controller/main';
+import { ContextForSpaceMemberList } from '@/architecture/controller/space/member/list';
+import { ContextForSpaceMemberObj } from '@/architecture/model/space/member/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { ContextForSpaceMemberList } from '@/server/controller/space/member/list';
-import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
 import { useContext } from 'react';
 import { SpacesChatSidebarAi } from './ai/main';
 import { SpacesChatSidebarLoggedIn } from './loggedIn/main';

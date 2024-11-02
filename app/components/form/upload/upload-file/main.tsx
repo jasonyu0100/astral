@@ -5,7 +5,7 @@ import {
 import {
   ContextForFileElement,
   FileElement,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
 import { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import { UploadWrapper } from '../common/wrapper/main';

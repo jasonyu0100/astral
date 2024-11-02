@@ -1,8 +1,8 @@
+import { ContextForCommentKarmaList } from '@/architecture/controller/post/comment/karma/list';
+import { ContextForPostCommentObj } from '@/architecture/model/post/comment/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
-import { ContextForCommentKarmaList } from '@/server/controller/post/comment/karma/list';
-import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

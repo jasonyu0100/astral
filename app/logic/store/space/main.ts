@@ -1,4 +1,4 @@
-import { SpaceObj } from '@/server/model/space/main';
+import { SpaceObj } from '@/architecture/model/space/main';
 import Cookies from 'js-cookie';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';

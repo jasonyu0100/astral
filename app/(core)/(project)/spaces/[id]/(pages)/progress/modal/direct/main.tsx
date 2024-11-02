@@ -1,13 +1,13 @@
+import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { ContextForTaskList } from '@/server/controller/task/list';
 import { useContext, useState } from 'react';
 
 export function SpacesProgressDirectChatModal() {

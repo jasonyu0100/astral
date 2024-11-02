@@ -1,5 +1,5 @@
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
 import { ContextForSpacesProgressModals } from '../../../../modal/controller/main';
 

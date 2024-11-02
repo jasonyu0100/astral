@@ -1,7 +1,7 @@
 import { ContextForUploadsController } from '@/api/controller/s3/multiple/main';
+import { ContextForFileElement } from '@/architecture/model/elements/file/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { ContextForFileElement } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 import { UploadedFileEntryBody } from '../../common/entry/body/main';
 import { UploadedFileEntry } from '../../common/entry/main';

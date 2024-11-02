@@ -1,5 +1,5 @@
-import { ContextForUserActivityListFromSpace } from '@/server/controller/activity/list-from-space';
-import { UserActivityVariant } from '@/server/model/activity/main';
+import { ContextForUserActivityListFromSpace } from '@/architecture/controller/activity/list-from-space';
+import { UserActivityVariant } from '@/architecture/model/activity/main';
 import { useContext } from 'react';
 
 export function StudioPersonalRowPosts() {

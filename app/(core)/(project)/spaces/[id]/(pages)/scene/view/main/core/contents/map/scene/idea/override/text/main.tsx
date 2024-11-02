@@ -1,9 +1,9 @@
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import {
   TextElement,
   TextElementVariant,
-} from '@/server/model/elements/text/main';
-import { ContextForIdeaObj } from '@/server/model/idea/main';
+} from '@/architecture/model/elements/text/main';
+import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { useContext, useRef, useState } from 'react';
 
 export function SpacesSceneTextIdea() {

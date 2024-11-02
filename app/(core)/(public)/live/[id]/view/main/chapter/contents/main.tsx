@@ -1,7 +1,7 @@
+import { useControllerForPostAttachmentListFromPost } from '@/architecture/controller/post/attachment/list-from-post';
+import { ContextForPostAttachmentObj } from '@/architecture/model/post/attachment/main';
+import { ContextForUserPostObj } from '@/architecture/model/post/main';
 import { ElementAttachment } from '@/components/element/attachment/main';
-import { useControllerForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
-import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
-import { ContextForUserPostObj } from '@/server/model/post/main';
 import { useContext } from 'react';
 
 export function PublicSpaceChapterPostContents() {

@@ -1,3 +1,6 @@
+import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
+import { ContextForGalleryObj } from '@/architecture/model/gallery/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
@@ -10,9 +13,6 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForGalleryList } from '@/server/controller/gallery/list';
-import { ContextForGalleryObj } from '@/server/model/gallery/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { useContext, useState } from 'react';
 
 export function VaultFinderEditGalleryModal() {

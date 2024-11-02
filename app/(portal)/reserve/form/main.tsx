@@ -5,7 +5,7 @@ import { PortalFormSelect } from '@/(portal)/common/container/form/body/select/m
 import { PortalForm } from '@/(portal)/common/container/form/main';
 import { PortalTextHeader } from '@/(portal)/common/container/form/text-header/main';
 import { portalModel } from '@/(portal)/common/model/main';
-import { useControllerForUserReservationMain } from '@/server/controller/user/reservation/main';
+import { useControllerForUserReservationMain } from '@/architecture/controller/user/reservation/main';
 import { useState } from 'react';
 
 export function PortalReserveForm() {

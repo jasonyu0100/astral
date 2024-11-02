@@ -1,3 +1,4 @@
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -5,7 +6,6 @@ import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { spacesMap } from '../../../../map';

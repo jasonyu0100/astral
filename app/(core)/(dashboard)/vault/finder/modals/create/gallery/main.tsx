@@ -1,3 +1,4 @@
+import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
@@ -14,7 +15,6 @@ import {
 } from '@/logic/contexts/fileChangable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { useContext, useState } from 'react';
 
 export function VaultFinderCreateGalleryModal() {

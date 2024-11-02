@@ -1,6 +1,6 @@
 'use client';
+import { ContextForCurrentSpaceObj } from '@/architecture/model/space/main';
 import { AstralArrowCircleLeftIcon } from '@/icons/arrow-circle-left/main';
-import { ContextForCurrentSpaceObj } from '@/server/model/space/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import { ContextForCommonSidebar } from '../../../main';

@@ -1,7 +1,7 @@
+import { ContextForGalleryMain } from '@/architecture/controller/gallery/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForGalleryMain } from '@/server/controller/gallery/main';
 import { glassFx } from '@/style/data';
 import { useContext } from 'react';
 import { JournalDailyFooterRight } from './right/main';

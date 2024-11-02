@@ -1,4 +1,4 @@
-import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
 import { useContext } from 'react';
 import { JournalDailyFooter } from './footer/main';
 import { JournalDailyEmpty } from './table/empty/main';

@@ -1,10 +1,10 @@
+import { useControllerForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
+import { FileElementVariant } from '@/architecture/model/elements/file/main';
+import { ElementVariant } from '@/architecture/model/elements/main';
+import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { useControllerForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { FileElementVariant } from '@/server/model/elements/file/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { ContextForSpacesScene } from '../../../../../../controller/main';

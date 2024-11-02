@@ -1,7 +1,7 @@
+import { ContextForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 

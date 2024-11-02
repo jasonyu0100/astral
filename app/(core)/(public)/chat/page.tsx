@@ -1,27 +1,27 @@
 'use client';
-import { LoadingWrapper } from '@/components/loading/controller/main';
 import {
   ContextForChapterConversationList,
   useControllerForChapterConversationList,
-} from '@/server/controller/conversation/list';
+} from '@/architecture/controller/conversation/list';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/server/controller/conversation/message/list';
+} from '@/architecture/controller/conversation/message/list';
 import {
   ContextForIdeaSceneList,
   useControllerForIdeaSceneList,
-} from '@/server/controller/scene/list';
+} from '@/architecture/controller/scene/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/server/controller/space/chapter/list';
+} from '@/architecture/controller/space/chapter/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/server/controller/space/main';
-import { useControllerForUserMain } from '@/server/controller/user/main';
-import { ContextForUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/space/main';
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
+import { ContextForUserObj } from '@/architecture/model/user/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
 import PublicAstralPage from '@/utils/public-astral-page';
 import { useContext, useEffect } from 'react';
 import {

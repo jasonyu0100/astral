@@ -1,4 +1,4 @@
-import { TaskObj } from '@/server/model/task/main';
+import { TaskObj } from '@/architecture/model/task/main';
 import { createContext, useState } from 'react';
 
 interface Controller {

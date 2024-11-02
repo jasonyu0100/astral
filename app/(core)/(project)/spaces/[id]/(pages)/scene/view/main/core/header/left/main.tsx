@@ -1,3 +1,4 @@
+import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCategoryIcon } from '@/icons/category/main';
@@ -6,7 +7,6 @@ import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForGalleryList } from '@/server/controller/gallery/list';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {

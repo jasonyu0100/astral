@@ -1,6 +1,6 @@
+import { ContextForCollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
 import { ElementResource } from '@/components/element/resource/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { ContextForVaultFinderModals } from '../../modals/controller/main';

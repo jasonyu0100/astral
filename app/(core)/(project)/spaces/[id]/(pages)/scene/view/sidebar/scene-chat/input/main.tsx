@@ -1,7 +1,7 @@
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { ContextForSpacesSceneChat } from '../../../../controller/chat/main';

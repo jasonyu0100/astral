@@ -1,10 +1,10 @@
+import { ContextForPostCommentList } from '@/architecture/controller/post/comment/list';
+import { ContextForUserPostObj } from '@/architecture/model/post/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralArrowUpwardIcon } from '@/icons/arrow-upward/main';
-import { ContextForPostCommentList } from '@/server/controller/post/comment/list';
-import { ContextForUserPostObj } from '@/server/model/post/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext, useState } from 'react';
 

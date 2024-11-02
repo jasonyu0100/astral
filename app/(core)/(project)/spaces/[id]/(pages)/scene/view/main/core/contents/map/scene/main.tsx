@@ -1,7 +1,7 @@
 'use client';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
+import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useEffect, useRef } from 'react';
 import { ContextForSpacesScene } from '../../../../../../controller/main';
 import { SpacesSceneContentsSceneConnections } from './connections/main';

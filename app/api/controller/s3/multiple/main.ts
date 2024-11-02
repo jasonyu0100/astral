@@ -3,7 +3,7 @@ import {
   FileElement,
   FileElementVariant,
   getFileVariantFromMimeType,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
 import { ChangeEvent, createContext, useState } from 'react';
 
 interface Actions {

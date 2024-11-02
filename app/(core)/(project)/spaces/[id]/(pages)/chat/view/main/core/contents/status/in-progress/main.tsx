@@ -1,12 +1,12 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { TaskStatus } from '@/architecture/model/task/main';
 import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralCheckIcon } from '@/icons/check/main';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { ContextForTaskList } from '@/server/controller/task/list';
-import { TaskStatus } from '@/server/model/task/main';
 import React, { useContext } from 'react';
 
 export function SpacesChatStatusInProgress() {

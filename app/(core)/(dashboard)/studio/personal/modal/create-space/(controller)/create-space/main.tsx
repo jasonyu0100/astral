@@ -1,14 +1,14 @@
-import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceList } from '@/server/controller/space/list';
-import { useControllerForSpaceMemberList } from '@/server/controller/space/member/list';
-import { ContextForTaskList } from '@/server/controller/task/list';
+import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceList } from '@/architecture/controller/space/list';
+import { useControllerForSpaceMemberList } from '@/architecture/controller/space/member/list';
+import { ContextForTaskList } from '@/architecture/controller/task/list';
 import {
   exampleFileElement,
   FileElement,
-} from '@/server/model/elements/file/main';
-import { SpaceObj } from '@/server/model/space/main';
+} from '@/architecture/model/elements/file/main';
+import { SpaceObj } from '@/architecture/model/space/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   SpaceTemplate,
   SpaceTemplateMap,

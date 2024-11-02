@@ -1,6 +1,6 @@
 'use client';
-import { ContextForCurrentSpaceObj } from '@/server/model/space/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import { ContextForCurrentSpaceObj } from '@/architecture/model/space/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext, useEffect, useState } from 'react';
 import { ContextForCommonSidebar } from '../../../main';

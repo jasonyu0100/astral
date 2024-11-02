@@ -1,6 +1,6 @@
 import { VaultFinderModals } from '@/(core)/(dashboard)/vault/finder/modals/controller/main';
-import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
+import { ContextForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { CollectionResourceAdd } from '../../../../../common/resource/add/main';
 import { FinderResource } from '../../../../../common/resource/main';

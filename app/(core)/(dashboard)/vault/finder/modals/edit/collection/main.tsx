@@ -1,3 +1,5 @@
+import { ContextForGalleryCollectionList } from '@/architecture/controller/gallery/collection/list';
+import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
@@ -10,8 +12,6 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { useContext, useState } from 'react';
 
 export function VaultFinderEditCollectionModal() {

@@ -1,5 +1,5 @@
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
-import { ContextForUserPostObj } from '@/server/model/post/main';
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
+import { ContextForUserPostObj } from '@/architecture/model/post/main';
 import { useContext } from 'react';
 import { PublicSpaceChaptersEmpty } from './empty/main';
 import { PublicSpaceChapterPost } from './item/main';

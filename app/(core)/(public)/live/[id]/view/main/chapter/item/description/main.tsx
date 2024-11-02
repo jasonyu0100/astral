@@ -2,9 +2,9 @@ import {
   ContextForPublicSpace,
   PublicSpaceFeedView,
 } from '@/(core)/(public)/live/[id]/controller/main';
-import { ContextForUserMain } from '@/server/controller/user/main';
-import { exampleFileElement } from '@/server/model/elements/file/main';
-import { ContextForUserPostObj } from '@/server/model/post/main';
+import { ContextForUserMain } from '@/architecture/controller/user/main';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
+import { ContextForUserPostObj } from '@/architecture/model/post/main';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { PublicSpaceChapterPostKarma } from './karma/main';

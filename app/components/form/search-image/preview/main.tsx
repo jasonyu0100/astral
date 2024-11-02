@@ -1,9 +1,9 @@
+import { FileElement } from '@/architecture/model/elements/file/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
-import { FileElement } from '@/server/model/elements/file/main';
 import { borderFx, glassFx } from '@/style/data';
 import { useContext } from 'react';
 

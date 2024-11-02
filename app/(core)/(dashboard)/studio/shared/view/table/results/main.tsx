@@ -1,8 +1,8 @@
+import { useControllerForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForSpaceMemberListFromUser } from '@/architecture/controller/space/member/list-from-user';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
+import { ContextForSpaceMemberObj } from '@/architecture/model/space/member/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { useControllerForSpaceMain } from '@/server/controller/space/main';
-import { ContextForSpaceMemberListFromUser } from '@/server/controller/space/member/list-from-user';
-import { ContextForSpaceObj } from '@/server/model/space/main';
-import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
 import { useContext } from 'react';
 import { StudioSharedRow } from './row/main';
 import { StudioSharedRowWrapper } from './wrapper/main';

@@ -1,5 +1,5 @@
-import { ContextForSpaceMemberList } from '@/server/controller/space/member/list';
-import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
+import { ContextForSpaceMemberList } from '@/architecture/controller/space/member/list';
+import { ContextForSpaceMemberObj } from '@/architecture/model/space/member/main';
 import { useContext } from 'react';
 import { SpaceSidebarMembersListAdd } from './add/main';
 import { SpaceSidebarMembersListMember } from './member/main';

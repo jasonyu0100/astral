@@ -1,4 +1,7 @@
-import { ContextForSpaceObj, SpaceVisibility } from '@/server/model/space/main';
+import {
+  ContextForSpaceObj,
+  SpaceVisibility,
+} from '@/architecture/model/space/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 

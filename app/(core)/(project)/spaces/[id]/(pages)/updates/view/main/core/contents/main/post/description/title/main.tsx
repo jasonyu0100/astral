@@ -1,6 +1,6 @@
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
-import { exampleFileElement } from '@/server/model/elements/file/main';
-import { ContextForUserObj } from '@/server/model/user/main';
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
+import { ContextForUserObj } from '@/architecture/model/user/main';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

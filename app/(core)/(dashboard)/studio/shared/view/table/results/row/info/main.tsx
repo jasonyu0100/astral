@@ -1,5 +1,5 @@
-import { ContextForSpaceObj } from '@/server/model/space/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 
 export function StudioSharedRowInfo() {

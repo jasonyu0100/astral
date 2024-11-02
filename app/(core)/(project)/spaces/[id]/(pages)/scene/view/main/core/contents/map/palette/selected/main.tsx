@@ -1,11 +1,11 @@
 import { ContextForSpacesScene } from '@/(core)/(project)/spaces/[id]/(pages)/scene/controller/main';
 import { ContextForSpacesSceneModals } from '@/(core)/(project)/spaces/[id]/(pages)/scene/modal/controller/main';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralContentCopyIcon } from '@/icons/content-copy/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralForwardIcon } from '@/icons/forward/main';
 import { AstralPolylineIcon } from '@/icons/polyline/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { useContext } from 'react';
 
 export function SpacesScenePaletteSelected() {

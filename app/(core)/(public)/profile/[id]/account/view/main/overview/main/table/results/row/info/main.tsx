@@ -1,5 +1,5 @@
-import { ContextForSpaceObj } from '@/server/model/space/main';
-import { ContextForProfileUserObj } from '@/server/model/user/main';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
+import { ContextForProfileUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 
 export function UserProfileSpacesRowInfo() {

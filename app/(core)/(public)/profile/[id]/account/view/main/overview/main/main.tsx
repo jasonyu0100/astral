@@ -1,8 +1,8 @@
 import {
   ContextForSpaceList,
   useControllerForSpaceList,
-} from '@/server/controller/space/list';
-import { ContextForProfileUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/space/list';
+import { ContextForProfileUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 import { ContextForProfile, ProfilePage } from '../controller/main';
 import { UserProfileSpacesTable } from './table/main';

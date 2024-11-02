@@ -1,7 +1,7 @@
+import { ContextForUserConnectionListFromSource } from '@/architecture/controller/user/connection/list-from-source';
+import { ContextForUserConnectionObj } from '@/architecture/model/user/connection/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
-import { ContextForUserConnectionListFromSource } from '@/server/controller/user/connection/list-from-source';
-import { ContextForUserConnectionObj } from '@/server/model/user/connection/main';
 import { useContext } from 'react';
 import { ContextForCreateSpace } from '../../../../(controller)/create-space/main';
 import { CreateSpaceCollaboratorRow } from './row/main';

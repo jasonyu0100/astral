@@ -1,3 +1,7 @@
+import { ContextForGalleryCollectionList } from '@/architecture/controller/gallery/collection/list';
+import { useControllerForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
+import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
+import { FileElement } from '@/architecture/model/elements/file/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralUploadFiles } from '@/components/form/upload/upload-files/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
@@ -11,10 +15,6 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { useControllerForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { ContextForGalleryList } from '@/server/controller/gallery/list';
-import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function SpacesSceneAddCollectionModal() {

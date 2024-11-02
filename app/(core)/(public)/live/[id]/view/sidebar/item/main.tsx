@@ -1,13 +1,13 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { useControllerForTaskList } from '@/architecture/controller/task/list';
+import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/main';
+import { ChapterTaskStatus, TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralEditIcon } from '@/icons/edit/main';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { useControllerForTaskList } from '@/server/controller/task/list';
-import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
-import { ChapterTaskStatus, TaskStatus } from '@/server/model/task/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import {

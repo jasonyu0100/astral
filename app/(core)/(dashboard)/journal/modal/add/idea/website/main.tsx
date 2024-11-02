@@ -1,3 +1,9 @@
+import { ContextForGalleryCollectionList } from '@/architecture/controller/gallery/collection/list';
+import { ContextForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
+import {
+  UrlElement,
+  UrlElementVariant,
+} from '@/architecture/model/elements/url/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModal } from '@/components/modal/astral/main';
@@ -6,12 +12,6 @@ import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import {
-  UrlElement,
-  UrlElementVariant,
-} from '@/server/model/elements/url/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function DashboardJournalAddWebsiteUrlModal() {

@@ -1,4 +1,4 @@
-import { ContextForFileElement } from '@/server/model/elements/file/main';
+import { ContextForFileElement } from '@/architecture/model/elements/file/main';
 import { useContext } from 'react';
 
 export function UploadedFileEntryInfo() {

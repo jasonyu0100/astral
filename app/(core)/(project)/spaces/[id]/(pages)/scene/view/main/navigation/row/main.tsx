@@ -1,6 +1,6 @@
+import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
+import { ContextForIdeaSceneObj } from '@/architecture/model/scene/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
-import { ContextForIdeaSceneObj } from '@/server/model/scene/main';
 import { useContext } from 'react';
 import { ContextForSpacesSceneModals } from '../../../../modal/controller/main';
 import SpacesSceneRowAdd from './add/main';

@@ -1,7 +1,7 @@
 import { ContextForVaultFinderModals } from '@/(core)/(dashboard)/vault/finder/modals/controller/main';
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
+import { ContextForGalleryObj } from '@/architecture/model/gallery/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { ContextForGalleryObj } from '@/server/model/gallery/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

@@ -1,9 +1,9 @@
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
+import { ContextForSpaceMemberObj } from '@/architecture/model/space/member/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { useControllerForUserMain } from '@/server/controller/user/main';
-import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';

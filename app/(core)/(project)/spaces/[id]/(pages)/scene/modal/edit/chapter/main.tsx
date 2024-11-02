@@ -1,3 +1,5 @@
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
@@ -11,8 +13,6 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { exampleFileElement } from '@/server/model/elements/file/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesSceneEditChapterModal() {

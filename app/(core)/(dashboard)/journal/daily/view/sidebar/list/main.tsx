@@ -1,5 +1,5 @@
-import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
+import { ContextForGalleryCollectionList } from '@/architecture/controller/gallery/collection/list';
+import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import { useContext } from 'react';
 import { JournalDailySidebarListItem } from './item/main';
 

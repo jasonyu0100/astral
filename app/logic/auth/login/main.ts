@@ -1,6 +1,6 @@
 import { amplifyClient } from '@/api/aws/graphql/main';
+import { UserObj } from '@/architecture/model/user/main';
 import { listUserObjs } from '@/graphql/queries';
-import { UserObj } from '@/server/model/user/main';
 import bcrypt from 'bcryptjs';
 
 const STRIPE_SK =

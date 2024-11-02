@@ -1,8 +1,8 @@
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralSendIcon } from '@/icons/send/main';
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { ContextForConversationalSearch } from '../../../controller/chat/main';

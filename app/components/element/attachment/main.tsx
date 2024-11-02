@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FileElementVariant } from '@/server/model/elements/file/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { TextElementVariant } from '@/server/model/elements/text/main';
-import { UrlElementVariant } from '@/server/model/elements/url/main';
-import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
+import { FileElementVariant } from '@/architecture/model/elements/file/main';
+import { ElementVariant } from '@/architecture/model/elements/main';
+import { TextElementVariant } from '@/architecture/model/elements/text/main';
+import { UrlElementVariant } from '@/architecture/model/elements/url/main';
+import { ContextForPostAttachmentObj } from '@/architecture/model/post/attachment/main';
 import { useContext } from 'react';
 import { ElementArticle } from '../common/article/main';
 import { ElementAudioSquare } from '../common/audio/square/main';

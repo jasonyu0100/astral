@@ -1,6 +1,6 @@
-import { useControllerForUserMain } from '@/server/controller/user/main';
-import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
-import { exampleFileElement } from '@/server/model/elements/file/main';
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
+import { ContextForConversationMessageObj } from '@/architecture/model/conversation/message/main';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { useContext } from 'react';
 
 export function SpaceMapMemberMessage() {

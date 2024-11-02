@@ -1,6 +1,6 @@
+import { ContextForUserConnectionListFromDestination } from '@/architecture/controller/user/connection/list-from-destination';
+import { ContextForUserConnectionListFromSource } from '@/architecture/controller/user/connection/list-from-source';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
-import { ContextForUserConnectionListFromDestination } from '@/server/controller/user/connection/list-from-destination';
-import { ContextForUserConnectionListFromSource } from '@/server/controller/user/connection/list-from-source';
 import { useContext } from 'react';
 import {
   ContextForUserProfile,

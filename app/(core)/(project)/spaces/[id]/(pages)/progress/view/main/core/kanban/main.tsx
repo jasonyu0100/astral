@@ -1,10 +1,10 @@
+import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { exampleTask, TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralCloseIcon } from '@/icons/close/main';
-import { ContextForTaskList } from '@/server/controller/task/list';
-import { exampleTask, TaskStatus } from '@/server/model/task/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';

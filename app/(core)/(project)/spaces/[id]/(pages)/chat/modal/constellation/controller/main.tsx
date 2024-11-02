@@ -1,24 +1,24 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { useControllerForUnsplash } from '@/api/controller/unsplash/main';
-import { ContextForLoading } from '@/components/loading/controller/main';
-import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { useControllerForIdeaRelationshipListFromChapter } from '@/server/controller/idea/relationship/list-from-chapter';
-import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
+import { useControllerForIdeaRelationshipListFromChapter } from '@/architecture/controller/idea/relationship/list-from-chapter';
+import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import {
   exampleFileElement,
   FileElementVariant,
-} from '@/server/model/elements/file/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { exampleTextElement } from '@/server/model/elements/text/main';
+} from '@/architecture/model/elements/file/main';
+import { ElementVariant } from '@/architecture/model/elements/main';
+import { exampleTextElement } from '@/architecture/model/elements/text/main';
 import {
   exampleUrlElement,
   UrlElementVariant,
-} from '@/server/model/elements/url/main';
-import { exampleIdea, IdeaObj } from '@/server/model/idea/main';
+} from '@/architecture/model/elements/url/main';
+import { exampleIdea, IdeaObj } from '@/architecture/model/idea/main';
+import { ContextForLoading } from '@/components/loading/controller/main';
+import { ContextForOpenable } from '@/logic/contexts/openable/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import {
   getFileIdeaBounds,
   getTextIdeaBounds,

@@ -1,3 +1,8 @@
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForSpaceMemberList } from '@/architecture/controller/space/member/list';
+import { useControllerForUserConnectionListFromSource } from '@/architecture/controller/user/connection/list-from-source';
+import { ContextForUserConnectionObj } from '@/architecture/model/user/connection/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
@@ -7,11 +12,6 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { ContextForSpaceMemberList } from '@/server/controller/space/member/list';
-import { useControllerForUserConnectionListFromSource } from '@/server/controller/user/connection/list-from-source';
-import { ContextForUserConnectionObj } from '@/server/model/user/connection/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { SpacesSidebarAddMemberItem } from './item/main';
 

@@ -5,7 +5,7 @@ import {
 import {
   FileElement,
   FileElementVariant,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
 import { useEffect } from 'react';
 import { UploadFileLabel } from '../common/label/main';
 import { UploadFilesArea } from './area/main';

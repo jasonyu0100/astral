@@ -1,4 +1,4 @@
-import { UserObj } from '@/server/model/user/main';
+import { UserObj } from '@/architecture/model/user/main';
 import Cookies from 'js-cookie';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';

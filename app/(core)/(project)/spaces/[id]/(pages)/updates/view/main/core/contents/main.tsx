@@ -1,4 +1,4 @@
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
 import { useContext } from 'react';
 import { SpacesUpdatesEmpty } from './empty/main';
 import { SpacesUpdatesMain } from './main/main';

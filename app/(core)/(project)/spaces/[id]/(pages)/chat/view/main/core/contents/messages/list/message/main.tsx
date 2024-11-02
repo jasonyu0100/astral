@@ -1,5 +1,5 @@
-import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+import { ContextForConversationMessageObj } from '@/architecture/model/conversation/message/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 import { SpacesChatAgentMessage } from './agent/main';
 import { SpacesChatMemberMessage } from './member/main';

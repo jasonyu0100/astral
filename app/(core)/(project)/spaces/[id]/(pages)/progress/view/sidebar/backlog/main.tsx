@@ -1,8 +1,8 @@
+import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskObj, TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
-import { ContextForTaskList } from '@/server/controller/task/list';
-import { ContextForTaskObj, TaskStatus } from '@/server/model/task/main';
 import { useContext } from 'react';
 import { SpacesProgressSidebarBacklogAdd } from './add/main';
 import { SpacesProgressBacklogItem } from './item/main';

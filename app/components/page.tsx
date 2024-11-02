@@ -1,12 +1,12 @@
 'use client';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
+import { exampleHorizon } from '@/architecture/model/horizon/main';
+import { exampleSpace } from '@/architecture/model/space/main';
+import { exampleUser } from '@/architecture/model/user/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
-import { exampleFileElement } from '@/server/model/elements/file/main';
-import { exampleHorizon } from '@/server/model/horizon/main';
-import { exampleSpace } from '@/server/model/space/main';
-import { exampleUser } from '@/server/model/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { HorizonsThumbnailElement } from './cover/horizon/main';
 import { SpaceThumbnailElement } from './cover/space/main';

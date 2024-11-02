@@ -1,5 +1,5 @@
-import { useControllerForSpaceList } from '@/server/controller/space/list';
-import { ContextForUserObj } from '@/server/model/user/main';
+import { useControllerForSpaceList } from '@/architecture/controller/space/list';
+import { ContextForUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 
 export function NetworkCreativeRowSpaces() {

@@ -7,8 +7,8 @@ import { PortalFormInput } from '@/(portal)/common/container/form/body/input/mai
 import { PortalFormBody } from '@/(portal)/common/container/form/body/main';
 import { PortalForm } from '@/(portal)/common/container/form/main';
 import { PortalTextHeader } from '@/(portal)/common/container/form/text-header/main';
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserMain } from '@/server/controller/user/main';
 import { useState } from 'react';
 import { portalMap } from '../../map';
 

@@ -1,4 +1,4 @@
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { useContext } from 'react';
 import SpaceFlightRowAdd from './add/main';
 import { SpaceFlightRowContainer } from './container/main';

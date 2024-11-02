@@ -1,5 +1,5 @@
+import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import { ContextForGenerateSceneController } from '../../../controller/main';

@@ -1,10 +1,10 @@
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
-import { useControllerForUserMain } from '@/server/controller/user/main';
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
 import {
   ContextForUserPostObj,
   exampleUserPost,
-} from '@/server/model/post/main';
-import { ContextForUserObj } from '@/server/model/user/main';
+} from '@/architecture/model/post/main';
+import { ContextForUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 import {
   ContextForSpacesUpdates,

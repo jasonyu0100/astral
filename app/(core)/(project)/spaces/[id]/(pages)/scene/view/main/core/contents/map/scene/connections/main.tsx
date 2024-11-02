@@ -2,8 +2,8 @@ import {
   ContextForSpacesScene,
   SpacesSceneLinkMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/scene/controller/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { ContextForIdeaRelationshipListFromScene } from '@/server/controller/idea/relationship/list-from-scene';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
+import { ContextForIdeaRelationshipListFromScene } from '@/architecture/controller/idea/relationship/list-from-scene';
 import { useContext } from 'react';
 
 export function SpacesSceneContentsSceneConnections() {

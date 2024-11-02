@@ -1,6 +1,6 @@
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
 import { useContext } from 'react';
 
 export function SpacesSceneStatus() {

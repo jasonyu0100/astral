@@ -1,5 +1,5 @@
-import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
-import { exampleFileElement } from '@/server/model/elements/file/main';
+import { ContextForConversationMessageObj } from '@/architecture/model/conversation/message/main';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 

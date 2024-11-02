@@ -1,5 +1,5 @@
+import { FileElement } from '@/architecture/model/elements/file/main';
 import { DivInputProps } from '@/props/main';
-import { FileElement } from '@/server/model/elements/file/main';
 
 export enum SpaceThumbnailVariant {
   PLAIN = 'PLAIN',

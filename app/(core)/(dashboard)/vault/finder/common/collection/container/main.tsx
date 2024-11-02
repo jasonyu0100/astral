@@ -1,16 +1,16 @@
+import {
+  ContextForGalleryCollectionMain,
+  useControllerForGalleryCollectionMain,
+} from '@/architecture/controller/gallery/collection/main';
+import {
+  ContextForCollectionResourceList,
+  useControllerForCollectionResourceList,
+} from '@/architecture/controller/gallery/collection/resource/list';
+import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { DivInputProps } from '@/props/main';
-import {
-  ContextForGalleryCollectionMain,
-  useControllerForGalleryCollectionMain,
-} from '@/server/controller/gallery/collection/main';
-import {
-  ContextForCollectionResourceList,
-  useControllerForCollectionResourceList,
-} from '@/server/controller/gallery/collection/resource/list';
-import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import React, { useContext } from 'react';
 

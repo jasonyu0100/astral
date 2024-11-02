@@ -1,7 +1,7 @@
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { borderFx } from '@/style/data';
 import { useContext } from 'react';
 import { SpacesChatStatusInProgress } from './in-progress/main';

@@ -1,8 +1,8 @@
 import {
   ContextForUserActivityListFromSpace,
   useControllerForUserActivityListFromSpace,
-} from '@/server/controller/activity/list-from-space';
-import { ContextForSpaceObj } from '@/server/model/space/main';
+} from '@/architecture/controller/activity/list-from-space';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { useContext } from 'react';
 import { StudioPersonalRowActivity } from './activity/main';
 import { StudioPersonalRowCategory } from './category/main';

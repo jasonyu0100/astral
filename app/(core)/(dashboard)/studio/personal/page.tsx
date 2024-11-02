@@ -1,23 +1,23 @@
 'use client';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForUserActivityListFromChapter,
   useControllerForUserActivityListFromChapter,
-} from '@/server/controller/activity/list-from-chapter';
+} from '@/architecture/controller/activity/list-from-chapter';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/server/controller/space/chapter/list';
+} from '@/architecture/controller/space/chapter/list';
 import {
   ContextForSpaceList,
   useControllerForSpaceList,
-} from '@/server/controller/space/list';
+} from '@/architecture/controller/space/list';
 import {
   ContextForTaskList,
   useControllerForTaskList,
-} from '@/server/controller/task/list';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/task/list';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useContext, useEffect } from 'react';
 import {

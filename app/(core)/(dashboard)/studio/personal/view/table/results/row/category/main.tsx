@@ -1,6 +1,6 @@
 'use client';
 
-import { ContextForSpaceObj } from '@/server/model/space/main';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { useContext } from 'react';
 
 export function StudioPersonalRowCategory() {

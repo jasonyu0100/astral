@@ -1,19 +1,18 @@
 'use client';
 
 import { portalMap } from '@/(portal)/map';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForUserConnectionListFromDestination,
   useControllerForUserConnectionListFromDestination,
-} from '@/server/controller/user/connection/list-from-destination';
+} from '@/architecture/controller/user/connection/list-from-destination';
 import {
   ContextForUserConnectionListFromSource,
   useControllerForUserConnectionListFromSource,
-} from '@/server/controller/user/connection/list-from-source';
+} from '@/architecture/controller/user/connection/list-from-source';
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/server/controller/user/main';
+} from '@/architecture/controller/user/main';
 import {
   ContextForLoggedInUserObj,
   ContextForProfileUserObj,
@@ -21,7 +20,8 @@ import {
   ContextForUserProfileVisibility,
   UserPageRole,
   UserProfileVisibility,
-} from '@/server/model/user/main';
+} from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PublicAstralPage from '@/utils/public-astral-page';
 import { useContext, useEffect } from 'react';
 import { ContextForProfileId } from '../layout';

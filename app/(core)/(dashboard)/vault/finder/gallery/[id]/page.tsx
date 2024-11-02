@@ -1,18 +1,18 @@
 'use client';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/server/controller/gallery/collection/list';
+} from '@/architecture/controller/gallery/collection/list';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/server/controller/gallery/collection/resource/list';
+} from '@/architecture/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/server/controller/gallery/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/gallery/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { VaultFinderModals } from '../../modals/controller/main';
 import { FinderGalleryCollections } from './view/view';

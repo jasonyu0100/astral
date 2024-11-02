@@ -1,3 +1,9 @@
+import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForPostAttachmentListFromPost } from '@/architecture/controller/post/attachment/list-from-post';
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { FileElement } from '@/architecture/model/elements/file/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralUploadFiles } from '@/components/form/upload/upload-files/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
@@ -8,12 +14,6 @@ import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { FileElement } from '@/server/model/elements/file/main';
 import { useContext, useState } from 'react';
 
 export function SpacesUpdatesAddPostModal() {

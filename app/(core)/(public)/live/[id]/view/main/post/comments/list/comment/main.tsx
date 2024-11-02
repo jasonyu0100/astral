@@ -1,14 +1,14 @@
-import { GlassWindowContents } from '@/components/glass/window/contents/main';
-import { GlassWindowFrame } from '@/components/glass/window/main';
 import {
   ContextForCommentKarmaList,
   useControllerForCommentKarmaList,
-} from '@/server/controller/post/comment/karma/list';
+} from '@/architecture/controller/post/comment/karma/list';
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/server/controller/user/main';
-import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
+} from '@/architecture/controller/user/main';
+import { ContextForPostCommentObj } from '@/architecture/model/post/comment/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
 import { PublicSpacePageCommentKarma } from './karma/main';
 import { PublicSpacePageCommentMessage } from './message/main';

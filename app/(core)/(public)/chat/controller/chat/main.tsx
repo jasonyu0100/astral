@@ -1,4 +1,12 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
+import { useControllerForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
+import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceList } from '@/architecture/controller/space/list';
+import { ConversationObj } from '@/architecture/model/conversation/main';
+import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
 import {
   communityEngagement,
   currentState,
@@ -12,14 +20,6 @@ import {
   targetCustomer,
 } from '@/logic/information/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
-import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceList } from '@/server/controller/space/list';
-import { ConversationObj } from '@/server/model/conversation/main';
-import { ConversationMessageObj } from '@/server/model/conversation/message/main';
 import { createContext, useContext } from 'react';
 
 interface Controller {

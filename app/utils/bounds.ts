@@ -1,15 +1,15 @@
 import {
   FileElement,
   FileElementVariant,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
 import {
   TextElement,
   TextElementVariant,
-} from '@/server/model/elements/text/main';
+} from '@/architecture/model/elements/text/main';
 import {
   UrlElement,
   UrlElementVariant,
-} from '@/server/model/elements/url/main';
+} from '@/architecture/model/elements/url/main';
 
 export async function getFileIdeaBounds(file: FileElement) {
   if (file.id === undefined) {

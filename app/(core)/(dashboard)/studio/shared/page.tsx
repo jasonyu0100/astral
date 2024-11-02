@@ -1,10 +1,10 @@
 'use client';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForSpaceMemberListFromUser,
   useControllerForSpaceMemberListFromUser,
-} from '@/server/controller/space/member/list-from-user';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/space/member/list-from-user';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { StudioSharedView } from './view/view';
 

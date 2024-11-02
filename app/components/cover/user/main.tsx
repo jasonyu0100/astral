@@ -1,8 +1,8 @@
-import { DivInputProps } from '@/props/main';
 import {
   exampleFileElement,
   FileElement,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
+import { DivInputProps } from '@/props/main';
 import { ctwn } from '@/utils/cn';
 
 interface UserDpElementProps extends DivInputProps {

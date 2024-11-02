@@ -1,10 +1,10 @@
 import { VaultFinderModals } from '@/(core)/(dashboard)/vault/finder/modals/controller/main';
+import { ContextForGalleryCollectionList } from '@/architecture/controller/gallery/collection/list';
+import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import {
   ContextForOpenable,
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
-import { ContextForGalleryCollectionList } from '@/server/controller/gallery/collection/list';
-import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { useContext } from 'react';
 import { GalleryCollectionAdd } from '../../../../../common/collection/add/main';
 import { FinderCollection } from '../../../../../common/collection/main';

@@ -1,3 +1,9 @@
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import {
+  exampleFileElement,
+  FileElement,
+} from '@/architecture/model/elements/file/main';
+import { SpaceVisibility } from '@/architecture/model/space/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
@@ -11,12 +17,6 @@ import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import {
-  exampleFileElement,
-  FileElement,
-} from '@/server/model/elements/file/main';
-import { SpaceVisibility } from '@/server/model/space/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesUpdatesEditSpaceModal() {

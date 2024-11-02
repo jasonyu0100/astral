@@ -1,10 +1,10 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
+import { ContextForGalleryCollectionMain } from '@/architecture/controller/gallery/collection/main';
+import { ContextForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
+import { FileElementVariant } from '@/architecture/model/elements/file/main';
+import { ElementVariant } from '@/architecture/model/elements/main';
+import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { ContextForGalleryCollectionMain } from '@/server/controller/gallery/collection/main';
-import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { FileElementVariant } from '@/server/model/elements/file/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { ContextForGalleryCollectionObj } from '@/server/model/gallery/collection/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { ContextForVaultFinderModals } from '../../../modals/controller/main';

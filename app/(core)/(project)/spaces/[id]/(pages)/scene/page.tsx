@@ -3,75 +3,75 @@ import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { portalMap } from '@/(portal)/map';
-import { LoadingWrapper } from '@/components/loading/controller/main';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForUserActivityListFromChapter,
   useControllerForUserActivityListFromChapter,
-} from '@/server/controller/activity/list-from-chapter';
+} from '@/architecture/controller/activity/list-from-chapter';
 import {
   ContextForChapterConversationList,
   useControllerForChapterConversationList,
-} from '@/server/controller/conversation/list';
+} from '@/architecture/controller/conversation/list';
 import {
   ContextForConversationMessageList,
   useControllerForConversationMessageList,
-} from '@/server/controller/conversation/message/list';
+} from '@/architecture/controller/conversation/message/list';
 import {
   ContextForGalleryCollectionList,
   useControllerForGalleryCollectionList,
-} from '@/server/controller/gallery/collection/list';
+} from '@/architecture/controller/gallery/collection/list';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/server/controller/gallery/collection/resource/list';
+} from '@/architecture/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryList,
   useControllerForGalleryList,
-} from '@/server/controller/gallery/list';
+} from '@/architecture/controller/gallery/list';
 import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
-} from '@/server/controller/idea/list';
+} from '@/architecture/controller/idea/list';
 import {
   ContextForIdeaRelationshipListFromScene,
   useControllerForIdeaRelationshipListFromScene,
-} from '@/server/controller/idea/relationship/list-from-scene';
+} from '@/architecture/controller/idea/relationship/list-from-scene';
 import {
   ContextForIdeaSceneList,
   useControllerForIdeaSceneList,
-} from '@/server/controller/scene/list';
+} from '@/architecture/controller/scene/list';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/server/controller/space/chapter/list';
+} from '@/architecture/controller/space/chapter/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/server/controller/space/main';
+} from '@/architecture/controller/space/main';
 import {
   ContextForSpaceMemberList,
   useControllerForSpaceMemberList,
-} from '@/server/controller/space/member/list';
+} from '@/architecture/controller/space/member/list';
 import {
   ContextForTaskList,
   useControllerForTaskList,
-} from '@/server/controller/task/list';
+} from '@/architecture/controller/task/list';
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/server/controller/user/main';
+} from '@/architecture/controller/user/main';
 import {
   ContextForSpaceVisibility,
   SpaceVisibility,
-} from '@/server/model/space/main';
+} from '@/architecture/model/space/main';
 import {
   ContextForLoggedInUserObj,
   ContextForUserPageRole,
   ContextForUserProfileVisibility,
   UserPageRole,
   UserProfileVisibility,
-} from '@/server/model/user/main';
+} from '@/architecture/model/user/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';

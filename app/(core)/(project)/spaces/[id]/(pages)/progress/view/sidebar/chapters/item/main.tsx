@@ -1,14 +1,14 @@
 import { ExplorerProjectsSidebarOption } from '@/(core)/(dashboard)/explorer/projects/view/sidebar/(common)/list/option/main';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import {
+  calculateCompletionColor,
+  ContextForTaskList,
+} from '@/architecture/controller/task/list';
+import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import {
-  calculateCompletionColor,
-  ContextForTaskList,
-} from '@/server/controller/task/list';
-import { ContextForSpaceChapterObj } from '@/server/model/space/chapter/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { ContextForSpacesProgressModals } from '../../../../modal/controller/main';

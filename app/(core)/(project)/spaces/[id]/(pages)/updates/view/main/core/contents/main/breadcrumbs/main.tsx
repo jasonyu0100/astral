@@ -1,6 +1,6 @@
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import {
   ContextForSpacesUpdates,

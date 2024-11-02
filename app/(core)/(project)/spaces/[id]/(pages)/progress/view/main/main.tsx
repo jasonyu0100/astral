@@ -1,5 +1,5 @@
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { useContext } from 'react';
 import { SpacesProgressKanban } from './core/kanban/main';
 import { SpacesProgressHeader } from './header/main';

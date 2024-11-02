@@ -1,6 +1,6 @@
-import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
-import { ContextForUserMain } from '@/server/controller/user/main';
-import { exampleFileElement } from '@/server/model/elements/file/main';
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
+import { ContextForUserMain } from '@/architecture/controller/user/main';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
 import { PublicSpaceSpacePostKarma } from './karma/main';

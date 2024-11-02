@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { FileElement } from '../../../server/model/elements/file/main';
+import { FileElement } from '../../../architecture/model/elements/file/main';
 
 interface ContextForFileChangableInterface {
   fileElem: FileElement;

@@ -1,19 +1,19 @@
+import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
+import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/architecture/model/elements/text/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import {
-  TextElement,
-  TextElementVariant,
-} from '@/server/model/elements/text/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
 import { getTextIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 

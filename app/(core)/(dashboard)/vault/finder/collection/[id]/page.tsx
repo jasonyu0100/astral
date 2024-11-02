@@ -1,20 +1,20 @@
 'use client';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
 import { VaultTabs, VaultTabStage } from '@/(core)/(dashboard)/vault/tabs/main';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForGalleryCollectionMain,
   useControllerForGalleryCollectionMain,
-} from '@/server/controller/gallery/collection/main';
+} from '@/architecture/controller/gallery/collection/main';
 import {
   ContextForCollectionResourceList,
   useControllerForCollectionResourceList,
-} from '@/server/controller/gallery/collection/resource/list';
+} from '@/architecture/controller/gallery/collection/resource/list';
 import {
   ContextForGalleryMain,
   useControllerForGalleryMain,
-} from '@/server/controller/gallery/main';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/gallery/main';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { VaultFinderModals } from '../../modals/controller/main';
 import { FinderCollectionResources } from './view/main';

@@ -1,4 +1,10 @@
 import { portalMap } from '@/(portal)/map';
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
+import { FileElement } from '@/architecture/model/elements/file/main';
+import {
+  ContextForLoggedInUserObj,
+  UserProfileVisibility,
+} from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralUploadFile } from '@/components/form/upload/upload-file/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
@@ -11,12 +17,6 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralLogoutIcon } from '@/icons/logout/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useControllerForUserMain } from '@/server/controller/user/main';
-import { FileElement } from '@/server/model/elements/file/main';
-import {
-  ContextForLoggedInUserObj,
-  UserProfileVisibility,
-} from '@/server/model/user/main';
 import { getFormattedDate } from '@/utils/dateFormat';
 import { useContext, useState } from 'react';
 

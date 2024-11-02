@@ -1,5 +1,5 @@
-import { exampleFileElement } from '@/server/model/elements/file/main';
-import { ContextForUserObj } from '@/server/model/user/main';
+import { exampleFileElement } from '@/architecture/model/elements/file/main';
+import { ContextForUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 
 export function NetworkCreativeRowAbout() {

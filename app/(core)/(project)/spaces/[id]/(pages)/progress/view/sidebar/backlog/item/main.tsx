@@ -1,6 +1,6 @@
+import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskObj, TaskStatus } from '@/architecture/model/task/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
-import { ContextForTaskList } from '@/server/controller/task/list';
-import { ContextForTaskObj, TaskStatus } from '@/server/model/task/main';
 import { useContext } from 'react';
 
 export function SpacesProgressBacklogItem() {

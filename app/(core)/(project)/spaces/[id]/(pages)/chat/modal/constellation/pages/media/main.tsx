@@ -1,7 +1,7 @@
+import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { borderFx } from '@/style/data';
 import { useContext } from 'react';
 import { ContextForGenerateSceneController } from '../../controller/main';

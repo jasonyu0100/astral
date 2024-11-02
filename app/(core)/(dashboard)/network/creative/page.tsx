@@ -1,10 +1,10 @@
 'use client';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForUserPublicList,
   useControllerForUserPublicList,
-} from '@/server/controller/user/list-from-allowed-public';
-import { ContextForLoggedInUserObj } from '@/server/model/user/main';
+} from '@/architecture/controller/user/list-from-allowed-public';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import {
   ContextForNetworkCreative,

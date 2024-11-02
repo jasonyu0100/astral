@@ -1,4 +1,6 @@
 import { liveMap } from '@/(core)/(public)/live/[id]/map';
+import { ContextForSpaceList } from '@/architecture/controller/space/list';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -6,8 +8,6 @@ import { HorizontalDivider } from '@/components/indicator/divider/horizontal/mai
 import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { ContextForSpaceList } from '@/server/controller/space/list';
-import { ContextForSpaceObj } from '@/server/model/space/main';
 import { glassFx } from '@/style/data';
 import {
   Popover,

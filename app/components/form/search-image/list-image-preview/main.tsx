@@ -1,5 +1,5 @@
+import { FileElement } from '@/architecture/model/elements/file/main';
 import { ContextForFileChangable } from '@/logic/contexts/fileChangable/main';
-import { FileElement } from '@/server/model/elements/file/main';
 import { useContext } from 'react';
 
 export function SearchImageListPreview() {

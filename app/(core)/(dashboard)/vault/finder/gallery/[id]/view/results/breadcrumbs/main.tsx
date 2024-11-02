@@ -1,5 +1,5 @@
 import { vaultMap } from '@/(core)/(dashboard)/vault/map';
-import { ContextForGalleryMain } from '@/server/controller/gallery/main';
+import { ContextForGalleryMain } from '@/architecture/controller/gallery/main';
 import { useContext } from 'react';
 import { VaultFinderBreadcrumbDivider } from '../../../../../common/breadcrumb/divider/main';
 import { VaultFinderBreadcrumbItem } from '../../../../../common/breadcrumb/item/main';

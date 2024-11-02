@@ -1,7 +1,7 @@
 import {
   FileElement,
   FileElementVariant,
-} from '@/server/model/elements/file/main';
+} from '@/architecture/model/elements/file/main';
 import { useEffect } from 'react';
 
 export const useControllerForUnsplash = () => {

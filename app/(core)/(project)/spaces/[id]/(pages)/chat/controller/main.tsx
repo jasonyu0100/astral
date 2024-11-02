@@ -1,20 +1,20 @@
 import { useControllerForOpenAi } from '@/api/controller/openai/main';
-import { useGlobalUser } from '@/logic/store/user/main';
-import { ContextForUserActivityListFromChapter } from '@/server/controller/activity/list-from-chapter';
-import { ContextForChapterConversationList } from '@/server/controller/conversation/list';
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
-import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
-import { ConversationObj } from '@/server/model/conversation/main';
-import { ConversationMessageObj } from '@/server/model/conversation/message/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { exampleTextElement } from '@/server/model/elements/text/main';
-import { exampleIdea, IdeaObj } from '@/server/model/idea/main';
+import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ConversationObj } from '@/architecture/model/conversation/main';
+import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
+import { ElementVariant } from '@/architecture/model/elements/main';
+import { exampleTextElement } from '@/architecture/model/elements/text/main';
+import { exampleIdea, IdeaObj } from '@/architecture/model/idea/main';
 import {
   ContextForLoggedInUserObj,
   exampleUser,
   UserObj,
-} from '@/server/model/user/main';
+} from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { ConversationRole, roleDescriptions } from '../roles';
 

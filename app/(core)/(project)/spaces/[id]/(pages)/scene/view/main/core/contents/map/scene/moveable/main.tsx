@@ -4,9 +4,9 @@ import {
   SpacesSceneBubbleMode,
   SpacesSceneInteractionMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/scene/controller/main';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
+import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
-import { ContextForSceneIdeaList } from '@/server/controller/idea/list';
-import { ContextForIdeaObj } from '@/server/model/idea/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import { parseTransformString } from '../../../../../../../utils/main';

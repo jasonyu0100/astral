@@ -1,4 +1,4 @@
-import { ContextForUserPostObj } from '@/server/model/post/main';
+import { ContextForUserPostObj } from '@/architecture/model/post/main';
 import { useContext } from 'react';
 import { SpacesUpdatesKarma } from './karma/main';
 import { SpacesUpdatesTitle } from './title/main';

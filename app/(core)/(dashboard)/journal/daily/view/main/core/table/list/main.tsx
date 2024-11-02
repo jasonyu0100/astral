@@ -1,6 +1,6 @@
+import { ContextForCollectionResourceList } from '@/architecture/controller/gallery/collection/resource/list';
+import { ContextForCollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
 import { ElementResource } from '@/components/element/resource/main';
-import { ContextForCollectionResourceList } from '@/server/controller/gallery/collection/resource/list';
-import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 
 export function JournalDailyTableContents() {

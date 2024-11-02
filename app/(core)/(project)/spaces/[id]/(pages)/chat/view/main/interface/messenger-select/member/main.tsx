@@ -1,5 +1,5 @@
-import { useControllerForUserMain } from '@/server/controller/user/main';
-import { ContextForSpaceMemberObj } from '@/server/model/space/member/main';
+import { useControllerForUserMain } from '@/architecture/controller/user/main';
+import { ContextForSpaceMemberObj } from '@/architecture/model/space/member/main';
 import { useContext } from 'react';
 
 export function SpacesChatsMember({

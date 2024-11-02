@@ -1,8 +1,8 @@
-import { FileElementVariant } from '@/server/model/elements/file/main';
-import { ElementVariant } from '@/server/model/elements/main';
-import { TextElementVariant } from '@/server/model/elements/text/main';
-import { UrlElementVariant } from '@/server/model/elements/url/main';
-import { ContextForCollectionResourceObj } from '@/server/model/gallery/collection/resource/main';
+import { FileElementVariant } from '@/architecture/model/elements/file/main';
+import { ElementVariant } from '@/architecture/model/elements/main';
+import { TextElementVariant } from '@/architecture/model/elements/text/main';
+import { UrlElementVariant } from '@/architecture/model/elements/url/main';
+import { ContextForCollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { ElementArticle } from '../common/article/main';
 import { ElementAudioSquare } from '../common/audio/square/main';

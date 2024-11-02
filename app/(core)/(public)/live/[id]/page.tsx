@@ -1,50 +1,50 @@
 'use client';
 
 import { portalMap } from '@/(portal)/map';
-import { useGlobalUser } from '@/logic/store/user/main';
 import {
   ContextForPostAttachmentListFromPost,
   useControllerForPostAttachmentListFromPost,
-} from '@/server/controller/post/attachment/list-from-post';
+} from '@/architecture/controller/post/attachment/list-from-post';
 import {
   ContextForPostCommentList,
   useControllerForPostCommentList,
-} from '@/server/controller/post/comment/list';
+} from '@/architecture/controller/post/comment/list';
 import {
   ContextForPostKarmaList,
   useControllerForPostKarmaList,
-} from '@/server/controller/post/karma/list';
+} from '@/architecture/controller/post/karma/list';
 import {
   ContextForUserPostListFromChapter,
   useControllerForUserPostListFromChapter,
-} from '@/server/controller/post/list-from-chapter';
+} from '@/architecture/controller/post/list-from-chapter';
 import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
-} from '@/server/controller/space/chapter/list';
+} from '@/architecture/controller/space/chapter/list';
 import {
   ContextForSpaceMain,
   useControllerForSpaceMain,
-} from '@/server/controller/space/main';
+} from '@/architecture/controller/space/main';
 import {
   ContextForSpaceMemberList,
   useControllerForSpaceMemberList,
-} from '@/server/controller/space/member/list';
+} from '@/architecture/controller/space/member/list';
 import {
   ContextForUserMain,
   useControllerForUserMain,
-} from '@/server/controller/user/main';
+} from '@/architecture/controller/user/main';
 import {
   ContextForSpaceVisibility,
   SpaceVisibility,
-} from '@/server/model/space/main';
+} from '@/architecture/model/space/main';
 import {
   ContextForLoggedInUserObj,
   ContextForUserPageRole,
   ContextForUserProfileVisibility,
   UserPageRole,
   UserProfileVisibility,
-} from '@/server/model/user/main';
+} from '@/architecture/model/user/main';
+import { useGlobalUser } from '@/logic/store/user/main';
 import PublicAstralPage from '@/utils/public-astral-page';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';

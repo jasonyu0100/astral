@@ -1,7 +1,7 @@
+import { ContextForUserPublicList } from '@/architecture/controller/user/list-from-allowed-public';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { ContextForUserPublicList } from '@/server/controller/user/list-from-allowed-public';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 

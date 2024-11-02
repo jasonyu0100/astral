@@ -1,7 +1,7 @@
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
+import { ContextForConversationMessageObj } from '@/architecture/model/conversation/message/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
-import { ContextForConversationMessageList } from '@/server/controller/conversation/message/list';
-import { ContextForConversationMessageObj } from '@/server/model/conversation/message/main';
 import { useContext, useEffect, useRef } from 'react';
 import { SpaceMapChatExplorerMessage } from './message/main';
 

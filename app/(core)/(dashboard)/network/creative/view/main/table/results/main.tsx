@@ -1,9 +1,9 @@
-import { ContextForIndexable } from '@/logic/contexts/indexable/main';
-import { ContextForUserPublicList } from '@/server/controller/user/list-from-allowed-public';
+import { ContextForUserPublicList } from '@/architecture/controller/user/list-from-allowed-public';
 import {
   ContextForLoggedInUserObj,
   ContextForUserObj,
-} from '@/server/model/user/main';
+} from '@/architecture/model/user/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
 import { NetworkCreativeTableRow } from './row/main';
 import { NetworkCreativeRowWrapper } from './wrapper/main';

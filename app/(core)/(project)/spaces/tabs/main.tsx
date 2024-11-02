@@ -1,10 +1,10 @@
 import { liveMap } from '@/(core)/(public)/live/[id]/map';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { TabsContainer } from '@/components/tabs/main';
 import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
 import { TabRedShard } from '@/components/tabs/tabs-row/tab/shard/red/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
-import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
 import { SpacesTabChat } from './chat-tab/main';
 import { SpaceTabProgress } from './progress-tab/main';

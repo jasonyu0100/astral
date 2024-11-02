@@ -1,4 +1,4 @@
-import { ContextForIdeaSceneList } from '@/server/controller/scene/list';
+import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { useContext } from 'react';
 import { ContextForSpacesScene } from '../../../../controller/main';
 import { SpacesSceneInterface } from './map/interface/main';

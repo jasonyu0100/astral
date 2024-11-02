@@ -1,8 +1,8 @@
+import { exampleChannel } from '@/architecture/model/user/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
-import { exampleChannel } from '@/server/model/user/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';

@@ -1,4 +1,4 @@
-import { ContextForSpaceMain } from '@/server/controller/space/main';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { useContext } from 'react';
 
 export function SpacesUpdatesHeaderRight() {
