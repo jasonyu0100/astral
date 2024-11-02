@@ -1,15 +1,17 @@
 import { ElementAttachment } from '@/components/element/attachment/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { ContextForPostAttachmentListFromPost } from '@/server/controller/post/attachment/list-from-post';
 import { ContextForPostAttachmentObj } from '@/server/model/post/attachment/main';
-import { borderFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function PublicSpacePostContents() {
+export function SpacesUpdatesPostContents() {
   const attachmentListController = useContext(
     ContextForPostAttachmentListFromPost,
   );
+
   return (
     <>
       {attachmentListController.state.objs.length > 0 && (
@@ -27,6 +29,7 @@ export function PublicSpacePostContents() {
               ))}
             </div>
           </GlassWindowContents>
+          <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       )}
     </>

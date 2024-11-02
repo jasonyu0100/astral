@@ -2,6 +2,7 @@ import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { exampleFileElement } from '@/server/model/elements/file/main';
@@ -13,13 +14,13 @@ export function PublicSpaceSidebarSpace() {
   const spaceMainController = useContext(ContextForSpaceMain);
   return (
     <GlassWindowFrame
-      className='w-[400px] flex-shrink-0 p-[2rem]'
+      className='w-[400px] flex-shrink-0 p-[1rem]'
       roundedFx={roundedFx.rounded}
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents className='flex h-full w-full flex-col justify-between space-y-[1rem]'>
         <div className='flex flex-col space-y-[1rem]'>
-          <div className='flex flex-row items-center justify-between space-x-[1rem]'>
+          <div className='flex flex-row items-center space-x-[1rem]'>
             <img
               onClick={() => {
                 window.open(
@@ -38,10 +39,11 @@ export function PublicSpaceSidebarSpace() {
               {spaceMainController.state.obj.title}
             </p>
           </div>
-          <p className='text-sm font-light text-slate-300'>
+          <p className='text-md font-light text-slate-300'>
             {spaceMainController.state.obj.description}
           </p>
         </div>
+        <HorizontalDivider />
         <GlassWindowFrame
           className='h-[50px] w-full flex-shrink-0 p-[1rem]'
           roundedFx={roundedFx['rounded-full']}

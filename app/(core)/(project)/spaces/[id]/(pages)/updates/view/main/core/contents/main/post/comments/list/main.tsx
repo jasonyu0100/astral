@@ -2,9 +2,9 @@ import { HorizontalDivider } from '@/components/indicator/divider/horizontal/mai
 import { ContextForPostCommentList } from '@/server/controller/post/comment/list';
 import { ContextForPostCommentObj } from '@/server/model/post/comment/main';
 import { useContext } from 'react';
-import { PublicSpacePageContentComment } from './comment/main';
+import { SpacesUpdatesContentComment } from './comment/main';
 
-export function PublicSpacePostCommentsList() {
+export function SpacesUpdatesPostCommentList() {
   const commentListController = useContext(ContextForPostCommentList);
 
   return (
@@ -15,7 +15,7 @@ export function PublicSpacePostCommentsList() {
       <HorizontalDivider />
       {commentListController.state.objs.toReversed().map((comment) => (
         <ContextForPostCommentObj.Provider value={comment}>
-          <PublicSpacePageContentComment />
+          <SpacesUpdatesContentComment />
         </ContextForPostCommentObj.Provider>
       ))}
     </div>

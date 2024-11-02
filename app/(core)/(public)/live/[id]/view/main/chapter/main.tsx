@@ -1,4 +1,3 @@
-import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForUserPostListFromChapter } from '@/server/controller/post/list-from-chapter';
 import { ContextForUserPostObj } from '@/server/model/post/main';
 import { useContext } from 'react';
@@ -8,22 +7,20 @@ import { PublicSpaceChapterPost } from './item/main';
 export function PublicSpaceChapterList() {
   const postListController = useContext(ContextForUserPostListFromChapter);
   return (
-    <>
+    <div className='flex flex-col space-y-[2rem] py-[2rem]'>
       {postListController.state.objs.length > 0 ? (
-        <div className='flex flex-col divide-y-[1px] divide-slate-300 divide-opacity-50'>
-          {postListController.state.objs.map((post, index) => (
-            <ContextForIndexable.Provider value={index}>
-              <ContextForUserPostObj.Provider value={post}>
-                <PublicSpaceChapterPost />
-              </ContextForUserPostObj.Provider>
-            </ContextForIndexable.Provider>
+        <>
+          {postListController.state.objs.map((post) => (
+            <ContextForUserPostObj.Provider value={post}>
+              <PublicSpaceChapterPost />
+            </ContextForUserPostObj.Provider>
           ))}
-        </div>
+        </>
       ) : (
         <div className='h-[800px]'>
           <PublicSpaceChaptersEmpty />
         </div>
       )}
-    </>
+    </div>
   );
 }

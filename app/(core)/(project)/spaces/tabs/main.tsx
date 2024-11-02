@@ -7,9 +7,9 @@ import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { useContext } from 'react';
 import { SpacesTabChat } from './chat-tab/main';
-import { SpacesTabInbox } from './inbox-tab/main';
 import { SpaceTabProgress } from './progress-tab/main';
 import { SpacesTabScene } from './scene-tab/main';
+import { SpacesTabUpdates } from './updates-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -19,7 +19,7 @@ export enum SpaceTabStage {
   Progress = 'Progress',
   Chat = 'Chat',
   Scene = 'Scene',
-  Inbox = 'Inbox',
+  Updates = 'Updates',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
@@ -30,7 +30,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
         <SpaceTabProgress tab={tab} />
         <SpacesTabChat tab={tab} />
         <SpacesTabScene tab={tab} />
-        <SpacesTabInbox tab={tab} />
+        <SpacesTabUpdates tab={tab} />
       </TabsRow>
       <Tab
         href={liveMap.live.link(spaceMainController.state.objId)}
