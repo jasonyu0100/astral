@@ -2,6 +2,7 @@ import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForSpaceChapterList } from '@/server/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/server/controller/space/main';
 import { ContextForTaskList } from '@/server/controller/task/list';
@@ -28,10 +29,17 @@ export function SpacesSceneInProgress() {
           <div className='flex flex-col'>
             <div className='flex w-full flex-row justify-between space-x-[1rem]'>
               <p className='text-lg font-bold'>{currentTask?.title}</p>
-              <div className='flex h-[2rem] w-[2rem] flex-shrink-0 items-center justify-center rounded-full bg-red-500'>
-                <p className='text-md font-bold text-slate-300'>
-                  {inProgress.length}
-                </p>
+              <div className='flex h-[2rem] w-[2rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
+                <AstralCheckIcon
+                  onClick={() =>
+                    taskListController.actions.editActions.edit(
+                      currentTask.id,
+                      {
+                        taskStatus: TaskStatus.DONE,
+                      },
+                    )
+                  }
+                />
               </div>
             </div>
             <p className='text-sm font-light'>{currentTask?.description}</p>

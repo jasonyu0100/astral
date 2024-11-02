@@ -99,7 +99,7 @@ export function PublicSpaceidebarItem() {
                 <AstralEditIcon
                   onClick={() => {
                     window.open(
-                      `${spacesMap.spaces.id.progress.link(
+                      `${spacesMap.spaces.id.scene.link(
                         spaceMainController.state.objId,
                       )}?chapter=${chapterObj.id}`,
                     );

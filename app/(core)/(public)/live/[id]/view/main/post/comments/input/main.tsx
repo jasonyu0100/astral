@@ -32,7 +32,7 @@ export function PublicSpacePostCommentsInput() {
           <GlassWindowContents>
             <input
               className='text-md h-full w-full animate-pulse-slow rounded-full bg-transparent p-[2rem] font-bold text-slate-300 outline-none'
-              placeholder='Search...'
+              placeholder='Add comment...'
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></input>

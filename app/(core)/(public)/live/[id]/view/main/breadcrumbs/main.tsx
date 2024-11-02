@@ -19,10 +19,6 @@ export function PublicSpaceBreadcrumbs() {
       {publicSpaceController.state.feedView === PublicSpaceFeedView.POST && (
         <>
           <div className='flex flex-row items-center space-x-[1rem]'>
-            <p className='cursor-pointer font-bold text-slate-300'>
-              {spaceMainController.state.obj?.title}
-            </p>
-            <span className='font-bold text-slate-300'> / </span>
             <p
               className='cursor-pointer font-bold text-slate-300'
               onClick={() => {
@@ -50,10 +46,6 @@ export function PublicSpaceBreadcrumbs() {
       {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAPTER && (
         <>
           <div className='flex flex-row items-center space-x-[1rem]'>
-            <p className='cursor-pointer font-bold text-slate-300'>
-              {spaceMainController.state.obj?.title}
-            </p>
-            <span className='font-bold text-slate-300'> / </span>
             <p
               className='cursor-pointer font-bold text-slate-300'
               onClick={() => {
