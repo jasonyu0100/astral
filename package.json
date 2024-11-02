@@ -9,7 +9,7 @@
     "preinstall": "node scripts/create-npmrc & node scripts/create-aws & sh scripts/run_codegen.sh",
     "lint": "next lint",
     "format": "prettier --write .",
-    "server": "npx tsx server.ts"
+    "server": "npx tsx api/index.ts"
   },
   "dependencies": {
     "@aws-amplify/cli": "^12.12.5",
