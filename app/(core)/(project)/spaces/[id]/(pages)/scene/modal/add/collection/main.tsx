@@ -44,7 +44,6 @@ export function SpacesSceneAddCollectionModal() {
         ).then(() => {
           openableController.close();
         });
-      });
   }
 
   return (

@@ -3,7 +3,10 @@ import {
   ContextForUserPublicList,
   useControllerForUserPublicList,
 } from '@/architecture/controller/user/list-from-allowed-public';
-import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import {
+  ContextForLoggedInUserObj,
+  UserProfileVisibility,
+} from '@/architecture/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import {
@@ -14,7 +17,9 @@ import { NetworkCreativeView } from './view/view';
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const userListController = useControllerForUserPublicList(false);
+  const userListController = useControllerForUserPublicList(
+    UserProfileVisibility.PUBLIC,
+  );
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>

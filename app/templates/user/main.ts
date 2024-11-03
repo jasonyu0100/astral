@@ -13,6 +13,7 @@ export type TemplateUserObj = Omit<
   | 'created'
   | 'journalId'
   | 'private'
+  | 'visibility'
 >;
 
 // TEMPLATES
@@ -34,7 +35,6 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         dp: exampleDisplayPictureFileElement,
         role: 'Musician',
         bio: 'I like music',
-        degree: 0,
       };
     case UserTemplate.PRODUCER:
       return {
@@ -45,7 +45,6 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         dp: exampleDisplayPictureFileElement,
         role: 'Producer',
         bio: 'I like producing',
-        degree: 5,
       };
     case UserTemplate.SINGER:
       return {
@@ -56,7 +55,6 @@ export function getUserTemplates(variant: UserTemplate): TemplateUserObj {
         dp: exampleDisplayPictureFileElement,
         role: 'Singer',
         bio: 'I like Singing',
-        degree: 3,
       };
   }
 }

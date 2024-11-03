@@ -8,11 +8,7 @@ export function TopbarLogo({ ...props }: LinkInputProps) {
       {...props}
     >
       <img
-        src={
-          process.env.VERSES_MODE === 'false'
-            ? '/brand/logo-astral-light.png'
-            : '/brand/logo-verses-light.png'
-        }
+        src={'/brand/logo-astral-light.png'}
         className='w-[12rem] animate-pulse-slow pl-[3px]'
         alt='Ouros'
       />

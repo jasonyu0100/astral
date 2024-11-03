@@ -32,18 +32,15 @@ export interface UserObj {
   journalId: string;
   email: string;
   dp: FileElement;
-  private: boolean;
   visibility: string;
   role: string;
   bio: string;
   created: string;
   customerId?: string;
   subscriptionId?: string;
+  productId?: string;
   priceId?: string;
   passwordHash?: string;
-  polarHash?: string;
-  writtenHash?: string;
-  degree: number;
 }
 
 export const userGql = `
@@ -57,15 +54,13 @@ type UserObj {
 	dp: FileElem!
   role: String!
 	created: String!
-  private: Boolean!
+  visibility: String!
   bio: String
 	passwordHash: String
-  polarHash: String
-  writtenHash: String
+  productId: String!
 	customerId: String
 	subscriptionId: String
 	priceId: String
-  degree: Int
 }
 `;
 
@@ -89,10 +84,8 @@ export const exampleUser: UserObj = {
   email: 'email@example.com',
   role: 'Musician',
   bio: 'Been playing for X years',
-  private: false,
   dp: exampleDisplayPictureFileElement,
   created: new Date().toISOString(),
-  degree: 0,
   visibility: UserProfileVisibility.PUBLIC,
 };
 
@@ -105,7 +98,6 @@ export const exampleChannel: UserObj = {
   email: 'email@example.com',
   role: 'Channel',
   bio: 'Been playing for X years',
-  private: false,
   dp: {
     id: '0',
     src: '/brand/512x512.png',
@@ -115,7 +107,6 @@ export const exampleChannel: UserObj = {
     variant: 'IMAGE',
   },
   created: new Date().toISOString(),
-  degree: 0,
   visibility: UserProfileVisibility.PUBLIC,
 };
 
@@ -128,18 +119,15 @@ export const exampleUsers: UserObj[] = [
     lname: 'Smith',
     email: 'john@example.com',
     role: 'Musician',
-    private: false,
     bio: 'Been playing for X years',
     dp: exampleDisplayPictureFileElement,
     created: new Date().toISOString(),
-    degree: 0,
     visibility: UserProfileVisibility.PUBLIC,
   },
   {
     id: '2',
     displayName: 'John Smith',
     journalId: '0',
-    private: false,
     fname: 'Jane',
     lname: 'Smith',
     email: 'jane@example.com',
@@ -147,7 +135,6 @@ export const exampleUsers: UserObj[] = [
     bio: 'Been playing for X years',
     dp: exampleDisplayPictureFileElement,
     created: new Date().toISOString(),
-    degree: 0,
     visibility: UserProfileVisibility.PUBLIC,
   },
 ];

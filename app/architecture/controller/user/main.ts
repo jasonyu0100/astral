@@ -125,10 +125,8 @@ export const useControllerForUserMain = (objId: string): Controller => {
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-          if (process.env.VERSES_MODE !== 'true') {
-            if (daysDifference > 100) {
-              throw new Error('Trial is over');
-            }
+          if (daysDifference > 100) {
+            throw new Error('Trial is over');
           }
         } else {
           console.log(user.subscriptionId);
@@ -136,9 +134,9 @@ export const useControllerForUserMain = (objId: string): Controller => {
             user.subscriptionId as string,
           );
           console.log(subscription);
-          if (subscription.plan.active !== true) {
-            throw new Error('Subscription is not active');
-          }
+          // if (subscription.plan.active !== true && user.priceId !== null) {
+          //   throw new Error('Subscription is not active');
+          // }
         }
         return user;
       }
@@ -189,9 +187,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
         role: role,
         bio: `${fname} ${lname} - ${role}`,
         journalId: '',
-        private: false,
         visibility: UserProfileVisibility.PUBLIC,
-        degree: 0,
       });
       return user;
     },

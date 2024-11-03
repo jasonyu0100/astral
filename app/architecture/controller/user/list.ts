@@ -7,7 +7,11 @@ import {
   BaseListStateActions,
 } from '@/architecture/controller/list';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
-import { userModel, UserObj } from '@/architecture/model/user/main';
+import {
+  userModel,
+  UserObj,
+  UserProfileVisibility,
+} from '@/architecture/model/user/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserObj;
@@ -261,8 +265,7 @@ export const useControllerForUserList = (
         role: '',
         bio: '',
         journalId: '',
-        private: true,
-        degree: 0,
+        visibility: UserProfileVisibility.PUBLIC,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

@@ -24,11 +24,7 @@ const Header = () => (
   <header className='flex w-full flex-col items-center justify-between space-y-4 p-4 sm:flex-row sm:space-y-0 sm:p-0'>
     <div className='flex items-center space-x-4 sm:space-x-[5rem]'>
       <img
-        src={
-          process.env.VERSES_MODE === 'false'
-            ? '/brand/logo-astral-light.png'
-            : '/brand/logo-verses-light.png'
-        }
+        src={'/brand/logo-astral-light.png'}
         className='h-[2rem] sm:h-[3rem]'
         alt='Brand Logo'
       />
@@ -397,13 +393,13 @@ function MembershipSection() {
                 />
                 {/* <MemberPricingCard
                   title='Standard'
-                  price='$90 / year'
+                  price='$100 / year'
                   description='Best for individual creators looking to organize and execute their ideas.'
                   imageSrc='/portal/producer-f.png'
                 />
                 <MemberPricingCard
                   title='Pro'
-                  price='$240 / year'
+                  price='$250 / year'
                   description='Perfect for growing teams that need seamless collaboration and creative workflow management.'
                   imageSrc='/portal/producer-m.png'
                 /> */}

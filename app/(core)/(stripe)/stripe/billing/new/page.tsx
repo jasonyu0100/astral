@@ -32,7 +32,7 @@ function Page() {
   async function processSubscription() {
     stripeProcessSubscription(sessionId, user.id).then((user) => {
       update(user);
-      alert('Processed Subscription');
+      alert('Updated User');
     });
   }
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import { useGlobalUser } from '@/logic/store/user/main';
 import { ctwn } from '@/utils/cn';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
@@ -8,28 +9,36 @@ import { useState } from 'react';
 
 export const stripeProducts = {
   standard: {
+    id:
+      process.env.LIVE_MODE === 'true'
+        ? 'prod_PXGa5aDgxDAsOf'
+        : 'prod_PXHBJp2Zp96vcz',
     monthly:
       process.env.LIVE_MODE === 'true'
-        ? 'price_1OiC3WJLrUNVWkE6fyTSHZdg'
-        : 'price_1OiCdDJLrUNVWkE6cCXg6z64',
+        ? 'price_1QGft8JLrUNVWkE6w0qc58Ps'
+        : 'price_1QGrieJLrUNVWkE6XyXqA0EW',
     yearly:
       process.env.LIVE_MODE === 'true'
-        ? 'price_1OinhNJLrUNVWkE6tuuaI5M2'
-        : 'price_1Oio7kJLrUNVWkE60gMeqk5y',
+        ? 'price_1QGfsxJLrUNVWkE6onR7U4R9'
+        : 'price_1QGriNJLrUNVWkE6EzEIbJXh',
   },
   pro: {
+    id:
+      process.env.LIVE_MODE === 'true'
+        ? 'prod_PXH5hzijAjH5QB'
+        : 'prod_PXH8gsxujP8SNu',
     monthly:
       process.env.LIVE_MODE === 'true'
-        ? 'price_1OiCXIJLrUNVWkE6AQPj7oF9'
-        : 'price_1OiCZrJLrUNVWkE6t33t3j8e',
+        ? 'price_1QGfsfJLrUNVWkE6cSKLbZt3'
+        : 'price_1QGrmIJLrUNVWkE6Dh6YziSD',
     yearly:
       process.env.LIVE_MODE === 'true'
-        ? 'price_1OingkJLrUNVWkE65T1Xov44'
-        : 'price_1Oio7cJLrUNVWkE6j6vqQqQt',
+        ? 'price_1QGfsSJLrUNVWkE6hjOuJgNq'
+        : 'price_1QGrmeJLrUNVWkE6LZlQkZcT',
   },
 };
 
-export function getPlanName(priceId) {
+export function getPlanName(priceId: string) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
       return 'Standard Monthly';
@@ -40,20 +49,20 @@ export function getPlanName(priceId) {
     case stripeProducts.pro.yearly:
       return 'Pro Yearly';
     default:
-      return 'Community Free';
+      return 'Free';
   }
 }
 
-export function getPlanPrice(priceId) {
+export function getPlanPrice(priceId: string) {
   switch (priceId) {
     case stripeProducts.standard.monthly:
-      return '$20 / Month';
+      return '$10 / Month';
     case stripeProducts.pro.monthly:
-      return '$50 / Month';
+      return '$25 / Month';
     case stripeProducts.standard.yearly:
-      return '$180 / Year';
+      return '$100 / Year';
     case stripeProducts.pro.yearly:
-      return '$480 / Year';
+      return '$250 / Year';
     default:
       return 'Free';
   }
@@ -88,10 +97,15 @@ function MemberPricingCard({
 }
 
 function Page() {
+  const loggedInUser = useGlobalUser((state) => state.user);
   const [activeTab, setActiveTab] = useState('yearly');
 
-  function triggerCheckout(priceId) {
-    window.location.href = `/stripe/checkout?priceId=${priceId}`;
+  function triggerCheckout(priceId: string) {
+    if (loggedInUser.customerId) {
+      window.location.href = `/stripe/billing/existing`;
+    } else {
+      window.location.href = `/stripe/checkout?priceId=${priceId}`;
+    }
   }
 
   return (
@@ -122,7 +136,7 @@ function Page() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value='yearly' className='mt-[2rem]'>
-          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-2'>
+          <div className='grid grid-cols-4 gap-6 p-[2rem]'>
             <MemberPricingCard
               title='Community'
               price='Free'
@@ -131,18 +145,18 @@ function Page() {
                 window.location.href = studioMap.studio.personal.link;
               }}
             />
-            {/* <MemberPricingCard
+            <MemberPricingCard
               title='Standard'
-              price='$90 / year'
+              price='$100 / year'
               imageSrc='/portal/producer-f.png'
               onClick={() => triggerCheckout(stripeProducts.standard.yearly)}
             />
             <MemberPricingCard
               title='Pro'
-              price='$240 / year'
+              price='$250 / year'
               imageSrc='/portal/producer-m.png'
               onClick={() => triggerCheckout(stripeProducts.pro.yearly)}
-            /> */}
+            />
             <MemberPricingCard
               title='Enterprise'
               price='Contact us'
@@ -152,7 +166,7 @@ function Page() {
           </div>
         </TabsContent>
         <TabsContent value='monthly' className='mt-[2rem]'>
-          <div className='grid grid-cols-1 gap-6 p-[2rem] md:grid-cols-2'>
+          <div className='grid grid-cols-4 gap-6 p-[2rem]'>
             <MemberPricingCard
               title='Community'
               price='Free'
@@ -161,7 +175,7 @@ function Page() {
                 window.location.href = studioMap.studio.personal.link;
               }}
             />
-            {/* <MemberPricingCard
+            <MemberPricingCard
               title='Standard'
               price='$10 / month'
               imageSrc='/portal/performer-m.png'
@@ -172,7 +186,7 @@ function Page() {
               price='$25 / month'
               imageSrc='/portal/performer-f.png'
               onClick={() => triggerCheckout(stripeProducts.pro.monthly)}
-            /> */}
+            />
             <MemberPricingCard
               title='Enterprise'
               price='Contact us'

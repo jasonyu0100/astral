@@ -7,12 +7,12 @@ import {
   BaseListStateActions,
 } from '@/architecture/controller/list';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
-import { UserObj } from '@/architecture/model/user/main';
+import { UserObj, UserProfileVisibility } from '@/architecture/model/user/main';
 import { createContext, useMemo, useState } from 'react';
 
 type TargetObj = UserObj;
 const gqlDbWrapper = userDbWrapper;
-const listIdKey = 'private';
+const listIdKey = 'visibility';
 
 interface ControllerState {
   listId: string | boolean | number;
@@ -261,8 +261,7 @@ export const useControllerForUserPublicList = (
         role: '',
         bio: '',
         journalId: '',
-        private: true,
-        degree: 0,
+        visibility: UserProfileVisibility.PUBLIC,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

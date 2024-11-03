@@ -6,7 +6,7 @@ function Page() {
   // Need to process subscription changes with webhooks
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <h1 className='font-extraBold text-xl text-white'>
+      <h1 className='text-center font-extraBold text-3xl text-white'>
         Your payment settings are pending...{' '}
       </h1>
       <br />

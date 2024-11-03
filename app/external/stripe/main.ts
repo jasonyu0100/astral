@@ -24,6 +24,7 @@ export async function stripeCheckoutSession(priceId: string) {
     return_url: `${window.location.origin}/stripe/billing/new?session_id={CHECKOUT_SESSION_ID}`,
   });
 
+  alert(`New checkout session`);
   return portalSession;
 }
 
@@ -35,6 +36,7 @@ export async function stripeExistingBillingSession(customerId: string) {
     customer: customer.id,
   });
 
+  alert(`Billing session for ${customer.id}`);
   return billingSession;
 }
 
@@ -46,6 +48,7 @@ export async function stripeNewBillingSession(sessionId: string) {
     customer: customer.id,
   });
 
+  alert(`Initial billing session for ${customer.id}`);
   return billingSession;
 }
 
@@ -68,6 +71,7 @@ export async function stripeProcessSubscription(
       },
     },
   });
+  alert('Stripe payment processed');
   const user = payload.data.updateUserObj as UserObj;
   user?.passwordHash && delete user.passwordHash;
 
