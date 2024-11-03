@@ -128,15 +128,18 @@ export const useControllerForUserMain = (objId: string): Controller => {
           if (daysDifference > 100) {
             throw new Error('Trial is over');
           }
-        } else {
-          console.log(user.subscriptionId);
+        } else if (
+          user.subscriptionId &&
+          user.customerId &&
+          user.priceId &&
+          user.productId
+        ) {
           const subscription = await stripe.subscriptions.retrieve(
             user.subscriptionId as string,
           );
-          console.log(subscription);
-          // if (subscription.plan.active !== true && user.priceId !== null) {
-          //   throw new Error('Subscription is not active');
-          // }
+          if (subscription.plan.active !== true && user.priceId !== null) {
+            throw new Error('Subscription is not active');
+          }
         }
         return user;
       }

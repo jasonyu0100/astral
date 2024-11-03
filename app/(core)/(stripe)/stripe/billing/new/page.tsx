@@ -16,7 +16,7 @@ function Page() {
   const sessionId = searchParams.get('session_id') || '';
 
   useEffect(() => {
-    if (user.customerId === null || user.priceId === undefined) {
+    if (!user.customerId) {
       processSubscription();
     } else {
       window.location.href = '/stripe/billing/existing';

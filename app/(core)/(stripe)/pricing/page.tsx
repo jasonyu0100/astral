@@ -101,7 +101,12 @@ function Page() {
   const [activeTab, setActiveTab] = useState('yearly');
 
   function triggerCheckout(priceId: string) {
-    if (loggedInUser.customerId) {
+    if (
+      loggedInUser.customerId &&
+      loggedInUser.priceId &&
+      loggedInUser.subscriptionId &&
+      loggedInUser.productId
+    ) {
       window.location.href = `/stripe/billing/existing`;
     } else {
       window.location.href = `/stripe/checkout?priceId=${priceId}`;

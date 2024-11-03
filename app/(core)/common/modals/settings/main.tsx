@@ -15,15 +15,15 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
 
 export function UserSettingsModal() {
-  const user = useGlobalUser((state) => state.user);
+  const loggedInUser = useGlobalUser((state) => state.user);
   const logout = useGlobalUser((state) => state.logout);
   const openableController = useContext(ContextForOpenable);
   const [planName, setPlanName] = useState('');
   const [planPrice, setPlanPrice] = useState('');
 
   useEffect(() => {
-    setPlanName(getPlanName(user.priceId || ''));
-    setPlanPrice(getPlanPrice(user.priceId || ''));
+    setPlanName(getPlanName(loggedInUser.priceId || ''));
+    setPlanPrice(getPlanPrice(loggedInUser.priceId || ''));
   }, []);
 
   return (
@@ -46,16 +46,19 @@ export function UserSettingsModal() {
                   <AstralCreditCardIcon />
                 </AstralRoundedActionButton>
               )}
-              {planName !== 'Community Monthly' && (
-                <AstralRoundedActionButton
-                  onClick={() => {
-                    window.location.href =
-                      stripeMap.stripe.billing.existing.link;
-                  }}
-                >
-                  <AstralCreditCardIcon />
-                </AstralRoundedActionButton>
-              )}
+              <AstralRoundedActionButton
+                onClick={() => {
+                  window.location.href =
+                    loggedInUser.customerId &&
+                    loggedInUser.subscriptionId &&
+                    loggedInUser.priceId &&
+                    loggedInUser.productId
+                      ? stripeMap.stripe.billing.existing.link
+                      : '/pricing';
+                }}
+              >
+                <AstralCreditCardIcon />
+              </AstralRoundedActionButton>
               <AstralRoundedActionButton
                 className='from-slate-500 to-slate-600'
                 onClick={() => {

@@ -44,6 +44,7 @@ export function VaultFinderCreateCollectionModal() {
         ).then(() => {
           openableController.close();
         });
+      });
   }
 
   return (

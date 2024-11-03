@@ -118,6 +118,7 @@ I’m your AI assistant, here to help you explore how Astral can supercharge you
                 );
               });
           });
+      });
   }, []);
 
   return (

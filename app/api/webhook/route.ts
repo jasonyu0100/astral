@@ -60,6 +60,7 @@ export async function POST(req: Request) {
       case 'customer.subscription.updated': {
         const subscription = event.data.object as Stripe.Subscription; // Extract the updated subscription object
         console.log('Subscription updated');
+        console.log(subscription);
         const subscriptionId = subscription.id as string;
         const customerId = subscription.customer as string;
         const priceId = subscription.plan.id as string;
@@ -91,6 +92,7 @@ export async function POST(req: Request) {
       case 'customer.subscription.deleted': {
         const subscription = event.data.object as Stripe.Subscription; // Extract the updated subscription object
         console.log('Subscription deleted');
+        console.log(subscription);
         const subscriptionId = subscription.id as string;
         const customerId = subscription.customer as string;
         const priceId = subscription.plan.id as string;
@@ -108,10 +110,10 @@ export async function POST(req: Request) {
         if (listPayload.length > 0) {
           const user = listPayload.at(0);
           const updatePayload = await userDbWrapper.updateObj(user?.id || '', {
-            subscriptionId: subscriptionId,
+            subscriptionId: '',
             customerId: customerId,
-            productId: productId,
-            priceId: priceId,
+            productId: '',
+            priceId: '',
           });
           console.log('DELETE SUBSCRIPTION', updatePayload);
         } else {
