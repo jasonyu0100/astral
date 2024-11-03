@@ -37,7 +37,7 @@ function Page() {
   }
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col space-y-[0.5rem]'>
       <button
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
         onClick={() => openNewCustomerBillingSession()}

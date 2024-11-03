@@ -12,29 +12,29 @@ export const stripeProducts = {
     id:
       process.env.LIVE_MODE === 'true'
         ? 'prod_PXGa5aDgxDAsOf'
-        : 'prod_PXHBJp2Zp96vcz',
+        : 'prod_R9DA4B3Mo96hOx', // updated
     monthly:
       process.env.LIVE_MODE === 'true'
         ? 'price_1QGft8JLrUNVWkE6w0qc58Ps'
-        : 'price_1QGrieJLrUNVWkE6XyXqA0EW',
+        : 'price_1QGukiJLrUNVWkE6ZBV9P3QF', //updated
     yearly:
       process.env.LIVE_MODE === 'true'
         ? 'price_1QGfsxJLrUNVWkE6onR7U4R9'
-        : 'price_1QGriNJLrUNVWkE6EzEIbJXh',
+        : 'price_1QGulAJLrUNVWkE6nWBecOJV', // updated
   },
   pro: {
     id:
       process.env.LIVE_MODE === 'true'
         ? 'prod_PXH5hzijAjH5QB'
-        : 'prod_PXH8gsxujP8SNu',
+        : 'prod_R9D97wrHsMkg0C', // updated
     monthly:
       process.env.LIVE_MODE === 'true'
         ? 'price_1QGfsfJLrUNVWkE6cSKLbZt3'
-        : 'price_1QGrmIJLrUNVWkE6Dh6YziSD',
+        : 'price_1QGuj8JLrUNVWkE6oIFWSUHE', // updated
     yearly:
       process.env.LIVE_MODE === 'true'
         ? 'price_1QGfsSJLrUNVWkE6hjOuJgNq'
-        : 'price_1QGrmeJLrUNVWkE6LZlQkZcT',
+        : 'price_1QGujfJLrUNVWkE6tts7ms4G', //updated
   },
 };
 

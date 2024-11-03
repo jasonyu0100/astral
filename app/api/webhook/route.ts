@@ -54,22 +54,6 @@ export async function POST(req: Request) {
         const productId = subscription.plan.product as string;
 
         console.log(subscriptionId, customerId, priceId, productId);
-        // const listPayload = await userDbWrapper.listFromVariables({
-        //   filter: {
-        //     customerId: {
-        //       eq: customerId,
-        //     },
-        //   },
-        // });
-        // console.log('USER PAYLOAD', listPayload);
-
-        // const user = listPayload.at(0);
-        // const updatePayload = await userDbWrapper.updateObj(user?.id || '', {
-        //   subscriptionId: subscriptionId,
-        //   customerId: customerId,
-        //   productId: priceId,
-        //   priceId: productId,
-        // });
         console.log('CREATED SUBSCRIPTION');
         break;
       }
@@ -95,8 +79,8 @@ export async function POST(req: Request) {
           const updatePayload = await userDbWrapper.updateObj(user?.id || '', {
             subscriptionId: subscriptionId,
             customerId: customerId,
-            productId: priceId,
-            priceId: productId,
+            productId: productId,
+            priceId: priceId,
           });
           console.log('UPDATED SUBSCRIPTION', updatePayload);
         } else {
@@ -126,8 +110,8 @@ export async function POST(req: Request) {
           const updatePayload = await userDbWrapper.updateObj(user?.id || '', {
             subscriptionId: subscriptionId,
             customerId: customerId,
-            productId: priceId,
-            priceId: productId,
+            productId: productId,
+            priceId: priceId,
           });
           console.log('DELETE SUBSCRIPTION', updatePayload);
         } else {
