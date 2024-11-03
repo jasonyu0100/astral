@@ -15,8 +15,6 @@ const STRIPE_PK =
     : process.env.STRIPE_PK_TEST;
 const stripePromise = loadStripe(STRIPE_PK || '');
 
-console.log('STRIPE_PK', STRIPE_PK, process.env.LIVE_MODE);
-
 function Page() {
   const searchParams = useSearchParams();
   const priceId = searchParams.get('priceId');

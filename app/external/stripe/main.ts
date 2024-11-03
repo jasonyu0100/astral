@@ -30,7 +30,6 @@ export async function stripeCheckoutSession(priceId: string) {
 
 export async function stripeExistingBillingSession(customerId: string) {
   const customer = await stripe.customers.retrieve(customerId);
-  console.log(customer);
   const billingSession = await stripe.billingPortal.sessions.create({
     return_url: `${window.location.origin}/stripe/billing/updated`,
     customer: customer.id,

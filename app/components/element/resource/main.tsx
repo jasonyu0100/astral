@@ -24,8 +24,6 @@ export function ElementResource({
   urlOveride?: any;
 }) {
   const resourceObj = useContext(ContextForCollectionResourceObj);
-  console.log(resourceObj);
-
   return (
     <>
       {resourceObj.variant === ElementVariant.FILE && (

@@ -27,7 +27,6 @@ const nextConfig = {
   env: {
     LIVE_MODE: process.env.LIVE_MODE,
     MAINTENANCE_MODE: process.env.MAINTENANCE_MODE,
-    VERSES_MODE: process.env.VERSES_MODE,
     GRAPHQL_ENDPOINT: process.env.GRAPHQL_ENDPOINT,
     GRAPHQL_APIKEY: process.env.GRAPHQL_APIKEY,
     GRAPHQL_REALTIME: process.env.GRAPHQL_REALTIME,

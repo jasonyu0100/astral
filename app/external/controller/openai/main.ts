@@ -55,7 +55,6 @@ export const useControllerForOpenAi = (): Controller => {
 
   const transcribeAudio = async (audioBlob: Blob) => {
     const openai = getOpenAiClient();
-    console.log(audioBlob);
 
     // Create FormData to send the audio file
     const formData = new FormData();

@@ -14,7 +14,7 @@ const STRIPE_SK =
   process.env.LIVE_MODE === 'true'
     ? process.env.STRIPE_SK_LIVE
     : process.env.STRIPE_SK_TEST;
-console.log(STRIPE_SK);
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const stripe = require('stripe')(STRIPE_SK);
 
@@ -27,8 +27,6 @@ interface ControllerState {
 interface StateActions extends BaseStateActions<TargetObj> {
   checkEmail(email: string): Promise<boolean>;
   loginFromEmail(email: string, password: string): Promise<TargetObj>;
-  polarAuth(email: string): Promise<boolean>;
-  astralAuth(domain: string): Promise<boolean>;
 }
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
@@ -89,17 +87,6 @@ export const useControllerForUserMain = (objId: string): Controller => {
       }
 
       return true;
-    },
-
-    polarAuth: async (email: string) => {
-      console.log(email);
-      alert('Authing email via Polaroid');
-      return false;
-    },
-    astralAuth: async (domain: string) => {
-      console.log(domain);
-      alert('Authing domain via Astrals');
-      return false;
     },
     loginFromEmail: async (email: string, password: string) => {
       const returnedUsers = await gqlDbWrapper.listFromVariables({
