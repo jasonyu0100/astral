@@ -110,8 +110,8 @@ export async function POST(req: Request) {
         if (listPayload.length > 0) {
           const user = listPayload.at(0);
           const updatePayload = await userDbWrapper.updateObj(user?.id || '', {
-            subscriptionId: '',
             customerId: customerId,
+            subscriptionId: '',
             productId: '',
             priceId: '',
           });

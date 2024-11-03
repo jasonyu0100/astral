@@ -125,18 +125,18 @@ export const useControllerForUserMain = (objId: string): Controller => {
           user.priceId &&
           user.productId
         ) {
-          try {
-            const subscription = await stripe.subscriptions.retrieve(
-              user.subscriptionId as string,
-            );
-            if (subscription.plan.active !== true && user.priceId !== null) {
-              alert('Subscription is not active');
-              throw new Error('Subscription is not active');
-            }
-          } catch (e) {
-            alert('Subscription is invalid');
-            throw new Error(`Subscription is invalid: ${e}`);
-          }
+          // try {
+          //   const subscription = await stripe.subscriptions.retrieve(
+          //     user.subscriptionId as string,
+          //   );
+          //   if (subscription.plan.active !== true && user.priceId !== null) {
+          //     alert('Subscription is not active');
+          //     throw new Error('Subscription is not active');
+          //   }
+          // } catch (e) {
+          //   alert('Subscription is invalid');
+          //   throw new Error(`Subscription is invalid: ${e}`);
+          // }
         }
         return user;
       }
