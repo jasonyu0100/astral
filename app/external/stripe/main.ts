@@ -67,6 +67,7 @@ export async function stripeProcessSubscription(
         customerId: session.customer,
         subscriptionId: session.subscription,
         priceId: subscription.plan.id,
+        productId: subscription.plan.product,
       },
     },
   });
