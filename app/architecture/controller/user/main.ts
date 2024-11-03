@@ -98,10 +98,12 @@ export const useControllerForUserMain = (objId: string): Controller => {
       });
 
       if (returnedUsers.length === 0) {
+        alert('User is invalid');
         throw new Error('User is invalid');
       } else {
         const user = returnedUsers[0];
         if (!user.passwordHash) {
+          alert('Password does not exist');
           throw new Error('Password hash is missing');
         }
         const check = await bcrypt.compare(password, user.passwordHash);
@@ -109,10 +111,12 @@ export const useControllerForUserMain = (objId: string): Controller => {
           alert("Password doesn't match");
           throw new Error('Password is invalid');
         } else if (user.subscriptionId === null) {
+          // Always check for new users who have over 100 days
           const timeDiff =
             new Date().getTime() - new Date(user.created).getTime();
           const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
           if (daysDifference > 100) {
+            alert('Trial is over');
             throw new Error('Trial is over');
           }
         } else if (
@@ -125,6 +129,7 @@ export const useControllerForUserMain = (objId: string): Controller => {
             user.subscriptionId as string,
           );
           if (subscription.plan.active !== true && user.priceId !== null) {
+            alert('Subscription is not active');
             throw new Error('Subscription is not active');
           }
         }
