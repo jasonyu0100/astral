@@ -105,7 +105,7 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (userMainController.state.objId) {
       if (pageRole === UserPageRole.NONE) {
-        window.location.href = portalMap.portal.register.link;
+        window.location.href = `${portalMap.portal.register.link}?redirect=${window.location.href}`;
       }
     }
   }, [userMainController.state.objId, pageRole]);

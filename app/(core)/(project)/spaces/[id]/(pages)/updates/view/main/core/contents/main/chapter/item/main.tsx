@@ -24,14 +24,13 @@ export function SpacesUpdatesChapterPost() {
 
   return (
     <div
-      className='w-full'
       onMouseOver={() => hoverableController.onHover()}
       onMouseOut={() => hoverableController.onUnhover()}
     >
       <GlassWindowFrame className='p-[1rem]'>
         <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
           <div
-            className='grid w-full cursor-pointer grid-cols-9 items-center justify-items-center space-x-[1rem] text-center'
+            className='grid w-full cursor-pointer grid-cols-9 items-center space-x-[1rem]'
             onClick={() => {
               spacesUpdatesController.actions.updateFeedView(
                 SpacesUpdatesFeedView.POST,
@@ -40,16 +39,11 @@ export function SpacesUpdatesChapterPost() {
             }}
           >
             <div>
-              <p className='text-xl font-bold text-white'>{index + 1}</p>
+              <p className='text-xl text-slate-300'>{index + 1}</p>
             </div>
             <div className='col-span-3'>
               <p className='whitespace-wrap text-xl font-bold text-slate-300'>
                 {postObj?.title?.trim() || 'Untitled'}
-              </p>
-            </div>
-            <div className='col-span-2'>
-              <p className='text-lg text-slate-300'>
-                {userObj.state.obj.displayName}
               </p>
             </div>
             <div>
@@ -60,6 +54,11 @@ export function SpacesUpdatesChapterPost() {
             <div className='col-span-2'>
               <p className=' text-lg font-light text-white'>
                 {getFormattedDate(new Date(postObj?.created ?? ''))}
+              </p>
+            </div>
+            <div className='col-span-2'>
+              <p className='text-lg text-slate-300'>
+                {userObj.state.obj.displayName}
               </p>
             </div>
             <div>{/* <PublicSpaceChapterPostKarma /> */}</div>

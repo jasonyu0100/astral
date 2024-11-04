@@ -1,3 +1,4 @@
+import { studioMap } from '@/(core)/(dashboard)/studio/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
@@ -5,6 +6,7 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralEditIcon } from '@/icons/edit/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
@@ -16,7 +18,14 @@ export function PublicSpaceSidebarSpace() {
   return (
     <div className='flex flex-col space-y-[1rem]'>
       <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-        <p className='text-2xl font-bold text-slate-300'>Space</p>
+        <div className='flex w-full flex-row items-center justify-between'>
+          <p className='text-2xl font-bold text-slate-300'>Space</p>
+          <AstralBackIndicatorIcon
+            onClick={() => {
+              window.location.href = studioMap.studio.personal.link;
+            }}
+          />
+        </div>
       </div>
       <HorizontalDivider />
       <GlassWindowFrame
@@ -30,7 +39,7 @@ export function PublicSpaceSidebarSpace() {
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <img
                   onClick={() => {
-                    window.location.href = spacesMap.spaces.id.chat.link(
+                    window.location.href = spacesMap.spaces.id.updates.link(
                       spaceMainController.state.objId,
                     );
                   }}
@@ -46,7 +55,7 @@ export function PublicSpaceSidebarSpace() {
               </div>
               <AstralEditIcon
                 onClick={() => {
-                  window.location.href = spacesMap.spaces.id.direction.link(
+                  window.location.href = spacesMap.spaces.id.scene.link(
                     spaceMainController.state.objId,
                   );
                 }}

@@ -1,6 +1,7 @@
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { CommonSidebarDefaultContainer } from '../common/container/default/main';
 import { CommonSidebarIndicators } from '../common/indicators/main';
+import { CommonSidebarUpdatesIndicator } from '../common/indicators/variants/feed/main';
 import { CommonSidebarJournalIndicator } from '../common/indicators/variants/journal/main';
 import { CommonSidebarNetworkIndicator } from '../common/indicators/variants/network/main';
 import { CommonSidebarSpaceIndicator } from '../common/indicators/variants/studio/main';
@@ -14,7 +15,7 @@ export function CommonSidebarDefault() {
       <HorizontalDivider className='my-[1rem] mb-[2rem]' />
       <CommonSidebarIndicators>
         <CommonSidebarSpaceIndicator />
-        {/* <CommonSidebarUpdatesIndicator /> */}
+        <CommonSidebarUpdatesIndicator />
         <CommonSidebarJournalIndicator />
         <CommonSidebarNetworkIndicator />
         <CommonSidebarVaultIndicator />

@@ -16,10 +16,13 @@ import {
   useGoogleLogin,
 } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { portalMap } from '../../map';
 
 export function PortalLoginForm() {
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect');
   const userController = useControllerForUserMain('');
   const login = useGlobalUser((state) => state.login);
   const [email, changeEmail] = useState('');
@@ -37,7 +40,11 @@ export function PortalLoginForm() {
       .then((user) => {
         login(user);
         alert('Login Success');
-        window.location.href = studioMap.studio.personal.link;
+        if (redirect) {
+          window.location.href = redirect;
+        } else {
+          window.location.href = studioMap.studio.personal.link;
+        }
       });
   };
 
@@ -50,7 +57,11 @@ export function PortalLoginForm() {
       .then((user) => {
         login(user);
         alert('Login Success');
-        window.location.href = studioMap.studio.personal.link;
+        if (redirect) {
+          window.location.href = redirect;
+        } else {
+          window.location.href = studioMap.studio.personal.link;
+        }
       });
   };
 

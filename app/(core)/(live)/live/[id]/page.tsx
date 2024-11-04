@@ -153,8 +153,6 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
         ? UserPageRole.VIEWER
         : UserPageRole.NONE;
 
-  console.log(pageRole, spaceMainController.state.obj.visibility);
-
   return (
     <>
       <ContextForUserPageRole.Provider value={pageRole}>
@@ -181,7 +179,7 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (userMainController.state.objId) {
       if (pageRole === UserPageRole.NONE) {
-        window.location.href = portalMap.portal.register.link;
+        window.location.href = `${portalMap.portal.register.link}?redirect=${window.location.href}`;
       }
     }
   }, [userMainController.state.objId, pageRole]);

@@ -13,10 +13,13 @@ import { HorizontalDivider } from '@/components/indicator/divider/horizontal/mai
 import { useGlobalUser } from '@/logic/store/user/main';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode'; // Import jwt-decode
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { portalMap } from '../../map';
 
 export function PortalRegisterForm() {
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect');
   const userController = useControllerForUserMain('');
   const galleryListController = useControllerForGalleryList('');
   const register = useGlobalUser((state) => state.register);
@@ -50,7 +53,11 @@ export function PortalRegisterForm() {
       });
       register(update);
       alert('Register Success');
-      window.location.href = studioMap.studio.personal.link;
+      if (redirect) {
+        window.location.href = redirect;
+      } else {
+        window.location.href = studioMap.studio.personal.link;
+      }
     }
   }
 
@@ -85,7 +92,11 @@ export function PortalRegisterForm() {
       });
       register(update);
       alert('Register Success');
-      window.location.href = studioMap.studio.personal.link;
+      if (redirect) {
+        window.location.href = redirect;
+      } else {
+        window.location.href = studioMap.studio.personal.link;
+      }
     }
   }
 

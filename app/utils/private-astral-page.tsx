@@ -17,7 +17,7 @@ export default function PrivateAstralPage(Component: any) {
         );
         window.location.href = '/';
       } else if (!isAuthed) {
-        window.location.href = portalMap.portal.login.link;
+        window.location.href = `${portalMap.portal.login.link}?redirect=${window.location.pathname}`;
         return null;
       }
     }

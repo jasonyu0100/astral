@@ -6,7 +6,7 @@ import { TaskStatus } from '@/architecture/model/task/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralArrowDropDown } from '@/icons/arrow-drop-down/main';
 import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
-import { AstralEditIcon } from '@/icons/edit/main';
+import { AstralTableIcon } from '@/icons/table/main';
 import { useControllerForTogglable } from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
 
@@ -50,7 +50,7 @@ export function PublicSpacesTasksSectionTodo() {
             <div className='aspect-[3/2] w-full rounded border-[1px] border-black bg-yellow-500 p-[1rem] font-bold'>
               <div className='flex flex-row justify-between space-x-[1rem]'>
                 <p className='text-xl font-bold'>{task.title}</p>
-                <AstralEditIcon
+                <AstralTableIcon
                   onClick={() => {
                     window.location.href = `${spacesMap.spaces.id.direction.link(
                       spaceMainController.state.objId,
