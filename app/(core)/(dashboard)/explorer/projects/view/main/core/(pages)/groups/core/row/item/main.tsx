@@ -17,7 +17,8 @@ export function HorizonsGroupRowItem() {
     >
       <GlassWindowContents
         onClick={() => {
-          window.open(horizonsMap.horizons.id.horizon.link('0'), '_blank');
+          window.location.href =
+            (horizonsMap.horizons.id.horizon.link('0'), '_blank');
         }}
         className='flex h-full w-full cursor-pointer flex-col justify-between space-y-[1rem]'
       >

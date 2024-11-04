@@ -9,7 +9,7 @@ export function SpacesUpdatesHeaderRight() {
       {/* <button
         className='flex animate-pulse-slow flex-row items-center space-x-[1rem] rounded-md bg-gradient-to-r from-purple-700 to-purple-500 px-[1rem] py-[0.5rem]'
         onClick={() => {
-          window.open(
+          window.location.href = (
             publicSpaceMap.space.link(spaceMainController.state.objId),
           );
         }}

@@ -145,33 +145,39 @@ function Page({ params }: { params: { id: string } }) {
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForUserMain.Provider value={userMainController}>
           <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
-            <ContextForSpaceChapterList.Provider value={chapterListController}>
-              <ContextForIdeaSceneList.Provider value={sceneListController}>
-                <ContextForSceneIdeaList.Provider value={ideaListController}>
-                  <ContextForGalleryList.Provider value={galleryListController}>
-                    <ContextForGalleryCollectionList.Provider
-                      value={collectionListController}
+            <PermissionWrapper>
+              <RedirectWrapper>
+                <ContextForSpaceChapterList.Provider
+                  value={chapterListController}
+                >
+                  <ContextForIdeaSceneList.Provider value={sceneListController}>
+                    <ContextForSceneIdeaList.Provider
+                      value={ideaListController}
                     >
-                      <ContextForCollectionResourceList.Provider
-                        value={resourceListController}
+                      <ContextForGalleryList.Provider
+                        value={galleryListController}
                       >
-                        <ContextForChapterConversationList.Provider
-                          value={conversationListController}
+                        <ContextForGalleryCollectionList.Provider
+                          value={collectionListController}
                         >
-                          <ContextForConversationMessageList.Provider
-                            value={messageListController}
+                          <ContextForCollectionResourceList.Provider
+                            value={resourceListController}
                           >
-                            <ContextForIdeaRelationshipListFromScene.Provider
-                              value={ideaRelationshipListController}
+                            <ContextForChapterConversationList.Provider
+                              value={conversationListController}
                             >
-                              <ContextForTaskList.Provider
-                                value={taskListController}
+                              <ContextForConversationMessageList.Provider
+                                value={messageListController}
                               >
-                                <ContextForUserActivityListFromChapter.Provider
-                                  value={activityListController}
+                                <ContextForIdeaRelationshipListFromScene.Provider
+                                  value={ideaRelationshipListController}
                                 >
-                                  <PermissionWrapper>
-                                    <RedirectWrapper>
+                                  <ContextForTaskList.Provider
+                                    value={taskListController}
+                                  >
+                                    <ContextForUserActivityListFromChapter.Provider
+                                      value={activityListController}
+                                    >
                                       <UpdateWrapper>
                                         <LoadingWrapper>
                                           <ControllerWrapper>
@@ -183,19 +189,19 @@ function Page({ params }: { params: { id: string } }) {
                                           </ControllerWrapper>
                                         </LoadingWrapper>
                                       </UpdateWrapper>
-                                    </RedirectWrapper>
-                                  </PermissionWrapper>
-                                </ContextForUserActivityListFromChapter.Provider>
-                              </ContextForTaskList.Provider>
-                            </ContextForIdeaRelationshipListFromScene.Provider>
-                          </ContextForConversationMessageList.Provider>
-                        </ContextForChapterConversationList.Provider>
-                      </ContextForCollectionResourceList.Provider>
-                    </ContextForGalleryCollectionList.Provider>
-                  </ContextForGalleryList.Provider>
-                </ContextForSceneIdeaList.Provider>
-              </ContextForIdeaSceneList.Provider>
-            </ContextForSpaceChapterList.Provider>
+                                    </ContextForUserActivityListFromChapter.Provider>
+                                  </ContextForTaskList.Provider>
+                                </ContextForIdeaRelationshipListFromScene.Provider>
+                              </ContextForConversationMessageList.Provider>
+                            </ContextForChapterConversationList.Provider>
+                          </ContextForCollectionResourceList.Provider>
+                        </ContextForGalleryCollectionList.Provider>
+                      </ContextForGalleryList.Provider>
+                    </ContextForSceneIdeaList.Provider>
+                  </ContextForIdeaSceneList.Provider>
+                </ContextForSpaceChapterList.Provider>
+              </RedirectWrapper>
+            </PermissionWrapper>
           </ContextForSpaceMemberList.Provider>
         </ContextForUserMain.Provider>
       </ContextForSpaceMain.Provider>

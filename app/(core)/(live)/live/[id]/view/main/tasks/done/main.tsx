@@ -1,4 +1,5 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { TaskStatus } from '@/architecture/model/task/main';
@@ -11,6 +12,7 @@ import { useContext } from 'react';
 
 export function PublicSpaceTasksSectionDone() {
   const spaceMainController = useContext(ContextForSpaceMain);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const taskListController = useContext(ContextForTaskList);
   const tasks = taskListController.state.objs;
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
@@ -22,7 +24,12 @@ export function PublicSpaceTasksSectionDone() {
         className='flex w-full animate-pulse cursor-pointer flex-row items-center justify-between space-x-[1rem]'
         onClick={() => togglableController.toggle()}
       >
-        <p className='text-2xl font-bold text-slate-300'>{TaskStatus.DONE}</p>
+        <div className='flex flex-row items-center space-x-[1rem]'>
+          <div className='flex h-[1.5rem] w-[1.5rem] flex-shrink-0 flex-col items-center justify-center rounded-full bg-blue-500'>
+            <p className='text-md font-bold text-white'>{done.length}</p>
+          </div>
+          <p className='text-2xl font-bold text-slate-300'>{TaskStatus.DONE}</p>
+        </div>
         {togglableController.toggled ? (
           <AstralArrowDropUp />
         ) : (
@@ -41,9 +48,9 @@ export function PublicSpaceTasksSectionDone() {
                 <p className='text-xl font-bold'>{task.title}</p>
                 <AstralEditIcon
                   onClick={() => {
-                    window.location.href = spacesMap.spaces.id.progress.link(
+                    window.location.href = `${spacesMap.spaces.id.direction.link(
                       spaceMainController.state.objId,
-                    );
+                    )}?chapter=${chapterListController.state.objId}`;
                   }}
                 />
               </div>

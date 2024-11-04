@@ -30,7 +30,9 @@ export function SpacesUpdatesSharePostModal() {
                   navigator.clipboard.writeText(
                     `astral.fun${liveMap.live.link(spaceController.state.objId)}`,
                   );
-                  window.open(liveMap.live.link(spaceController.state.objId));
+                  window.location.href = liveMap.live.link(
+                    spaceController.state.objId,
+                  );
                   openableController.close();
                 }}
               >

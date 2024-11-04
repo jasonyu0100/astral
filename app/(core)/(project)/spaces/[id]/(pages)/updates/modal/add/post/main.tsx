@@ -11,7 +11,7 @@ import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
@@ -89,7 +89,7 @@ export function SpacesUpdatesAddPostModal() {
             </div>
             <div className='flex flex-shrink-0 flex-col space-y-[1rem]'>
               <AstralRoundedActionButton onClick={createPost}>
-                <AstralArrowForwardIcon />
+                <AstralCheckIcon />
               </AstralRoundedActionButton>
             </div>
           </div>

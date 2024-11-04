@@ -3,8 +3,8 @@ const baseUrl = `/spaces`;
 export const spacesMap = {
   spaces: {
     id: {
-      progress: {
-        link: (id: string) => `${baseUrl}/${id}/progress`,
+      direction: {
+        link: (id: string) => `${baseUrl}/${id}/direction`,
       },
       chat: {
         link: (id: string) => `${baseUrl}/${id}/chat`,

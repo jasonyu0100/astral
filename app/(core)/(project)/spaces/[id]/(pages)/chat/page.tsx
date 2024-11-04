@@ -108,24 +108,30 @@ function Page({ params }: { params: { id: string } }) {
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForUserMain.Provider value={userMainController}>
-          <ContextForSpaceChapterList.Provider value={chapterListController}>
-            <ContextForSpaceMemberList.Provider
-              value={spaceMemberListController}
-            >
-              <ContextForChapterConversationList.Provider
-                value={conversationListController}
-              >
-                <ContextForIdeaSceneList.Provider value={sceneListController}>
-                  <ContextForSceneIdeaList.Provider value={ideaListController}>
-                    <ContextForConversationMessageList.Provider
-                      value={messageListController}
+          <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
+            <PermissionWrapper>
+              <RedirectWrapper>
+                <ContextForSpaceChapterList.Provider
+                  value={chapterListController}
+                >
+                  <ContextForChapterConversationList.Provider
+                    value={conversationListController}
+                  >
+                    <ContextForIdeaSceneList.Provider
+                      value={sceneListController}
                     >
-                      <ContextForTaskList.Provider value={taskListController}>
-                        <ContextForUserActivityListFromChapter.Provider
-                          value={activityListController}
+                      <ContextForSceneIdeaList.Provider
+                        value={ideaListController}
+                      >
+                        <ContextForConversationMessageList.Provider
+                          value={messageListController}
                         >
-                          <PermissionWrapper>
-                            <RedirectWrapper>
+                          <ContextForTaskList.Provider
+                            value={taskListController}
+                          >
+                            <ContextForUserActivityListFromChapter.Provider
+                              value={activityListController}
+                            >
                               <EffectWrapper>
                                 <UpdateWrapper>
                                   <LoadingWrapper>
@@ -139,16 +145,16 @@ function Page({ params }: { params: { id: string } }) {
                                   </LoadingWrapper>
                                 </UpdateWrapper>
                               </EffectWrapper>
-                            </RedirectWrapper>
-                          </PermissionWrapper>
-                        </ContextForUserActivityListFromChapter.Provider>
-                      </ContextForTaskList.Provider>
-                    </ContextForConversationMessageList.Provider>
-                  </ContextForSceneIdeaList.Provider>
-                </ContextForIdeaSceneList.Provider>
-              </ContextForChapterConversationList.Provider>
-            </ContextForSpaceMemberList.Provider>
-          </ContextForSpaceChapterList.Provider>
+                            </ContextForUserActivityListFromChapter.Provider>
+                          </ContextForTaskList.Provider>
+                        </ContextForConversationMessageList.Provider>
+                      </ContextForSceneIdeaList.Provider>
+                    </ContextForIdeaSceneList.Provider>
+                  </ContextForChapterConversationList.Provider>
+                </ContextForSpaceChapterList.Provider>
+              </RedirectWrapper>
+            </PermissionWrapper>
+          </ContextForSpaceMemberList.Provider>
         </ContextForUserMain.Provider>
       </ContextForSpaceMain.Provider>
     </ContextForLoggedInUserObj.Provider>

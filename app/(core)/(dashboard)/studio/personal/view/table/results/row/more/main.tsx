@@ -34,7 +34,9 @@ export function StudioPersonalRowMore() {
                 navigator.clipboard.writeText(
                   `astral.fun${liveMap.live.link(spaceListController.state.objId)}`,
                 );
-                window.open(liveMap.live.link(spaceListController.state.objId));
+                window.location.href = liveMap.live.link(
+                  spaceListController.state.objId,
+                );
               }}
             >
               <AstralLinkIcon />

@@ -30,10 +30,8 @@ export function PublicSpaceSidebarSpace() {
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <img
                   onClick={() => {
-                    window.open(
-                      spacesMap.spaces.id.chat.link(
-                        spaceMainController.state.objId,
-                      ),
+                    window.location.href = spacesMap.spaces.id.chat.link(
+                      spaceMainController.state.objId,
                     );
                   }}
                   className='aspect-square h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer rounded-full shadow-glow'
@@ -48,7 +46,7 @@ export function PublicSpaceSidebarSpace() {
               </div>
               <AstralEditIcon
                 onClick={() => {
-                  window.location.href = spacesMap.spaces.id.progress.link(
+                  window.location.href = spacesMap.spaces.id.direction.link(
                     spaceMainController.state.objId,
                   );
                 }}
@@ -57,8 +55,10 @@ export function PublicSpaceSidebarSpace() {
             <p className='text-md font-light text-slate-300'>
               {spaceMainController.state.obj.description}
             </p>
+            <p className='text-md font-light text-slate-300'>
+              {spaceMainController.state.obj.objective}
+            </p>
           </div>
-          <HorizontalDivider />
           <GlassWindowFrame
             className='h-[50px] w-full flex-shrink-0 p-[1rem]'
             roundedFx={roundedFx['rounded-full']}

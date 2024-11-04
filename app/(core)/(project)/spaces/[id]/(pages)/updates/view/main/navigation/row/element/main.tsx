@@ -3,6 +3,7 @@ import { ContextForUserPostObj } from '@/architecture/model/post/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForScrollToHorizontalIndex } from '@/logic/controller/scroll-to-horizontal-index/main';
 import { glassFx, roundedFx } from '@/style/data';
@@ -12,6 +13,7 @@ import {
   ContextForSpacesUpdates,
   SpacesUpdatesFeedView,
 } from '../../../../../controller/main';
+import { ContextForSpacesUpdatesModals } from '../../../../../modal/controller/main';
 
 export function SpacesUpdatesRowElement() {
   const index = useContext(ContextForIndexable);
@@ -22,6 +24,9 @@ export function SpacesUpdatesRowElement() {
     ContextForScrollToHorizontalIndex,
   );
   const spacesUpdatesController = useContext(ContextForSpacesUpdates);
+  const spacesUpdatesModalsController = useContext(
+    ContextForSpacesUpdatesModals,
+  );
 
   return (
     <GlassWindowFrame
@@ -31,7 +36,7 @@ export function SpacesUpdatesRowElement() {
       roundedFx={roundedFx['rounded-full']}
     >
       <GlassWindowContents
-        className='z-10 flex h-full w-full items-center px-[1rem]'
+        className='flex h-full w-full flex-row items-center justify-between space-x-[1rem] px-[1rem]'
         onClick={() => {
           postListController.actions.stateActions.select(post);
           controllerForScrollToCursor.scrollToHorizontalIndex(index);
@@ -45,6 +50,11 @@ export function SpacesUpdatesRowElement() {
         >
           {index + 1}. {post.title || 'Untitled'}
         </p>
+        <AstralMoreVertIcon
+          onClick={() => {
+            spacesUpdatesModalsController.editPostController.open();
+          }}
+        />
       </GlassWindowContents>
       {!active ? (
         <GlassWindowPane glassFx={glassFx['glass-5']} />

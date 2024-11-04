@@ -83,7 +83,7 @@ export function SpacesChatStatusInProgress() {
             <div
               className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
               onClick={() => {
-                window.location.href = `${spacesMap.spaces.id.progress.link(
+                window.location.href = `${spacesMap.spaces.id.direction.link(
                   spaceMainController.state.objId,
                 )}?chapter=${chapterListController.state.objId}`;
               }}

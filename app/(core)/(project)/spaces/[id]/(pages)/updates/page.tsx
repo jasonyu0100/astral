@@ -112,25 +112,29 @@ function Page({ params }: { params: { id: string } }) {
       <ContextForSpaceMain.Provider value={spaceMainController}>
         <ContextForUserMain.Provider value={userMainController}>
           <ContextForSpaceMemberList.Provider value={spaceMemberListController}>
-            <ContextForSpaceChapterList.Provider value={chapterListController}>
-              <ContextForUserPostListFromChapter.Provider
-                value={postListController}
-              >
-                <ContextForPostKarmaList.Provider
-                  value={postKarmaListController}
+            <PermissionWrapper>
+              <RedirectWrapper>
+                <ContextForSpaceChapterList.Provider
+                  value={chapterListController}
                 >
-                  <ContextForPostAttachmentListFromPost.Provider
-                    value={attachmentListController}
+                  <ContextForUserPostListFromChapter.Provider
+                    value={postListController}
                   >
-                    <ContextForPostCommentList.Provider
-                      value={commentListController}
+                    <ContextForPostKarmaList.Provider
+                      value={postKarmaListController}
                     >
-                      <ContextForTaskList.Provider value={taskListController}>
-                        <ContextForUserActivityListFromChapter.Provider
-                          value={activityListController}
+                      <ContextForPostAttachmentListFromPost.Provider
+                        value={attachmentListController}
+                      >
+                        <ContextForPostCommentList.Provider
+                          value={commentListController}
                         >
-                          <PermissionWrapper>
-                            <RedirectWrapper>
+                          <ContextForTaskList.Provider
+                            value={taskListController}
+                          >
+                            <ContextForUserActivityListFromChapter.Provider
+                              value={activityListController}
+                            >
                               <UpdateWrapper>
                                 <LoadingWrapper>
                                   <ControllerWrapper>
@@ -142,15 +146,15 @@ function Page({ params }: { params: { id: string } }) {
                                   </ControllerWrapper>
                                 </LoadingWrapper>
                               </UpdateWrapper>
-                            </RedirectWrapper>
-                          </PermissionWrapper>
-                        </ContextForUserActivityListFromChapter.Provider>
-                      </ContextForTaskList.Provider>
-                    </ContextForPostCommentList.Provider>
-                  </ContextForPostAttachmentListFromPost.Provider>
-                </ContextForPostKarmaList.Provider>
-              </ContextForUserPostListFromChapter.Provider>
-            </ContextForSpaceChapterList.Provider>
+                            </ContextForUserActivityListFromChapter.Provider>
+                          </ContextForTaskList.Provider>
+                        </ContextForPostCommentList.Provider>
+                      </ContextForPostAttachmentListFromPost.Provider>
+                    </ContextForPostKarmaList.Provider>
+                  </ContextForUserPostListFromChapter.Provider>
+                </ContextForSpaceChapterList.Provider>
+              </RedirectWrapper>
+            </PermissionWrapper>
           </ContextForSpaceMemberList.Provider>
         </ContextForUserMain.Provider>
       </ContextForSpaceMain.Provider>

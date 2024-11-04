@@ -92,7 +92,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       if (diff < 1000 * 60 * 5) {
         // HARD LOCK IN STARTER FOR 5 minutes
         createSpaceController.createSpace().then((space) => {
-          window.location.href = spacesMap.spaces.id.progress.link(space.id);
+          window.location.href = spacesMap.spaces.id.direction.link(space.id);
         });
       }
     }

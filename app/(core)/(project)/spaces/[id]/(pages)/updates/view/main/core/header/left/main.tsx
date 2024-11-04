@@ -1,8 +1,6 @@
-import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralShareIcon } from '@/icons/share/main';
 import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -43,14 +41,14 @@ export function SpacesUpdatesHeaderLeft() {
         <AstralAddIcon
           onClick={() => modalController.addPostController.open()}
         />
-        <AstralShareIcon
+        {/* <AstralShareIcon
           onClick={() => {
             navigator.clipboard.writeText(
               `astral.fun${liveMap.live.link(spaceMainController.state.objId)}`,
             );
             spacesUpdatesModalController.shareReviewController.open();
           }}
-        />
+        /> */}
       </div>
     </>
   );

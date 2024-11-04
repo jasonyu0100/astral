@@ -7,6 +7,7 @@ import { createContext } from 'react';
 import { SpacesUpdatesAddChapterModal } from '../add/chapter/main';
 import { SpacesUpdatesAddPostModal } from '../add/post/main';
 import { SpacesUpdatesEditChapterModal } from '../edit/chapter/main';
+import { SpacesUpdatesEditPostModal } from '../edit/post/main';
 import { SpacesUpdatesEditSpaceModal } from '../edit/space/main';
 import { SpacesUpdatesSharePostModal } from '../share/main';
 
@@ -15,11 +16,11 @@ export const ContextForSpacesUpdatesModals = createContext(
 );
 
 export interface SpacesUpdatesModals {
-  addSceneController: ContextForOpenableInterface;
   addPostController: ContextForOpenableInterface;
   shareReviewController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
   editSpaceController: ContextForOpenableInterface;
+  editPostController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
 }
 
@@ -33,6 +34,7 @@ export function SpacesUpdatesModals({
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
   const addChapterController = useControllerForOpenable();
+  const editPostController = useControllerForOpenable();
 
   return (
     <ContextForSpacesUpdatesModals.Provider
@@ -42,6 +44,7 @@ export function SpacesUpdatesModals({
           addPostController: addPostController,
           editChapterController: editChapterController,
           editSpaceController: editSpaceController,
+          editPostController: editPostController,
           addChapterController: addChapterController,
         } as SpacesUpdatesModals
       }
@@ -61,6 +64,9 @@ export function SpacesUpdatesModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addChapterController}>
         <SpacesUpdatesAddChapterModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={editPostController}>
+        <SpacesUpdatesEditPostModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesUpdatesModals.Provider>
   );
