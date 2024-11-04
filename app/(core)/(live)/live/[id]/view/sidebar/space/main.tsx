@@ -19,7 +19,7 @@ export function PublicSpaceSidebarSpace() {
     <div className='flex flex-col space-y-[1rem]'>
       <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
         <div className='flex w-full flex-row items-center justify-between'>
-          <p className='text-2xl font-bold text-slate-300'>Space</p>
+          <p className='text-3xl font-bold text-slate-300'>Space</p>
           <AstralBackIndicatorIcon
             onClick={() => {
               window.location.href = studioMap.studio.personal.link;

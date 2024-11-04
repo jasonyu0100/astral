@@ -18,6 +18,30 @@ export function PublicSpaceBreadcrumbs() {
 
   return (
     <div className='flex h-[3rem] flex-shrink-0 flex-col justify-between'>
+      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAPTER && (
+        <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
+          <div className='flex flex-row items-center space-x-[1rem]'>
+            <p
+              className='cursor-pointer text-2xl font-bold text-slate-300'
+              onClick={() => {
+                publicSpaceController.actions.updateFeedView(
+                  PublicSpaceFeedView.CHAPTER,
+                );
+              }}
+            >
+              {chapterListController.state.currentObj?.title}
+            </p>
+          </div>
+          <div
+            className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
+            onClick={() => {
+              window.location.href = `${spacesMap.spaces.id.scene.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
+            }}
+          >
+            <AstralAddIcon />
+          </div>
+        </div>
+      )}
       {publicSpaceController.state.feedView === PublicSpaceFeedView.POST && (
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
@@ -30,6 +54,17 @@ export function PublicSpaceBreadcrumbs() {
               }}
             >
               {chapterListController.state.currentObj?.title}
+            </p>
+            <span className='text-2xl font-bold text-slate-300'> / </span>
+            <p
+              className='cursor-pointer text-2xl font-bold text-slate-300'
+              onClick={() => {
+                publicSpaceController.actions.updateFeedView(
+                  PublicSpaceFeedView.POSTS,
+                );
+              }}
+            >
+              Posts
             </p>
             <span className='text-2xl font-bold text-slate-300'> / </span>
             <p
@@ -53,7 +88,7 @@ export function PublicSpaceBreadcrumbs() {
           </div>
         </div>
       )}
-      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAPTER && (
+      {publicSpaceController.state.feedView === PublicSpaceFeedView.POSTS && (
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
@@ -67,6 +102,16 @@ export function PublicSpaceBreadcrumbs() {
               {chapterListController.state.currentObj?.title}
             </p>
             <span className='text-2xl font-bold text-slate-300'> / </span>
+            <p
+              className='cursor-pointer text-2xl font-bold text-slate-300'
+              onClick={() => {
+                publicSpaceController.actions.updateFeedView(
+                  PublicSpaceFeedView.POSTS,
+                );
+              }}
+            >
+              Posts
+            </p>
           </div>
           <div
             className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'

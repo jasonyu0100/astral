@@ -9,7 +9,8 @@ export enum UserPageRole {
   OWNER = 'Owner',
   MEMBER = 'Member',
   VIEWER = 'Viewer',
-  NONE = '',
+  NONE = 'None',
+  UNDEFINED = 'Undefined',
 }
 
 export const ContextForUserPageRole = createContext('' as UserPageRole);
@@ -17,7 +18,8 @@ export const ContextForUserPageRole = createContext('' as UserPageRole);
 export enum UserProfileVisibility {
   PUBLIC = 'Public',
   PRIVATE = 'Private',
-  NONE = '',
+  NONE = 'None',
+  UNDEFINED = 'Undefined',
 }
 
 export const ContextForUserProfileVisibility = createContext(

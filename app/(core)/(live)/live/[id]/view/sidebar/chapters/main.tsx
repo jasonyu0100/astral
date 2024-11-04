@@ -13,7 +13,7 @@ export function PublicSpaceSidebarChapters() {
     <GlassWindowFrame className='w-full flex-shrink-0'>
       <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem]'>
         <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-          <p className='text-2xl font-bold text-slate-300'>Chapters</p>
+          <p className='text-3xl font-bold text-slate-300'>Chapters</p>
         </div>
         <HorizontalDivider />
         {chapterListController.state.objs.map((chapter) => (

@@ -1,29 +1,20 @@
-import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
-import { ContextForUserPostObj } from '@/architecture/model/post/main';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { useContext } from 'react';
-import { PublicSpaceChaptersEmpty } from './empty/main';
-import { PublicSpaceChapterPost } from './item/main';
 
-export function PublicSpaceChapterList() {
-  const postListController = useContext(ContextForUserPostListFromChapter);
+export function PublicSpaceChapterHome() {
+  const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <div className='flex flex-row space-x-[2rem]'>
-      <div className='flex flex-col space-y-[2rem] py-[2rem]'>
-        {postListController.state.objs.length > 0 ? (
-          <>
-            {postListController.state.objs.map((post) => (
-              <ContextForUserPostObj.Provider value={post}>
-                <PublicSpaceChapterPost />
-              </ContextForUserPostObj.Provider>
-            ))}
-          </>
-        ) : (
-          <div className='h-[800px] w-full'>
-            <PublicSpaceChaptersEmpty />
-          </div>
-        )}
-      </div>
+    <div className='space-y-[1rem] py-[2rem]'>
+      <p className='text-3xl font-bold text-slate-300'>
+        {chapterListController.state.currentObj?.title}
+      </p>
+      <p className='text-lg font-bold text-slate-500'>
+        {chapterListController.state.currentObj?.description}
+      </p>
+      <p className='text-lg font-bold text-slate-500'>
+        {chapterListController.state.currentObj?.objective}
+      </p>
     </div>
   );
 }

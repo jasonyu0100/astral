@@ -7,9 +7,9 @@ import { PublicSpaceSidebarSpace } from './space/main';
 
 export function PublicSpaceSidebar() {
   return (
-    <div className='flex h-full w-[360px] flex-shrink-0 flex-col overflow-auto'>
+    <div className='flex h-full w-[400px] flex-shrink-0 flex-col overflow-auto'>
       <GlassWindowFrame className='h-full w-full'>
-        <GlassWindowContents className='flex w-full flex-col space-y-[2rem] p-[1rem]'>
+        <GlassWindowContents className='flex w-full flex-col space-y-[2rem] px-[1rem] py-[2rem]'>
           <PublicSpaceSidebarSpace />
           <PublicSpaceSidebarChapters />
         </GlassWindowContents>

@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
 
 export enum PublicSpaceFeedView {
-  HOME = 'home',
-  CHAPTER = 'chapter',
-  POST = 'post',
+  CHAPTER = 'Chapter',
+  POSTS = 'Posts',
+  POST = 'Post',
 }
 
 interface Controller {
@@ -22,7 +22,7 @@ interface ControllerActions {
 export const ContextForPublicSpace = createContext({} as Controller);
 
 export function useControllerForPublicSpace(): Controller {
-  const [feedView, setFeedView] = useState(PublicSpaceFeedView.CHAPTER);
+  const [feedView, setFeedView] = useState(PublicSpaceFeedView.POSTS);
   return {
     state: { feedView },
     actions: {

@@ -38,7 +38,7 @@ export function PublicSpaceSidebarItem() {
           onClick={() => {
             chapterListController.actions.stateActions.select(chapterObj);
             publicSpaceController.actions.updateFeedView(
-              PublicSpaceFeedView.CHAPTER,
+              PublicSpaceFeedView.POSTS,
             );
           }}
         >
