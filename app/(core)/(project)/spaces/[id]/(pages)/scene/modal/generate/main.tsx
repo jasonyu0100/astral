@@ -11,10 +11,14 @@ import { ElementIdea } from '@/components/element/idea/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { AstralCheckIcon } from '@/icons/check/main';
+import { AstralRefreshIcon } from '@/icons/refresh/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
@@ -56,30 +60,40 @@ export function SpacesSceneGeneratePost() {
   }, [openableController.opened]);
 
   async function generateDescription() {
-    const ideaSummary = selectedIdeas
-      .filter((idea) => idea.variant === ElementVariant.TEXT)
-      .map((idea) => `Idea - ${idea.textElem?.text}`)
-      .join('\n');
+    const messageHistory = [
+      `[START OF INSTRUCTIONS]`,
+      `Summarise the following into a concise task description (min 50 - max 100 chars):`,
+      selectedIdeas
+        .filter((idea) => idea.variant === ElementVariant.TEXT)
+        .map((idea) => `Idea - ${idea.textElem?.text}`)
+        .join('\n'),
+      `E.G - "Create a new design for the website that is modern and sleek."`,
+      `[END OF INSTRUCTIONS]`,
+    ];
+    const messagePrompt = messageHistory.join('\n');
+
     await openAiController.actions
-      .getMessageResponse(
-        `
-      Summarise the following into a concise task description (100 - 300 chars): ${ideaSummary}`,
-      )
+      .getMessageResponse(messagePrompt)
       .then((description) => {
         setDescription(description || '');
       });
   }
 
   async function generateTitle() {
-    const ideaSummary = selectedIdeas
-      .filter((idea) => idea.variant === ElementVariant.TEXT)
-      .map((idea) => `Idea - ${idea.textElem?.text}`)
-      .join('\n');
+    const messageHistory = [
+      `[START OF INSTRUCTIONS]`,
+      `Summarise the following into a concise task title (min 10 - max 20 chars):`,
+      selectedIdeas
+        .filter((idea) => idea.variant === ElementVariant.TEXT)
+        .map((idea) => `Idea - ${idea.textElem?.text}`)
+        .join('\n'),
+      `E.G - "Design Website"`,
+      `[END OF INSTRUCTIONS]`,
+    ];
+    const messagePrompt = messageHistory.join('\n');
+
     await openAiController.actions
-      .getMessageResponse(
-        `
-      Summarise the following into a concise task title (10 - 20 chars): ${ideaSummary}`,
-      )
+      .getMessageResponse(messagePrompt)
       .then((title) => {
         setTitle(title || '');
       });
@@ -125,8 +139,8 @@ export function SpacesSceneGeneratePost() {
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <div className='flex w-[800px] flex-row items-center space-x-[2rem]'>
-            <div className='flex w-full flex-col space-y-[2rem]'>
+          <AstralModalBody>
+            <AstralModalBodyContents>
               <p className='text-3xl font-bold text-slate-300'>Generate Post</p>
               <AstralTextLineInput
                 value={title}
@@ -150,11 +164,22 @@ export function SpacesSceneGeneratePost() {
                   </div>
                 ))}
               </div>
-            </div>
-            <AstralRoundedActionButton onClick={createLog}>
-              <AstralCheckIcon />
-            </AstralRoundedActionButton>
-          </div>
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton
+                onClick={() => {
+                  generateDescription();
+                  generateTitle();
+                }}
+                className='from-slate-500 to-slate-600'
+              >
+                <AstralRefreshIcon />
+              </AstralRoundedActionButton>
+              <AstralRoundedActionButton onClick={createLog}>
+                <AstralCheckIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>
