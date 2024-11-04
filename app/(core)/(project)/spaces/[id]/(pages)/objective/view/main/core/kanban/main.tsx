@@ -74,7 +74,7 @@ function KanbanRow({ title, tasks, status }) {
   });
 
   return (
-    <div className='flex flex-col border-b-[1px] border-slate-300 border-opacity-30'>
+    <div className='flex flex-col overflow-auto border-b-[1px] border-slate-300 border-opacity-30'>
       <div className='flex flex-row items-center space-x-[1rem] pb-[1rem]'>
         <GlassWindowFrame
           roundedFx={roundedFx['rounded-full']}
@@ -88,7 +88,7 @@ function KanbanRow({ title, tasks, status }) {
       </div>
       <div
         ref={drop}
-        className={`flex h-full flex-row rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
+        className={`flex h-full flex-row overflow-auto rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
       >
         <div className='flex min-h-[50px] flex-row space-x-[1rem]'>
           {tasks.map((task) => (
@@ -143,7 +143,7 @@ function KanbanTask({ task }) {
   return (
     <div
       ref={drag}
-      className={`h-full w-[250px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
+      className={`h-full w-[300px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
         isDragging ? 'opacity-50' : ''
       } ${isSelected ? 'border-[3px] border-red-500' : 'border-black'}`}
       style={{ cursor: 'move' }}
