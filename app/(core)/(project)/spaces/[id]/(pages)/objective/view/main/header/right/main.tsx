@@ -20,7 +20,7 @@ export function SpacesObjectiveHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Generate Direction (
+            Generate Objective (
             {spacesObjectiveController.state.selectedTasks.length})
           </p>
           <AstralArrowForwardIcon />

@@ -3,37 +3,27 @@ import { TemplateSpaceObj } from '../main';
 export const tutorialSpaceTemplate: TemplateSpaceObj = {
   title: '🚀 Project Tutorial Space',
   description:
-    'A guided tutorial space introducing you to the main project features: Progress, Chat, Scene, Post, Live, and Reflection. Learn to manage tasks, brainstorm ideas, map out concepts, share updates, and reflect on your progress. Note: This is a tutorial; your real spaces will offer even more flexibility and features.',
+    'A guided tutorial space introducing you to the main project features: Objective, Chat, Scene, Updates, and Live. Learn to manage tasks, brainstorm ideas, map out concepts, share updates, and reflect on your progress. Note: This is a tutorial; your real spaces will offer even more flexibility and features.',
   summary:
     'A structured guide to using each workspace feature effectively, setting up your project for seamless creativity and organization.',
   category: 'Tutorial',
   chapters: [
     {
-      title: '📋 Progress',
+      title: '🎯 Objective',
       description:
-        'Progress is your task board, organized with "To Do," "In Progress," and "Done" columns. It’s perfect for tracking each phase and planning discussions in other areas, like Chat.',
+        'Objective helps you define clear goals and set expectations for your project, setting the foundation for your workspace.',
       objective:
-        'Learn to manage tasks by setting up a workflow using Progress to organize, prioritize, and track activities.',
+        'Learn to establish and refine your project goals, providing direction and purpose for your activities.',
       tasks: [
         {
-          title: 'Create Initial Tasks',
+          title: 'Define Project Goals',
           description:
-            'Add tasks to "To Do" for each main step of your project, like research, brainstorming, or early development.',
+            'Set specific, measurable goals for the project to guide your progress in other areas.',
         },
         {
-          title: 'Organize by Priority (Optional)',
+          title: 'Outline Key Milestones',
           description:
-            'Reorder tasks by priority to keep focus on the most important steps first.',
-        },
-        {
-          title: 'Track Progress in "In Progress"',
-          description:
-            'Move tasks to "In Progress" when you start working on them. This visual update helps with focus and informs ongoing ideas in Chat.',
-        },
-        {
-          title: 'Review and Mark as Done',
-          description:
-            'When finished, move tasks to "Done" for a record of progress that can help with future planning.',
+            'Identify major checkpoints to track your project’s advancement and keep your focus aligned.',
         },
       ],
     },
@@ -91,59 +81,35 @@ export const tutorialSpaceTemplate: TemplateSpaceObj = {
       ],
     },
     {
-      title: '📝 Post',
+      title: '📋 Updates',
       description:
-        'Post lets you share key insights from Scene. Create posts from scratch or based on scenes to present project highlights and updates in a clear, public format.',
+        'Updates is where you post key insights from Scene. Create posts to share project highlights and updates in a clear, public format.',
       objective:
-        'Learn to create posts from Scene or from scratch to share progress updates and insights with your audience.',
+        'Learn to create updates from Scene or from scratch to share progress and insights with your audience.',
       tasks: [
         {
-          title: 'Create a Post from Scene',
+          title: 'Create an Update from Scene',
           description:
-            'Turn elements from Scene into a post that highlights your project’s key points.',
+            'Turn elements from Scene into an update that highlights your project’s key points.',
         },
         {
           title: 'Add Content and Media',
           description:
-            'Make posts more engaging with images or media that illustrate your ideas.',
+            'Make updates more engaging with images or media that illustrate your ideas.',
         },
       ],
     },
     {
       title: '📺 Live',
       description:
-        'Live combines Progress and Post to show your project’s journey, organized by chapters. Track each phase’s status and posts to get a complete view of the workspace.',
+        'Live combines Progress and Updates to show your project’s journey, organized by chapters. Track each phase’s status and updates to get a complete view of the workspace.',
       objective:
-        'Learn to use Live as an overview of the project’s progression, combining updates from Progress and Post in a real-time, chapter-based format.',
+        'Learn to use Live as an overview of the project’s progression, combining updates from Progress and Updates in a real-time, chapter-based format.',
       tasks: [
         {
           title: 'Review Project Progress',
           description:
             'View the project’s overall status in Live, with updates organized by chapters.',
-        },
-      ],
-    },
-    {
-      title: '🔎 Reflection',
-      description:
-        'Reflection is your space to review key learnings, note any areas for improvement, and set goals for future projects. This can help with refining your workflow and gathering insights for ongoing learning.',
-      objective:
-        'Encourage reflection on what you’ve learned in this tutorial space, and set goals for future work.',
-      tasks: [
-        {
-          title: 'List Key Learnings',
-          description:
-            'Document your key takeaways from using each feature in the tutorial.',
-        },
-        {
-          title: 'Identify Areas for Improvement (Optional)',
-          description:
-            'Note any areas of the workflow or features that could be improved for your real projects.',
-        },
-        {
-          title: 'Explore Additional Resources',
-          description:
-            'Consider looking into more advanced resources to deepen your understanding and skills.',
         },
       ],
     },

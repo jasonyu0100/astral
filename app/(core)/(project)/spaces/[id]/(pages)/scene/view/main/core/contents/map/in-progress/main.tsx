@@ -77,10 +77,12 @@ export function SpacesSceneInProgress() {
           </div>
         </div>
       ) : (
-        <div className='h-[200px] w-[250px] flex-shrink-0 overflow-auto rounded-lg border-[1px] border-slate-300 bg-yellow-500 p-[1rem]'>
+        <div className='h-[200px] w-[250px] flex-shrink-0 overflow-auto rounded-lg border-[3px] border-red-500 bg-yellow-500 p-[1rem]'>
           <div className='flex flex-row justify-between space-x-[1rem]'>
             <p className='text-lg font-bold'>
-              {todo.length > 0 ? 'No task in-progress' : 'No available tasks'}
+              {todo.length > 0
+                ? 'No task in-progress'
+                : 'No current objectives'}
             </p>
             <div
               className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'

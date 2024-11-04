@@ -49,7 +49,7 @@ export function CreateSpaceModalPageOne() {
       <AstralTextAreaInput
         title='Description'
         placeholder='A description for the space'
-        rows={3}
+        rows={5}
         value={description}
         onChange={(e) => updateDescription(e.target.value)}
         style={{ resize: 'none' }}

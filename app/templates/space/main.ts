@@ -22,6 +22,7 @@ import { tutorialSpaceTemplate } from './templates/tutorialSpaceTemplate';
 import { userTestingTemplate } from './templates/userTestingTemplate';
 import { uxUiDesignTemplate } from './templates/uxUiDesignTemplate';
 import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
+import { websiteTemplate } from './templates/websiteTemplate';
 import { workProjectTemplate } from './templates/workProjectTemplate';
 
 // SPACE
@@ -38,6 +39,7 @@ export type _TemplateSpaceObj = Omit<
   | 'starred'
   | 'completed'
   | 'collectionId'
+  | 'visibility'
 >;
 
 export interface TemplateSpaceObj extends _TemplateSpaceObj {
@@ -124,6 +126,7 @@ enum NewSpaceTemplate {
   UserTesting = '👥 User Testing',
   DesignJam = '🎨 Design Jam',
   EventPlanning = '🎉 Event Planning',
+  Website = '🌐 Website',
   VideoProduction = '🎥 Video Production',
   MusicProduction = '🎶 Music Production',
   FreelancingProject = '💼 Freelancing Task',
@@ -148,6 +151,7 @@ const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
   [NewSpaceTemplate.VideoProduction]: videoProductionTemplate,
   [NewSpaceTemplate.DesignJam]: uxUiDesignTemplate,
+  [NewSpaceTemplate.Website]: websiteTemplate,
   [NewSpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
   [NewSpaceTemplate.Storyboarding]: storyboardTemplate,
   [NewSpaceTemplate.UserTesting]: userTestingTemplate,

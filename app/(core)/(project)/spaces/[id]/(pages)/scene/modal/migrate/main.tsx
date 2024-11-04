@@ -6,8 +6,6 @@ import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ElementIdea } from '@/components/element/idea/main';
-import { AstralTextAreaInput } from '@/components/input/area/main';
-import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralSelectInput } from '@/components/input/select/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
@@ -40,8 +38,6 @@ export function SpacesSceneMigrateSceneModal() {
   const [sceneId, setSceneId] = useState(
     sceneListController.state.objs[0]?.id || '',
   );
-  const [title, changeTitle] = useState('');
-  const [objective, changeObjective] = useState('');
 
   async function createScene() {
     loadingController.loadingController.open();
@@ -105,20 +101,6 @@ export function SpacesSceneMigrateSceneModal() {
                   <option value={scene.id}>{scene.title}</option>
                 ))}
               </AstralSelectInput>
-              <AstralTextLineInput
-                title='Title'
-                placeholder='Enter a title for your migrated scene'
-                value={title}
-                onChange={(e) => changeTitle(e.target.value)}
-              />
-              <AstralTextAreaInput
-                title='Objective'
-                placeholder='Set an objective for your migrated scene'
-                rows={8}
-                value={objective}
-                onChange={(e) => changeObjective(e.target.value)}
-                style={{ resize: 'none' }}
-              />
               <div className='grid w-full grid-cols-3 gap-[1rem]'>
                 {spacesSceneController.state.selectedIdeas.map(
                   (selectedIdea) => (

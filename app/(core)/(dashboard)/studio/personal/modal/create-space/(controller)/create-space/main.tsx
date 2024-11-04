@@ -70,6 +70,11 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     SpaceTemplateMap[category].chapters,
   );
 
+  useEffect(() => {
+    changeTitle(SpaceTemplateMap[category].title);
+    changeDescription(SpaceTemplateMap[category].description);
+  }, [category]);
+
   async function createChapters(
     space: SpaceObj,
     templateSpaceChapters: TemplateChapterObj[],

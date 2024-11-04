@@ -87,7 +87,7 @@ export function SpacesChatConstellationModal() {
                 <AstralModalBody className='h-full w-full'>
                   <AstralModalBodyContents>
                     <AstralModalTitle>Generate Scene</AstralModalTitle>
-                    <div className='flex h-[900px] w-full flex-row items-center justify-center overflow-auto'>
+                    <div className='flex w-full flex-row items-center justify-center'>
                       {generateSceneController.state.tab ===
                         GenerateSceneTab.TEXT && (
                         <SpacesChatGenerateTextContent />

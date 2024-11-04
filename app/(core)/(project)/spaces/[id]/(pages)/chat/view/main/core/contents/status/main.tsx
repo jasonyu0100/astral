@@ -1,4 +1,3 @@
-import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
@@ -8,7 +7,6 @@ import { SpacesChatStatusInProgress } from './in-progress/main';
 
 export function SpacesChatStatusContents() {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const messageListController = useContext(ContextForConversationMessageList);
 
   return (
     <div className='p-[1rem]'>
@@ -22,15 +20,11 @@ export function SpacesChatStatusContents() {
               <p className='text-2xl font-bold text-slate-300'>
                 {chapterListController.state.currentObj?.title}
               </p>
-              <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
-                <p className='text-lg font-bold text-slate-300'>
-                  {messageListController.state.objs.length}
-                </p>
-              </div>
             </div>
             <div className='flex flex-col space-y-[0.5rem]'>
               <p className='text-lg font-light text-slate-300'>
-                {chapterListController.state.currentObj?.objective}
+                {chapterListController.state.currentObj?.objective ||
+                  `No objective`}
               </p>
               <p className='text-lg font-light text-slate-300'>
                 {chapterListController.state.currentObj?.description}

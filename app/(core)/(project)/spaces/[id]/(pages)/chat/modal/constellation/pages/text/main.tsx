@@ -11,7 +11,7 @@ export function SpacesChatGenerateTextContent() {
   const generateSceneController = useContext(ContextForGenerateSceneController);
 
   return (
-    <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
+    <div className='flex max-h-[800px] w-full flex-col space-y-[1rem] overflow-auto'>
       <GlassWindowFrame
         className='flex-shrink-0 py-[2rem]'
         borderFx={borderFx['border-b']}
@@ -22,7 +22,7 @@ export function SpacesChatGenerateTextContent() {
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>
-      <div className='grid w-full grid-cols-4 gap-[2rem]'>
+      <div className='grid w-full grid-cols-4 gap-[1rem]'>
         {generateSceneController.state.textResults.map((textResult, index) => (
           <ContextForIndexable.Provider value={index}>
             <ContextForIdeaObj.Provider value={textResult}>

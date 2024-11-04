@@ -11,7 +11,7 @@ export function SpacesChatSearchArticlesContent() {
   const generateSceneController = useContext(ContextForGenerateSceneController);
 
   return (
-    <div className='flex flex-col space-y-[1rem]' style={{ height: '100%' }}>
+    <div className='flex max-h-[800px] w-full flex-col space-y-[1rem] overflow-auto'>
       <GlassWindowFrame
         className='flex-shrink-0 py-[1rem]'
         borderFx={borderFx['border-b']}
@@ -22,18 +22,16 @@ export function SpacesChatSearchArticlesContent() {
           </p>
         </GlassWindowContents>
       </GlassWindowFrame>
-      <div style={{ height: '100%' }} className='flex flex-col overflow-auto'>
-        <div className='grid w-full grid-cols-4 gap-[2rem]'>
-          {generateSceneController.state.articleResults.map(
-            (articleResult, index) => (
-              <ContextForIndexable.Provider value={index}>
-                <ContextForIdeaObj.Provider value={articleResult}>
-                  <SpacesChatSearchArticlesItem />
-                </ContextForIdeaObj.Provider>
-              </ContextForIndexable.Provider>
-            ),
-          )}
-        </div>
+      <div className='grid w-full grid-cols-4 gap-[1rem]'>
+        {generateSceneController.state.articleResults.map(
+          (articleResult, index) => (
+            <ContextForIndexable.Provider value={index}>
+              <ContextForIdeaObj.Provider value={articleResult}>
+                <SpacesChatSearchArticlesItem />
+              </ContextForIdeaObj.Provider>
+            </ContextForIndexable.Provider>
+          ),
+        )}
       </div>
     </div>
   );

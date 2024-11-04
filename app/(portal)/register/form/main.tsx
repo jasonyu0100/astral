@@ -9,7 +9,6 @@ import { PortalForm } from '@/(portal)/common/container/form/main';
 import { useControllerForGalleryList } from '@/architecture/controller/gallery/list';
 import { useControllerForUserMain } from '@/architecture/controller/user/main';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode'; // Import jwt-decode
@@ -27,7 +26,7 @@ export function PortalRegisterForm() {
   const [lname, changeLname] = useState('');
   const [email, changeEmail] = useState('');
   const [password, changePassword] = useState('');
-  const [role, changeRole] = useState('');
+  const [role, changeRole] = useState('Creator');
 
   async function attemptRegisterWithDefault() {
     const user = await userController.actions.createActions.registerFromEmail(
@@ -114,7 +113,7 @@ export function PortalRegisterForm() {
           text='signup_with'
           width={400}
         />
-        <HorizontalDivider />
+        <br />
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
@@ -127,13 +126,6 @@ export function PortalRegisterForm() {
           onChange={(e) => changeLname(e.target.value)}
           placeholder={'last name'}
           emoji='🎸'
-          type='text'
-        />
-        <PortalFormInput
-          value={role}
-          onChange={(e) => changeRole(e.target.value)}
-          placeholder='role'
-          emoji='🎧'
           type='text'
         />
         <PortalFormInput

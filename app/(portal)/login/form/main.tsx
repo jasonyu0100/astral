@@ -8,7 +8,6 @@ import { PortalFormBody } from '@/(portal)/common/container/form/body/main';
 import { PortalForm } from '@/(portal)/common/container/form/main';
 import { PortalTextHeader } from '@/(portal)/common/container/form/text-header/main';
 import { useControllerForUserMain } from '@/architecture/controller/user/main';
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
   CredentialResponse,
@@ -69,6 +68,18 @@ export function PortalLoginForm() {
     <PortalForm>
       <PortalTextHeader />
       <PortalFormBody>
+        <GoogleLogin
+          size='large'
+          shape='rectangular'
+          theme='filled_blue'
+          text='continue_with'
+          width={400}
+          onError={() => alert('Google Sign in Failed')}
+          onSuccess={(response) => {
+            attemptLoginWithGoogle(response);
+          }}
+        />
+        <br />
         <PortalFormInput
           value={email}
           onChange={(e) => changeEmail(e.target.value)}
@@ -88,18 +99,6 @@ export function PortalLoginForm() {
         <PortalFormAction onClick={() => attemptLoginWithDefault()}>
           LOGIN
         </PortalFormAction>
-        <HorizontalDivider />
-        <GoogleLogin
-          size='large'
-          shape='rectangular'
-          theme='filled_blue'
-          text='continue_with'
-          width={400}
-          onError={() => alert('Google Sign in Failed')}
-          onSuccess={(response) => {
-            attemptLoginWithGoogle(response);
-          }}
-        />
         <PortalFormAltAction>
           Don{"'"}t have an account?{' '}
           <PortalFormAltActionLink href={portalMap.portal.register.link}>

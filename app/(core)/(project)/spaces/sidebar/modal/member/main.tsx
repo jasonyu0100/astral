@@ -6,6 +6,7 @@ import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
@@ -100,31 +101,41 @@ export function SpacesSidebarAddMemberModal() {
       <ContextForOpenable.Provider value={openableController}>
         <AstralModal>
           <AstralModalBodyWrapper>
-            <AstralModalBodyContents>
-              <AstralModalTitle>Add Member</AstralModalTitle>
-              {followingListController.state.objs
-                .filter(
-                  (member) => availableMemberIds.includes(member.destinationId), // Only display available members
-                )
-                .map((member, index) => (
-                  <ContextForIndexable.Provider
-                    key={member.destinationId}
-                    value={index}
-                  >
-                    <ContextForUserConnectionObj.Provider value={member}>
-                      <SpacesSidebarAddMemberItem />
-                    </ContextForUserConnectionObj.Provider>
-                  </ContextForIndexable.Provider>
-                ))}
-            </AstralModalBodyContents>
-            <AstralModalBodyAction>
-              <AstralRoundedActionButton
-                onClick={addMembers}
-                disabled={memberIds.length === 0} // Disable button if no members are selected
-              >
-                <AstralArrowForwardIcon />
-              </AstralRoundedActionButton>
-            </AstralModalBodyAction>
+            <AstralModalBody>
+              <AstralModalBodyContents>
+                <AstralModalTitle>Add Member</AstralModalTitle>
+                {followingListController.state.objs.filter((member) =>
+                  availableMemberIds.includes(member.destinationId),
+                ).length === 0 && (
+                  <p className='font-bold text-slate-300'>
+                    No available members to add
+                  </p>
+                )}
+                {followingListController.state.objs
+                  .filter(
+                    (member) =>
+                      availableMemberIds.includes(member.destinationId), // Only display available members
+                  )
+                  .map((member, index) => (
+                    <ContextForIndexable.Provider
+                      key={member.destinationId}
+                      value={index}
+                    >
+                      <ContextForUserConnectionObj.Provider value={member}>
+                        <SpacesSidebarAddMemberItem />
+                      </ContextForUserConnectionObj.Provider>
+                    </ContextForIndexable.Provider>
+                  ))}
+              </AstralModalBodyContents>
+              <AstralModalBodyAction>
+                <AstralRoundedActionButton
+                  onClick={addMembers}
+                  disabled={memberIds.length === 0} // Disable button if no members are selected
+                >
+                  <AstralArrowForwardIcon />
+                </AstralRoundedActionButton>
+              </AstralModalBodyAction>
+            </AstralModalBody>
           </AstralModalBodyWrapper>
         </AstralModal>
       </ContextForOpenable.Provider>

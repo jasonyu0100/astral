@@ -11,7 +11,7 @@ export function SpacesChatSearchMediaContent() {
   const generateSceneController = useContext(ContextForGenerateSceneController);
 
   return (
-    <div className='flex h-full w-full flex-col space-y-[1rem]'>
+    <div className='flex max-h-[800px] w-full flex-col space-y-[1rem] overflow-auto'>
       <GlassWindowFrame
         className='flex-shrink-0 py-[2rem]'
         borderFx={borderFx['border-b']}
