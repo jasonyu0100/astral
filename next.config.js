@@ -44,7 +44,6 @@ const nextConfig = {
     STRIPE_SK_LIVE: process.env.STRIPE_SK_LIVE,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     NPM_AUTH_TOKEN: process.env.NPM_AUTH_TOKEN,
-    GOOGLE_AUTH_API_KEY: process.env.GOOGLE_AUTH_API_KEY,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     GOOGLE_AUTH_CLIENT_ID: process.env.GOOGLE_AUTH_CLIENT_ID,
   },
