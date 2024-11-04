@@ -1,3 +1,4 @@
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Analytics } from '@vercel/analytics/react';
 import { fontVariables } from './fonts';
 import './globals.css';
@@ -53,8 +54,10 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
         />
       </head>
       <body className={ctwn('bg-slate-950', ...fontVariables)}>
-        <Analytics />
-        <main>{!isMaintenanceMode && <>{children}</>}</main>
+        <GoogleOAuthProvider clientId={process.env.GOOGLE_AUTH_CLIENT_ID || ''}>
+          <Analytics />
+          <main>{!isMaintenanceMode && <>{children}</>}</main>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );

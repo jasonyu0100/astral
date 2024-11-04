@@ -47,7 +47,7 @@ export function PublicSpaceTasksSectionCurrent() {
             <p className='text-slate-300'>No tasks in progress</p>
           )}
           {current.map((task) => (
-            <div className='aspect-[3/2] w-full rounded border-[1px] border-slate-300 bg-yellow-500 p-[1rem] font-bold'>
+            <div className='aspect-[3/2] w-full rounded border-[1px] border-black bg-yellow-500 p-[1rem] font-bold'>
               <div className='flex flex-row justify-between space-x-[1rem]'>
                 <p className='text-xl font-bold'>{task.title}</p>
                 <AstralEditIcon

@@ -25,7 +25,7 @@ export function SpacesSceneInProgress() {
   return (
     <div className='absolute right-[1rem] top-[1rem] z-10 flex h-[200px] flex-shrink-0 flex-col items-center justify-center'>
       {currentTask ? (
-        <div className='flex h-[200px] w-[250px] flex-shrink-0 flex-col justify-between overflow-auto rounded-lg border-[1px] border-slate-300 bg-yellow-500 p-[1rem]'>
+        <div className='flex h-[200px] w-[250px] flex-shrink-0 flex-col justify-between overflow-auto rounded-lg border-[3px] border-red-500 bg-yellow-500 p-[1rem]'>
           <div className='flex flex-col'>
             <div className='flex w-full flex-row justify-between space-x-[1rem]'>
               <p className='text-lg font-bold'>{currentTask?.title}</p>
@@ -46,6 +46,7 @@ export function SpacesSceneInProgress() {
           </div>
           <div className='flex w-full flex-row justify-between'>
             <AstralArrowBackIcon
+              className='fill-black'
               onClick={() => {
                 if (index - 1 >= 0) {
                   const previousTask = inProgress.at(index - 1);
@@ -58,10 +59,11 @@ export function SpacesSceneInProgress() {
                 }
               }}
             />
-            <p className='font-bold text-slate-300'>
+            <p className='font-bold'>
               {index + 1} of {inProgress.length}
             </p>
             <AstralArrowForwardIcon
+              className='fill-black'
               onClick={() => {
                 if (index + 1 <= inProgress.length) {
                   const nextTask = inProgress.at(index + 1);

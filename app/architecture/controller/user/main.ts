@@ -27,6 +27,7 @@ interface ControllerState {
 interface StateActions extends BaseStateActions<TargetObj> {
   checkEmail(email: string): Promise<boolean>;
   loginFromEmail(email: string, password: string): Promise<TargetObj>;
+  loginFromGoogle(email: string, clientId: string): Promise<TargetObj>;
 }
 interface GatherActions extends BaseGatherActions<TargetObj> {}
 interface EditActions extends BaseEditActions<TargetObj> {}
@@ -37,6 +38,13 @@ interface CreateActions extends BaseCreateActions<TargetObj> {
     role: string,
     email: string,
     password: string,
+  ): Promise<TargetObj | undefined>;
+  registerFromGoogle(
+    fname: string,
+    lname: string,
+    role: string,
+    email: string,
+    clientId: string,
   ): Promise<TargetObj | undefined>;
 }
 interface DeleteActions extends BaseDeleteActions<TargetObj> {}
@@ -141,6 +149,54 @@ export const useControllerForUserMain = (objId: string): Controller => {
         return user;
       }
     },
+    loginFromGoogle: async (email, clientId) => {
+      const returnedUsers = await gqlDbWrapper.listFromVariables({
+        filter: {
+          email: {
+            eq: email,
+          },
+        },
+      });
+
+      if (returnedUsers.length === 0) {
+        alert('User is invalid');
+        throw new Error('User is invalid');
+      } else {
+        const user = returnedUsers[0];
+        if (user.clientId !== clientId) {
+          alert('Client ID does not match');
+          throw new Error('Client ID does not match');
+        } else if (user.subscriptionId === null) {
+          // Always check for new users who have over 100 days
+          const timeDiff =
+            new Date().getTime() - new Date(user.created).getTime();
+          const daysDifference = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          if (daysDifference > 100) {
+            alert('Trial is over');
+            throw new Error('Trial is over');
+          }
+        } else if (
+          user.subscriptionId &&
+          user.customerId &&
+          user.priceId &&
+          user.productId
+        ) {
+          // try {
+          //   const subscription = await stripe.subscriptions.retrieve(
+          //     user.subscriptionId as string,
+          //   );
+          //   if (subscription.plan.active !== true && user.priceId !== null) {
+          //     alert('Subscription is not active');
+          //     throw new Error('Subscription is not active');
+          //   }
+          // } catch (e) {
+          //   alert('Subscription is invalid');
+          //   throw new Error(`Subscription is invalid: ${e}`);
+          // }
+        }
+        return user;
+      }
+    },
     clear: () => {
       changeObj({} as TargetObj);
     },
@@ -188,6 +244,32 @@ export const useControllerForUserMain = (objId: string): Controller => {
         bio: `${fname} ${lname} - ${role}`,
         journalId: '',
         visibility: UserProfileVisibility.PUBLIC,
+      });
+      return user;
+    },
+    registerFromGoogle: async (
+      fname: string,
+      lname: string,
+      role: string,
+      email: string,
+      clientId: string,
+    ) => {
+      const emailCheck = await stateActions.checkEmail(email);
+      if (!emailCheck) {
+        return undefined;
+      }
+      const user = await gqlDbWrapper.createObj({
+        fname: fname,
+        lname: lname,
+        email: email,
+        created: new Date().toISOString(),
+        dp: exampleDisplayPictureFileElement,
+        displayName: `${fname} ${lname}`,
+        role: role,
+        bio: `${fname} ${lname} - ${role}`,
+        journalId: '',
+        visibility: UserProfileVisibility.PUBLIC,
+        clientId: clientId,
       });
       return user;
     },

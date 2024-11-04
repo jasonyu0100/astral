@@ -143,9 +143,9 @@ function KanbanTask({ task }) {
   return (
     <div
       ref={drag}
-      className={`h-full w-[250px] flex-shrink-0 rounded border-slate-300 bg-yellow-500 p-4 shadow-sm ${
+      className={`h-full w-[250px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
         isDragging ? 'opacity-50' : ''
-      } ${isSelected ? 'border-2 border-blue-500' : 'border'}`}
+      } ${isSelected ? 'border-[3px] border-red-500' : 'border-black'}`}
       style={{ cursor: 'move' }}
       onClick={() => {
         if (isSelected) {

@@ -8,6 +8,7 @@ import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ElementIdea } from '@/components/element/idea/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
+import { AstralSelectInput } from '@/components/input/select/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
@@ -36,25 +37,21 @@ export function SpacesSceneMigrateSceneModal() {
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
   );
+  const [sceneId, setSceneId] = useState(
+    sceneListController.state.objs[0]?.id || '',
+  );
   const [title, changeTitle] = useState('');
   const [objective, changeObjective] = useState('');
 
   async function createScene() {
     loadingController.loadingController.open();
     openableController.close();
-    const scene = await sceneListController.actions.createActions.createScene(
-      title,
-      objective,
-      objective,
-      user.id,
-      chapterListController.state.objId,
-    );
 
     await activityListController.actions.createActions.createFromChapterScene(
       user.id,
       spaceController.state.objId,
       chapterListController.state.objId,
-      scene.id,
+      sceneId,
     );
 
     // DUPLICATE
@@ -62,7 +59,7 @@ export function SpacesSceneMigrateSceneModal() {
       spacesSceneController.state.selectedIdeas.map((selectedIdea) =>
         ideaListController.actions.createActions.duplicateWithScene(
           selectedIdea,
-          scene.id,
+          sceneId,
         ),
       ),
     );
@@ -74,7 +71,7 @@ export function SpacesSceneMigrateSceneModal() {
           user.id,
           spaceController.state.objId,
           chapterListController.state.objId,
-          scene.id,
+          sceneId,
           migratedIdea.id,
         ),
       ),
@@ -89,7 +86,7 @@ export function SpacesSceneMigrateSceneModal() {
 
     setTimeout(() => {
       loadingController.loadingController.close();
-      window.location.href = `${spacesMap.spaces.id.scene.link(spaceController.state.objId)}?chapter=${chapterListController.state.objId}&scene=${scene.id}`;
+      window.location.href = `${spacesMap.spaces.id.scene.link(spaceController.state.objId)}?chapter=${chapterListController.state.objId}&scene=${sceneId}`;
     }, 1000);
   }
 
@@ -99,7 +96,15 @@ export function SpacesSceneMigrateSceneModal() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <AstralModalTitle>Migrate to New Scene</AstralModalTitle>
+              <AstralModalTitle>Migrate</AstralModalTitle>
+              <AstralSelectInput
+                value={sceneId}
+                onChange={(e) => setSceneId(e.target.value)}
+              >
+                {sceneListController.state.objs.map((scene) => (
+                  <option value={scene.id}>{scene.title}</option>
+                ))}
+              </AstralSelectInput>
               <AstralTextLineInput
                 title='Title'
                 placeholder='Enter a title for your migrated scene'

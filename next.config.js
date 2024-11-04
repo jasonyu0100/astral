@@ -32,7 +32,6 @@ const nextConfig = {
     GRAPHQL_REALTIME: process.env.GRAPHQL_REALTIME,
     S3_ACCESS_KEY: process.env.S3_ACCESS_KEY,
     S3_SECRET_KEY: process.env.S3_SECRET_KEY,
-    GOOGLE_AUTH_API_KEY: process.env.GOOGLE_AUTH_API_KEY,
     GEMINI_API_KEY: process.env.GEMINI_API_KEY,
     AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
@@ -45,7 +44,9 @@ const nextConfig = {
     STRIPE_SK_LIVE: process.env.STRIPE_SK_LIVE,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     NPM_AUTH_TOKEN: process.env.NPM_AUTH_TOKEN,
+    GOOGLE_AUTH_API_KEY: process.env.GOOGLE_AUTH_API_KEY,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+    GOOGLE_AUTH_CLIENT_ID: process.env.GOOGLE_AUTH_CLIENT_ID,
   },
 };
 

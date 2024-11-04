@@ -13,11 +13,11 @@ export function SpacesChatStatusContents() {
   return (
     <div className='p-[1rem]'>
       <GlassWindowFrame
-        className='flex h-full w-full p-[1rem]'
+        className='flex h-full w-full'
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents className='flex w-full flex-row justify-between space-x-[1rem]'>
-          <div className='flex flex-col space-y-[1rem]'>
+          <div className='flex flex-col space-y-[1rem] p-[1rem]'>
             <div className='flex flex-row items-center space-x-[1rem]'>
               <p className='text-2xl font-bold text-slate-300'>
                 {chapterListController.state.currentObj?.title}

@@ -9,9 +9,11 @@ import { PortalForm } from '@/(portal)/common/container/form/main';
 import { useControllerForGalleryList } from '@/architecture/controller/gallery/list';
 import { useControllerForUserMain } from '@/architecture/controller/user/main';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode'; // Import jwt-decode
 import { useState } from 'react';
-import { PortalTextHeader } from '../../common/container/form/text-header/main';
 import { portalMap } from '../../map';
 
 export function PortalRegisterForm() {
@@ -24,7 +26,7 @@ export function PortalRegisterForm() {
   const [password, changePassword] = useState('');
   const [role, changeRole] = useState('');
 
-  async function attemptRegister() {
+  async function attemptRegisterWithDefault() {
     const user = await userController.actions.createActions.registerFromEmail(
       fname,
       lname,
@@ -52,17 +54,56 @@ export function PortalRegisterForm() {
     }
   }
 
-  function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-      event.preventDefault(); // Prevent default form submission
-      attemptRegister();
+  async function attemptRegisterWithGoogle(googleResponse: CredentialResponse) {
+    const clientId = googleResponse.clientId;
+    const decodedToken = jwtDecode(googleResponse.credential || '');
+    const { given_name, family_name, email } = decodedToken;
+
+    const user = await userController.actions.createActions.registerFromGoogle(
+      given_name,
+      family_name,
+      'user', // Default role or adjust as needed
+      email,
+      clientId || '',
+    );
+
+    console.log(user);
+
+    if (!user) {
+      return;
+    } else {
+      const journal =
+        await galleryListController.actions.createActions.createGallery(
+          user.id,
+          'Journal',
+          'My journal',
+          exampleFileElement,
+        );
+      const update = await userController.actions.editActions.edit({
+        ...user,
+        journalId: journal.id,
+      });
+      register(update);
+      alert('Register Success');
+      window.location.href = studioMap.studio.personal.link;
     }
   }
 
   return (
     <PortalForm>
-      <PortalTextHeader />
       <PortalFormBody>
+        <GoogleLogin
+          onSuccess={(response) => {
+            attemptRegisterWithGoogle(response);
+          }}
+          onError={() => alert('Google Register Failed')}
+          size='large'
+          shape='rectangular'
+          theme='filled_blue'
+          text='signup_with'
+          width={400}
+        />
+        <HorizontalDivider />
         <PortalFormInput
           value={fname}
           onChange={(e) => changeFname(e.target.value)}
@@ -100,7 +141,7 @@ export function PortalRegisterForm() {
         />
       </PortalFormBody>
       <PortalFormActionContainer>
-        <PortalFormAction onClick={() => attemptRegister()}>
+        <PortalFormAction onClick={() => attemptRegisterWithDefault()}>
           REGISTER
         </PortalFormAction>
         <PortalFormAltAction>
