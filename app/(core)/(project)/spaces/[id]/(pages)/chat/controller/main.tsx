@@ -3,11 +3,13 @@ import { ContextForChapterConversationList } from '@/architecture/controller/con
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { ConversationObj } from '@/architecture/model/conversation/main';
 import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
 import { ElementVariant } from '@/architecture/model/elements/main';
 import { exampleTextElement } from '@/architecture/model/elements/text/main';
 import { exampleIdea, IdeaObj } from '@/architecture/model/idea/main';
+import { TaskStatus } from '@/architecture/model/task/main';
 import {
   ContextForLoggedInUserObj,
   exampleUser,
@@ -70,6 +72,11 @@ export function useControllerForSpacesChat() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
+  const taskListController = useContext(ContextForTaskList);
+  const tasks = taskListController.state.objs;
+  const currentTasks = tasks.filter(
+    (task) => task.taskStatus === TaskStatus.CURRENT,
+  );
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
   );
@@ -85,6 +92,13 @@ export function useControllerForSpacesChat() {
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesChatSidebarVisibility>(SpacesChatSidebarVisibility.OPEN);
   const [selectedUser, setSelectedUser] = useState<UserObj>(exampleUser);
+  const tasksObjective = currentTasks
+    .map(
+      (task, index) =>
+        `Objective #${index + 1} ${task.title} - ${task.description}`,
+    )
+    .join(', ');
+  const roleDescription = roleDescriptions[aiChatRole];
 
   useEffect(() => {
     if (loggedInUser) {
@@ -94,9 +108,9 @@ export function useControllerForSpacesChat() {
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
-      return `User: ${message.message}`;
+      return `[User - ${user.displayName}]: ${message.message}`;
     } else {
-      return `Agent: ${message.message}`;
+      return `[Agent]: ${message.message}`;
     }
   }
 
@@ -147,17 +161,24 @@ export function useControllerForSpacesChat() {
     role: ConversationRole,
   ) {
     const messageHistory = [
+      `[Background Context]`,
       `You are an agent that helps the user achieve objectives.`,
       `This is your role ${roleDescriptions[role]}`,
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
-      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `Start of Message History`,
+      `[Important Context]`,
+      `This is the general chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `These are your main objectives: ${tasksObjective}`,
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
-      `End of Message History`,
-      `Reply to the user keeping role, objective and context in mind. Format the response for conciseness and keep it readable.`,
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
+      `Reply to the user and help them achieve their objectives.`,
+      `[END OF INSTRUCTIONS]`,
+      `[START OF USER MESSAGE]`,
+      formatMessage(message),
+      `[END OF USER MESSAGE]`,
     ];
-    messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
     return agentResponse;
@@ -177,38 +198,39 @@ export function useControllerForSpacesChat() {
 
   async function summariseConversationIntoNotes() {
     const messageHistory = [
+      `[Background Context]`,
+      `You are an agent that helps the user achieve objectives.`,
+      `This is your role ${roleDescription}`,
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
-      `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
-      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `Start of Message History`,
+      `[Important Context]`,
+      `This is the general chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `These are your main objectives: ${tasksObjective}`,
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
-      `End of Message History`,
-      `Convert the conversation history into a series of insights (max 50 chars). Use the conversation history primarily and titles and descriptions as reference. 
-      Depending on the size of the conversaion, you may return up to a maximum of 8 insights. 
-      Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.
-      
-      Example format:
-      {
-        "insights": [
-          {"text": "Insight 1"},
-          {"text": "Insight 2"},
-          {"text": "Insight 3"}
-        ]
-      }
-
-      Ensure the response follows the exact structure and format shown above, with properly escaped characters, no trailing commas, and valid JSON syntax.`,
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
+      `Convert the conversation history into a series of insights (max 50 chars).`,
+      `Use the conversation history primarily and titles and descriptions as reference.`,
+      `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
+      `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.`,
+      `Example format:`,
+      `{`,
+      `  "insights": [`,
+      `    {"text": "Insight 1"},`,
+      `    {"text": "Insight 2"},`,
+      `    {"text": "Insight 3"}`,
+      `  ]`,
+      `}`,
+      `[END OF INSTRUCTIONS]`,
     ];
-
     const messagePrompt = messageHistory.join('\n');
 
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
     const replacedString = agentResponse
       .replace('```json\n', '')
       .replace('```', '');
-
     const json = JSON.parse(replacedString);
-
     return json.insights.map((insight: { text: string }) => {
       return {
         ...exampleIdea,
@@ -223,8 +245,12 @@ export function useControllerForSpacesChat() {
 
   async function summariseConversationIntoQuery() {
     const messageHistory = [
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
-      `Summarise conversation into a single search query as per the conversation history. E.G "How to improve my productivity?"`,
+      `[START OF INSTRUCTIONS]`,
+      `Summarise conversation into a single search query as per the conversation history.`,
+      `E.G "How to improve productivity"`,
+      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -235,10 +261,13 @@ export function useControllerForSpacesChat() {
 
   async function summariseConversationIntoTitle() {
     const messageHistory = [
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
-      `
-      Summarise conversation into a single title as per the conversation history. E.G "Productivity Tips"
-      `,
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
+      `Summarise conversation into a single title as per the conversation history.`,
+      `E.G "Productivity Tips"`,
+      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -249,10 +278,13 @@ export function useControllerForSpacesChat() {
 
   async function summariseConversationIntoObjective() {
     const messageHistory = [
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
-      `
-      Summarise conversation into a single objective as per the conversation history. E.G "Improve productivity by 10%"
-      `,
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
+      `Summarise conversation into a single objective as per the conversation history.`,
+      `E.G "Improve productivity by 10%"`,
+      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -263,8 +295,13 @@ export function useControllerForSpacesChat() {
 
   async function summariseConversationIntoKeywords() {
     const messageHistory = [
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
-      `Summarise conversation into a series of key words as per the conversation history. E.G "Productivity, Color, Design"`,
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
+      `Summarise conversation into a series of key words as per the conversation history.`,
+      `E.G "Productivity, Color, Design"`,
+      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -275,8 +312,13 @@ export function useControllerForSpacesChat() {
 
   async function summariseConversationIntoSearchTerm() {
     const messageHistory = [
+      `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
       `Summarise conversation into a youtube search term as per the conversation history.`,
+      `E.G "Productivity Tips"`,
+      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -288,13 +330,19 @@ export function useControllerForSpacesChat() {
   async function summariseConversationForChapter(
     messages: ConversationMessageObj[],
   ) {
-    const messageText = messages.map((message) => message.message).join(' ');
+    const messageHistory = [
+      `[START OF MESSAGE HISTORY]`,
+      ...getMessageHistory(),
+      `[END OF MESSAGE HISTORY]`,
+      `[START OF INSTRUCTIONS]`,
+      `Summarise the conversation into a single sentence.`,
+      `E.G "User wants to improve productivity"`,
+      `[END OF INSTRUCTIONS]`,
+    ];
 
-    const summary = await getMessageResponse(
-      `Summarise within max 100 characters. ${messageText}`,
-    );
+    const messagePrompt = messageHistory.join('\n');
 
-    console.log(summary);
+    const summary = await getMessageResponse(messagePrompt);
 
     await chapterListController.actions.editActions.edit(
       chapterListController.state.objId,
@@ -361,7 +409,7 @@ export function useControllerForSpacesChat() {
       summariseConversationIntoTitle: summariseConversationIntoTitle,
       summariseConversationIntoObjective: summariseConversationIntoObjective,
       summariseConversationIntoSearchTerm: summariseConversationIntoSearchTerm,
-      summariseConversationIntoNotes,
+      summariseConversationIntoNotes: summariseConversationIntoNotes,
       summariseConversationIntoQuery: summariseConversationIntoQuery,
       summariseConversationIntoKeywords: summariseConversationIntoKeywords,
       updateSelectedUser: (user: UserObj) => setSelectedUser(user),

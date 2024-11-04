@@ -7,7 +7,7 @@ import { TabRedShard } from '@/components/tabs/tabs-row/tab/shard/red/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { SpacesTabChat } from './chat-tab/main';
-import { SpaceTabDirection } from './direction-tab/main';
+import { SpaceTabObjective } from './objective-tab/main';
 import { SpacesTabScene } from './scene-tab/main';
 import { SpacesTabUpdates } from './updates-tab/main';
 
@@ -16,7 +16,7 @@ interface SpaceTabProps {
 }
 
 export enum SpaceTabStage {
-  Direction = 'Direction',
+  Objective = 'Objective',
   Chat = 'Chat',
   Scene = 'Scene',
   Updates = 'Updates',
@@ -27,7 +27,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
     <TabsContainer>
       <TabsRow>
-        <SpaceTabDirection tab={tab} />
+        <SpaceTabObjective tab={tab} />
         <SpacesTabChat tab={tab} />
         <SpacesTabScene tab={tab} />
         <SpacesTabUpdates tab={tab} />

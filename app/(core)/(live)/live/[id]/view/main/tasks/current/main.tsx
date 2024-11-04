@@ -52,7 +52,7 @@ export function PublicSpaceTasksSectionCurrent() {
                 <p className='text-xl font-bold'>{task.title}</p>
                 <AstralTableIcon
                   onClick={() => {
-                    window.location.href = `${spacesMap.spaces.id.direction.link(
+                    window.location.href = `${spacesMap.spaces.id.objective.link(
                       spaceMainController.state.objId,
                     )}?chapter=${chapterListController.state.objId}`;
                   }}
