@@ -54,9 +54,11 @@ export function HorizonsFieldKanban() {
       <div className='grid h-full w-full grid-rows-4'>
         <div className='flex w-full flex-col space-y-[1rem]'>
           <HorizonsFieldRow>
-            <SpacesJourneyKanbanListTitle>Todo</SpacesJourneyKanbanListTitle>
+            <SpacesJourneyKanbanListTitle>
+              {TaskStatus.PENDING}
+            </SpacesJourneyKanbanListTitle>
             <ul
-              id={TaskStatus.TODO}
+              id={TaskStatus.PENDING}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
@@ -113,10 +115,10 @@ export function HorizonsFieldKanban() {
         <div className='flex w-full flex-col space-y-[1rem]'>
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>
-              In Progress
+              {TaskStatus.CURRENT}
             </SpacesJourneyKanbanListTitle>
             <ul
-              id={TaskStatus.IN_PROGRESS}
+              id={TaskStatus.CURRENT}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >
@@ -161,7 +163,9 @@ export function HorizonsFieldKanban() {
         </div>{' '}
         <div className='flex w-full flex-col space-y-[1rem]'>
           <HorizonsFieldRow>
-            <SpacesJourneyKanbanListTitle>Done</SpacesJourneyKanbanListTitle>
+            <SpacesJourneyKanbanListTitle>
+              {TaskStatus.DONE}
+            </SpacesJourneyKanbanListTitle>
             <ul
               id={TaskStatus.DONE}
               className='flex h-full flex-row space-x-[1rem]'

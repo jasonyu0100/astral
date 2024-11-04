@@ -1,4 +1,4 @@
-import { liveMap } from '@/(core)/(public)/live/[id]/map';
+import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';

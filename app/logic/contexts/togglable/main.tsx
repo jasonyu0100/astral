@@ -12,8 +12,8 @@ export const ContextForTogglable = createContext({
   updateToggle: (newValue: boolean) => {},
 } as ContextForTogglableInterface);
 
-export const useControllerForTogglable = () => {
-  const [toggled, setToggled] = useState(false);
+export const useControllerForTogglable = (initial?: boolean) => {
+  const [toggled, setToggled] = useState(initial || false);
 
   return {
     toggled,

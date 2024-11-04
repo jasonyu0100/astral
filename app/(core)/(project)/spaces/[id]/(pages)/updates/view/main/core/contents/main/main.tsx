@@ -10,7 +10,7 @@ import {
   ContextForSpacesUpdates,
   SpacesUpdatesFeedView,
 } from '../../../../../controller/main';
-import { SpacesUpdatesBreadcrumbs } from './breadcrumbs/main';
+import { SpacesUpdatesBreadcrumbs } from '../breadcrumbs/main';
 import { SpacesUpdatesChapterList } from './chapter/main';
 import { SpacesUpdatesMainPost } from './post/main';
 
@@ -24,16 +24,18 @@ export function SpacesUpdatesMain() {
   return (
     <ContextForUserObj.Provider value={userMainController.state.obj}>
       <div className='flex flex-col overflow-auto p-[2rem]'>
-        <SpacesUpdatesBreadcrumbs />
         {spacesUpdatesController.state.feedView ===
           SpacesUpdatesFeedView.CHAPTER && <SpacesUpdatesChapterList />}
         {spacesUpdatesController.state.feedView ===
           SpacesUpdatesFeedView.POST && (
-          <ContextForUserPostObj.Provider
-            value={postListController.state.currentObj || exampleUserPost}
-          >
-            <SpacesUpdatesMainPost />
-          </ContextForUserPostObj.Provider>
+          <>
+            <SpacesUpdatesBreadcrumbs />
+            <ContextForUserPostObj.Provider
+              value={postListController.state.currentObj || exampleUserPost}
+            >
+              <SpacesUpdatesMainPost />
+            </ContextForUserPostObj.Provider>
+          </>
         )}
       </div>
     </ContextForUserObj.Provider>

@@ -14,10 +14,10 @@ export function SpacesSceneInProgress() {
   const taskListController = useContext(ContextForTaskList);
   const spaceMainController = useContext(ContextForSpaceMain);
   const inProgress = taskListController.state.objs.filter(
-    (obj) => obj.taskStatus === TaskStatus.IN_PROGRESS,
+    (obj) => obj.taskStatus === TaskStatus.CURRENT,
   );
   const todo = taskListController.state.objs.filter(
-    (obj) => obj.taskStatus === TaskStatus.TODO,
+    (obj) => obj.taskStatus === TaskStatus.PENDING,
   );
   const [index, setIndex] = React.useState(0);
   const currentTask = inProgress.at(index);

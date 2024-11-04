@@ -31,7 +31,7 @@ export function SpacesUpdatesChapterPost() {
       <GlassWindowFrame className='p-[1rem]'>
         <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
           <div
-            className='grid w-full cursor-pointer grid-cols-9 items-center space-x-[1rem]'
+            className='grid w-full cursor-pointer grid-cols-9 items-center justify-items-center space-x-[1rem] text-center'
             onClick={() => {
               spacesUpdatesController.actions.updateFeedView(
                 SpacesUpdatesFeedView.POST,
@@ -39,7 +39,7 @@ export function SpacesUpdatesChapterPost() {
               postListController.actions.stateActions.select(postObj);
             }}
           >
-            <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
+            <div>
               <p className='text-xl font-bold text-white'>{index + 1}</p>
             </div>
             <div className='col-span-3'>

@@ -45,7 +45,9 @@ export function CreateSpaceModalFooter() {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
                   openableController.close();
-                  window.open(spacesMap.spaces.id.progress.link(spaceObj.id));
+                  window.location.href = spacesMap.spaces.id.progress.link(
+                    spaceObj.id,
+                  );
                   loadingController.loadingController.close();
                 });
               }}

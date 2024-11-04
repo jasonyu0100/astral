@@ -48,7 +48,7 @@ export function SpacesProgressAddTaskModal() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <AstralModalTitle>Add to Todo</AstralModalTitle>
+              <AstralModalTitle>Add Task</AstralModalTitle>
               <div className='aspect-square w-[400px] space-y-[2rem] bg-yellow-500 p-[2rem]'>
                 <input
                   placeholder='Enter title here...'

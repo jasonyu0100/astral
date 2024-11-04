@@ -22,9 +22,9 @@ export function SpacesProgressKanban() {
   const taskListController = useContext(ContextForTaskList);
   const { objs: objs } = taskListController.state;
 
-  const todos = objs.filter((task) => task.taskStatus === TaskStatus.TODO);
+  const todos = objs.filter((task) => task.taskStatus === TaskStatus.PENDING);
   const inprogress = objs.filter(
-    (task) => task.taskStatus === TaskStatus.IN_PROGRESS,
+    (task) => task.taskStatus === TaskStatus.CURRENT,
   );
   const dones = objs.filter((task) => task.taskStatus === TaskStatus.DONE);
 
@@ -34,14 +34,22 @@ export function SpacesProgressKanban() {
         style={{ width: '100%', height: 'calc(100%)' }}
         className='overflow-auto'
       >
-        <div className='grid h-full w-full grid-rows-3 gap-[1rem] p-[1rem]'>
-          <KanbanRow title='Todo' tasks={todos} status={TaskStatus.TODO} />
+        <div className='grid h-full w-full grid-rows-3 space-y-[1rem] p-[1rem]'>
           <KanbanRow
-            title='In Progress'
-            tasks={inprogress}
-            status={TaskStatus.IN_PROGRESS}
+            title={TaskStatus.PENDING}
+            tasks={todos}
+            status={TaskStatus.PENDING}
           />
-          <KanbanRow title='Done' tasks={dones} status={TaskStatus.DONE} />
+          <KanbanRow
+            title={TaskStatus.CURRENT}
+            tasks={inprogress}
+            status={TaskStatus.CURRENT}
+          />
+          <KanbanRow
+            title={TaskStatus.DONE}
+            tasks={dones}
+            status={TaskStatus.DONE}
+          />
         </div>
       </div>
     </DndProvider>
@@ -67,7 +75,7 @@ function KanbanRow({ title, tasks, status }) {
 
   return (
     <div className='flex flex-col border-b-[1px] border-slate-300 border-opacity-30'>
-      <div className='flex flex-row items-center space-x-[1rem]'>
+      <div className='flex flex-row items-center space-x-[1rem] pb-[1rem]'>
         <GlassWindowFrame
           roundedFx={roundedFx['rounded-full']}
           borderFx={borderFx['border-around']}
@@ -80,7 +88,7 @@ function KanbanRow({ title, tasks, status }) {
       </div>
       <div
         ref={drop}
-        className={`flex h-full flex-row rounded py-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
+        className={`flex h-full flex-row rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
       >
         <div className='flex min-h-[50px] flex-row space-x-[1rem]'>
           {tasks.map((task) => (

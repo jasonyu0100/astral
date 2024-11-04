@@ -14,7 +14,7 @@ export function SpacesProgressBacklogItem() {
         <button
           onClick={() => {
             taskListController.actions.editActions.edit(task.id, {
-              taskStatus: TaskStatus.TODO,
+              taskStatus: TaskStatus.PENDING,
             });
           }}
           className='ml-[1rem]'

@@ -1,4 +1,4 @@
-import { liveMap } from '@/(core)/(public)/live/[id]/map';
+import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';

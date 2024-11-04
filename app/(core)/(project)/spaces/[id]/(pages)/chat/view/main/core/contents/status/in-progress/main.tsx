@@ -12,10 +12,10 @@ import React, { useContext } from 'react';
 export function SpacesChatStatusInProgress() {
   const taskListController = useContext(ContextForTaskList);
   const inProgress = taskListController.state.objs.filter(
-    (obj) => obj.taskStatus === TaskStatus.IN_PROGRESS,
+    (obj) => obj.taskStatus === TaskStatus.CURRENT,
   );
   const todo = taskListController.state.objs.filter(
-    (obj) => obj.taskStatus === TaskStatus.TODO,
+    (obj) => obj.taskStatus === TaskStatus.PENDING,
   );
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);

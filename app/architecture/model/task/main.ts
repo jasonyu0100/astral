@@ -2,10 +2,10 @@ import { ModelInterface } from '@/architecture/model/main';
 import { createContext } from 'react';
 
 export enum TaskStatus {
-  BACKLOG = 'backlog',
-  TODO = 'todo',
-  IN_PROGRESS = 'in-progress',
-  DONE = 'done',
+  BACKLOG = 'Backlog',
+  PENDING = 'Pending',
+  CURRENT = 'Current',
+  DONE = 'Done',
 }
 
 export enum ChapterTaskStatus {
@@ -46,7 +46,7 @@ export const exampleTask: TaskObj = {
   title: 'Way Example',
   description: 'Way Description',
   created: new Date().toISOString(),
-  taskStatus: TaskStatus.TODO,
+  taskStatus: TaskStatus.PENDING,
 };
 
 export const exampleTasks: TaskObj[] = [
@@ -57,7 +57,7 @@ export const exampleTasks: TaskObj[] = [
     title: 'Way 1',
     description: 'Way Description',
     created: new Date().toISOString(),
-    taskStatus: TaskStatus.TODO,
+    taskStatus: TaskStatus.PENDING,
   },
   {
     id: '1',
@@ -66,7 +66,7 @@ export const exampleTasks: TaskObj[] = [
     title: 'Way 2',
     description: 'Way Description',
     created: new Date().toISOString(),
-    taskStatus: TaskStatus.TODO,
+    taskStatus: TaskStatus.PENDING,
   },
   {
     id: '2',
@@ -75,7 +75,7 @@ export const exampleTasks: TaskObj[] = [
     title: 'Way 3',
     description: 'Way Description',
     created: new Date().toISOString(),
-    taskStatus: TaskStatus.TODO,
+    taskStatus: TaskStatus.PENDING,
   },
 ];
 
