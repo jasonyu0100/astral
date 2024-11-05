@@ -35,7 +35,7 @@ export function PublicSpaceBreadcrumbs() {
           <div
             className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
             onClick={() => {
-              window.location.href = `${spacesMap.spaces.id.scene.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
+              window.location.href = `${spacesMap.spaces.id.space.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
           >
             <AstralAddIcon />
@@ -81,7 +81,7 @@ export function PublicSpaceBreadcrumbs() {
           <div
             className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
             onClick={() => {
-              window.location.href = `${spacesMap.spaces.id.scene.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
+              window.location.href = `${spacesMap.spaces.id.space.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
           >
             <AstralAddIcon />
@@ -116,7 +116,7 @@ export function PublicSpaceBreadcrumbs() {
           <div
             className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
             onClick={() => {
-              window.location.href = `${spacesMap.spaces.id.scene.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
+              window.location.href = `${spacesMap.spaces.id.space.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
           >
             <AstralAddIcon />

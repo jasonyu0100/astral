@@ -55,7 +55,7 @@ export function PublicSpaceSidebarSpace() {
               </div>
               <AstralEditIcon
                 onClick={() => {
-                  window.location.href = spacesMap.spaces.id.scene.link(
+                  window.location.href = spacesMap.spaces.id.space.link(
                     spaceMainController.state.objId,
                   );
                 }}

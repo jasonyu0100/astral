@@ -9,7 +9,7 @@ export function PublicSpaceChapterList() {
 
   return (
     <div className='flex flex-row space-x-[2rem]'>
-      <div className='flex flex-col space-y-[2rem] py-[2rem]'>
+      <div className='flex w-full flex-col space-y-[2rem] py-[2rem]'>
         {postListController.state.objs.length > 0 ? (
           <>
             {postListController.state.objs.map((post) => (

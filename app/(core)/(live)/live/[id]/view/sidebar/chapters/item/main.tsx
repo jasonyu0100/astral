@@ -6,9 +6,11 @@ import {
   useControllerForTaskList,
 } from '@/architecture/controller/task/list';
 import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/main';
+import { TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
@@ -24,6 +26,9 @@ export function PublicSpaceSidebarItem() {
   const publicSpaceController = useContext(ContextForPublicSpace);
   const selected = chapterListController.state.objId === chapterObj.id;
   const taskListController = useControllerForTaskList(chapterObj.id);
+  const currentTasks = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.CURRENT,
+  );
   const completionColor = calculateCompletionColor(taskListController);
 
   return (
@@ -69,6 +74,30 @@ export function PublicSpaceSidebarItem() {
               <p className='text-sm font-light text-slate-300'>
                 {chapterObj.description}
               </p>
+              <HorizontalDivider />
+              {currentTasks.length > 0 ? (
+                <div className='flex w-full flex-col space-y-[1rem]'>
+                  {currentTasks.map((task, index) => (
+                    <div
+                      className='space-y-[0.5rem]text-black flex w-full flex-col items-center'
+                      key={task.id}
+                    >
+                      <p className='font-md w-full text-lg font-bold text-slate-300'>
+                        {index + 1}. {task.title}
+                      </p>
+                      <p className='font-md w-full text-sm font-light text-slate-300'>
+                        {task.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className='flex flex-row items-center justify-between'>
+                  <p className='font-md w-full text-sm font-light text-slate-300'>
+                    No tasks
+                  </p>
+                </div>
+              )}
             </>
           )}
         </GlassWindowContents>

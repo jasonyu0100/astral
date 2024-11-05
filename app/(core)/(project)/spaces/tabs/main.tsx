@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { SpacesTabChannel } from './channel-tab/main';
 import { SpacesTabLaunch } from './launch-tab/main';
 import { SpaceTabMission } from './mission-tab/main';
-import { SpacesTabScene } from './scene-tab/main';
+import { SpacesTabSpace } from './space-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -29,7 +29,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
       <TabsRow>
         <SpaceTabMission tab={tab} />
         <SpacesTabChannel tab={tab} />
-        <SpacesTabScene tab={tab} />
+        <SpacesTabSpace tab={tab} />
         <SpacesTabLaunch tab={tab} />
       </TabsRow>
       <Tab

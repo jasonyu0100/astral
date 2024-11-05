@@ -9,8 +9,8 @@ export const spacesMap = {
       channel: {
         link: (id: string) => `${baseUrl}/${id}/channel`,
       },
-      scene: {
-        link: (id: string) => `${baseUrl}/${id}/scene`,
+      space: {
+        link: (id: string) => `${baseUrl}/${id}/space`,
       },
       launch: {
         link: (id: string) => `${baseUrl}/${id}/launch`,

@@ -7,7 +7,7 @@ import { PublicSpaceChapterPostDescription } from './description/main';
 export function PublicSpaceChapterPost() {
   return (
     <GlassWindowFrame
-      className='p-[1rem]'
+      className='w-full p-[1rem]'
       borderFx={borderFx['border-tb']}
       roundedFx={roundedFx.rounded}
     >

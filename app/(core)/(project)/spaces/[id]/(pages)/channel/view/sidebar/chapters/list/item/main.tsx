@@ -1,12 +1,17 @@
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import {
   ContextForTaskList,
   calculateCompletionColor,
 } from '@/architecture/controller/task/list';
 import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/main';
+import { TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
@@ -14,6 +19,7 @@ import { useContext } from 'react';
 import { ContextForSpacesChannelModals } from '../../../../../modal/controller/main';
 
 export function SpacesChannelSidebarChapter() {
+  const spaceMainController = useContext(ContextForSpaceMain);
   const chapterObj = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const active =
@@ -22,6 +28,9 @@ export function SpacesChannelSidebarChapter() {
     ContextForSpacesChannelModals,
   );
   const taskListController = useContext(ContextForTaskList);
+  const currentTasks = taskListController.state.objs.filter(
+    (task) => task.taskStatus === TaskStatus.CURRENT,
+  );
   const completionColor = calculateCompletionColor(taskListController);
 
   return (
@@ -34,7 +43,7 @@ export function SpacesChannelSidebarChapter() {
         >
           <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
             <div
-              className='flex w-full flex-col space-y-[0.5rem]'
+              className='flex w-full flex-col space-y-[1rem]'
               onClick={() =>
                 chapterListController.actions.stateActions.select(chapterObj)
               }
@@ -66,6 +75,37 @@ export function SpacesChannelSidebarChapter() {
                 {chapterListController.state.currentObj?.description ||
                   'Open-ended'}
               </p>
+              <HorizontalDivider />
+              {currentTasks.length > 0 ? (
+                <div className='flex w-full flex-col space-y-[1rem]'>
+                  {currentTasks.map((task, index) => (
+                    <div
+                      className='space-y-[0.5rem]text-black flex w-full flex-col items-center'
+                      key={task.id}
+                    >
+                      <p className='font-md w-full text-lg font-bold text-slate-300'>
+                        {index + 1}. {task.title}
+                      </p>
+                      <p className='font-md w-full text-sm font-light text-slate-300'>
+                        {task.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className='flex flex-row items-center justify-between'>
+                  <p className='font-md w-full text-sm font-light text-slate-300'>
+                    No tasks
+                  </p>
+                  <AstralBackIndicatorIcon
+                    onClick={() => {
+                      window.location.href = `${spacesMap.spaces.id.mission.link(
+                        spaceMainController.state.objId,
+                      )}?chapter=${chapterListController.state.objId}`;
+                    }}
+                  />
+                </div>
+              )}
             </div>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-20']} />

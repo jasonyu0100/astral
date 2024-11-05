@@ -87,7 +87,7 @@ export function useControllerForSpacesChannel() {
       SpacesChannelSidebarContentMode.CHAPTERS,
     );
   const [aiChatRole, setAiChatRole] = useState<ConversationRole>(
-    ConversationRole.Answerer,
+    ConversationRole.Channel,
   );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesChannelSidebarVisibility>(
@@ -357,7 +357,7 @@ export function useControllerForSpacesChannel() {
   async function sendAndReceiveMessage(conversation: ConversationObj) {
     const newUserMessage = await sendUserMessage(conversation);
     let messages = [];
-    if (aiChatRole !== ConversationRole.NoteTaker) {
+    if (aiChatRole !== ConversationRole.Channel) {
       const agentResponse = await generateAgentResponse(
         newUserMessage,
         aiChatRole,

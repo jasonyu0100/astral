@@ -1,9 +1,7 @@
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { useContext } from 'react';
-import { SpacesChannelConversations } from './conversations/main';
 import { SpacesChannelEmpty } from './empty/main';
 import { SpacesChannelMessages } from './messages/list/main';
-import { SpacesChannelStatusContents } from './status/main';
 
 export function SpacesChannelContents() {
   const messageListController = useContext(ContextForConversationMessageList);
@@ -17,8 +15,9 @@ export function SpacesChannelContents() {
         <SpacesChannelEmpty />
       ) : (
         <div className='relative h-full w-full'>
-          <SpacesChannelConversations />
-          <SpacesChannelStatusContents />
+          {/* <SpacesChannelConversations /> */}
+          {/* <SpacesChannelStatusContents /> */}
+
           <SpacesChannelMessages />
         </div>
       )}

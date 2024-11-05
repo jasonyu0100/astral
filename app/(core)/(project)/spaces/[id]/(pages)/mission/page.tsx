@@ -132,16 +132,21 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
   const isMember = spaceMemberListController.state.objs.some(
     (member) => member.userId === loggedInUser?.id,
   );
+  const isSpacePublic =
+    spaceMainController.state.obj.visibility === SpaceVisibility.PUBLIC;
+  const isLoggedIn = !!loggedInUser.id;
 
   const pageRole = isOwner
     ? UserPageRole.OWNER
     : isMember
       ? UserPageRole.MEMBER
-      : spaceMainController.state.obj.visibility === SpaceVisibility.PUBLIC
+      : isSpacePublic && isLoggedIn
         ? UserPageRole.VIEWER
-        : userMainController.state.obj.visibility === UserProfileVisibility.NONE
+        : !isSpacePublic && isLoggedIn
           ? UserPageRole.NONE
-          : UserPageRole.UNDEFINED;
+          : !isSpacePublic && !isLoggedIn
+            ? UserPageRole.NONE
+            : UserPageRole.UNDEFINED;
 
   return (
     <>
@@ -172,7 +177,9 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
       if (pageRole === UserPageRole.NONE) {
         window.location.href = `${portalMap.portal.register.link}?redirect=${window.location.href}`;
       } else if (pageRole === UserPageRole.VIEWER) {
-        window.location.href = `${portalMap.portal.login.link}?redirect=${window.location.href}`;
+        alert('You have viewer permissions');
+      } else if (pageRole === UserPageRole.MEMBER) {
+        alert('You have member permissions');
       }
     }
   }, [userMainController.state.objId, pageRole]);
