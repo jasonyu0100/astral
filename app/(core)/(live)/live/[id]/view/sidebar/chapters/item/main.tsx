@@ -1,4 +1,3 @@
-import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import {
@@ -58,10 +57,14 @@ export function PublicSpaceSidebarItem() {
             </div>
             {selected && (
               <AstralChatIndicatorIcon
-                onClick={() => {
-                  window.location.href = `${spacesMap.spaces.id.channel.link(
-                    spaceMainController.state.objId,
-                  )}?chapter=${chapterObj.id}`;
+                onClick={(e) => {
+                  e.stopPropagation();
+                  publicSpaceController.actions.updateFeedView(
+                    PublicSpaceFeedView.CHANNEL,
+                  );
+                  // window.location.href = `${spacesMap.spaces.id.channel.link(
+                  //   spaceMainController.state.objId,
+                  // )}?chapter=${chapterObj.id}`;
                 }}
               />
             )}

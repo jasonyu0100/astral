@@ -18,18 +18,18 @@ export function PublicSpaceBreadcrumbs() {
 
   return (
     <div className='flex h-[3rem] flex-shrink-0 flex-col justify-between'>
-      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAPTER && (
+      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL && (
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
               className='cursor-pointer text-2xl font-bold text-slate-300'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
-                  PublicSpaceFeedView.CHAPTER,
+                  PublicSpaceFeedView.CHANNEL,
                 );
               }}
             >
-              {chapterListController.state.currentObj?.title}
+              Channel
             </p>
           </div>
           <div
@@ -49,11 +49,11 @@ export function PublicSpaceBreadcrumbs() {
               className='cursor-pointer text-2xl font-bold text-slate-300'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
-                  PublicSpaceFeedView.CHAPTER,
+                  PublicSpaceFeedView.CHANNEL,
                 );
               }}
             >
-              {chapterListController.state.currentObj?.title}
+              Channel
             </p>
             <span className='text-2xl font-bold text-slate-300'> / </span>
             <p
@@ -95,11 +95,11 @@ export function PublicSpaceBreadcrumbs() {
               className='cursor-pointer text-2xl font-bold text-slate-300'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
-                  PublicSpaceFeedView.CHAPTER,
+                  PublicSpaceFeedView.CHANNEL,
                 );
               }}
             >
-              {chapterListController.state.currentObj?.title}
+              Channel
             </p>
             <span className='text-2xl font-bold text-slate-300'> / </span>
             <p

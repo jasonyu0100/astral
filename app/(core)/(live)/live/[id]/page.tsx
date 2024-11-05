@@ -54,6 +54,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import {
   ContextForPublicSpace,
+  PublicSpaceFeedView,
   useControllerForPublicSpace,
 } from './controller/main';
 import { PublicSpaceView } from './view/main';
@@ -61,6 +62,8 @@ import { PublicSpaceView } from './view/main';
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
   const chapterId = searchParams.get('chapter');
+  const postId = searchParams.get('post');
+
   const spaceMainController = useControllerForSpaceMain(params.id);
   const userMainController = useControllerForUserMain(
     spaceMainController.state.obj.userId,
@@ -75,6 +78,7 @@ function Page({ params }: { params: { id: string } }) {
   );
   const postListController = useControllerForUserPostListFromChapter(
     chapterListController.state.objId,
+    postId,
   );
   const taskListController = useControllerForTaskList(
     chapterListController.state.objId,
@@ -90,6 +94,13 @@ function Page({ params }: { params: { id: string } }) {
   );
 
   const publicSpaceController = useControllerForPublicSpace();
+
+  useEffect(() => {
+    if (postId) {
+      publicSpaceController.actions.updateFeedView(PublicSpaceFeedView.POST);
+      postListController.actions.stateActions.selectViaId(postId);
+    }
+  }, [postId]);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -187,13 +198,18 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+function EffectWrapper({ children }: { children: React.ReactNode }) {}
+
 function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
+  const postListController = useContext(ContextForUserPostListFromChapter);
+  const publicSpaceController = useContext(ContextForPublicSpace);
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
     const chapterId = chapterListController.state?.objId;
+    const postId = postListController.state?.objId;
 
     // Get the current search params
     const currentSearchParams = new URLSearchParams(searchParams);
@@ -202,11 +218,19 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
     if (chapterId) {
       currentSearchParams.set('chapter', chapterId);
     }
+    if (
+      postId &&
+      publicSpaceController.state.feedView === PublicSpaceFeedView.POST
+    ) {
+      currentSearchParams.set('post', postId);
+    }
 
     // Update the router to reflect the new search params
     router.replace(`?${currentSearchParams.toString()}`);
   }, [
     chapterListController.state?.objId,
+    postListController.state?.objId,
+    publicSpaceController.state.feedView,
     router, // Ensure router is in the dependency array
   ]);
 

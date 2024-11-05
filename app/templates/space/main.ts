@@ -13,9 +13,11 @@ import { creativeCampaignTemplate } from './templates/creativeCampaignTemplate';
 import { eventPlanningTemplate } from './templates/eventPlanningTemplate';
 import { freelancingTaskTemplate } from './templates/freelancingTaskTemplate';
 import { ideationTemplate } from './templates/ideationTemplate';
+import { longFormVideoTemplate } from './templates/longFormTemplate';
 import { meetingTemplate } from './templates/meetingTemplate';
 import { musicAndAudioProductionTemplate } from './templates/musicAndAudioProductionTemplate';
 import { prototypeDevelopmentTemplate } from './templates/prototypeDevelopmentTemplate';
+import { shortFormVideoTemplate } from './templates/shortFormTemplate';
 import { startupTemplate } from './templates/startupTemplate';
 import { storyboardTemplate } from './templates/storyboardingTemplate';
 import { tutorialSpaceTemplate } from './templates/tutorialSpaceTemplate';
@@ -128,6 +130,8 @@ enum NewSpaceTemplate {
   EventPlanning = '🎉 Event Planning',
   Website = '🌐 Website',
   VideoProduction = '🎥 Video Production',
+  LongForm = '🎥 Long Form Video',
+  ShortForm = '🎬 Short Form Video',
   MusicProduction = '🎶 Music Production',
   FreelancingProject = '💼 Freelancing Task',
   MarketingCampaign = '📢 Marketing Campaign',
@@ -156,6 +160,8 @@ const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
   [NewSpaceTemplate.Storyboarding]: storyboardTemplate,
   [NewSpaceTemplate.UserTesting]: userTestingTemplate,
   [NewSpaceTemplate.EventPlanning]: eventPlanningTemplate,
+  [NewSpaceTemplate.LongForm]: longFormVideoTemplate,
+  [NewSpaceTemplate.ShortForm]: shortFormVideoTemplate,
 };
 
 export {

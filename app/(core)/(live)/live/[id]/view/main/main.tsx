@@ -22,7 +22,7 @@ export function PublicSpaceMain() {
           <PublicSpacePost />
         </>
       )}
-      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAPTER && (
+      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL && (
         <PublicSpaceChapterHome />
       )}
     </div>

@@ -139,7 +139,7 @@ export function SpacesSpaceGeneratePost() {
         post.id,
       )
       .then(() => {
-        window.location.href = `${spacesMap.spaces.id.launch.link(
+        window.location.href = `${spacesMap.spaces.id.table.link(
           spaceController.state.objId,
         )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
       });

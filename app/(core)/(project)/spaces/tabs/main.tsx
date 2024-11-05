@@ -7,9 +7,9 @@ import { TabRedShard } from '@/components/tabs/tabs-row/tab/shard/red/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { SpacesTabChannel } from './channel-tab/main';
-import { SpacesTabLaunch } from './launch-tab/main';
 import { SpaceTabMission } from './mission-tab/main';
 import { SpacesTabSpace } from './space-tab/main';
+import { SpacesTabTable } from './table-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -19,7 +19,7 @@ export enum SpaceTabStage {
   Work = 'Work',
   Channel = 'Channel',
   Space = 'Space',
-  Launch = 'Launch',
+  Table = 'Table',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
@@ -30,7 +30,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
         <SpaceTabMission tab={tab} />
         <SpacesTabChannel tab={tab} />
         <SpacesTabSpace tab={tab} />
-        <SpacesTabLaunch tab={tab} />
+        <SpacesTabTable tab={tab} />
       </TabsRow>
       <Tab
         href={liveMap.live.link(spaceMainController.state.objId)}

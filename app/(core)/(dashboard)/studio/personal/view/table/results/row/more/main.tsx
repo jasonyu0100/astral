@@ -1,4 +1,5 @@
 import { liveMap } from '@/(core)/(live)/live/[id]/map';
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
@@ -6,9 +7,10 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
+import { AstralFolderOpenIcon } from '@/icons/folder-open/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
-import { glassFx } from '@/style/data';
+import { glassFx, roundedFx } from '@/style/data';
 import {
   Popover,
   PopoverContent,
@@ -26,8 +28,19 @@ export function StudioPersonalRowMore() {
         <AstralMoreVertIcon />
       </PopoverTrigger>
       <PopoverContent>
-        <GlassWindowFrame className='p-[1rem]'>
+        <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
           <GlassWindowContents className='flex flex-col space-y-[1rem]'>
+            <div
+              className='flex cursor-pointer flex-row space-x-[1rem]'
+              onClick={() => {
+                window.location.href = spacesMap.spaces.id.work.link(
+                  spaceListController.state.objId,
+                );
+              }}
+            >
+              <AstralFolderOpenIcon />
+              <p className='font-bold text-slate-300'>Open Space</p>
+            </div>
             <div
               className='flex cursor-pointer flex-row space-x-[1rem]'
               onClick={() => {
@@ -42,6 +55,7 @@ export function StudioPersonalRowMore() {
               <AstralLinkIcon />
               <p className='font-bold text-slate-300'>View Live</p>
             </div>
+            <br />
             <HorizontalDivider />
             <div
               className='flex cursor-pointer flex-row space-x-[1rem]'
@@ -50,7 +64,7 @@ export function StudioPersonalRowMore() {
               }}
             >
               <AstralDeleteIcon />
-              <p className='font-bold text-slate-300'>Delete Space</p>
+              <p className='font-bold text-slate-300'>Delete</p>
             </div>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-10']} />

@@ -39,7 +39,7 @@ export function PublicSpaceSidebarSpace() {
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <img
                   onClick={() => {
-                    window.location.href = spacesMap.spaces.id.launch.link(
+                    window.location.href = spacesMap.spaces.id.table.link(
                       spaceMainController.state.objId,
                     );
                   }}
