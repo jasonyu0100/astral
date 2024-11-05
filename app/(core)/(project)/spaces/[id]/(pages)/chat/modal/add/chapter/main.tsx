@@ -1,9 +1,7 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
@@ -28,7 +26,6 @@ export function SpacesChatAddChapterModal() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
-  const [background, setBackground] = useState(exampleFileElement);
 
   async function createChapter() {
     const chapter =
@@ -36,7 +33,6 @@ export function SpacesChatAddChapterModal() {
         title,
         description,
         objective,
-        background.src || '',
         user.id,
         spaceController.state.objId,
       );
@@ -77,11 +73,6 @@ export function SpacesChatAddChapterModal() {
                 onChange={(e) => setDescription(e.target.value)}
                 style={{ resize: 'none' }}
               />
-              <AstralSearchImage
-                fileElem={background}
-                label='Background (optional)'
-                onChange={(file) => setBackground(file)}
-              ></AstralSearchImage>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={createChapter}>

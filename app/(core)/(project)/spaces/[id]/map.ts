@@ -3,8 +3,8 @@ const baseUrl = `/spaces`;
 export const spacesMap = {
   spaces: {
     id: {
-      objective: {
-        link: (id: string) => `${baseUrl}/${id}/objective`,
+      mission: {
+        link: (id: string) => `${baseUrl}/${id}/mission`,
       },
       chat: {
         link: (id: string) => `${baseUrl}/${id}/chat`,
@@ -12,8 +12,8 @@ export const spacesMap = {
       scene: {
         link: (id: string) => `${baseUrl}/${id}/scene`,
       },
-      updates: {
-        link: (id: string) => `${baseUrl}/${id}/updates`,
+      launch: {
+        link: (id: string) => `${baseUrl}/${id}/launch`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

@@ -87,7 +87,7 @@ export function SpacesSceneInProgress() {
             <div
               className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
               onClick={() => {
-                window.location.href = `${spacesMap.spaces.id.objective.link(
+                window.location.href = `${spacesMap.spaces.id.mission.link(
                   spaceMainController.state.objId,
                 )}?chapter=${chapterListController.state.objId}`;
               }}

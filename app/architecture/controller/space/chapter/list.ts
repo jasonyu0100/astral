@@ -37,7 +37,6 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     title: string,
     description: string,
     objective: string,
-    bg: string,
     userId: string,
     spaceId: string,
     idx?: number,
@@ -272,7 +271,6 @@ export const useControllerForSpaceChapterList = (
       title: string,
       description: string,
       objective: string,
-      bg: string,
       userId: string,
       spaceId: string,
       idx?: number,
@@ -283,7 +281,6 @@ export const useControllerForSpaceChapterList = (
         userId: userId,
         title: title,
         description: description,
-        bg: bg || '',
         objective: objective,
         idx: idx || objs.length,
       };

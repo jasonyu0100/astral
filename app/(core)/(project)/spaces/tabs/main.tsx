@@ -7,19 +7,19 @@ import { TabRedShard } from '@/components/tabs/tabs-row/tab/shard/red/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { SpacesTabChat } from './chat-tab/main';
-import { SpaceTabObjective } from './objective-tab/main';
+import { SpacesTabLaunch } from './launch-tab/main';
+import { SpaceTabMission } from './mission-tab/main';
 import { SpacesTabScene } from './scene-tab/main';
-import { SpacesTabUpdates } from './updates-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
 }
 
 export enum SpaceTabStage {
-  Objective = 'Objective',
+  Mission = 'Mission',
   Chat = 'Chat',
-  Scene = 'Scene',
-  Updates = 'Updates',
+  Space = 'Space',
+  Launch = 'Launch',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
@@ -27,10 +27,10 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   return (
     <TabsContainer>
       <TabsRow>
-        <SpaceTabObjective tab={tab} />
+        <SpaceTabMission tab={tab} />
         <SpacesTabChat tab={tab} />
         <SpacesTabScene tab={tab} />
-        <SpacesTabUpdates tab={tab} />
+        <SpacesTabLaunch tab={tab} />
       </TabsRow>
       <Tab
         href={liveMap.live.link(spaceMainController.state.objId)}

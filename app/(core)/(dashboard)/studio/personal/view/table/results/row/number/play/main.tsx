@@ -7,7 +7,7 @@ export function StudioPersonalNumberPlay() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <a href={spacesMap.spaces.id.objective.link(space.id)}>
+    <a href={spacesMap.spaces.id.mission.link(space.id)}>
       <AstralPlayIcon className='h-[1.5rem] w-[1.5rem]' />
     </a>
   );

@@ -1,7 +1,5 @@
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
-import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
@@ -21,7 +19,6 @@ export function SpacesSceneEditChapterModal() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
-  const [background, setBackground] = useState(exampleFileElement);
 
   useEffect(() => {
     if (chapterListController.state.currentObj) {
@@ -37,7 +34,6 @@ export function SpacesSceneEditChapterModal() {
       title,
       description,
       objective,
-      bg: background.src,
     };
     const chapter = await chapterListController.actions.editActions.edit(
       chapterListController.state.objId,
@@ -82,11 +78,6 @@ export function SpacesSceneEditChapterModal() {
                 onChange={(e) => setDescription(e.target.value)}
                 style={{ resize: 'none' }}
               />
-              <AstralSearchImage
-                fileElem={background}
-                label='Background (optional)'
-                onChange={(file) => setBackground(file)}
-              ></AstralSearchImage>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={editChapter}>

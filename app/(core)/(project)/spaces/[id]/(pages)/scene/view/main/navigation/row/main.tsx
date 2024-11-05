@@ -13,6 +13,11 @@ export function SpacesSceneNavigationRow() {
 
   return (
     <SpacesSceneRowContainer>
+      <SpacesSceneRowAdd
+        onClick={() => {
+          spacesSceneModalController.addSceneController.open();
+        }}
+      />
       {sceneListController.state.objs.map((scene, index) => (
         <ContextForIdeaSceneObj.Provider value={scene} key={scene.id}>
           <ContextForIndexable.Provider value={index} key={scene.id}>
@@ -20,11 +25,6 @@ export function SpacesSceneNavigationRow() {
           </ContextForIndexable.Provider>
         </ContextForIdeaSceneObj.Provider>
       ))}
-      <SpacesSceneRowAdd
-        onClick={() => {
-          spacesSceneModalController.addSceneController.open();
-        }}
-      />
     </SpacesSceneRowContainer>
   );
 }

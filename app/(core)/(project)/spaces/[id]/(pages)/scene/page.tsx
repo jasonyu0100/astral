@@ -178,17 +178,19 @@ function Page({ params }: { params: { id: string } }) {
                                     <ContextForUserActivityListFromChapter.Provider
                                       value={activityListController}
                                     >
-                                      <UpdateWrapper>
-                                        <LoadingWrapper>
-                                          <ControllerWrapper>
-                                            <ModalWrapper>
-                                              <ViewWrapper>
-                                                <SpacesSceneView />
-                                              </ViewWrapper>
-                                            </ModalWrapper>
-                                          </ControllerWrapper>
-                                        </LoadingWrapper>
-                                      </UpdateWrapper>
+                                      <EffectWrapper>
+                                        <UpdateWrapper>
+                                          <LoadingWrapper>
+                                            <ControllerWrapper>
+                                              <ModalWrapper>
+                                                <ViewWrapper>
+                                                  <SpacesSceneView />
+                                                </ViewWrapper>
+                                              </ModalWrapper>
+                                            </ControllerWrapper>
+                                          </LoadingWrapper>
+                                        </UpdateWrapper>
+                                      </EffectWrapper>
                                     </ContextForUserActivityListFromChapter.Provider>
                                   </ContextForTaskList.Provider>
                                 </ContextForIdeaRelationshipListFromScene.Provider>
@@ -275,6 +277,26 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+function EffectWrapper({ children }: { children: React.ReactNode }) {
+  const sceneListController = useContext(ContextForIdeaSceneList);
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
+  const chapterListController = useContext(ContextForSpaceChapterList);
+
+  useEffect(() => {
+    if (sceneListController.state.objId === '') {
+      sceneListController.actions.createActions.createScene(
+        'New Scene',
+        '',
+        '',
+        loggedInUser.id,
+        chapterListController.state.objId,
+      );
+    }
+  }, [sceneListController.state.objId]);
+
+  return <>{children}</>;
+}
+
 function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);
@@ -326,7 +348,7 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
       <SpacesSidebarModals>
         <SpacesSidebar />
         <DashboardContent>
-          <SpaceTabs tab={SpaceTabStage.Scene} />
+          <SpaceTabs tab={SpaceTabStage.Space} />
           <DashboardBody>{children}</DashboardBody>
         </DashboardContent>
       </SpacesSidebarModals>

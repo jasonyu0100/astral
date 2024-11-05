@@ -261,7 +261,7 @@ export const useControllerForUserPostListFromSpace = (
         spaceId: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushFront(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;

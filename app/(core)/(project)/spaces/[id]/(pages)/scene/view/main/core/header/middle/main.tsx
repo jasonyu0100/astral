@@ -4,9 +4,7 @@ import { useContext } from 'react';
 import { ContextForSpacesSceneModals } from '../../../../../modal/controller/main';
 
 export function SpacesSceneHeaderMiddle() {
-  const spacesObjectiveModalController = useContext(
-    ContextForSpacesSceneModals,
-  );
+  const spacesMissionModalController = useContext(ContextForSpacesSceneModals);
   const spaceMainController = useContext(ContextForSpaceMain);
 
   return (
@@ -14,7 +12,7 @@ export function SpacesSceneHeaderMiddle() {
       <div
         className='flex cursor-pointer flex-row space-x-[1rem]'
         onClick={() => {
-          spacesObjectiveModalController.editSpaceController.open();
+          spacesMissionModalController.editSpaceController.open();
         }}
       >
         <p className='text-center text-lg font-bold text-slate-300'>

@@ -16,7 +16,7 @@ export function PublicSpacesTasksSectionTodo() {
   const pending = tasks.filter(
     (task) => task.taskStatus === TaskStatus.PENDING,
   );
-  const togglableController = useControllerForTogglable(false);
+  const togglableController = useControllerForTogglable(true);
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
@@ -45,7 +45,7 @@ export function PublicSpacesTasksSectionTodo() {
                 <p className='text-xl font-bold'>{task.title}</p>
                 <AstralTableIcon
                   onClick={() => {
-                    window.location.href = `${spacesMap.spaces.id.objective.link(
+                    window.location.href = `${spacesMap.spaces.id.mission.link(
                       spaceMainController.state.objId,
                     )}?chapter=${chapterListController.state.objId}`;
                   }}
