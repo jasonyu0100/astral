@@ -86,7 +86,6 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
             templateChapter.title,
             templateChapter.description,
             templateChapter.objective,
-            theme.src,
             user.id,
             space.id,
             index,

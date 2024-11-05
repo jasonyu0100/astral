@@ -91,7 +91,6 @@ export function AstralChatPage({ children }: { children: React.ReactNode }) {
         `Sale - ${new Date()}`,
         'Search Query',
         'Search Query',
-        '',
         userId,
         spaceController.state.objId,
         0,
