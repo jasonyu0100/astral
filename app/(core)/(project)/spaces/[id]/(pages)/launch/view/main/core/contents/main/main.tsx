@@ -23,7 +23,7 @@ export function SpacesLaunchMain() {
 
   return (
     <ContextForUserObj.Provider value={userMainController.state.obj}>
-      <div className='flex flex-col overflow-auto p-[2rem]'>
+      <div className='flex flex-shrink-0 flex-col p-[2rem]'>
         {spacesLaunchController.state.feedView ===
           SpacesLaunchFeedView.CHAPTER && <SpacesLaunchChapterList />}
         {spacesLaunchController.state.feedView ===

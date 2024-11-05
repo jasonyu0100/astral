@@ -55,7 +55,7 @@ export function SpacesSceneAddSpotifyUrlModal() {
       variant: UrlElementVariant.SPOTIFY,
     } as UrlElement;
 
-    const { width, height } = await getUrlIdeaBounds(urlIdea);
+    const { width, height } = getUrlIdeaBounds(urlIdea);
 
     const idea =
       await ideaListController.actions.createActions.createIdeaFromUrlElement(

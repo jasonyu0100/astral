@@ -34,7 +34,7 @@ export function SpacesSceneResourceResource() {
     let idea;
     if (resource.variant === ElementVariant.FILE) {
       const file = resource.fileElem || ({} as FileElement);
-      const { width, height } = await getFileIdeaBounds(file);
+      const { width, height } = getFileIdeaBounds(file);
 
       idea =
         await ideaListController.actions.createActions.createIdeaFromFileElement(
@@ -51,7 +51,7 @@ export function SpacesSceneResourceResource() {
         );
     } else if (resource.variant === ElementVariant.TEXT) {
       const text = resource.textElem || ({} as TextElement);
-      const { width, height } = await getTextIdeaBounds(text);
+      const { width, height } = getTextIdeaBounds(text);
 
       idea =
         await ideaListController.actions.createActions.createIdeaFromTextElement(
@@ -68,7 +68,7 @@ export function SpacesSceneResourceResource() {
         );
     } else if (resource.variant === ElementVariant.URL) {
       const url = resource.urlElem || ({} as UrlElement);
-      const { width, height } = await getUrlIdeaBounds(url);
+      const { width, height } = getUrlIdeaBounds(url);
 
       idea =
         await ideaListController.actions.createActions.createIdeaFromUrlElement(

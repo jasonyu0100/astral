@@ -11,7 +11,7 @@ import {
   UrlElementVariant,
 } from '@/architecture/model/elements/url/main';
 
-export async function getFileIdeaBounds(file: FileElement) {
+export function getFileIdeaBounds(file: FileElement) {
   if (file.id === undefined) {
     return { width: 150, height: 150 };
   }
@@ -36,7 +36,7 @@ export async function getFileIdeaBounds(file: FileElement) {
   return { width, height };
 }
 
-export async function getUrlIdeaBounds(file: UrlElement) {
+export function getUrlIdeaBounds(file: UrlElement) {
   if (file.id === undefined) {
     return { width: 150, height: 150 };
   }
@@ -58,7 +58,7 @@ export async function getUrlIdeaBounds(file: UrlElement) {
   return { width, height };
 }
 
-export async function getTextIdeaBounds(file: TextElement) {
+export function getTextIdeaBounds(file: TextElement) {
   if (file.id === undefined) {
     return { width: 150, height: 150 };
   }

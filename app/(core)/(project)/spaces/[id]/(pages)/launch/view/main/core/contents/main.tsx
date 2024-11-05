@@ -11,11 +11,8 @@ export function SpacesLaunchContents() {
       className='relative flex flex-col overflow-auto'
       style={{ width: '100%', height: '100%' }}
     >
-      {postListController.state.objs.length > 0 ? (
-        <SpacesLaunchMain />
-      ) : (
-        <SpacesLaunchEmpty />
-      )}
+      <SpacesLaunchMain />
+      {postListController.state.objs.length === 0 && <SpacesLaunchEmpty />}
     </div>
   );
 }

@@ -39,7 +39,7 @@ export function SpacesSceneAddArticleIdeaModal() {
       variant: TextElementVariant.ARTICLE,
     } as TextElement;
 
-    const { width, height } = await getTextIdeaBounds(textElem);
+    const { width, height } = getTextIdeaBounds(textElem);
 
     ideaListController.actions.createActions
       .createIdeaFromTextElement(

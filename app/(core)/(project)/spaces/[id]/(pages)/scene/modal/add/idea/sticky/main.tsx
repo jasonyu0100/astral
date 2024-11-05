@@ -39,7 +39,7 @@ export function SpacesSceneAddStickyIdeaModal() {
       variant: TextElementVariant.STICKY,
     } as TextElement;
 
-    const { width, height } = await getTextIdeaBounds(textElem);
+    const { width, height } = getTextIdeaBounds(textElem);
 
     ideaListController.actions.createActions
       .createIdeaFromTextElement(

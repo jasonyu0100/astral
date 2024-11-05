@@ -132,19 +132,19 @@ function Page({ params }: { params: { id: string } }) {
                             <ContextForUserActivityListFromChapter.Provider
                               value={activityListController}
                             >
-                              <EffectWrapper>
-                                <UpdateWrapper>
-                                  <LoadingWrapper>
-                                    <ControllerWrapper>
+                              <UpdateWrapper>
+                                <LoadingWrapper>
+                                  <ControllerWrapper>
+                                    <EffectWrapper>
                                       <ModalWrapper>
                                         <ViewWrapper>
                                           <SpacesChatView />
                                         </ViewWrapper>
                                       </ModalWrapper>
-                                    </ControllerWrapper>
-                                  </LoadingWrapper>
-                                </UpdateWrapper>
-                              </EffectWrapper>
+                                    </EffectWrapper>
+                                  </ControllerWrapper>
+                                </LoadingWrapper>
+                              </UpdateWrapper>
                             </ContextForUserActivityListFromChapter.Provider>
                           </ContextForTaskList.Provider>
                         </ContextForConversationMessageList.Provider>
@@ -236,7 +236,10 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   }, [spaceMainController.state.obj]);
 
   useEffect(() => {
-    if (conversationListController.state.objId === '') {
+    if (
+      conversationListController.state.objId === '' &&
+      chapterListController.state.objId
+    ) {
       conversationListController.actions.createActions.createConversation(
         loggedInUser?.id,
         chapterListController.state.objId,
@@ -247,13 +250,15 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (
       messageListController.state.objs.length === 0 &&
-      conversationListController.state.currentObj
+      conversationListController.state.objs.length > 0 &&
+      conversationListController.state.currentObj &&
+      chapterListController.state.objId
     ) {
       const created = new Date(
         conversationListController.state.currentObj.created,
       );
       const duration = new Date().getTime() - created.getTime();
-      if (duration < 1000 * 60) {
+      if (duration < 1000 * 5) {
         messageListController.actions.createActions.sendAgentMessage(
           'astral',
           conversationListController.state.objId,

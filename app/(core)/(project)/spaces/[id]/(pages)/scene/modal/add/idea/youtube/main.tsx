@@ -56,7 +56,7 @@ export function SpacesSceneAddYouTubeUrlModal() {
       variant: UrlElementVariant.YOUTUBE,
     } as UrlElement;
 
-    const { width, height } = await getUrlIdeaBounds(urlIdea);
+    const { width, height } = getUrlIdeaBounds(urlIdea);
 
     const idea =
       await ideaListController.actions.createActions.createIdeaFromUrlElement(

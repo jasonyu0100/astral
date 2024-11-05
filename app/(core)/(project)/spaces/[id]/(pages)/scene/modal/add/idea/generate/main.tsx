@@ -46,7 +46,7 @@ export function SpacesSceneAddGenerateIdeaModal() {
       return;
     }
 
-    const { width, height } = await getFileIdeaBounds(file);
+    const { width, height } = getFileIdeaBounds(file);
 
     const idea =
       await ideaListController.actions.createActions.createIdeaFromFileElement(

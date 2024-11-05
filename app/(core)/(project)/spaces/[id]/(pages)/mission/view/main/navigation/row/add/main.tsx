@@ -17,8 +17,10 @@ export default function SpacesMissionRowAdd({
         roundedFx={roundedFx['rounded-full']}
       >
         <div className='flex h-full w-full items-center space-x-[1rem] p-[1rem]'>
-          <AstralAddIcon className='fill-slate-500' />
-          <div className='font-bold text-slate-500'>Add Chapter</div>
+          <div className='flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-blue-500'>
+            <AstralAddIcon />
+          </div>
+          <div className='font-bold text-slate-300'>Add Chapter</div>
         </div>
       </GlassAreaContainer>
     </button>
