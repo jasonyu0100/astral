@@ -54,7 +54,7 @@ export function PublicSpaceSidebarItem() {
             {selected && (
               <AstralChatIndicatorIcon
                 onClick={() => {
-                  window.location.href = `${spacesMap.spaces.id.chat.link(
+                  window.location.href = `${spacesMap.spaces.id.channel.link(
                     spaceMainController.state.objId,
                   )}?chapter=${chapterObj.id}`;
                 }}

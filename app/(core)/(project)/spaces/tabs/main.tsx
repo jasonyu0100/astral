@@ -6,7 +6,7 @@ import { Tab } from '@/components/tabs/tabs-row/tab/main';
 import { TabRedShard } from '@/components/tabs/tabs-row/tab/shard/red/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
-import { SpacesTabChat } from './chat-tab/main';
+import { SpacesTabChannel } from './channel-tab/main';
 import { SpacesTabLaunch } from './launch-tab/main';
 import { SpaceTabMission } from './mission-tab/main';
 import { SpacesTabScene } from './scene-tab/main';
@@ -17,7 +17,7 @@ interface SpaceTabProps {
 
 export enum SpaceTabStage {
   Mission = 'Mission',
-  Chat = 'Chat',
+  Channel = 'Channel',
   Space = 'Space',
   Launch = 'Launch',
 }
@@ -28,7 +28,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
     <TabsContainer>
       <TabsRow>
         <SpaceTabMission tab={tab} />
-        <SpacesTabChat tab={tab} />
+        <SpacesTabChannel tab={tab} />
         <SpacesTabScene tab={tab} />
         <SpacesTabLaunch tab={tab} />
       </TabsRow>

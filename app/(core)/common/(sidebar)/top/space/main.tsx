@@ -13,7 +13,7 @@ export function CommonSidebarTopSpace() {
   useEffect(() => {
     changeUrl(
       space.id
-        ? spacesMap.spaces.id.chat.link(space.id)
+        ? spacesMap.spaces.id.channel.link(space.id)
         : studioMap.studio.personal.link,
     );
   }, [space]);
