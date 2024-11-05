@@ -14,7 +14,7 @@ export function AstralSearchImage({
 }: {
   fileElem: FileElement;
   onChange: (fileElem: FileElement) => void;
-  label: string;
+  label?: string;
 }) {
   return (
     <ContextForFileChangable.Provider

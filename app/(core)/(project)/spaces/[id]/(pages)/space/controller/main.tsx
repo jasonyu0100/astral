@@ -170,6 +170,15 @@ export function useControllerForSpaceSpace(): Controller {
             useCORS: true, // To capture cross-origin images
           });
           const imgData = canvas.toDataURL('image/png'); // Convert to image
+          const ctx = canvas.getContext('2d');
+          // Create a vertical gradient from slate-950 to purple-950
+          const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+          gradient.addColorStop(0, '#0f172a'); // slate-950
+          gradient.addColorStop(1, '#3b0764'); // purple-950
+
+          // Apply gradient as background
+          ctx.fillStyle = gradient;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
 
           // Create an anchor element to download the screenshot
           const link = document.createElement('a');

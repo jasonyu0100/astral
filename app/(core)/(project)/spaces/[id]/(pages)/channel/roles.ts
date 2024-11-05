@@ -10,6 +10,7 @@ export enum ConversationRole {
   Connector = '🔗 Connector',
   Critic = '🧐 Critic',
   Reflector = '🔍 Reflector',
+  Generator = '🔧 Generator',
 }
 
 export const roleDescriptions: { [key in ConversationRole]: string } = {
@@ -24,4 +25,5 @@ export const roleDescriptions: { [key in ConversationRole]: string } = {
   [ConversationRole.Connector]: `As the Connector, your role is to bridge gaps between ideas and participants, drawing connections that enhance the collaborative nature of the space. You ensure that all voices are heard and that the conversation is woven together seamlessly.`,
   [ConversationRole.Critic]: `As the Critic, you provide constructive feedback on ideas and narrative elements. Your role is to challenge assumptions and push the dialogue toward deeper, more refined insights, helping to identify any potential flaws or improvements.`,
   [ConversationRole.Reflector]: `As the Reflector, you mirror the group’s ideas and emotions, providing a space for reflection. Your role is to ensure the group remains self-aware, and you help participants understand how their contributions fit into the bigger picture.`,
+  [ConversationRole.Generator]: `As the Generator, you create new ideas and concepts that drive the conversation forward. Your role is to inspire others with your innovative thinking and imaginative contributions, adding depth and complexity to the chapter's narrative.`,
 };

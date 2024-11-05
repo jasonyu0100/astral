@@ -72,10 +72,10 @@ export function SpaceSpaceAddArticleIdeaModal() {
         <AstralModalBodyWrapper>
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
-            <div className='aspect-[7/5] w-[400px] rounded-[1rem] bg-slate-300 bg-opacity-30 p-[2rem] shadow-md'>
+            <div className='aspect-[10/14] w-[500px] bg-slate-200 p-[2rem] shadow-md'>
               <textarea
                 placeholder='Enter text here...'
-                className='h-full w-full bg-transparent text-lg font-light text-slate-300 outline-none placeholder:text-slate-300'
+                className='text-md h-full w-full bg-transparent font-light text-black outline-none placeholder:text-slate-500'
                 onChange={(e) => changeText(e.target.value)}
               />
             </div>

@@ -64,7 +64,7 @@ export function SpaceSpaceTextIdea() {
           </label>
           <textarea
             id={`sticky-textarea-${ideaObj.id}`}
-            className='h-full w-full resize-none bg-transparent text-lg font-bold text-black outline-none'
+            className='h-full w-full resize-none bg-transparent text-lg text-black outline-none'
             value={stickyText}
             onChange={(e) => setStickyText(e.target.value)}
             onBlur={handleStickyBlur}
@@ -72,13 +72,13 @@ export function SpaceSpaceTextIdea() {
         </div>
       )}
       {ideaObj.textElem.variant === TextElementVariant.ARTICLE && (
-        <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[1rem] text-black shadow-md'>
+        <div className='aspect-[10/14] w-full flex-shrink-0 bg-slate-200 p-[2rem] text-black shadow-md'>
           <label htmlFor={`page-textarea-${ideaObj.id}`} className='sr-only'>
             Page Idea Text
           </label>
           <textarea
             id={`page-textarea-${ideaObj.id}`}
-            className='h-full w-full resize-none bg-transparent text-lg font-light text-slate-300 outline-none'
+            className='text-md h-full w-full resize-none bg-transparent font-light text-black outline-none'
             value={pageText}
             onChange={(e) => setPageText(e.target.value)}
             onBlur={handlePageBlur}

@@ -15,8 +15,11 @@ import { AstralModalBodyContents } from '@/components/modal/astral/body/action/m
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
 import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { useControllerForOpenAi } from '@/external/controller/openai/main';
+import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralRefreshIcon } from '@/icons/refresh/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
@@ -24,6 +27,11 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
 import { spacesMap } from '../../../../map';
 import { ContextForSpaceSpace } from '../../controller/main';
+
+export enum GeneratePostPage {
+  PageOne = 'PageOne',
+  PageTwo = 'PageTwo',
+}
 
 export function SpaceSpaceGeneratePost() {
   const user = useGlobalUser((state) => state.user);
@@ -47,6 +55,7 @@ export function SpaceSpaceGeneratePost() {
   );
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [page, setPage] = useState<GeneratePostPage>(GeneratePostPage.PageOne);
 
   useEffect(() => {
     if (openableController.opened) {
@@ -141,43 +150,70 @@ export function SpaceSpaceGeneratePost() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <p className='text-3xl font-bold text-slate-300'>Generate Post</p>
-              <AstralTextLineInput
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder='Enter a title for the task...'
-                title='Title'
-              />
-              <AstralTextAreaInput
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                title='Description'
-                placeholder='Enter a description for the task...'
-                rows={8}
-              />
-              <div className='grid h-[300px] w-full grid-cols-3 gap-[1rem] overflow-auto'>
-                {selectedIdeas.map((idea) => (
-                  <div key={idea.id}>
-                    <ContextForIdeaObj.Provider value={idea}>
-                      <ElementIdea />
-                    </ContextForIdeaObj.Provider>
+              <AstralModalTitle>Generate Post</AstralModalTitle>
+              {page === GeneratePostPage.PageOne && (
+                <>
+                  <AstralTextLineInput
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder='Enter a title for the task...'
+                    title='Title'
+                  />
+                  <AstralTextAreaInput
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    title='Description'
+                    placeholder='Enter a description for the task...'
+                    rows={8}
+                  />
+                </>
+              )}
+              {page === GeneratePostPage.PageTwo && (
+                <>
+                  <div className='grid h-[300px] w-full grid-cols-3 gap-[1rem] overflow-auto'>
+                    {selectedIdeas.map((idea) => (
+                      <div key={idea.id}>
+                        <ContextForIdeaObj.Provider value={idea}>
+                          <ElementIdea />
+                        </ContextForIdeaObj.Provider>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </>
+              )}
             </AstralModalBodyContents>
             <AstralModalBodyAction>
-              <AstralRoundedActionButton
-                onClick={() => {
-                  generateDescription();
-                  generateTitle();
-                }}
-                className='from-slate-500 to-slate-600'
-              >
-                <AstralRefreshIcon />
-              </AstralRoundedActionButton>
-              <AstralRoundedActionButton onClick={createLog}>
-                <AstralCheckIcon />
-              </AstralRoundedActionButton>
+              {page === GeneratePostPage.PageOne && (
+                <>
+                  <AstralRoundedActionButton
+                    onClick={() => {
+                      generateDescription();
+                      generateTitle();
+                    }}
+                    className='from-slate-500 to-slate-600'
+                  >
+                    <AstralRefreshIcon />
+                  </AstralRoundedActionButton>
+                  <AstralRoundedActionButton
+                    onClick={() => setPage(GeneratePostPage.PageTwo)}
+                  >
+                    <AstralArrowForwardIcon />
+                  </AstralRoundedActionButton>
+                </>
+              )}
+              {page === GeneratePostPage.PageTwo && (
+                <>
+                  <AstralRoundedActionButton
+                    onClick={() => setPage(GeneratePostPage.PageOne)}
+                    className='from-slate-500 to-slate-600'
+                  >
+                    <AstralArrowBackIcon />
+                  </AstralRoundedActionButton>
+                  <AstralRoundedActionButton onClick={createLog}>
+                    <AstralCheckIcon />
+                  </AstralRoundedActionButton>
+                </>
+              )}
             </AstralModalBodyAction>
           </AstralModalBody>
         </AstralModalBodyWrapper>

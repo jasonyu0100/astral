@@ -7,7 +7,7 @@ export function ImagePreview({
 }) {
   return (
     <div className='flex w-full flex-row items-center py-[1rem]'>
-      <div className='relative flex h-[150px] w-[150px] flex-shrink-0 items-center justify-center rounded-full border-slate-300 bg-slate-100'>
+      <div className='relative flex h-[150px] w-[150px] flex-shrink-0 items-center justify-center rounded-full border-slate-300 bg-slate-300'>
         {fileElem?.src ? (
           <>
             <img

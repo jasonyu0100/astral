@@ -70,8 +70,8 @@ export function getTextIdeaBounds(file: TextElement) {
     width = 200;
     height = 200;
   } else if (file.variant === TextElementVariant.ARTICLE) {
-    width = 350;
-    height = 250;
+    width = 360;
+    height = 500;
   }
 
   return { width, height };

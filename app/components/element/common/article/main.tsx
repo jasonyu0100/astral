@@ -1,6 +1,6 @@
 export function ElementArticle({ text }: { text: string }) {
   return (
-    <div className='aspect-[7/5] w-full flex-shrink-0 rounded-[1rem] bg-slate-300 bg-opacity-30 p-[2rem] font-light text-slate-300 shadow-md'>
+    <div className='text-md aspect-[10/14] w-full flex-shrink-0 bg-slate-200 p-[2rem] font-light text-black shadow-md'>
       {text}
     </div>
   );

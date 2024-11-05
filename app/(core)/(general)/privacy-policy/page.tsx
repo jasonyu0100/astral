@@ -4,7 +4,6 @@ export default function Page() {
       <h1 className='mb-4 text-3xl font-bold text-gray-800'>
         Astral Privacy Policy
       </h1>
-      <p className='mb-8 text-sm text-gray-500'>Last Updated: [Date]</p>
       <div className='space-y-6 text-gray-700'>
         {/* Introduction */}
         <div>

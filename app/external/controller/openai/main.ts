@@ -34,7 +34,7 @@ export const useControllerForOpenAi = (): Controller => {
           },
           { role: 'user', content: prompt },
         ],
-        model: 'gpt-3.5-turbo-1106',
+        model: 'gpt-4-turbo',
       });
       return completion.choices[0].message.content;
     };

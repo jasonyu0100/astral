@@ -6,7 +6,6 @@ import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { FileElement } from '@/architecture/model/elements/file/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { FormInput } from '@/components/form/input/main';
 import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
@@ -26,7 +25,6 @@ export function SpaceSpaceAddSearchIdeaModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const [title, changeTitle] = useState('' as string);
   const [description, changeDescription] = useState<string>('');
   const [file, changeFile] = useState({} as FileElement);
   const activityListController = useContext(
@@ -39,7 +37,7 @@ export function SpaceSpaceAddSearchIdeaModal() {
       await ideaListController.actions.createActions.createIdeaFromFileElement(
         user.id,
         sceneListController.state.objId,
-        title,
+        'Image',
         description,
         Math.ceil(Math.random() * 200),
         Math.ceil(Math.random() * 200),
@@ -68,19 +66,15 @@ export function SpaceSpaceAddSearchIdeaModal() {
               <AstralSearchImage
                 fileElem={file}
                 onChange={(file) => changeFile(file)}
-                label='Thumbnail'
-              />
-              <FormInput
-                title='Title'
-                value={title}
-                onChange={(e) => changeTitle(e.target.value)}
               />
             </AstralModalBodyContents>
-            <AstralModalBodyAction>
-              <AstralRoundedActionButton onClick={createFileIdea}>
-                <AstralCheckIcon />
-              </AstralRoundedActionButton>
-            </AstralModalBodyAction>
+            {file.id && (
+              <AstralModalBodyAction>
+                <AstralRoundedActionButton onClick={createFileIdea}>
+                  <AstralCheckIcon />
+                </AstralRoundedActionButton>
+              </AstralModalBodyAction>
+            )}
           </AstralModalBody>
         </AstralModalBodyWrapper>
       </AstralModal>
