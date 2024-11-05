@@ -9,9 +9,9 @@ import { ContextForScrollToHorizontalIndex } from '@/logic/controller/scroll-to-
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
-import { ContextForSpaceSpaceModals } from '../../../../../modal/controller/main';
+import { ContextForSpacesSpaceModals } from '../../../../../modal/controller/main';
 
-export function SpaceSpaceRowElement() {
+export function SpacesSpaceRowElement() {
   const index = useContext(ContextForIndexable);
   const scene = useContext(ContextForIdeaSceneObj);
   const sceneListController = useContext(ContextForIdeaSceneList);
@@ -19,11 +19,11 @@ export function SpaceSpaceRowElement() {
   const controllerForScrollToCursor = useContext(
     ContextForScrollToHorizontalIndex,
   );
-  const spaceSpaceModalsController = useContext(ContextForSpaceSpaceModals);
+  const spacesSpaceModalsController = useContext(ContextForSpacesSpaceModals);
 
   return (
     <GlassWindowFrame
-      className={ctwn('z-10 h-[3.5rem] min-w-[250px]', {
+      className={ctwn('z-10 h-[3.5rem] flex-shrink-0', {
         'animate-pulse-slow': active,
       })}
       roundedFx={roundedFx['rounded-full']}
@@ -42,7 +42,7 @@ export function SpaceSpaceRowElement() {
         </p>
         <AstralMoreVertIcon
           onClick={() => {
-            spaceSpaceModalsController.editSceneController.open();
+            spacesSpaceModalsController.editSceneController.open();
           }}
         />
       </GlassWindowContents>

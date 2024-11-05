@@ -1,12 +1,12 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../../controller/main';
+import { ContextForSpacesSpace } from '../../../../../controller/main';
 
-export function SpaceSpaceGalleryCollectionsBack() {
+export function SpacesSpaceGalleryCollectionsBack() {
   const {
     actions: { goToHome },
-  } = useContext(ContextForSpaceSpace);
+  } = useContext(ContextForSpacesSpace);
 
   return (
     <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>

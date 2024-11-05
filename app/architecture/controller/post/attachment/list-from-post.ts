@@ -269,6 +269,7 @@ export const useControllerForPostAttachmentListFromPost = (
         userId: '',
         postId: '',
         variant: '',
+        title: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -279,6 +280,7 @@ export const useControllerForPostAttachmentListFromPost = (
     createFromIdea: async (userId: string, postId: string, idea: IdeaObj) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        title: idea.title,
         userId: userId,
         postId: postId,
         ideaId: idea.id,
@@ -300,6 +302,7 @@ export const useControllerForPostAttachmentListFromPost = (
     ) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
+        title: file.title,
         userId: userId,
         postId: postId,
         variant: ElementVariant.FILE,

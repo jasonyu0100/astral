@@ -7,7 +7,6 @@ import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ElementVariant } from '@/architecture/model/elements/main';
 import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
-import { ElementIdea } from '@/components/element/idea/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
@@ -22,22 +21,24 @@ import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralRefreshIcon } from '@/icons/refresh/main';
+import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
 import { spacesMap } from '../../../../map';
-import { ContextForSpaceSpace } from '../../controller/main';
+import { ContextForSpacesSpace } from '../../controller/main';
+import { SpacesSpaceGeneratePostItem } from './idea/main';
 
 export enum GeneratePostPage {
   PageOne = 'PageOne',
   PageTwo = 'PageTwo',
 }
 
-export function SpaceSpaceGeneratePost() {
+export function SpacesSpaceGeneratePost() {
   const user = useGlobalUser((state) => state.user);
   const {
     state: { selectedIdeas },
-  } = useContext(ContextForSpaceSpace);
+  } = useContext(ContextForSpacesSpace);
   const loadingController = useContext(ContextForLoading);
   const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);
@@ -147,8 +148,8 @@ export function SpaceSpaceGeneratePost() {
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
-        <AstralModalBodyWrapper>
-          <AstralModalBody>
+        <AstralModalBodyWrapper className='w-1/2'>
+          <AstralModalBody className='h-full w-1/2'>
             <AstralModalBodyContents>
               <AstralModalTitle>Generate Post</AstralModalTitle>
               {page === GeneratePostPage.PageOne && (
@@ -170,13 +171,13 @@ export function SpaceSpaceGeneratePost() {
               )}
               {page === GeneratePostPage.PageTwo && (
                 <>
-                  <div className='grid h-[300px] w-full grid-cols-3 gap-[1rem] overflow-auto'>
-                    {selectedIdeas.map((idea) => (
-                      <div key={idea.id}>
+                  <div className='max-h-[800px] w-full flex-col space-y-[1rem] overflow-auto'>
+                    {selectedIdeas.map((idea, index) => (
+                      <ContextForIndexable.Provider value={index}>
                         <ContextForIdeaObj.Provider value={idea}>
-                          <ElementIdea />
+                          <SpacesSpaceGeneratePostItem />
                         </ContextForIdeaObj.Provider>
-                      </div>
+                      </ContextForIndexable.Provider>
                     ))}
                   </div>
                 </>

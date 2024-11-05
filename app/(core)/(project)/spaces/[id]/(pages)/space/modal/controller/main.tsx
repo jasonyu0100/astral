@@ -4,30 +4,32 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpaceSpaceAddChapterModal } from '../add/chapter/main';
-import { SpaceSpaceAddCollectionModal } from '../add/collection/main';
-import { SpaceSpaceAddGalleryModal } from '../add/gallery/main';
-import { SpaceSpaceAddArticleIdeaModal } from '../add/idea/article/main';
-import { SpaceSpaceAddFileIdeaModal } from '../add/idea/file/main';
-import { SpaceSpaceAddGenerateIdeaModal } from '../add/idea/generate/main';
-import { SpaceSpaceAddSearchIdeaModal } from '../add/idea/search/main';
-import { SpaceSpaceAddSpotifyUrlModal } from '../add/idea/spotify/main';
-import { SpaceSpaceAddStickyIdeaModal } from '../add/idea/sticky/main';
-import { SpaceSpaceAddWebsiteUrlModal } from '../add/idea/website/main';
-import { SpaceSpaceAddYouTubeUrlModal } from '../add/idea/youtube/main';
-import { SpaceSpaceAddResourceModal } from '../add/resource/main';
-import { SpaceSpaceAddSceneModal } from '../add/scene/main';
-import { SpaceSpaceCombineIdeas } from '../combine/main';
-import { SpaceSpaceEditChapterModal } from '../edit/chapter/main';
-import { SpaceSpaceEditSceneModal } from '../edit/scene/main';
-import { SpaceSpaceEditSpaceModal } from '../edit/space/main';
-import { SpaceSpaceGeneratePost } from '../generate/main';
-import { SpaceSpaceMigrateSceneModal } from '../migrate/main';
-import { SpaceSpaceShareViewModal } from '../share/main';
+import { SpacesSpaceAddChapterModal } from '../add/chapter/main';
+import { SpacesSpaceAddCollectionModal } from '../add/collection/main';
+import { SpacesSpaceAddGalleryModal } from '../add/gallery/main';
+import { SpacesSpaceAddArticleIdeaModal } from '../add/idea/article/main';
+import { SpacesSpaceAddFileIdeaModal } from '../add/idea/file/main';
+import { SpacesSpaceAddGenerateIdeaModal } from '../add/idea/generate/main';
+import { SpacesSpaceAddSearchIdeaModal } from '../add/idea/search/main';
+import { SpacesSpaceAddSpotifyUrlModal } from '../add/idea/spotify/main';
+import { SpacesSpaceAddStickyIdeaModal } from '../add/idea/sticky/main';
+import { SpacesSpaceAddWebsiteUrlModal } from '../add/idea/website/main';
+import { SpacesSpaceAddYouTubeUrlModal } from '../add/idea/youtube/main';
+import { SpacesSpaceAddResourceModal } from '../add/resource/main';
+import { SpacesSpaceAddSceneModal } from '../add/scene/main';
+import { SpacesSpaceCombineIdeas } from '../combine/main';
+import { SpacesSpaceEditChapterModal } from '../edit/chapter/main';
+import { SpacesSpaceEditSceneModal } from '../edit/scene/main';
+import { SpacesSpaceEditSpaceModal } from '../edit/space/main';
+import { SpacesSpaceGeneratePost } from '../generate/main';
+import { SpacesSpaceMigrateSceneModal } from '../migrate/main';
+import { SpacesSpaceShareViewModal } from '../share/main';
 
-export const ContextForSpaceSpaceModals = createContext({} as SpaceSpaceModals);
+export const ContextForSpacesSpaceModals = createContext(
+  {} as SpacesSpaceModals,
+);
 
-export interface SpaceSpaceModals {
+export interface SpacesSpaceModals {
   addCollectionController: ContextForOpenableInterface;
   addGalleryController: ContextForOpenableInterface;
   addFileIdeaController: ContextForOpenableInterface;
@@ -50,7 +52,7 @@ export interface SpaceSpaceModals {
   migrateSceneController: ContextForOpenableInterface;
 }
 
-export function SpaceSpaceModals({ children }: { children: React.ReactNode }) {
+export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
   const addCollectionController = useControllerForOpenable();
   const addGalleryController = useControllerForOpenable();
   const addFileIdeaController = useControllerForOpenable();
@@ -73,7 +75,7 @@ export function SpaceSpaceModals({ children }: { children: React.ReactNode }) {
   const migrateSceneController = useControllerForOpenable();
 
   return (
-    <ContextForSpaceSpaceModals.Provider
+    <ContextForSpacesSpaceModals.Provider
       value={{
         addGalleryController: addGalleryController,
         addCollectionController: addCollectionController,
@@ -99,65 +101,65 @@ export function SpaceSpaceModals({ children }: { children: React.ReactNode }) {
     >
       {children}
       <ContextForOpenable.Provider value={addCollectionController}>
-        <SpaceSpaceAddCollectionModal />
+        <SpacesSpaceAddCollectionModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGalleryController}>
-        <SpaceSpaceAddGalleryModal />
+        <SpacesSpaceAddGalleryModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addFileIdeaController}>
-        <SpaceSpaceAddFileIdeaModal />
+        <SpacesSpaceAddFileIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addYouTubeUrlIdeaController}>
-        <SpaceSpaceAddYouTubeUrlModal />
+        <SpacesSpaceAddYouTubeUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addWebsiteUrlIdeaController}>
-        <SpaceSpaceAddWebsiteUrlModal />
+        <SpacesSpaceAddWebsiteUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSpotifyUrlIdeaController}>
-        <SpaceSpaceAddSpotifyUrlModal />
+        <SpacesSpaceAddSpotifyUrlModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addStickyIdeaController}>
-        <SpaceSpaceAddStickyIdeaModal />
+        <SpacesSpaceAddStickyIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addArticleIdeaController}>
-        <SpaceSpaceAddArticleIdeaModal />
+        <SpacesSpaceAddArticleIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addResourceController}>
-        <SpaceSpaceAddResourceModal />
+        <SpacesSpaceAddResourceModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSceneController}>
-        <SpaceSpaceAddSceneModal />
+        <SpacesSpaceAddSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addSearchIdeaController}>
-        <SpaceSpaceAddSearchIdeaModal />
+        <SpacesSpaceAddSearchIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={generatePlanController}>
-        <SpaceSpaceGeneratePost />
+        <SpacesSpaceGeneratePost />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateIdeaController}>
-        <SpaceSpaceAddGenerateIdeaModal />
+        <SpacesSpaceAddGenerateIdeaModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={combineIdeasController}>
-        <SpaceSpaceCombineIdeas />
+        <SpacesSpaceCombineIdeas />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={shareViewController}>
-        <SpaceSpaceShareViewModal />
+        <SpacesSpaceShareViewModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editChapterController}>
-        <SpaceSpaceEditChapterModal />
+        <SpacesSpaceEditChapterModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSpaceController}>
-        <SpaceSpaceEditSpaceModal />
+        <SpacesSpaceEditSpaceModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSceneController}>
-        <SpaceSpaceEditSceneModal />
+        <SpacesSpaceEditSceneModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addChapterController}>
-        <SpaceSpaceAddChapterModal />
+        <SpacesSpaceAddChapterModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={migrateSceneController}>
-        <SpaceSpaceMigrateSceneModal />
+        <SpacesSpaceMigrateSceneModal />
       </ContextForOpenable.Provider>
-    </ContextForSpaceSpaceModals.Provider>
+    </ContextForSpacesSpaceModals.Provider>
   );
 }

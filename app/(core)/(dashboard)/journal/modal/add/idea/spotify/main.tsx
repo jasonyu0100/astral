@@ -89,6 +89,7 @@ export function DashboardJournalAddSpotifyUrlModal() {
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
+              className='w-[400px]'
               placeholder='Enter a spotify url'
               title='Url'
               value={spotifyId}

@@ -18,7 +18,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getUrlIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpaceSpaceAddWebsiteUrlModal() {
+export function SpacesSpaceAddWebsiteUrlModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
@@ -78,6 +78,7 @@ export function SpaceSpaceAddWebsiteUrlModal() {
             <>
               <AstralModalStep>1</AstralModalStep>
               <AstralTextLineInput
+                className='w-[400px]'
                 placeholder='Enter a website url'
                 onChange={(e) => changeWebsiteUrl(e.target.value)}
               />

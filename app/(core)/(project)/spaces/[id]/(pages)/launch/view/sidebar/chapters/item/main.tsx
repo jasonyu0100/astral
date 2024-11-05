@@ -100,7 +100,7 @@ export function SpacesLaunchSidebarChaptersChapter() {
                 </p>
                 <AstralBackIndicatorIcon
                   onClick={() => {
-                    window.location.href = `${spacesMap.spaces.id.mission.link(
+                    window.location.href = `${spacesMap.spaces.id.work.link(
                       spaceMainController.state.objId,
                     )}?chapter=${chapterListController.state.objId}`;
                   }}

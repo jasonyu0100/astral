@@ -6,6 +6,8 @@ import {
 } from '@/architecture/model/elements/text/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
@@ -28,7 +30,7 @@ export function DashboardJournalAddTextStickyModal() {
     setJournalId(user.journalId);
   }, [user.journalId]);
 
-  async function addEntryToJournal() {
+  async function createStickyNote() {
     if (journalId === '') {
       throw new Error('User does not have a journal');
     }
@@ -71,24 +73,26 @@ export function DashboardJournalAddTextStickyModal() {
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <div className='flex flex-row items-center space-x-[2rem]'>
-            <AstralModalStep>1</AstralModalStep>
-            <div className='aspect-square h-full bg-yellow-500 p-[2rem]'>
-              <textarea
-                placeholder='Enter text here...'
-                className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
-                onChange={(e) => changeText(e.target.value)}
-              />
+          <AstralModalBodyContents>
+            <div className='flex w-full flex-row items-center justify-center space-x-[1rem]'>
+              <AstralModalStep>1</AstralModalStep>
+              <div className='aspect-square h-full bg-yellow-500 p-[2rem]'>
+                <textarea
+                  placeholder='Enter text here...'
+                  className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
+                  onChange={(e) => changeText(e.target.value)}
+                />
+              </div>
             </div>
-            {text.length > 0 && (
-              <AstralRoundedActionButton
-                className='h-[4rem] w-[4rem]'
-                onClick={addEntryToJournal}
-              >
-                <AstralArrowForwardIcon />
-              </AstralRoundedActionButton>
-            )}
-          </div>
+          </AstralModalBodyContents>
+          <AstralModalBodyAction>
+            <AstralRoundedActionButton
+              className='h-[4rem] w-[4rem]'
+              onClick={createStickyNote}
+            >
+              <AstralArrowForwardIcon />
+            </AstralRoundedActionButton>
+          </AstralModalBodyAction>
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>

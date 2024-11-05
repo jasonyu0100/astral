@@ -1,13 +1,13 @@
-import { SpaceSpaceChat } from '../chat/main';
-import { SpaceSpacePalette } from '../palette/main';
-import { SpaceSpaceSave } from '../save/main';
+import { SpacesSpaceChat } from '../chat/main';
+import { SpacesSpacePalette } from '../palette/main';
+import { SpacesSpaceSave } from '../save/main';
 
-export function SpaceSpaceInterface() {
+export function SpacesSpaceInterface() {
   return (
     <>
-      <SpaceSpacePalette />
-      <SpaceSpaceSave />
-      <SpaceSpaceChat />
+      <SpacesSpacePalette />
+      <SpacesSpaceSave />
+      <SpacesSpaceChat />
     </>
   );
 }

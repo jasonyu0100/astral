@@ -20,7 +20,7 @@ export function AstralSearchImage({
     <ContextForFileChangable.Provider
       value={{ fileElem, updateFileElem: onChange }}
     >
-      <div className='flex flex-col'>
+      <div className='flex min-w-[500px] flex-col'>
         <SearchImageLabel>{label}</SearchImageLabel>
         {fileElem?.id === undefined ? <SearchButton /> : <SearchImagePreview />}
       </div>

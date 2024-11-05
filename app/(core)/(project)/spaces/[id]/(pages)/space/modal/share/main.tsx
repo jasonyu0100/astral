@@ -10,7 +10,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { spacesMap } from '../../../../map';
 
-export function SpaceSpaceShareViewModal() {
+export function SpacesSpaceShareViewModal() {
   const openableController = useContext(ContextForOpenable);
   const spaceMainController = useContext(ContextForSpaceMain);
 

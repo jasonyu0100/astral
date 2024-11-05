@@ -16,7 +16,7 @@ interface SpaceTabProps {
 }
 
 export enum SpaceTabStage {
-  Mission = 'Mission',
+  Work = 'Work',
   Channel = 'Channel',
   Space = 'Space',
   Launch = 'Launch',

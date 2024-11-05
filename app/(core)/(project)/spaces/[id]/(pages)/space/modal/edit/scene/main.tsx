@@ -13,7 +13,7 @@ import { AstralDeleteIcon } from '@/icons/delete/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useEffect, useState } from 'react';
 
-export function SpaceSpaceEditSceneModal() {
+export function SpacesSpaceEditSceneModal() {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const openableController = useContext(ContextForOpenable);
   const [title, setTitle] = useState('');

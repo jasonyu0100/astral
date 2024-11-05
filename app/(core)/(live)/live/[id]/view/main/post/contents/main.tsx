@@ -11,6 +11,7 @@ export function PublicSpacePostContents() {
   const attachmentListController = useContext(
     ContextForPostAttachmentListFromPost,
   );
+
   return (
     <>
       {attachmentListController.state.objs.length > 0 && (
@@ -19,11 +20,19 @@ export function PublicSpacePostContents() {
           roundedFx={roundedFx.rounded}
           borderFx={borderFx['border-around']}
         >
-          <GlassWindowContents className='flex w-full flex-col  space-y-[2rem] p-[2rem]'>
-            <div className='grid w-full grid-cols-4 gap-[1rem]'>
-              {attachmentListController.state.objs.map((attachment) => (
+          <GlassWindowContents className='flex w-full flex-col space-y-[2rem] p-[2rem]'>
+            <div className='flex flex-wrap gap-[2rem]'>
+              {attachmentListController.state.objs.map((attachment, index) => (
                 <ContextForPostAttachmentObj.Provider value={attachment}>
-                  <ElementAttachment />
+                  <div
+                    className='flex w-[300px] flex-shrink-0 flex-col space-y-[1rem]'
+                    key={index}
+                  >
+                    <p className='text-xl font-bold text-slate-500'>
+                      {attachment.title}
+                    </p>
+                    <ElementAttachment />
+                  </div>
                 </ContextForPostAttachmentObj.Provider>
               ))}
             </div>

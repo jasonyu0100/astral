@@ -1,16 +1,16 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { SpaceSpaceBodyCore } from './core/main';
-import { SpaceSpaceNavigation } from './navigation/main';
+import { SpacesSpaceBodyCore } from './core/main';
+import { SpacesSpaceNavigation } from './navigation/main';
 
-export function SpaceSpaceMain() {
+export function SpacesSpaceMain() {
   return (
     <GlassAreaContainer
-      name={SpaceSpaceMain.name}
+      name={SpacesSpaceMain.name}
       sizeFx='h-full flex-grow'
       className={`flex flex-col`}
     >
-      <SpaceSpaceBodyCore />
-      <SpaceSpaceNavigation />
+      <SpacesSpaceBodyCore />
+      <SpacesSpaceNavigation />
     </GlassAreaContainer>
   );
 }

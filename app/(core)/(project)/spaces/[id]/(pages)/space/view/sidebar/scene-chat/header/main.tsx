@@ -5,7 +5,7 @@ import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpaceSpaceChatSceneHeader() {
+export function SpacesSpaceChatSceneHeader() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );

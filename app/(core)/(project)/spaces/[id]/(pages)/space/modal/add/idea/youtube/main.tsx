@@ -18,7 +18,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getUrlIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpaceSpaceAddYouTubeUrlModal() {
+export function SpacesSpaceAddYouTubeUrlModal() {
   const spaceController = useContext(ContextForSpaceMain);
   const user = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
@@ -92,6 +92,7 @@ export function SpaceSpaceAddYouTubeUrlModal() {
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
+              className='w-[400px]'
               placeholder='Enter a YouTube Url'
               onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />

@@ -1,8 +1,8 @@
 'use client';
 import {
-  ContextForSpaceSpace,
-  SpaceSpaceBubbleMode,
-  SpaceSpaceInteractionMode,
+  ContextForSpacesSpace,
+  SpacesSpaceBubbleMode,
+  SpacesSpaceInteractionMode,
 } from '@/(core)/(project)/spaces/[id]/(pages)/space/controller/main';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaObj } from '@/architecture/model/idea/main';
@@ -10,10 +10,14 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import { parseTransformString } from '../../../../../../../utils/main';
-import { SpaceSpaceIdeaIndicator } from './indicator/main';
+import { SpacesSpaceIdeaLabel } from './label/main';
 
-export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+export function SpacesSpaceMovable({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const ideaObj = useContext(ContextForIdeaObj);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -26,7 +30,7 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
   const [initialRotation, setInitialRotation] = useState(ideaObj.rotation);
 
   const selected =
-    spaceSpaceController.actions.checkContainsSelectedIdea(ideaObj);
+    spacesSpaceController.actions.checkContainsSelectedIdea(ideaObj);
 
   function updateViaTransformationObj(transformString: string) {
     const transformationObj = parseTransformString(transformString);
@@ -44,7 +48,7 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
     setInitialY(ideaObj.y);
     setInitialScale(ideaObj.scale);
     setInitialRotation(ideaObj.rotation);
-  }, [spaceSpaceController.state.updateToggle]);
+  }, [spacesSpaceController.state.updateToggle]);
 
   return (
     <div>
@@ -52,7 +56,6 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
         className={`element absolute cursor-move`}
         style={{
           width: `${ideaObj.width}px`,
-          height: `${ideaObj.height}px`,
           top: `${initialY}px`,
           left: `${initialX}px`,
           rotate: `${initialRotation}deg`,
@@ -64,12 +67,12 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
             return;
           } else {
             if (
-              spaceSpaceController.state.interactionMode ===
-              SpaceSpaceInteractionMode.SELECTOR
+              spacesSpaceController.state.interactionMode ===
+              SpacesSpaceInteractionMode.SELECTOR
             ) {
               hoverableController.onHover();
-              spaceSpaceController.actions.updateSelectedIdeas([
-                ...spaceSpaceController.state.selectedIdeas,
+              spacesSpaceController.actions.updateSelectedIdeas([
+                ...spacesSpaceController.state.selectedIdeas,
                 ideaObj,
               ]);
             }
@@ -79,8 +82,8 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
           e.stopPropagation();
           if (hoverableController.hovered) {
             hoverableController.onUnhover();
-            spaceSpaceController.actions.updateSelectedIdeas(
-              spaceSpaceController.state.selectedIdeas.filter(
+            spacesSpaceController.actions.updateSelectedIdeas(
+              spacesSpaceController.state.selectedIdeas.filter(
                 (selectedIdea) => selectedIdea.id !== ideaObj.id,
               ),
             );
@@ -89,8 +92,8 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
             if (selected) {
               return;
             } else {
-              spaceSpaceController.actions.updateSelectedIdeas([
-                ...spaceSpaceController.state.selectedIdeas,
+              spacesSpaceController.actions.updateSelectedIdeas([
+                ...spacesSpaceController.state.selectedIdeas,
                 ideaObj,
               ]);
             }
@@ -100,9 +103,8 @@ export function SpaceSpaceMovable({ children }: { children: React.ReactNode }) {
         <div className='flex h-full w-full flex-col items-center justify-center'>
           {children}
         </div>
-        {spaceSpaceController.state.bubbleMode === SpaceSpaceBubbleMode.ON && (
-          <SpaceSpaceIdeaIndicator />
-        )}
+        {spacesSpaceController.state.bubbleMode ===
+          SpacesSpaceBubbleMode.ON && <SpacesSpaceIdeaLabel />}
       </div>
       <Moveable
         ref={moveableRef}

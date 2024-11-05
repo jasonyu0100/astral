@@ -10,6 +10,7 @@ import { createContext } from 'react';
 
 export interface PostAttachmentObj {
   id: string;
+  title: string;
   userId: string;
   postId: string;
   created: string;
@@ -23,6 +24,7 @@ export interface PostAttachmentObj {
 export const postAttachmentGql = `
 type PostAttachmentObj {
   id: String!
+  title: String!
   postId: String!
   created: String!
   variant: String!
@@ -40,6 +42,7 @@ export const ContextForPostAttachmentObj = createContext<PostAttachmentObj>(
 
 export const examplePostAttachment: PostAttachmentObj = {
   id: '0',
+  title: 'title',
   postId: '0',
   created: new Date().toISOString(),
   userId: '0',
@@ -50,6 +53,7 @@ export const examplePostAttachment: PostAttachmentObj = {
 export const examplePostAttachments: PostAttachmentObj[] = [
   {
     id: '0',
+    title: 'title',
     postId: '0',
     created: new Date().toISOString(),
     userId: '0',
@@ -58,6 +62,7 @@ export const examplePostAttachments: PostAttachmentObj[] = [
   },
   {
     id: '1',
+    title: 'title',
     postId: '0',
     created: new Date().toISOString(),
     userId: '0',
@@ -66,6 +71,7 @@ export const examplePostAttachments: PostAttachmentObj[] = [
   },
   {
     id: '2',
+    title: 'title',
     postId: '0',
     created: new Date().toISOString(),
     userId: '0',

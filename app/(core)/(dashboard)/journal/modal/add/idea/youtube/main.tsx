@@ -87,10 +87,11 @@ export function DashboardJournalAddYouTubeUrlModal() {
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <div className='flex flex-row items-center space-x-[2rem]'>
+          <div className='flex flex-row items-center justify-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
-              placeholder='Enter a youtube url'
+              className='w-[400px]'
+              placeholder='Enter a YouTube url'
               onChange={(e) => changeYoutubeId(extractVideoId(e.target.value))}
             />
             {youtubeId && (

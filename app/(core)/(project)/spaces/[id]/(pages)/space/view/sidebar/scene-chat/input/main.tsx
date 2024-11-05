@@ -4,14 +4,14 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpaceSpaceChat } from '../../../../controller/chat/main';
+import { ContextForSpacesSpaceChat } from '../../../../controller/chat/main';
 
-export function SpaceSpaceChatSceneInput() {
+export function SpacesSpaceChatSceneInput() {
   const messageListController = useContext(ContextForConversationMessageList);
 
   const {
     actions: { sendMessage },
-  } = useContext(ContextForSpaceSpaceChat);
+  } = useContext(ContextForSpacesSpaceChat);
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {

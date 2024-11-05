@@ -1,5 +1,5 @@
-import { ContextForSpaceSpace } from '@/(core)/(project)/spaces/[id]/(pages)/space/controller/main';
-import { ContextForSpaceSpaceModals } from '@/(core)/(project)/spaces/[id]/(pages)/space/modal/controller/main';
+import { ContextForSpacesSpace } from '@/(core)/(project)/spaces/[id]/(pages)/space/controller/main';
+import { ContextForSpacesSpaceModals } from '@/(core)/(project)/spaces/[id]/(pages)/space/modal/controller/main';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { AstralCombineIcon } from '@/icons/combine/main';
 import { AstralContentCopyIcon } from '@/icons/content-copy/main';
@@ -8,10 +8,10 @@ import { AstralForwardIcon } from '@/icons/forward/main';
 import { AstralPolylineIcon } from '@/icons/polyline/main';
 import { useContext } from 'react';
 
-export function SpaceSpacePaletteSelected() {
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+export function SpacesSpacePaletteSelected() {
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const spaceSpaceModalController = useContext(ContextForSpaceSpaceModals);
+  const spacesSpaceModalController = useContext(ContextForSpacesSpaceModals);
 
   return (
     <>
@@ -19,10 +19,10 @@ export function SpaceSpacePaletteSelected() {
         <AstralDeleteIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
-            spaceSpaceController.state.selectedIdeas.forEach((idea) => {
+            spacesSpaceController.state.selectedIdeas.forEach((idea) => {
               ideaListController.actions.deleteActions.delete(idea.id);
             });
-            spaceSpaceController.actions.updateSelectedIdeas([]);
+            spacesSpaceController.actions.updateSelectedIdeas([]);
           }}
         />
       </div>
@@ -30,7 +30,7 @@ export function SpaceSpacePaletteSelected() {
         <AstralContentCopyIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
-            spaceSpaceController.actions.copyIdeas();
+            spacesSpaceController.actions.copyIdeas();
           }}
         />
       </div>
@@ -38,26 +38,26 @@ export function SpaceSpacePaletteSelected() {
         <AstralForwardIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
-            spaceSpaceModalController.migrateSceneController.open();
+            spacesSpaceModalController.migrateSceneController.open();
           }}
         />
       </div>
-      {spaceSpaceController.state.selectedIdeas.length >= 2 && (
+      {spacesSpaceController.state.selectedIdeas.length >= 2 && (
         <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
           <AstralCombineIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
-              spaceSpaceModalController.combineIdeasController.open();
+              spacesSpaceModalController.combineIdeasController.open();
             }}
           />
         </div>
       )}
-      {spaceSpaceController.state.selectedIdeas.length >= 2 && (
+      {spacesSpaceController.state.selectedIdeas.length >= 2 && (
         <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
           <AstralPolylineIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
-              spaceSpaceController.actions.linkIdeas();
+              spacesSpaceController.actions.linkIdeas();
             }}
           />
         </div>

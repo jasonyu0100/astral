@@ -4,10 +4,10 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../../../controller/main';
+import { ContextForSpacesSpace } from '../../../../../../controller/main';
 
-export function SpaceSpaceSave() {
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+export function SpacesSpaceSave() {
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   return (
     <div className='absolute bottom-[2rem] right-[2rem] z-30 flex w-[4rem] flex-col items-center justify-center'>
       <GlassWindowFrame
@@ -17,7 +17,7 @@ export function SpaceSpaceSave() {
       >
         <GlassWindowContents
           className='flex h-full w-full flex-col items-center justify-center bg-blue-600'
-          onClick={() => spaceSpaceController.actions.saveAll()}
+          onClick={() => spacesSpaceController.actions.saveAll()}
         >
           <AstralSaveIcon className='h-[2rem] w-[2rem]' />
         </GlassWindowContents>

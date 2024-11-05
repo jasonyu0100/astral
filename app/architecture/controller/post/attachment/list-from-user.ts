@@ -263,6 +263,7 @@ export const useControllerForPostAttachmentListFromUser = (
         userId: '',
         postId: '',
         variant: '',
+        title: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -281,6 +282,7 @@ export const useControllerForPostAttachmentListFromUser = (
         postId: postId,
         variant: ElementVariant.FILE,
         fileElem: file,
+        title: file.title,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

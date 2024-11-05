@@ -17,7 +17,7 @@ import {
 } from '@/utils/bounds';
 import { useContext } from 'react';
 
-export function SpaceSpaceResourceResource() {
+export function SpacesSpaceResourceResource() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);

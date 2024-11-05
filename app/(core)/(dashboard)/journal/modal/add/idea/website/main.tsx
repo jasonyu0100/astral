@@ -75,6 +75,7 @@ export function DashboardJournalAddWebsiteUrlModal() {
             <>
               <AstralModalStep>1</AstralModalStep>
               <AstralTextLineInput
+                className='w-[400px]'
                 placeholder='Enter a website url'
                 onChange={(e) => changeWebsiteUrl(e.target.value)}
               />

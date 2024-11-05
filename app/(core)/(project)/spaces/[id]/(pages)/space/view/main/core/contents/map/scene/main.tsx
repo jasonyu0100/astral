@@ -3,14 +3,14 @@ import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';
-import { ContextForSpaceSpace } from '../../../../../../controller/main';
-import { SpaceSpaceContentsSceneConnections } from './connections/main';
-import { SpaceSpaceMovableIdea } from './idea/main';
-import { SpaceSpaceMovable } from './moveable/main';
+import { ContextForSpacesSpace } from '../../../../../../controller/main';
+import { SpacesSpaceContentsSceneConnections } from './connections/main';
+import { SpacesSpaceMovableIdea } from './idea/main';
+import { SpacesSpaceMovable } from './moveable/main';
 
-export function SpaceSpaceScene() {
+export function SpacesSpaceScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,8 +18,8 @@ export function SpaceSpaceScene() {
       if (ref.current) {
         const width = ref.current.offsetWidth;
         const height = ref.current.offsetHeight;
-        spaceSpaceController.actions.updateDivWidth(width);
-        spaceSpaceController.actions.updateDivHeight(height);
+        spacesSpaceController.actions.updateDivWidth(width);
+        spacesSpaceController.actions.updateDivHeight(height);
       }
     };
 
@@ -31,24 +31,24 @@ export function SpaceSpaceScene() {
 
     // Cleanup the event listener on component unmount
     return () => window.removeEventListener('resize', updateDimensions);
-  }, [spaceSpaceController.actions]); // Ensure the effect re-runs if actions change
+  }, [spacesSpaceController.actions]); // Ensure the effect re-runs if actions change
 
   return (
     <div className='relative h-full w-full' ref={ref}>
       <div
         className='relative z-10 h-full w-full cursor-pointer'
-        onClick={() => spaceSpaceController.actions.updateSelectedIdeas([])}
+        onClick={() => spacesSpaceController.actions.updateSelectedIdeas([])}
       >
         {ideaListController.state.objs.map((idea, index) => (
           <ContextForIndexable.Provider key={idea.id} value={index}>
             <ContextForIdeaObj.Provider value={idea}>
-              <SpaceSpaceMovable>
-                <SpaceSpaceMovableIdea />
-              </SpaceSpaceMovable>
+              <SpacesSpaceMovable>
+                <SpacesSpaceMovableIdea />
+              </SpacesSpaceMovable>
             </ContextForIdeaObj.Provider>
           </ContextForIndexable.Provider>
         ))}
-        <SpaceSpaceContentsSceneConnections />
+        <SpacesSpaceContentsSceneConnections />
       </div>
     </div>
   );

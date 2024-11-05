@@ -28,7 +28,7 @@ export function SpacesLaunchRowElement() {
 
   return (
     <GlassWindowFrame
-      className={ctwn('z-10 h-[3.5rem] min-w-[250px]', {
+      className={ctwn('z-10 h-[3.5rem] flex-shrink-0', {
         'animate-pulse-slow': active,
       })}
       roundedFx={roundedFx['rounded-full']}

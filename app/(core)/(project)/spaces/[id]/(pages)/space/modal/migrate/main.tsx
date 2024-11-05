@@ -19,12 +19,12 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
 import { spacesMap } from '../../../../map';
-import { ContextForSpaceSpace } from '../../controller/main';
+import { ContextForSpacesSpace } from '../../controller/main';
 
-export function SpaceSpaceMigrateSceneModal() {
+export function SpacesSpaceMigrateSceneModal() {
   const loadingController = useContext(ContextForLoading);
   const spaceController = useContext(ContextForSpaceMain);
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);
   const ideaListController = useControllerForSceneIdeaList(
@@ -52,7 +52,7 @@ export function SpaceSpaceMigrateSceneModal() {
 
     // DUPLICATE
     const migratedIdeas = await Promise.all(
-      spaceSpaceController.state.selectedIdeas.map((selectedIdea) =>
+      spacesSpaceController.state.selectedIdeas.map((selectedIdea) =>
         ideaListController.actions.createActions.duplicateWithScene(
           selectedIdea,
           sceneId,
@@ -75,7 +75,7 @@ export function SpaceSpaceMigrateSceneModal() {
 
     // DELETE
     await Promise.all(
-      spaceSpaceController.state.selectedIdeas.map((selectedIdea) =>
+      spacesSpaceController.state.selectedIdeas.map((selectedIdea) =>
         ideaListController.actions.deleteActions.delete(selectedIdea.id),
       ),
     );
@@ -102,7 +102,7 @@ export function SpaceSpaceMigrateSceneModal() {
                 ))}
               </AstralSelectInput>
               <div className='grid w-full grid-cols-3 gap-[1rem]'>
-                {spaceSpaceController.state.selectedIdeas.map(
+                {spacesSpaceController.state.selectedIdeas.map(
                   (selectedIdea) => (
                     <ContextForIdeaObj.Provider value={selectedIdea}>
                       <ElementIdea />

@@ -5,12 +5,12 @@ import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpaceSpace,
-  SpaceSpaceSidebarContentMode,
+  ContextForSpacesSpace,
+  SpacesSpaceSidebarContentMode,
 } from '../../../controller/main';
 
-export function SpaceSpaceSidebarHeader() {
-  const spacesMapController = useContext(ContextForSpaceSpace);
+export function SpacesSpaceSidebarHeader() {
+  const spacesMapController = useContext(ContextForSpacesSpace);
 
   return (
     <div className='grid h-[4rem] w-full flex-shrink-0 grid-cols-2 p-[1rem] py-[0.5rem] shadow-glow'>
@@ -23,7 +23,7 @@ export function SpaceSpaceSidebarHeader() {
             className='flex cursor-pointer items-center justify-center'
             onClick={() =>
               spacesMapController.actions.updateSidebarContentMode(
-                SpaceSpaceSidebarContentMode.CHAPTERS,
+                SpacesSpaceSidebarContentMode.CHAPTERS,
               )
             }
           >
@@ -31,14 +31,14 @@ export function SpaceSpaceSidebarHeader() {
               className={ctwn('font-bold text-slate-500', {
                 'text-slate-300':
                   spacesMapController.state.sidebarContentMode ===
-                  SpaceSpaceSidebarContentMode.CHAPTERS,
+                  SpacesSpaceSidebarContentMode.CHAPTERS,
               })}
             >
               Chapters
             </p>
           </GlassWindowContents>
           {spacesMapController.state.sidebarContentMode ===
-            SpaceSpaceSidebarContentMode.CHAPTERS && (
+            SpacesSpaceSidebarContentMode.CHAPTERS && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>
@@ -52,7 +52,7 @@ export function SpaceSpaceSidebarHeader() {
             className='flex cursor-pointer items-center justify-center'
             onClick={() =>
               spacesMapController.actions.updateSidebarContentMode(
-                SpaceSpaceSidebarContentMode.JOURNAL,
+                SpacesSpaceSidebarContentMode.JOURNAL,
               )
             }
           >
@@ -60,14 +60,14 @@ export function SpaceSpaceSidebarHeader() {
               className={ctwn('font-bold text-slate-500', {
                 'text-slate-300':
                   spacesMapController.state.sidebarContentMode ===
-                  SpaceSpaceSidebarContentMode.JOURNAL,
+                  SpacesSpaceSidebarContentMode.JOURNAL,
               })}
             >
               Journal
             </p>
           </GlassWindowContents>
           {spacesMapController.state.sidebarContentMode ===
-            SpaceSpaceSidebarContentMode.JOURNAL && (
+            SpacesSpaceSidebarContentMode.JOURNAL && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>

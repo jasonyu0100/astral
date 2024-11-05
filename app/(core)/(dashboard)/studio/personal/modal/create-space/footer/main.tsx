@@ -45,7 +45,7 @@ export function CreateSpaceModalFooter() {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
                   openableController.close();
-                  window.location.href = spacesMap.spaces.id.mission.link(
+                  window.location.href = spacesMap.spaces.id.work.link(
                     spaceObj.id,
                   );
                   loadingController.loadingController.close();

@@ -21,7 +21,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpaceSpaceAddGenerateIdeaModal() {
+export function SpacesSpaceAddGenerateIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const {
     actions: { getImageResponse },
@@ -78,6 +78,7 @@ export function SpaceSpaceAddGenerateIdeaModal() {
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
+              className='w-[400px]'
               placeholder='Enter an image prompt'
               title='Prompt'
               value={prompt}

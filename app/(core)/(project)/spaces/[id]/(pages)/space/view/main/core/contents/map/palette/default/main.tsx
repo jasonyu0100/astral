@@ -1,4 +1,4 @@
-import { ContextForSpaceSpaceModals } from '@/(core)/(project)/spaces/[id]/(pages)/space/modal/controller/main';
+import { ContextForSpacesSpaceModals } from '@/(core)/(project)/spaces/[id]/(pages)/space/modal/controller/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralArrowLeft } from '@/icons/arrow-left/main';
@@ -13,8 +13,8 @@ import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { AstralVoiceIcon } from '@/icons/voice/main';
 import { useContext, useState } from 'react';
 
-export function SpaceSpacePaletteDefault() {
-  const modalController = useContext(ContextForSpaceSpaceModals);
+export function SpacesSpacePaletteDefault() {
+  const modalController = useContext(ContextForSpacesSpaceModals);
   const [showMore, setShowMore] = useState(false);
 
   return (

@@ -9,8 +9,8 @@ export function PublicSpacePost() {
       className='flex w-full flex-col space-y-[2rem] py-[2rem]'
       style={{ height: '100%' }}
     >
-      <PublicSpacePostContents />
       <PublicSpacePostDescription />
+      <PublicSpacePostContents />
       <HorizontalDivider />
       <PublicSpacePostComments />
     </div>

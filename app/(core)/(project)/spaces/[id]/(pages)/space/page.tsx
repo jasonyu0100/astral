@@ -85,15 +85,15 @@ import { SpacesSidebar } from '../../../sidebar/main';
 import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
-  ContextForSpaceSpaceChat,
-  useControllerForSpaceSpaceChat,
+  ContextForSpacesSpaceChat,
+  useControllerForSpacesSpaceChat,
 } from './controller/chat/main';
 import {
-  ContextForSpaceSpace,
-  useControllerForSpaceSpace,
+  ContextForSpacesSpace,
+  useControllerForSpacesSpace,
 } from './controller/main';
-import { SpaceSpaceModals } from './modal/controller/main';
-import { SpaceSpaceView } from './view/main';
+import { SpacesSpaceModals } from './modal/controller/main';
+import { SpacesSpaceView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -190,7 +190,7 @@ function Page({ params }: { params: { id: string } }) {
                                             <EffectWrapper>
                                               <ModalWrapper>
                                                 <ViewWrapper>
-                                                  <SpaceSpaceView />
+                                                  <SpacesSpaceView />
                                                 </ViewWrapper>
                                               </ModalWrapper>
                                             </EffectWrapper>
@@ -285,7 +285,7 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
 function ModalWrapper({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SpaceSpaceModals>{children}</SpaceSpaceModals>
+      <SpacesSpaceModals>{children}</SpacesSpaceModals>
     </>
   );
 }
@@ -393,15 +393,15 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
 }
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
-  const sceneController = useControllerForSpaceSpace();
-  const sceneChatController = useControllerForSpaceSpaceChat();
+  const sceneController = useControllerForSpacesSpace();
+  const sceneChatController = useControllerForSpacesSpaceChat();
 
   return (
-    <ContextForSpaceSpace.Provider value={sceneController}>
-      <ContextForSpaceSpaceChat.Provider value={sceneChatController}>
+    <ContextForSpacesSpace.Provider value={sceneController}>
+      <ContextForSpacesSpaceChat.Provider value={sceneChatController}>
         {children}
-      </ContextForSpaceSpaceChat.Provider>
-    </ContextForSpaceSpace.Provider>
+      </ContextForSpacesSpaceChat.Provider>
+    </ContextForSpacesSpace.Provider>
   );
 }
 

@@ -1,11 +1,11 @@
-import { SpaceSpaceGalleryCollectionsResults } from './results/main';
-import { SpaceSpaceGalleryCollectionsSearch } from './search/main';
+import { SpacesSpaceGalleryCollectionsResults } from './results/main';
+import { SpacesSpaceGalleryCollectionsSearch } from './search/main';
 
-export function SpaceSpaceGalleryCollectionsMode() {
+export function SpacesSpaceGalleryCollectionsMode() {
   return (
     <div className='flex h-full w-full flex-col'>
-      <SpaceSpaceGalleryCollectionsResults />
-      <SpaceSpaceGalleryCollectionsSearch />
+      <SpacesSpaceGalleryCollectionsResults />
+      <SpacesSpaceGalleryCollectionsSearch />
     </div>
   );
 }

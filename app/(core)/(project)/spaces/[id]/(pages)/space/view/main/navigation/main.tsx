@@ -1,10 +1,10 @@
 import { NavigationTimelineContainer } from './container/main';
-import { SpaceSpaceNavigationRow } from './row/main';
+import { SpacesSpaceNavigationRow } from './row/main';
 
-export function SpaceSpaceNavigation() {
+export function SpacesSpaceNavigation() {
   return (
     <NavigationTimelineContainer>
-      <SpaceSpaceNavigationRow />
+      <SpacesSpaceNavigationRow />
     </NavigationTimelineContainer>
   );
 }

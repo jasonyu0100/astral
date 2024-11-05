@@ -3,7 +3,7 @@ import { ContextForUserMain } from '@/architecture/controller/user/main';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import { useContext } from 'react';
-import { PublicSpaceSpacePostKarma } from './karma/main';
+import { PublicSpacesSpacePostKarma } from './karma/main';
 
 export function PublicSpacePostDescription() {
   const userMainController = useContext(ContextForUserMain);
@@ -51,7 +51,7 @@ export function PublicSpacePostDescription() {
             {postListController.state.currentObj?.description}
           </p>
         </div>
-        <PublicSpaceSpacePostKarma />
+        <PublicSpacesSpacePostKarma />
       </div>
     </>
   );

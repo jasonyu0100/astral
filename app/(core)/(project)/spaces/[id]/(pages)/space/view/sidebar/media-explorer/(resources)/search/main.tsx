@@ -5,7 +5,7 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
-export function SpaceSpaceResourcesSearch() {
+export function SpacesSpaceResourcesSearch() {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (

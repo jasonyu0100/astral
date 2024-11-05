@@ -5,13 +5,13 @@ import { glassFx, roundedFx } from '@/style/data';
 
 interface NavigationTimelineInputProps extends ButtonInputProps {}
 
-export default function SpaceSpaceRowAdd({
+export default function SpacesSpaceRowAdd({
   ...props
 }: NavigationTimelineInputProps) {
   return (
     <button {...props}>
       <GlassAreaContainer
-        name={SpaceSpaceRowAdd.name}
+        name={SpacesSpaceRowAdd.name}
         sizeFx='min-w-[250px] h-[3.5rem]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}

@@ -15,7 +15,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpaceSpaceAddFileIdeaModal() {
+export function SpacesSpaceAddFileIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);

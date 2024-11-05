@@ -2,15 +2,15 @@ import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpaceSpace,
-  SpaceSpaceSidebarContentMode,
+  ContextForSpacesSpace,
+  SpacesSpaceSidebarContentMode,
 } from '../../../../../../controller/main';
 
-export function SpaceSpaceChat() {
+export function SpacesSpaceChat() {
   const {
     state: { sidebarContentMode },
     actions: { updateSidebarContentMode },
-  } = useContext(ContextForSpaceSpace);
+  } = useContext(ContextForSpacesSpace);
 
   return (
     <div
@@ -18,7 +18,7 @@ export function SpaceSpaceChat() {
         'absolute bottom-[2rem] left-[2rem] z-30 flex h-[4rem] w-[4rem] flex-col items-center justify-center rounded-full bg-emerald-500',
         {
           'bg-slate-500':
-            sidebarContentMode !== SpaceSpaceSidebarContentMode.CHAT_SCENE,
+            sidebarContentMode !== SpacesSpaceSidebarContentMode.CHAT_SCENE,
         },
       )}
     >
@@ -27,14 +27,14 @@ export function SpaceSpaceChat() {
           'h-[2rem] w-[2rem] animate-pulse-slow cursor-pointer fill-slate-400',
           {
             'fill-slate-300':
-              sidebarContentMode === SpaceSpaceSidebarContentMode.CHAT_SCENE,
+              sidebarContentMode === SpacesSpaceSidebarContentMode.CHAT_SCENE,
           },
         )}
         onClick={() => {
-          if (sidebarContentMode === SpaceSpaceSidebarContentMode.CHAT_SCENE) {
-            updateSidebarContentMode(SpaceSpaceSidebarContentMode.CHAPTERS);
+          if (sidebarContentMode === SpacesSpaceSidebarContentMode.CHAT_SCENE) {
+            updateSidebarContentMode(SpacesSpaceSidebarContentMode.CHAPTERS);
           } else {
-            updateSidebarContentMode(SpaceSpaceSidebarContentMode.CHAT_SCENE);
+            updateSidebarContentMode(SpacesSpaceSidebarContentMode.CHAT_SCENE);
           }
         }}
       />

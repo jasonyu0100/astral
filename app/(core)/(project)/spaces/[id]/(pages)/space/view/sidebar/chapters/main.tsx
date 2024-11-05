@@ -4,10 +4,10 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
-import { SpaceSpaceSidebarChaptersAdd } from './add/main';
-import { SpaceSpaceSidebarChaptersChapter } from './item/main';
+import { SpacesSpaceSidebarChaptersAdd } from './add/main';
+import { SpacesSpaceSidebarChaptersChapter } from './item/main';
 
-export function SpaceSpaceSidebarChapters() {
+export function SpacesSpaceSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
@@ -19,11 +19,11 @@ export function SpaceSpaceSidebarChapters() {
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
           {chapterListController.state.objs.map((chapter) => (
             <ContextForSpaceChapterObj.Provider value={chapter}>
-              <SpaceSpaceSidebarChaptersChapter />
+              <SpacesSpaceSidebarChaptersChapter />
             </ContextForSpaceChapterObj.Provider>
           ))}
           <HorizontalDivider />
-          <SpaceSpaceSidebarChaptersAdd />
+          <SpacesSpaceSidebarChaptersAdd />
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

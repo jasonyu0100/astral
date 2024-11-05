@@ -2,7 +2,7 @@ import { ContextForConversationMessageObj } from '@/architecture/model/conversat
 import { getFormmatedTimeDifference } from '@/utils/dateFormat';
 import { useContext } from 'react';
 
-export function SpaceSpaceAgentMessage() {
+export function SpacesSpaceAgentMessage() {
   const messageObj = useContext(ContextForConversationMessageObj);
 
   return (

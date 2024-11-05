@@ -1,10 +1,10 @@
 import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
 import { ContextForGalleryObj } from '@/architecture/model/gallery/main';
 import { useContext } from 'react';
-import { SpaceSpaceGalleryAdd } from './add/main';
-import { SpaceSpaceGalleryItem } from './item/main';
+import { SpacesSpaceGalleryAdd } from './add/main';
+import { SpacesSpaceGalleryItem } from './item/main';
 
-export function SpaceSpaceGallerysResults() {
+export function SpacesSpaceGallerysResults() {
   const galleryListController = useContext(ContextForGalleryList);
 
   return (
@@ -14,10 +14,10 @@ export function SpaceSpaceGallerysResults() {
     >
       {galleryListController.state.more.queryResults.map((gallery) => (
         <ContextForGalleryObj.Provider value={gallery}>
-          <SpaceSpaceGalleryItem />
+          <SpacesSpaceGalleryItem />
         </ContextForGalleryObj.Provider>
       ))}
-      <SpaceSpaceGalleryAdd />
+      <SpacesSpaceGalleryAdd />
     </div>
   );
 }

@@ -1,11 +1,11 @@
-import { SpaceSpaceGallerysResults } from './results/main';
-import { SpaceSpaceGallerysSearch } from './search/main';
+import { SpacesSpaceGallerysResults } from './results/main';
+import { SpacesSpaceGallerysSearch } from './search/main';
 
-export function SpaceSpaceSidebarHomeGallerysMode() {
+export function SpacesSpaceSidebarHomeGallerysMode() {
   return (
     <div className='flex h-full w-full flex-col'>
-      <SpaceSpaceGallerysResults />
-      <SpaceSpaceGallerysSearch />
+      <SpacesSpaceGallerysResults />
+      <SpacesSpaceGallerysSearch />
     </div>
   );
 }

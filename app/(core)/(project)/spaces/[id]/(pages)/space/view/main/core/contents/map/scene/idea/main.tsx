@@ -1,6 +1,6 @@
 import { ElementIdea } from '@/components/element/idea/main';
-import { SpaceSpaceTextIdea } from './override/text/main';
+import { SpacesSpaceTextIdea } from './override/text/main';
 
-export function SpaceSpaceMovableIdea() {
-  return <ElementIdea textOveride={<SpaceSpaceTextIdea />} />;
+export function SpacesSpaceMovableIdea() {
+  return <ElementIdea textOveride={<SpacesSpaceTextIdea />} />;
 }

@@ -12,17 +12,17 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpaceSpace,
-  SpaceSpaceBubbleMode,
-  SpaceSpaceInteractionMode,
-  SpaceSpaceLinkMode,
-  SpaceSpaceSidebarContentMode,
-  SpaceSpaceSidebarVisibility,
+  ContextForSpacesSpace,
+  SpacesSpaceBubbleMode,
+  SpacesSpaceInteractionMode,
+  SpacesSpaceLinkMode,
+  SpacesSpaceSidebarContentMode,
+  SpacesSpaceSidebarVisibility,
 } from '../../../../../controller/main';
 
-export function SpaceSpaceHeaderLeft() {
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
-  // const spaceSpaceModalsController = useContext(ContextForSpaceSpaceModals);
+export function SpacesSpaceHeaderLeft() {
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
+  // const spacesSpaceModalsController = useContext(ContextForSpacesSpaceModals);
   const user = useGlobalUser((state) => state.user);
   const galleryController = useContext(ContextForGalleryList);
   const ideaListController = useContext(ContextForSceneIdeaList);
@@ -32,71 +32,75 @@ export function SpaceSpaceHeaderLeft() {
       <AstralSidebarLeftIcon
         className={ctwn({
           'rotate-180 transform':
-            spaceSpaceController.state.sidebarVisibility ===
-            SpaceSpaceSidebarVisibility.CLOSED,
+            spacesSpaceController.state.sidebarVisibility ===
+            SpacesSpaceSidebarVisibility.CLOSED,
         })}
         onClick={() => {
-          spaceSpaceController.actions.updateSidebarVisibility(
-            spaceSpaceController.state.sidebarVisibility ===
-              SpaceSpaceSidebarVisibility.CLOSED
-              ? SpaceSpaceSidebarVisibility.OPEN
-              : SpaceSpaceSidebarVisibility.CLOSED,
+          spacesSpaceController.actions.updateSidebarVisibility(
+            spacesSpaceController.state.sidebarVisibility ===
+              SpacesSpaceSidebarVisibility.CLOSED
+              ? SpacesSpaceSidebarVisibility.OPEN
+              : SpacesSpaceSidebarVisibility.CLOSED,
           );
         }}
       />
       <BarDividerIndicator />
       <AstralCursorIcon
         className={
-          spaceSpaceController.state.interactionMode ===
-          SpaceSpaceInteractionMode.CURSOR
+          spacesSpaceController.state.interactionMode ===
+          SpacesSpaceInteractionMode.CURSOR
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
           if (
-            spaceSpaceController.state.interactionMode ===
-            SpaceSpaceInteractionMode.CURSOR
+            spacesSpaceController.state.interactionMode ===
+            SpacesSpaceInteractionMode.CURSOR
           ) {
-            spaceSpaceController.actions.updateInteractionMode(
-              SpaceSpaceInteractionMode.SELECTOR,
+            spacesSpaceController.actions.updateInteractionMode(
+              SpacesSpaceInteractionMode.SELECTOR,
             );
           } else {
-            spaceSpaceController.actions.updateInteractionMode(
-              SpaceSpaceInteractionMode.CURSOR,
+            spacesSpaceController.actions.updateInteractionMode(
+              SpacesSpaceInteractionMode.CURSOR,
             );
           }
         }}
       />
       <AstralSyncAltIcon
         className={
-          spaceSpaceController.state.linkMode === SpaceSpaceLinkMode.ON
+          spacesSpaceController.state.linkMode === SpacesSpaceLinkMode.ON
             ? 'fill-slate-300'
             : 'fill-blue-500'
         }
         onClick={() => {
-          if (spaceSpaceController.state.linkMode === SpaceSpaceLinkMode.ON) {
-            spaceSpaceController.actions.updateLinkMode(SpaceSpaceLinkMode.OFF);
+          if (spacesSpaceController.state.linkMode === SpacesSpaceLinkMode.ON) {
+            spacesSpaceController.actions.updateLinkMode(
+              SpacesSpaceLinkMode.OFF,
+            );
           } else {
-            spaceSpaceController.actions.updateLinkMode(SpaceSpaceLinkMode.ON);
+            spacesSpaceController.actions.updateLinkMode(
+              SpacesSpaceLinkMode.ON,
+            );
           }
         }}
       />
       <AstralBubbleIcon
         className={
-          spaceSpaceController.state.bubbleMode === SpaceSpaceBubbleMode.OFF
+          spacesSpaceController.state.bubbleMode === SpacesSpaceBubbleMode.OFF
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
         onClick={() => {
           if (
-            spaceSpaceController.state.bubbleMode === SpaceSpaceBubbleMode.OFF
+            spacesSpaceController.state.bubbleMode === SpacesSpaceBubbleMode.OFF
           ) {
-            spaceSpaceController.actions.updateBubbleMode(
-              SpaceSpaceBubbleMode.ON,
+            spacesSpaceController.actions.updateBubbleMode(
+              SpacesSpaceBubbleMode.ON,
             );
           } else {
-            spaceSpaceController.actions.updateBubbleMode(
-              SpaceSpaceBubbleMode.OFF,
+            spacesSpaceController.actions.updateBubbleMode(
+              SpacesSpaceBubbleMode.OFF,
             );
           }
         }}
@@ -104,41 +108,41 @@ export function SpaceSpaceHeaderLeft() {
       <BarDividerIndicator />
       <AstralFolderIcon
         onClick={() => {
-          spaceSpaceController.actions.goToGalleryThenCollection(
+          spacesSpaceController.actions.goToGalleryThenCollection(
             galleryController.actions.stateActions.find(user.journalId),
           );
-          spaceSpaceController.actions.updateSidebarContentMode(
-            SpaceSpaceSidebarContentMode.JOURNAL,
+          spacesSpaceController.actions.updateSidebarContentMode(
+            SpacesSpaceSidebarContentMode.JOURNAL,
           );
         }}
       />
       <AstralCategoryIcon
         onClick={() => {
-          spaceSpaceController.actions.sortIdeas();
+          spacesSpaceController.actions.sortIdeas();
         }}
       />
       <AstralFullscreenIcon
         onClick={() => {
           if (
-            spaceSpaceController.state.selectedIdeas.length ===
+            spacesSpaceController.state.selectedIdeas.length ===
             ideaListController.state.objs.length
           ) {
-            spaceSpaceController.actions.deselectAll();
+            spacesSpaceController.actions.deselectAll();
           } else {
-            spaceSpaceController.actions.selectAll();
+            spacesSpaceController.actions.selectAll();
           }
         }}
         className={
-          spaceSpaceController.state.selectedIdeas.length >=
+          spacesSpaceController.state.selectedIdeas.length >=
             ideaListController.state.objs.length &&
-          spaceSpaceController.state.selectedIdeas.length > 0
+          spacesSpaceController.state.selectedIdeas.length > 0
             ? 'fill-blue-500'
             : 'fill-slate-300'
         }
       />
       {/* <AstralCameraIcon
         onClick={() => {
-          spaceSpaceController.actions.takeScreenshot();
+          spacesSpaceController.actions.takeScreenshot();
         }}
       /> */}
     </div>

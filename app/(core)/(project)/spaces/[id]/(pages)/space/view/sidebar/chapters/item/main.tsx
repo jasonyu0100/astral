@@ -17,11 +17,11 @@ import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
-import { ContextForSpaceSpaceModals } from '../../../../modal/controller/main';
+import { ContextForSpacesSpaceModals } from '../../../../modal/controller/main';
 
-export function SpaceSpaceSidebarChaptersChapter() {
+export function SpacesSpaceSidebarChaptersChapter() {
   const spaceMainController = useContext(ContextForSpaceMain);
-  const spaceSpaceModalsController = useContext(ContextForSpaceSpaceModals);
+  const spacesSpaceModalsController = useContext(ContextForSpacesSpaceModals);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapterObj = useContext(ContextForSpaceChapterObj);
   const selected = chapterListController.state.objId === chapterObj.id;
@@ -61,7 +61,7 @@ export function SpaceSpaceSidebarChaptersChapter() {
               </div>
               <AstralMoreVertIcon
                 onClick={() =>
-                  spaceSpaceModalsController.editChapterController.open()
+                  spacesSpaceModalsController.editChapterController.open()
                 }
               />
             </div>
@@ -93,7 +93,7 @@ export function SpaceSpaceSidebarChaptersChapter() {
                 </p>
                 <AstralBackIndicatorIcon
                   onClick={() => {
-                    window.location.href = `${spacesMap.spaces.id.mission.link(
+                    window.location.href = `${spacesMap.spaces.id.work.link(
                       spaceMainController.state.objId,
                     )}?chapter=${chapterListController.state.objId}`;
                   }}

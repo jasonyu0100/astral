@@ -1,10 +1,10 @@
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
 import { useContext } from 'react';
-import { ContextForSpaceSpaceModals } from '../../../../../modal/controller/main';
+import { ContextForSpacesSpaceModals } from '../../../../../modal/controller/main';
 
-export function SpaceSpaceHeaderMiddle() {
-  const spacesMissionModalController = useContext(ContextForSpaceSpaceModals);
+export function SpacesSpaceHeaderMiddle() {
+  const spacesWorkModalController = useContext(ContextForSpacesSpaceModals);
   const spaceMainController = useContext(ContextForSpaceMain);
 
   return (
@@ -12,7 +12,7 @@ export function SpaceSpaceHeaderMiddle() {
       <div
         className='flex cursor-pointer flex-row space-x-[1rem]'
         onClick={() => {
-          spacesMissionModalController.editSpaceController.open();
+          spacesWorkModalController.editSpaceController.open();
         }}
       >
         <p className='text-center text-lg font-bold text-slate-300'>

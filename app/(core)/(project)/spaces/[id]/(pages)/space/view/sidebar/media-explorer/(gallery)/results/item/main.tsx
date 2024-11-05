@@ -7,14 +7,14 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../../../controller/main';
+import { ContextForSpacesSpace } from '../../../../../../controller/main';
 
-export function SpaceSpaceCollectionItem() {
+export function SpacesSpaceCollectionItem() {
   const collection = useContext(ContextForGalleryCollectionObj);
   const resourceListController = useControllerForCollectionResourceList(
     collection.id,
   );
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
 
   return (
     <GlassWindowFrame
@@ -23,7 +23,7 @@ export function SpaceSpaceCollectionItem() {
       borderFx={borderFx['border-b']}
     >
       <GlassWindowContents
-        onClick={() => spaceSpaceController.actions.goToCollection(collection)}
+        onClick={() => spacesSpaceController.actions.goToCollection(collection)}
         className='flex h-full w-full flex-col'
       >
         <p className='w-full px-[1rem] py-[0.5rem] text-center text-sm font-bold text-slate-300'>

@@ -27,7 +27,9 @@ export function SearchButton() {
       >
         <GlassWindowContents
           className='cursor-pointer p-[1rem]'
-          onClick={openableController.open}
+          onClick={() => {
+            openableController.open();
+          }}
         >
           <div className='flex h-full w-full flex-row items-center space-x-[2rem]'>
             <AstralSearchIcon className='h-[2rem] w-[2rem]' />

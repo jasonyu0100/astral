@@ -6,7 +6,7 @@ import { AstralArrowDropUp } from '@/icons/arrow-drop-up/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function PublicSpaceSpacePostKarma() {
+export function PublicSpacesSpacePostKarma() {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const postListController = useContext(ContextForUserPostListFromChapter);
   const postKarmaListController = useContext(ContextForPostKarmaList);

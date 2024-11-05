@@ -9,7 +9,7 @@ AWS.config.update({
 
 // Create a DynamoDB Document Client and define the table name
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const tableName = 'UserPostObjTable';
+const tableName = 'PostAttachmentObjTable';
 
 // Function to update a single item by ID
 const updateItem = async (itemId, key, value) => {
@@ -117,7 +117,7 @@ const updateAllItems = async () => {
       // console.log(jsonItem);
 
       // FIELD UPDATE
-      await updateItem(itemId, 'spaceId', '0');
+      await updateItem(itemId, 'title', '0');
 
       // FIELD DELETE
       // await deleteItemField(itemId, 'type');

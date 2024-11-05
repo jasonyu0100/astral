@@ -5,11 +5,11 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../../../controller/main';
+import { ContextForSpacesSpace } from '../../../../../../controller/main';
 
-export function SpaceSpaceGalleryItem() {
+export function SpacesSpaceGalleryItem() {
   const gallery = useContext(ContextForGalleryObj);
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const hoverableController = useControllerForHoverable();
 
   return (
@@ -24,7 +24,7 @@ export function SpaceSpaceGalleryItem() {
         borderFx={borderFx['border-b']}
       >
         <GlassWindowContents
-          onClick={() => spaceSpaceController.actions.goToGallery(gallery)}
+          onClick={() => spacesSpaceController.actions.goToGallery(gallery)}
           className='relative h-full w-full cursor-pointer'
         >
           <div className='absolute flex h-full w-full flex-col p-[1rem]'>

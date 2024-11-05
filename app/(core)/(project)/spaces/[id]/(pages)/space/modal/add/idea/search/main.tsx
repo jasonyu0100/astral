@@ -9,16 +9,15 @@ import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralSearchImage } from '@/components/form/search-image/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
-import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
-import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralModalStep } from '@/components/step/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
 
-export function SpaceSpaceAddSearchIdeaModal() {
+export function SpacesSpaceAddSearchIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
@@ -37,7 +36,7 @@ export function SpaceSpaceAddSearchIdeaModal() {
       await ideaListController.actions.createActions.createIdeaFromFileElement(
         user.id,
         sceneListController.state.objId,
-        'Image',
+        file.title,
         description,
         Math.ceil(Math.random() * 200),
         Math.ceil(Math.random() * 200),
@@ -60,22 +59,22 @@ export function SpaceSpaceAddSearchIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <AstralModalBody>
-            <AstralModalBodyContents>
-              <AstralModalTitle>Search Image</AstralModalTitle>
+          <AstralModalBodyContents>
+            <div className='flex w-full flex-row items-center justify-center space-x-[1rem]'>
+              <AstralModalStep>1</AstralModalStep>
               <AstralSearchImage
                 fileElem={file}
                 onChange={(file) => changeFile(file)}
               />
-            </AstralModalBodyContents>
-            {file.id && (
-              <AstralModalBodyAction>
-                <AstralRoundedActionButton onClick={createFileIdea}>
-                  <AstralCheckIcon />
-                </AstralRoundedActionButton>
-              </AstralModalBodyAction>
-            )}
-          </AstralModalBody>
+            </div>
+          </AstralModalBodyContents>
+          {file.id && (
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton onClick={createFileIdea}>
+                <AstralCheckIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          )}
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>

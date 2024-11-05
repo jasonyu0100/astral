@@ -1,14 +1,14 @@
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../controller/main';
-import { SpaceSpaceInterface } from './map/interface/main';
-import { SpaceSpaceSceneEmpty } from './map/scene/empty/main';
-import { SpaceSpaceScene } from './map/scene/main';
+import { ContextForSpacesSpace } from '../../../../controller/main';
+import { SpacesSpaceInterface } from './map/interface/main';
+import { SpacesSpaceSceneEmpty } from './map/scene/empty/main';
+import { SpacesSpaceScene } from './map/scene/main';
 
-export function SpaceSpaceContents() {
+export function SpacesSpaceContents() {
   const {
     state: { screenshotRef, hideUI },
-  } = useContext(ContextForSpaceSpace);
+  } = useContext(ContextForSpacesSpace);
   const sceneListController = useContext(ContextForIdeaSceneList);
 
   return (
@@ -20,12 +20,12 @@ export function SpaceSpaceContents() {
       <>
         {sceneListController.state.objs.length > 0 ? (
           <>
-            <SpaceSpaceScene />
-            {!hideUI && <SpaceSpaceInterface />}
+            <SpacesSpaceScene />
+            {!hideUI && <SpacesSpaceInterface />}
           </>
         ) : (
           <>
-            <SpaceSpaceSceneEmpty />
+            <SpacesSpaceSceneEmpty />
           </>
         )}
       </>

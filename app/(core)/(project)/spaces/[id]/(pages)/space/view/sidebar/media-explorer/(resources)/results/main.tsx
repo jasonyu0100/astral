@@ -2,11 +2,11 @@ import { ContextForCollectionResourceList } from '@/architecture/controller/gall
 import { ContextForCollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
-import { SpaceSpaceResourcesBack } from '../back/main';
-import { SpaceSpaceAddResource } from './add/main';
-import { SpaceSpaceResourceResource } from './resource/main';
+import { SpacesSpaceResourcesBack } from '../back/main';
+import { SpacesSpaceAddResource } from './add/main';
+import { SpacesSpaceResourceResource } from './resource/main';
 
-export function SpaceSpaceResourcesResults() {
+export function SpacesSpaceResourcesResults() {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
@@ -14,14 +14,14 @@ export function SpaceSpaceResourcesResults() {
       className='flex h-full w-full flex-col items-center space-y-[1rem] overflow-auto p-[1rem]'
       style={{ height: '100%' }}
     >
-      <SpaceSpaceResourcesBack />
+      <SpacesSpaceResourcesBack />
       {resourceListController.state.more.queryResults.map((resource) => (
         <ContextForCollectionResourceObj.Provider value={resource}>
-          <SpaceSpaceResourceResource />
+          <SpacesSpaceResourceResource />
         </ContextForCollectionResourceObj.Provider>
       ))}
       <HorizontalDivider />
-      <SpaceSpaceAddResource />
+      <SpacesSpaceAddResource />
     </div>
   );
 }

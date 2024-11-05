@@ -6,7 +6,7 @@ import {
 import { ContextForIdeaObj } from '@/architecture/model/idea/main';
 import { useContext, useRef, useState } from 'react';
 
-export function SpaceSpaceTextIdea() {
+export function SpacesSpaceTextIdea() {
   const ideaObj = useContext(ContextForIdeaObj);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const divRef = useRef<HTMLDivElement>(null);

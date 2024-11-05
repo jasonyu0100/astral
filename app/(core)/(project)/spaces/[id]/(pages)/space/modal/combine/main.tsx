@@ -23,14 +23,14 @@ import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
-import { ContextForSpaceSpace } from '../../controller/main';
+import { ContextForSpacesSpace } from '../../controller/main';
 
-export function SpaceSpaceCombineIdeas() {
+export function SpacesSpaceCombineIdeas() {
   const user = useGlobalUser((state) => state.user);
   const {
     state: { selectedIdeas },
     actions: { updateSelectedIdeas },
-  } = useContext(ContextForSpaceSpace);
+  } = useContext(ContextForSpacesSpace);
   const loadingController = useContext(ContextForLoading);
   const openAiController = useControllerForOpenAi();
   const spaceController = useContext(ContextForSpaceMain);

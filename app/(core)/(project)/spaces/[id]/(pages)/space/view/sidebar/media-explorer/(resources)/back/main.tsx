@@ -2,11 +2,11 @@ import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../../controller/main';
+import { ContextForSpacesSpace } from '../../../../../controller/main';
 
-export function SpaceSpaceResourcesBack() {
+export function SpacesSpaceResourcesBack() {
   const galleryListController = useContext(ContextForGalleryList);
-  const spaceSpaceController = useContext(ContextForSpaceSpace);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
 
   return (
     <GlassWindowFrame className='w-full flex-shrink-0 pb-[0.5rem]'>
@@ -15,7 +15,7 @@ export function SpaceSpaceResourcesBack() {
           className='cursor-pointer text-sm font-bold text-slate-500'
           onClick={() => {
             galleryListController.state.currentObj &&
-              spaceSpaceController.actions.goToGallery(
+              spacesSpaceController.actions.goToGallery(
                 galleryListController.state.currentObj,
               );
           }}

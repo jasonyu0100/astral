@@ -3,7 +3,7 @@ import { ContextForConversationMessageObj } from '@/architecture/model/conversat
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
 import { useContext } from 'react';
 
-export function SpaceSpaceMemberMessage() {
+export function SpacesSpaceMemberMessage() {
   const messageObj = useContext(ContextForConversationMessageObj);
   const userController = useControllerForUserMain(messageObj?.userId || '');
   const userObj = userController.state.obj;

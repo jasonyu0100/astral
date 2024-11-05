@@ -1,13 +1,13 @@
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
-import { ContextForSpaceSpace } from '../../../../../controller/main';
-import { ContextForSpaceSpaceModals } from '../../../../../modal/controller/main';
+import { ContextForSpacesSpace } from '../../../../../controller/main';
+import { ContextForSpacesSpaceModals } from '../../../../../modal/controller/main';
 
-export function SpaceSpaceHeaderRight() {
-  const modalController = useContext(ContextForSpaceSpaceModals);
+export function SpacesSpaceHeaderRight() {
+  const modalController = useContext(ContextForSpacesSpaceModals);
   const {
     state: { selectedIdeas },
-  } = useContext(ContextForSpaceSpace);
+  } = useContext(ContextForSpacesSpace);
 
   return (
     <div className='flex w-1/3 flex-row justify-end space-x-[1rem]'>

@@ -29,7 +29,7 @@ export function SpacesChannelMessages() {
         <SpacesChannelEmpty />
       ) : (
         <div className='w-full flex-col space-y-[1rem]'>
-          <p className='text-2xl font-bold text-slate-300'>
+          <p className='text-center text-lg font-bold text-slate-300'>
             {getFormattedAMPM(
               new Date(
                 conversationListController.state.currentObj?.created || '',
