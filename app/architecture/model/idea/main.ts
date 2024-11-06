@@ -70,7 +70,7 @@ export const exampleIdea: IdeaObj = {
   idx: 0,
   userId: '0',
   sceneId: '0',
-  title: 'Star 1',
+  title: '',
   description: 'Twinkle twinkle little star',
   column: IdeaColumn.IDEAS,
   visible: false,

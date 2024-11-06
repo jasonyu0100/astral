@@ -300,21 +300,6 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
     }
   }, [spaceMainController.state.obj]);
 
-  useEffect(() => {
-    if (
-      sceneListController.state.objId === '' &&
-      chapterListController.state.objId
-    ) {
-      sceneListController.actions.createActions.createScene(
-        'New Scene',
-        '',
-        '',
-        loggedInUser.id,
-        chapterListController.state.objId,
-      );
-    }
-  }, [sceneListController.state.objId, chapterListController.state.objId]);
-
   return <>{children}</>;
 }
 

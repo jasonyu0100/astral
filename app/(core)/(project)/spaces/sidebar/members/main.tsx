@@ -4,18 +4,25 @@ import {
   ContextForUserPageRole,
   UserPageRole,
 } from '@/architecture/model/user/main';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { SpaceSidebarMembersListAdd } from './add/main';
 import { SpaceSidebarMembersListMember } from './member/main';
 
 export function SpaceSidebarMembersList() {
   const spaceMemberListController = useContext(ContextForSpaceMemberList);
   const userRole = useContext(ContextForUserPageRole);
+  const [showAddMember, setShowAddMember] = useState(false);
+
+  useEffect(() => {
+    if (userRole === UserPageRole.OWNER || userRole === UserPageRole.MEMBER) {
+      setShowAddMember(true);
+    }
+  }, [userRole]);
 
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[2rem] overflow-auto rounded-full'>
-      {(userRole === UserPageRole.OWNER ||
-        userRole === UserPageRole.MEMBER) && <SpaceSidebarMembersListAdd />}
+      {showAddMember && <SpaceSidebarMembersListAdd />}
+      {showAddMember && <SpaceSidebarMembersListAdd />}
       {spaceMemberListController.state.objs.map((obj) => (
         <ContextForSpaceMemberObj.Provider value={obj}>
           <SpaceSidebarMembersListMember />

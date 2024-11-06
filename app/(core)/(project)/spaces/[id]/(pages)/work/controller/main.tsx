@@ -69,14 +69,12 @@ export function useControllerForSpacesWork(): Controller {
 
   const createTasksFromPrompt = async (prompt: string) => {
     const messageHistory = [
-      `[START OF CONTEXT]`,
+      `[Context]`,
       `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
       `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Create a list of tasks based on the following prompt (include a variety of tasks in addition to an overall task):`,
-      prompt,
-      `[END OF INSTRUCTIONS]`,
-      `[START OF EXAMPLE RETURN]`,
+      `[Example Result]`,
       `{
         "tasks": [
           {
@@ -88,7 +86,8 @@ export function useControllerForSpacesWork(): Controller {
             "description": "Design a logo that is modern and sleek."
           }
         ]}`,
-      `[END OF EXAMPLE RETURN]`,
+      `[Prompt]`,
+      prompt,
     ];
     const messagePrompt = messageHistory.join('\n');
 

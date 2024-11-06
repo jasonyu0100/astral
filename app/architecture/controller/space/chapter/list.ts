@@ -283,6 +283,7 @@ export const useControllerForSpaceChapterList = (
         description: description,
         objective: objective,
         idx: idx || objs.length,
+        context: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -299,6 +300,7 @@ export const useControllerForSpaceChapterList = (
         idx: 0,
         userId: '',
         description: '',
+        context: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

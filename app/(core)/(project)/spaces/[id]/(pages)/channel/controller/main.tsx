@@ -94,13 +94,6 @@ export function useControllerForSpacesChannel() {
       SpacesChannelSidebarVisibility.OPEN,
     );
   const [selectedUser, setSelectedUser] = useState<UserObj>(exampleUser);
-  const tasksObjective = currentTasks
-    .map(
-      (task, index) =>
-        `Objective #${index + 1} ${task.title} - ${task.description}`,
-    )
-    .join(', ');
-  const roleDescription = roleDescriptions[aiChatRole];
 
   useEffect(() => {
     if (loggedInUser) {
@@ -162,25 +155,47 @@ export function useControllerForSpacesChannel() {
     message: ConversationMessageObj,
     role: ConversationRole,
   ) {
+    const tasksContext = currentTasks
+      .map(
+        (task, index) =>
+          `Objective #${index + 1} ${task.title} - ${task.description}`,
+      )
+      .join(', ');
+
+    const chapterContext = chapterListController.state.objs
+      .map(
+        (chapter, index) => `
+    Chapter ${index + 1}: ${chapter.title}
+    Chapter Objective: ${chapter.objective}
+    Chapter Description: ${chapter.description}
+    Chapter Context: ${chapter.context}
+  `,
+      )
+      .join(', ');
+
     const messageHistory = [
       `[Background Context]`,
-      `You are an agent that helps the user achieve objectives.`,
-      `This is your role ${roleDescriptions[role]}`,
+      `This is your role: ${roleDescriptions[role]}`,
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
-      `[Important Context]`,
-      `This is the general chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `These are your main objectives: ${tasksObjective}`,
-      `[START OF MESSAGE HISTORY]`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF USER MESSAGE]`,
+      `[User Message]`,
       formatMessage(message),
-      `[END OF USER MESSAGE]`,
-      `[START OF INSTRUCTIONS]`,
-      `Reply to the user, keeping in mind your role and the objectives. `,
+      `[Instruction]`,
+      `Reply to the user, keeping in mind your role and the context of the conversation.`,
+      `Keep in mind the current chapter and the surrounding relevance of chapters around it.`,
+      `Be concise and clear in your responses.`,
       `Be smart and try not to exceed 200 characters.`,
-      `[END OF INSTRUCTIONS]`,
     ];
     const messagePrompt = messageHistory.join('\n');
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
@@ -201,24 +216,14 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoNotes() {
     const messageHistory = [
-      `[Background Context]`,
-      `You are an agent that helps the user achieve objectives.`,
-      `This is your role ${roleDescription}`,
-      `This is the space title: ${spaceController.state.obj.title}`,
-      `This is the space description: ${spaceController.state.obj.description}`,
-      `[Important Context]`,
-      `This is the general chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `These are your main objectives: ${tasksObjective}`,
-      `[START OF MESSAGE HISTORY]`,
+      `[Message history]`,
       ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Convert the conversation history into a series of insights (max 50 chars).`,
       `Use the conversation history primarily and titles and descriptions as reference.`,
       `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
       `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.`,
-      `[END OF INSTRUCTIONS]`,
-      `[START OF EXAMPLE RETURN]`,
+      `[Example return]`,
       `{`,
       `  "insights": [`,
       `    {"text": "Insight 1"},`,
@@ -226,7 +231,6 @@ export function useControllerForSpacesChannel() {
       `    {"text": "Insight 3"}`,
       `  ]`,
       `}`,
-      `[END OF EXAMPLE RETURN]`,
     ];
     const messagePrompt = messageHistory.join('\n');
 
@@ -249,12 +253,11 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoQuery() {
     const messageHistory = [
-      `[START OF MESSAGE HISTORY]`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise conversation into a single search query as per the conversation history.`,
       `E.G "How to improve productivity"`,
-      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -265,10 +268,9 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoTitle() {
     const messageHistory = [
-      `[START OF MESSAGE HISTORY]`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise conversation into a single title as per the conversation history.`,
       `E.G "Productivity Tips"`,
       `[END OF INSTRUCTIONS]`,
@@ -282,13 +284,11 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoObjective() {
     const messageHistory = [
-      `[START OF MESSAGE HISTORY]`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise conversation into a single objective as per the conversation history.`,
       `E.G "Improve productivity by 10%"`,
-      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -299,13 +299,11 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoKeywords() {
     const messageHistory = [
-      `[START OF MESSAGE HISTORY]`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise conversation into a series of key words as per the conversation history.`,
       `E.G "Productivity, Color, Design"`,
-      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -316,13 +314,11 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoSearchTerm() {
     const messageHistory = [
-      `[START OF MESSAGE HISTORY]`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise conversation into a youtube search term as per the conversation history.`,
       `E.G "Productivity Tips"`,
-      `[END OF INSTRUCTIONS]`,
     ];
 
     const messagePrompt = messageHistory.join('\n');
@@ -332,43 +328,60 @@ export function useControllerForSpacesChannel() {
   }
 
   async function summariseConversation(messages: ConversationMessageObj[]) {
-    async function getSummary() {
+    async function getConversationSummary() {
       const messageHistory = [
-        `[START OF MESSAGE HISTORY]`,
+        `[Message History]`,
         ...getMessageHistory(),
-        `[END OF MESSAGE HISTORY]`,
-        `[START OF INSTRUCTIONS]`,
-        `Summarise the conversation into a brief paragraph.`,
-        `E.G "The user was looking for productivity tips and the agent helped them with some useful tips."`,
-        `[END OF INSTRUCTIONS]`,
+        `[Instructions]`,
+        `Transform the conversation into a paragraph with all key points.`,
       ];
       const messagePrompt = messageHistory.join('\n');
       const summary = await getMessageResponse(messagePrompt);
       return summary;
     }
-    async function getTitle() {
+    async function getConversationTitle() {
       const messageHistory = [
-        `[START OF MESSAGE HISTORY]`,
+        `[Message History]`,
         ...getMessageHistory(),
-        `[END OF MESSAGE HISTORY]`,
-        `[START OF INSTRUCTIONS]`,
+        `[Instructions]`,
         `Summarise the conversation into a title.`,
-        `E.G "Productivity Tips"`,
-        `[END OF INSTRUCTIONS]`,
       ];
       const messagePrompt = messageHistory.join('\n');
       const title = await getMessageResponse(messagePrompt);
       return title;
     }
 
-    const summary = await getSummary();
-    const title = await getTitle();
+    async function getChapterContext() {
+      const messageHistory = [
+        `[Existing Context]`,
+        chapterListController.state.currentObj?.context,
+        `[Message History]`,
+        ...getMessageHistory(),
+        `[Instructions]`,
+        `Update the chapter context with the conversation history.`,
+        `Note down key points and insights from the conversation.`,
+      ];
+      const messagePrompt = messageHistory.join('\n');
+      const title = await getMessageResponse(messagePrompt);
+      return title;
+    }
+
+    const summary = await getConversationSummary();
+    const title = await getConversationTitle();
+    const context = await getChapterContext();
 
     await conversationListController.actions.editActions.edit(
       conversationListController.state.objId,
       {
         title: title || '',
         summary: summary || '',
+      },
+    );
+
+    await chapterListController.actions.editActions.edit(
+      chapterListController.state.objId,
+      {
+        context: context || '',
       },
     );
   }

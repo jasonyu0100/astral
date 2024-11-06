@@ -71,14 +71,13 @@ export function SpacesSpaceGeneratePost() {
 
   async function generateDescription() {
     const messageHistory = [
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise the following into a concise task description (min 50 - max 100 chars):`,
+      `[Ideas]`,
       selectedIdeas
         .filter((idea) => idea.variant === ElementVariant.TEXT)
         .map((idea) => `Idea - ${idea.textElem?.text}`)
         .join('\n'),
-      `E.G - "Create a new design for the website that is modern and sleek."`,
-      `[END OF INSTRUCTIONS]`,
     ];
     const messagePrompt = messageHistory.join('\n');
 
@@ -91,14 +90,13 @@ export function SpacesSpaceGeneratePost() {
 
   async function generateTitle() {
     const messageHistory = [
-      `[START OF INSTRUCTIONS]`,
+      `[Instructions]`,
       `Summarise the following into a concise task title (min 10 - max 20 chars):`,
+      `[Ideas]`,
       selectedIdeas
         .filter((idea) => idea.variant === ElementVariant.TEXT)
         .map((idea) => `Idea - ${idea.textElem?.text}`)
         .join('\n'),
-      `E.G - "Design Website"`,
-      `[END OF INSTRUCTIONS]`,
     ];
     const messagePrompt = messageHistory.join('\n');
 

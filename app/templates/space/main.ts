@@ -55,7 +55,7 @@ export interface TemplateSpaceObj extends _TemplateSpaceObj {
 
 export type _TemplateChapterObj = Omit<
   SpaceChapterObj,
-  'id' | 'spaceId' | 'idx' | 'created' | 'userId'
+  'id' | 'spaceId' | 'idx' | 'created' | 'userId' | 'context'
 >;
 export interface TemplateChapterObj extends _TemplateChapterObj {
   tasks: TemplateTaskObj[];
