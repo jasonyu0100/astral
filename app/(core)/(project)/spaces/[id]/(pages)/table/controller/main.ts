@@ -1,5 +1,6 @@
+import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
 import { UserPostObj } from '@/architecture/model/post/main';
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 interface Controller {
   state: ControllerState;
@@ -16,6 +17,7 @@ interface ControllerActions {
   updateSidebarVisibility: (visibility: SpacesTableSidebarVisibility) => void;
   updateSidebarMode: (mode: SpacesTableSidebarMode) => void;
   updateSelectedPosts: (posts: UserPostObj[]) => void;
+  deletedSelectedPosts: () => void;
 }
 
 export const ContextForSpacesTable = createContext({} as Controller);
@@ -31,12 +33,22 @@ export enum SpacesTableSidebarMode {
 }
 
 export function useControllerForSpacesTable(): Controller {
+  const postListController = useContext(ContextForUserPostListFromChapter);
+
   const [sidebarMode, setSidebarMode] = useState(
     SpacesTableSidebarMode.CHAPTERS,
   );
   const [sidebarVisibility, setSidebarVisibility] =
     useState<SpacesTableSidebarVisibility>(SpacesTableSidebarVisibility.OPEN);
   const [selectedPosts, setSelectedPosts] = useState<UserPostObj[]>([]);
+
+  const deletedSelectedPosts = async () => {
+    postListController.actions.deleteActions
+      .deleteMany(selectedPosts.map((post) => post.id))
+      .then(() => {
+        setSelectedPosts([]);
+      });
+  };
 
   return {
     state: {
@@ -48,6 +60,7 @@ export function useControllerForSpacesTable(): Controller {
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       updateSidebarMode: (mode: SpacesTableSidebarMode) => setSidebarMode(mode),
       updateSelectedPosts: (posts) => setSelectedPosts(posts),
+      deletedSelectedPosts: deletedSelectedPosts,
     },
   };
 }

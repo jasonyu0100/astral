@@ -13,7 +13,7 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx } from '@/style/data';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 export function SpacesTableChapterPost() {
   const hoverableController = useControllerForHoverable();
@@ -25,6 +25,32 @@ export function SpacesTableChapterPost() {
   const spacesTableModalsController = useContext(ContextForSpacesTableModals);
   const spaceMainController = useContext(ContextForSpaceMain);
 
+  // State for managing checkbox (selectedPosts state)
+  const [isChecked, setIsChecked] = useState(
+    spacesTableController.state.selectedPosts.includes(postObj),
+  );
+
+  // useEffect to sync the local checkbox state with the selectedPosts in the global state
+  useEffect(() => {
+    setIsChecked(spacesTableController.state.selectedPosts.includes(postObj));
+  }, [spacesTableController.state.selectedPosts, postObj]);
+
+  const handleCheckboxChange = () => {
+    if (isChecked) {
+      spacesTableController.actions.updateSelectedPosts(
+        spacesTableController.state.selectedPosts.filter(
+          (post) => post.id !== postObj.id,
+        ),
+      );
+    } else {
+      spacesTableController.actions.updateSelectedPosts([
+        ...spacesTableController.state.selectedPosts,
+        postObj,
+      ]);
+    }
+    setIsChecked(!isChecked); // Toggle checkbox state
+  };
+
   return (
     <div
       onMouseOver={() => hoverableController.onHover()}
@@ -32,53 +58,32 @@ export function SpacesTableChapterPost() {
     >
       <GlassWindowFrame className='p-[1rem]'>
         <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
-          <div className='grid w-full  grid-cols-10 items-center space-x-[1rem]'>
+          <div className='grid w-full grid-cols-10 items-center space-x-[1rem]'>
             <div>
               <input
                 type='checkbox'
                 className='form-checkbox h-5 w-5 bg-transparent text-blue-600'
-                value={spacesTableController.state.selectedPosts.includes(
-                  postObj.id,
-                )}
-                onClick={(e) => {
-                  if (
-                    spacesTableController.state.selectedPosts.includes(
-                      postObj.id,
-                    )
-                  ) {
-                    spacesTableController.actions.updateSelectedPosts(
-                      spacesTableController.state.selectedPosts.filter(
-                        (id) => id !== postObj.id,
-                      ),
-                    );
-                  } else {
-                    spacesTableController.actions.updateSelectedPosts([
-                      ...spacesTableController.state.selectedPosts,
-                      postObj.id,
-                    ]);
-                  }
-                }}
+                checked={isChecked}
+                onChange={handleCheckboxChange}
               />
             </div>
             <div className='col-span-3'>
               <p
                 className='whitespace-wrap cursor-pointer text-xl font-bold text-blue-500'
                 onClick={() => {
-                  window.location.href = `${liveMap.live.link(
-                    spaceMainController.state.objId,
-                  )}?chapter=${postObj.chapterId}&post=${postObj.id}`;
+                  window.location.href = `${liveMap.live.link(spaceMainController.state.objId)}?chapter=${postObj.chapterId}&post=${postObj.id}`;
                 }}
               >
                 {postObj?.title?.trim() || 'Untitled'}
               </p>
             </div>
             <div>
-              <p className=' text-lg font-light text-white'>
+              <p className='text-lg font-light text-white'>
                 {getFormattedAMPM(new Date(postObj?.created ?? ''))}
               </p>
             </div>
             <div className='col-span-2'>
-              <p className=' text-lg font-light text-white'>
+              <p className='text-lg font-light text-white'>
                 {getFormattedDate(new Date(postObj?.created ?? ''))}
               </p>
             </div>

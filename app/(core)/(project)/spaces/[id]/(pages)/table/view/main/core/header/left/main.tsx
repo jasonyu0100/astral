@@ -1,6 +1,7 @@
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
+import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -11,12 +12,8 @@ import {
 import { ContextForSpacesTableModals } from '../../../../../modal/controller/main';
 
 export function SpacesTableHeaderLeft() {
-  const modalController = useContext(ContextForSpacesTableModals);
-  const {
-    state: { sidebarVisibility },
-    actions: { updateSidebarVisibility },
-  } = useContext(ContextForSpacesTable);
   const spacesTableModalController = useContext(ContextForSpacesTableModals);
+  const spacesTableController = useContext(ContextForSpacesTable);
   const spaceMainController = useContext(ContextForSpaceMain);
 
   return (
@@ -25,11 +22,13 @@ export function SpacesTableHeaderLeft() {
         <AstralSidebarRightIcon
           className={ctwn({
             'rotate-180 transform':
-              sidebarVisibility === SpacesTableSidebarVisibility.CLOSED,
+              spacesTableController.state.sidebarVisibility ===
+              SpacesTableSidebarVisibility.CLOSED,
           })}
           onClick={() => {
-            updateSidebarVisibility(
-              sidebarVisibility === SpacesTableSidebarVisibility.CLOSED
+            spacesTableController.actions.updateSidebarVisibility(
+              spacesTableController.state.sidebarVisibility ===
+                SpacesTableSidebarVisibility.CLOSED
                 ? SpacesTableSidebarVisibility.OPEN
                 : SpacesTableSidebarVisibility.CLOSED,
             );
@@ -37,7 +36,12 @@ export function SpacesTableHeaderLeft() {
         />
         <BarDividerIndicator />
         <AstralAddIcon
-          onClick={() => modalController.addPostController.open()}
+          onClick={() => spacesTableModalController.addPostController.open()}
+        />
+        <AstralDeleteIcon
+          onClick={() => {
+            spacesTableController.actions.deletedSelectedPosts();
+          }}
         />
         {/* <AstralShareIcon
           onClick={() => {
