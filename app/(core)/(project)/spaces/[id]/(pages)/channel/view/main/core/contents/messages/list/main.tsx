@@ -29,12 +29,12 @@ export function SpacesChannelMessages() {
       style={{ height: '100%' }}
       ref={ref}
     >
-      <div className='w-full flex-col space-y-[1rem]'>
+      <div className='w-[1000px] flex-col space-y-[1rem] '>
         <GlassWindowFrame
           className='cursor-pointer p-[1rem] py-[2rem]'
           borderFx={borderFx['border-b']}
         >
-          <GlassWindowContents className='grid grid-cols-3 items-center'>
+          <GlassWindowContents className='flex items-center justify-center space-x-[2rem]'>
             <div className='flex items-center justify-end'>
               <AstralChevronLeftIcon
                 onClick={() =>

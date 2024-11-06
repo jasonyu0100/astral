@@ -55,7 +55,6 @@ export function StudioPersonalRowMore() {
               <AstralLinkIcon />
               <p className='font-bold text-slate-300'>View Live</p>
             </div>
-            <br />
             <HorizontalDivider />
             <div
               className='flex cursor-pointer flex-row space-x-[1rem]'

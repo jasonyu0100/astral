@@ -9,7 +9,7 @@ export function SpacesChannelAgentMessageDetail() {
     <div className='mr-auto flex flex-row items-center'>
       <img
         src={'/stock/astral.png'}
-        className='aspect-square h-[3rem] w-[3rem] flex-shrink-0 rounded-full'
+        className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
       />
       <p className='p-[0.5rem] text-left text-xs text-slate-300'>
         from {message.agentId} sent{' '}
