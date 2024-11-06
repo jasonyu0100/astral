@@ -5,10 +5,11 @@ import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { ConversationObj } from '@/architecture/model/conversation/main';
 import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
-import { FileElementVariant } from '@/architecture/model/elements/file/main';
 import { ElementVariant } from '@/architecture/model/elements/main';
+import { TaskStatus } from '@/architecture/model/task/main';
 import { useControllerForOpenAi } from '@/external/controller/openai/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext, useContext } from 'react';
@@ -46,6 +47,11 @@ export function useControllerForSpacesSpaceChat() {
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
   );
+  const taskListController = useContext(ContextForTaskList);
+  const tasks = taskListController.state.objs;
+  const currentTasks = tasks.filter(
+    (task) => task.taskStatus === TaskStatus.CURRENT,
+  );
 
   function formatMessage(message: ConversationMessageObj) {
     if (message.agentId === null) {
@@ -65,11 +71,26 @@ export function useControllerForSpacesSpaceChat() {
   function getIdeaHistory() {
     const ideaHistory = ideaListController.state.objs.map((idea) => {
       if (idea.variant === ElementVariant.TEXT) {
-        return `Idea - ${idea.textElem?.text}`;
+        return `
+          [Idea - ${idea.title}]
+          Variant: ${idea.variant}
+          Text Type: ${idea.textElem?.variant}
+          Text - ${idea.textElem?.text}
+        `;
       } else if (idea.variant === ElementVariant.FILE) {
-        if (idea.fileElem?.fileType === FileElementVariant.IMAGE) {
-          return `Idea - Image`;
-        }
+        return `
+          [Idea - ${idea.title}]
+          Variant: ${idea.variant}
+          File Type ${idea.fileElem?.variant}
+          Source: ${idea.fileElem?.src}
+        `;
+      } else if (idea.variant === ElementVariant.URL) {
+        return `
+          [Idea - ${idea.title}]
+          Variant: ${idea.variant}
+          Url Type: ${idea.urlElem?.variant}
+          Url: ${idea.urlElem?.url}
+        `;
       }
     });
     return ideaHistory;
@@ -107,17 +128,46 @@ export function useControllerForSpacesSpaceChat() {
   }
 
   async function generateAgentResponse(message: ConversationMessageObj) {
+    const tasksContext = currentTasks
+      .map(
+        (task, index) =>
+          `Objective #${index + 1} ${task.title} - ${task.description}`,
+      )
+      .join(', ');
+
+    const chapterContext = chapterListController.state.objs
+      .map(
+        (chapter, index) => `
+    Chapter ${index + 1}: ${chapter.title}
+    Chapter Objective: ${chapter.objective}
+    Chapter Description: ${chapter.description}
+    Chapter Context: ${chapter.context}
+  `,
+      )
+      .join(', ');
+
     const messageHistory = [
-      `You are an agent that helps the user achieve objectives.`,
+      `[Background Context]`,
       `This is the space title: ${spaceController.state.obj.title}`,
       `This is the space description: ${spaceController.state.obj.description}`,
-      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `This is the scene objective: ${sceneListController.state.currentObj?.objective}`,
-      `This is the message history:`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
+      `[Message History]`,
       ...getMessageHistory(),
-      `These are the current ideas:`,
+      `[Idea History]`,
       ...getIdeaHistory(),
-      `Reply to the user message and keep the objective in mind.`,
+      `[Instruction]`,
+      `Reply to the user, keeping in mind your role and the context of the conversation.`,
+      `In particular take not of the idea history when replying to the user`,
+      `Be concise and clear in your responses.`,
+      `Be smart and try not to exceed 200 characters.`,
     ];
     messageHistory.push(formatMessage(message));
     const messagePrompt = messageHistory.join('\n');
