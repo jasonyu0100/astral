@@ -56,13 +56,24 @@ export function PublicSpaceSidebarItem() {
               </p>
             </div>
             {selected && (
-              <div className='flex h-[3rem] w-[3rem] flex-row items-center justify-center rounded-full bg-emerald-500'>
+              <div
+                className={`flex h-[3rem] w-[3rem] flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL ? 'bg-emerald-500' : 'bg-slate-500'}`}
+              >
                 <AstralChatIndicatorIcon
                   onClick={(e) => {
                     e.stopPropagation();
-                    publicSpaceController.actions.updateFeedView(
-                      PublicSpaceFeedView.CHANNEL,
-                    );
+                    if (
+                      publicSpaceController.state.feedView ===
+                      PublicSpaceFeedView.CHANNEL
+                    ) {
+                      publicSpaceController.actions.updateFeedView(
+                        PublicSpaceFeedView.POSTS,
+                      );
+                    } else {
+                      publicSpaceController.actions.updateFeedView(
+                        PublicSpaceFeedView.CHANNEL,
+                      );
+                    }
                   }}
                 />
               </div>
