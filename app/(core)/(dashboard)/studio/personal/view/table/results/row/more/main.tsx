@@ -34,7 +34,7 @@ export function StudioPersonalRowMore() {
               className='flex cursor-pointer flex-row space-x-[1rem]'
               onClick={() => {
                 window.location.href = spacesMap.spaces.id.work.link(
-                  spaceListController.state.objId,
+                  spaceObj.id,
                 );
               }}
             >
@@ -45,11 +45,9 @@ export function StudioPersonalRowMore() {
               className='flex cursor-pointer flex-row space-x-[1rem]'
               onClick={() => {
                 navigator.clipboard.writeText(
-                  `astral.fun${liveMap.live.link(spaceListController.state.objId)}`,
+                  `astral.fun${liveMap.live.link(spaceObj.id)}`,
                 );
-                window.location.href = liveMap.live.link(
-                  spaceListController.state.objId,
-                );
+                window.location.href = liveMap.live.link(spaceObj.id);
               }}
             >
               <AstralLinkIcon />
