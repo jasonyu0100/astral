@@ -25,6 +25,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           description:
             'Incorporate a quick sound effect or visual to create an intriguing atmosphere.',
         },
+        {
+          title: 'Use a Question to Engage Curiosity',
+          description:
+            'Pose an intriguing question that makes the viewer want to stick around for the answer.',
+        },
       ],
     },
     {
@@ -43,6 +48,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           title: 'Outline the Structure',
           description:
             'Give a brief rundown of the key sections the video will cover.',
+        },
+        {
+          title: 'State the Problem or Goal',
+          description:
+            'Clearly articulate the problem that the video will address or the goal it will help the viewer achieve.',
         },
       ],
     },
@@ -63,6 +73,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           description:
             'Incorporate images, slides, or animations to help convey information visually.',
         },
+        {
+          title: 'Engage with Data or Statistics',
+          description:
+            'Support the topic with relevant data or statistics to back up key points.',
+        },
       ],
     },
     {
@@ -81,6 +96,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           title: 'Keep Viewers Engaged',
           description:
             'Pose a question, include a relatable anecdote, or use a quick interactive prompt.',
+        },
+        {
+          title: 'Use Expert Testimonials or Interviews',
+          description:
+            'Incorporate interviews or testimonials from experts to provide additional insights.',
         },
       ],
     },
@@ -101,6 +121,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           description:
             'Encourage viewers to think about how the content applies to their own experiences.',
         },
+        {
+          title: 'Address Common Questions or Misconceptions',
+          description:
+            'Clarify potential misunderstandings by addressing common viewer questions or misconceptions.',
+        },
       ],
     },
     {
@@ -119,6 +144,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           title: 'Encourage Social Sharing',
           description:
             'Suggest sharing the video if viewers find the content valuable.',
+        },
+        {
+          title: 'Run a Poll or Survey',
+          description:
+            'Conduct a poll or survey related to the content to foster further interaction.',
         },
       ],
     },
@@ -139,6 +169,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           description:
             'Suggest related videos, resources, or actions that will deepen their understanding.',
         },
+        {
+          title: 'Offer a Special Discount or Promo Code',
+          description:
+            'Provide an exclusive offer for viewers who engage with the video, such as a discount code.',
+        },
       ],
     },
     {
@@ -157,6 +192,11 @@ export const longFormVideoTemplate: TemplateSpaceObj = {
           title: 'End with a Memorable Closing',
           description:
             'Provide a final thought or sentiment that resonates with the overall message of the video.',
+        },
+        {
+          title: 'Preview Upcoming Content',
+          description:
+            'Give a teaser for future videos or content to maintain viewer interest and anticipation.',
         },
       ],
     },

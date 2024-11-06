@@ -25,6 +25,16 @@ export const shortFormVideoTemplate: TemplateSpaceObj = {
           description:
             'Incorporate quick visuals or sound effects to enhance the hook.',
         },
+        {
+          title: 'Use Humor or Relatable Content',
+          description:
+            'Leverage humor, memes, or relatable moments to make an immediate connection with the audience.',
+        },
+        {
+          title: 'Create Intrigue with a Teaser',
+          description:
+            'Tease something exciting or unexpected that will unfold later in the video to keep viewers watching.',
+        },
       ],
     },
     {
@@ -43,6 +53,16 @@ export const shortFormVideoTemplate: TemplateSpaceObj = {
           title: 'Create Curiosity',
           description:
             'Hint at what viewers will gain by staying engaged with the video.',
+        },
+        {
+          title: 'Provide Context or Relevance',
+          description:
+            'Explain why the topic matters or how it relates to trending discussions or current events.',
+        },
+        {
+          title: 'Establish Tone and Style',
+          description:
+            'Set the tone for the video, whether it’s serious, fun, educational, or informal.',
         },
       ],
     },
@@ -63,6 +83,21 @@ export const shortFormVideoTemplate: TemplateSpaceObj = {
           description:
             'Enhance content with text overlays, visuals, or animations to keep viewers engaged.',
         },
+        {
+          title: 'Show, Don’t Tell',
+          description:
+            'Use visuals, demonstrations, or examples to reinforce the message, rather than just describing it.',
+        },
+        {
+          title: 'Pacing and Energy',
+          description:
+            'Keep the energy high by varying pacing and using quick cuts or transitions to maintain excitement.',
+        },
+        {
+          title: 'Integrate Interactive Elements',
+          description:
+            'Use polls, questions, or interactive prompts to encourage viewer participation in real-time.',
+        },
       ],
     },
     {
@@ -76,6 +111,16 @@ export const shortFormVideoTemplate: TemplateSpaceObj = {
           title: 'Encourage Engagement',
           description:
             'Suggest a simple call to action, such as “Like for more!” or “Follow for similar content.”',
+        },
+        {
+          title: 'Create Urgency',
+          description:
+            'Add a sense of urgency by offering limited-time content or exclusive insights.',
+        },
+        {
+          title: 'Promote Related Content',
+          description:
+            'Encourage viewers to explore other related videos or content on your channel/profile.',
         },
       ],
     },
@@ -95,6 +140,16 @@ export const shortFormVideoTemplate: TemplateSpaceObj = {
           title: 'Add a Closing Visual',
           description:
             'Include an end screen or graphic if applicable to reinforce branding or final call to action.',
+        },
+        {
+          title: 'Provide a Memorable Final Statement',
+          description:
+            'Leave viewers with a catchy phrase, quote, or thought that sticks with them after the video ends.',
+        },
+        {
+          title: 'Tease Upcoming Content',
+          description:
+            'Give viewers a hint of what’s coming next to encourage return visits.',
         },
       ],
     },

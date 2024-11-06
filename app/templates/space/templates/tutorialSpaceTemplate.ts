@@ -3,15 +3,15 @@ import { TemplateSpaceObj } from '../main';
 export const tutorialSpaceTemplate: TemplateSpaceObj = {
   title: '🚀 Project Tutorial Space',
   description:
-    'A guided tutorial space introducing you to the main project features: Objective, Chat, Scene, Updates, and Live. Learn to manage tasks, brainstorm ideas, map out concepts, share updates, and reflect on your progress. Note: This is a tutorial; your real spaces will offer even more flexibility and features.',
+    'A guided tutorial space introducing you to the main project features: Work, Channel, Space, Table, and Live. Learn to manage tasks, brainstorm ideas, map out concepts, share updates, and reflect on your progress. Note: This is a tutorial; your real spaces will offer even more flexibility and features.',
   summary:
     'A structured guide to using each workspace feature effectively, setting up your project for seamless creativity and organization.',
   category: 'Tutorial',
   chapters: [
     {
-      title: '🎯 Objective',
+      title: '🎯 Work',
       description:
-        'Objective helps you define clear goals and set expectations for your project, setting the foundation for your workspace.',
+        'Work helps you define clear goals and set expectations for your project, setting the foundation for your workspace.',
       objective:
         'Learn to establish and refine your project goals, providing direction and purpose for your activities.',
       tasks: [
@@ -25,91 +25,126 @@ export const tutorialSpaceTemplate: TemplateSpaceObj = {
           description:
             'Identify major checkpoints to track your project’s advancement and keep your focus aligned.',
         },
-      ],
-    },
-    {
-      title: '💬 Chat',
-      description:
-        'Chat is your collaborative space to brainstorm with AI, jot down ideas, and record voice notes for quick updates. Use it as a central hub to explore thoughts and keep track of ideas that can be further developed in Scene.',
-      objective:
-        'Learn to use Chat as a space for real-time brainstorming, note-taking, and quick voice memos to capture ideas as they come up.',
-      tasks: [
         {
-          title: 'Start a Chat with AI',
+          title: 'Assign Deadlines',
           description:
-            'Chat with AI to brainstorm, clarify goals, or get insights for your tasks in Progress.',
+            'Set deadlines for each milestone to ensure progress and create a sense of urgency.',
         },
         {
-          title: 'Record a Voice Memo',
+          title: 'Track Project Progress',
           description:
-            'Use voice memos to capture ideas quickly. These notes can be referenced or expanded upon later.',
-        },
-        {
-          title: 'Note Key Ideas',
-          description:
-            'Jot down thoughts and use Chat as a creative notepad for brainstorming.',
-        },
-        {
-          title: 'Mark Insights for Scene',
-          description:
-            'Highlight useful ideas that you’d like to explore visually in Scene.',
+            'Monitor the overall progress of your project and adjust your goals as needed.',
         },
       ],
     },
     {
-      title: '🌌 Scene',
+      title: '💬 Channel',
       description:
-        'Scene is your visual space to map ideas from Chat. Move thoughts around, add text, images, and media from YouTube, Spotify, and more to create a dynamic layout.',
+        'Channel is your collaborative space to brainstorm with others, share updates, and keep track of your ideas. It serves as a central hub for communication and content sharing.',
       objective:
-        'Learn to visually organize ideas, build connections, and create a structure for your project.',
+        'Learn to use Channel as a space for real-time collaboration, quick updates, and idea sharing.',
       tasks: [
         {
-          title: 'Map Key Ideas from Chat',
+          title: 'Create a New Channel',
           description:
-            'Turn main ideas from Chat into nodes in Scene, creating a visual map of connections.',
+            'Start a new Channel to begin engaging with collaborators and share content.',
         },
         {
-          title: 'Link Related Ideas',
+          title: 'Post an Update',
           description:
-            'Connect related nodes to form an organized structure for your project.',
+            'Share an update in your Channel to keep your team informed about your project’s progress.',
         },
         {
-          title: 'Add Media and Notes',
+          title: 'Invite Collaborators',
           description:
-            'Enhance nodes with images, notes, or external media for a comprehensive visual scene.',
+            'Invite others to join your Channel, expanding the reach of your project and fostering collaboration.',
+        },
+        {
+          title: 'Engage with Followers',
+          description:
+            'Interact with your followers by responding to their comments and sharing new updates.',
         },
       ],
     },
     {
-      title: '📋 Updates',
+      title: '🌌 Space',
       description:
-        'Updates is where you post key insights from Scene. Create posts to share project highlights and updates in a clear, public format.',
+        'Space is where you organize and collaborate on your creative projects. It’s a place for multiple people to work together, share files, and brainstorm ideas.',
       objective:
-        'Learn to create updates from Scene or from scratch to share progress and insights with your audience.',
+        'Learn to create a Space, collaborate with others, and manage creative projects efficiently.',
       tasks: [
         {
-          title: 'Create an Update from Scene',
+          title: 'Create a New Space',
           description:
-            'Turn elements from Scene into an update that highlights your project’s key points.',
+            'Start a new Space for your project where you can invite collaborators and begin brainstorming.',
         },
         {
-          title: 'Add Content and Media',
+          title: 'Assign Roles to Collaborators',
           description:
-            'Make updates more engaging with images or media that illustrate your ideas.',
+            'Define roles within the Space to ensure responsibilities are clear and tasks are managed effectively.',
+        },
+        {
+          title: 'Add Project Resources',
+          description:
+            'Upload files, documents, and media that will help with the development of the project.',
+        },
+        {
+          title: 'Set Space Milestones',
+          description:
+            'Establish key milestones and deadlines within your Space to track progress and stay organized.',
+        },
+      ],
+    },
+    {
+      title: '📋 Table',
+      description:
+        'Table is where you track tasks, milestones, and progress in an organized manner. It helps you stay focused on the steps that need to be completed and ensures no task is missed.',
+      objective:
+        'Learn to use Table for task management and keeping track of project progress with clear, actionable steps.',
+      tasks: [
+        {
+          title: 'Create a Table for Your Project',
+          description:
+            'Set up a new Table to start organizing your tasks and track progress within your Space.',
+        },
+        {
+          title: 'Add Tasks and Assign Roles',
+          description:
+            'Create tasks within the Table and assign them to collaborators based on their roles.',
+        },
+        {
+          title: 'Set Deadlines for Tasks',
+          description:
+            'Define specific deadlines for each task to ensure the project progresses smoothly.',
+        },
+        {
+          title: 'Track Task Progress',
+          description:
+            'Update the status of tasks in the Table to monitor progress and ensure deadlines are met.',
         },
       ],
     },
     {
       title: '📺 Live',
       description:
-        'Live combines Progress and Updates to show your project’s journey, organized by chapters. Track each phase’s status and updates to get a complete view of the workspace.',
+        'Live combines Work and Table updates to show the status of your project in real-time. It organizes everything into chapters for easy tracking of your project’s journey.',
       objective:
-        'Learn to use Live as an overview of the project’s progression, combining updates from Progress and Updates in a real-time, chapter-based format.',
+        'Learn to use Live as a comprehensive overview of your project, combining updates from Work and Table in a chapter-based format.',
       tasks: [
         {
-          title: 'Review Project Progress',
+          title: 'Review Project Status in Live',
           description:
-            'View the project’s overall status in Live, with updates organized by chapters.',
+            'View an overview of your project’s status, with chapters organized by milestones and tasks.',
+        },
+        {
+          title: 'Track Live Progress Updates',
+          description:
+            'Follow real-time updates and adjust project tasks and objectives based on progress in Live.',
+        },
+        {
+          title: 'Share Progress with Your Team',
+          description:
+            'Use Live to share progress and updates with your team, keeping everyone aligned on goals.',
         },
       ],
     },
