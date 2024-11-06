@@ -22,7 +22,7 @@ export function PublicSpaceBreadcrumbs() {
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-300'
+              className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.CHANNEL,
@@ -46,7 +46,7 @@ export function PublicSpaceBreadcrumbs() {
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-300'
+              className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.CHANNEL,
@@ -55,9 +55,9 @@ export function PublicSpaceBreadcrumbs() {
             >
               Channel
             </p>
-            <span className='text-2xl font-bold text-slate-300'> / </span>
+            <span className='text-2xl font-bold text-slate-500'> / </span>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-300'
+              className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,
@@ -66,9 +66,9 @@ export function PublicSpaceBreadcrumbs() {
             >
               Posts
             </p>
-            <span className='text-2xl font-bold text-slate-300'> / </span>
+            <span className='text-2xl font-bold text-slate-500'> / </span>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-300'
+              className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POST,
@@ -92,7 +92,7 @@ export function PublicSpaceBreadcrumbs() {
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-300'
+              className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.CHANNEL,
@@ -101,9 +101,9 @@ export function PublicSpaceBreadcrumbs() {
             >
               Channel
             </p>
-            <span className='text-2xl font-bold text-slate-300'> / </span>
+            <span className='text-2xl font-bold text-slate-500'> / </span>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-300'
+              className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,

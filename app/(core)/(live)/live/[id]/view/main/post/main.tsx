@@ -1,7 +1,7 @@
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { PublicSpacePostComments } from './comments/main';
 import { PublicSpacePostContents } from './contents/main';
-import { PublicSpacePostDescription } from './description/main';
+import { PublicSpacePostDescription } from './main/main';
 
 export function PublicSpacePost() {
   return (

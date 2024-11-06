@@ -2,7 +2,7 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { PublicSpaceChapterPostDescription } from './description/main';
+import { PublicSpaceChapterPostMain } from './post/main';
 
 export function PublicSpaceChapterPost() {
   return (
@@ -12,8 +12,7 @@ export function PublicSpaceChapterPost() {
       roundedFx={roundedFx.rounded}
     >
       <GlassWindowContents className='flex w-full flex-col space-y-[2rem]'>
-        <PublicSpaceChapterPostDescription />
-        {/* <PublicSpaceChapterPostContents /> */}
+        <PublicSpaceChapterPostMain />
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>

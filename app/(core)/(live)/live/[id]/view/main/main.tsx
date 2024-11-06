@@ -4,7 +4,7 @@ import {
   PublicSpaceFeedView,
 } from '../../controller/main';
 import { PublicSpaceBreadcrumbs } from './breadcrumbs/main';
-import { PublicSpaceChapterHome } from './chapter/main';
+import { PublicSpaceChapterChannel } from './channel/main';
 import { PublicSpacePost } from './post/main';
 import { PublicSpaceChapterList } from './posts/main';
 
@@ -23,7 +23,7 @@ export function PublicSpaceMain() {
         </>
       )}
       {publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL && (
-        <PublicSpaceChapterHome />
+        <PublicSpaceChapterChannel />
       )}
     </div>
   );

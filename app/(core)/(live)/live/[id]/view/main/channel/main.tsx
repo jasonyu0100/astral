@@ -1,7 +1,7 @@
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { useContext } from 'react';
 
-export function PublicSpaceChapterHome() {
+export function PublicSpaceChapterChannel() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
