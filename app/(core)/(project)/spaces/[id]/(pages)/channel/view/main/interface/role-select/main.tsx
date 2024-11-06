@@ -20,6 +20,9 @@ export function SpacesChannelInputLeft() {
 
   return (
     <div className='flex flex-shrink-0 items-center justify-center space-x-[2rem]'>
+      <p className='text-bold font-bold text-slate-500'>
+        {isToggled ? 'AI Enabled' : 'AI Disabled'}
+      </p>
       <div
         onClick={handleToggle}
         className={`flex h-8 w-14 cursor-pointer  items-center rounded-full bg-opacity-50 p-1 ${

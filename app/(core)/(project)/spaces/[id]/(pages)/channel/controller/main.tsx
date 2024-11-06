@@ -174,12 +174,13 @@ export function useControllerForSpacesChannel() {
       `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
       `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
-      `Reply to the user and help them achieve their objectives.`,
-      `[END OF INSTRUCTIONS]`,
       `[START OF USER MESSAGE]`,
       formatMessage(message),
       `[END OF USER MESSAGE]`,
+      `[START OF INSTRUCTIONS]`,
+      `Reply to the user, keeping in mind your role and the objectives. `,
+      `Be smart and try not to exceed 200 characters.`,
+      `[END OF INSTRUCTIONS]`,
     ];
     const messagePrompt = messageHistory.join('\n');
     const agentResponse = (await getMessageResponse(messagePrompt)) || '';
