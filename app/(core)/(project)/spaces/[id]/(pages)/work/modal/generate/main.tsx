@@ -1,4 +1,3 @@
-import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
@@ -18,9 +17,6 @@ export function SpacesWorkGenerateTasksModal() {
   const openableController = useContext(ContextForOpenable);
   const [generatePrompt, setGeneratePrompt] = useState('');
   const loadingController = useContext(ContextForLoading);
-  const activityListController = useContext(
-    ContextForUserActivityListFromChapter,
-  );
   const spacesWorkController = useContext(ContextForSpacesWork);
   const [tasks, setTasks] = useState<TaskTemplate[]>([]);
   const [selectedTasks, setSelectedTasks] = useState<TaskTemplate[]>([]);
@@ -42,7 +38,7 @@ export function SpacesWorkGenerateTasksModal() {
             <AstralModalBodyContents>
               <AstralModalTitle>Generate Tasks</AstralModalTitle>
               <AstralTextLineInput
-                placeholder='Enter a generate prompt'
+                placeholder='Enter a prompt'
                 onChange={(e) => setGeneratePrompt(e.target.value)}
               />
               <div className='grid grid-cols-3 gap-[1rem]'>

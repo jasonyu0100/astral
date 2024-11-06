@@ -6,14 +6,16 @@ import { useContext } from 'react';
 export function JournalDailyTableContents() {
   const resourceListController = useContext(ContextForCollectionResourceList);
   return (
-    <div className='w-full columns-3 gap-[1rem] space-y-[1rem]'>
+    <div className='flex w-full flex-row flex-wrap items-center gap-[2rem]'>
       {resourceListController.state.objs.map((resource) => (
-        <ContextForCollectionResourceObj.Provider
-          value={resource}
-          key={resource.id}
-        >
-          <ElementResource />
-        </ContextForCollectionResourceObj.Provider>
+        <div className='w-[200px] flex-shrink-0'>
+          <ContextForCollectionResourceObj.Provider
+            value={resource}
+            key={resource.id}
+          >
+            <ElementResource />
+          </ContextForCollectionResourceObj.Provider>
+        </div>
       ))}
     </div>
   );

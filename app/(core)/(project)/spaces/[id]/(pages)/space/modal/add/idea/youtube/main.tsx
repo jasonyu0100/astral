@@ -110,10 +110,7 @@ export function SpacesSpaceAddYouTubeUrlModal() {
                   src={`https://www.youtube.com/embed/${youtubeId}?controls=1&showinfo=0&modestbranding=0&rel=0&loop=1`}
                   title='YouTube video player'
                 />
-                <AstralRoundedActionButton
-                  onClick={createIdea}
-                  className='h-[4rem] w-[4rem]'
-                >
+                <AstralRoundedActionButton onClick={createIdea}>
                   <AstralCheckIcon />
                 </AstralRoundedActionButton>
               </>

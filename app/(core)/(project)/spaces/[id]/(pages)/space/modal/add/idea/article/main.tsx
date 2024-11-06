@@ -85,10 +85,7 @@ export function SpacesSpaceAddArticleIdeaModal() {
             </div>
           </AstralModalBodyContents>
           <AstralModalBodyAction>
-            <AstralRoundedActionButton
-              className='h-[4rem] w-[4rem]'
-              onClick={createArticle}
-            >
+            <AstralRoundedActionButton onClick={createArticle}>
               <AstralArrowForwardIcon />
             </AstralRoundedActionButton>
           </AstralModalBodyAction>

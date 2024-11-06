@@ -85,10 +85,7 @@ export function SpacesSpaceAddStickyIdeaModal() {
             </div>
           </AstralModalBodyContents>
           <AstralModalBodyAction>
-            <AstralRoundedActionButton
-              className='h-[4rem] w-[4rem]'
-              onClick={createStickyNote}
-            >
+            <AstralRoundedActionButton onClick={createStickyNote}>
               <AstralArrowForwardIcon />
             </AstralRoundedActionButton>
           </AstralModalBodyAction>

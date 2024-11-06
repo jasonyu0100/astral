@@ -111,10 +111,7 @@ export function DashboardJournalAddYouTubeUrlModal() {
               </>
             )}
             {youtubeId && (
-              <AstralRoundedActionButton
-                onClick={addEntryToJournal}
-                className='h-[4rem] w-[4rem]'
-              >
+              <AstralRoundedActionButton onClick={addEntryToJournal}>
                 <AstralCheckIcon />
               </AstralRoundedActionButton>
             )}

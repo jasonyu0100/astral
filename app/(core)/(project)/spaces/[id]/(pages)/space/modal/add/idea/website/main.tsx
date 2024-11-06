@@ -93,10 +93,7 @@ export function SpacesSpaceAddWebsiteUrlModal() {
               </>
             )}
             {websiteUrl && (
-              <AstralRoundedActionButton
-                onClick={createIdea}
-                className='h-[4rem] w-[4rem]'
-              >
+              <AstralRoundedActionButton onClick={createIdea}>
                 <AstralCheckIcon />
               </AstralRoundedActionButton>
             )}

@@ -108,10 +108,7 @@ export function DashboardJournalAddSpotifyUrlModal() {
                     loading='lazy'
                   />
                 </div>
-                <AstralRoundedActionButton
-                  className='h-[4rem] w-[4rem]'
-                  onClick={addEntryToJournal}
-                >
+                <AstralRoundedActionButton onClick={addEntryToJournal}>
                   <AstralArrowForwardIcon />
                 </AstralRoundedActionButton>
               </>

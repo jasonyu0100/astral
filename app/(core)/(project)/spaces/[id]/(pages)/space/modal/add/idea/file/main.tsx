@@ -68,10 +68,7 @@ export function SpacesSpaceAddFileIdeaModal() {
             <AstralModalStep>1</AstralModalStep>
             <AstralUploadFile onChange={(file) => changeFile(file)} />
             {file.id && (
-              <AstralRoundedActionButton
-                className='h-[4rem] w-[4rem]'
-                onClick={createFileIdea}
-              >
+              <AstralRoundedActionButton onClick={createFileIdea}>
                 <AstralCheckIcon />
               </AstralRoundedActionButton>
             )}

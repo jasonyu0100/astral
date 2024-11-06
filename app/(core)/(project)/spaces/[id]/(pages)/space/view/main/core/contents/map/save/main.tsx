@@ -13,7 +13,6 @@ export function SpacesSpaceSave() {
       <GlassWindowFrame
         roundedFx={roundedFx['rounded-full']}
         borderFx={borderFx['border-all']}
-        className='h-[4rem] w-[4rem]'
       >
         <GlassWindowContents
           className='flex h-full w-full flex-col items-center justify-center bg-blue-600'
