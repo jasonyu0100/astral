@@ -42,17 +42,32 @@ export const useControllerForUnsplash = () => {
         },
       );
       const data = await resp.json();
-      return data.results.map((result: any) => {
-        const fileObj: FileElement = {
-          id: crypto.randomUUID(),
-          src: result.urls.raw,
-          ext: 'image/*',
-          title: result.alt_description,
-          size: 0,
-          variant: FileElementVariant.IMAGE,
-        };
-        return fileObj;
-      });
+
+      // Map results and fetch content-type for each image
+      const resultsWithTypes = await Promise.all(
+        data.results.map(async (result: any) => {
+          const imageUrl = result.urls.raw;
+
+          // HEAD request to get the content-type
+          const headResp = await fetch(imageUrl, { method: 'HEAD' });
+          const contentType = headResp.headers.get('content-type') || 'image/*';
+
+          // Extract file extension from content-type
+          const ext = contentType.split('/').pop();
+
+          const fileObj: FileElement = {
+            id: crypto.randomUUID(),
+            src: imageUrl,
+            ext: ext ? `image/${ext}` : 'image/*',
+            title: result.alt_description,
+            size: 0, // Size would require further fetch or an estimation
+            variant: FileElementVariant.IMAGE,
+          };
+          return fileObj;
+        }),
+      );
+
+      return resultsWithTypes;
     } catch (e) {
       console.error('Error fetching data from Unsplash:', e);
     }

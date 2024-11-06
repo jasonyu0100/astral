@@ -30,7 +30,9 @@ export function PublicSpacePostContents() {
           throw new Error(`Failed to fetch file: ${url}`);
         }
         const blob = await response.blob();
-        const fileName = attachment.title || `file_${index + 1}`;
+
+        const fileName = `${index + 1}-${attachment?.title || 'untitled'}.${attachment.fileElem?.ext.split('/')[1]}`;
+        console.log(fileName);
         zip.file(fileName, blob);
       }
     });
@@ -56,7 +58,7 @@ export function PublicSpacePostContents() {
             <div className='flex h-[5rem] w-full flex-row items-center space-x-[1rem] px-[2rem] shadow-glow'>
               <AstralDownloadIcon onClick={downloadZip} />
               <p className='font-bold text-slate-500'>
-                {attachmentListController.state.objs.length} ideas attached
+                {fileAttachments.length} ideas attached
               </p>
             </div>
             <div className='flex flex-wrap gap-[2rem] p-[2rem]'>
