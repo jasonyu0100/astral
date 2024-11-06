@@ -22,25 +22,49 @@ export function PublicSpacePostContents() {
   const downloadZip = async () => {
     const zip = new JSZip();
 
-    const filePromises = fileAttachments.map(async (attachment, index) => {
+    // Create an array to hold the valid file promises
+    const validFilePromises = fileAttachments.map(async (attachment, index) => {
       const url = attachment.fileElem?.src;
       if (url) {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch file: ${url}`);
-        }
-        const blob = await response.blob();
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch file: ${url}`);
+          }
+          const blob = await response.blob();
 
-        const fileName = `${index + 1}-${attachment?.title || 'untitled'}.${attachment.fileElem?.ext.split('/')[1]}`;
-        console.log(fileName);
-        zip.file(fileName, blob);
+          // Determine the file name from attachment details
+          const fileName = `${index + 1}-${attachment?.title || 'untitled'}.${attachment.fileElem?.ext.split('/')[1]}`;
+
+          // Return the file promise with the name and blob
+          return { fileName, blob };
+        } catch (error) {
+          console.error('Error fetching file:', error);
+          return null; // Return null for failed fetches
+        }
       }
+      return null; // Return null if no URL is found
     });
 
     try {
-      await Promise.all(filePromises);
-      const zipBlob = await zip.generateAsync({ type: 'blob' });
-      saveAs(zipBlob, 'attachments.zip');
+      // Wait for all the file promises to settle
+      const fetchedFiles = await Promise.all(validFilePromises);
+
+      // Filter out any failed fetches (nulls)
+      const validFiles = fetchedFiles.filter((file) => file !== null);
+
+      if (validFiles.length > 0) {
+        // Add valid files to the zip
+        validFiles.forEach(({ fileName, blob }) => {
+          zip.file(fileName, blob);
+        });
+
+        // Generate the zip blob and save it
+        const zipBlob = await zip.generateAsync({ type: 'blob' });
+        saveAs(zipBlob, 'attachments.zip');
+      } else {
+        console.error('No valid files to zip.');
+      }
     } catch (error) {
       console.error('Error creating zip file:', error);
     }
@@ -68,9 +92,13 @@ export function PublicSpacePostContents() {
                   key={index}
                 >
                   <div className='flex w-[300px] flex-shrink-0 flex-col space-y-[1rem]'>
-                    <p className='text-xl font-bold text-slate-500'>
-                      {attachment.title}
-                    </p>
+                    <GlassWindowFrame borderFx={borderFx['border-b']}>
+                      <GlassWindowContents className='flex'>
+                        <p className='text-lg font-bold text-slate-500'>
+                          {attachment?.title || 'untitled'}
+                        </p>
+                      </GlassWindowContents>
+                    </GlassWindowFrame>
                     <ElementAttachment />
                   </div>
                 </ContextForPostAttachmentObj.Provider>

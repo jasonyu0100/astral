@@ -1,10 +1,13 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { roundedFx } from '@/style/data';
+import { borderFx, roundedFx } from '@/style/data';
 
 export function ElementVideo({ src }: { src: string }) {
   return (
-    <GlassWindowFrame roundedFx={roundedFx.rounded}>
+    <GlassWindowFrame
+      roundedFx={roundedFx.rounded}
+      borderFx={borderFx['border-around']}
+    >
       <GlassWindowContents>
         <video
           id={`video-${src}`}

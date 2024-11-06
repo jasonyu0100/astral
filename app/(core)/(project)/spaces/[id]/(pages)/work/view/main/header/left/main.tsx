@@ -1,6 +1,6 @@
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralEditSquareIcon } from '@/icons/edit-square/main';
+import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -15,7 +15,7 @@ export function SpacesWorkHeaderLeft() {
     state: { sidebarVisibility },
     actions: { updateSidebarVisibility },
   } = useContext(ContextForSpacesWork);
-  const modalController = useContext(ContextForSpacesWorkModals);
+  const spacesWorkModalController = useContext(ContextForSpacesWorkModals);
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
@@ -33,9 +33,11 @@ export function SpacesWorkHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralAddIcon onClick={() => modalController.addTaskController.open()} />
-      <AstralEditSquareIcon
-        onClick={() => alert('Task generation coming soon')}
+      <AstralAddIcon
+        onClick={() => spacesWorkModalController.addTaskController.open()}
+      />
+      <AstralBookSparkIcon
+        onClick={() => spacesWorkModalController.addGenerateController.open()}
       />
     </div>
   );

@@ -17,10 +17,7 @@ import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
-import {
-  ContextForSpacesTable,
-  SpacesTableFeedView,
-} from '../../../../controller/main';
+import { ContextForSpacesTable } from '../../../../controller/main';
 import { ContextForSpacesTableModals } from '../../../../modal/controller/main';
 
 export function SpacesTableSidebarChaptersChapter() {
@@ -41,9 +38,6 @@ export function SpacesTableSidebarChaptersChapter() {
       className='w-full cursor-pointer'
       onClick={() => {
         chapterListController.actions.stateActions.select(chapterObj);
-        spacesTableController.actions.updateFeedView(
-          SpacesTableFeedView.CHAPTER,
-        );
       }}
     >
       {selected ? (

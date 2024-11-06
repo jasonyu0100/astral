@@ -5,7 +5,7 @@ import { UrlElementVariant } from '@/architecture/model/elements/url/main';
 import { ContextForCollectionResourceObj } from '@/architecture/model/gallery/collection/resource/main';
 import { useContext } from 'react';
 import { ElementArticle } from '../common/article/main';
-import { ElementAudioSquare } from '../common/audio/square/main';
+import { ElementAudioSquare } from '../common/audio/main';
 import { ElementImage } from '../common/image/main';
 import { ElementPdf } from '../common/pdf/main';
 import { ElementSpotify } from '../common/spotify/main';

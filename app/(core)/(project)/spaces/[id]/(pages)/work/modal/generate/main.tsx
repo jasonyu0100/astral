@@ -1,76 +1,100 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
-import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
-import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
+import { ContextForLoading } from '@/components/loading/controller/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
-import { useControllerForOpenAi } from '@/external/controller/openai/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
+import { AstralRefreshIcon } from '@/icons/refresh/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
-import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
+import { ContextForSpacesWork, TaskTemplate } from '../../controller/main';
 
 export function SpacesWorkGenerateTasksModal() {
-  const user = useGlobalUser((state) => state.user);
-  const openAiController = useControllerForOpenAi();
-  const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
-  const chapterListController = useContext(ContextForSpaceChapterList);
-  const taskListController = useContext(ContextForTaskList);
   const [generatePrompt, setGeneratePrompt] = useState('');
+  const loadingController = useContext(ContextForLoading);
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
   );
+  const spacesWorkController = useContext(ContextForSpacesWork);
+  const [tasks, setTasks] = useState<TaskTemplate[]>([]);
+  const [selectedTasks, setSelectedTasks] = useState<TaskTemplate[]>([]);
 
-  const generateTasks = async () => {
-    const messageHistory = [
-      `This is the base generate prompt: ${generatePrompt}`,
-      `This is the chapter title: ${chapterListController.state.currentObj?.title}`,
-      `This is the chapter objective: ${chapterListController.state.currentObj?.objective}`,
-      `Create a series of tasks based on the message history above.
-      
-      Example format:
-      {
-        "tasks": [
-          {"title": "#1", description: "#1 description"},
-          {"title": "#2", description: "#2 description"},
-          {"title": "#3", description: "#3 description"},
-        ]
-      }
-
-      Ensure the response follows the exact structure and format shown above, with properly escaped characters, no trailing commas, and valid JSON syntax.`,
-    ];
-
-    const messagePrompt = messageHistory.join('\n');
-
-    const agentResponse =
-      await openAiController.actions.getMessageResponse(messagePrompt);
-
-    const replacedString = agentResponse
-      .replace('```json\n', '')
-      .replace('```', '');
-
-    const json = JSON.parse(replacedString);
-
-    const tasks = json.tasks;
-    console.log(tasks);
+  const toggleTaskSelection = (task: TaskTemplate) => {
+    setSelectedTasks(
+      (prevSelected) =>
+        prevSelected.includes(task)
+          ? prevSelected.filter((t) => t !== task) // Deselect the task
+          : [...prevSelected, task], // Select the task
+    );
   };
 
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <div className='flex flex-row items-center space-x-[2rem]'>
-            <AstralTextLineInput
-              placeholder='Enter a generate prompt'
-              onChange={(e) => setGeneratePrompt(e.target.value)}
-            />
-            <AstralRoundedActionButton onClick={() => generateTasks()}>
-              <AstralArrowForwardIcon />
-            </AstralRoundedActionButton>
-          </div>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Generate Tasks</AstralModalTitle>
+              <AstralTextLineInput
+                placeholder='Enter a generate prompt'
+                onChange={(e) => setGeneratePrompt(e.target.value)}
+              />
+              <div className='grid grid-cols-3 gap-[1rem]'>
+                {tasks.map((task) => (
+                  <div
+                    key={task.title}
+                    onClick={() => toggleTaskSelection(task)}
+                    className={`aspect-square cursor-pointer rounded bg-yellow-500 p-[1rem] ${
+                      selectedTasks.includes(task)
+                        ? 'border-[3px] border-blue-500'
+                        : 'border border-transparent '
+                    }`}
+                  >
+                    <div className='text-lg font-bold'>{task.title}</div>
+                    <div className='text-sm font-light'>{task.description}</div>
+                  </div>
+                ))}
+              </div>
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              {tasks.length > 0 && selectedTasks.length > 0 && (
+                <AstralRoundedActionButton
+                  onClick={() => {
+                    loadingController.loadingController.open();
+                    spacesWorkController.actions
+                      .createTasksFromSelected(selectedTasks)
+                      .then((tasks) => {
+                        console.log(tasks);
+                        openableController.close();
+                        loadingController.loadingController.close();
+                      });
+                  }}
+                >
+                  <AstralCheckIcon />
+                </AstralRoundedActionButton>
+              )}
+              <AstralRoundedActionButton
+                className='from-slate-500 to-slate-600'
+                onClick={() => {
+                  loadingController.loadingController.open();
+                  spacesWorkController.actions
+                    .createTasksFromPrompt(generatePrompt)
+                    .then((tasks) => {
+                      setTasks(tasks);
+                      loadingController.loadingController.close();
+                    });
+                }}
+              >
+                <AstralRefreshIcon />
+              </AstralRoundedActionButton>
+            </AstralModalBodyAction>
+          </AstralModalBody>
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>

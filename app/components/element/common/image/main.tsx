@@ -1,5 +1,10 @@
 export function ElementImage({ src }: { src: string }) {
   return (
-    <img src={src} className='w-full flex-shrink-0 object-contain shadow-md' />
+    <div className='aspect-[11/13] bg-slate-100 p-[1rem]'>
+      <img
+        src={src}
+        className='aspect-square w-full flex-shrink-0 bg-black object-contain shadow-md'
+      />
+    </div>
   );
 }

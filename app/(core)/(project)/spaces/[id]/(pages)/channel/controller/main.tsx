@@ -216,7 +216,8 @@ export function useControllerForSpacesChannel() {
       `Use the conversation history primarily and titles and descriptions as reference.`,
       `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
       `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.`,
-      `Example format:`,
+      `[END OF INSTRUCTIONS]`,
+      `[START OF EXAMPLE RETURN]`,
       `{`,
       `  "insights": [`,
       `    {"text": "Insight 1"},`,
@@ -224,7 +225,7 @@ export function useControllerForSpacesChannel() {
       `    {"text": "Insight 3"}`,
       `  ]`,
       `}`,
-      `[END OF INSTRUCTIONS]`,
+      `[END OF EXAMPLE RETURN]`,
     ];
     const messagePrompt = messageHistory.join('\n');
 
