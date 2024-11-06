@@ -8,6 +8,7 @@ export interface ConversationObj {
   decisionId?: string;
   toUserId?: string;
   toAgentId?: string;
+  title: string;
   summary: string;
   created: string;
 }
@@ -18,6 +19,7 @@ export const exampleConversation: ConversationObj = {
   chapterId: '0',
   decisionId: '0',
   toUserId: '0',
+  title: 'Idea',
   summary: 'A conversation about the idea',
   created: new Date().toISOString(),
 };
@@ -32,6 +34,7 @@ type ConversationObj {
   toAgentId: String
   summary: String!
   created: String!
+  title: String!
 }
 `;
 
@@ -46,6 +49,7 @@ export const exampleConversations: ConversationObj[] = [
     chapterId: '0',
     summary: 'Another conversation about the idea',
     created: new Date().toISOString(),
+    title: 'Idea',
   },
   {
     id: '1',
@@ -53,6 +57,7 @@ export const exampleConversations: ConversationObj[] = [
     chapterId: '0',
     summary: "What's the meaning?",
     created: new Date().toISOString(),
+    title: 'Idea',
   },
   {
     id: '2',
@@ -60,6 +65,7 @@ export const exampleConversations: ConversationObj[] = [
     chapterId: '0',
     summary: "What's the meaning?",
     created: new Date().toISOString(),
+    title: 'Idea',
   },
 ];
 

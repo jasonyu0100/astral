@@ -94,7 +94,6 @@ function Page({ params }: { params: { id: string } }) {
   );
   const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
-    conversationId,
   );
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
@@ -230,12 +229,6 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
 
 function EffectWrapper({ children }: { children: React.ReactNode }) {
   const spaceMainController = useContext(ContextForSpaceMain);
-  const chapterListController = useContext(ContextForSpaceChapterList);
-  const conversationListController = useContext(
-    ContextForChapterConversationList,
-  );
-  const messageListController = useContext(ContextForConversationMessageList);
-  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const setSpace = useGlobalSpace((state) => state.setSpace);
 
   useEffect(() => {
@@ -243,42 +236,6 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       setSpace(spaceMainController.state.obj);
     }
   }, [spaceMainController.state.obj]);
-
-  useEffect(() => {
-    if (
-      conversationListController.state.objId === '' &&
-      chapterListController.state.objId
-    ) {
-      conversationListController.actions.createActions.createConversation(
-        loggedInUser?.id,
-        chapterListController.state.objId,
-      );
-    }
-  }, [conversationListController.state.objId]);
-
-  useEffect(() => {
-    if (
-      messageListController.state.objs.length === 0 &&
-      conversationListController.state.objs.length > 0 &&
-      conversationListController.state.currentObj &&
-      chapterListController.state.objId
-    ) {
-      const created = new Date(
-        conversationListController.state.currentObj.created,
-      );
-      const duration = new Date().getTime() - created.getTime();
-      if (duration < 1000 * 5) {
-        messageListController.actions.createActions.sendAgentMessage(
-          'astral',
-          conversationListController.state.objId,
-          "Hello, I'm Astral. How can I help you today?",
-        );
-      }
-    }
-  }, [
-    messageListController.state.objs,
-    conversationListController.state.objId,
-  ]);
 
   return <>{children}</>;
 }
@@ -317,8 +274,6 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
     // Update the router to reflect the new search params
     router.replace(`?${currentSearchParams.toString()}`);
   }, [
-    chapterListController.state?.objId,
-    conversationListController.state?.objId,
     router, // Ensure router is in the dependency array
   ]);
 

@@ -60,10 +60,6 @@ import {
   useControllerForUserMain,
 } from '@/architecture/controller/user/main';
 import {
-  TextElement,
-  TextElementVariant,
-} from '@/architecture/model/elements/text/main';
-import {
   ContextForSpaceVisibility,
   SpaceVisibility,
 } from '@/architecture/model/space/main';
@@ -77,7 +73,6 @@ import {
 import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { getTextIdeaBounds } from '@/utils/bounds';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
@@ -318,44 +313,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
         chapterListController.state.objId,
       );
     }
-  }, [sceneListController.state.objId]);
-
-  useEffect(() => {
-    if (
-      ideaListController.state.objs.length === 0 &&
-      sceneListController.state.objs.length > 0 &&
-      sceneListController.state.currentObj &&
-      chapterListController.state.objId
-    ) {
-      const created = new Date(sceneListController.state.currentObj.created);
-      const duration = new Date().getTime() - created.getTime();
-      if (duration < 1000 * 5) {
-        const title = 'Welcome to your new scene!';
-        const text = 'You can add ideas, media and links here.';
-        const textElem = {
-          id: crypto.randomUUID(),
-          title: title,
-          text: text,
-          variant: TextElementVariant.STICKY,
-        } as TextElement;
-
-        const { width, height } = getTextIdeaBounds(textElem);
-
-        ideaListController.actions.createActions.createIdeaFromTextElement(
-          loggedInUser.id,
-          sceneListController.state.objId,
-          title,
-          text,
-          Math.ceil(Math.random() * 200),
-          Math.ceil(Math.random() * 200),
-          width,
-          height,
-          textElem,
-          ideaListController.state.objs.length,
-        );
-      }
-    }
-  }, [sceneListController.state.objId, ideaListController.state.objs]);
+  }, [sceneListController.state.objId, chapterListController.state.objId]);
 
   return <>{children}</>;
 }

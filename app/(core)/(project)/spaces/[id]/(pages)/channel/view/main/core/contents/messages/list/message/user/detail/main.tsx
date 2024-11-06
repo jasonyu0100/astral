@@ -12,9 +12,9 @@ export function SpacesChannelUserMessageDetail() {
     <div className='ml-auto flex flex-row items-center'>
       <img
         src={loggedInUser?.dp?.src || exampleFileElement.src}
-        className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
+        className='aspect-square h-[2rem] w-[2rem] flex-shrink-0 rounded-full'
       />
-      <p className='p-[0.5rem] text-xs text-slate-300'>
+      <p className='text-md p-[1rem] text-slate-300'>
         from {loggedInUser?.displayName} sent{' '}
         {getFormmatedTimeDifference(new Date(message.created))}
       </p>

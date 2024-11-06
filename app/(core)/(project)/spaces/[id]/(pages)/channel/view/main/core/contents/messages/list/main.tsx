@@ -34,31 +34,39 @@ export function SpacesChannelMessages() {
           className='cursor-pointer p-[1rem] py-[2rem]'
           borderFx={borderFx['border-b']}
         >
-          <GlassWindowContents className='flex items-center justify-center space-x-[2rem]'>
-            <div className='flex items-center justify-end'>
+          <GlassWindowContents className='flex items-center justify-between space-x-[2rem]'>
+            <div className='flex items-center justify-between'>
               <AstralChevronLeftIcon
+                className={`h-[2rem] w-[2rem] ${conversationListController.state.index === 0 || conversationListController.state.objs.length === 0 ? 'fill-slate-500' : 'fill-slate-300'}`}
                 onClick={() =>
                   conversationListController.actions.stateActions.goNext()
                 }
               />
             </div>
-            <div>
+            <div className='flex flex-col'>
+              <p className='text-center text-2xl font-bold text-slate-300'>
+                {conversationListController.state.currentObj?.title ||
+                  'Untitled'}
+              </p>
               <p className='text-center text-2xl font-bold text-slate-300'>
                 {getFormattedAMPM(
                   new Date(
-                    conversationListController.state.currentObj?.created || '',
+                    conversationListController.state.currentObj?.created ||
+                      Date.now(),
                   ),
                 )}
                 <span>, </span>
                 {getFormattedDate(
                   new Date(
-                    conversationListController.state.currentObj?.created || '',
+                    conversationListController.state.currentObj?.created ||
+                      Date.now(),
                   ),
                 )}
               </p>
             </div>
             <div className='flex items-center justify-start'>
               <AstralChevronRightIcon
+                className={`h-[2rem] w-[2rem] ${conversationListController.state.index === conversationListController.state.objs.length - 1 ? 'fill-slate-500' : 'fill-slate-300'}`}
                 onClick={() =>
                   conversationListController.actions.stateActions.goPrev()
                 }

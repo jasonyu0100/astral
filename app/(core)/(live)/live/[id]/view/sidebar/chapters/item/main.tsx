@@ -56,17 +56,16 @@ export function PublicSpaceSidebarItem() {
               </p>
             </div>
             {selected && (
-              <AstralChatIndicatorIcon
-                onClick={(e) => {
-                  e.stopPropagation();
-                  publicSpaceController.actions.updateFeedView(
-                    PublicSpaceFeedView.CHANNEL,
-                  );
-                  // window.location.href = `${spacesMap.spaces.id.channel.link(
-                  //   spaceMainController.state.objId,
-                  // )}?chapter=${chapterObj.id}`;
-                }}
-              />
+              <div className='flex h-[3rem] w-[3rem] flex-row items-center justify-center rounded-full bg-emerald-500'>
+                <AstralChatIndicatorIcon
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    publicSpaceController.actions.updateFeedView(
+                      PublicSpaceFeedView.CHANNEL,
+                    );
+                  }}
+                />
+              </div>
             )}
           </div>
           {selected && (

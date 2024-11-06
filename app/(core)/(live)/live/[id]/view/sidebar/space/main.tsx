@@ -53,13 +53,15 @@ export function PublicSpaceSidebarSpace() {
                   {spaceMainController.state.obj.title}
                 </p>
               </div>
-              <AstralEditIcon
-                onClick={() => {
-                  window.location.href = spacesMap.spaces.id.space.link(
-                    spaceMainController.state.objId,
-                  );
-                }}
-              />
+              <div className='flex h-[3rem] w-[3rem] flex-row items-center justify-center rounded-full bg-slate-500'>
+                <AstralEditIcon
+                  onClick={() => {
+                    window.location.href = spacesMap.spaces.id.space.link(
+                      spaceMainController.state.objId,
+                    );
+                  }}
+                />
+              </div>
             </div>
             <p className='text-md font-light text-slate-300'>
               {spaceMainController.state.obj.description}

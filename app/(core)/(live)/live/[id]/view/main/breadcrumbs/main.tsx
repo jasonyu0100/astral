@@ -21,15 +21,19 @@ export function PublicSpaceBreadcrumbs() {
       {publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL && (
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
+            <p className='cursor-pointer text-2xl font-bold text-slate-500'>
+              {chapterListController.state.currentObj?.title}
+            </p>
+            <span className='text-2xl font-bold text-slate-500'> / </span>
             <p
               className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
-                  PublicSpaceFeedView.CHANNEL,
+                  PublicSpaceFeedView.POSTS,
                 );
               }}
             >
-              Channel
+              Conversations
             </p>
           </div>
           <div
@@ -49,22 +53,11 @@ export function PublicSpaceBreadcrumbs() {
               className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
-                  PublicSpaceFeedView.CHANNEL,
-                );
-              }}
-            >
-              Channel
-            </p>
-            <span className='text-2xl font-bold text-slate-500'> / </span>
-            <p
-              className='cursor-pointer text-2xl font-bold text-slate-500'
-              onClick={() => {
-                publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,
                 );
               }}
             >
-              Posts
+              {chapterListController.state.currentObj?.title}
             </p>
             <span className='text-2xl font-bold text-slate-500'> / </span>
             <p
@@ -95,23 +88,13 @@ export function PublicSpaceBreadcrumbs() {
               className='cursor-pointer text-2xl font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
-                  PublicSpaceFeedView.CHANNEL,
-                );
-              }}
-            >
-              Channel
-            </p>
-            <span className='text-2xl font-bold text-slate-500'> / </span>
-            <p
-              className='cursor-pointer text-2xl font-bold text-slate-500'
-              onClick={() => {
-                publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,
                 );
               }}
             >
-              Posts
+              {chapterListController.state.currentObj?.title}
             </p>
+            <span className='text-2xl font-bold text-slate-500'> / </span>
           </div>
           <div
             className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'

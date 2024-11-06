@@ -243,6 +243,7 @@ export const useControllerForChapterConversationList = (
         chapterId: '',
         summary: '',
         userId: '',
+        title: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushFront(newObj);
@@ -267,6 +268,7 @@ export const useControllerForChapterConversationList = (
         chapterId: chatId,
         summary: '',
         userId: userId,
+        title: '',
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushFront(newObj);

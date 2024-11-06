@@ -3,9 +3,6 @@ import { ContextForSpaceChapterList } from '@/architecture/controller/space/chap
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralChevronLeftIcon } from '@/icons/chevron-left/main';
-import { AstralChevronRightIcon } from '@/icons/chevron-right/main';
-import { AstralCloseIcon } from '@/icons/close/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -50,23 +47,13 @@ export function SpacesChannelHeaderLeft() {
           );
         }}
       />
-      <AstralCloseIcon
+      {/* <AstralCloseIcon
         onClick={() => {
           conversationListController.actions.deleteActions.delete(
             conversationListController.state.objId,
           );
         }}
-      />
-      <AstralChevronLeftIcon
-        onClick={() => {
-          conversationListController.actions.stateActions.goNext();
-        }}
-      />
-      <AstralChevronRightIcon
-        onClick={() => {
-          conversationListController.actions.stateActions.goPrev();
-        }}
-      />
+      /> */}
       {/* <AstralForumIcon
         onClick={() => {
           alert('Simulated conversations coming soon');

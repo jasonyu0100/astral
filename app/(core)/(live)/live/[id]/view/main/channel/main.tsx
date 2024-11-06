@@ -21,9 +21,38 @@ export function PublicSpaceChapterChannel() {
 
   return (
     <div className='flex flex-col divide-y-[1px] divide-slate-300 divide-opacity-30 py-[2rem]'>
+      <GlassWindowFrame className='p-[2rem]'>
+        <GlassWindowContents
+          className='flex cursor-pointer flex-col space-y-[1rem]'
+          onClick={() => {
+            window.location.href = `${spacesMap.spaces.id.channel.link(
+              spaceMainController.state.objId,
+            )}?chapter=${chapterListController.state.currentObj?.id}&action=new`;
+          }}
+        >
+          <div className='flex flex-col space-y-[0.5rem]'>
+            <div className='flex flex-row items-center space-x-[1rem]'>
+              <div className='flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-emerald-500'>
+                <AstralChatIndicatorIcon />
+              </div>
+              <p className='text-2xl font-bold text-slate-300'>
+                Start Conversation
+              </p>
+            </div>
+          </div>
+        </GlassWindowContents>
+        <GlassWindowPane glassFx={glassFx['glass-5']} />
+      </GlassWindowFrame>
       {conversationListController.state.objs.map((conversationObj) => (
         <GlassWindowFrame className='p-[2rem]'>
-          <GlassWindowContents className='flex flex-col space-y-[1rem]'>
+          <GlassWindowContents
+            className='flex cursor-pointer flex-col space-y-[1rem]'
+            onClick={() => {
+              window.location.href = `${spacesMap.spaces.id.channel.link(
+                spaceMainController.state.objId,
+              )}?chapter=${chapterListController.state.currentObj?.id}&conversation=${conversationObj.id}`;
+            }}
+          >
             <div className='flex flex-col space-y-[0.5rem]'>
               <p className='text-2xl font-bold text-slate-300'>
                 {getFormattedAMPM(new Date(conversationObj?.created || ''))}
@@ -39,14 +68,7 @@ export function PublicSpaceChapterChannel() {
               roundedFx={roundedFx['rounded-full']}
               className='w-[180px]'
             >
-              <GlassWindowContents
-                className='flex cursor-pointer flex-row items-center space-x-[1rem] px-[1rem] py-[0.5rem]'
-                onClick={() => {
-                  window.location.href = `${spacesMap.spaces.id.channel.link(
-                    spaceMainController.state.objId,
-                  )}?chapter=${chapterListController.state.currentObj?.id}&conversation=${conversationObj.id}`;
-                }}
-              >
+              <GlassWindowContents className='flex cursor-pointer flex-row items-center space-x-[1rem] px-[1rem] py-[0.5rem]'>
                 <AstralChatIndicatorIcon />
                 <p className='font-bold text-slate-300'>
                   {messageListController.state.objs.length} messages

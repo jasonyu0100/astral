@@ -332,23 +332,42 @@ export function useControllerForSpacesChannel() {
   }
 
   async function summariseConversation(messages: ConversationMessageObj[]) {
-    const messageHistory = [
-      `[START OF MESSAGE HISTORY]`,
-      ...getMessageHistory(),
-      `[END OF MESSAGE HISTORY]`,
-      `[START OF INSTRUCTIONS]`,
-      `Summarise the conversation into a brief paragraph.`,
-      `E.G "The user was looking for productivity tips and the agent helped them with some useful tips."`,
-      `[END OF INSTRUCTIONS]`,
-    ];
+    async function getSummary() {
+      const messageHistory = [
+        `[START OF MESSAGE HISTORY]`,
+        ...getMessageHistory(),
+        `[END OF MESSAGE HISTORY]`,
+        `[START OF INSTRUCTIONS]`,
+        `Summarise the conversation into a brief paragraph.`,
+        `E.G "The user was looking for productivity tips and the agent helped them with some useful tips."`,
+        `[END OF INSTRUCTIONS]`,
+      ];
+      const messagePrompt = messageHistory.join('\n');
+      const summary = await getMessageResponse(messagePrompt);
+      return summary;
+    }
+    async function getTitle() {
+      const messageHistory = [
+        `[START OF MESSAGE HISTORY]`,
+        ...getMessageHistory(),
+        `[END OF MESSAGE HISTORY]`,
+        `[START OF INSTRUCTIONS]`,
+        `Summarise the conversation into a title.`,
+        `E.G "Productivity Tips"`,
+        `[END OF INSTRUCTIONS]`,
+      ];
+      const messagePrompt = messageHistory.join('\n');
+      const title = await getMessageResponse(messagePrompt);
+      return title;
+    }
 
-    const messagePrompt = messageHistory.join('\n');
-
-    const summary = await getMessageResponse(messagePrompt);
+    const summary = await getSummary();
+    const title = await getTitle();
 
     await conversationListController.actions.editActions.edit(
       conversationListController.state.objId,
       {
+        title: title || '',
         summary: summary || '',
       },
     );

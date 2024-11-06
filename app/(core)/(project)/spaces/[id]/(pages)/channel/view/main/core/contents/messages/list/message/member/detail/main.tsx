@@ -11,9 +11,9 @@ export function SpacesChannelMemberMessageDetail() {
     <div className='mr-auto flex flex-row items-center'>
       <img
         src={userObj?.dp?.src || exampleFileElement.src}
-        className='aspect-square h-[20px] w-[20px] flex-shrink-0 rounded-full'
+        className='aspect-square h-[2rem] w-[2rem] flex-shrink-0 rounded-full'
       />
-      <p className='p-[0.5rem] text-left text-xs text-slate-300'>
+      <p className='text-md p-[1rem] text-left text-slate-300'>
         from {userObj?.displayName} at{' '}
         {new Date(message.created).toLocaleTimeString()}
       </p>
