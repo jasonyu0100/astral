@@ -9,8 +9,8 @@ import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralDeleteIcon } from '@/icons/delete/main';
-import { AstralSaveIcon } from '@/icons/save/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useState } from 'react';
 
@@ -58,9 +58,12 @@ export function VaultFinderEditResourceModal() {
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={() => updateResource()}>
-                <AstralSaveIcon />
+                <AstralCheckIcon />
               </AstralRoundedActionButton>
-              <AstralRoundedActionButton onClick={() => deleteResource()}>
+              <AstralRoundedActionButton
+                className='from-slate-500 to-slate-600'
+                onClick={() => deleteResource()}
+              >
                 <AstralDeleteIcon />
               </AstralRoundedActionButton>
             </AstralModalBodyAction>

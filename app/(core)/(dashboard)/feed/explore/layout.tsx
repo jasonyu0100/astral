@@ -4,7 +4,7 @@ import { UpdatesTabs, UpdatesTabStage } from '../tabs/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
-      <UpdatesTabs tab={UpdatesTabStage.Personal} />
+      <UpdatesTabs tab={UpdatesTabStage.Explore} />
       <DashboardContent>{children}</DashboardContent>
     </>
   );

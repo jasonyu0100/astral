@@ -12,7 +12,7 @@ import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
@@ -54,6 +54,10 @@ export function VaultFinderCreateCollectionModal() {
           <AstralModalBody>
             <AstralModalBodyContents>
               <AstralModalTitle>Create Collection</AstralModalTitle>
+              <AstralUploadFiles
+                onChange={(files) => changeFiles(files)}
+                label={'Files'}
+              />
               <AstralTextLineInput
                 placeholder='Title'
                 title='Title'
@@ -66,14 +70,10 @@ export function VaultFinderCreateCollectionModal() {
                 value={description}
                 onChange={(e) => changeDescription(e.target.value)}
               />
-              <AstralUploadFiles
-                onChange={(files) => changeFiles(files)}
-                label={'Files'}
-              />
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={createCollection}>
-                <AstralArrowForwardIcon />
+                <AstralCheckIcon />
               </AstralRoundedActionButton>
             </AstralModalBodyAction>
           </AstralModalBody>

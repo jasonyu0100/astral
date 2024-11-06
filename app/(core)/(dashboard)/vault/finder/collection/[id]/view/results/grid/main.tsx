@@ -9,22 +9,20 @@ export function FinderCollectionResourcesGrid() {
   const resourceListController = useContext(ContextForCollectionResourceList);
 
   return (
-    <>
-      <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
-        <div className='grid grid-cols-5 gap-[1rem] pr-[2rem]'>
-          {resourceListController.state.more.queryResults.map((resource) => (
-            <ContextForCollectionResourceObj.Provider
-              value={resource}
-              key={resource.id}
-            >
-              <VaultFinderModals>
-                <FinderResource key={resource.id} />
-              </VaultFinderModals>
-            </ContextForCollectionResourceObj.Provider>
-          ))}
-          <CollectionResourceAdd />
-        </div>
+    <div className='flex-grow overflow-auto' style={{ height: '100%' }}>
+      <div className='grid grid-cols-5 gap-[2rem] pr-[2rem]'>
+        {resourceListController.state.more.queryResults.map((resource) => (
+          <ContextForCollectionResourceObj.Provider
+            value={resource}
+            key={resource.id}
+          >
+            <VaultFinderModals>
+              <FinderResource key={resource.id} />
+            </VaultFinderModals>
+          </ContextForCollectionResourceObj.Provider>
+        ))}
+        <CollectionResourceAdd />
       </div>
-    </>
+    </div>
   );
 }

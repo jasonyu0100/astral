@@ -20,8 +20,8 @@ export function PublicSpaceChapterChannel() {
   const messageListController = useContext(ContextForConversationMessageList);
 
   return (
-    <div className='flex flex-col divide-y-[1px] divide-slate-300 divide-opacity-30 py-[2rem]'>
-      <GlassWindowFrame className='p-[2rem]'>
+    <div className='flex flex-col space-y-[1rem] py-[2rem]'>
+      <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
         <GlassWindowContents
           className='flex cursor-pointer flex-col space-y-[1rem]'
           onClick={() => {
@@ -44,7 +44,7 @@ export function PublicSpaceChapterChannel() {
         <GlassWindowPane glassFx={glassFx['glass-5']} />
       </GlassWindowFrame>
       {conversationListController.state.objs.map((conversationObj) => (
-        <GlassWindowFrame className='p-[2rem]'>
+        <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
           <GlassWindowContents
             className='flex cursor-pointer flex-col space-y-[1rem]'
             onClick={() => {
@@ -54,13 +54,15 @@ export function PublicSpaceChapterChannel() {
             }}
           >
             <div className='flex flex-col space-y-[0.5rem]'>
-              <p className='text-2xl font-bold text-slate-300'>
+              <p className='text-2xl font-light text-slate-300'>
                 {getFormattedAMPM(new Date(conversationObj?.created || ''))}
-              </p>
-              <p className='text-lg font-bold text-slate-300'>
+                <span>, </span>
                 {getFormattedDate(new Date(conversationObj?.created || ''))}
               </p>
-              <p className='text-lg font-light text-slate-300'>
+              <p className='text-sm text-slate-300'>
+                <span className='text-md font-bold text-slate-300'>
+                  {conversationObj.title || 'Untitled'} -{' '}
+                </span>
                 {conversationObj.summary || 'Untitled'}
               </p>
             </div>

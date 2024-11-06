@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx } from '@/style/data';
 
-export function CommonSidebarDefaultContainer({
+export function CommonSidebarContainer({
   children,
 }: {
   children?: React.ReactNode;

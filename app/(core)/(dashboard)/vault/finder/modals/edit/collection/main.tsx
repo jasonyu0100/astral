@@ -70,14 +70,15 @@ export function VaultFinderEditCollectionModal() {
               >
                 <AstralCheckIcon />
               </AstralRoundedActionButton>
+              <AstralRoundedActionButton
+                className='from-slate-500 to-slate-600'
+                onClick={() => {
+                  deleteCollection();
+                }}
+              >
+                <AstralDeleteIcon />
+              </AstralRoundedActionButton>
             </AstralModalBodyAction>
-            <AstralRoundedActionButton
-              onClick={() => {
-                deleteCollection();
-              }}
-            >
-              <AstralDeleteIcon />
-            </AstralRoundedActionButton>
           </AstralModalBody>
         </AstralModalBodyWrapper>
       </AstralModal>

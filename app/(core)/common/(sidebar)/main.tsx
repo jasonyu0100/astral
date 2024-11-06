@@ -1,11 +1,19 @@
 'use client';
 import { ContextForCurrentSpaceObj } from '@/architecture/model/space/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext } from 'react';
-import { CommonSidebarDefault } from './default/main';
+import { CommonSidebarContainer } from './common/container/default/main';
+import { CommonSidebarIndicators } from './common/indicators/main';
+import { CommonSidebarUpdatesIndicator } from './common/indicators/variants/feed/main';
+import { CommonSidebarJournalIndicator } from './common/indicators/variants/journal/main';
+import { CommonSidebarNetworkIndicator } from './common/indicators/variants/network/main';
+import { CommonSidebarSpaceIndicator } from './common/indicators/variants/studio/main';
+import { CommonSidebarVaultIndicator } from './common/indicators/variants/vault/main';
 import { CommonSidebarModals } from './modals/controller/main';
+import { CommonSidebarTopSpace } from './top/space/main';
 
 export interface ContextForCommonSidebar {
   indicator?: string;
@@ -40,7 +48,18 @@ export function CommonSidebar({
           }}
         >
           <CommonSidebarModals>
-            <CommonSidebarDefault />
+            <CommonSidebarContainer>
+              <CommonSidebarTopSpace />
+              <HorizontalDivider className='my-[1rem] mb-[2rem]' />
+              <CommonSidebarIndicators>
+                <CommonSidebarSpaceIndicator />
+                <CommonSidebarUpdatesIndicator />
+                <CommonSidebarJournalIndicator />
+                <CommonSidebarNetworkIndicator />
+                <CommonSidebarVaultIndicator />
+                {/* <CommonSidebarExplorerIndicator /> */}
+              </CommonSidebarIndicators>
+            </CommonSidebarContainer>
           </CommonSidebarModals>
         </ContextForCommonSidebar.Provider>
       </ContextForCurrentSpaceObj.Provider>

@@ -33,7 +33,6 @@ export function SpacesTableEditPostModal() {
       ...postListController.state.currentObj,
       title,
       description: description,
-      bg: background.src,
     };
     const post = await postListController.actions.editActions.edit(
       postListController.state.objId,

@@ -16,10 +16,10 @@ export function NetworkCreativeTableRow() {
       <div>
         <NetworkCreativeRowRole />
       </div>
+      <div></div>
       <div>
         <NetworkCreativeRowSpaces />
       </div>
-      <div></div>
       <div></div>
       <div>
         <NetworkCreativeRowActivity />

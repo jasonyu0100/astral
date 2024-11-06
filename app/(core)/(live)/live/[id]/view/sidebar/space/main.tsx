@@ -53,7 +53,7 @@ export function PublicSpaceSidebarSpace() {
                   {spaceMainController.state.obj.title}
                 </p>
               </div>
-              <div className='flex h-[3rem] w-[3rem] flex-row items-center justify-center rounded-full bg-slate-500'>
+              <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-500'>
                 <AstralEditIcon
                   onClick={() => {
                     window.location.href = spacesMap.spaces.id.space.link(

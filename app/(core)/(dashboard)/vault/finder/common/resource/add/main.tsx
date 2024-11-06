@@ -1,4 +1,3 @@
-import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
 import { ContextForVaultFinderModals } from '../../../modals/controller/main';
@@ -15,9 +14,7 @@ export function CollectionResourceAdd() {
     >
       <ResourceContainer>
         <div className='flex h-full w-full items-center justify-center p-[1rem]'>
-          <AstralRoundedActionButton>
-            <AstralAddIcon className='h-[3rem] w-[3rem]' />
-          </AstralRoundedActionButton>
+          <AstralAddIcon className='h-1/2 w-1/2' />
         </div>
       </ResourceContainer>
     </div>

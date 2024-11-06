@@ -9,10 +9,7 @@ import { ContextForScrollToHorizontalIndex } from '@/logic/controller/scroll-to-
 import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
-import {
-  ContextForSpacesTable,
-  SpacesTableFeedView,
-} from '../../../../../controller/main';
+import { ContextForSpacesTable } from '../../../../../controller/main';
 import { ContextForSpacesTableModals } from '../../../../../modal/controller/main';
 
 export function SpacesTableRowElement() {
@@ -38,9 +35,6 @@ export function SpacesTableRowElement() {
         onClick={() => {
           postListController.actions.stateActions.select(post);
           controllerForScrollToCursor.scrollToHorizontalIndex(index);
-          spacesTableController.actions.updateFeedView(
-            SpacesTableFeedView.POST,
-          );
         }}
       >
         <p

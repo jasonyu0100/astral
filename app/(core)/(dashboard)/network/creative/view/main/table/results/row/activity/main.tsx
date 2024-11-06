@@ -1,18 +1,19 @@
 import {
-  ContextForSpaceObj,
-  SpaceVisibility,
-} from '@/architecture/model/space/main';
+  ContextForUserObj,
+  UserProfileVisibility,
+} from '@/architecture/model/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
 export function NetworkCreativeRowActivity() {
-  const spaceObj = useContext(ContextForSpaceObj);
+  const userObj = useContext(ContextForUserObj);
+
   return (
-    <div className='flex flex-row justify-center space-x-[0.25rem]'>
+    <div className='flex flex-row justify-center'>
       <div
         className={ctwn(`h-[1rem] w-[1rem] animate-pulse-slow rounded-full`, {
-          'bg-green-500': spaceObj.visibility === SpaceVisibility.PUBLIC,
-          'bg-red-500': spaceObj.visibility === SpaceVisibility.PRIVATE,
+          'bg-green-500': userObj.visibility === UserProfileVisibility.PUBLIC,
+          'bg-red-500': userObj.visibility === UserProfileVisibility.PRIVATE,
         })}
       ></div>
     </div>

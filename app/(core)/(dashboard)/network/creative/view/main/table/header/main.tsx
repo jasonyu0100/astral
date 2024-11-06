@@ -10,6 +10,7 @@ export function NetworkCreativeTableHeader() {
           <p className='px-[0.5rem] font-bold text-slate-300'>about</p>
         </div>
         <p className='font-bold text-slate-300'>role</p>
+        <p className='text-center font-bold text-slate-300'></p>
         <p className='font-bold text-slate-300'>spaces</p>
         <p className='text-center font-bold text-slate-300'></p>
         <p className='text-center font-bold text-slate-300'></p>

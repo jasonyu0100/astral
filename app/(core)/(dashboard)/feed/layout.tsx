@@ -6,7 +6,7 @@ import { DashboardBody } from '../common/container/body/main';
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <DashboardContainer>
-      <CommonSidebar indicator={CommonSidebarIndicatorType.Updates} />
+      <CommonSidebar indicator={CommonSidebarIndicatorType.Feed} />
       <DashboardBody>{children}</DashboardBody>
     </DashboardContainer>
   );

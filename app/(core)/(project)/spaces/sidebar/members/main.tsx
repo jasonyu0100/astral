@@ -22,7 +22,6 @@ export function SpaceSidebarMembersList() {
   return (
     <div className='flex h-full w-full flex-col items-center space-y-[2rem] overflow-auto rounded-full'>
       {showAddMember && <SpaceSidebarMembersListAdd />}
-      {showAddMember && <SpaceSidebarMembersListAdd />}
       {spaceMemberListController.state.objs.map((obj) => (
         <ContextForSpaceMemberObj.Provider value={obj}>
           <SpaceSidebarMembersListMember />
