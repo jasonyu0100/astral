@@ -330,16 +330,14 @@ export function useControllerForSpacesChannel() {
     return agentResponse;
   }
 
-  async function summariseConversationForChapter(
-    messages: ConversationMessageObj[],
-  ) {
+  async function summariseConversation(messages: ConversationMessageObj[]) {
     const messageHistory = [
       `[START OF MESSAGE HISTORY]`,
       ...getMessageHistory(),
       `[END OF MESSAGE HISTORY]`,
       `[START OF INSTRUCTIONS]`,
-      `Summarise the conversation into a single sentence.`,
-      `E.G "User wants to improve productivity"`,
+      `Summarise the conversation into a brief paragraph.`,
+      `E.G "The user was looking for productivity tips and the agent helped them with some useful tips."`,
       `[END OF INSTRUCTIONS]`,
     ];
 
@@ -347,10 +345,10 @@ export function useControllerForSpacesChannel() {
 
     const summary = await getMessageResponse(messagePrompt);
 
-    await chapterListController.actions.editActions.edit(
-      chapterListController.state.objId,
+    await conversationListController.actions.editActions.edit(
+      conversationListController.state.objId,
       {
-        description: summary || '',
+        summary: summary || '',
       },
     );
   }
@@ -396,7 +394,7 @@ export function useControllerForSpacesChannel() {
       messages = await sendAndReceiveMessage(conversation);
     }
 
-    await summariseConversationForChapter(messages);
+    await summariseConversation(messages);
     return messages;
   }
 

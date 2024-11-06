@@ -73,6 +73,7 @@ import { SpacesChannelView } from './view/main';
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
   const chapterId = searchParams.get('chapter');
+  const conversationId = searchParams.get('conversation');
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const userMainController = useControllerForUserMain(
@@ -93,6 +94,7 @@ function Page({ params }: { params: { id: string } }) {
   );
   const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
+    conversationId,
   );
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
@@ -117,14 +119,14 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForChapterConversationList.Provider
                     value={conversationListController}
                   >
-                    <ContextForIdeaSceneList.Provider
-                      value={sceneListController}
+                    <ContextForConversationMessageList.Provider
+                      value={messageListController}
                     >
-                      <ContextForSceneIdeaList.Provider
-                        value={ideaListController}
+                      <ContextForIdeaSceneList.Provider
+                        value={sceneListController}
                       >
-                        <ContextForConversationMessageList.Provider
-                          value={messageListController}
+                        <ContextForSceneIdeaList.Provider
+                          value={ideaListController}
                         >
                           <ContextForTaskList.Provider
                             value={taskListController}
@@ -147,9 +149,9 @@ function Page({ params }: { params: { id: string } }) {
                               </UpdateWrapper>
                             </ContextForUserActivityListFromChapter.Provider>
                           </ContextForTaskList.Provider>
-                        </ContextForConversationMessageList.Provider>
-                      </ContextForSceneIdeaList.Provider>
-                    </ContextForIdeaSceneList.Provider>
+                        </ContextForSceneIdeaList.Provider>
+                      </ContextForIdeaSceneList.Provider>
+                    </ContextForConversationMessageList.Provider>
                   </ContextForChapterConversationList.Provider>
                 </ContextForSpaceChapterList.Provider>
               </RedirectWrapper>
@@ -291,11 +293,15 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
 
 function UpdateWrapper({ children }: { children: React.ReactNode }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
+  const conversationListController = useContext(
+    ContextForChapterConversationList,
+  );
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
     const chapterId = chapterListController.state?.objId;
+    const conversationId = conversationListController.state?.objId;
 
     // Get the current search params
     const currentSearchParams = new URLSearchParams(searchParams);
@@ -304,11 +310,15 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
     if (chapterId) {
       currentSearchParams.set('chapter', chapterId);
     }
+    if (conversationId) {
+      currentSearchParams.set('conversation', conversationId);
+    }
 
     // Update the router to reflect the new search params
     router.replace(`?${currentSearchParams.toString()}`);
   }, [
     chapterListController.state?.objId,
+    conversationListController.state?.objId,
     router, // Ensure router is in the dependency array
   ]);
 

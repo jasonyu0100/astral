@@ -2,6 +2,14 @@
 
 import { portalMap } from '@/(portal)/map';
 import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/architecture/controller/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/architecture/controller/conversation/message/list';
+import {
   ContextForPostAttachmentListFromPost,
   useControllerForPostAttachmentListFromPost,
 } from '@/architecture/controller/post/attachment/list-from-post';
@@ -92,6 +100,12 @@ function Page({ params }: { params: { id: string } }) {
   const attachmentListController = useControllerForPostAttachmentListFromPost(
     postListController.state.objId,
   );
+  const conversationListController = useControllerForChapterConversationList(
+    chapterListController.state.objId,
+  );
+  const messageListController = useControllerForConversationMessageList(
+    conversationListController.state.objId,
+  );
 
   const publicSpaceController = useControllerForPublicSpace();
 
@@ -124,13 +138,21 @@ function Page({ params }: { params: { id: string } }) {
                         <ContextForPublicSpace.Provider
                           value={publicSpaceController}
                         >
-                          <PermissionWrapper>
-                            <RedirectWrapper>
-                              <UpdateWrapper>
-                                <PublicSpaceView />
-                              </UpdateWrapper>
-                            </RedirectWrapper>
-                          </PermissionWrapper>
+                          <ContextForChapterConversationList.Provider
+                            value={conversationListController}
+                          >
+                            <ContextForConversationMessageList.Provider
+                              value={messageListController}
+                            >
+                              <PermissionWrapper>
+                                <RedirectWrapper>
+                                  <UpdateWrapper>
+                                    <PublicSpaceView />
+                                  </UpdateWrapper>
+                                </RedirectWrapper>
+                              </PermissionWrapper>
+                            </ContextForConversationMessageList.Provider>
+                          </ContextForChapterConversationList.Provider>
                         </ContextForPublicSpace.Provider>
                       </ContextForPostCommentList.Provider>
                     </ContextForPostAttachmentListFromPost.Provider>

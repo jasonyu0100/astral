@@ -29,7 +29,6 @@ import { ContextForSpacesChannel } from '../../../controller/main';
 
 export enum GenerateSceneTab {
   TEXT = 'Text',
-  ARTICLES = 'Articles',
   MEDIA = 'Media',
   IMAGERY = 'Imagery',
   VAULT = 'Vault',
@@ -45,12 +44,10 @@ interface ControllerState {
   tab: GenerateSceneTab;
   title: string;
   objective: string;
-  articleSearchQuery: string;
   mediaSearchQuery: string;
   imageryKeywords: string;
   textSummary: string;
   textResults: IdeaObj[];
-  articleResults: IdeaObj[];
   imageryResults: IdeaObj[];
   mediaResults: IdeaObj[];
   selectedIdeas: IdeaObj[];
@@ -62,11 +59,9 @@ interface ControllerActions {
   createMap: () => Promise<void>;
   updateTitle: (title: string) => void;
   updateObjective: (objective: string) => void;
-  updateArticleSearchQuery: (query: string) => void;
   updateMediaSearchQuery: (query: string) => void;
   updateImageryKeywords: (keywords: string) => void;
   updateTextSummary: (summary: string) => void;
-  updateArticleResults: (results: IdeaObj[]) => void;
   updateImageryResults: (results: IdeaObj[]) => void;
   updateMediaResults: (results: IdeaObj[]) => void;
   updateTextResults: (results: IdeaObj[]) => void;
@@ -91,11 +86,9 @@ export function useGenerateSceneController(): Controller {
   const [objective, setObjective] = useState('');
   // Results
   const [textResults, setTextResults] = useState<IdeaObj[]>([]);
-  const [articlesResults, setArticlesResults] = useState<IdeaObj[]>([]);
   const [imageryResults, setImageryResults] = useState<IdeaObj[]>([]);
   const [mediaResults, setMediaResults] = useState<IdeaObj[]>([]);
   // Query
-  const [articleSearchQuery, setArticleSearchQuery] = useState('');
   const [mediaSearchQuery, setMediaSearchQuery] = useState('');
   const [imageryKeywords, setImageryKeywords] = useState('');
   const [textSummary, setTextSummary] = useState('');
@@ -136,15 +129,6 @@ export function useGenerateSceneController(): Controller {
           .then((ideas) => {
             setTextResults(ideas);
             loadingController.loadingController.close();
-          });
-      } else if (tab === GenerateSceneTab.ARTICLES) {
-        spacesChannelController.actions
-          .summariseConversationIntoQuery()
-          .then((query) => {
-            setArticleSearchQuery(query);
-            searchArticles(query).then(() => {
-              loadingController.loadingController.close();
-            });
           });
       } else if (tab === GenerateSceneTab.IMAGERY) {
         spacesChannelController.actions
@@ -192,39 +176,6 @@ export function useGenerateSceneController(): Controller {
       }
     }
   }, [openableController.opened, tab]);
-
-  const searchArticles = async (query: string) => {
-    const searchEngineId = '4562e5a04e0824515';
-    const url = `https://www.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API_KEY}&cx=${searchEngineId}&q=${encodeURIComponent(query)}`;
-
-    try {
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      const ideas = data.items.map((item: unknown) => {
-        return {
-          ...exampleIdea,
-          urlElem: {
-            ...exampleUrlElement,
-            title: item.title,
-            url: item.link,
-            variant: UrlElementVariant.WEBSITE,
-          },
-          title: item.title,
-          variant: ElementVariant.URL,
-        };
-      });
-      setArticlesResults(ideas);
-      return ideas; // Return the array of search results, or an empty array if none
-    } catch (error) {
-      console.error('Error fetching data from Google Custom Search API', error);
-      return [];
-    }
-  };
 
   async function searchYouTubeVideos(query: string) {
     const apiKey = process.env.GOOGLE_API_KEY; // Use environment variable for API key
@@ -413,12 +364,10 @@ export function useGenerateSceneController(): Controller {
       tab: tab,
       title: title,
       objective: objective,
-      articleSearchQuery: articleSearchQuery,
       imageryKeywords: imageryKeywords,
       mediaSearchQuery: mediaSearchQuery,
       textSummary: textSummary,
       textResults: textResults,
-      articleResults: articlesResults,
       imageryResults: imageryResults,
       mediaResults: mediaResults,
       selectedIdeas: selectedIdeas,
@@ -429,11 +378,9 @@ export function useGenerateSceneController(): Controller {
       updatePage: (page: GenerateScenePage) => setPage(page),
       createMap: createMap,
       updateTab: (tab: GenerateSceneTab) => setTab(tab),
-      updateArticleSearchQuery: (query: string) => setArticleSearchQuery(query),
       updateMediaSearchQuery: (query: string) => setMediaSearchQuery(query),
       updateImageryKeywords: (keywords: string) => setImageryKeywords(keywords),
       updateTextSummary: (summary: string) => setTextSummary(summary),
-      updateArticleResults: (results: IdeaObj[]) => setArticlesResults(results),
       updateImageryResults: (results: IdeaObj[]) => setImageryResults(results),
       updateMediaResults: (results: IdeaObj[]) => setMediaResults(results),
       updateTextResults: (results: IdeaObj[]) => setTextResults(results),

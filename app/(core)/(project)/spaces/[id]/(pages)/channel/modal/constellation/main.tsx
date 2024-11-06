@@ -18,7 +18,6 @@ import {
   GenerateSceneTab,
   useGenerateSceneController,
 } from './controller/main';
-import { SpacesChannelSearchArticlesContent } from './pages/articles/main';
 import { SpacesChannelSearchImageryContent } from './pages/imagery/main';
 import { SpacesChannelSearchMediaContent } from './pages/media/main';
 import { SpacesChannelGenerateTextContent } from './pages/text/main';
@@ -91,10 +90,6 @@ export function SpacesChannelConstellationModal() {
                       {generateSceneController.state.tab ===
                         GenerateSceneTab.TEXT && (
                         <SpacesChannelGenerateTextContent />
-                      )}
-                      {generateSceneController.state.tab ===
-                        GenerateSceneTab.ARTICLES && (
-                        <SpacesChannelSearchArticlesContent />
                       )}
                       {generateSceneController.state.tab ===
                         GenerateSceneTab.IMAGERY && (
