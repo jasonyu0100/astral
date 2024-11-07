@@ -312,6 +312,10 @@ export function useControllerForSpacesSpace(): Controller {
     return () => clearInterval(interval);
   }, [ideaListController.state.objs]);
 
+  useEffect(() => {
+    saveItems();
+  }, [sceneListController.state.objId]);
+
   return {
     state: {
       updateToggle,

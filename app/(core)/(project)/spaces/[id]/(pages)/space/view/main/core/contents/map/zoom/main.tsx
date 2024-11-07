@@ -11,6 +11,7 @@ export function SpacesSpaceZoom() {
       <div className='flex flex-col items-center space-y-[1rem] rounded-full bg-slate-500 bg-opacity-30 p-[1rem]'>
         <AstralAddIcon
           onClick={() => {
+            if (spacesSpaceController.state.zoom >= 0.9) return;
             spacesSpaceController.actions.updateZoom(
               spacesSpaceController.state.zoom + 0.1,
             );
@@ -21,6 +22,7 @@ export function SpacesSpaceZoom() {
         </p>
         <AstralRemoveIcon
           onClick={() => {
+            if (spacesSpaceController.state.zoom <= 0.2) return;
             spacesSpaceController.actions.updateZoom(
               spacesSpaceController.state.zoom - 0.1,
             );

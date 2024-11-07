@@ -37,8 +37,12 @@ export function SpacesSpaceMovable({
     console.log('update obj', transformationObj.x, transformationObj.y);
     ideaListController.actions.stateActions.updateObj(ideaObj.id, {
       ...ideaObj,
-      x: Math.round(initialX + transformationObj.x),
-      y: Math.round(initialY + transformationObj.y),
+      x: Math.round(
+        initialX + transformationObj.x / spacesSpaceController.state.zoom,
+      ),
+      y: Math.round(
+        initialY + transformationObj.y / spacesSpaceController.state.zoom,
+      ),
       scale: transformationObj.scale * initialScale,
       rotation: Math.round(initialRotation + transformationObj.rotation),
     });
