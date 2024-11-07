@@ -14,6 +14,7 @@ import { SpacesSpaceAddGenerateIdeaModal } from '../add/idea/generate/main';
 import { SpacesSpaceAddSearchIdeaModal } from '../add/idea/search/main';
 import { SpacesSpaceAddSpotifyUrlModal } from '../add/idea/spotify/main';
 import { SpacesSpaceAddStickyIdeaModal } from '../add/idea/sticky/main';
+import { SpacesSpaceAddFileVideoIdeaModal } from '../add/idea/video/main';
 import { SpacesSpaceAddWebsiteUrlModal } from '../add/idea/website/main';
 import { SpacesSpaceAddYouTubeUrlModal } from '../add/idea/youtube/main';
 import { SpacesSpaceAddResourceModal } from '../add/resource/main';
@@ -52,6 +53,7 @@ export interface SpacesSpaceModals {
   editSceneController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
   migrateSceneController: ContextForOpenableInterface;
+  addFileVideoIdeaController: ContextForOpenableInterface;
 }
 
 export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
@@ -76,6 +78,7 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
   const addChapterController = useControllerForOpenable();
   const migrateSceneController = useControllerForOpenable();
   const addFileAudioIdeaController = useControllerForOpenable();
+  const addFileVideoIdeaController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSpaceModals.Provider
@@ -101,6 +104,7 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
         editSceneController: editSceneController,
         addChapterController: addChapterController,
         migrateSceneController: migrateSceneController,
+        addFileVideoIdeaController: addFileVideoIdeaController,
       }}
     >
       {children}
@@ -166,6 +170,9 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addFileAudioIdeaController}>
         <SpacesSpaceAddFileAudioIdeaModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addFileVideoIdeaController}>
+        <SpacesSpaceAddFileVideoIdeaModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSpaceModals.Provider>
   );

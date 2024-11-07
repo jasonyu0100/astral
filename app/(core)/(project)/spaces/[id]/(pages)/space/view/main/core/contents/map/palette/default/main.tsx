@@ -61,7 +61,7 @@ export function SpacesSpacePaletteDefault() {
           />
           <AstralVideoCamIcon
             className='h-[2rem] w-[2rem]'
-            onClick={() => alert('Coming soon...')}
+            onClick={() => modalController.addFileVideoIdeaController.open()}
           />
         </>
       )}

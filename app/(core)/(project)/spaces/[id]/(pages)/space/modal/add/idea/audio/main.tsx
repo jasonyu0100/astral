@@ -159,14 +159,17 @@ export function SpacesSpaceAddFileAudioIdeaModal() {
                   >
                     <ElementIdea />
                   </ContextForIdeaObj.Provider>
-                  <div className='flex flex-row items-center space-x-[1rem] rounded-full bg-slate-300 bg-opacity-30 p-[2rem]'>
+                  <div className='flex flex-col items-center space-y-[1rem] rounded-full bg-slate-300 bg-opacity-30 p-[2rem]'>
                     <AstralUploadIcon
                       className='h-[2rem] w-[2rem]'
                       onClick={uploadAudioToS3}
                     />
                     <AstralCloseIcon
                       className='h-[2rem] w-[2rem]'
-                      onClick={() => setAudioBlob(null)}
+                      onClick={() => {
+                        setAudioBlob(null);
+                        uploadActions.clearFile();
+                      }}
                     />
                   </div>
                 </>
