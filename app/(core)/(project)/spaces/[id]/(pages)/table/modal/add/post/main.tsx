@@ -1,3 +1,4 @@
+import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForPostAttachmentListFromPost } from '@/architecture/controller/post/attachment/list-from-post';
 import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
@@ -18,7 +19,7 @@ import { useContext, useState } from 'react';
 
 export function SpacesTableAddPostModal() {
   const user = useGlobalUser((state) => state.user);
-  const spaceController = useContext(ContextForSpaceMain);
+  const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
   const attachmentListController = useContext(
@@ -40,7 +41,7 @@ export function SpacesTableAddPostModal() {
       description,
       user.id,
       chapterListController.state.objId,
-      spaceController.state.objId,
+      spaceMainController.state.objId,
     );
     files.forEach(async (file) => {
       await attachmentListController.actions.createActions.createFromFile(
@@ -52,10 +53,11 @@ export function SpacesTableAddPostModal() {
 
     await activityListController.actions.createActions.createFromChapterPost(
       user.id,
-      spaceController.state.objId,
+      spaceMainController.state.objId,
       chapterListController.state.objId,
       post.id,
     );
+    window.location.href = `${liveMap.live.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.objId}`;
     openableController.close();
   }
 

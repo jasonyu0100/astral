@@ -57,7 +57,7 @@ export function PublicSpaceSidebarItem() {
             </div>
             {selected && (
               <div
-                className={`flex h-[3rem] w-[3rem] flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL ? 'bg-emerald-500' : 'bg-slate-500'}`}
+                className={`flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL ? 'bg-emerald-500' : 'bg-slate-500'}`}
               >
                 <AstralChatIndicatorIcon
                   onClick={(e) => {
