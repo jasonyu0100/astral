@@ -35,23 +35,22 @@ export function SpacesSpaceScene() {
   }, [spacesSpaceController.actions]); // Ensure the effect re-runs if actions change
 
   return (
-    <div className='relative h-full w-full' ref={ref}>
-      <div
-        className='relative z-10 h-full w-full cursor-pointer'
-        style={{ zoom: spacesSpaceController.state.zoom }}
-        onClick={() => spacesSpaceController.actions.updateSelectedIdeas([])}
-      >
-        {ideaListController.state.objs.map((idea, index) => (
-          <ContextForIndexable.Provider key={idea.id} value={index}>
-            <ContextForIdeaObj.Provider value={idea}>
-              <SpacesSpaceMovable>
-                <ElementIdea textOveride={<SpacesSpaceTextIdea />} />
-              </SpacesSpaceMovable>
-            </ContextForIdeaObj.Provider>
-          </ContextForIndexable.Provider>
-        ))}
-        <SpacesSpaceContentsSceneConnections />
-      </div>
+    <div
+      className='relative z-10 h-full w-full cursor-pointer overflow-hidden'
+      ref={ref}
+      style={{ zoom: spacesSpaceController.state.zoom }}
+      onClick={() => spacesSpaceController.actions.updateSelectedIdeas([])}
+    >
+      {ideaListController.state.objs.map((idea, index) => (
+        <ContextForIndexable.Provider key={idea.id} value={index}>
+          <ContextForIdeaObj.Provider value={idea}>
+            <SpacesSpaceMovable>
+              <ElementIdea textOveride={<SpacesSpaceTextIdea />} />
+            </SpacesSpaceMovable>
+          </ContextForIdeaObj.Provider>
+        </ContextForIndexable.Provider>
+      ))}
+      <SpacesSpaceContentsSceneConnections />
     </div>
   );
 }

@@ -151,7 +151,7 @@ export function useControllerForSpacesSpace(): Controller {
 
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
-  const [zoom, setZoom] = useState(1);
+  const [zoom, setZoom] = useState(0.8);
 
   // Add ref for capturing the screenshot of the container
   const screenshotRef = useRef<HTMLDivElement>(null);
