@@ -37,12 +37,8 @@ export function SpacesSpaceMovable({
     console.log('update obj', transformationObj.x, transformationObj.y);
     ideaListController.actions.stateActions.updateObj(ideaObj.id, {
       ...ideaObj,
-      x: Math.round(
-        initialX + transformationObj.x / spacesSpaceController.state.zoom,
-      ),
-      y: Math.round(
-        initialY + transformationObj.y / spacesSpaceController.state.zoom,
-      ),
+      x: Math.round(initialX + transformationObj.x),
+      y: Math.round(initialY + transformationObj.y),
       scale: transformationObj.scale * initialScale,
       rotation: Math.round(initialRotation + transformationObj.rotation),
     });
@@ -105,11 +101,12 @@ export function SpacesSpaceMovable({
           }
         }}
       >
-        <div className='flex h-full w-full flex-col items-center justify-center'>
+        <div className='relative'>
           {children}
+
+          {spacesSpaceController.state.bubbleMode ===
+            SpacesSpaceBubbleMode.ON && <SpacesSpaceIdeaLabel />}
         </div>
-        {spacesSpaceController.state.bubbleMode ===
-          SpacesSpaceBubbleMode.ON && <SpacesSpaceIdeaLabel />}
       </div>
       <Moveable
         ref={moveableRef}
