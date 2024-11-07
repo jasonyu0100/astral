@@ -67,7 +67,12 @@ export function SpacesTableChapterPost() {
                 onChange={handleCheckboxChange}
               />
             </div>
-            <div className='col-span-3'>
+            <div className='col-span-1'>
+              <p className='text-lg text-slate-300'>
+                {userObj.state.obj.displayName}
+              </p>
+            </div>
+            <div className='col-span-2'>
               <p
                 className='whitespace-wrap cursor-pointer text-xl font-bold text-blue-500'
                 onClick={() => {
@@ -77,24 +82,19 @@ export function SpacesTableChapterPost() {
                 {postObj?.title?.trim() || 'Untitled'}
               </p>
             </div>
-            <div>
-              <p className='text-lg font-light text-white'>
+            <div className='col-span-3'>
+              <p className='cursor-pointer text-lg font-light text-slate-300'>
+                {postObj?.description?.trim() || 'Untitled'}
+              </p>
+            </div>
+            <div className='col-span-2'>
+              <p className='text-md font-light text-white'>
+                {getFormattedDate(new Date(postObj?.created ?? ''))}
+                <span>, </span>
                 {getFormattedAMPM(new Date(postObj?.created ?? ''))}
               </p>
             </div>
-            <div className='col-span-2'>
-              <p className='text-lg font-light text-white'>
-                {getFormattedDate(new Date(postObj?.created ?? ''))}
-              </p>
-            </div>
-            <div className='col-span-2'>
-              <p className='text-lg text-slate-300'>
-                {userObj.state.obj.displayName}
-              </p>
-            </div>
             <div>
-              {/* <PublicSpaceChapterPostKarma /> */}
-
               <AstralMoreIcon
                 onClick={(e) => {
                   e.stopPropagation();

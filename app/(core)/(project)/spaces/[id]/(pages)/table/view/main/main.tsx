@@ -1,7 +1,6 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
 
 import { SpacesTableCore } from './core/main';
-import { SpacesTableNavigation } from './navigation/main';
 
 export function SpacesTableMain() {
   return (
@@ -11,7 +10,7 @@ export function SpacesTableMain() {
       className={`flex flex-col`}
     >
       <SpacesTableCore />
-      <SpacesTableNavigation />
+      {/* <SpacesTableNavigation /> */}
     </GlassAreaContainer>
   );
 }

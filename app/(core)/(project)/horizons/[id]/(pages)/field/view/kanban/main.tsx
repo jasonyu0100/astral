@@ -141,7 +141,7 @@ export function HorizonsFieldKanban() {
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>Review</SpacesJourneyKanbanListTitle>
             <ul
-              id={TaskStatus.BACKLOG}
+              id={TaskStatus.ARCHIVE}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >

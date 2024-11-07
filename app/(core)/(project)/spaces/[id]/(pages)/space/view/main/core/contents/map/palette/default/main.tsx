@@ -7,10 +7,10 @@ import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralEditSquareIcon } from '@/icons/edit-square/main';
 import { AstralImageIcon } from '@/icons/image/main';
 import { AstralLinkIcon } from '@/icons/link/main';
+import { AstralMicIcon } from '@/icons/mic/main';
 import { AstralMoreIcon } from '@/icons/more/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
 import { AstralVideoCamIcon } from '@/icons/video-cam/main';
-import { AstralVoiceIcon } from '@/icons/voice/main';
 import { useContext, useState } from 'react';
 
 export function SpacesSpacePaletteDefault() {
@@ -55,9 +55,9 @@ export function SpacesSpacePaletteDefault() {
             className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addWebsiteUrlIdeaController.open()}
           />
-          <AstralVoiceIcon
+          <AstralMicIcon
             className='h-[2rem] w-[2rem]'
-            onClick={() => alert('Coming soon...')}
+            onClick={() => modalController.addFileAudioIdeaController.open()}
           />
           <AstralVideoCamIcon
             className='h-[2rem] w-[2rem]'

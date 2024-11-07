@@ -5,7 +5,7 @@ import {
   ContextForSpacesWork,
   SpacesWorkSidebarMode,
 } from '../../controller/main';
-import { SpacesWorkSidebarBacklog } from './backlog/main';
+import { SpacesWorkSidebarArchive } from './archive/main';
 import { SpacesWorkSidebarChapters } from './chapters/main';
 import { SpacesWorkSidebarHeader } from './header/main';
 
@@ -22,7 +22,7 @@ export function SpacesWorkSidebar() {
       {spacesWorkController.state.sidebarMode ===
         SpacesWorkSidebarMode.CHAPTERS && <SpacesWorkSidebarChapters />}
       {spacesWorkController.state.sidebarMode ===
-        SpacesWorkSidebarMode.BACKLOG && <SpacesWorkSidebarBacklog />}
+        SpacesWorkSidebarMode.ARCHIVE && <SpacesWorkSidebarArchive />}
     </GlassAreaContainer>
   );
 }

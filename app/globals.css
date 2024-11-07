@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+audio::-webkit-media-controls-panel {
+  background-color: #56aeff00;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -32,7 +32,7 @@ export function SpacesWorkSidebarHeader() {
                   sidebarMode === SpacesWorkSidebarMode.CHAPTERS,
               })}
             >
-              Chapters
+              {SpacesWorkSidebarMode.CHAPTERS}
             </p>
           </GlassWindowContents>
           {sidebarMode === SpacesWorkSidebarMode.CHAPTERS && (
@@ -47,17 +47,17 @@ export function SpacesWorkSidebarHeader() {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
-            onClick={() => updateSidebarMode(SpacesWorkSidebarMode.BACKLOG)}
+            onClick={() => updateSidebarMode(SpacesWorkSidebarMode.ARCHIVE)}
           >
             <p
               className={ctwn('font-bold text-slate-500', {
-                'text-slate-300': sidebarMode === SpacesWorkSidebarMode.BACKLOG,
+                'text-slate-300': sidebarMode === SpacesWorkSidebarMode.ARCHIVE,
               })}
             >
-              Backlog
+              {SpacesWorkSidebarMode.ARCHIVE}
             </p>
           </GlassWindowContents>
-          {sidebarMode === SpacesWorkSidebarMode.BACKLOG && (
+          {sidebarMode === SpacesWorkSidebarMode.ARCHIVE && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>

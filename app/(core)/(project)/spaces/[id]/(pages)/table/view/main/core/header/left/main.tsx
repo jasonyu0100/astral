@@ -1,7 +1,7 @@
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralDeleteIcon } from '@/icons/delete/main';
+import { AstralRemoveIcon } from '@/icons/remove/main';
 import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
@@ -38,7 +38,7 @@ export function SpacesTableHeaderLeft() {
         <AstralAddIcon
           onClick={() => spacesTableModalController.addPostController.open()}
         />
-        <AstralDeleteIcon
+        <AstralRemoveIcon
           onClick={() => {
             spacesTableController.actions.deletedSelectedPosts();
           }}

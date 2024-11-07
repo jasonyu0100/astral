@@ -4,7 +4,7 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpacesWorkAddBacklogTaskModal } from '../add/backlog-task/main';
+import { SpacesWorkAddArchiveTaskModal } from '../add/archive-task/main';
 import { SpacesWorkAddChapterModal } from '../add/chapter/main';
 import { SpacesWorkAddTaskModal } from '../add/task/main';
 import { SpacesWorkEditChapterModal } from '../edit/chapter/main';
@@ -16,7 +16,7 @@ export const ContextForSpacesWorkModals = createContext({} as SpacesWorkModals);
 export interface SpacesWorkModals {
   addUpdateController: ContextForOpenableInterface;
   addTaskController: ContextForOpenableInterface;
-  addBacklogTaskController: ContextForOpenableInterface;
+  addArchiveTaskController: ContextForOpenableInterface;
   addChapterController: ContextForOpenableInterface;
   addGenerateController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
@@ -30,7 +30,7 @@ export function SpacesWorkModals({ children }: { children: React.ReactNode }) {
   const addGenerateController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
-  const addBacklogTaskController = useControllerForOpenable();
+  const addArchiveTaskController = useControllerForOpenable();
 
   return (
     <ContextForSpacesWorkModals.Provider
@@ -41,7 +41,7 @@ export function SpacesWorkModals({ children }: { children: React.ReactNode }) {
         addGenerateController: addGenerateController,
         editChapterController: editChapterController,
         editSpaceController: editSpaceController,
-        addBacklogTaskController: addBacklogTaskController,
+        addArchiveTaskController: addArchiveTaskController,
       }}
     >
       {children}
@@ -60,8 +60,8 @@ export function SpacesWorkModals({ children }: { children: React.ReactNode }) {
       <ContextForOpenable.Provider value={editSpaceController}>
         <SpacesWorkEditSpaceModal />
       </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={addBacklogTaskController}>
-        <SpacesWorkAddBacklogTaskModal />
+      <ContextForOpenable.Provider value={addArchiveTaskController}>
+        <SpacesWorkAddArchiveTaskModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesWorkModals.Provider>
   );

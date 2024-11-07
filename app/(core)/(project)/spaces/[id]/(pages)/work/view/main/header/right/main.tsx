@@ -1,4 +1,3 @@
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
 import { ContextForSpacesWork } from '../../../../controller/main';
 
@@ -7,7 +6,7 @@ export function SpacesWorkHeaderRight() {
 
   return (
     <div className='flex w-1/3 flex-row items-center justify-end'>
-      {spacesWorkController.state.selectedTasks.length === 0 && (
+      {/* {spacesWorkController.state.selectedTasks.length === 0 && (
         <p className='animate-pulse-slow font-bold text-slate-500'>
           No tasks selected
         </p>
@@ -25,7 +24,7 @@ export function SpacesWorkHeaderRight() {
           </p>
           <AstralArrowForwardIcon />
         </button>
-      )}
+      )} */}
     </div>
   );
 }

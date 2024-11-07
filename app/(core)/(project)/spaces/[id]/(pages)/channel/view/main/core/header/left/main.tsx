@@ -56,7 +56,7 @@ export function SpacesChannelHeaderLeft() {
       /> */}
       {/* <AstralForumIcon
         onClick={() => {
-          alert('Simulated conversations coming soon');
+          alert('coming soon');
         }}
       /> */}
     </div>

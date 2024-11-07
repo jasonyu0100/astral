@@ -12,7 +12,7 @@ import { IdeaObj } from '@/architecture/model/idea/main';
 import { IdeaRelationshipObj } from '@/architecture/model/idea/relationship/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import html2canvas from 'html2canvas';
-import { createContext, useContext, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 interface Controller {
   state: ControllerState;
@@ -34,6 +34,7 @@ interface ControllerState {
   bubbleMode: SpacesSpaceBubbleMode;
   screenshotRef: React.RefObject<HTMLDivElement>;
   hideUI: boolean;
+  zoom: number;
 }
 
 interface ControllerActions {
@@ -48,6 +49,7 @@ interface ControllerActions {
   updateSidebarMode: (mode: SpacesSpaceSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: IdeaObj) => boolean;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
+  updateZoom: (zoom: number) => void;
   linkIdeas: () => Promise<IdeaRelationshipObj[]>;
   copyIdeas: () => Promise<IdeaObj[]>;
   selectAll: () => void;
@@ -58,7 +60,7 @@ interface ControllerActions {
   goToGalleryThenCollection: (gallery: GalleryObj) => void;
   takeScreenshot: () => void;
   updateHideUI: (hide: boolean) => void;
-  saveAll: () => void;
+  saveItemsAction: () => void;
   sortIdeas: () => void;
 }
 
@@ -149,6 +151,7 @@ export function useControllerForSpacesSpace(): Controller {
 
   const [divWidth, setDivWidth] = useState(0);
   const [divHeight, setDivHeight] = useState(0);
+  const [zoom, setZoom] = useState(1);
 
   // Add ref for capturing the screenshot of the container
   const screenshotRef = useRef<HTMLDivElement>(null);
@@ -195,39 +198,6 @@ export function useControllerForSpacesSpace(): Controller {
         }
       }
     }, 500);
-  };
-
-  const saveAndContainWithinDiv = async () => {
-    const items = ideaListController.state.objs;
-
-    const editPromises = items.map(async (idea) => {
-      let { x, y, width, height } = idea;
-
-      // Scale width and height to fit within div bounds if they exceed div size
-      if (width > divWidth) width = divWidth;
-      if (height > divHeight) height = divHeight;
-
-      // Adjust x position if the item overflows on the left or right side
-      if (x < 0) x = 0;
-      if (x + width > divWidth) x = divWidth - width;
-
-      // Adjust y position if the item overflows on the top or bottom side
-      if (y < 0) y = 0;
-      if (y + height > divHeight) y = divHeight - height;
-
-      // Update item position and size if changes were made
-      return ideaListController.actions.editActions.edit(idea.id, {
-        x: x,
-        y: y,
-        width: idea.width,
-        height: idea.height,
-        scale: idea.scale,
-        rotation: idea.rotation,
-      });
-    });
-
-    // Wait for all the promises to complete
-    await Promise.all(editPromises);
   };
 
   const distributeIdeasEvenly = async () => {
@@ -311,11 +281,35 @@ export function useControllerForSpacesSpace(): Controller {
     return ideaRelationships;
   };
 
-  const saveAll = async () => {
-    saveAndContainWithinDiv().then(() => {
+  const saveItems = async () => {
+    return await Promise.all(
+      ideaListController.state.objs.map(async (idea) => {
+        console.log(idea);
+        return ideaListController.actions.editActions.edit(idea.id, {
+          x: idea.x,
+          y: idea.y,
+          width: idea.width,
+          height: idea.height,
+          scale: idea.scale,
+          rotation: idea.rotation,
+        });
+      }),
+    );
+  };
+
+  const saveItemsAction = async () => {
+    saveItems().then((items) => {
       alert('save all');
     });
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      saveItems();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [ideaListController.state.objs]);
 
   return {
     state: {
@@ -333,9 +327,10 @@ export function useControllerForSpacesSpace(): Controller {
       sidebarVisibility: sidebarVisibility,
       screenshotRef: screenshotRef,
       hideUI: hideUI,
+      zoom: zoom,
     },
     actions: {
-      saveAll: saveAll,
+      saveItemsAction: saveItemsAction,
       updateHideUI: (hide: boolean) => setHideUI(hide),
       takeScreenshot: takeScreenshot,
       updateDivWidth: (width) => setDivWidth(width),
@@ -348,6 +343,7 @@ export function useControllerForSpacesSpace(): Controller {
       updateSidebarContentMode: (mode) => setListMode(mode),
       updateSidebarMode: (mode) => setListSceneMode(mode),
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
+      updateZoom: (zoom) => setZoom(zoom),
       goToHome: () => {
         changeSidebarMediaMode(SpacesSpaceSidebarMediaMode.Home);
       },

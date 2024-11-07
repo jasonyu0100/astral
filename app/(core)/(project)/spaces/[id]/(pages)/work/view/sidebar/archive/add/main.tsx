@@ -10,7 +10,7 @@ export function SpacesWorkSidebarBacklogAdd() {
       <button
         className='flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-blue-500'
         onClick={() => {
-          modalController.addBacklogTaskController.open();
+          modalController.addArchiveTaskController.open();
         }}
       >
         <AstralAddIcon />

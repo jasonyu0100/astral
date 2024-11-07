@@ -2,7 +2,7 @@ import { ModelInterface } from '@/architecture/model/main';
 import { createContext } from 'react';
 
 export enum TaskStatus {
-  BACKLOG = 'Backlog',
+  ARCHIVE = 'Archive',
   PENDING = 'Pending',
   CURRENT = 'Current',
   DONE = 'Done',

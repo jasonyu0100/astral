@@ -14,7 +14,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
 
-export function SpacesWorkAddBacklogTaskModal() {
+export function SpacesWorkAddArchiveTaskModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
@@ -26,9 +26,9 @@ export function SpacesWorkAddBacklogTaskModal() {
     ContextForUserActivityListFromChapter,
   );
 
-  async function createBacklogTask() {
+  async function createArchiveTask() {
     const task =
-      await taskListController.actions.createActions.createBacklogTask(
+      await taskListController.actions.createActions.createArchiveTask(
         chapterListController.state.objId,
         user.id,
         title,
@@ -49,7 +49,7 @@ export function SpacesWorkAddBacklogTaskModal() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <AstralModalTitle>Add to Backlog</AstralModalTitle>
+              <AstralModalTitle>Add to Archive</AstralModalTitle>
               <div className='aspect-square w-[400px] space-y-[2rem] bg-yellow-500 p-[2rem]'>
                 <input
                   placeholder='Enter title here...'
@@ -64,7 +64,7 @@ export function SpacesWorkAddBacklogTaskModal() {
               </div>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
-              <AstralRoundedActionButton onClick={createBacklogTask}>
+              <AstralRoundedActionButton onClick={createArchiveTask}>
                 <AstralArrowForwardIcon />
               </AstralRoundedActionButton>
             </AstralModalBodyAction>

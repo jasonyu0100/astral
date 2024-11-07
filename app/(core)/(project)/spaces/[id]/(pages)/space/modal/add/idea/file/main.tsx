@@ -22,8 +22,6 @@ export function SpacesSpaceAddFileIdeaModal() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const sceneListController = useContext(ContextForIdeaSceneList);
-  const [title, changeTitle] = useState('' as string);
-  const [description, changeDescription] = useState<string>('');
   const [file, changeFile] = useState({} as FileElement);
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
@@ -41,8 +39,8 @@ export function SpacesSpaceAddFileIdeaModal() {
       await ideaListController.actions.createActions.createIdeaFromFileElement(
         user.id,
         sceneListController.state.objId,
-        title,
-        description,
+        file.title,
+        '',
         Math.ceil(Math.random() * 200),
         Math.ceil(Math.random() * 200),
         width,

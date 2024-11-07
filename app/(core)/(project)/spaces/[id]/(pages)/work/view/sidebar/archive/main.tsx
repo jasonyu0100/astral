@@ -7,11 +7,11 @@ import { useContext } from 'react';
 import { SpacesWorkSidebarBacklogAdd } from './add/main';
 import { SpacesWorkBacklogItem } from './item/main';
 
-export function SpacesWorkSidebarBacklog() {
+export function SpacesWorkSidebarArchive() {
   const taskListController = useContext(ContextForTaskList);
   const tasks = taskListController.state.objs;
-  const backlog = tasks.filter(
-    (task) => task.taskStatus === TaskStatus.BACKLOG,
+  const archive = tasks.filter(
+    (task) => task.taskStatus === TaskStatus.ARCHIVE,
   );
 
   return (
@@ -21,7 +21,7 @@ export function SpacesWorkSidebarBacklog() {
     >
       <GlassWindowFrame className='h-full w-full flex-shrink-0'>
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
-          {backlog.map((task) => (
+          {archive.map((task) => (
             <ContextForTaskObj.Provider value={task}>
               <SpacesWorkBacklogItem />
             </ContextForTaskObj.Provider>

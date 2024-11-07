@@ -34,6 +34,7 @@ export function SpacesSpaceMovable({
 
   function updateViaTransformationObj(transformString: string) {
     const transformationObj = parseTransformString(transformString);
+    console.log('update obj', transformationObj.x, transformationObj.y);
     ideaListController.actions.stateActions.updateObj(ideaObj.id, {
       ...ideaObj,
       x: Math.round(initialX + transformationObj.x),

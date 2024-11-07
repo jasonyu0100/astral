@@ -41,7 +41,7 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     title: string,
     description: string,
   ) => Promise<TargetObj>;
-  createBacklogTask: (
+  createArchiveTask: (
     chapterId: string,
     userId: string,
     title: string,
@@ -296,12 +296,12 @@ export const useControllerForTaskList = (
       changeId(newObj.id);
       return newObj;
     },
-    createBacklogTask: async (chapterId, userId, title, description) => {
+    createArchiveTask: async (chapterId, userId, title, description) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
         userId: userId,
         chapterId: chapterId,
-        taskStatus: TaskStatus.BACKLOG,
+        taskStatus: TaskStatus.ARCHIVE,
         title: title,
         description: description,
       };

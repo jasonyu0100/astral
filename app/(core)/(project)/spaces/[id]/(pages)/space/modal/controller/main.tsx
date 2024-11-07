@@ -8,6 +8,7 @@ import { SpacesSpaceAddChapterModal } from '../add/chapter/main';
 import { SpacesSpaceAddCollectionModal } from '../add/collection/main';
 import { SpacesSpaceAddGalleryModal } from '../add/gallery/main';
 import { SpacesSpaceAddArticleIdeaModal } from '../add/idea/article/main';
+import { SpacesSpaceAddFileAudioIdeaModal } from '../add/idea/audio/main';
 import { SpacesSpaceAddFileIdeaModal } from '../add/idea/file/main';
 import { SpacesSpaceAddGenerateIdeaModal } from '../add/idea/generate/main';
 import { SpacesSpaceAddSearchIdeaModal } from '../add/idea/search/main';
@@ -36,6 +37,7 @@ export interface SpacesSpaceModals {
   addYouTubeUrlIdeaController: ContextForOpenableInterface;
   addSpotifyUrlIdeaController: ContextForOpenableInterface;
   addWebsiteUrlIdeaController: ContextForOpenableInterface;
+  addFileAudioIdeaController: ContextForOpenableInterface;
   addStickyIdeaController: ContextForOpenableInterface;
   addArticleIdeaController: ContextForOpenableInterface;
   addResourceController: ContextForOpenableInterface;
@@ -73,10 +75,12 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
   const editSceneController = useControllerForOpenable();
   const addChapterController = useControllerForOpenable();
   const migrateSceneController = useControllerForOpenable();
+  const addFileAudioIdeaController = useControllerForOpenable();
 
   return (
     <ContextForSpacesSpaceModals.Provider
       value={{
+        addFileAudioIdeaController: addFileAudioIdeaController,
         addGalleryController: addGalleryController,
         addCollectionController: addCollectionController,
         addFileIdeaController: addFileIdeaController,
@@ -159,6 +163,9 @@ export function SpacesSpaceModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={migrateSceneController}>
         <SpacesSpaceMigrateSceneModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={addFileAudioIdeaController}>
+        <SpacesSpaceAddFileAudioIdeaModal />
       </ContextForOpenable.Provider>
     </ContextForSpacesSpaceModals.Provider>
   );

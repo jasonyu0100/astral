@@ -37,8 +37,8 @@ export enum SpacesWorkDataMode {
 }
 
 export enum SpacesWorkSidebarMode {
-  CHAPTERS = 'CHAPTERS',
-  BACKLOG = 'BACKLOG',
+  CHAPTERS = 'Chapters',
+  ARCHIVE = 'Archive',
 }
 
 export enum SpacesWorkSidebarVisibility {

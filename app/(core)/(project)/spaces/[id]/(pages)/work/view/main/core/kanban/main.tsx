@@ -186,10 +186,10 @@ function KanbanTask({ task }) {
           <button
             onClick={() => {
               taskListController.actions.editActions.edit(task.id, {
-                taskStatus: TaskStatus.BACKLOG,
+                taskStatus: TaskStatus.ARCHIVE,
               });
               spacesWorkController.actions.updateSidebarMode(
-                SpacesWorkSidebarMode.BACKLOG,
+                SpacesWorkSidebarMode.ARCHIVE,
               );
             }}
           >
@@ -201,14 +201,13 @@ function KanbanTask({ task }) {
         </div>
       </div>
       {isEditingDescription ? (
-        <input
-          type='text'
+        <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           onBlur={handleDescriptionBlur}
           onKeyDown={(e) => handleKeyDown(e, handleDescriptionBlur)}
           autoFocus
-          className='border-none bg-yellow-500 text-sm font-light outline-none'
+          className='border-none bg-transparent text-sm font-light outline-none'
           style={{ width: '100%' }}
         />
       ) : (
