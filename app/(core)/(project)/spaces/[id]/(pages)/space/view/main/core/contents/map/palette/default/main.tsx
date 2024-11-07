@@ -29,20 +29,33 @@ export function SpacesSpacePaletteDefault() {
         className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addStickyIdeaController.open()}
       />
-      <AstralArticleIcon
-        className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addArticleIdeaController.open()}
-      />
       <AstralImageIcon
         className='h-[2rem] w-[2rem]'
         onClick={() => modalController.addSearchIdeaController.open()}
       />
-      <AstralSmartDisplayIcon
+      <AstralMicIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addYouTubeUrlIdeaController.open()}
+        onClick={() => modalController.addFileAudioIdeaController.open()}
+      />
+      <AstralVideoCamIcon
+        className='h-[2rem] w-[2rem]'
+        onClick={() => modalController.addFileVideoIdeaController.open()}
+      />
+
+      <AstralLinkIcon
+        className='h-[2rem] w-[2rem]'
+        onClick={() => modalController.addWebsiteUrlIdeaController.open()}
+      />
+      <AstralArticleIcon
+        className='h-[2rem] w-[2rem]'
+        onClick={() => modalController.addArticleIdeaController.open()}
       />
       {showMore && (
         <>
+          <AstralSmartDisplayIcon
+            className='h-[2rem] w-[2rem]'
+            onClick={() => modalController.addYouTubeUrlIdeaController.open()}
+          />
           <AstralAlbumIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addSpotifyUrlIdeaController.open()}
@@ -50,18 +63,6 @@ export function SpacesSpacePaletteDefault() {
           <AstralBookSparkIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => modalController.addGenerateIdeaController.open()}
-          />
-          <AstralLinkIcon
-            className='h-[2rem] w-[2rem]'
-            onClick={() => modalController.addWebsiteUrlIdeaController.open()}
-          />
-          <AstralMicIcon
-            className='h-[2rem] w-[2rem]'
-            onClick={() => modalController.addFileAudioIdeaController.open()}
-          />
-          <AstralVideoCamIcon
-            className='h-[2rem] w-[2rem]'
-            onClick={() => modalController.addFileVideoIdeaController.open()}
           />
         </>
       )}

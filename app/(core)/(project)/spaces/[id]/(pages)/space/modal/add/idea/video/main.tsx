@@ -23,7 +23,6 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralCloseIcon } from '@/icons/close/main';
 import { AstralPlayIcon } from '@/icons/play/main';
 import { AstralStopIcon } from '@/icons/stop/main';
-import { AstralUploadIcon } from '@/icons/upload/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
 import { ChangeEvent, useContext, useState } from 'react';
@@ -117,91 +116,91 @@ export function SpacesSpaceAddFileVideoIdeaModal() {
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <div className='flex flex-row items-center space-x-[2rem]'>
-                <AstralModalStep>1</AstralModalStep>
-                <div className='flex flex-row items-center space-y-4'>
-                  <div className='flex flex-row items-center space-x-[1rem] rounded-full bg-slate-300 bg-opacity-30 p-[2rem]'>
-                    {!recording ? (
-                      <AstralPlayIcon
-                        className='h-[2rem] w-[2rem]'
-                        onClick={() => {
-                          if (!recording && !videoBlob) {
-                            startRecording();
-                          } else {
-                            if (videoBlob) alert('Already recorded.');
-                            else alert('Already recording.');
-                          }
-                        }}
-                      />
-                    ) : (
-                      <AstralStopIcon
-                        className='h-[2rem] w-[2rem]'
-                        onClick={() => {
-                          if (recording) {
-                            stopRecording();
-                          } else {
-                            alert('No recording to stop.');
-                          }
-                        }}
-                      />
-                    )}
-                  </div>
-                </div>
-
-                {/* Mirror Preview Video */}
-                {recording && videoStream && (
-                  <video
-                    autoPlay
-                    muted
-                    className='rounded-[1rem]'
-                    style={{
-                      transform: 'scaleX(-1)', // Mirror effect
-                      width: '500px', // Adjust size as necessary
-                      height: 'auto',
-                    }}
-                    ref={(videoElement) => {
-                      if (videoElement) {
-                        videoElement.srcObject = videoStream;
-                      }
-                    }}
-                  />
-                )}
-
-                {!recording && videoBlob && (
-                  <>
-                    <AstralModalStep>2</AstralModalStep>
-                    <ContextForIdeaObj.Provider
-                      value={{
-                        ...exampleIdea,
-                        variant: ElementVariant.FILE,
-                        fileElem: {
-                          ...exampleFileElement,
-                          variant: FileElementVariant.VIDEO,
-                          src:
-                            videoBlob instanceof Blob
-                              ? URL.createObjectURL(videoBlob)
-                              : '',
-                        },
-                      }}
-                    >
-                      <ElementIdea />
-                    </ContextForIdeaObj.Provider>
-                    <div className='flex flex-col items-center space-y-[1rem] rounded-full bg-slate-300 bg-opacity-30 p-[2rem]'>
-                      <AstralUploadIcon
-                        className='h-[2rem] w-[2rem]'
-                        onClick={uploadVideoToS3}
-                      />
-                      <AstralCloseIcon
-                        className='h-[2rem] w-[2rem]'
-                        onClick={() => {
-                          setVideoBlob(null);
-                          uploadActions.clearFile();
-                        }}
-                      />
+              {!videoBlob && (
+                <div className='flex flex-row items-center space-x-[2rem]'>
+                  <AstralModalStep>1</AstralModalStep>
+                  <div className='flex flex-row items-center space-x-[1rem]'>
+                    <div className='flex flex-row items-center space-x-[1rem] rounded-full bg-slate-300 bg-opacity-30 p-[2rem]'>
+                      {!recording ? (
+                        <AstralPlayIcon
+                          className='h-[2rem] w-[2rem]'
+                          onClick={() => {
+                            if (!recording && !videoBlob) {
+                              startRecording();
+                            } else {
+                              if (videoBlob) alert('Already recorded.');
+                              else alert('Already recording.');
+                            }
+                          }}
+                        />
+                      ) : (
+                        <AstralStopIcon
+                          className='h-[2rem] w-[2rem]'
+                          onClick={() => {
+                            if (recording) {
+                              stopRecording();
+                            } else {
+                              alert('No recording to stop.');
+                            }
+                          }}
+                        />
+                      )}
                     </div>
-                  </>
-                )}
-              </div>
+                  </div>
+                  {recording && videoStream && (
+                    <video
+                      autoPlay
+                      muted
+                      className='rounded-[1rem]'
+                      style={{
+                        transform: 'scaleX(-1)', // Mirror effect
+                        width: '500px', // Adjust size as necessary
+                        height: 'auto',
+                      }}
+                      ref={(videoElement) => {
+                        if (videoElement) {
+                          videoElement.srcObject = videoStream;
+                        }
+                      }}
+                    />
+                  )}
+                </div>
+              )}
+
+              {!recording && videoBlob && (
+                <div className='flex flex-row items-center space-x-[2rem]'>
+                  <AstralModalStep>2</AstralModalStep>
+                  <div className='flex flex-col items-center space-y-[1rem] rounded-full bg-slate-300 bg-opacity-30 p-[2rem]'>
+                    <AstralCheckIcon
+                      className='h-[2rem] w-[2rem]'
+                      onClick={uploadVideoToS3}
+                    />
+                    <AstralCloseIcon
+                      className='h-[2rem] w-[2rem]'
+                      onClick={() => {
+                        setVideoBlob(null);
+                        uploadActions.clearFile();
+                      }}
+                    />
+                  </div>
+                  <ContextForIdeaObj.Provider
+                    value={{
+                      ...exampleIdea,
+                      variant: ElementVariant.FILE,
+                      fileElem: {
+                        ...exampleFileElement,
+                        variant: FileElementVariant.VIDEO,
+                        src:
+                          videoBlob instanceof Blob
+                            ? URL.createObjectURL(videoBlob)
+                            : '',
+                      },
+                    }}
+                  >
+                    <ElementIdea />
+                  </ContextForIdeaObj.Provider>
+                </div>
+              )}
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               {fileElem.id && (
