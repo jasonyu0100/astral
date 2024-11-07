@@ -1,4 +1,5 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { exampleTask, TaskStatus } from '@/architecture/model/task/main';
@@ -108,6 +109,7 @@ function KanbanRow({ title, tasks, status }) {
 function KanbanTask({ task }) {
   const taskListController = useContext(ContextForTaskList);
   const spaceMainController = useContext(ContextForSpaceMain);
+  const chapterListController = useContext(ContextForSpaceChapterList);
   const spacesWorkController = useContext(ContextForSpacesWork);
   const [{ isDragging }, drag] = useDrag({
     type: ItemType.TASK,
@@ -232,9 +234,12 @@ function KanbanTask({ task }) {
           <div
             className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
-              window.location.href = spacesMap.spaces.id.channel.link(
+              taskListController.actions.editActions.edit(task.id, {
+                taskStatus: TaskStatus.CURRENT,
+              });
+              window.location.href = `${spacesMap.spaces.id.channel.link(
                 spaceMainController.state.objId,
-              );
+              )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
           >
             <AstralChatIndicatorIcon />
@@ -242,9 +247,12 @@ function KanbanTask({ task }) {
           <div
             className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
-              window.location.href = spacesMap.spaces.id.space.link(
+              taskListController.actions.editActions.edit(task.id, {
+                taskStatus: TaskStatus.CURRENT,
+              });
+              window.location.href = `${spacesMap.spaces.id.channel.link(
                 spaceMainController.state.objId,
-              );
+              )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
           >
             <AstralPolylineIcon />
@@ -252,9 +260,12 @@ function KanbanTask({ task }) {
           <div
             className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
-              window.location.href = spacesMap.spaces.id.table.link(
+              taskListController.actions.editActions.edit(task.id, {
+                taskStatus: TaskStatus.CURRENT,
+              });
+              window.location.href = `${spacesMap.spaces.id.channel.link(
                 spaceMainController.state.objId,
-              );
+              )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
           >
             <AstralTableIcon />
