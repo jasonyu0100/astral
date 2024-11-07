@@ -1,4 +1,6 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
+import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
+import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/architecture/controller/space/member/list';
@@ -57,6 +59,10 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
   const spaceListController = useContext(ContextForSpaceList);
   const taskListController = useContext(ContextForTaskList);
   const chapterListController = useContext(ContextForSpaceChapterList);
+  const sceneListController = useContext(ContextForIdeaSceneList);
+  const conversationListController = useContext(
+    ContextForChapterConversationList,
+  );
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
   );
@@ -133,6 +139,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
 
     console.log('SPACE CREATED', space);
     const chapters = await createChapters(space, templateSpaceChapters);
+    console.log('CHAPTERS CREATED', chapters);
 
     const tasks = await Promise.all(
       templateSpaceChapters.map((template, index) =>
@@ -150,7 +157,28 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     );
     console.log('TASKS CREATED', tasks);
 
-    console.log('CHAPTERS CREATED', chapters);
+    const scenes = await Promise.all(
+      chapters.map((chapter, index) =>
+        sceneListController.actions.createActions.createScene(
+          'Scene',
+          chapter.description,
+          chapter.objective,
+          user.id,
+          chapter.id,
+        ),
+      ),
+    );
+    console.log('SCENES CREATED', scenes);
+
+    const conversations = await Promise.all(
+      chapters.map((chapter, index) =>
+        conversationListController.actions.createActions.createConversation(
+          user.id,
+          chapter.id,
+        ),
+      ),
+    );
+
     const members = await createMembers(space, memberIds);
     console.log('MEMBERS CREATED', members);
     return space;

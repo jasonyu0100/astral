@@ -4,7 +4,7 @@ import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
 import { SpaceTemplate } from '@/templates/space/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../controller/main';
 import { CreateSpaceMembers } from './members/main';
 
 export function CreateSpaceModalPageOne() {

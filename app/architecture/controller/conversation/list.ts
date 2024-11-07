@@ -33,7 +33,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
-  createConversation: (userId: string, chatId: string) => Promise<TargetObj>;
+  createConversation: (userId: string, chapterId: string) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
@@ -262,10 +262,10 @@ export const useControllerForChapterConversationList = (
       changeId(newObj.id);
       return newObj;
     },
-    createConversation: async (userId: string, chatId: string) => {
+    createConversation: async (userId: string, chapterId: string) => {
       const createObj: Omit<TargetObj, 'id'> = {
         created: new Date().toISOString(),
-        chapterId: chatId,
+        chapterId: chapterId,
         summary: '',
         userId: userId,
         title: '',

@@ -3,7 +3,7 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForTemplateChapter } from '@/templates/space/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../../../controller/main';
 
 export function CreateSpaceEditChapter() {
   const { pageTwo } = useContext(ContextForCreateSpace);

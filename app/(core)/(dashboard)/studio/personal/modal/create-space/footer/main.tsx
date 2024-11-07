@@ -7,7 +7,7 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../controller/main';
 
 export function CreateSpaceModalFooter() {
   const loadingController = useContext(ContextForLoading);

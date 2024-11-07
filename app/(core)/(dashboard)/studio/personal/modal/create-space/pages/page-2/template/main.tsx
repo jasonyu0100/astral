@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../../controller/main';
 
 export function CreateSpaceTemplateStructure() {
   const { pageTwo } = useContext(ContextForCreateSpace);

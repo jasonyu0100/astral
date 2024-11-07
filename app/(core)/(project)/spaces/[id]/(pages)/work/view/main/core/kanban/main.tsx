@@ -1,10 +1,15 @@
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
+import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForTaskList } from '@/architecture/controller/task/list';
 import { exampleTask, TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
+import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { AstralCloseIcon } from '@/icons/close/main';
+import { AstralPolylineIcon } from '@/icons/polyline/main';
+import { AstralTableIcon } from '@/icons/table/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
@@ -102,6 +107,7 @@ function KanbanRow({ title, tasks, status }) {
 
 function KanbanTask({ task }) {
   const taskListController = useContext(ContextForTaskList);
+  const spaceMainController = useContext(ContextForSpaceMain);
   const spacesWorkController = useContext(ContextForSpacesWork);
   const [{ isDragging }, drag] = useDrag({
     type: ItemType.TASK,
@@ -139,86 +145,122 @@ function KanbanTask({ task }) {
   const isSelected = spacesWorkController.state.selectedTasks.includes(task.id);
 
   return (
-    <div
-      ref={drag}
-      className={`h-full w-[300px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
-        isDragging ? 'opacity-50' : ''
-      } ${isSelected ? 'border-[3px] border-blue-500' : 'border-black'}`}
-      style={{ cursor: 'move' }}
-      onClick={() => {
-        if (isSelected) {
-          taskListController.actions.stateActions.select(exampleTask);
-          spacesWorkController.actions.updateSelectedTasks(
-            spacesWorkController.state.selectedTasks.filter(
-              (id) => id !== task.id,
-            ),
-          );
-        } else {
-          taskListController.actions.stateActions.select(task);
-          spacesWorkController.actions.updateSelectedTasks([
-            ...spacesWorkController.state.selectedTasks,
-            task.id,
-          ]);
-        }
-      }}
-    >
-      <div className='flex items-start justify-between space-x-[1rem]'>
-        {isEditingTitle ? (
-          <input
-            type='text'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            onBlur={handleTitleBlur}
-            onKeyDown={(e) => handleKeyDown(e, handleTitleBlur)}
+    <>
+      <div
+        ref={drag}
+        className={`h-full w-[300px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
+          isDragging ? 'opacity-50' : ''
+        } ${isSelected ? 'border-[2px] border-purple-500' : 'border-black'}`}
+        style={{ cursor: 'move' }}
+        onClick={() => {
+          if (isSelected) {
+            taskListController.actions.stateActions.select(exampleTask);
+            spacesWorkController.actions.updateSelectedTasks(
+              spacesWorkController.state.selectedTasks.filter(
+                (id) => id !== task.id,
+              ),
+            );
+          } else {
+            taskListController.actions.stateActions.select(task);
+            spacesWorkController.actions.updateSelectedTasks([
+              ...spacesWorkController.state.selectedTasks,
+              task.id,
+            ]);
+          }
+        }}
+      >
+        <div className='flex items-start justify-between space-x-[1rem]'>
+          {isEditingTitle ? (
+            <input
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              onBlur={handleTitleBlur}
+              onKeyDown={(e) => handleKeyDown(e, handleTitleBlur)}
+              autoFocus
+              className='border-none bg-yellow-500 text-lg font-bold outline-none'
+              style={{ width: '70%' }}
+            />
+          ) : (
+            <p
+              onClick={() => setIsEditingTitle(true)}
+              className='cursor-pointer text-lg font-bold'
+            >
+              {title || 'Click to add title...'} {/* Placeholder text */}
+            </p>
+          )}
+          <div className='flex flex-row space-x-[1rem]'>
+            <button
+              onClick={() => {
+                taskListController.actions.editActions.edit(task.id, {
+                  taskStatus: TaskStatus.ARCHIVE,
+                });
+                spacesWorkController.actions.updateSidebarMode(
+                  SpacesWorkSidebarMode.ARCHIVE,
+                );
+              }}
+            >
+              <AstralBackIndicatorIcon className='fill-slate-50 opacity-50' />
+            </button>
+            <button onClick={deleteTask}>
+              <AstralCloseIcon className='fill-slate-50 opacity-50' />
+            </button>
+          </div>
+        </div>
+        {isEditingDescription ? (
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            onBlur={handleDescriptionBlur}
+            onKeyDown={(e) => handleKeyDown(e, handleDescriptionBlur)}
             autoFocus
-            className='border-none bg-yellow-500 text-lg font-bold outline-none'
-            style={{ width: '70%' }}
+            className='border-none bg-transparent text-sm font-light outline-none'
+            style={{ width: '100%' }}
           />
         ) : (
           <p
-            onClick={() => setIsEditingTitle(true)}
-            className='cursor-pointer text-lg font-bold'
+            onClick={() => setIsEditingDescription(true)}
+            className='h-full cursor-pointer text-sm font-light'
           >
-            {title || 'Click to add title...'} {/* Placeholder text */}
+            {description || 'Click to add description...'}{' '}
+            {/* Placeholder text */}
           </p>
         )}
-        <div className='flex flex-row space-x-[1rem]'>
-          <button
+      </div>
+      {isSelected && (
+        <div className='flex h-full flex-col items-center space-y-[1rem]'>
+          <div
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-emerald-500'
             onClick={() => {
-              taskListController.actions.editActions.edit(task.id, {
-                taskStatus: TaskStatus.ARCHIVE,
-              });
-              spacesWorkController.actions.updateSidebarMode(
-                SpacesWorkSidebarMode.ARCHIVE,
+              window.location.href = spacesMap.spaces.id.channel.link(
+                spaceMainController.state.objId,
               );
             }}
           >
-            <AstralBackIndicatorIcon className='fill-slate-50 opacity-50' />
-          </button>
-          <button onClick={deleteTask}>
-            <AstralCloseIcon className='fill-slate-50 opacity-50' />
-          </button>
+            <AstralChatIndicatorIcon />
+          </div>
+          <div
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow items-center justify-center rounded-full bg-blue-500'
+            onClick={() => {
+              window.location.href = spacesMap.spaces.id.space.link(
+                spaceMainController.state.objId,
+              );
+            }}
+          >
+            <AstralPolylineIcon />
+          </div>
+          <div
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow items-center justify-center rounded-full bg-slate-500'
+            onClick={() => {
+              window.location.href = spacesMap.spaces.id.table.link(
+                spaceMainController.state.objId,
+              );
+            }}
+          >
+            <AstralTableIcon />
+          </div>
         </div>
-      </div>
-      {isEditingDescription ? (
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          onBlur={handleDescriptionBlur}
-          onKeyDown={(e) => handleKeyDown(e, handleDescriptionBlur)}
-          autoFocus
-          className='border-none bg-transparent text-sm font-light outline-none'
-          style={{ width: '100%' }}
-        />
-      ) : (
-        <p
-          onClick={() => setIsEditingDescription(true)}
-          className='cursor-pointer text-sm font-light'
-        >
-          {description || 'Click to add description...'}{' '}
-          {/* Placeholder text */}
-        </p>
       )}
-    </div>
+    </>
   );
 }

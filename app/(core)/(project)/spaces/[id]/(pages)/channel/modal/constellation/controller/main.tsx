@@ -208,29 +208,19 @@ export function useGenerateSceneController(): Controller {
     openableController.close();
     loadingController.loadingController.open();
 
-    let newScene = sceneListController.state.currentObj;
-
-    console.log(newScene);
+    let newScene = await sceneListController.actions.createActions.createScene(
+      title,
+      '',
+      objective,
+      user.id,
+      chapterListController.state.objId,
+    );
 
     if (selectedIdeas.length === 0) {
       alert('No ideas selected');
       loadingController.loadingController.close();
       openableController.open();
       return;
-    }
-
-    if (
-      !newScene?.id ||
-      newScene.chapterId !== chapterListController.state.objId
-    ) {
-      console.log('new scene', chapterListController.state.objId);
-      newScene = await sceneListController.actions.createActions.createScene(
-        title,
-        '',
-        objective,
-        user.id,
-        chapterListController.state.objId,
-      );
     }
 
     const virtualScreenWidth = 1200;

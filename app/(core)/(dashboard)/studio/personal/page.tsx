@@ -5,6 +5,14 @@ import {
   useControllerForUserActivityListFromChapter,
 } from '@/architecture/controller/activity/list-from-chapter';
 import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/architecture/controller/conversation/list';
+import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/architecture/controller/scene/list';
+import {
   ContextForSpaceChapterList,
   useControllerForSpaceChapterList,
 } from '@/architecture/controller/space/chapter/list';
@@ -27,7 +35,7 @@ import {
 import {
   ContextForCreateSpace,
   useControllerForCreateSpace,
-} from './modal/create-space/(controller)/create-space/main';
+} from './modal/create-space/controller/main';
 import { StudioPersonalView } from './view/view';
 
 function Page() {
@@ -35,6 +43,12 @@ function Page() {
   const spaceListController = useControllerForSpaceList(loggedInUser?.id);
   const chapterListController = useControllerForSpaceChapterList('');
   const taskListController = useControllerForTaskList(
+    chapterListController.state.objId,
+  );
+  const sceneListController = useControllerForIdeaSceneList(
+    chapterListController.state.objId,
+  );
+  const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
   );
   const chapterActivityListController =
@@ -47,17 +61,23 @@ function Page() {
       <ContextForSpaceList.Provider value={spaceListController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForTaskList.Provider value={taskListController}>
-            <ContextForUserActivityListFromChapter.Provider
-              value={chapterActivityListController}
-            >
-              <SpacesPersonalModals>
-                <ControllerWrapper>
-                  <EffectWrapper>
-                    <StudioPersonalView />
-                  </EffectWrapper>
-                </ControllerWrapper>
-              </SpacesPersonalModals>
-            </ContextForUserActivityListFromChapter.Provider>
+            <ContextForIdeaSceneList.Provider value={sceneListController}>
+              <ContextForChapterConversationList.Provider
+                value={conversationListController}
+              >
+                <ContextForUserActivityListFromChapter.Provider
+                  value={chapterActivityListController}
+                >
+                  <SpacesPersonalModals>
+                    <ControllerWrapper>
+                      <EffectWrapper>
+                        <StudioPersonalView />
+                      </EffectWrapper>
+                    </ControllerWrapper>
+                  </SpacesPersonalModals>
+                </ContextForUserActivityListFromChapter.Provider>
+              </ContextForChapterConversationList.Provider>
+            </ContextForIdeaSceneList.Provider>
           </ContextForTaskList.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceList.Provider>

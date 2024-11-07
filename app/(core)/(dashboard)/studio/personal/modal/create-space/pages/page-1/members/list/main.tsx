@@ -3,7 +3,7 @@ import { ContextForUserConnectionObj } from '@/architecture/model/user/connectio
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../../../controller/main';
 import { CreateSpaceCollaboratorRow } from './row/main';
 
 export function CreateSpaceCollaboratorList() {

@@ -8,7 +8,7 @@ import {
   useControllerForTogglable,
 } from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../(controller)/create-space/main';
+import { ContextForCreateSpace } from '../../../controller/main';
 import { CreateSpaceAddCollaborator } from './add/main';
 import { CreateSpaceCollaboratorList } from './list/main';
 import { CreateSpaceCollaborator } from './member/main';
