@@ -228,9 +228,9 @@ function KanbanTask({ task }) {
         )}
       </div>
       {isSelected && (
-        <div className='flex h-full flex-col items-center space-y-[1rem]'>
+        <div className='flex h-full flex-col items-center justify-center space-y-[1rem]'>
           <div
-            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-emerald-500'
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
               window.location.href = spacesMap.spaces.id.channel.link(
                 spaceMainController.state.objId,
@@ -240,7 +240,7 @@ function KanbanTask({ task }) {
             <AstralChatIndicatorIcon />
           </div>
           <div
-            className='flex h-[3rem] w-[3rem] animate-pulse-slow items-center justify-center rounded-full bg-blue-500'
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
               window.location.href = spacesMap.spaces.id.space.link(
                 spaceMainController.state.objId,
@@ -250,7 +250,7 @@ function KanbanTask({ task }) {
             <AstralPolylineIcon />
           </div>
           <div
-            className='flex h-[3rem] w-[3rem] animate-pulse-slow items-center justify-center rounded-full bg-slate-500'
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
               window.location.href = spacesMap.spaces.id.table.link(
                 spaceMainController.state.objId,
