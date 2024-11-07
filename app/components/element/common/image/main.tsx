@@ -22,12 +22,18 @@ export function ElementImage({ src }: { src: string }) {
 
   const aspectClass =
     aspectRatio === 'portrait'
-      ? 'aspect-[11/13] p-[1rem]'
+      ? 'aspect-[11/13] p-[0.5rem]'
       : aspectRatio === 'landscape'
-        ? 'aspect-[13/11] p-[0.5rem]'
+        ? 'aspect-[13/11] p-[0.25rem]'
         : 'aspect-square';
 
-  console.log(aspectRatio);
+  return (
+    <img
+      src={src}
+      className='w-full flex-shrink-0 bg-black object-contain shadow-md'
+      alt='Polaroid frame styled image'
+    />
+  );
 
   return (
     <div
