@@ -29,7 +29,7 @@ export function SpacesChannelMessages() {
       style={{ height: '100%' }}
       ref={ref}
     >
-      <div className='w-[1000px] flex-col space-y-[1rem] '>
+      <div className='w-[1000px] flex-col space-y-[1rem]  pb-[2rem]'>
         <GlassWindowFrame
           className='cursor-pointer p-[1rem] py-[2rem]'
           borderFx={borderFx['border-b']}

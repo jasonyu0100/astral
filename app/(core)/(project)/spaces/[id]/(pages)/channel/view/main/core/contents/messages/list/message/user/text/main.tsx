@@ -6,7 +6,7 @@ export function SpacesChannelUserMessageText() {
 
   return (
     <div className='ml-auto flex flex-row'>
-      <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-[1rem] text-right text-xl text-white'>
+      <p className='rounded-[2rem] bg-gradient-to-br from-blue-600 to-cyan-400 p-[1rem] text-right text-lg text-white'>
         {message.message}
       </p>
     </div>

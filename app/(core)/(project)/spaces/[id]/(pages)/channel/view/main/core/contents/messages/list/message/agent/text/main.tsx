@@ -6,7 +6,7 @@ export function SpacesChannelAgentMessageText() {
 
   return (
     <div className='mr-auto flex flex-row'>
-      <p className='animate-pulse-slow rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left text-xl text-white'>
+      <p className='animate-pulse-slow rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-800 p-[1rem] text-left text-lg text-white'>
         {message.message}
       </p>
     </div>

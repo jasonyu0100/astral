@@ -84,7 +84,7 @@ const HeroSection = () => {
             className='flex h-[4rem] min-w-[200px] max-w-[400px] flex-grow animate-pulse-slow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[6rem] sm:px-[1rem]'
           >
             <span className='font-extraBold text-2xl text-slate-300'>
-              Free Trial
+              Start now
             </span>
           </a>
           <a

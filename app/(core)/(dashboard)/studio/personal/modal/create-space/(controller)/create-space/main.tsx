@@ -61,9 +61,13 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
     ContextForUserActivityListFromChapter,
   );
   const spaceMembersListController = useControllerForSpaceMemberList('');
-  const [title, changeTitle] = useState('Tutorial space');
-  const [description, changeDescription] = useState('Description for my space');
-  const [category, changeCategory] = useState(SpaceTemplate.TutorialSpace);
+  const [title, changeTitle] = useState(
+    SpaceTemplateMap[SpaceTemplate.Ideation].title,
+  );
+  const [description, changeDescription] = useState(
+    SpaceTemplateMap[SpaceTemplate.Ideation].description,
+  );
+  const [category, changeCategory] = useState(SpaceTemplate.Ideation);
   const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
   const [memberIds, changeMemberIds] = useState<string[]>([]);
   const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
