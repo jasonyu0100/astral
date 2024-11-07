@@ -27,7 +27,7 @@ export function PublicSpacePostContents() {
       const url = attachment.fileElem?.src;
       if (url) {
         try {
-          const response = await fetch(url);
+          const response = await fetch(url, { mode: 'cors' });
           if (!response.ok) {
             throw new Error(`Failed to fetch file: ${url}`);
           }

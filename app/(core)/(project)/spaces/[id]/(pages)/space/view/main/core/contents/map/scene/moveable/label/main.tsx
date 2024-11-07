@@ -23,7 +23,7 @@ export function SpacesSpaceIdeaLabel() {
           className={ctwn('flex items-center justify-center rounded-full')}
         >
           <input
-            className='w-[100px] bg-transparent text-sm font-bold text-slate-300 outline-none'
+            className='whitespace-wrap min-w-[100px] bg-transparent text-center text-sm font-bold text-slate-300 outline-none'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             onBlur={() => {

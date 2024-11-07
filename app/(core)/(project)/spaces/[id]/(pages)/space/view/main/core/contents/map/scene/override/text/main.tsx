@@ -59,9 +59,6 @@ export function SpacesSpaceTextIdea() {
           ref={divRef}
           className='aspect-square h-full w-full rounded-lg bg-yellow-500 p-[1rem] shadow-md'
         >
-          <label htmlFor={`sticky-textarea-${ideaObj.id}`} className='sr-only'>
-            Sticky Idea Text
-          </label>
           <textarea
             id={`sticky-textarea-${ideaObj.id}`}
             className='h-full w-full resize-none bg-transparent text-lg text-black outline-none'
@@ -73,9 +70,6 @@ export function SpacesSpaceTextIdea() {
       )}
       {ideaObj.textElem.variant === TextElementVariant.ARTICLE && (
         <div className='aspect-[10/14] w-full flex-shrink-0 bg-slate-200 p-[2rem] text-black shadow-md'>
-          <label htmlFor={`page-textarea-${ideaObj.id}`} className='sr-only'>
-            Page Idea Text
-          </label>
           <textarea
             id={`page-textarea-${ideaObj.id}`}
             className='text-md h-full w-full resize-none bg-transparent font-light text-black outline-none'

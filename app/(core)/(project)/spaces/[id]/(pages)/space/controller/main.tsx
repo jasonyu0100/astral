@@ -286,6 +286,7 @@ export function useControllerForSpacesSpace(): Controller {
       ideaListController.state.objs.map(async (idea) => {
         console.log(idea);
         return ideaListController.actions.editActions.edit(idea.id, {
+          ...idea,
           x: idea.x,
           y: idea.y,
           width: idea.width,
