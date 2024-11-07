@@ -250,7 +250,7 @@ function KanbanTask({ task }) {
               taskListController.actions.editActions.edit(task.id, {
                 taskStatus: TaskStatus.CURRENT,
               });
-              window.location.href = `${spacesMap.spaces.id.channel.link(
+              window.location.href = `${spacesMap.spaces.id.space.link(
                 spaceMainController.state.objId,
               )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
@@ -263,7 +263,7 @@ function KanbanTask({ task }) {
               taskListController.actions.editActions.edit(task.id, {
                 taskStatus: TaskStatus.CURRENT,
               });
-              window.location.href = `${spacesMap.spaces.id.channel.link(
+              window.location.href = `${spacesMap.spaces.id.table.link(
                 spaceMainController.state.objId,
               )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
