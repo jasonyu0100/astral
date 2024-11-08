@@ -1,5 +1,5 @@
 'use client';
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { stripeExistingBillingSession } from '@/external/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
@@ -32,7 +32,7 @@ function Page() {
       <button
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
         onClick={() => {
-          window.location.href = studioMap.studio.personal.link;
+          window.location.href = homeMap.home.personal.link;
         }}
       >
         BACK HOME

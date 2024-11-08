@@ -125,24 +125,18 @@ export function SpacesChannelSidebarChapter() {
                 }}
                 className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem] p-[0.5rem]'
               >
-                <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
-                  <div
-                    className='absolute left-0 top-0 h-full bg-purple-500 '
-                    style={{
-                      width: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
-                    }}
-                  ></div>
+                <div className='relative h-[1rem] w-full overflow-hidden rounded-full'>
                   <div
                     className='absolute top-0 h-full bg-yellow-500 '
                     style={{
-                      left: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
-                      width: `${(current.length / (pending.length + current.length + done.length)) * 100}%`,
+                      left: `0px`,
+                      width: `${(current.length / (current.length + done.length + pending.length)) * 100}%`,
                     }}
                   ></div>
                   <div
                     className='absolute top-0 h-full bg-green-500'
                     style={{
-                      left: `${((pending.length + current.length) / (pending.length + current.length + done.length)) * 100}%`,
+                      left: `${(current.length / (current.length + done.length + pending.length)) * 100}%`,
                       width: `${(done.length / (pending.length + current.length + done.length)) * 100}%`,
                     }}
                   ></div>

@@ -33,9 +33,7 @@ export function VaultFinderEditCollectionModal() {
   }
 
   async function deleteCollection() {
-    await collectionController.actions.deleteActions.delete(
-      collectionController.state.objId,
-    );
+    await collectionController.actions.deleteActions.delete(collectionObj.id);
     alert('Deleting collection');
 
     openableController.close();

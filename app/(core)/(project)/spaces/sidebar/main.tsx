@@ -1,5 +1,5 @@
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
-import { CommonSidebarTopBack } from '@/(core)/common/(sidebar)/top/back/main';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
+import { CommonSidebarTopBack } from '@/(core)/common/sidebar/top/back/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -11,7 +11,7 @@ export function SpacesSidebar() {
   return (
     <GlassWindowFrame className='flex h-full w-[4.5rem] flex-shrink-0 flex-col items-center p-[1rem]'>
       <GlassWindowContents className='relative flex h-full w-full flex-col'>
-        <CommonSidebarTopBack href={studioMap.studio.personal.link} />
+        <CommonSidebarTopBack href={homeMap.home.personal.link} />
         <HorizontalDivider className='my-[2rem] mb-[2rem]' />
         <SpaceSidebarMembersList />
       </GlassWindowContents>

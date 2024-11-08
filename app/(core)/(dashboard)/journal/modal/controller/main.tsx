@@ -10,11 +10,11 @@ import { DashboardJournalAddTextStickyModal } from '../add/idea/text/main';
 import { DashboardJournalAddWebsiteUrlModal } from '../add/idea/website/main';
 import { DashboardJournalAddYouTubeUrlModal } from '../add/idea/youtube/main';
 
-export const ContextForDashboardJournalModals = createContext(
-  {} as DashboardJournalModalsController,
+export const ContextForDashboardUploadsModals = createContext(
+  {} as DashboardUploadsModalsController,
 );
 
-export interface DashboardJournalModalsController {
+export interface DashboardUploadsModalsController {
   addFileModal: ContextForOpenableInterface;
   addUrlSpotifyModal: ContextForOpenableInterface;
   addUrlYouTubeModal: ContextForOpenableInterface;
@@ -22,7 +22,7 @@ export interface DashboardJournalModalsController {
   addUrlWebsiteModal: ContextForOpenableInterface;
 }
 
-export function DashboardJournalModals({
+export function DashboardUploadsModals({
   children,
 }: {
   children: React.ReactNode;
@@ -34,7 +34,7 @@ export function DashboardJournalModals({
   const addUrlWebsiteModal = useControllerForOpenable();
 
   return (
-    <ContextForDashboardJournalModals.Provider
+    <ContextForDashboardUploadsModals.Provider
       value={{
         addFileModal: addFileModal,
         addUrlSpotifyModal: addUrlSpotifyModal,
@@ -59,6 +59,6 @@ export function DashboardJournalModals({
       <ContextForOpenable.Provider value={addUrlWebsiteModal}>
         <DashboardJournalAddWebsiteUrlModal />
       </ContextForOpenable.Provider>
-    </ContextForDashboardJournalModals.Provider>
+    </ContextForDashboardUploadsModals.Provider>
   );
 }

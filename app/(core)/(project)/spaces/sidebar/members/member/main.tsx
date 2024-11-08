@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(live)/profile/[id]/map';
+import { profileMap } from '@/(core)/(dashboard)/profile/[id]/map';
 import { useControllerForUserMain } from '@/architecture/controller/user/main';
 import { ContextForSpaceMemberObj } from '@/architecture/model/space/member/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
@@ -11,7 +11,7 @@ export function SpaceSidebarMembersListMember() {
   return (
     <a
       className='cursor-pointer'
-      href={userProfileMap.account.link(user.state.objId)}
+      href={profileMap.account.link(user.state.objId)}
     >
       <UserDisplayPictureElement fileElem={user.state.obj?.dp} />
     </a>

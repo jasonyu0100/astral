@@ -1,4 +1,4 @@
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { PortalFormAction } from '@/(portal)/common/container/form/action-container/action/main';
 import { PortalFormAltActionLink } from '@/(portal)/common/container/form/action-container/alt-action/link/main';
 import { PortalFormAltAction } from '@/(portal)/common/container/form/action-container/alt-action/main';
@@ -42,7 +42,7 @@ export function PortalLoginForm() {
         if (redirect) {
           window.location.href = redirect;
         } else {
-          window.location.href = studioMap.studio.personal.link;
+          window.location.href = homeMap.home.personal.link;
         }
       });
   };
@@ -59,7 +59,7 @@ export function PortalLoginForm() {
         if (redirect) {
           window.location.href = redirect;
         } else {
-          window.location.href = studioMap.studio.personal.link;
+          window.location.href = homeMap.home.personal.link;
         }
       });
   };

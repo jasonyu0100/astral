@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(live)/profile/[id]/map';
+import { profileMap } from '@/(core)/(dashboard)/profile/[id]/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForTaskListFromSpace } from '@/architecture/controller/task/list-from-space';
@@ -32,7 +32,7 @@ export function PublicSpaceSidebarSpace() {
           <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-500 bg-opacity-30'>
             <AstralBackIndicatorIcon
               onClick={() => {
-                window.location.href = userProfileMap.account.link(
+                window.location.href = profileMap.account.link(
                   spaceMainController.state.obj.userId,
                 );
               }}
@@ -98,24 +98,18 @@ export function PublicSpaceSidebarSpace() {
               }}
               className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem] p-[0.5rem]'
             >
-              <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
-                <div
-                  className='absolute left-0 top-0 h-full bg-purple-500 '
-                  style={{
-                    width: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
-                  }}
-                ></div>
+              <div className='relative h-[1rem] w-full overflow-hidden rounded-full'>
                 <div
                   className='absolute top-0 h-full bg-yellow-500 '
                   style={{
-                    left: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
-                    width: `${(current.length / (pending.length + current.length + done.length)) * 100}%`,
+                    left: `0px`,
+                    width: `${(current.length / (current.length + done.length + pending.length)) * 100}%`,
                   }}
                 ></div>
                 <div
                   className='absolute top-0 h-full bg-green-500'
                   style={{
-                    left: `${((pending.length + current.length) / (pending.length + current.length + done.length)) * 100}%`,
+                    left: `${(current.length / (current.length + done.length + pending.length)) * 100}%`,
                     width: `${(done.length / (pending.length + current.length + done.length)) * 100}%`,
                   }}
                 ></div>

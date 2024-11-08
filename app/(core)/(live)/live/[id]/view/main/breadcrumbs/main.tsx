@@ -1,4 +1,4 @@
-import { userProfileMap } from '@/(core)/(live)/profile/[id]/map';
+import { profileMap } from '@/(core)/(dashboard)/profile/[id]/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
@@ -27,7 +27,7 @@ export function PublicSpaceBreadcrumbs() {
             <p
               className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
-                window.location.href = userProfileMap.account.link(
+                window.location.href = profileMap.account.link(
                   userMainController.state.obj.id,
                 );
               }}
@@ -77,7 +77,7 @@ export function PublicSpaceBreadcrumbs() {
             <p
               className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
-                window.location.href = userProfileMap.account.link(
+                window.location.href = profileMap.account.link(
                   userMainController.state.obj.id,
                 );
               }}
@@ -134,7 +134,7 @@ export function PublicSpaceBreadcrumbs() {
             <p
               className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
-                window.location.href = userProfileMap.account.link(
+                window.location.href = profileMap.account.link(
                   userMainController.state.obj.id,
                 );
               }}

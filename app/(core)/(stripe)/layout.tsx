@@ -1,6 +1,6 @@
 'use client';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
-import { CommonTopbar } from '@/(core)/common/(topbar)/main';
+import { CommonTopbar } from '@/(core)/common/topbar/main';
 import { PortalBackground } from '@/(portal)/common/background/main';
 import { Suspense } from 'react';
 
