@@ -4,8 +4,8 @@ import { ContextForSpaceChapterList } from '@/architecture/controller/space/chap
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import {
   calculateCompletionColor,
-  ContextForTaskList,
-} from '@/architecture/controller/task/list';
+  ContextForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
 import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/main';
 import { TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
@@ -24,10 +24,15 @@ export function SpacesWorkSidebarChaptersChapter() {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const chapterObj = useContext(ContextForSpaceChapterObj);
   const selected = chapterListController.state.objId === chapterObj.id;
-  const taskListController = useContext(ContextForTaskList);
-  const currentTasks = taskListController.state.objs.filter(
+  const taskListController = useContext(ContextForTaskListFromChapter);
+  const tasks = taskListController.state.objs;
+  const pending = tasks.filter(
+    (task) => task.taskStatus === TaskStatus.PENDING,
+  );
+  const current = tasks.filter(
     (task) => task.taskStatus === TaskStatus.CURRENT,
   );
+  const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
   const completionColor = calculateCompletionColor(taskListController);
 
   return (
@@ -71,9 +76,9 @@ export function SpacesWorkSidebarChaptersChapter() {
               {chapterObj?.description || 'No summary'}
             </p>
             <HorizontalDivider />
-            {currentTasks.length > 0 ? (
+            {current.length > 0 ? (
               <div className='flex w-full flex-col space-y-[1rem]'>
-                {currentTasks.map((task, index) => (
+                {current.map((task, index) => (
                   <div
                     className='space-y-[0.5rem]text-black flex w-full flex-col items-center'
                     key={task.id}
@@ -101,6 +106,44 @@ export function SpacesWorkSidebarChaptersChapter() {
                 />
               </div>
             )}
+            <GlassWindowFrame
+              className='w-full flex-shrink-0'
+              roundedFx={roundedFx['rounded-full']}
+              borderFx={borderFx['border-around']}
+            >
+              <GlassWindowContents
+                onClick={() => {
+                  window.location.href = spacesMap.spaces.id.work.link(
+                    spaceMainController.state.objId,
+                  );
+                }}
+                className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem] p-[0.5rem]'
+              >
+                <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
+                  <div
+                    className='absolute left-0 top-0 h-full bg-blue-500'
+                    style={{
+                      width: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
+                    }}
+                  ></div>
+                  <div
+                    className='absolute top-0 h-full bg-yellow-500'
+                    style={{
+                      left: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
+                      width: `${(current.length / (pending.length + current.length + done.length)) * 100}%`,
+                    }}
+                  ></div>
+                  <div
+                    className='absolute top-0 h-full bg-green-500'
+                    style={{
+                      left: `${((pending.length + current.length) / (pending.length + current.length + done.length)) * 100}%`,
+                      width: `${(done.length / (pending.length + current.length + done.length)) * 100}%`,
+                    }}
+                  ></div>
+                </div>
+              </GlassWindowContents>
+              <GlassWindowPane glassFx={glassFx['glass-10']} />
+            </GlassWindowFrame>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-20']} />
         </GlassWindowFrame>

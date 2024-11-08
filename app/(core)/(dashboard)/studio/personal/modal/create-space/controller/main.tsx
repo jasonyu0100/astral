@@ -4,7 +4,7 @@ import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { useControllerForSpaceMemberList } from '@/architecture/controller/space/member/list';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import {
   exampleFileElement,
   FileElement,
@@ -57,7 +57,7 @@ export const ContextForCreateSpace = createContext({} as CreateSpaceController);
 export const useControllerForCreateSpace = (): CreateSpaceController => {
   const user = useGlobalUser((state) => state.user);
   const spaceListController = useContext(ContextForSpaceList);
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const sceneListController = useContext(ContextForIdeaSceneList);
   const conversationListController = useContext(
@@ -150,6 +150,7 @@ export const useControllerForCreateSpace = (): CreateSpaceController => {
               user.id,
               task.title,
               task.description,
+              space.id,
             ),
           ),
         ),

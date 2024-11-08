@@ -36,9 +36,9 @@ import {
   useControllerForSpaceMemberList,
 } from '@/architecture/controller/space/member/list';
 import {
-  ContextForTaskList,
-  useControllerForTaskList,
-} from '@/architecture/controller/task/list';
+  ContextForTaskListFromChapter,
+  useControllerForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -99,7 +99,7 @@ function Page({ params }: { params: { id: string } }) {
   const messageListController = useControllerForConversationMessageList(
     conversationListController.state.objId,
   );
-  const taskListController = useControllerForTaskList(
+  const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
   );
   const activityListController = useControllerForUserActivityListFromChapter(
@@ -128,7 +128,7 @@ function Page({ params }: { params: { id: string } }) {
                         <ContextForSceneIdeaList.Provider
                           value={ideaListController}
                         >
-                          <ContextForTaskList.Provider
+                          <ContextForTaskListFromChapter.Provider
                             value={taskListController}
                           >
                             <ContextForUserActivityListFromChapter.Provider
@@ -148,7 +148,7 @@ function Page({ params }: { params: { id: string } }) {
                                 </LoadingWrapper>
                               </UpdateWrapper>
                             </ContextForUserActivityListFromChapter.Provider>
-                          </ContextForTaskList.Provider>
+                          </ContextForTaskListFromChapter.Provider>
                         </ContextForSceneIdeaList.Provider>
                       </ContextForIdeaSceneList.Provider>
                     </ContextForConversationMessageList.Provider>

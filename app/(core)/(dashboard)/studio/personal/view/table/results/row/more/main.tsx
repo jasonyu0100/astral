@@ -23,50 +23,52 @@ export function StudioPersonalRowMore() {
   const spaceObj = useContext(ContextForSpaceObj);
 
   return (
-    <Popover>
-      <PopoverTrigger>
-        <AstralMoreVertIcon />
-      </PopoverTrigger>
-      <PopoverContent>
-        <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
-          <GlassWindowContents className='flex flex-col space-y-[1rem]'>
-            <div
-              className='flex cursor-pointer flex-row space-x-[1rem]'
-              onClick={() => {
-                window.location.href = spacesMap.spaces.id.work.link(
-                  spaceObj.id,
-                );
-              }}
-            >
-              <AstralFolderOpenIcon />
-              <p className='font-bold text-slate-300'>Open Space</p>
-            </div>
-            <div
-              className='flex cursor-pointer flex-row space-x-[1rem]'
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  `astral.fun${liveMap.live.link(spaceObj.id)}`,
-                );
-                window.location.href = liveMap.live.link(spaceObj.id);
-              }}
-            >
-              <AstralLinkIcon />
-              <p className='font-bold text-slate-300'>View Live</p>
-            </div>
-            <HorizontalDivider />
-            <div
-              className='flex cursor-pointer flex-row space-x-[1rem]'
-              onClick={() => {
-                spaceListController.actions.deleteActions.delete(spaceObj.id);
-              }}
-            >
-              <AstralDeleteIcon />
-              <p className='font-bold text-slate-300'>Delete</p>
-            </div>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
-      </PopoverContent>
-    </Popover>
+    <div className='flex items-center justify-center'>
+      <Popover>
+        <PopoverTrigger>
+          <AstralMoreVertIcon />
+        </PopoverTrigger>
+        <PopoverContent>
+          <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
+            <GlassWindowContents className='flex flex-col space-y-[1rem]'>
+              <div
+                className='flex cursor-pointer flex-row space-x-[1rem]'
+                onClick={() => {
+                  window.location.href = spacesMap.spaces.id.work.link(
+                    spaceObj.id,
+                  );
+                }}
+              >
+                <AstralFolderOpenIcon />
+                <p className='font-bold text-slate-300'>Open Space</p>
+              </div>
+              <div
+                className='flex cursor-pointer flex-row space-x-[1rem]'
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    `astral.fun${liveMap.live.link(spaceObj.id)}`,
+                  );
+                  window.location.href = liveMap.live.link(spaceObj.id);
+                }}
+              >
+                <AstralLinkIcon />
+                <p className='font-bold text-slate-300'>View Live</p>
+              </div>
+              <HorizontalDivider />
+              <div
+                className='flex cursor-pointer flex-row space-x-[1rem]'
+                onClick={() => {
+                  spaceListController.actions.deleteActions.delete(spaceObj.id);
+                }}
+              >
+                <AstralDeleteIcon />
+                <p className='font-bold text-slate-300'>Delete</p>
+              </div>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          </GlassWindowFrame>
+        </PopoverContent>
+      </Popover>
+    </div>
   );
 }

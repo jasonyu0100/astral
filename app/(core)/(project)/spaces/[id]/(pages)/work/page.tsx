@@ -20,9 +20,9 @@ import {
   useControllerForSpaceMemberList,
 } from '@/architecture/controller/space/member/list';
 import {
-  ContextForTaskList,
-  useControllerForTaskList,
-} from '@/architecture/controller/task/list';
+  ContextForTaskListFromChapter,
+  useControllerForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -69,7 +69,7 @@ function Page({ params }: { params: { id: string } }) {
     params.id,
     chapterId,
   );
-  const taskListController = useControllerForTaskList(
+  const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
     taskId,
   );
@@ -87,7 +87,9 @@ function Page({ params }: { params: { id: string } }) {
                 <ContextForSpaceChapterList.Provider
                   value={chapterListController}
                 >
-                  <ContextForTaskList.Provider value={taskListController}>
+                  <ContextForTaskListFromChapter.Provider
+                    value={taskListController}
+                  >
                     <ContextForUserActivityListFromChapter.Provider
                       value={activityListController}
                     >
@@ -103,7 +105,7 @@ function Page({ params }: { params: { id: string } }) {
                         </LoadingWrapper>
                       </UpdateWrapper>
                     </ContextForUserActivityListFromChapter.Provider>
-                  </ContextForTaskList.Provider>
+                  </ContextForTaskListFromChapter.Provider>
                 </ContextForSpaceChapterList.Provider>
               </RedirectWrapper>
             </PermissionWrapper>

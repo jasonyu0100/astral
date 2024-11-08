@@ -21,9 +21,9 @@ import {
   useControllerForSpaceList,
 } from '@/architecture/controller/space/list';
 import {
-  ContextForTaskList,
-  useControllerForTaskList,
-} from '@/architecture/controller/task/list';
+  ContextForTaskListFromChapter,
+  useControllerForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
@@ -42,7 +42,7 @@ function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceListController = useControllerForSpaceList(loggedInUser?.id);
   const chapterListController = useControllerForSpaceChapterList('');
-  const taskListController = useControllerForTaskList(
+  const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
   );
   const sceneListController = useControllerForIdeaSceneList(
@@ -60,7 +60,7 @@ function Page() {
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
       <ContextForSpaceList.Provider value={spaceListController}>
         <ContextForSpaceChapterList.Provider value={chapterListController}>
-          <ContextForTaskList.Provider value={taskListController}>
+          <ContextForTaskListFromChapter.Provider value={taskListController}>
             <ContextForIdeaSceneList.Provider value={sceneListController}>
               <ContextForChapterConversationList.Provider
                 value={conversationListController}
@@ -78,7 +78,7 @@ function Page() {
                 </ContextForUserActivityListFromChapter.Provider>
               </ContextForChapterConversationList.Provider>
             </ContextForIdeaSceneList.Provider>
-          </ContextForTaskList.Provider>
+          </ContextForTaskListFromChapter.Provider>
         </ContextForSpaceChapterList.Provider>
       </ContextForSpaceList.Provider>
     </ContextForLoggedInUserObj.Provider>

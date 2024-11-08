@@ -38,9 +38,13 @@ import {
   useControllerForSpaceMemberList,
 } from '@/architecture/controller/space/member/list';
 import {
-  ContextForTaskList,
-  useControllerForTaskList,
-} from '@/architecture/controller/task/list';
+  ContextForTaskListFromChapter,
+  useControllerForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
+import {
+  ContextForTaskListFromSpace,
+  useControllerForTaskListFromSpace,
+} from '@/architecture/controller/task/list-from-space';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -88,8 +92,11 @@ function Page({ params }: { params: { id: string } }) {
     chapterListController.state.objId,
     postId,
   );
-  const taskListController = useControllerForTaskList(
+  const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
+  );
+  const allTaskListFromController = useControllerForTaskListFromSpace(
+    spaceMainController.state.objId,
   );
   const commentListController = useControllerForPostCommentList(
     postListController.state.objId,
@@ -125,39 +132,45 @@ function Page({ params }: { params: { id: string } }) {
               <ContextForUserPostListFromChapter.Provider
                 value={postListController}
               >
-                <ContextForTaskList.Provider value={taskListController}>
-                  <ContextForPostKarmaList.Provider
-                    value={postKarmaListController}
+                <ContextForTaskListFromChapter.Provider
+                  value={taskListController}
+                >
+                  <ContextForTaskListFromSpace.Provider
+                    value={allTaskListFromController}
                   >
-                    <ContextForPostAttachmentListFromPost.Provider
-                      value={attachmentListController}
+                    <ContextForPostKarmaList.Provider
+                      value={postKarmaListController}
                     >
-                      <ContextForPostCommentList.Provider
-                        value={commentListController}
+                      <ContextForPostAttachmentListFromPost.Provider
+                        value={attachmentListController}
                       >
-                        <ContextForPublicSpace.Provider
-                          value={publicSpaceController}
+                        <ContextForPostCommentList.Provider
+                          value={commentListController}
                         >
-                          <ContextForChapterConversationList.Provider
-                            value={conversationListController}
+                          <ContextForPublicSpace.Provider
+                            value={publicSpaceController}
                           >
-                            <ContextForConversationMessageList.Provider
-                              value={messageListController}
+                            <ContextForChapterConversationList.Provider
+                              value={conversationListController}
                             >
-                              <PermissionWrapper>
-                                <RedirectWrapper>
-                                  <UpdateWrapper>
-                                    <PublicSpaceView />
-                                  </UpdateWrapper>
-                                </RedirectWrapper>
-                              </PermissionWrapper>
-                            </ContextForConversationMessageList.Provider>
-                          </ContextForChapterConversationList.Provider>
-                        </ContextForPublicSpace.Provider>
-                      </ContextForPostCommentList.Provider>
-                    </ContextForPostAttachmentListFromPost.Provider>
-                  </ContextForPostKarmaList.Provider>
-                </ContextForTaskList.Provider>
+                              <ContextForConversationMessageList.Provider
+                                value={messageListController}
+                              >
+                                <PermissionWrapper>
+                                  <RedirectWrapper>
+                                    <UpdateWrapper>
+                                      <PublicSpaceView />
+                                    </UpdateWrapper>
+                                  </RedirectWrapper>
+                                </PermissionWrapper>
+                              </ContextForConversationMessageList.Provider>
+                            </ContextForChapterConversationList.Provider>
+                          </ContextForPublicSpace.Provider>
+                        </ContextForPostCommentList.Provider>
+                      </ContextForPostAttachmentListFromPost.Provider>
+                    </ContextForPostKarmaList.Provider>
+                  </ContextForTaskListFromSpace.Provider>
+                </ContextForTaskListFromChapter.Provider>
               </ContextForUserPostListFromChapter.Provider>
             </ContextForSpaceChapterList.Provider>
           </ContextForSpaceMemberList.Provider>

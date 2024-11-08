@@ -1,7 +1,7 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { TaskObj } from '@/architecture/model/task/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { useControllerForOpenAi } from '@/external/controller/openai/main';
@@ -60,7 +60,7 @@ export function useControllerForSpacesWork(): Controller {
     useState<SpacesWorkSidebarVisibility>(SpacesWorkSidebarVisibility.OPEN);
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const openAiController = useControllerForOpenAi();
   const activityListController = useContext(
@@ -110,6 +110,7 @@ export function useControllerForSpacesWork(): Controller {
           loggedInUser.id,
           taskTemplate.title,
           taskTemplate.description,
+          spaceMainController.state.objId,
         ),
       ),
     );

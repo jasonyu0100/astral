@@ -19,6 +19,7 @@ export interface TaskObj {
   id: string;
   userId: string;
   chapterId: string;
+  spaceId: string;
   taskStatus: string;
   title: string;
   description: string;
@@ -29,6 +30,7 @@ export const TaskGql = `
 type TaskObj {
   id: String!
   userId: String!
+  spaceId: String!
   chapterId: String!
   title: String!
   description: String!
@@ -43,6 +45,7 @@ export const exampleTask: TaskObj = {
   id: '0',
   userId: '0',
   chapterId: '0',
+  spaceId: '0',
   title: 'Way Example',
   description: 'Way Description',
   created: new Date().toISOString(),
@@ -54,6 +57,7 @@ export const exampleTasks: TaskObj[] = [
     id: '0',
     userId: '0',
     chapterId: '0',
+    spaceId: '0',
     title: 'Way 1',
     description: 'Way Description',
     created: new Date().toISOString(),
@@ -63,6 +67,7 @@ export const exampleTasks: TaskObj[] = [
     id: '1',
     userId: '0',
     chapterId: '0',
+    spaceId: '0',
     title: 'Way 2',
     description: 'Way Description',
     created: new Date().toISOString(),
@@ -72,6 +77,7 @@ export const exampleTasks: TaskObj[] = [
     id: '2',
     userId: '0',
     chapterId: '0',
+    spaceId: '0',
     title: 'Way 3',
     description: 'Way Description',
     created: new Date().toISOString(),

@@ -1,11 +1,11 @@
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { ContextForTaskObj, TaskStatus } from '@/architecture/model/task/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
 
 export function SpacesWorkBacklogItem() {
   const task = useContext(ContextForTaskObj);
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
 
   return (
     <div className='aspect-[3/2] w-full cursor-pointer space-y-[1rem] rounded border-[1px] border-slate-300 bg-yellow-500 p-[2rem]'>

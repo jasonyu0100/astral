@@ -5,7 +5,7 @@ import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { ConversationObj } from '@/architecture/model/conversation/main';
 import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
 import { ElementVariant } from '@/architecture/model/elements/main';
@@ -47,7 +47,7 @@ export function useControllerForSpacesSpaceChat() {
   const activityListController = useContext(
     ContextForUserActivityListFromChapter,
   );
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const tasks = taskListController.state.objs;
   const currentTasks = tasks.filter(
     (task) => task.taskStatus === TaskStatus.CURRENT,

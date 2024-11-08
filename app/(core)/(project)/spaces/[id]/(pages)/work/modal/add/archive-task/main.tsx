@@ -1,7 +1,7 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
@@ -16,10 +16,10 @@ import { useContext, useState } from 'react';
 
 export function SpacesWorkAddArchiveTaskModal() {
   const user = useGlobalUser((state) => state.user);
-  const spaceController = useContext(ContextForSpaceMain);
+  const spaceMainController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const activityListController = useContext(
@@ -33,10 +33,11 @@ export function SpacesWorkAddArchiveTaskModal() {
         user.id,
         title,
         description,
+        spaceMainController.state.objId,
       );
     await activityListController.actions.createActions.createFromChapterTask(
       user.id,
-      spaceController.state.objId,
+      spaceMainController.state.objId,
       chapterListController.state.objId,
       task.id,
     );

@@ -1,4 +1,4 @@
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import {
   ContextForTaskObj,
   TaskObj,
@@ -11,7 +11,7 @@ import { HorizonsFieldRow } from './row/main';
 import { SpacesJourneyKanbanListTitle } from './row/title/main';
 
 export function HorizonsFieldKanban() {
-  const wayListController = useContext(ContextForTaskList);
+  const wayListController = useContext(ContextForTaskListFromChapter);
 
   const [todo, setTodo] = useState<TaskObj[]>([]);
   const [inProgress, setInProgress] = useState<TaskObj[]>([]);

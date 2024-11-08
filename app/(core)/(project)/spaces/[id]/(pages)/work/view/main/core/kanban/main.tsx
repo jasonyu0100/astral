@@ -1,7 +1,7 @@
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { exampleTask, TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
@@ -25,7 +25,7 @@ const ItemType = {
 };
 
 export function SpacesWorkKanban() {
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const { objs: objs } = taskListController.state;
 
   const todos = objs.filter((task) => task.taskStatus === TaskStatus.PENDING);
@@ -63,7 +63,7 @@ export function SpacesWorkKanban() {
 }
 
 function KanbanRow({ title, tasks, status }) {
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
 
   const [{ isOver }, drop] = useDrop({
     accept: ItemType.TASK,
@@ -107,7 +107,7 @@ function KanbanRow({ title, tasks, status }) {
 }
 
 function KanbanTask({ task }) {
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spacesWorkController = useContext(ContextForSpacesWork);

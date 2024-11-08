@@ -1,4 +1,4 @@
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { ContextForTaskObj, TaskStatus } from '@/architecture/model/task/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
@@ -8,7 +8,7 @@ import { SpacesWorkSidebarBacklogAdd } from './add/main';
 import { SpacesWorkBacklogItem } from './item/main';
 
 export function SpacesWorkSidebarArchive() {
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const tasks = taskListController.state.objs;
   const archive = tasks.filter(
     (task) => task.taskStatus === TaskStatus.ARCHIVE,

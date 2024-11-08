@@ -1,7 +1,9 @@
+import { userProfileMap } from '@/(core)/(live)/profile/[id]/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
+import { ContextForUserMain } from '@/architecture/controller/user/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
@@ -15,6 +17,7 @@ export function PublicSpaceBreadcrumbs() {
   const publicSpaceController = useContext(ContextForPublicSpace);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
+  const userMainController = useContext(ContextForUserMain);
 
   return (
     <div className='flex h-[3rem] flex-shrink-0 flex-col justify-between'>
@@ -22,7 +25,29 @@ export function PublicSpaceBreadcrumbs() {
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-500'
+              className='cursor-pointer text-lg font-bold text-slate-500'
+              onClick={() => {
+                window.location.href = userProfileMap.account.link(
+                  userMainController.state.obj.id,
+                );
+              }}
+            >
+              {userMainController.state.obj.displayName}
+            </p>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p
+              className='cursor-pointer text-lg font-bold text-slate-500'
+              onClick={() => {
+                window.location.href = spacesMap.spaces.id.space.link(
+                  spaceMainController.state.objId,
+                );
+              }}
+            >
+              {spaceMainController.state.obj.title}
+            </p>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p
+              className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,
@@ -31,8 +56,8 @@ export function PublicSpaceBreadcrumbs() {
             >
               {chapterListController.state.currentObj?.title}
             </p>
-            <span className='text-2xl font-bold text-slate-500'> / </span>
-            <p className='cursor-pointer text-2xl font-bold text-slate-500'>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p className='cursor-pointer text-lg font-bold text-slate-500'>
               Conversations
             </p>
           </div>
@@ -50,7 +75,29 @@ export function PublicSpaceBreadcrumbs() {
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-500'
+              className='cursor-pointer text-lg font-bold text-slate-500'
+              onClick={() => {
+                window.location.href = userProfileMap.account.link(
+                  userMainController.state.obj.id,
+                );
+              }}
+            >
+              {userMainController.state.obj.displayName}
+            </p>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p
+              className='cursor-pointer text-lg font-bold text-slate-500'
+              onClick={() => {
+                window.location.href = spacesMap.spaces.id.space.link(
+                  spaceMainController.state.objId,
+                );
+              }}
+            >
+              {spaceMainController.state.obj.title}
+            </p>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p
+              className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,
@@ -59,9 +106,9 @@ export function PublicSpaceBreadcrumbs() {
             >
               {chapterListController.state.currentObj?.title}
             </p>
-            <span className='text-2xl font-bold text-slate-500'> / </span>
+            <span className='text-lg font-bold text-slate-500'> / </span>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-500'
+              className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POST,
@@ -85,7 +132,29 @@ export function PublicSpaceBreadcrumbs() {
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
-              className='cursor-pointer text-2xl font-bold text-slate-500'
+              className='cursor-pointer text-lg font-bold text-slate-500'
+              onClick={() => {
+                window.location.href = userProfileMap.account.link(
+                  userMainController.state.obj.id,
+                );
+              }}
+            >
+              {userMainController.state.obj.displayName}
+            </p>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p
+              className='cursor-pointer text-lg font-bold text-slate-500'
+              onClick={() => {
+                window.location.href = spacesMap.spaces.id.space.link(
+                  spaceMainController.state.objId,
+                );
+              }}
+            >
+              {spaceMainController.state.obj.title}
+            </p>
+            <span className='text-lg font-bold text-slate-500'> / </span>
+            <p
+              className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
                 publicSpaceController.actions.updateFeedView(
                   PublicSpaceFeedView.POSTS,
@@ -94,7 +163,7 @@ export function PublicSpaceBreadcrumbs() {
             >
               {chapterListController.state.currentObj?.title}
             </p>
-            <span className='text-2xl font-bold text-slate-500'> / </span>
+            <span className='text-lg font-bold text-slate-500'> / </span>
           </div>
           <div
             className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'

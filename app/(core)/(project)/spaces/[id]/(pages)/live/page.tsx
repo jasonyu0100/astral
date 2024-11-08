@@ -36,9 +36,9 @@ import {
   useControllerForSpaceMemberList,
 } from '@/architecture/controller/space/member/list';
 import {
-  ContextForTaskList,
-  useControllerForTaskList,
-} from '@/architecture/controller/task/list';
+  ContextForTaskListFromChapter,
+  useControllerForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
 import {
   ContextForUserMain,
   useControllerForUserMain,
@@ -100,7 +100,7 @@ function Page({ params }: { params: { id: string } }) {
     postListController.state.objId,
   );
 
-  const taskListController = useControllerForTaskList(
+  const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
   );
   const activityListController = useControllerForUserActivityListFromChapter(
@@ -129,7 +129,7 @@ function Page({ params }: { params: { id: string } }) {
                         <ContextForPostCommentList.Provider
                           value={commentListController}
                         >
-                          <ContextForTaskList.Provider
+                          <ContextForTaskListFromChapter.Provider
                             value={taskListController}
                           >
                             <ContextForUserActivityListFromChapter.Provider
@@ -147,7 +147,7 @@ function Page({ params }: { params: { id: string } }) {
                                 </LoadingWrapper>
                               </UpdateWrapper>
                             </ContextForUserActivityListFromChapter.Provider>
-                          </ContextForTaskList.Provider>
+                          </ContextForTaskListFromChapter.Provider>
                         </ContextForPostCommentList.Provider>
                       </ContextForPostAttachmentListFromPost.Provider>
                     </ContextForPostKarmaList.Provider>

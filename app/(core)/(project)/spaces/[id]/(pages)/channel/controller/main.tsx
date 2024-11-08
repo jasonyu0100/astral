@@ -3,7 +3,7 @@ import { ContextForChapterConversationList } from '@/architecture/controller/con
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
-import { ContextForTaskList } from '@/architecture/controller/task/list';
+import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { ConversationObj } from '@/architecture/model/conversation/main';
 import { ConversationMessageObj } from '@/architecture/model/conversation/message/main';
 import { ElementVariant } from '@/architecture/model/elements/main';
@@ -72,7 +72,7 @@ export function useControllerForSpacesChannel() {
   const conversationListController = useContext(
     ContextForChapterConversationList,
   );
-  const taskListController = useContext(ContextForTaskList);
+  const taskListController = useContext(ContextForTaskListFromChapter);
   const tasks = taskListController.state.objs;
   const currentTasks = tasks.filter(
     (task) => task.taskStatus === TaskStatus.CURRENT,

@@ -2,6 +2,7 @@ import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralBubbleIcon } from '@/icons/bubble/main';
+import { AstralCameraIcon } from '@/icons/camera/main';
 import { AstralCategoryIcon } from '@/icons/category/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
@@ -140,11 +141,11 @@ export function SpacesSpaceHeaderLeft() {
             : 'fill-slate-300'
         }
       />
-      {/* <AstralCameraIcon
+      <AstralCameraIcon
         onClick={() => {
           spacesSpaceController.actions.takeScreenshot();
         }}
-      /> */}
+      />
     </div>
   );
 }
