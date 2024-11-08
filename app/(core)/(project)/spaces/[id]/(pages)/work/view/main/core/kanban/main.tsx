@@ -149,15 +149,15 @@ function KanbanTask({ task }) {
   const getTaskColor = () => {
     switch (task.taskStatus) {
       case TaskStatus.PENDING:
-        return 'bg-purple-500';
+        return 'bg-purple-500 bg-opacity-80';
       case TaskStatus.ARCHIVE:
-        return 'bg-slate-500';
+        return 'bg-slate-500 bg-opacity-80';
       case TaskStatus.CURRENT:
-        return 'bg-yellow-500';
+        return 'bg-yellow-500 bg-opacity-80';
       case TaskStatus.DONE:
-        return 'bg-green-500';
+        return 'bg-green-500 bg-opacity-80';
       default:
-        return 'bg-blue-500';
+        return 'bg-blue-500 bg-opacity-80';
     }
   };
 

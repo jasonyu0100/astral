@@ -1,4 +1,4 @@
-import { ContextForDashboardJournalModals } from '@/(core)/(dashboard)/journal/modal/controller/main';
+import { ContextForDashboardJournalModals } from '@/(core)/(dashboard)/vault/upload/modal/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';

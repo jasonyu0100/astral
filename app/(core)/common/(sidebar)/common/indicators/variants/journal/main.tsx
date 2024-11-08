@@ -10,7 +10,7 @@ import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarJournalIndicator() {
   const commonSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = CommonSidebarIndicatorType.Journal;
+  const indicatorLabel = CommonSidebarIndicatorType.Uploads;
   const active = commonSidebar.indicator === indicatorLabel;
 
   return (

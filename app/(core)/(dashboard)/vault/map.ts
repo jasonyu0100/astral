@@ -18,8 +18,8 @@ export const vaultMap = {
         },
       },
     },
-    knowledge: {
-      link: `${baseUrl}/knowledge`,
+    upload: {
+      link: `${baseUrl}/upload`,
     },
     link: `${baseUrl}`,
   },

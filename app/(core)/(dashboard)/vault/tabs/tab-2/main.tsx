@@ -1,17 +1,17 @@
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
-import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main';
+import { TabBlueShard } from '@/components/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { vaultMap } from '../../map';
 import { VaultTabStage } from '../main';
 
-export function TabOne({ tab }: { tab?: string }) {
-  const tabText = VaultTabStage.Finder;
+export function TabTwo({ tab }: { tab?: string }) {
+  const tabText = VaultTabStage.Upload;
   const active = tab === tabText;
 
   return (
-    <Tab href={vaultMap.vault.finder.link}>
+    <Tab href={vaultMap.vault.upload.link}>
       <TabText active={active}>{tabText}</TabText>
-      <TabOrangeShard active={active} />
+      <TabBlueShard active={active} />
     </Tab>
   );
 }

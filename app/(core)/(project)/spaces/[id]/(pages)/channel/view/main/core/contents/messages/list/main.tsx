@@ -45,10 +45,6 @@ export function SpacesChannelMessages() {
             </div>
             <div className='flex flex-col'>
               <p className='text-center text-2xl font-bold text-slate-300'>
-                {conversationListController.state.currentObj?.title ||
-                  'Untitled'}
-              </p>
-              <p className='text-center text-2xl font-bold text-slate-300'>
                 {getFormattedAMPM(
                   new Date(
                     conversationListController.state.currentObj?.created ||
@@ -62,6 +58,10 @@ export function SpacesChannelMessages() {
                       Date.now(),
                   ),
                 )}
+              </p>
+              <p className='text-center text-lg font-light text-slate-300'>
+                {conversationListController.state.currentObj?.title ||
+                  'Untitled'}
               </p>
             </div>
             <div className='flex items-center justify-start'>

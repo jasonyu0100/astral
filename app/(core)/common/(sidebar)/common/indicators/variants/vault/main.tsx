@@ -16,11 +16,11 @@ export function CommonSidebarVaultIndicator() {
   return (
     <>
       {commonSidebar?.minimised ? (
-        <CommonSidebarIndicator href={vaultMap.vault.finder.link}>
+        <CommonSidebarIndicator href={vaultMap.vault.upload.link}>
           <CommonIndicatorGoldJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
-        <CommonSidebarIndicator href={vaultMap.vault.finder.link}>
+        <CommonSidebarIndicator href={vaultMap.vault.upload.link}>
           <CommonIndicatorGoldJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}
