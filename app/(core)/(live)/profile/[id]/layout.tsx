@@ -23,7 +23,7 @@ export default function Layout({
   return (
     <ContextForProfileId.Provider value={{ userId: params.id }}>
       <DashboardContainer>
-        <CommonSidebar backUrl={studioMap.studio.personal.link} />
+        <CommonSidebar backUrl={studioMap.studio.personal.link} minimised />
         {children}
       </DashboardContainer>
     </ContextForProfileId.Provider>

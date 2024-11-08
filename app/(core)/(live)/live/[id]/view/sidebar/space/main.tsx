@@ -1,4 +1,4 @@
-import { studioMap } from '@/(core)/(dashboard)/studio/map';
+import { userProfileMap } from '@/(core)/(live)/profile/[id]/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { exampleFileElement } from '@/architecture/model/elements/file/main';
@@ -15,16 +15,23 @@ import { liveMap } from '../../../map';
 
 export function PublicSpaceSidebarSpace() {
   const spaceMainController = useContext(ContextForSpaceMain);
+
   return (
     <div className='flex flex-col space-y-[1rem]'>
       <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
         <div className='flex w-full flex-row items-center justify-between'>
-          <p className='text-3xl font-bold text-slate-300'>Space</p>
-          <AstralBackIndicatorIcon
-            onClick={() => {
-              window.location.href = studioMap.studio.personal.link;
-            }}
-          />
+          <p className='text-3xl font-bold text-slate-300'>
+            {spaceMainController.state.obj.title || 'Untitled'}
+          </p>
+          <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-500 bg-opacity-30'>
+            <AstralBackIndicatorIcon
+              onClick={() => {
+                window.location.href = userProfileMap.account.link(
+                  spaceMainController.state.obj.userId,
+                );
+              }}
+            />
+          </div>
         </div>
       </div>
       <HorizontalDivider />

@@ -5,7 +5,7 @@ import { HorizontalDivider } from '@/components/indicator/divider/horizontal/mai
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext } from 'react';
-import { CommonSidebarContainer } from './common/container/default/main';
+import { CommonSidebarContainer } from './common/container/main';
 import { CommonSidebarIndicators } from './common/indicators/main';
 import { CommonSidebarJournalIndicator } from './common/indicators/variants/journal/main';
 import { CommonSidebarNetworkIndicator } from './common/indicators/variants/network/main';
@@ -47,7 +47,7 @@ export function CommonSidebar({
           }}
         >
           <CommonSidebarModals>
-            <CommonSidebarContainer>
+            <CommonSidebarContainer minimised={minimised}>
               <CommonSidebarTopSpace />
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <CommonSidebarIndicators>
