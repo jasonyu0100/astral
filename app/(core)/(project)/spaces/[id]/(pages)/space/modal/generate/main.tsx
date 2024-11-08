@@ -1,3 +1,4 @@
+import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { useControllerForPostAttachmentListFromPost } from '@/architecture/controller/post/attachment/list-from-post';
 import { useControllerForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
@@ -25,7 +26,6 @@ import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useEffect, useState } from 'react';
-import { spacesMap } from '../../../../map';
 import { ContextForSpacesSpace } from '../../controller/main';
 import { SpacesSpaceGeneratePostItem } from './idea/main';
 
@@ -111,35 +111,37 @@ export function SpacesSpaceGeneratePost() {
     loadingController.loadingController.open();
     openableController.close();
 
-    const post = await postListController.actions.createActions.createPost(
-      title,
-      description,
-      user.id,
-      chapterListController.state.objId,
-      spaceController.state.objId,
-    );
-
-    const attachments = await Promise.all(
-      selectedIdeas.map((idea) =>
-        attachmentListController.actions.createActions.createFromIdea(
-          user.id,
-          post.id,
-          idea,
-        ),
-      ),
-    );
-
-    await activityListController.actions.createActions
-      .createFromChapterPost(
+    const post = await postListController.actions.createActions
+      .createPost(
+        title,
+        description,
         user.id,
-        spaceController.state.objId,
         chapterListController.state.objId,
-        post.id,
+        spaceController.state.objId,
       )
-      .then(() => {
-        window.location.href = `${spacesMap.spaces.id.table.link(
-          spaceController.state.objId,
-        )}?chapter=${chapterListController.state.objId}&scene=${sceneListController.state.objId}`;
+      .then(async (post) => {
+        const attachments = await Promise.all(
+          selectedIdeas.map((idea) =>
+            attachmentListController.actions.createActions.createFromIdea(
+              user.id,
+              post.id,
+              idea,
+            ),
+          ),
+        );
+
+        await activityListController.actions.createActions
+          .createFromChapterPost(
+            user.id,
+            spaceController.state.objId,
+            chapterListController.state.objId,
+            post.id,
+          )
+          .then(() => {
+            window.location.href = `${liveMap.live.link(
+              spaceController.state.objId,
+            )}?chapter=${chapterListController.state.objId}`;
+          });
       });
   }
 

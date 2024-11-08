@@ -5,7 +5,7 @@ import {
 import { ContextForProfileUserObj } from '@/architecture/model/user/main';
 import { useContext } from 'react';
 import { ContextForProfile, ProfilePage } from '../controller/main';
-import { UserProfileSpacesTable } from './table/main';
+import { UserProfileSpacesLive } from './table/main';
 
 export function UserProfileOverviewPages() {
   const profileController = useContext(ContextForProfile);
@@ -19,7 +19,7 @@ export function UserProfileOverviewPages() {
           {profileController.state.page === ProfilePage.Spaces && (
             <ContextForSpaceList.Provider value={spaceListController}>
               <div className='flex w-full flex-col space-y-[2rem]'>
-                <UserProfileSpacesTable />
+                <UserProfileSpacesLive />
               </div>
             </ContextForSpaceList.Provider>
           )}

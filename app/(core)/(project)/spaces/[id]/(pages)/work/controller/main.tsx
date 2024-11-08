@@ -32,7 +32,7 @@ interface ControllerActions {
 export const ContextForSpacesWork = createContext({} as Controller);
 
 export enum SpacesWorkDataMode {
-  TABLE = 'Table',
+  Table = 'Table',
   ROWS = 'Rows',
 }
 

@@ -263,7 +263,7 @@ function KanbanTask({ task }) {
               taskListController.actions.editActions.edit(task.id, {
                 taskStatus: TaskStatus.CURRENT,
               });
-              window.location.href = `${spacesMap.spaces.id.table.link(
+              window.location.href = `${spacesMap.spaces.id.live.link(
                 spaceMainController.state.objId,
               )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}

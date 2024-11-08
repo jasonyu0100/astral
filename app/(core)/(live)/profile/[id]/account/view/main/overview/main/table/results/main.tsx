@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { UserProfileSpacesRow } from './row/main';
 import { AccountSpacesRowWrapper } from './wrapper/main';
 
-export function UserProfileSpacesTableResults() {
+export function UserProfileSpacesLiveResults() {
   const spaceListHandler = useContext(ContextForSpaceList);
   return (
     <div className='w-full py-[1rem]'>
