@@ -16,9 +16,7 @@ export function StudioPersonalTableHeader() {
             <p className='text-sm font-bold text-slate-500'></p>
           </div>
           <div></div>
-          <div className='col-span-2'>
-            <p className='text-sm font-bold text-slate-500'>Progress</p>
-          </div>
+          <div className='col-span-2'></div>
           <div></div>
         </div>
       </GlassWindowFrame>

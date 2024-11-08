@@ -121,7 +121,7 @@ export function SpacesLiveSidebarChaptersChapter() {
               >
                 <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
                   <div
-                    className='absolute left-0 top-0 h-full bg-blue-500'
+                    className='absolute left-0 top-0 h-full bg-purple-500'
                     style={{
                       width: `${(pending.length / (pending.length + current.length + done.length)) * 100}%`,
                     }}

@@ -13,14 +13,13 @@ import { StudioPersonalRowCategory } from './category/main';
 import { StudioPersonalRowInfo } from './info/main';
 import { StudioPersonalRowMore } from './more/main';
 import { StudioPersonalRowNumber } from './number/main';
-import { StudioPersonalRowProgress } from './stat/main';
+import { StudioPersonalRowProgress } from './progress/main';
 
 export function StudioPersonalRow() {
   const spaceObj = useContext(ContextForSpaceObj);
   const activityListController = useControllerForUserActivityListFromSpace(
     spaceObj.id,
   );
-
   const allTaskListFromController = useControllerForTaskListFromSpace(
     spaceObj.id,
   );

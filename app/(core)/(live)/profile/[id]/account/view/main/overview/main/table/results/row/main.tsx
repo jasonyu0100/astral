@@ -1,25 +1,29 @@
+import {
+  ContextForTaskListFromSpace,
+  useControllerForTaskListFromSpace,
+} from '@/architecture/controller/task/list-from-space';
+import { ContextForSpaceObj } from '@/architecture/model/space/main';
+import { useContext } from 'react';
 import { UserProfileSpacesRowIndicator } from './activity/main';
 import { UserProfileSpacesRowCategory } from './category/main';
 import { UserProfileSpacesRowInfo } from './info/main';
 import { UserProfileSpacesRowNumber } from './number/main';
-import { UserProfileSpacesRowDays } from './stat/day/main';
-import { UserProfileSpacesRowIdeas } from './stat/ideas/main';
-import { UserProfileSpacesRowLogs } from './stat/logs/main';
-import { UserProfileSpacesRowPosts } from './stat/posts/main';
+import { UserProfileRowProgress } from './progress/main';
 
 export function UserProfileSpacesRow() {
+  const spaceObj = useContext(ContextForSpaceObj);
+  const allTaskListFromController = useControllerForTaskListFromSpace(
+    spaceObj.id,
+  );
   return (
-    <div className='grid w-full grid-cols-7 py-[2rem]'>
-      <UserProfileSpacesRowNumber />
-      <UserProfileSpacesRowInfo />
-      <UserProfileSpacesRowCategory />
-      <UserProfileSpacesRowIndicator />
-      <div className='col-span-2 grid grid-cols-4'>
-        <UserProfileSpacesRowDays />
-        <UserProfileSpacesRowIdeas />
-        <UserProfileSpacesRowLogs />
-        <UserProfileSpacesRowPosts />
+    <ContextForTaskListFromSpace.Provider value={allTaskListFromController}>
+      <div className='grid w-full grid-cols-7 p-[1rem]'>
+        <UserProfileSpacesRowNumber />
+        <UserProfileSpacesRowInfo />
+        <UserProfileSpacesRowCategory />
+        <UserProfileSpacesRowIndicator />
+        <UserProfileRowProgress />
       </div>
-    </div>
+    </ContextForTaskListFromSpace.Provider>
   );
 }

@@ -146,11 +146,26 @@ function KanbanTask({ task }) {
 
   const isSelected = spacesWorkController.state.selectedTasks.includes(task.id);
 
+  const getTaskColor = () => {
+    switch (task.taskStatus) {
+      case TaskStatus.PENDING:
+        return 'bg-purple-500';
+      case TaskStatus.ARCHIVE:
+        return 'bg-slate-500';
+      case TaskStatus.CURRENT:
+        return 'bg-yellow-500';
+      case TaskStatus.DONE:
+        return 'bg-green-500';
+      default:
+        return 'bg-blue-500';
+    }
+  };
+
   return (
     <>
       <div
         ref={drag}
-        className={`h-full w-[300px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
+        className={`h-full w-[300px] flex-shrink-0 rounded ${getTaskColor()} p-4 shadow-sm ${
           isDragging ? 'opacity-50' : ''
         } ${isSelected ? 'border-[2px] border-purple-500' : 'border-black'}`}
         style={{ cursor: 'move' }}
