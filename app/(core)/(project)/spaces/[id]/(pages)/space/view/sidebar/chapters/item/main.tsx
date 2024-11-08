@@ -112,9 +112,9 @@ export function SpacesSpaceSidebarChaptersChapter() {
             >
               <GlassWindowContents
                 onClick={() => {
-                  window.location.href = spacesMap.spaces.id.work.link(
+                  window.location.href = `${spacesMap.spaces.id.work.link(
                     spaceMainController.state.objId,
-                  );
+                  )}?chapter=${chapterListController.state.objId}`;
                 }}
                 className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem] p-[0.5rem]'
               >

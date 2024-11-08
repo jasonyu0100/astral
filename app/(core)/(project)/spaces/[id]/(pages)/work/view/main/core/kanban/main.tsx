@@ -149,15 +149,15 @@ function KanbanTask({ task }) {
   const getTaskColor = () => {
     switch (task.taskStatus) {
       case TaskStatus.PENDING:
-        return 'bg-purple-500 bg-opacity-80';
+        return 'bg-purple-500 ';
       case TaskStatus.ARCHIVE:
-        return 'bg-slate-500 bg-opacity-80';
+        return 'bg-slate-500 ';
       case TaskStatus.CURRENT:
-        return 'bg-yellow-500 bg-opacity-80';
+        return 'bg-yellow-500 ';
       case TaskStatus.DONE:
-        return 'bg-green-500 bg-opacity-80';
+        return 'bg-green-500 ';
       default:
-        return 'bg-blue-500 bg-opacity-80';
+        return 'bg-blue-500 ';
     }
   };
 
@@ -195,13 +195,13 @@ function KanbanTask({ task }) {
               onBlur={handleTitleBlur}
               onKeyDown={(e) => handleKeyDown(e, handleTitleBlur)}
               autoFocus
-              className='border-none bg-yellow-500 text-lg font-bold outline-none'
+              className='border-none bg-transparent text-lg font-bold text-black outline-none'
               style={{ width: '70%' }}
             />
           ) : (
             <p
               onClick={() => setIsEditingTitle(true)}
-              className='cursor-pointer text-lg font-bold'
+              className='cursor-pointer text-lg font-bold text-black'
             >
               {title || 'Click to add title...'} {/* Placeholder text */}
             </p>
@@ -231,13 +231,13 @@ function KanbanTask({ task }) {
             onBlur={handleDescriptionBlur}
             onKeyDown={(e) => handleKeyDown(e, handleDescriptionBlur)}
             autoFocus
-            className='border-none bg-transparent text-sm font-light outline-none'
+            className='border-none bg-transparent text-sm text-black outline-none'
             style={{ width: '100%' }}
           />
         ) : (
           <p
             onClick={() => setIsEditingDescription(true)}
-            className='h-full cursor-pointer text-sm font-light'
+            className='h-full cursor-pointer text-sm text-black'
           >
             {description || 'Click to add description...'}{' '}
             {/* Placeholder text */}

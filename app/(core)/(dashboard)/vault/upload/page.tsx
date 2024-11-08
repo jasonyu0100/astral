@@ -14,7 +14,7 @@ import {
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
-import { DashboardJournalModals } from './modal/controller/main';
+import { DashboardJournalModals } from '../../journal/modal/controller/main';
 import { JournalDailyView } from './view/view';
 
 function Page() {
