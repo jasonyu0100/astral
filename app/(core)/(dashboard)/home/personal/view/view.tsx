@@ -35,7 +35,12 @@ export function HomePersonalView() {
             </p>
             <AstralGestureIcon className='h-[2rem] w-[2rem]' />
           </div>
-          <div className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-purple-500 to-violet-500 p-[1rem] p-[2rem]'>
+          <div
+            onClick={() => {
+              alert('coming soon...');
+            }}
+            className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-purple-500 to-violet-500 p-[1rem] p-[2rem]'
+          >
             <p className='text-xl font-bold text-slate-300'>
               Create from a source
             </p>

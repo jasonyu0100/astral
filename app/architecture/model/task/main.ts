@@ -3,7 +3,7 @@ import { createContext } from 'react';
 
 export enum TaskStatus {
   ARCHIVE = 'Archive',
-  PENDING = 'Pending',
+  UPCOMING = 'Upcoming',
   CURRENT = 'Current',
   DONE = 'Done',
 }
@@ -49,7 +49,7 @@ export const exampleTask: TaskObj = {
   title: 'Way Example',
   description: 'Way Description',
   created: new Date().toISOString(),
-  taskStatus: TaskStatus.PENDING,
+  taskStatus: TaskStatus.UPCOMING,
 };
 
 export const exampleTasks: TaskObj[] = [
@@ -61,7 +61,7 @@ export const exampleTasks: TaskObj[] = [
     title: 'Way 1',
     description: 'Way Description',
     created: new Date().toISOString(),
-    taskStatus: TaskStatus.PENDING,
+    taskStatus: TaskStatus.UPCOMING,
   },
   {
     id: '1',
@@ -71,7 +71,7 @@ export const exampleTasks: TaskObj[] = [
     title: 'Way 2',
     description: 'Way Description',
     created: new Date().toISOString(),
-    taskStatus: TaskStatus.PENDING,
+    taskStatus: TaskStatus.UPCOMING,
   },
   {
     id: '2',
@@ -81,7 +81,7 @@ export const exampleTasks: TaskObj[] = [
     title: 'Way 3',
     description: 'Way Description',
     created: new Date().toISOString(),
-    taskStatus: TaskStatus.PENDING,
+    taskStatus: TaskStatus.UPCOMING,
   },
 ];
 

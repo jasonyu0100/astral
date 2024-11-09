@@ -34,7 +34,7 @@ export function HomePersonalRowMore() {
               <div
                 className='flex cursor-pointer flex-row space-x-[1rem]'
                 onClick={() => {
-                  window.location.href = spacesMap.spaces.id.work.link(
+                  window.location.href = spacesMap.spaces.id.focus.link(
                     spaceObj.id,
                   );
                 }}

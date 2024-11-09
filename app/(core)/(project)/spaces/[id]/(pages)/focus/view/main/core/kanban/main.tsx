@@ -28,7 +28,7 @@ export function SpacesWorkKanban() {
   const taskListController = useContext(ContextForTaskListFromChapter);
   const { objs: objs } = taskListController.state;
 
-  const todos = objs.filter((task) => task.taskStatus === TaskStatus.PENDING);
+  const todos = objs.filter((task) => task.taskStatus === TaskStatus.UPCOMING);
   const inprogress = objs.filter(
     (task) => task.taskStatus === TaskStatus.CURRENT,
   );
@@ -42,9 +42,9 @@ export function SpacesWorkKanban() {
       >
         <div className='grid h-full w-full grid-rows-3 space-y-[1rem] p-[1rem]'>
           <KanbanRow
-            title={TaskStatus.PENDING}
+            title={TaskStatus.UPCOMING}
             tasks={todos}
-            status={TaskStatus.PENDING}
+            status={TaskStatus.UPCOMING}
           />
           <KanbanRow
             title={TaskStatus.CURRENT}
@@ -144,26 +144,11 @@ function KanbanTask({ task }) {
 
   const isSelected = spacesWorkController.state.selectedTasks.includes(task.id);
 
-  const getTaskColor = () => {
-    switch (task.taskStatus) {
-      case TaskStatus.PENDING:
-        return 'bg-purple-500 ';
-      case TaskStatus.ARCHIVE:
-        return 'bg-slate-500 ';
-      case TaskStatus.CURRENT:
-        return 'bg-yellow-500 ';
-      case TaskStatus.DONE:
-        return 'bg-green-500 ';
-      default:
-        return 'bg-blue-500 ';
-    }
-  };
-
   return (
     <>
       <div
         ref={drag}
-        className={`h-full w-[300px] flex-shrink-0 rounded ${getTaskColor()} p-4 shadow-sm ${
+        className={`h-full w-[300px] flex-shrink-0 rounded bg-yellow-500 p-4 shadow-sm ${
           isDragging ? 'opacity-50' : ''
         } ${isSelected ? 'border-[2px] border-purple-500' : 'border-black'}`}
         style={{ cursor: 'move' }}

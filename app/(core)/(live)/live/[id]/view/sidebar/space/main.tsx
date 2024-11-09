@@ -15,8 +15,8 @@ export function PublicSpaceSidebarSpace() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const taskListController = useContext(ContextForTaskListFromSpace);
   const tasks = taskListController.state.objs;
-  const pending = tasks.filter(
-    (task) => task.taskStatus === TaskStatus.PENDING,
+  const upcoming = tasks.filter(
+    (task) => task.taskStatus === TaskStatus.UPCOMING,
   );
   const current = tasks.filter(
     (task) => task.taskStatus === TaskStatus.CURRENT,
@@ -75,25 +75,25 @@ export function PublicSpaceSidebarSpace() {
           >
             <GlassWindowContents
               onClick={() => {
-                window.location.href = spacesMap.spaces.id.work.link(
+                window.location.href = spacesMap.spaces.id.focus.link(
                   spaceMainController.state.objId,
                 );
               }}
-              className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem] p-[0.5rem]'
+              className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'
             >
-              <div className='relative h-[1rem] w-full overflow-hidden rounded-full'>
+              <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
                 <div
                   className='absolute top-0 h-full bg-yellow-500 '
                   style={{
                     left: `0px`,
-                    width: `${(current.length / (current.length + done.length + pending.length)) * 100}%`,
+                    width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
                   }}
                 ></div>
                 <div
                   className='absolute top-0 h-full bg-green-500'
                   style={{
-                    left: `${(current.length / (current.length + done.length + pending.length)) * 100}%`,
-                    width: `${(done.length / (pending.length + current.length + done.length)) * 100}%`,
+                    left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+                    width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
                   }}
                 ></div>
               </div>

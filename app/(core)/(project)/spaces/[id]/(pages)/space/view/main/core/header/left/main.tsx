@@ -1,15 +1,12 @@
-import { ContextForGalleryList } from '@/architecture/controller/gallery/list';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
-import { AstralBubbleIcon } from '@/icons/bubble/main';
 import { AstralCameraIcon } from '@/icons/camera/main';
 import { AstralCategoryIcon } from '@/icons/category/main';
 import { AstralCursorIcon } from '@/icons/cursor/main';
-import { AstralFolderIcon } from '@/icons/folder/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
+import { AstralLabelIcon } from '@/icons/label/main';
+import { AstralPolylineIcon } from '@/icons/polyline/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
-import { AstralSyncAltIcon } from '@/icons/sync-alt/main';
-import { useGlobalUser } from '@/logic/store/user/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -17,15 +14,11 @@ import {
   SpacesSpaceBubbleMode,
   SpacesSpaceInteractionMode,
   SpacesSpaceLinkMode,
-  SpacesSpaceSidebarContentMode,
   SpacesSpaceSidebarVisibility,
 } from '../../../../../controller/main';
 
 export function SpacesSpaceHeaderLeft() {
   const spacesSpaceController = useContext(ContextForSpacesSpace);
-  // const spacesSpaceModalsController = useContext(ContextForSpacesSpaceModals);
-  const user = useGlobalUser((state) => state.user);
-  const galleryController = useContext(ContextForGalleryList);
   const ideaListController = useContext(ContextForSceneIdeaList);
 
   return (
@@ -68,7 +61,7 @@ export function SpacesSpaceHeaderLeft() {
           }
         }}
       />
-      <AstralSyncAltIcon
+      <AstralPolylineIcon
         className={
           spacesSpaceController.state.linkMode === SpacesSpaceLinkMode.ON
             ? 'fill-slate-300'
@@ -86,7 +79,7 @@ export function SpacesSpaceHeaderLeft() {
           }
         }}
       />
-      <AstralBubbleIcon
+      <AstralLabelIcon
         className={
           spacesSpaceController.state.bubbleMode === SpacesSpaceBubbleMode.OFF
             ? 'fill-blue-500'
@@ -107,16 +100,6 @@ export function SpacesSpaceHeaderLeft() {
         }}
       />
       <BarDividerIndicator />
-      <AstralFolderIcon
-        onClick={() => {
-          spacesSpaceController.actions.goToGalleryThenCollection(
-            galleryController.actions.stateActions.find(user.journalId),
-          );
-          spacesSpaceController.actions.updateSidebarContentMode(
-            SpacesSpaceSidebarContentMode.UPLOADS,
-          );
-        }}
-      />
       <AstralCategoryIcon
         onClick={() => {
           spacesSpaceController.actions.sortIdeas();

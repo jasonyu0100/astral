@@ -289,7 +289,7 @@ export const useControllerForTaskListFromChapter = (
         created: new Date().toISOString(),
         userId: userId,
         chapterId: chapterId,
-        taskStatus: TaskStatus.PENDING,
+        taskStatus: TaskStatus.UPCOMING,
         title: title,
         description: description,
         spaceId: spaceId,
@@ -413,7 +413,7 @@ export const ContextForTaskListFromChapter = createContext({} as Controller);
 export function calculateCompletionColor(taskListController: Controller) {
   const tasks = taskListController.state.objs;
   const todo = taskListController.state.objs.filter(
-    (task) => task.taskStatus === TaskStatus.PENDING,
+    (task) => task.taskStatus === TaskStatus.UPCOMING,
   );
   const inprogress = taskListController.state.objs.filter(
     (task) => task.taskStatus === TaskStatus.CURRENT,

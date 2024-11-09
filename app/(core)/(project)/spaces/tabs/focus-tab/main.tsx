@@ -12,7 +12,7 @@ import { SpaceTabStage } from '../main';
 export function SpaceTabMission({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceContext = useContext(CreativePrivateSpacesContext);
-  const tabText = SpaceTabStage.Work;
+  const tabText = SpaceTabStage.Focus;
   const active = tab === tabText;
 
   // Safely check if the necessary context values are available
@@ -21,7 +21,7 @@ export function SpaceTabMission({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.work.link(spaceId)}?chapter=${chapterId ?? ''}`
+    ? `${spacesMap.spaces.id.focus.link(spaceId)}?chapter=${chapterId ?? ''}`
     : '#'; // Fallback URL if spaceId is not defined
 
   return (

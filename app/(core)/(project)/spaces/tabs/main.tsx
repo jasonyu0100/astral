@@ -3,7 +3,7 @@ import { TabsContainer } from '@/components/tabs/main';
 import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { useContext } from 'react';
 import { SpacesTabChannel } from './channel-tab/main';
-import { SpaceTabMission } from './mission-tab/main';
+import { SpaceTabMission } from './focus-tab/main';
 import { SpacesTabSpace } from './space-tab/main';
 import { SpacesTabLive } from './table-tab/main';
 
@@ -12,7 +12,7 @@ interface SpaceTabProps {
 }
 
 export enum SpaceTabStage {
-  Work = 'Work',
+  Focus = 'Focus',
   Space = 'Space',
   Live = 'Live',
   Channel = 'Channel',

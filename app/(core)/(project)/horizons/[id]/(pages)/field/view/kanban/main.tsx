@@ -55,10 +55,10 @@ export function HorizonsFieldKanban() {
         <div className='flex w-full flex-col space-y-[1rem]'>
           <HorizonsFieldRow>
             <SpacesJourneyKanbanListTitle>
-              {TaskStatus.PENDING}
+              {TaskStatus.UPCOMING}
             </SpacesJourneyKanbanListTitle>
             <ul
-              id={TaskStatus.PENDING}
+              id={TaskStatus.UPCOMING}
               className='flex h-full flex-row space-x-[1rem]'
               style={{ height: '100%' }}
             >

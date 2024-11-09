@@ -118,10 +118,10 @@ export interface TemplatePostObj extends _TemplatePostObj {
 
 // TEMPLATES
 enum SpaceTemplate {
-  Blank = 'Blank',
   Ideation = 'Ideation',
   Storyboarding = 'Story Boarding',
   Minutes = 'Minutes',
+  Blank = 'Blank',
   ShortForm = 'Short Form Video',
   LongForm = 'Long Form Video',
   VideoProduction = 'Film Production',
@@ -139,23 +139,23 @@ enum SpaceTemplate {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
-  [SpaceTemplate.Blank]: blankSpaceTemplate,
   [SpaceTemplate.Ideation]: ideationTemplate,
+  [SpaceTemplate.LongForm]: longFormVideoTemplate,
+  [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
   [SpaceTemplate.Minutes]: meetingTemplate,
-  [SpaceTemplate.Project]: workProjectTemplate,
+  [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
   [SpaceTemplate.Startup]: startupTemplate,
-  [SpaceTemplate.Collaboration]: collaborationHubTemplate,
+  [SpaceTemplate.Project]: workProjectTemplate,
   [SpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
   [SpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
-  [SpaceTemplate.VideoProduction]: videoProductionTemplate,
+  [SpaceTemplate.Collaboration]: collaborationHubTemplate,
   [SpaceTemplate.Design]: uxUiDesignTemplate,
+  [SpaceTemplate.VideoProduction]: videoProductionTemplate,
   [SpaceTemplate.Website]: websiteTemplate,
-  [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
   [SpaceTemplate.Storyboarding]: storyboardTemplate,
   [SpaceTemplate.UserTesting]: userTestingTemplate,
   [SpaceTemplate.Event]: eventPlanningTemplate,
-  [SpaceTemplate.LongForm]: longFormVideoTemplate,
-  [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
+  [SpaceTemplate.Blank]: blankSpaceTemplate,
 };
 
 export { SpaceTemplate as SpaceTemplate, SpaceTemplateMap as SpaceTemplateMap };

@@ -231,7 +231,7 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
       <SpacesSidebarModals>
         <SpacesSidebar />
         <DashboardContent>
-          <SpaceTabs tab={SpaceTabStage.Work} />
+          <SpaceTabs tab={SpaceTabStage.Focus} />
           <DashboardBody>{children}</DashboardBody>
         </DashboardContent>
       </SpacesSidebarModals>

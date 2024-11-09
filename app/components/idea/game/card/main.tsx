@@ -2,7 +2,7 @@ import { ImageInputProps } from '@/props/main';
 import {
   CardNumber,
   CardSuit,
-} from '../../../../(core)/(project)/spaces/[id]/(pages)/work/view/main/header/month/main';
+} from '../../../../(core)/(project)/spaces/[id]/(pages)/focus/view/main/header/month/main';
 
 interface CardInputProps extends ImageInputProps {
   suit: CardSuit;

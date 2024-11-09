@@ -97,7 +97,7 @@ export function SpacesSpaceAddSpotifyUrlModal() {
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
               className='w-[400px]'
-              placeholder='Enter a spotify url'
+              placeholder='Enter a Spotify Url'
               title='Url'
               value={spotifyId}
               onChange={(e) =>
