@@ -47,7 +47,7 @@ export function HomePersonalView() {
             <AstralBookSparkIcon className='h-[2rem] w-[2rem]' />
           </div>
         </div>
-        <GlassWindowFrame className='p-[2rem]'>
+        <GlassWindowFrame className='p-[2rem]' roundedFx={roundedFx.rounded}>
           <GlassWindowContents className='flex flex-col space-y-[2rem]'>
             <p className='text-2xl font-bold text-slate-300'>
               Get started from a template
