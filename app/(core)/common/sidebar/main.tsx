@@ -9,7 +9,7 @@ import { CommonSidebarContainer } from './common/container/main';
 import { CommonSidebarIndicators } from './common/indicators/main';
 import { CommonSidebarNetworkIndicator } from './common/indicators/variants/network/main';
 import { CommonSidebarHomeIndicator } from './common/indicators/variants/studio/main';
-import { CommonSidebarVaultIndicator } from './common/indicators/variants/vault/main';
+import { CommonSidebarDriveIndicator } from './common/indicators/variants/vault/main';
 import { CommonSidebarModals } from './modals/controller/main';
 import { CommonSidebarTopSpace } from './top/space/main';
 
@@ -52,7 +52,7 @@ export function CommonSidebar({
               <CommonSidebarIndicators>
                 <CommonSidebarHomeIndicator />
                 <CommonSidebarNetworkIndicator />
-                <CommonSidebarVaultIndicator />
+                <CommonSidebarDriveIndicator />
                 {/* <CommonSidebarUpdatesIndicator /> */}
                 {/* <CommonSidebarExplorerIndicator /> */}
               </CommonSidebarIndicators>

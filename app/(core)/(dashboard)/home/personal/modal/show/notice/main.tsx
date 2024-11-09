@@ -2,7 +2,7 @@ import { AstralModal } from '@/components/modal/astral/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext } from 'react';
 
-export function SpacesPersonalShowNoticeModal() {
+export function HomePersonalShowNoticeModal() {
   const openableController = useContext(ContextForOpenable);
 
   return (

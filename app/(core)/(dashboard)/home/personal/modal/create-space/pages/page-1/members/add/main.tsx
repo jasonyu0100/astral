@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { roundedFx } from '@/style/data';
 
-export function CreateSpaceAddCollaborator({
+export function HomePersonalSpaceAddCollaborator({
   onClick,
 }: {
   onClick: () => void;

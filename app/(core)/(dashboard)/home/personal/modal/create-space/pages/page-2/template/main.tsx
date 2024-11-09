@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../controller/main';
+import { ContextForHomePersonalCreateSpace } from '../../../controller/main';
 
-export function CreateSpaceTemplateStructure() {
-  const { pageTwo } = useContext(ContextForCreateSpace);
+export function HomePersonalCreateSpaceTemplateStructure() {
+  const { pageTwo } = useContext(ContextForHomePersonalCreateSpace);
   const { templateProjectChapters } = pageTwo;
   return (
     <div className='flex w-full flex-col space-y-[1rem]'>

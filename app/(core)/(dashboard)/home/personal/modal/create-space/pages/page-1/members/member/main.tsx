@@ -1,7 +1,7 @@
 import { useControllerForUserMain } from '@/architecture/controller/user/main';
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 
-export function CreateSpaceCollaborator({
+export function HomePersonalCreateSpaceCollaborator({
   connectedId,
   onClick,
 }: {

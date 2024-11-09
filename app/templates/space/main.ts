@@ -20,7 +20,6 @@ import { prototypeDevelopmentTemplate } from './templates/prototypeDevelopmentTe
 import { shortFormVideoTemplate } from './templates/shortFormTemplate';
 import { startupTemplate } from './templates/startupTemplate';
 import { storyboardTemplate } from './templates/storyboardingTemplate';
-import { tutorialSpaceTemplate } from './templates/tutorialSpaceTemplate';
 import { userTestingTemplate } from './templates/userTestingTemplate';
 import { uxUiDesignTemplate } from './templates/uxUiDesignTemplate';
 import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
@@ -98,7 +97,7 @@ export type _TemplateSceneObj = Omit<
 export type _TemplateIdeaObj = Omit<IdeaObj, 'id' | 'sceneId'>;
 export type _TemplateTaskObj = Omit<
   TaskObj,
-  'id' | 'chapterId' | 'userId' | 'created' | 'taskStatus'
+  'id' | 'chapterId' | 'userId' | 'created' | 'taskStatus' | 'spaceId'
 >;
 
 export interface TemplateSceneObj extends _TemplateSceneObj {
@@ -119,9 +118,8 @@ export interface TemplatePostObj extends _TemplatePostObj {
 }
 
 // TEMPLATES
-enum NewSpaceTemplate {
+enum SpaceTemplate {
   BlankSpace = '🟡 Blank Space',
-  TutorialSpace = '📚 Tutorial Space',
   Ideation = '💡 Ideation',
   Minutes = '📝 Minutes',
   Storyboarding = '📖 Storyboarding',
@@ -142,29 +140,25 @@ enum NewSpaceTemplate {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const NewSpaceTemplateMap: Record<NewSpaceTemplate, TemplateSpaceObj> = {
-  [NewSpaceTemplate.BlankSpace]: blankSpaceTemplate,
-  [NewSpaceTemplate.TutorialSpace]: tutorialSpaceTemplate,
-  [NewSpaceTemplate.Ideation]: ideationTemplate,
-  [NewSpaceTemplate.Minutes]: meetingTemplate,
-  [NewSpaceTemplate.FreelancingProject]: freelancingTaskTemplate,
-  [NewSpaceTemplate.WorkProject]: workProjectTemplate,
-  [NewSpaceTemplate.Startup]: startupTemplate,
-  [NewSpaceTemplate.CollaborationSpace]: collaborationHubTemplate,
-  [NewSpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
-  [NewSpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
-  [NewSpaceTemplate.VideoProduction]: videoProductionTemplate,
-  [NewSpaceTemplate.DesignJam]: uxUiDesignTemplate,
-  [NewSpaceTemplate.Website]: websiteTemplate,
-  [NewSpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
-  [NewSpaceTemplate.Storyboarding]: storyboardTemplate,
-  [NewSpaceTemplate.UserTesting]: userTestingTemplate,
-  [NewSpaceTemplate.EventPlanning]: eventPlanningTemplate,
-  [NewSpaceTemplate.LongForm]: longFormVideoTemplate,
-  [NewSpaceTemplate.ShortForm]: shortFormVideoTemplate,
+const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
+  [SpaceTemplate.BlankSpace]: blankSpaceTemplate,
+  [SpaceTemplate.Ideation]: ideationTemplate,
+  [SpaceTemplate.Minutes]: meetingTemplate,
+  [SpaceTemplate.FreelancingProject]: freelancingTaskTemplate,
+  [SpaceTemplate.WorkProject]: workProjectTemplate,
+  [SpaceTemplate.Startup]: startupTemplate,
+  [SpaceTemplate.CollaborationSpace]: collaborationHubTemplate,
+  [SpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
+  [SpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
+  [SpaceTemplate.VideoProduction]: videoProductionTemplate,
+  [SpaceTemplate.DesignJam]: uxUiDesignTemplate,
+  [SpaceTemplate.Website]: websiteTemplate,
+  [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
+  [SpaceTemplate.Storyboarding]: storyboardTemplate,
+  [SpaceTemplate.UserTesting]: userTestingTemplate,
+  [SpaceTemplate.EventPlanning]: eventPlanningTemplate,
+  [SpaceTemplate.LongForm]: longFormVideoTemplate,
+  [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
 };
 
-export {
-  NewSpaceTemplate as SpaceTemplate,
-  NewSpaceTemplateMap as SpaceTemplateMap,
-};
+export { SpaceTemplate as SpaceTemplate, SpaceTemplateMap as SpaceTemplateMap };

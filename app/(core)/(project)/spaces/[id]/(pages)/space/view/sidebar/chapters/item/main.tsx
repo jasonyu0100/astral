@@ -13,6 +13,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
@@ -77,17 +78,23 @@ export function SpacesSpaceSidebarChaptersChapter() {
               {chapterObj?.description || 'No summary'}
             </p>
             <HorizontalDivider />
-
             {current.length > 0 ? (
               <div className='flex w-full flex-col space-y-[1rem]'>
                 {current.map((task, index) => (
-                  <div className='flex flex-col'>
-                    <p className='font-md text-md w-full font-bold text-slate-300'>
+                  <div
+                    className='flex w-full flex-row items-center justify-between space-y-[0.5rem] text-black'
+                    key={task.id}
+                  >
+                    <p className='font-md w-full text-lg font-bold text-slate-300'>
                       {index + 1}. {task.title}
                     </p>
-                    <p className='font-md text-md w-full font-light text-slate-300'>
-                      {task.description}
-                    </p>
+                    <AstralCheckIcon
+                      onClick={() => {
+                        taskListController.actions.editActions.edit(task.id, {
+                          taskStatus: TaskStatus.DONE,
+                        });
+                      }}
+                    />
                   </div>
                 ))}
               </div>

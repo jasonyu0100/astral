@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { SpacesTabChannel } from './channel-tab/main';
 import { SpaceTabMission } from './mission-tab/main';
 import { SpacesTabSpace } from './space-tab/main';
-import { SpacesTabTable } from './table-tab/main';
+import { SpacesTabLive } from './table-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -13,9 +13,9 @@ interface SpaceTabProps {
 
 export enum SpaceTabStage {
   Work = 'Work',
-  Channel = 'Channel',
   Space = 'Space',
   Live = 'Live',
+  Channel = 'Channel',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
@@ -24,9 +24,9 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
     <TabsContainer>
       <TabsRow>
         <SpaceTabMission tab={tab} />
-        <SpacesTabChannel tab={tab} />
         <SpacesTabSpace tab={tab} />
-        <SpacesTabTable tab={tab} />
+        <SpacesTabChannel tab={tab} />
+        <SpacesTabLive tab={tab} />
       </TabsRow>
     </TabsContainer>
   );

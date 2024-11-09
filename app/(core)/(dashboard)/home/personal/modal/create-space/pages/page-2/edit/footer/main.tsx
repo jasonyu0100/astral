@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../../controller/main';
+import { ContextForHomePersonalCreateSpace } from '../../../../controller/main';
 
-export function CreateSpaceEditFooter() {
-  const { pageTwo } = useContext(ContextForCreateSpace);
+export function HomePersonalCreateSpaceEditFooter() {
+  const { pageTwo } = useContext(ContextForHomePersonalCreateSpace);
   const { templateProjectChapters, updateTemplateProjectChapters } = pageTwo;
 
   return (
@@ -17,7 +17,7 @@ export function CreateSpaceEditFooter() {
                 title: `Chapter ${templateProjectChapters.length + 1}`,
                 objective: '',
                 description: '',
-                summary: '',
+                tasks: [],
               },
             ])
           }

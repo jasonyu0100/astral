@@ -2,59 +2,50 @@ import { FormBody } from '@/components/form/body/main';
 import { FormSelect } from '@/components/form/select/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
-import { SpaceTemplate } from '@/templates/space/main';
+import { SpaceTemplate, SpaceTemplateMap } from '@/templates/space/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../controller/main';
-import { CreateSpaceMembers } from './members/main';
+import { ContextForHomePersonalCreateSpace } from '../../controller/main';
+import { HomePersonalCreateSpaceMembers } from './members/main';
 
-export function CreateSpaceModalPageOne() {
-  const { pageOne } = useContext(ContextForCreateSpace);
-  const {
-    title,
-    updateTitle,
-    thumbnail,
-    updateThumbnail,
-    category,
-    updateCategory,
-    description,
-    updateDescription,
-  } = pageOne;
+export function HomePersonalCreateSpaceModalPageOne() {
+  const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
 
   return (
     <FormBody>
-      {/* <FileSearchImage
-        fileElem={thumbnail}
-        onChange={(file) => updateThumbnail(file)}
-        label='Theme'
-      /> */}
       <FormSelect
         title='Project Type'
-        value={category}
+        value={createSpaceController.pageOne.category}
         onChange={(e) => {
-          updateCategory(e.target.value as SpaceTemplate);
+          createSpaceController.pageOne.updateCategory(
+            e.target.value as SpaceTemplate,
+          );
         }}
       >
-        {Object.values(SpaceTemplate).map((template) => (
+        {Object.entries(SpaceTemplateMap).map(([template, obj]) => (
           <option key={template} value={template}>
-            {template}
+            {obj.title}
           </option>
         ))}
       </FormSelect>
       <AstralTextLineInput
         title='Title'
         placeholder='A title for the space'
-        value={title}
-        onChange={(e) => updateTitle(e.target.value)}
+        defaultValue={createSpaceController.pageOne.title}
+        onChange={(e) =>
+          createSpaceController.pageOne.updateTitle(e.target.value)
+        }
       />
       <AstralTextAreaInput
         title='Description'
         placeholder='A description for the space'
         rows={5}
-        value={description}
-        onChange={(e) => updateDescription(e.target.value)}
+        defaultValue={createSpaceController.pageOne.description}
+        onChange={(e) =>
+          createSpaceController.pageOne.updateDescription(e.target.value)
+        }
         style={{ resize: 'none' }}
       />
-      <CreateSpaceMembers />
+      <HomePersonalCreateSpaceMembers />
     </FormBody>
   );
 }

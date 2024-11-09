@@ -3,10 +3,10 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { ContextForTemplateChapter } from '@/templates/space/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../../controller/main';
+import { ContextForHomePersonalCreateSpace } from '../../../../controller/main';
 
-export function CreateSpaceEditChapter() {
-  const { pageTwo } = useContext(ContextForCreateSpace);
+export function HomePersonalCreateSpaceEditChapter() {
+  const { pageTwo } = useContext(ContextForHomePersonalCreateSpace);
   const { templateProjectChapters, updateTemplateProjectChapters } = pageTwo;
   const index = useContext(ContextForIndexable);
   const templateChapter = useContext(ContextForTemplateChapter);

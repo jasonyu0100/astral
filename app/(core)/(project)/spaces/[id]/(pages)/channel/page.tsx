@@ -230,6 +230,10 @@ function RedirectWrapper({ children }: { children: React.ReactNode }) {
 
 function EffectWrapper({ children }: { children: React.ReactNode }) {
   const spaceMainController = useContext(ContextForSpaceMain);
+  const conversationListController = useContext(
+    ContextForChapterConversationList,
+  );
+  const messageListController = useContext(ContextForConversationMessageList);
   const setSpace = useGlobalSpace((state) => state.setSpace);
 
   useEffect(() => {
@@ -237,6 +241,28 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       setSpace(spaceMainController.state.obj);
     }
   }, [spaceMainController.state.obj]);
+
+  useEffect(() => {
+    if (
+      messageListController.state.objs.length === 0 &&
+      conversationListController.state.currentObj
+    ) {
+      const created = new Date(
+        conversationListController.state.currentObj.created,
+      );
+      const duration = new Date().getTime() - created.getTime();
+      if (duration < 1000 * 60) {
+        messageListController.actions.createActions.sendAgentMessage(
+          'astral',
+          conversationListController.state.objId,
+          "Hello, I'm Astral. How can I help you today?",
+        );
+      }
+    }
+  }, [
+    messageListController.state.objs,
+    conversationListController.state.objId,
+  ]);
 
   return <>{children}</>;
 }

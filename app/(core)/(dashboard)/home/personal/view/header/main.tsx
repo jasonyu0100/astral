@@ -3,12 +3,12 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { glassFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpacesPersonalModals } from '../../modal/controller/main';
+import { ContextForHomePersonalModals } from '../../modal/controller/main';
 import { HomePersonalHeaderAdd } from './add/main';
 import { HomePersonalHeaderInfo } from './info/main';
 
 export function HomePersonalHeader() {
-  const spacesPersonalModals = useContext(ContextForSpacesPersonalModals);
+  const spacesPersonalModals = useContext(ContextForHomePersonalModals);
 
   return (
     <>

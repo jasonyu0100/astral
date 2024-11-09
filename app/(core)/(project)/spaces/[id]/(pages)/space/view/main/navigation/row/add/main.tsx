@@ -12,7 +12,7 @@ export default function SpacesSpaceRowAdd({
     <button {...props}>
       <GlassAreaContainer
         name={SpacesSpaceRowAdd.name}
-        sizeFx='min-w-[300px] h-[3.5rem]'
+        sizeFx='min-w-[200px] h-[3.5rem]'
         glassFx={glassFx['glass-5']}
         roundedFx={roundedFx['rounded-full']}
       >

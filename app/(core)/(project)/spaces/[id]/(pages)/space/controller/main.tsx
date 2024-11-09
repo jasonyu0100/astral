@@ -88,7 +88,7 @@ export enum SpacesSpaceSidebarMediaMode {
 }
 
 export enum SpacesSpaceSidebarContentMode {
-  JOURNAL = 'Journal',
+  UPLOADS = 'Uploads',
   CHAT_SCENE = 'Chat Scene',
   CHAPTERS = 'Chapters',
 }

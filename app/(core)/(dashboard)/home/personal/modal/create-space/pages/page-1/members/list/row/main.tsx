@@ -3,7 +3,7 @@ import { ContextForUserConnectionObj } from '@/architecture/model/user/connectio
 import { UserDisplayPictureElement } from '@/components/cover/user/main';
 import { useContext } from 'react';
 
-export function CreateSpaceCollaboratorRow({
+export function HomePersonalSpaceCollaboratorRow({
   onClick,
 }: {
   onClick: () => void;

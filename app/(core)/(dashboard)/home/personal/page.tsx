@@ -29,12 +29,12 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useContext, useEffect } from 'react';
 import {
-  ContextForSpacesPersonalModals,
-  SpacesPersonalModals,
+  ContextForHomePersonalModals,
+  HomePersonalModals,
 } from './modal/controller/main';
 import {
-  ContextForCreateSpace,
-  useControllerForCreateSpace,
+  ContextForHomePersonalCreateSpace,
+  useControllerForHomePersonalCreateSpace,
 } from './modal/create-space/controller/main';
 import { HomePersonalView } from './view/view';
 
@@ -68,13 +68,13 @@ function Page() {
                 <ContextForUserActivityListFromChapter.Provider
                   value={chapterActivityListController}
                 >
-                  <ModalWrapper>
-                    <ControllerWrapper>
+                  <ControllerWrapper>
+                    <ModalWrapper>
                       <EffectWrapper>
                         <HomePersonalView />
                       </EffectWrapper>
-                    </ControllerWrapper>
-                  </ModalWrapper>
+                    </ModalWrapper>
+                  </ControllerWrapper>
                 </ContextForUserActivityListFromChapter.Provider>
               </ContextForChapterConversationList.Provider>
             </ContextForIdeaSceneList.Provider>
@@ -86,16 +86,16 @@ function Page() {
 }
 
 function ModalWrapper({ children }: { children: React.ReactNode }) {
-  return <SpacesPersonalModals>{children}</SpacesPersonalModals>;
+  return <HomePersonalModals>{children}</HomePersonalModals>;
 }
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
-  const createSpaceController = useControllerForCreateSpace();
+  const createSpaceController = useControllerForHomePersonalCreateSpace();
   return (
     <>
-      <ContextForCreateSpace.Provider value={createSpaceController}>
+      <ContextForHomePersonalCreateSpace.Provider value={createSpaceController}>
         {children}
-      </ContextForCreateSpace.Provider>
+      </ContextForHomePersonalCreateSpace.Provider>
     </>
   );
 }
@@ -103,10 +103,10 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 function EffectWrapper({ children }: { children: React.ReactNode }) {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spacesPersonalModalController = useContext(
-    ContextForSpacesPersonalModals,
+    ContextForHomePersonalModals,
   );
   const spaceListController = useContext(ContextForSpaceList);
-  const createSpaceController = useContext(ContextForCreateSpace);
+  const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
 
   useEffect(() => {
     if (spaceListController.state.objs.length === 0) {

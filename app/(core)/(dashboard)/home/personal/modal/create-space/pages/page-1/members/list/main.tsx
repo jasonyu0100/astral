@@ -3,12 +3,11 @@ import { ContextForUserConnectionObj } from '@/architecture/model/user/connectio
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForTogglable } from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../../controller/main';
-import { CreateSpaceCollaboratorRow } from './row/main';
+import { ContextForHomePersonalCreateSpace } from '../../../../controller/main';
+import { HomePersonalSpaceCollaboratorRow } from './row/main';
 
-export function CreateSpaceCollaboratorList() {
-  const { pageThree } = useContext(ContextForCreateSpace);
-  const { memberIds, updateMemberIds } = pageThree;
+export function HomePersonalCreateSpaceCollaboratorList() {
+  const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
   const connectListController = useContext(
     ContextForUserConnectionListFromSource,
   );
@@ -23,10 +22,17 @@ export function CreateSpaceCollaboratorList() {
         )}
         {connectListController.state.objs.map((connection) => (
           <ContextForUserConnectionObj.Provider value={connection}>
-            <CreateSpaceCollaboratorRow
+            <HomePersonalSpaceCollaboratorRow
               onClick={() => {
-                if (!memberIds.includes(connection.destinationId)) {
-                  updateMemberIds([...memberIds, connection.destinationId]);
+                if (
+                  !createSpaceController.pageOne.memberIds.includes(
+                    connection.destinationId,
+                  )
+                ) {
+                  createSpaceController.pageOne.updateMemberIds([
+                    ...createSpaceController.pageOne.memberIds,
+                    connection.destinationId,
+                  ]);
                 }
                 togglableController.toggle();
               }}

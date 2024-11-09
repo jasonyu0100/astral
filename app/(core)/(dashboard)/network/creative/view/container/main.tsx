@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { borderFx, roundedFx } from '@/style/data';
 
 export function NetworkCreativeContainer({
   children,
@@ -10,7 +10,6 @@ export function NetworkCreativeContainer({
     <GlassAreaContainer
       name={NetworkCreativeContainer.name}
       className={`flex flex-row`}
-      glassFx={glassFx['glass-10']}
       sizeFx='flex-grow h-full'
       borderFx={borderFx['border-around']}
       roundedFx={roundedFx['rounded-container']}

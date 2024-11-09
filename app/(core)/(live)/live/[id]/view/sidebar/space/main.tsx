@@ -1,4 +1,3 @@
-import { profileMap } from '@/(core)/(dashboard)/profile/[id]/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForTaskListFromSpace } from '@/architecture/controller/task/list-from-space';
@@ -8,7 +7,6 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
-import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralEditIcon } from '@/icons/edit/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
@@ -27,21 +25,6 @@ export function PublicSpaceSidebarSpace() {
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
-      <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
-        <div className='flex w-full flex-row items-center justify-between'>
-          <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-500 bg-opacity-30'>
-            <AstralBackIndicatorIcon
-              onClick={() => {
-                window.location.href = profileMap.account.link(
-                  spaceMainController.state.obj.userId,
-                );
-              }}
-            />
-          </div>
-          <p className='text-3xl font-bold text-slate-300'>Space</p>
-        </div>
-      </div>
-      <HorizontalDivider />
       <GlassWindowFrame
         className='w-full flex-shrink-0 p-[1rem]'
         borderFx={borderFx['border-b']}

@@ -8,14 +8,14 @@ import {
   useControllerForTogglable,
 } from '@/logic/contexts/togglable/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../../../controller/main';
-import { CreateSpaceAddCollaborator } from './add/main';
-import { CreateSpaceCollaboratorList } from './list/main';
-import { CreateSpaceCollaborator } from './member/main';
+import { ContextForHomePersonalCreateSpace } from '../../../controller/main';
+import { HomePersonalSpaceAddCollaborator } from './add/main';
+import { HomePersonalCreateSpaceCollaboratorList } from './list/main';
+import { HomePersonalCreateSpaceCollaborator } from './member/main';
 
-export function CreateSpaceMembers() {
-  const { pageThree } = useContext(ContextForCreateSpace);
-  const { memberIds, updateMemberIds } = pageThree;
+export function HomePersonalCreateSpaceMembers() {
+  const { pageOne } = useContext(ContextForHomePersonalCreateSpace);
+  const { memberIds, updateMemberIds } = pageOne;
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const connectListController = useControllerForUserConnectionListFromSource(
     loggedInUser?.id,
@@ -29,9 +29,11 @@ export function CreateSpaceMembers() {
         Members (optional)
       </label>
       <div className='flex flex-row space-x-[1rem]'>
-        <CreateSpaceAddCollaborator onClick={togglableController.toggle} />
+        <HomePersonalSpaceAddCollaborator
+          onClick={togglableController.toggle}
+        />
         {memberIds.map((connectedId) => (
-          <CreateSpaceCollaborator
+          <HomePersonalCreateSpaceCollaborator
             connectedId={connectedId}
             onClick={() => {
               updateMemberIds(memberIds.filter((id) => id !== connectedId));
@@ -44,7 +46,7 @@ export function CreateSpaceMembers() {
           value={connectListController}
         >
           <ContextForTogglable.Provider value={togglableController}>
-            <CreateSpaceCollaboratorList />
+            <HomePersonalCreateSpaceCollaboratorList />
           </ContextForTogglable.Provider>
         </ContextForUserConnectionListFromSource.Provider>
       )}

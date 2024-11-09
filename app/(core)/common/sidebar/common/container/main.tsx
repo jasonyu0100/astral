@@ -20,7 +20,7 @@ export function CommonSidebarContainer({
           <GlassWindowPane glassFx={glassFx['glass-10']} />
         </GlassWindowFrame>
       ) : (
-        <GlassWindowFrame className='flex h-full w-[13rem] flex-shrink-0 flex-col p-[1rem]'>
+        <GlassWindowFrame className='flex h-full w-[16rem] flex-shrink-0 flex-col p-[1rem]'>
           <GlassWindowContents className='relative flex h-full w-full flex-col'>
             {children}
           </GlassWindowContents>

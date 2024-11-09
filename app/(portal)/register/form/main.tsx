@@ -42,8 +42,8 @@ export function PortalRegisterForm() {
       const journal =
         await galleryListController.actions.createActions.createGallery(
           user.id,
-          'Journal',
-          'My journal',
+          'Uploads',
+          'My uploads',
           exampleFileElement,
         );
       const update = await userController.actions.editActions.edit({
@@ -81,8 +81,8 @@ export function PortalRegisterForm() {
       const journal =
         await galleryListController.actions.createActions.createGallery(
           user.id,
-          'Journal',
-          'My journal',
+          'Uploads',
+          'My uploads',
           exampleFileElement,
         );
       const update = await userController.actions.editActions.edit({

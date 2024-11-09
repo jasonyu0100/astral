@@ -9,36 +9,29 @@ import {
   ContextForPagable,
   useControllerForPagable,
 } from '@/logic/contexts/pagination/main';
-import {
-  ContextForCreateSpace,
-  useControllerForCreateSpace,
-} from './controller/main';
-import { CreateSpaceModalFooter } from './footer/main';
-import { CreateSpaceModalPages } from './pages/main';
+import { HomePersonalCreateSpaceModalFooter } from './footer/main';
+import { HomePersonalCreateSpaceModalPages } from './pages/main';
 
-export function CreateSpaceModalView() {
+export function HomePersonalCreateSpaceModalView() {
   const pagableController = useControllerForPagable();
-  const createSpaceController = useControllerForCreateSpace();
 
   return (
-    <ContextForCreateSpace.Provider value={createSpaceController}>
-      <ContextForPagable.Provider value={pagableController}>
-        <LoadingWrapper>
-          <AstralModal>
-            <AstralModalBodyWrapper>
-              <AstralModalBody>
-                <AstralModalBodyContents>
-                  <AstralModalTitle>Create Space</AstralModalTitle>
-                  <CreateSpaceModalPages />
-                </AstralModalBodyContents>
-                <AstralModalBodyAction>
-                  <CreateSpaceModalFooter />
-                </AstralModalBodyAction>
-              </AstralModalBody>
-            </AstralModalBodyWrapper>
-          </AstralModal>
-        </LoadingWrapper>
-      </ContextForPagable.Provider>
-    </ContextForCreateSpace.Provider>
+    <ContextForPagable.Provider value={pagableController}>
+      <LoadingWrapper>
+        <AstralModal>
+          <AstralModalBodyWrapper>
+            <AstralModalBody>
+              <AstralModalBodyContents>
+                <AstralModalTitle>Create Space</AstralModalTitle>
+                <HomePersonalCreateSpaceModalPages />
+              </AstralModalBodyContents>
+              <AstralModalBodyAction>
+                <HomePersonalCreateSpaceModalFooter />
+              </AstralModalBodyAction>
+            </AstralModalBody>
+          </AstralModalBodyWrapper>
+        </AstralModal>
+      </LoadingWrapper>
+    </ContextForPagable.Provider>
   );
 }

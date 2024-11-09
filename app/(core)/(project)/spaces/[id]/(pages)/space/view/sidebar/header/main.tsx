@@ -34,7 +34,7 @@ export function SpacesSpaceSidebarHeader() {
                   SpacesSpaceSidebarContentMode.CHAPTERS,
               })}
             >
-              Chapters
+              {SpacesSpaceSidebarContentMode.CHAPTERS}
             </p>
           </GlassWindowContents>
           {spacesMapController.state.sidebarContentMode ===
@@ -52,7 +52,7 @@ export function SpacesSpaceSidebarHeader() {
             className='flex cursor-pointer items-center justify-center'
             onClick={() =>
               spacesMapController.actions.updateSidebarContentMode(
-                SpacesSpaceSidebarContentMode.JOURNAL,
+                SpacesSpaceSidebarContentMode.UPLOADS,
               )
             }
           >
@@ -60,14 +60,14 @@ export function SpacesSpaceSidebarHeader() {
               className={ctwn('font-bold text-slate-500', {
                 'text-slate-300':
                   spacesMapController.state.sidebarContentMode ===
-                  SpacesSpaceSidebarContentMode.JOURNAL,
+                  SpacesSpaceSidebarContentMode.UPLOADS,
               })}
             >
-              Journal
+              {SpacesSpaceSidebarContentMode.UPLOADS}
             </p>
           </GlassWindowContents>
           {spacesMapController.state.sidebarContentMode ===
-            SpacesSpaceSidebarContentMode.JOURNAL && (
+            SpacesSpaceSidebarContentMode.UPLOADS && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>

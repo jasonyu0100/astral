@@ -4,7 +4,6 @@ import { userReservationDbWrapper } from '@/architecture/client/user/reservation
 import { userConnectionModel } from '@/architecture/model/user/connection/main';
 import { userModel } from '@/architecture/model/user/main';
 import { userReservationModel } from '@/architecture/model/user/reservation/main';
-import { userVaultModel } from '@/architecture/model/user/vault/main';
 
 export const userMap = {
   model: userModel,
@@ -16,9 +15,5 @@ export const userMap = {
   reservation: {
     model: userReservationModel,
     db: userReservationDbWrapper,
-  },
-  vault: {
-    model: userVaultModel,
-    db: null,
   },
 };

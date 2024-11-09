@@ -37,7 +37,7 @@ export function SpacesChannelMessages() {
           <GlassWindowContents className='flex items-center justify-between space-x-[2rem]'>
             <div className='flex items-center justify-between'>
               <AstralChevronLeftIcon
-                className={`h-[2rem] w-[2rem] ${conversationListController.state.index === 0 || conversationListController.state.objs.length === 0 ? 'fill-slate-500' : 'fill-slate-300'}`}
+                className={`h-[2rem] w-[2rem] ${conversationListController.state.index === 0 || conversationListController.state.objs.length === 0 ? 'fill-slate-300' : 'fill-slate-500'}`}
                 onClick={() =>
                   conversationListController.actions.stateActions.goNext()
                 }
@@ -66,7 +66,7 @@ export function SpacesChannelMessages() {
             </div>
             <div className='flex items-center justify-start'>
               <AstralChevronRightIcon
-                className={`h-[2rem] w-[2rem] ${conversationListController.state.index === conversationListController.state.objs.length - 1 ? 'fill-slate-500' : 'fill-slate-300'}`}
+                className={`h-[2rem] w-[2rem] ${conversationListController.state.index === conversationListController.state.objs.length - 1 ? 'fill-slate-300' : 'fill-slate-500'}`}
                 onClick={() =>
                   conversationListController.actions.stateActions.goPrev()
                 }

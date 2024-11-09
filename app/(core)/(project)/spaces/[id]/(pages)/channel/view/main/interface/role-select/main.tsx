@@ -7,7 +7,9 @@ export function SpacesChannelInputLeft() {
     state: { aiChatRole: aiChatRole, selectedUser },
     actions: { updateAiChatRole: updateAiChatRole },
   } = useContext(ContextForSpacesChannel);
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(
+    aiChatRole !== ConversationRole.Channel,
+  );
 
   const handleToggle = () => {
     setIsToggled(!isToggled);

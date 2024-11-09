@@ -7,13 +7,13 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { ContextForPagable } from '@/logic/contexts/pagination/main';
 import { useContext } from 'react';
-import { ContextForCreateSpace } from '../controller/main';
+import { ContextForHomePersonalCreateSpace } from '../controller/main';
 
-export function CreateSpaceModalFooter() {
+export function HomePersonalCreateSpaceModalFooter() {
   const loadingController = useContext(ContextForLoading);
   const pagableController = useContext(ContextForPagable);
   const openableController = useContext(ContextForOpenable);
-  const { createSpace } = useContext(ContextForCreateSpace);
+  const { createSpace } = useContext(ContextForHomePersonalCreateSpace);
 
   function renderFooter() {
     switch (pagableController.page) {

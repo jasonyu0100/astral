@@ -24,5 +24,5 @@ export enum CommonSidebarIndicatorType {
   Uploads = 'Uploads',
   Network = 'Network',
   Explorer = 'Explorer',
-  Vault = 'Vault',
+  Drive = 'Drive',
 }

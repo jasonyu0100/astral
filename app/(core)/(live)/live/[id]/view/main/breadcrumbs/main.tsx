@@ -1,4 +1,4 @@
-import { profileMap } from '@/(core)/(dashboard)/profile/[id]/map';
+import { userMap } from '@/(core)/(dashboard)/user/[id]/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForUserPostListFromChapter } from '@/architecture/controller/post/list-from-chapter';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
@@ -21,13 +21,13 @@ export function PublicSpaceBreadcrumbs() {
 
   return (
     <div className='flex h-[3rem] flex-shrink-0 flex-col justify-between'>
-      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHANNEL && (
+      {publicSpaceController.state.feedView === PublicSpaceFeedView.Chat && (
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <p
               className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
-                window.location.href = profileMap.account.link(
+                window.location.href = userMap.profile.link(
                   userMainController.state.obj.id,
                 );
               }}
@@ -77,7 +77,7 @@ export function PublicSpaceBreadcrumbs() {
             <p
               className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
-                window.location.href = profileMap.account.link(
+                window.location.href = userMap.profile.link(
                   userMainController.state.obj.id,
                 );
               }}
@@ -134,7 +134,7 @@ export function PublicSpaceBreadcrumbs() {
             <p
               className='cursor-pointer text-lg font-bold text-slate-500'
               onClick={() => {
-                window.location.href = profileMap.account.link(
+                window.location.href = userMap.profile.link(
                   userMainController.state.obj.id,
                 );
               }}

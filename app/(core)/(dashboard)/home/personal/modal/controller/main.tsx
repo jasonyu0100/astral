@@ -4,19 +4,19 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { CreateSpaceModalView } from '../create-space/main';
-import { SpacesPersonalShowNoticeModal } from '../show/notice/main';
+import { HomePersonalCreateSpaceModalView } from '../create-space/main';
+import { HomePersonalShowNoticeModal } from '../show/notice/main';
 
-export const ContextForSpacesPersonalModals = createContext(
-  {} as SpacesPersonalModals,
+export const ContextForHomePersonalModals = createContext(
+  {} as HomePersonalModalsController,
 );
 
-export interface SpacesPersonalModals {
+export interface HomePersonalModalsController {
   showNoticeController: ContextForOpenableInterface;
   createSpaceController: ContextForOpenableInterface;
 }
 
-export function SpacesPersonalModals({
+export function HomePersonalModals({
   children,
 }: {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ export function SpacesPersonalModals({
   const createSpaceController = useControllerForOpenable();
 
   return (
-    <ContextForSpacesPersonalModals.Provider
+    <ContextForHomePersonalModals.Provider
       value={{
         showNoticeController: showNoticeController,
         createSpaceController: createSpaceController,
@@ -33,11 +33,11 @@ export function SpacesPersonalModals({
     >
       {children}
       <ContextForOpenable.Provider value={showNoticeController}>
-        <SpacesPersonalShowNoticeModal />
+        <HomePersonalShowNoticeModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={createSpaceController}>
-        <CreateSpaceModalView />
+        <HomePersonalCreateSpaceModalView />
       </ContextForOpenable.Provider>
-    </ContextForSpacesPersonalModals.Provider>
+    </ContextForHomePersonalModals.Provider>
   );
 }

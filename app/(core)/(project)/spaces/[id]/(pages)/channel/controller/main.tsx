@@ -94,6 +94,23 @@ export function useControllerForSpacesChannel() {
       SpacesChannelSidebarVisibility.OPEN,
     );
   const [selectedUser, setSelectedUser] = useState<UserObj>(exampleUser);
+  const tasksContext = currentTasks
+    .map(
+      (task, index) =>
+        `Objective #${index + 1} ${task.title} - ${task.description}`,
+    )
+    .join(', ');
+
+  const chapterContext = chapterListController.state.objs
+    .map(
+      (chapter, index) => `
+    Chapter ${index + 1}: ${chapter.title}
+    Chapter Objective: ${chapter.objective}
+    Chapter Description: ${chapter.description}
+    Chapter Context: ${chapter.context}
+  `,
+    )
+    .join(', ');
 
   useEffect(() => {
     if (loggedInUser) {
@@ -155,24 +172,6 @@ export function useControllerForSpacesChannel() {
     message: ConversationMessageObj,
     role: ConversationRole,
   ) {
-    const tasksContext = currentTasks
-      .map(
-        (task, index) =>
-          `Objective #${index + 1} ${task.title} - ${task.description}`,
-      )
-      .join(', ');
-
-    const chapterContext = chapterListController.state.objs
-      .map(
-        (chapter, index) => `
-    Chapter ${index + 1}: ${chapter.title}
-    Chapter Objective: ${chapter.objective}
-    Chapter Description: ${chapter.description}
-    Chapter Context: ${chapter.context}
-  `,
-      )
-      .join(', ');
-
     const messageHistory = [
       `[Background Context]`,
       `This is your role: ${roleDescriptions[role]}`,
@@ -216,13 +215,26 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoNotes() {
     const messageHistory = [
+      `[Background Context]`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
       `[Message history]`,
       ...getMessageHistory(),
       `[Instructions]`,
-      `Convert the conversation history into a series of insights (max 50 chars).`,
+      `Convert the conversation history into a series of detailed insights`,
       `Use the conversation history primarily and titles and descriptions as reference.`,
-      `Depending on the size of the conversaion, you may return up to a maximum of 8 insights.`,
+      `Depending on the size of the conversaion history, aim for at least 3-10 insights.`,
       `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.`,
+      `E.G Be insightful and refer to the conversation history for key points.`,
       `[Example return]`,
       `{`,
       `  "insights": [`,
@@ -253,6 +265,18 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoQuery() {
     const messageHistory = [
+      `[Background Context]`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
       `[Message History]`,
       ...getMessageHistory(),
       `[Instructions]`,
@@ -268,6 +292,18 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoTitle() {
     const messageHistory = [
+      `[Background Context]`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
       `[Message History]`,
       ...getMessageHistory(),
       `[Instructions]`,
@@ -284,6 +320,18 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoObjective() {
     const messageHistory = [
+      `[Background Context]`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
       `[Message History]`,
       ...getMessageHistory(),
       `[Instructions]`,
@@ -299,6 +347,18 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoKeywords() {
     const messageHistory = [
+      `[Background Context]`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
       `[Message History]`,
       ...getMessageHistory(),
       `[Instructions]`,
@@ -314,6 +374,18 @@ export function useControllerForSpacesChannel() {
 
   async function summariseConversationIntoSearchTerm() {
     const messageHistory = [
+      `[Background Context]`,
+      `This is the space title: ${spaceController.state.obj.title}`,
+      `This is the space description: ${spaceController.state.obj.description}`,
+      `[Chapters Context]`,
+      chapterContext,
+      `[Current Chapter Context]`,
+      `This is the current chapter number: ${chapterListController.state.index + 1}`,
+      `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+      `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+      `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+      `[Objectives Context]`,
+      `These are your main objectives: ${tasksContext}`,
       `[Message History]`,
       ...getMessageHistory(),
       `[Instructions]`,
@@ -330,6 +402,18 @@ export function useControllerForSpacesChannel() {
   async function summariseConversation(messages: ConversationMessageObj[]) {
     async function getConversationSummary() {
       const messageHistory = [
+        `[Background Context]`,
+        `This is the space title: ${spaceController.state.obj.title}`,
+        `This is the space description: ${spaceController.state.obj.description}`,
+        `[Chapters Context]`,
+        chapterContext,
+        `[Current Chapter Context]`,
+        `This is the current chapter number: ${chapterListController.state.index + 1}`,
+        `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+        `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+        `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+        `[Objectives Context]`,
+        `These are your main objectives: ${tasksContext}`,
         `[Message History]`,
         ...getMessageHistory(),
         `[Instructions]`,
@@ -341,6 +425,18 @@ export function useControllerForSpacesChannel() {
     }
     async function getConversationTitle() {
       const messageHistory = [
+        `[Background Context]`,
+        `This is the space title: ${spaceController.state.obj.title}`,
+        `This is the space description: ${spaceController.state.obj.description}`,
+        `[Chapters Context]`,
+        chapterContext,
+        `[Current Chapter Context]`,
+        `This is the current chapter number: ${chapterListController.state.index + 1}`,
+        `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+        `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+        `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+        `[Objectives Context]`,
+        `These are your main objectives: ${tasksContext}`,
         `[Message History]`,
         ...getMessageHistory(),
         `[Instructions]`,
@@ -353,6 +449,18 @@ export function useControllerForSpacesChannel() {
 
     async function getChapterContext() {
       const messageHistory = [
+        `[Background Context]`,
+        `This is the space title: ${spaceController.state.obj.title}`,
+        `This is the space description: ${spaceController.state.obj.description}`,
+        `[Chapters Context]`,
+        chapterContext,
+        `[Current Chapter Context]`,
+        `This is the current chapter number: ${chapterListController.state.index + 1}`,
+        `This is the currnet chapter title: ${chapterListController.state.currentObj?.title}`,
+        `This is the current chapter description: ${chapterListController.state.currentObj?.description}`,
+        `This is the current chapter objective: ${chapterListController.state.currentObj?.objective}`,
+        `[Objectives Context]`,
+        `These are your main objectives: ${tasksContext}`,
         `[Existing Context]`,
         chapterListController.state.currentObj?.context,
         `[Message History]`,

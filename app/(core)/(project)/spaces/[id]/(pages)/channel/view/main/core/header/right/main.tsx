@@ -1,5 +1,5 @@
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
+import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
 import { useContext } from 'react';
 import { ContextForSpacesChannelModals } from '../../../../../modal/controller/main';
 
@@ -29,10 +29,10 @@ export function SpacesChannelHeaderRight() {
             modalController.generateSceneController.open();
           }}
         >
+          <AstralArrowBackIcon />
           <p className='font-bold text-slate-300'>
-            Generate Scene ({conversationLength})
+            Share Ideas ({conversationLength})
           </p>
-          <AstralArrowForwardIcon />
         </button>
       )}
     </div>

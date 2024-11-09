@@ -12,6 +12,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
@@ -39,14 +40,19 @@ export function SpacesChannelSidebarChapter() {
   const completionColor = calculateCompletionColor(taskListController);
 
   return (
-    <>
+    <div
+      className='w-full cursor-pointer'
+      onClick={() =>
+        chapterListController.actions.stateActions.select(chapterObj)
+      }
+    >
       {active ? (
         <GlassWindowFrame
-          className='aspect-16/9 w-full flex-shrink-0 cursor-pointer'
+          className='p-[1rem]'
           roundedFx={roundedFx.rounded}
           borderFx={borderFx['border-around']}
         >
-          <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
+          <GlassWindowContents className='flex flex-col space-y-[1rem]'>
             <div
               className='flex w-full flex-col space-y-[1rem]'
               onClick={() =>
@@ -85,15 +91,19 @@ export function SpacesChannelSidebarChapter() {
                 <div className='flex w-full flex-col space-y-[1rem]'>
                   {current.map((task, index) => (
                     <div
-                      className='space-y-[0.5rem]text-black flex w-full flex-col items-center'
+                      className='flex w-full flex-row items-center justify-between space-y-[0.5rem] text-black'
                       key={task.id}
                     >
                       <p className='font-md w-full text-lg font-bold text-slate-300'>
                         {index + 1}. {task.title}
                       </p>
-                      <p className='font-md w-full text-sm font-light text-slate-300'>
-                        {task.description}
-                      </p>
+                      <AstralCheckIcon
+                        onClick={() => {
+                          taskListController.actions.editActions.edit(task.id, {
+                            taskStatus: TaskStatus.DONE,
+                          });
+                        }}
+                      />
                     </div>
                   ))}
                 </div>
@@ -153,12 +163,7 @@ export function SpacesChannelSidebarChapter() {
           roundedFx={roundedFx['rounded']}
           className='flex-shrink-0 p-[1rem]'
         >
-          <GlassWindowContents
-            className='w-full cursor-pointer'
-            onClick={() =>
-              chapterListController.actions.stateActions.select(chapterObj)
-            }
-          >
+          <GlassWindowContents>
             <p className={ctwn('text-lg font-bold text-slate-300')}>
               {chapterObj.title?.trim() || 'Untitled'}
             </p>
@@ -166,6 +171,6 @@ export function SpacesChannelSidebarChapter() {
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
       )}
-    </>
+    </div>
   );
 }

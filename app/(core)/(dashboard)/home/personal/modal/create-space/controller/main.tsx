@@ -36,188 +36,195 @@ export interface PageTwo {
   updateTemplateProjectChapters: (templates: TemplateChapterObj[]) => void;
 }
 
-export interface PageThree {
-  memberIds: string[];
-  updateMemberIds: (memberIds: string[]) => void;
-}
-
 export const ContextForPageOne = createContext({} as PageOne);
 export const ContextForPageTwo = createContext({} as PageTwo);
-export const ContextForPageThree = createContext({} as PageThree);
 
-interface CreateSpaceController {
+interface HomePersonalCreateSpaceController {
   pageOne: PageOne;
   pageTwo: PageTwo;
-  pageThree: PageThree;
   createSpace: () => Promise<SpaceObj>;
 }
 
-export const ContextForCreateSpace = createContext({} as CreateSpaceController);
+export const ContextForHomePersonalCreateSpace = createContext(
+  {} as HomePersonalCreateSpaceController,
+);
 
-export const useControllerForCreateSpace = (): CreateSpaceController => {
-  const user = useGlobalUser((state) => state.user);
-  const spaceListController = useContext(ContextForSpaceList);
-  const taskListController = useContext(ContextForTaskListFromChapter);
-  const chapterListController = useContext(ContextForSpaceChapterList);
-  const sceneListController = useContext(ContextForIdeaSceneList);
-  const conversationListController = useContext(
-    ContextForChapterConversationList,
-  );
-  const activityListController = useContext(
-    ContextForUserActivityListFromChapter,
-  );
-  const spaceMembersListController = useControllerForSpaceMemberList('');
-  const [title, changeTitle] = useState(
-    SpaceTemplateMap[SpaceTemplate.Ideation].title,
-  );
-  const [description, changeDescription] = useState(
-    SpaceTemplateMap[SpaceTemplate.Ideation].description,
-  );
-  const [category, changeCategory] = useState(SpaceTemplate.Ideation);
-  const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
-  const [memberIds, changeMemberIds] = useState<string[]>([]);
-  const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
-    SpaceTemplateMap[category].chapters,
-  );
+export const useControllerForHomePersonalCreateSpace =
+  (): HomePersonalCreateSpaceController => {
+    const user = useGlobalUser((state) => state.user);
+    const spaceListController = useContext(ContextForSpaceList);
+    const taskListController = useContext(ContextForTaskListFromChapter);
+    const chapterListController = useContext(ContextForSpaceChapterList);
+    const sceneListController = useContext(ContextForIdeaSceneList);
+    const conversationListController = useContext(
+      ContextForChapterConversationList,
+    );
+    const activityListController = useContext(
+      ContextForUserActivityListFromChapter,
+    );
+    const spaceMembersListController = useControllerForSpaceMemberList('');
+    const [title, changeTitle] = useState(
+      SpaceTemplateMap[SpaceTemplate.BlankSpace].title,
+    );
+    const [description, changeDescription] = useState(
+      SpaceTemplateMap[SpaceTemplate.BlankSpace].description,
+    );
+    const [category, changeCategory] = useState(SpaceTemplate.BlankSpace);
+    const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
+    const [memberIds, changeMemberIds] = useState<string[]>([]);
+    const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
+      SpaceTemplateMap[category].chapters,
+    );
 
-  useEffect(() => {
-    changeTitle(SpaceTemplateMap[category].title);
-    changeDescription(SpaceTemplateMap[category].description);
-  }, [category]);
-
-  async function createChapters(
-    space: SpaceObj,
-    templateSpaceChapters: TemplateChapterObj[],
-  ) {
-    const chapters = await Promise.all(
-      templateSpaceChapters.map(async (templateChapter, index) => {
-        const chapter =
-          await chapterListController.actions.createActions.createChapter(
-            templateChapter.title,
-            templateChapter.description,
-            templateChapter.objective,
+    async function createChapters(
+      space: SpaceObj,
+      templateSpaceChapters: TemplateChapterObj[],
+    ) {
+      const chapters = await Promise.all(
+        templateSpaceChapters.map(async (templateChapter, index) => {
+          const chapter =
+            await chapterListController.actions.createActions.createChapter(
+              templateChapter.title,
+              templateChapter.description,
+              templateChapter.objective,
+              user.id,
+              space.id,
+              index,
+            );
+          await activityListController.actions.createActions.createFromChapter(
             user.id,
             space.id,
-            index,
+            chapter.id,
           );
-        await activityListController.actions.createActions.createFromChapter(
-          user.id,
-          space.id,
-          chapter.id,
-        );
-        return chapter;
-      }),
-    );
-
-    return chapters;
-  }
-
-  async function createMembers(space: SpaceObj, members: string[]) {
-    const memberObjs = await Promise.all(
-      members.map(async (memberId) => {
-        const member =
-          await spaceMembersListController.actions.createActions.createMember(
-            memberId,
-            space.id,
-          );
-        return member;
-      }),
-    );
-    return memberObjs;
-  }
-
-  async function createSpace() {
-    const space =
-      await spaceListController.actions.createActions.createFromTemplate(
-        title,
-        description,
-        SpaceTemplateMap[category].objective,
-        user.id,
-        theme,
-        category,
+          return chapter;
+        }),
       );
 
-    console.log('SPACE CREATED', space);
-    const chapters = await createChapters(space, templateSpaceChapters);
-    console.log('CHAPTERS CREATED', chapters);
+      return chapters;
+    }
 
-    const tasks = await Promise.all(
-      templateSpaceChapters.map((template, index) =>
-        Promise.all(
-          template.tasks.map((task) =>
-            taskListController.actions.createActions.createTask(
-              chapters[index].id,
-              user.id,
-              task.title,
-              task.description,
+    async function createMembers(space: SpaceObj, members: string[]) {
+      const memberObjs = await Promise.all(
+        members.map(async (memberId) => {
+          const member =
+            await spaceMembersListController.actions.createActions.createMember(
+              memberId,
               space.id,
+            );
+          return member;
+        }),
+      );
+      return memberObjs;
+    }
+
+    async function createSpace() {
+      const space =
+        await spaceListController.actions.createActions.createFromTemplate(
+          title,
+          description,
+          SpaceTemplateMap[category].objective,
+          user.id,
+          theme,
+          category,
+        );
+
+      console.log('SPACE CREATED', space);
+      const chapters = await createChapters(space, templateSpaceChapters);
+      console.log('CHAPTERS CREATED', chapters);
+
+      const tasks = await Promise.all(
+        templateSpaceChapters.map((template, index) =>
+          Promise.all(
+            template.tasks.map((task) =>
+              taskListController.actions.createActions.createTask(
+                chapters[index].id,
+                user.id,
+                task.title,
+                task.description,
+                space.id,
+              ),
             ),
           ),
         ),
-      ),
-    );
-    console.log('TASKS CREATED', tasks);
+      );
+      console.log('TASKS CREATED', tasks);
 
-    const scenes = await Promise.all(
-      chapters.map((chapter, index) =>
-        sceneListController.actions.createActions.createScene(
-          'Scene',
-          chapter.description,
-          chapter.objective,
-          user.id,
-          chapter.id,
+      const scenes = await Promise.all(
+        chapters.map((chapter, index) =>
+          sceneListController.actions.createActions.createScene(
+            'Scene',
+            chapter.description,
+            chapter.objective,
+            user.id,
+            chapter.id,
+          ),
         ),
-      ),
-    );
-    console.log('SCENES CREATED', scenes);
+      );
+      console.log('SCENES CREATED', scenes);
 
-    const conversations = await Promise.all(
-      chapters.map((chapter, index) =>
-        conversationListController.actions.createActions.createConversation(
-          user.id,
-          chapter.id,
+      const conversations = await Promise.all(
+        chapters.map((chapter, index) =>
+          conversationListController.actions.createActions.createConversation(
+            user.id,
+            chapter.id,
+          ),
         ),
-      ),
-    );
+      );
 
-    const members = await createMembers(space, memberIds);
-    console.log('MEMBERS CREATED', members);
-    return space;
-  }
+      const members = await createMembers(space, memberIds);
+      console.log('MEMBERS CREATED', members);
+      return space;
+    }
 
-  useEffect(() => {
-    changeTemplateSpaceChapters(SpaceTemplateMap[category].chapters);
-  }, [category]);
+    useEffect(() => {
+      console.log('category', category);
+      console.log(SpaceTemplateMap[category].chapters);
+      changeTemplateSpaceChapters(SpaceTemplateMap[category].chapters);
+      changeTitle(category);
+      changeDescription(SpaceTemplateMap[category].description);
+    }, [category]);
 
-  const pageOne: PageOne = {
-    title,
-    updateTitle: (title: string) => changeTitle(title),
-    category,
-    updateCategory: (category: SpaceTemplate) => changeCategory(category),
-    thumbnail: theme,
-    updateThumbnail: (thumbnail: FileElement) => changeTheme(thumbnail),
-    description,
-    updateDescription: (description: string) => changeDescription(description),
-    memberIds: memberIds,
-    updateMemberIds: (members: string[]) => changeMemberIds(members),
+    const pageOne: PageOne = {
+      title,
+      updateTitle: (title: string) => changeTitle(title),
+      category,
+      updateCategory: (category: SpaceTemplate) => changeCategory(category),
+      thumbnail: theme,
+      updateThumbnail: (thumbnail: FileElement) => changeTheme(thumbnail),
+      description,
+      updateDescription: (description: string) =>
+        changeDescription(description),
+      memberIds: memberIds,
+      updateMemberIds: (members: string[]) => changeMemberIds(members),
+    };
+
+    const pageTwo: PageTwo = {
+      category: category,
+      templateProjectChapters: templateSpaceChapters,
+      updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
+        changeTemplateSpaceChapters(templates),
+    };
+
+    return {
+      pageOne: {
+        title,
+        updateTitle: (title: string) => changeTitle(title),
+        category,
+        updateCategory: (category: SpaceTemplate) => changeCategory(category),
+        thumbnail: theme,
+        updateThumbnail: (thumbnail: FileElement) => changeTheme(thumbnail),
+        description,
+        updateDescription: (description: string) =>
+          changeDescription(description),
+        memberIds: memberIds,
+        updateMemberIds: (members: string[]) => changeMemberIds(members),
+      },
+      pageTwo: {
+        category: category,
+        templateProjectChapters: templateSpaceChapters,
+        updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
+          changeTemplateSpaceChapters(templates),
+      },
+      createSpace,
+    };
   };
-
-  const pageTwo: PageTwo = {
-    category: category,
-    templateProjectChapters: templateSpaceChapters,
-    updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
-      changeTemplateSpaceChapters(templates),
-  };
-
-  const pageThree: PageThree = {
-    memberIds: memberIds,
-    updateMemberIds: (members: string[]) => changeMemberIds(members),
-  };
-
-  return {
-    pageOne,
-    pageTwo,
-    pageThree,
-    createSpace,
-  };
-};

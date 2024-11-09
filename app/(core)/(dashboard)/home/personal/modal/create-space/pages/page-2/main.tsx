@@ -1,10 +1,10 @@
 import { FormBody } from '@/components/form/body/main';
-import { CreateSpaceEditStructure } from './edit/main';
+import { HomePersonalCreateSpaceEditStructure } from './edit/main';
 
-export function CreateSpaceModalPageTwo() {
+export function HomePersonalCreateSpaceModalPageTwo() {
   return (
     <FormBody>
-      <CreateSpaceEditStructure />
+      <HomePersonalCreateSpaceEditStructure />
     </FormBody>
   );
 }

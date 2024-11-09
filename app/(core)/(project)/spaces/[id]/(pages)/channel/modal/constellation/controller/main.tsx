@@ -31,7 +31,6 @@ export enum GenerateSceneTab {
   TEXT = 'Text',
   MEDIA = 'Media',
   IMAGERY = 'Imagery',
-  VAULT = 'Vault',
 }
 
 export enum GenerateScenePage {

@@ -94,13 +94,11 @@ function KanbanRow({ title, tasks, status }) {
       </div>
       <div
         ref={drop}
-        className={`flex h-full flex-row overflow-auto rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
+        className={`flex h-full flex-row space-x-[1rem] overflow-auto rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
       >
-        <div className='flex min-h-[50px] flex-row space-x-[1rem]'>
-          {tasks.map((task) => (
-            <KanbanTask key={task.id} task={task} />
-          ))}
-        </div>
+        {tasks.map((task) => (
+          <KanbanTask key={task.id} task={task} />
+        ))}
       </div>
     </div>
   );
@@ -237,7 +235,7 @@ function KanbanTask({ task }) {
         ) : (
           <p
             onClick={() => setIsEditingDescription(true)}
-            className='h-full cursor-pointer text-sm text-black'
+            className='cursor-pointer text-sm text-black'
           >
             {description || 'Click to add description...'}{' '}
             {/* Placeholder text */}
@@ -246,19 +244,6 @@ function KanbanTask({ task }) {
       </div>
       {isSelected && (
         <div className='flex h-full flex-col items-center justify-center space-y-[1rem]'>
-          <div
-            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
-            onClick={() => {
-              taskListController.actions.editActions.edit(task.id, {
-                taskStatus: TaskStatus.CURRENT,
-              });
-              window.location.href = `${spacesMap.spaces.id.channel.link(
-                spaceMainController.state.objId,
-              )}?chapter=${chapterListController.state.currentObj?.id}`;
-            }}
-          >
-            <AstralChatIndicatorIcon />
-          </div>
           <div
             className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
             onClick={() => {
@@ -284,6 +269,19 @@ function KanbanTask({ task }) {
             }}
           >
             <AstralTableIcon />
+          </div>
+          <div
+            className='flex h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer items-center justify-center rounded-full bg-slate-300 bg-opacity-30'
+            onClick={() => {
+              taskListController.actions.editActions.edit(task.id, {
+                taskStatus: TaskStatus.CURRENT,
+              });
+              window.location.href = `${spacesMap.spaces.id.channel.link(
+                spaceMainController.state.objId,
+              )}?chapter=${chapterListController.state.currentObj?.id}`;
+            }}
+          >
+            <AstralChatIndicatorIcon />
           </div>
         </div>
       )}
