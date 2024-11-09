@@ -16,15 +16,15 @@ import { useContext, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import {
-  ContextForSpacesWork,
-  SpacesWorkSidebarMode,
+  ContextForSpacesFocus,
+  SpacesFocusSidebarMode,
 } from '../../../../controller/main';
 
 const ItemType = {
   TASK: 'task',
 };
 
-export function SpacesWorkKanban() {
+export function SpacesFocusKanban() {
   const taskListController = useContext(ContextForTaskListFromChapter);
   const { objs: objs } = taskListController.state;
 
@@ -108,7 +108,7 @@ function KanbanTask({ task }) {
   const taskListController = useContext(ContextForTaskListFromChapter);
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spacesWorkController = useContext(ContextForSpacesWork);
+  const spacesFocusController = useContext(ContextForSpacesFocus);
   const [{ isDragging }, drag] = useDrag({
     type: ItemType.TASK,
     item: { id: task.id, status: task.taskStatus },
@@ -142,7 +142,9 @@ function KanbanTask({ task }) {
     }
   };
 
-  const isSelected = spacesWorkController.state.selectedTasks.includes(task.id);
+  const isSelected = spacesFocusController.state.selectedTasks.includes(
+    task.id,
+  );
 
   return (
     <>
@@ -155,15 +157,15 @@ function KanbanTask({ task }) {
         onClick={() => {
           if (isSelected) {
             taskListController.actions.stateActions.select(exampleTask);
-            spacesWorkController.actions.updateSelectedTasks(
-              spacesWorkController.state.selectedTasks.filter(
+            spacesFocusController.actions.updateSelectedTasks(
+              spacesFocusController.state.selectedTasks.filter(
                 (id) => id !== task.id,
               ),
             );
           } else {
             taskListController.actions.stateActions.select(task);
-            spacesWorkController.actions.updateSelectedTasks([
-              ...spacesWorkController.state.selectedTasks,
+            spacesFocusController.actions.updateSelectedTasks([
+              ...spacesFocusController.state.selectedTasks,
               task.id,
             ]);
           }
@@ -195,8 +197,8 @@ function KanbanTask({ task }) {
                 taskListController.actions.editActions.edit(task.id, {
                   taskStatus: TaskStatus.ARCHIVE,
                 });
-                spacesWorkController.actions.updateSidebarMode(
-                  SpacesWorkSidebarMode.ARCHIVE,
+                spacesFocusController.actions.updateSidebarMode(
+                  SpacesFocusSidebarMode.ARCHIVE,
                 );
               }}
             >

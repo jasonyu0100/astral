@@ -2,32 +2,32 @@ import { ContextForSpaceChapterList } from '@/architecture/controller/space/chap
 import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext } from 'react';
-import { ContextForSpacesWorkModals } from '../../../../modal/controller/main';
-import SpacesWorkRowAdd from './add/main';
-import { SpacesWorkRowContainer } from './container/main';
-import { SpacesWorkRowElement } from './element/main';
+import { ContextForSpacesFocusModals } from '../../../../modal/controller/main';
+import SpacesFocusRowAdd from './add/main';
+import { SpacesFocusRowContainer } from './container/main';
+import { SpacesFocusRowElement } from './element/main';
 
-export function SpacesWorkNavigationRow() {
+export function SpacesFocusNavigationRow() {
   const chapterListController = useContext(ContextForSpaceChapterList);
-  const spacesWorkModalController = useContext(ContextForSpacesWorkModals);
+  const spacesFocusModalController = useContext(ContextForSpacesFocusModals);
 
   return (
     <>
-      <SpacesWorkRowContainer>
+      <SpacesFocusRowContainer>
         {chapterListController.state.objs.map((chapter, index) => (
           <ContextForIndexable.Provider value={index} key={chapter.id}>
             <ContextForSpaceChapterObj.Provider
               value={chapter}
               key={chapter.id}
             >
-              <SpacesWorkRowElement key={chapter.id} />
+              <SpacesFocusRowElement key={chapter.id} />
             </ContextForSpaceChapterObj.Provider>
           </ContextForIndexable.Provider>
         ))}
-        <SpacesWorkRowAdd
-          onClick={() => spacesWorkModalController.addChapterController.open()}
+        <SpacesFocusRowAdd
+          onClick={() => spacesFocusModalController.addChapterController.open()}
         />
-      </SpacesWorkRowContainer>
+      </SpacesFocusRowContainer>
     </>
   );
 }

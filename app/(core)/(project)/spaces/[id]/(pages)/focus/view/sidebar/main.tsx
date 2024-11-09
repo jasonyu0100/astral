@@ -2,27 +2,27 @@ import { GlassAreaContainer } from '@/components/glass/area/main';
 import { glassFx } from '@/style/data';
 import { useContext } from 'react';
 import {
-  ContextForSpacesWork,
-  SpacesWorkSidebarMode,
+  ContextForSpacesFocus,
+  SpacesFocusSidebarMode,
 } from '../../controller/main';
-import { SpacesWorkSidebarArchive } from './archive/main';
-import { SpacesWorkSidebarChapters } from './chapters/main';
-import { SpacesWorkSidebarHeader } from './header/main';
+import { SpacesFocusSidebarArchive } from './archive/main';
+import { SpacesFocusSidebarChapters } from './chapters/main';
+import { SpacesFocusSidebarHeader } from './header/main';
 
-export function SpacesWorkSidebar() {
-  const spacesWorkController = useContext(ContextForSpacesWork);
+export function SpacesFocusSidebar() {
+  const spacesFocusController = useContext(ContextForSpacesFocus);
   return (
     <GlassAreaContainer
-      name={SpacesWorkSidebar.name}
+      name={SpacesFocusSidebar.name}
       sizeFx='w-[360px] h-full'
       glassFx={glassFx['glass-10']}
       className={`flex flex-col items-center overflow-hidden`}
     >
-      <SpacesWorkSidebarHeader />
-      {spacesWorkController.state.sidebarMode ===
-        SpacesWorkSidebarMode.CHAPTERS && <SpacesWorkSidebarChapters />}
-      {spacesWorkController.state.sidebarMode ===
-        SpacesWorkSidebarMode.ARCHIVE && <SpacesWorkSidebarArchive />}
+      <SpacesFocusSidebarHeader />
+      {spacesFocusController.state.sidebarMode ===
+        SpacesFocusSidebarMode.CHAPTERS && <SpacesFocusSidebarChapters />}
+      {spacesFocusController.state.sidebarMode ===
+        SpacesFocusSidebarMode.ARCHIVE && <SpacesFocusSidebarArchive />}
     </GlassAreaContainer>
   );
 }

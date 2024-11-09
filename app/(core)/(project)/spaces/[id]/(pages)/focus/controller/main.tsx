@@ -13,14 +13,14 @@ interface Controller {
 }
 
 interface ControllerState {
-  sidebarMode: SpacesWorkSidebarMode;
-  sidebarVisibility: SpacesWorkSidebarVisibility;
+  sidebarMode: SpacesFocusSidebarMode;
+  sidebarVisibility: SpacesFocusSidebarVisibility;
   selectedTasks: TaskObj[];
 }
 
 interface ControllerActions {
-  updateSidebarMode: (mode: SpacesWorkSidebarMode) => void;
-  updateSidebarVisibility: (visibility: SpacesWorkSidebarVisibility) => void;
+  updateSidebarMode: (mode: SpacesFocusSidebarMode) => void;
+  updateSidebarVisibility: (visibility: SpacesFocusSidebarVisibility) => void;
   updateSelectedTasks: (logs: TaskObj[]) => void;
   checkContainsSelectedTask: (log: TaskObj) => boolean;
   createTasksFromPrompt: (prompt: string) => Promise<TaskTemplate[]>;
@@ -29,19 +29,19 @@ interface ControllerActions {
   ) => Promise<TaskObj[]>;
 }
 
-export const ContextForSpacesWork = createContext({} as Controller);
+export const ContextForSpacesFocus = createContext({} as Controller);
 
-export enum SpacesWorkDataMode {
+export enum SpacesFocusDataMode {
   Table = 'Table',
   ROWS = 'Rows',
 }
 
-export enum SpacesWorkSidebarMode {
+export enum SpacesFocusSidebarMode {
   CHAPTERS = 'Chapters',
   ARCHIVE = 'Archive',
 }
 
-export enum SpacesWorkSidebarVisibility {
+export enum SpacesFocusSidebarVisibility {
   OPEN = 'open',
   CLOSED = 'closed',
 }
@@ -51,13 +51,13 @@ export interface TaskTemplate {
   description: string;
 }
 
-export function useControllerForSpacesWork(): Controller {
+export function useControllerForSpacesFocus(): Controller {
   const [selectedTasks, setSelectedTasks] = useState<TaskObj[]>([]);
-  const [sidebarMode, setSidebarMode] = useState<SpacesWorkSidebarMode>(
-    SpacesWorkSidebarMode.CHAPTERS,
+  const [sidebarMode, setSidebarMode] = useState<SpacesFocusSidebarMode>(
+    SpacesFocusSidebarMode.CHAPTERS,
   );
   const [sidebarVisibility, setSidebarVisibility] =
-    useState<SpacesWorkSidebarVisibility>(SpacesWorkSidebarVisibility.OPEN);
+    useState<SpacesFocusSidebarVisibility>(SpacesFocusSidebarVisibility.OPEN);
   const spaceMainController = useContext(ContextForSpaceMain);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const taskListController = useContext(ContextForTaskListFromChapter);

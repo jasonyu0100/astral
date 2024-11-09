@@ -5,15 +5,15 @@ import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpacesWork,
-  SpacesWorkSidebarMode,
+  ContextForSpacesFocus,
+  SpacesFocusSidebarMode,
 } from '../../../controller/main';
 
-export function SpacesWorkSidebarHeader() {
+export function SpacesFocusSidebarHeader() {
   const {
     state: { sidebarMode },
     actions: { updateSidebarMode },
-  } = useContext(ContextForSpacesWork);
+  } = useContext(ContextForSpacesFocus);
 
   return (
     <div className='grid h-[4rem] w-full flex-shrink-0 grid-cols-2 p-[1rem] py-[0.5rem] shadow-glow'>
@@ -24,18 +24,18 @@ export function SpacesWorkSidebarHeader() {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
-            onClick={() => updateSidebarMode(SpacesWorkSidebarMode.CHAPTERS)}
+            onClick={() => updateSidebarMode(SpacesFocusSidebarMode.CHAPTERS)}
           >
             <p
               className={ctwn('font-bold text-slate-500', {
                 'text-slate-300':
-                  sidebarMode === SpacesWorkSidebarMode.CHAPTERS,
+                  sidebarMode === SpacesFocusSidebarMode.CHAPTERS,
               })}
             >
-              {SpacesWorkSidebarMode.CHAPTERS}
+              {SpacesFocusSidebarMode.CHAPTERS}
             </p>
           </GlassWindowContents>
-          {sidebarMode === SpacesWorkSidebarMode.CHAPTERS && (
+          {sidebarMode === SpacesFocusSidebarMode.CHAPTERS && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>
@@ -47,17 +47,18 @@ export function SpacesWorkSidebarHeader() {
         >
           <GlassWindowContents
             className='flex cursor-pointer items-center justify-center'
-            onClick={() => updateSidebarMode(SpacesWorkSidebarMode.ARCHIVE)}
+            onClick={() => updateSidebarMode(SpacesFocusSidebarMode.ARCHIVE)}
           >
             <p
               className={ctwn('font-bold text-slate-500', {
-                'text-slate-300': sidebarMode === SpacesWorkSidebarMode.ARCHIVE,
+                'text-slate-300':
+                  sidebarMode === SpacesFocusSidebarMode.ARCHIVE,
               })}
             >
-              {SpacesWorkSidebarMode.ARCHIVE}
+              {SpacesFocusSidebarMode.ARCHIVE}
             </p>
           </GlassWindowContents>
-          {sidebarMode === SpacesWorkSidebarMode.ARCHIVE && (
+          {sidebarMode === SpacesFocusSidebarMode.ARCHIVE && (
             <GlassWindowPane glassFx={glassFx['glass-10']} />
           )}
         </GlassWindowFrame>

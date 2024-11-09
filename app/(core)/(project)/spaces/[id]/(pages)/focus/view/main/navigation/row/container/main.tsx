@@ -4,7 +4,7 @@ import {
 } from '@/logic/controller/scroll-to-horizontal-index/main';
 import { useRef } from 'react';
 
-export function SpacesWorkRowContainer({
+export function SpacesFocusRowContainer({
   children,
 }: {
   children?: React.ReactNode;

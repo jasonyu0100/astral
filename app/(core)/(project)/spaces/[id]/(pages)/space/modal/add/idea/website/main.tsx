@@ -35,7 +35,7 @@ export function SpacesSpaceAddWebsiteUrlModal() {
   async function createIdeaFromWebsite() {
     const urlIdea = {
       id: crypto.randomUUID(),
-      title: websiteUrl,
+      title: title,
       url: websiteUrl,
       variant: UrlElementVariant.WEBSITE,
     } as UrlElement;

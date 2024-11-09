@@ -14,7 +14,7 @@ import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { useContext, useState } from 'react';
 
-export function SpacesWorkAddArchiveTaskModal() {
+export function SpacesFocusAddArchiveTaskModal() {
   const user = useGlobalUser((state) => state.user);
   const spaceMainController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);

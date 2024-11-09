@@ -56,6 +56,10 @@ import {
   useControllerForTaskListFromChapter,
 } from '@/architecture/controller/task/list-from-chapter';
 import {
+  ContextForTaskListFromSpace,
+  useControllerForTaskListFromSpace,
+} from '@/architecture/controller/task/list-from-space';
+import {
   ContextForUserMain,
   useControllerForUserMain,
 } from '@/architecture/controller/user/main';
@@ -137,9 +141,16 @@ function Page({ params }: { params: { id: string } }) {
   const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
   );
+  const allTaskListFromController = useControllerForTaskListFromSpace(
+    spaceMainController.state.objId,
+  );
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
+
+  useEffect(() => {
+    allTaskListFromController.actions.gatherActions.gatherFromBeginning();
+  }, [taskListController.state.objs]);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -176,23 +187,27 @@ function Page({ params }: { params: { id: string } }) {
                                   <ContextForTaskListFromChapter.Provider
                                     value={taskListController}
                                   >
-                                    <ContextForUserActivityListFromChapter.Provider
-                                      value={activityListController}
+                                    <ContextForTaskListFromSpace.Provider
+                                      value={allTaskListFromController}
                                     >
-                                      <UpdateWrapper>
-                                        <LoadingWrapper>
-                                          <ControllerWrapper>
-                                            <EffectWrapper>
-                                              <ModalWrapper>
-                                                <ViewWrapper>
-                                                  <SpacesSpaceView />
-                                                </ViewWrapper>
-                                              </ModalWrapper>
-                                            </EffectWrapper>
-                                          </ControllerWrapper>
-                                        </LoadingWrapper>
-                                      </UpdateWrapper>
-                                    </ContextForUserActivityListFromChapter.Provider>
+                                      <ContextForUserActivityListFromChapter.Provider
+                                        value={activityListController}
+                                      >
+                                        <UpdateWrapper>
+                                          <LoadingWrapper>
+                                            <ControllerWrapper>
+                                              <EffectWrapper>
+                                                <ModalWrapper>
+                                                  <ViewWrapper>
+                                                    <SpacesSpaceView />
+                                                  </ViewWrapper>
+                                                </ModalWrapper>
+                                              </EffectWrapper>
+                                            </ControllerWrapper>
+                                          </LoadingWrapper>
+                                        </UpdateWrapper>
+                                      </ContextForUserActivityListFromChapter.Provider>
+                                    </ContextForTaskListFromSpace.Provider>
                                   </ContextForTaskListFromChapter.Provider>
                                 </ContextForIdeaRelationshipListFromScene.Provider>
                               </ContextForConversationMessageList.Provider>

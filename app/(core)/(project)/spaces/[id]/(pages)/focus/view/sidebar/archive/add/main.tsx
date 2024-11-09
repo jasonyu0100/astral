@@ -1,9 +1,9 @@
 import { AstralAddIcon } from '@/icons/add/main';
 import { useContext } from 'react';
-import { ContextForSpacesWorkModals } from '../../../../modal/controller/main';
+import { ContextForSpacesFocusModals } from '../../../../modal/controller/main';
 
-export function SpacesWorkSidebarBacklogAdd() {
-  const modalController = useContext(ContextForSpacesWorkModals);
+export function SpacesFocusSidebarBacklogAdd() {
+  const modalController = useContext(ContextForSpacesFocusModals);
 
   return (
     <div className='flex w-full flex-row items-center justify-center'>

@@ -19,7 +19,7 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useEffect, useState } from 'react';
 
-export function SpacesWorkEditSpaceModal() {
+export function SpacesFocusEditSpaceModal() {
   const spaceMainController = useContext(ContextForSpaceMain);
   const openableController = useContext(ContextForOpenable);
   const [title, setTitle] = useState('');

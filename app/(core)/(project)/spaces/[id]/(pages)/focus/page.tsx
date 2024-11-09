@@ -24,6 +24,10 @@ import {
   useControllerForTaskListFromChapter,
 } from '@/architecture/controller/task/list-from-chapter';
 import {
+  ContextForTaskListFromSpace,
+  useControllerForTaskListFromSpace,
+} from '@/architecture/controller/task/list-from-space';
+import {
   ContextForUserMain,
   useControllerForUserMain,
 } from '@/architecture/controller/user/main';
@@ -47,15 +51,14 @@ import { SpacesSidebar } from '../../../sidebar/main';
 import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
-  ContextForSpacesWork,
-  useControllerForSpacesWork,
+  ContextForSpacesFocus,
+  useControllerForSpacesFocus,
 } from './controller/main';
-import { SpacesWorkModals } from './modal/controller/main';
-import { SpacesWorkView } from './view/main';
+import { SpacesFocusModals } from './modal/controller/main';
+import { SpacesFocusView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const taskId = searchParams.get('task');
   const chapterId = searchParams.get('chapter');
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
@@ -71,11 +74,17 @@ function Page({ params }: { params: { id: string } }) {
   );
   const taskListController = useControllerForTaskListFromChapter(
     chapterListController.state.objId,
-    taskId,
+  );
+  const allTaskListFromController = useControllerForTaskListFromSpace(
+    spaceMainController.state.objId,
   );
   const activityListController = useControllerForUserActivityListFromChapter(
     chapterListController.state.objId,
   );
+
+  useEffect(() => {
+    allTaskListFromController.actions.gatherActions.gatherFromBeginning();
+  }, [taskListController.state.objs]);
 
   return (
     <ContextForLoggedInUserObj.Provider value={loggedInUser}>
@@ -90,21 +99,25 @@ function Page({ params }: { params: { id: string } }) {
                   <ContextForTaskListFromChapter.Provider
                     value={taskListController}
                   >
-                    <ContextForUserActivityListFromChapter.Provider
-                      value={activityListController}
+                    <ContextForTaskListFromSpace.Provider
+                      value={allTaskListFromController}
                     >
-                      <UpdateWrapper>
-                        <LoadingWrapper>
-                          <ControllerWrapper>
-                            <ModalWrapper>
-                              <ViewWrapper>
-                                <SpacesWorkView />
-                              </ViewWrapper>
-                            </ModalWrapper>
-                          </ControllerWrapper>
-                        </LoadingWrapper>
-                      </UpdateWrapper>
-                    </ContextForUserActivityListFromChapter.Provider>
+                      <ContextForUserActivityListFromChapter.Provider
+                        value={activityListController}
+                      >
+                        <UpdateWrapper>
+                          <LoadingWrapper>
+                            <ControllerWrapper>
+                              <ModalWrapper>
+                                <ViewWrapper>
+                                  <SpacesFocusView />
+                                </ViewWrapper>
+                              </ModalWrapper>
+                            </ControllerWrapper>
+                          </LoadingWrapper>
+                        </UpdateWrapper>
+                      </ContextForUserActivityListFromChapter.Provider>
+                    </ContextForTaskListFromSpace.Provider>
                   </ContextForTaskListFromChapter.Provider>
                 </ContextForSpaceChapterList.Provider>
               </RedirectWrapper>
@@ -119,7 +132,7 @@ function Page({ params }: { params: { id: string } }) {
 function ModalWrapper({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <SpacesWorkModals>{children}</SpacesWorkModals>
+      <SpacesFocusModals>{children}</SpacesFocusModals>
     </>
   );
 }
@@ -216,12 +229,12 @@ function UpdateWrapper({ children }: { children: React.ReactNode }) {
 }
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
-  const journeyController = useControllerForSpacesWork();
+  const journeyController = useControllerForSpacesFocus();
 
   return (
-    <ContextForSpacesWork.Provider value={journeyController}>
+    <ContextForSpacesFocus.Provider value={journeyController}>
       {children}
-    </ContextForSpacesWork.Provider>
+    </ContextForSpacesFocus.Provider>
   );
 }
 

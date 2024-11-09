@@ -11,13 +11,13 @@ import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralRefreshIcon } from '@/icons/refresh/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useState } from 'react';
-import { ContextForSpacesWork, TaskTemplate } from '../../controller/main';
+import { ContextForSpacesFocus, TaskTemplate } from '../../controller/main';
 
-export function SpacesWorkGenerateTasksModal() {
+export function SpacesFocusGenerateTasksModal() {
   const openableController = useContext(ContextForOpenable);
   const [generatePrompt, setGeneratePrompt] = useState('');
   const loadingController = useContext(ContextForLoading);
-  const spacesWorkController = useContext(ContextForSpacesWork);
+  const spacesFocusController = useContext(ContextForSpacesFocus);
   const [tasks, setTasks] = useState<TaskTemplate[]>([]);
   const [selectedTasks, setSelectedTasks] = useState<TaskTemplate[]>([]);
 
@@ -63,7 +63,7 @@ export function SpacesWorkGenerateTasksModal() {
                 <AstralRoundedActionButton
                   onClick={() => {
                     loadingController.loadingController.open();
-                    spacesWorkController.actions
+                    spacesFocusController.actions
                       .createTasksFromSelected(selectedTasks)
                       .then((tasks) => {
                         console.log(tasks);
@@ -79,7 +79,7 @@ export function SpacesWorkGenerateTasksModal() {
                 className='from-slate-500 to-slate-600'
                 onClick={() => {
                   loadingController.loadingController.open();
-                  spacesWorkController.actions
+                  spacesFocusController.actions
                     .createTasksFromPrompt(generatePrompt)
                     .then((tasks) => {
                       setTasks(tasks);

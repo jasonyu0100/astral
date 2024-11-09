@@ -4,16 +4,18 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { SpacesWorkAddArchiveTaskModal } from '../add/archive-task/main';
-import { SpacesWorkAddChapterModal } from '../add/chapter/main';
-import { SpacesWorkAddTaskModal } from '../add/task/main';
-import { SpacesWorkEditChapterModal } from '../edit/chapter/main';
-import { SpacesWorkEditSpaceModal } from '../edit/space/main';
-import { SpacesWorkGenerateTasksModal } from '../generate/main';
+import { SpacesFocusAddArchiveTaskModal } from '../add/archive-task/main';
+import { SpacesFocusAddChapterModal } from '../add/chapter/main';
+import { SpacesFocusAddTaskModal } from '../add/task/main';
+import { SpacesFocusEditChapterModal } from '../edit/chapter/main';
+import { SpacesFocusEditSpaceModal } from '../edit/space/main';
+import { SpacesFocusGenerateTasksModal } from '../generate/main';
 
-export const ContextForSpacesWorkModals = createContext({} as SpacesWorkModals);
+export const ContextForSpacesFocusModals = createContext(
+  {} as SpacesFocusModals,
+);
 
-export interface SpacesWorkModals {
+export interface SpacesFocusModals {
   addUpdateController: ContextForOpenableInterface;
   addTaskController: ContextForOpenableInterface;
   addArchiveTaskController: ContextForOpenableInterface;
@@ -23,7 +25,7 @@ export interface SpacesWorkModals {
   editSpaceController: ContextForOpenableInterface;
 }
 
-export function SpacesWorkModals({ children }: { children: React.ReactNode }) {
+export function SpacesFocusModals({ children }: { children: React.ReactNode }) {
   const addUpdateController = useControllerForOpenable();
   const addTaskController = useControllerForOpenable();
   const addChapterController = useControllerForOpenable();
@@ -33,7 +35,7 @@ export function SpacesWorkModals({ children }: { children: React.ReactNode }) {
   const addArchiveTaskController = useControllerForOpenable();
 
   return (
-    <ContextForSpacesWorkModals.Provider
+    <ContextForSpacesFocusModals.Provider
       value={{
         addUpdateController: addUpdateController,
         addTaskController: addTaskController,
@@ -46,23 +48,23 @@ export function SpacesWorkModals({ children }: { children: React.ReactNode }) {
     >
       {children}
       <ContextForOpenable.Provider value={addTaskController}>
-        <SpacesWorkAddTaskModal />
+        <SpacesFocusAddTaskModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addChapterController}>
-        <SpacesWorkAddChapterModal />
+        <SpacesFocusAddChapterModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addGenerateController}>
-        <SpacesWorkGenerateTasksModal />
+        <SpacesFocusGenerateTasksModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editChapterController}>
-        <SpacesWorkEditChapterModal />
+        <SpacesFocusEditChapterModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editSpaceController}>
-        <SpacesWorkEditSpaceModal />
+        <SpacesFocusEditSpaceModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={addArchiveTaskController}>
-        <SpacesWorkAddArchiveTaskModal />
+        <SpacesFocusAddArchiveTaskModal />
       </ContextForOpenable.Provider>
-    </ContextForSpacesWorkModals.Provider>
+    </ContextForSpacesFocusModals.Provider>
   );
 }

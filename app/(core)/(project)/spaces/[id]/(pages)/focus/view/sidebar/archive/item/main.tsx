@@ -3,7 +3,7 @@ import { ContextForTaskObj, TaskStatus } from '@/architecture/model/task/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useContext } from 'react';
 
-export function SpacesWorkBacklogItem() {
+export function SpacesFocusBacklogItem() {
   const task = useContext(ContextForTaskObj);
   const taskListController = useContext(ContextForTaskListFromChapter);
 

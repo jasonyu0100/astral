@@ -4,10 +4,10 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
-import { SpacesWorkSidebarBacklogAdd } from './add/main';
-import { SpacesWorkBacklogItem } from './item/main';
+import { SpacesFocusSidebarBacklogAdd } from './add/main';
+import { SpacesFocusBacklogItem } from './item/main';
 
-export function SpacesWorkSidebarArchive() {
+export function SpacesFocusSidebarArchive() {
   const taskListController = useContext(ContextForTaskListFromChapter);
   const tasks = taskListController.state.objs;
   const archive = tasks.filter(
@@ -23,11 +23,11 @@ export function SpacesWorkSidebarArchive() {
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
           {archive.map((task) => (
             <ContextForTaskObj.Provider value={task}>
-              <SpacesWorkBacklogItem />
+              <SpacesFocusBacklogItem />
             </ContextForTaskObj.Provider>
           ))}
           <HorizontalDivider />
-          <SpacesWorkSidebarBacklogAdd />
+          <SpacesFocusSidebarBacklogAdd />
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

@@ -3,11 +3,13 @@ import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/ma
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { SpacesWorkSidebarChaptersAdd } from './add/main';
-import { SpacesWorkSidebarChaptersChapter } from './item/main';
+import { SpacesFocusSidebarChaptersAdd } from './add/main';
+import { SpacesFocusSidebarChaptersItem } from './item/main';
+import { SpacesFocusSidebarChaptersProgress } from './progress/main';
 
-export function SpacesWorkSidebarChapters() {
+export function SpacesFocusSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
@@ -15,15 +17,19 @@ export function SpacesWorkSidebarChapters() {
       className='flex w-full flex-col overflow-auto'
       style={{ height: '100%' }}
     >
-      <GlassWindowFrame className='h-full w-full flex-shrink-0'>
-        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
+      <SpacesFocusSidebarChaptersProgress />
+      <GlassWindowFrame
+        className='h-full w-full flex-shrink-0'
+        roundedFx={roundedFx.rounded}
+      >
+        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem] py-[2rem]'>
           {chapterListController.state.objs.map((chapter) => (
             <ContextForSpaceChapterObj.Provider value={chapter}>
-              <SpacesWorkSidebarChaptersChapter />
+              <SpacesFocusSidebarChaptersItem />
             </ContextForSpaceChapterObj.Provider>
           ))}
           <HorizontalDivider />
-          <SpacesWorkSidebarChaptersAdd />
+          <SpacesFocusSidebarChaptersAdd />
         </GlassWindowContents>
       </GlassWindowFrame>
     </div>

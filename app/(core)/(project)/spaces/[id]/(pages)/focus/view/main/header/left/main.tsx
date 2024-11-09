@@ -5,39 +5,39 @@ import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
-  ContextForSpacesWork,
-  SpacesWorkSidebarVisibility,
+  ContextForSpacesFocus,
+  SpacesFocusSidebarVisibility,
 } from '../../../../controller/main';
-import { ContextForSpacesWorkModals } from '../../../../modal/controller/main';
+import { ContextForSpacesFocusModals } from '../../../../modal/controller/main';
 
-export function SpacesWorkHeaderLeft() {
+export function SpacesFocusHeaderLeft() {
   const {
     state: { sidebarVisibility },
     actions: { updateSidebarVisibility },
-  } = useContext(ContextForSpacesWork);
-  const spacesWorkModalController = useContext(ContextForSpacesWorkModals);
+  } = useContext(ContextForSpacesFocus);
+  const spacesFocusModalController = useContext(ContextForSpacesFocusModals);
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
       <AstralSidebarLeftIcon
         className={ctwn({
           'rotate-180 transform':
-            sidebarVisibility === SpacesWorkSidebarVisibility.CLOSED,
+            sidebarVisibility === SpacesFocusSidebarVisibility.CLOSED,
         })}
         onClick={() => {
           updateSidebarVisibility(
-            sidebarVisibility === SpacesWorkSidebarVisibility.CLOSED
-              ? SpacesWorkSidebarVisibility.OPEN
-              : SpacesWorkSidebarVisibility.CLOSED,
+            sidebarVisibility === SpacesFocusSidebarVisibility.CLOSED
+              ? SpacesFocusSidebarVisibility.OPEN
+              : SpacesFocusSidebarVisibility.CLOSED,
           );
         }}
       />
       <BarDividerIndicator />
       <AstralAddIcon
-        onClick={() => spacesWorkModalController.addTaskController.open()}
+        onClick={() => spacesFocusModalController.addTaskController.open()}
       />
       <AstralBookSparkIcon
-        onClick={() => spacesWorkModalController.addGenerateController.open()}
+        onClick={() => spacesFocusModalController.addGenerateController.open()}
       />
     </div>
   );

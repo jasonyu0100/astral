@@ -9,7 +9,7 @@ import { glassFx, roundedFx } from '@/style/data';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function SpacesWorkRowElement() {
+export function SpacesFocusRowElement() {
   const index = useContext(ContextForIndexable);
   const chapter = useContext(ContextForSpaceChapterObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
