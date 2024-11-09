@@ -41,6 +41,7 @@ export function SpacesSpaceScene() {
       style={{ zoom: spacesSpaceController.state.zoom }}
       onClick={() => spacesSpaceController.actions.updateSelectedIdeas([])}
     >
+      <p className=' absolute h-full w-[800px] p-[3rem] text-2xl text-slate-300'></p>
       {ideaListController.state.objs.map((idea, index) => (
         <ContextForIndexable.Provider key={idea.id} value={index}>
           <ContextForIdeaObj.Provider value={idea}>

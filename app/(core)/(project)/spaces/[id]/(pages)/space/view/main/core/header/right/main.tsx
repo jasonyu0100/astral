@@ -24,7 +24,7 @@ export function SpacesSpaceHeaderRight() {
           }}
         >
           <p className='font-bold text-slate-300'>
-            Create Release ({selectedIdeas.length})
+            Create post ({selectedIdeas.length})
           </p>
           <AstralArrowForwardIcon />
         </button>

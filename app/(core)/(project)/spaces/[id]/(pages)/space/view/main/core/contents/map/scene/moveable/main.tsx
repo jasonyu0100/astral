@@ -10,6 +10,7 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { useContext, useEffect, useRef, useState } from 'react';
 import Moveable from 'react-moveable';
 import { parseTransformString } from '../../../../../../../utils/main';
+import { SpacesSpaceIdeaIndicator } from './indicator/main';
 import { SpacesSpaceIdeaLabel } from './label/main';
 
 export function SpacesSpaceMovable({
@@ -56,11 +57,9 @@ export function SpacesSpaceMovable({
       <div
         className={`element absolute cursor-move`}
         style={{
-          width: `${ideaObj.width}px`,
+          width: `${ideaObj.width * ideaObj.scale}px`,
           top: `${initialY}px`,
           left: `${initialX}px`,
-          rotate: `${initialRotation}deg`,
-          scale: `${initialScale}`,
         }}
         ref={targetRef}
         onMouseOver={() => {
@@ -102,10 +101,13 @@ export function SpacesSpaceMovable({
         }}
       >
         <div className='relative'>
-          {children}
-
           {spacesSpaceController.state.bubbleMode ===
-            SpacesSpaceBubbleMode.ON && <SpacesSpaceIdeaLabel />}
+          SpacesSpaceBubbleMode.ON ? (
+            <SpacesSpaceIdeaLabel />
+          ) : (
+            <SpacesSpaceIdeaIndicator />
+          )}
+          {children}
         </div>
       </div>
       <Moveable

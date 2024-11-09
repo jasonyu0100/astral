@@ -11,7 +11,6 @@ import { blankSpaceTemplate } from './templates/blankSpaceTemplate';
 import { collaborationHubTemplate } from './templates/collaborationHubTemplate';
 import { creativeCampaignTemplate } from './templates/creativeCampaignTemplate';
 import { eventPlanningTemplate } from './templates/eventPlanningTemplate';
-import { freelancingTaskTemplate } from './templates/freelancingTaskTemplate';
 import { ideationTemplate } from './templates/ideationTemplate';
 import { longFormVideoTemplate } from './templates/longFormTemplate';
 import { meetingTemplate } from './templates/meetingTemplate';
@@ -119,44 +118,42 @@ export interface TemplatePostObj extends _TemplatePostObj {
 
 // TEMPLATES
 enum SpaceTemplate {
-  BlankSpace = '🟡 Blank Space',
-  Ideation = '💡 Ideation',
-  Minutes = '📝 Minutes',
-  Storyboarding = '📖 Storyboarding',
-  UserTesting = '👥 User Testing',
-  DesignJam = '🎨 Design Jam',
-  EventPlanning = '🎉 Event Planning',
-  Website = '🌐 Website',
-  VideoProduction = '🎥 Video Production',
-  LongForm = '🎥 Long Form Video',
-  ShortForm = '🎬 Short Form Video',
-  MusicProduction = '🎶 Music Production',
-  FreelancingProject = '💼 Freelancing Task',
+  Blank = 'Blank',
+  Ideation = 'Ideation',
+  Storyboarding = 'Story Boarding',
+  Minutes = 'Minutes',
+  ShortForm = 'Short Form Video',
+  LongForm = 'Long Form Video',
+  VideoProduction = 'Film Production',
+  MusicProduction = 'Music Production',
+  Event = 'Event',
+  Website = 'Website',
   MarketingCampaign = '📢 Marketing Campaign',
-  Prototype = '🔧 Prototype',
-  Startup = '🚀 Startup',
-  CollaborationSpace = '🤝 Collaboration Space',
-  WorkProject = '💼 Work Project',
+  Project = 'Project',
+  Design = 'Design',
+  Prototype = 'Prototype',
+  Collaboration = 'Collaboration',
+  Startup = 'Startup',
+  UserTesting = 'User Testing',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
-  [SpaceTemplate.BlankSpace]: blankSpaceTemplate,
+  [SpaceTemplate.Blank]: blankSpaceTemplate,
   [SpaceTemplate.Ideation]: ideationTemplate,
   [SpaceTemplate.Minutes]: meetingTemplate,
-  [SpaceTemplate.FreelancingProject]: freelancingTaskTemplate,
-  [SpaceTemplate.WorkProject]: workProjectTemplate,
+  [SpaceTemplate.Project]: workProjectTemplate,
   [SpaceTemplate.Startup]: startupTemplate,
-  [SpaceTemplate.CollaborationSpace]: collaborationHubTemplate,
+  [SpaceTemplate.Collaboration]: collaborationHubTemplate,
   [SpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
   [SpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
   [SpaceTemplate.VideoProduction]: videoProductionTemplate,
-  [SpaceTemplate.DesignJam]: uxUiDesignTemplate,
+  [SpaceTemplate.Design]: uxUiDesignTemplate,
   [SpaceTemplate.Website]: websiteTemplate,
   [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
   [SpaceTemplate.Storyboarding]: storyboardTemplate,
   [SpaceTemplate.UserTesting]: userTestingTemplate,
-  [SpaceTemplate.EventPlanning]: eventPlanningTemplate,
+  [SpaceTemplate.Event]: eventPlanningTemplate,
   [SpaceTemplate.LongForm]: longFormVideoTemplate,
   [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
 };

@@ -24,7 +24,9 @@ export function SpacesSpaceIdeaIndicator() {
             'animate-pulse-slow bg-blue-500':
               spacesSpaceController.actions.checkContainsSelectedIdea(ideaObj),
           })}
-        ></GlassWindowContents>
+        >
+          <p className='font-extraBold text-sm text-white'>{index + 1}</p>
+        </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>
     </div>

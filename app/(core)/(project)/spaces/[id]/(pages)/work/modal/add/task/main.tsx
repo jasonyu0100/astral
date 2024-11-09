@@ -32,6 +32,7 @@ export function SpacesWorkAddTaskModal() {
       user.id,
       title,
       description,
+      spaceController.state.objId,
     );
     await activityListController.actions.createActions.createFromChapterTask(
       user.id,

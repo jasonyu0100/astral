@@ -64,12 +64,12 @@ export const useControllerForHomePersonalCreateSpace =
     );
     const spaceMembersListController = useControllerForSpaceMemberList('');
     const [title, changeTitle] = useState(
-      SpaceTemplateMap[SpaceTemplate.BlankSpace].title,
+      SpaceTemplateMap[SpaceTemplate.Blank].title,
     );
     const [description, changeDescription] = useState(
-      SpaceTemplateMap[SpaceTemplate.BlankSpace].description,
+      SpaceTemplateMap[SpaceTemplate.Blank].description,
     );
-    const [category, changeCategory] = useState(SpaceTemplate.BlankSpace);
+    const [category, changeCategory] = useState(SpaceTemplate.Blank);
     const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
     const [memberIds, changeMemberIds] = useState<string[]>([]);
     const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
