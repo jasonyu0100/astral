@@ -18,7 +18,7 @@ import {
   AccordionTrigger,
 } from '@radix-ui/react-accordion';
 import Link from 'next/link';
-import { SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ScrollableCardList from './horizontal-scroll/main';
 
 const Header = () => (
@@ -76,11 +76,10 @@ const HeroSection = () => {
           Your Creative Journey, Streamlined
         </h1>
         <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
-          Astral is your go-to tracker for creative work, designed to evolve
-          with you. Perfect for content creators, founders, and visionaries,
-          Astral offers Kanban boards for task management, AI-powered Chat,
-          visual Mapping for ideas, and Pages to capture insights. Stay
-          organized and inspired at every stage of your creative journey.
+          Astral is your creative studio. Designed with creatives, artists, and
+          managers in mind, Astral is creative work management on another level.
+          Connect, collaborate, and let open-ended creativity turn inspiration
+          into reality.
         </p>
         <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
           <Link
@@ -101,7 +100,7 @@ const HeroSection = () => {
       </div>
       <div className='w-full px-0 sm:px-[2rem]'>
         <img
-          src='/landing/hero-1.png'
+          src='/landing/hero/2.png'
           className='w-full rounded-[1rem] object-contain shadow-glow'
           alt='Hero Image'
         />
@@ -120,6 +119,10 @@ const Question = () => (
 const CallToAction = () => {
   return (
     <section className='flex w-full flex-col items-center px-4 text-center'>
+      <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
+        Transforming your ideas into visual moments
+      </p>
+      <div className='h-[3rem] sm:h-[5rem]' />
       {/* <video
         src='https://cosmos-creative-storage.s3.ap-southeast-2.amazonaws.com/demo.mov'
         className='w-[3/4] rounded-[3rem] shadow-glow sm:w-3/4'
@@ -135,10 +138,6 @@ const CallToAction = () => {
         allowFullScreen
         title='YouTube video'
       />
-      <div className='h-[3rem] sm:h-[5rem]' />
-      <p className='w-full animate-pulse text-center font-extraBold text-lg text-slate-400 sm:text-5xl'>
-        Transforming your ideas into visual insights
-      </p>
     </section>
   );
 };
@@ -146,20 +145,24 @@ const CallToAction = () => {
 const FeaturesSection = () => {
   const features = [
     {
-      text: 'Engage in focused chats centered on clear objectives.',
+      text: 'Create collaborative spaces with built-in tools to track progress and goals.',
       number: 1,
+      image: '/landing/hero/1.png',
     },
     {
-      text: 'Visually expand on conversations and ideas to enhance clarity and depth.',
+      text: 'Map out ideas visually for a deeper understanding and alignment.',
       number: 2,
+      image: '/landing/hero/3.png',
     },
     {
-      text: 'Utilize an interactive, notebook-style map to organize and track your thoughts.',
+      text: 'Engage in focused chats that drive creativity and connection.',
       number: 3,
+      image: '/landing/hero/4.png',
     },
     {
-      text: 'Refine and develop ideas within dynamic visual maps, moving seamlessly from planning to execution.',
+      text: 'Gather valuable public feedback on your spaces to refine and grow.',
       number: 4,
+      image: '/landing/hero/5.png',
     },
   ];
 
@@ -173,7 +176,7 @@ const FeaturesSection = () => {
     return () => clearInterval(interval);
   }, [features.length]);
 
-  const handleFeatureClick = (index: SetStateAction<number>) => {
+  const handleFeatureClick = (index) => {
     setActiveFeature(index);
   };
 
@@ -205,13 +208,11 @@ const FeaturesSection = () => {
           </div>
         ))}
       </div>
-      <div className='aspect-[13/9] w-full bg-white p-4 shadow-glow sm:h-[500px] sm:w-[400px]'>
-        <img
-          src={`portal/architect-f.png`} // You can modify this to change images dynamically if needed
-          className='aspect-square w-full'
-          alt='Feature Image'
-        />
-      </div>
+      <img
+        src={features[activeFeature].image} // Dynamically set the image based on activeFeature
+        className='w-full rounded-[1rem] shadow-glow'
+        alt='Feature Image'
+      />
     </section>
   );
 };
@@ -656,9 +657,9 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className='flex aspect-video h-[250px] w-[320px] animate-pulse-slow flex-col justify-between rounded-lg border border-slate-300 border-opacity-30 bg-slate-400 bg-opacity-30 p-6 shadow-lg'
+            className='flex aspect-video h-[250px] w-[320px] flex-col justify-between rounded-lg border border-slate-300 border-opacity-30 bg-slate-400 bg-opacity-30 p-6 shadow-lg'
           >
-            <p className='text-md mb-4 font-bold text-slate-300'>
+            <p className='mb-4 animate-pulse-slow text-lg font-light text-slate-400 '>
               "{testimonial.text}"
             </p>
             <div className='flex items-center space-x-4'>
@@ -667,7 +668,7 @@ const Testimonials = () => {
                 src={testimonial.image}
                 alt={`${testimonial.name}'s profile`}
               />
-              <p className='font-bold text-slate-300'>
+              <p className='text-md text-slate-400'>
                 {testimonial.name}, {testimonial.role}
               </p>
             </div>
@@ -708,9 +709,10 @@ function Page() {
       <Question />
       <div className='h-[2rem] sm:h-[5rem]' />
       <Map />
-      <Testimonials />
-      <div className='h-[2rem] sm:h-[5rem]' />
+      <div className='h-[3rem] sm:h-[5rem]' />
       <CallToAction />
+      <div className='h-[2rem] sm:h-[5rem]' />
+      <Testimonials />
       <div className='h-[2rem] sm:h-[5rem]' />
       {/* <ScheduleBooking />
       <div className='h-[2rem] sm:h-[5rem]' /> */}
@@ -725,8 +727,6 @@ function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
-      <div className='h-[2rem] sm:h-[5rem]' />
-      <ChatWithAstralCTA />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
