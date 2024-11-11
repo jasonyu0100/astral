@@ -19,6 +19,7 @@ import {
   ContextForSpacesFocus,
   SpacesFocusSidebarMode,
 } from '../../../../controller/main';
+import { ContextForSpacesFocusModals } from '../../../../modal/controller/main';
 
 const ItemType = {
   TASK: 'task',
@@ -64,6 +65,7 @@ export function SpacesFocusKanban() {
 
 function KanbanRow({ title, tasks, status }) {
   const taskListController = useContext(ContextForTaskListFromChapter);
+  const taskModalsController = useContext(ContextForSpacesFocusModals);
 
   const [{ isOver }, drop] = useDrop({
     accept: ItemType.TASK,
@@ -94,7 +96,10 @@ function KanbanRow({ title, tasks, status }) {
       </div>
       <div
         ref={drop}
-        className={`flex h-full flex-row space-x-[1rem] overflow-auto rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
+        className={`flex h-full cursor-pointer flex-row space-x-[1rem] overflow-auto rounded pb-[1rem] ${isOver ? 'bg-blue-200 bg-opacity-30' : ''}`}
+        onDoubleClick={() => {
+          taskModalsController.addTaskController.open();
+        }}
       >
         {tasks.map((task) => (
           <KanbanTask key={task.id} task={task} />

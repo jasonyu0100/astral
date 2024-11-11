@@ -5,10 +5,9 @@ import { AstralModalBodyContents } from '@/components/modal/astral/body/action/m
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
 import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
-import { AstralModalTitle } from '@/components/modal/astral/title/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
+import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralCheckIcon } from '@/icons/check/main';
-import { AstralRefreshIcon } from '@/icons/refresh/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useContext, useState } from 'react';
 import { ContextForSpacesFocus, TaskTemplate } from '../../controller/main';
@@ -30,15 +29,43 @@ export function SpacesFocusGenerateTasksModal() {
     );
   };
 
+  const generateTasks = () => {
+    loadingController.loadingController.open();
+    spacesFocusController.actions
+      .createTasksFromPrompt(generatePrompt)
+      .then((tasks) => {
+        setTasks(tasks);
+        loadingController.loadingController.close();
+      });
+  };
+
+  const createTasks = () => {
+    loadingController.loadingController.open();
+    spacesFocusController.actions
+      .createTasksFromSelected(selectedTasks)
+      .then((tasks) => {
+        console.log(tasks);
+        openableController.close();
+        loadingController.loadingController.close();
+      });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      generateTasks();
+    }
+  };
+
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
           <AstralModalBody>
             <AstralModalBodyContents>
-              <AstralModalTitle>Generate Tasks</AstralModalTitle>
               <AstralTextLineInput
                 placeholder='Enter a prompt'
+                onKeyDown={handleKeyDown}
                 onChange={(e) => setGeneratePrompt(e.target.value)}
               />
               <div className='grid grid-cols-3 gap-[1rem]'>
@@ -59,36 +86,23 @@ export function SpacesFocusGenerateTasksModal() {
               </div>
             </AstralModalBodyContents>
             <AstralModalBodyAction>
+              <AstralRoundedActionButton
+                className='from-slate-500 to-slate-600'
+                onClick={() => {
+                  generateTasks();
+                }}
+              >
+                <AstralBookSparkIcon />
+              </AstralRoundedActionButton>
               {tasks.length > 0 && selectedTasks.length > 0 && (
                 <AstralRoundedActionButton
                   onClick={() => {
-                    loadingController.loadingController.open();
-                    spacesFocusController.actions
-                      .createTasksFromSelected(selectedTasks)
-                      .then((tasks) => {
-                        console.log(tasks);
-                        openableController.close();
-                        loadingController.loadingController.close();
-                      });
+                    createTasks();
                   }}
                 >
                   <AstralCheckIcon />
                 </AstralRoundedActionButton>
               )}
-              <AstralRoundedActionButton
-                className='from-slate-500 to-slate-600'
-                onClick={() => {
-                  loadingController.loadingController.open();
-                  spacesFocusController.actions
-                    .createTasksFromPrompt(generatePrompt)
-                    .then((tasks) => {
-                      setTasks(tasks);
-                      loadingController.loadingController.close();
-                    });
-                }}
-              >
-                <AstralRefreshIcon />
-              </AstralRoundedActionButton>
             </AstralModalBodyAction>
           </AstralModalBody>
         </AstralModalBodyWrapper>
