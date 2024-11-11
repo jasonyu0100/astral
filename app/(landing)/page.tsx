@@ -582,23 +582,33 @@ function ChatWithAstralCTA() {
 
 function SocialFooter() {
   return (
-    <footer className='flex items-center justify-center space-x-6 text-slate-300'>
-      <Link
-        href='https://linkedin.com/company/astral-fun'
-        target='_blank'
-        rel='noopener noreferrer'
-        className='hover:text-slate-100'
-      >
-        <FaLinkedin size={24} />
-      </Link>
-      <Link
-        href='https://www.youtube.com/@astral-fun'
-        target='_blank'
-        rel='noopener noreferrer'
-        className='hover:text-slate-100'
-      >
-        <FaYoutube size={24} />
-      </Link>
+    <footer className='flex flex-col items-center justify-center space-y-4 text-slate-300'>
+      <div className='flex space-x-6'>
+        <Link
+          href='https://linkedin.com/company/astral-fun'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='hover:text-slate-100'
+        >
+          <FaLinkedin size={24} />
+        </Link>
+        <Link
+          href='https://www.youtube.com/@astral-fun'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='hover:text-slate-100'
+        >
+          <FaYoutube size={24} />
+        </Link>
+      </div>
+      <div className='flex space-x-6 text-sm'>
+        <Link href='/privacy-policy' className='hover:text-slate-100'>
+          Privacy Policy
+        </Link>
+        <Link href='/terms-of-service' className='hover:text-slate-100'>
+          Terms of Service
+        </Link>
+      </div>
     </footer>
   );
 }
