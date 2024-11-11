@@ -8,8 +8,8 @@ import {
 } from '@/architecture/controller/task/list-from-space';
 import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { useContext } from 'react';
+import { HomePersonalRowVisibility } from './activity/main';
 import { HomePersonalRowCategory } from './category/main';
-import { HomePersonalRowDays } from './day/main';
 import { HomePersonalRowInfo } from './info/main';
 import { HomePersonalRowMore } from './more/main';
 import { HomePersonalRowNumber } from './number/main';
@@ -33,7 +33,7 @@ export function HomePersonalRow() {
           <HomePersonalRowNumber />
           <HomePersonalRowInfo />
           <HomePersonalRowCategory />
-          <HomePersonalRowDays />
+          <HomePersonalRowVisibility />
           <HomePersonalRowProgress />
           <HomePersonalRowMore />
         </div>

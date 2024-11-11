@@ -65,7 +65,7 @@ export function SpacesPublicEditSpaceModal() {
               <AstralSearchImage
                 fileElem={thumbnail}
                 onChange={(file) => setThumbnail(file)}
-                label='Theme'
+                label='Thumbnail'
               />
               <AstralTextLineInput
                 title='Title'

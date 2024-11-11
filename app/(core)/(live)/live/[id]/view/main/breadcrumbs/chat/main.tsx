@@ -51,7 +51,7 @@ export function PublicSpaceBreadcrumbsChat() {
         </p>
       </div>
       <Link
-        href={`${spacesMap.spaces.id.space.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`}
+        href={`${spacesMap.spaces.id.channel.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`}
       >
         <div className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'>
           <AstralAddIcon />

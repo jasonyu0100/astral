@@ -5,10 +5,10 @@ import {
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 
-export function HomePersonalRowActivity() {
+export function HomePersonalRowVisibility() {
   const spaceObj = useContext(ContextForSpaceObj);
   return (
-    <div className='flex flex-row items-center'>
+    <div className='flex flex-row items-center justify-center'>
       <div
         className={ctwn(`h-[1rem] w-[1rem] animate-pulse-slow rounded-full`, {
           'bg-green-500': spaceObj.visibility === SpaceVisibility.PUBLIC,
