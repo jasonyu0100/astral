@@ -431,16 +431,11 @@ export function useControllerForSpacesChannel() {
 
     async function getChapterContext() {
       const messageHistory = [
-        ...getRoleContext(),
-        ...getSpaceContext(),
-        ...getChaptersContext(),
-        ...getCurrentChapterContext(),
-        ...getTaskContext(),
         ...getMessageContext(),
         `[Existing Context]`,
         chapterListController.state.currentObj?.context,
         `[Instructions]`,
-        `Update the chapter context with the recent conversation history.`,
+        `Update the chapter context with the conversation history.`,
         `Note down key points and insights from the conversation.`,
       ];
       const messagePrompt = messageHistory.join('\n');

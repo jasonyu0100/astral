@@ -1,6 +1,7 @@
 import { NetworkCreativeRowAbout } from './about/main';
 import { NetworkCreativeRowActivity } from './activity/main';
 import { NetworkCreativeRowNumber } from './number/main';
+import { NetworkCreativeRowPlan } from './plan/main';
 import { NetworkCreativeRowRole } from './role/main';
 import { NetworkCreativeRowSpaces } from './spaces/main';
 
@@ -16,9 +17,11 @@ export function NetworkCreativeTableRow() {
       <div>
         <NetworkCreativeRowRole />
       </div>
-      <div></div>
       <div>
         <NetworkCreativeRowSpaces />
+      </div>
+      <div>
+        <NetworkCreativeRowPlan />
       </div>
       <div></div>
       <div>

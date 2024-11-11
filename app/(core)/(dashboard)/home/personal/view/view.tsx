@@ -63,10 +63,7 @@ export function HomePersonalView() {
                   borderFx={borderFx['border-around']}
                 >
                   <GlassWindowContents className='flex flex-col space-y-[1rem]'>
-                    <div className='flex flex-row items-center justify-between'>
-                      <p className='text-xl font-bold text-slate-300'>
-                        {obj?.title}
-                      </p>
+                    <div className='flex flex-row items-center space-x-[1rem]'>
                       <div
                         className='flex h-[2.5rem] w-[2.5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
                         onClick={() => {
@@ -78,6 +75,9 @@ export function HomePersonalView() {
                       >
                         <AstralPlayIcon />
                       </div>
+                      <p className='text-xl font-bold text-slate-300'>
+                        {obj?.title}
+                      </p>
                     </div>
                     <p className='text-sm font-light text-slate-300'>
                       {obj?.description}

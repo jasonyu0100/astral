@@ -14,7 +14,7 @@ export function HomePersonalCreateFromSourceModalPageOne() {
     <FormBody>
       <AstralTextLineInput
         title='Title'
-        placeholder='A title for the space'
+        placeholder='A title for your source'
         defaultValue={createFromSourceController.pageOne.title}
         onChange={(e) =>
           createFromSourceController.pageOne.updateTitle(e.target.value)

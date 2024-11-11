@@ -1,5 +1,4 @@
 'use client';
-import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import {
   ContextForUserActivityListFromChapter,
   useControllerForUserActivityListFromChapter,
@@ -134,17 +133,17 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
 
   useEffect(() => {
-    if (spaceListController.state.objs.length === 0) {
-      const created = new Date(loggedInUser.created);
-      const now = new Date();
-      const diff = now.getTime() - created.getTime();
-      if (diff < 1000 * 60) {
-        // HARD LOCK IN STARTER FOR 1 minute
-        createSpaceController.createSpace().then((space) => {
-          window.location.href = spacesMap.spaces.id.focus.link(space.id);
-        });
-      }
-    }
+    // if (spaceListController.state.objs.length === 0) {
+    //   const created = new Date(loggedInUser.created);
+    //   const now = new Date();
+    //   const diff = now.getTime() - created.getTime();
+    //   if (diff < 1000 * 60) {
+    //     // HARD LOCK IN STARTER FOR 1 minute
+    //     createSpaceController.createSpace().then((space) => {
+    //       window.location.href = spacesMap.spaces.id.focus.link(space.id);
+    //     });
+    //   }
+    // }
     if (
       spaceListController.state.objs.length > 2 &&
       spaceListController.state.objs.length < 5

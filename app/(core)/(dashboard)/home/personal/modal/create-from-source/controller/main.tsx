@@ -120,6 +120,8 @@ export const useControllerForHomePersonalCreateFromSource =
 
     async function createChaptersFromSource() {
       const messageHistory = [
+        `[Source Description]`,
+        title,
         `[Source Text]`,
         source,
         `[Instructions]`,
@@ -128,6 +130,7 @@ export const useControllerForHomePersonalCreateFromSource =
         `If the source text is a paragraph, the paragraph should be split into multiple chapters`,
         `If the source text is a single sentence, the sentence should be split into multiple chapters`,
         `It is crucial that you return title, description, objective and tasks for each chapter following the example format`,
+        `If the source text is broken, default to creating 5 chapters about creativity`,
         `Make sure the the broken down source text is converted into chapters with clear titles, descriptions, objectives and tasks`,
         `[Example return]`,
         `
