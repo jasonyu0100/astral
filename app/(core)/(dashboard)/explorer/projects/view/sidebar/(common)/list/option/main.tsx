@@ -31,7 +31,7 @@ export function ExplorerProjectsSidebarOption({
       >
         <GlassWindowContents>
           <p
-            className={ctwn('text-lg font-bold text-slate-500', {
+            className={ctwn('text-lg font-bold text-slate-400', {
               'text-slate-300': hoverableController.hovered || active,
             })}
           >

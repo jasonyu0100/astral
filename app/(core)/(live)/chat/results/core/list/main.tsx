@@ -2,6 +2,7 @@ import { ContextForConversationMessageList } from '@/architecture/controller/con
 import { ContextForConversationMessageObj } from '@/architecture/model/conversation/message/main';
 import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
 import { useControllerForMessageScrollToBottom } from '@/logic/controller/scroll-to-message-bottom/main';
+import Link from 'next/link';
 import { useContext, useEffect, useRef } from 'react';
 import { SpaceMapChatExplorerMessage } from './message/main';
 
@@ -20,15 +21,13 @@ export function ConversationalSearchChatList() {
       style={{ height: 'calc(100% - 7rem - 7rem)' }}
       ref={ref}
     >
-      <div
+      <Link
         className='absolute right-[2rem] flex h-[4rem] cursor-pointer items-center space-x-[1rem] rounded-full bg-gradient-to-r from-purple-500 to-violet-500 px-[2rem]'
-        onClick={() => {
-          window.location.href = `/register`;
-        }}
+        href='/register'
       >
         <p className='font-bold text-slate-300'>Register</p>
         <AstralChevronUpIcon />
-      </div>
+      </Link>
       <div
         ref={ref}
         className='h-full w-[1000px] overflow-auto border-l border-slate-300 border-opacity-30 p-[3rem]'

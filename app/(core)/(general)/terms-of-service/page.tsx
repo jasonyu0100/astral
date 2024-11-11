@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Page() {
   return (
     <div className='mx-auto mt-10 max-w-4xl rounded-lg bg-white p-6 shadow-lg'>
@@ -86,9 +88,9 @@ export default function Page() {
           </h2>
           <p>
             Your privacy is important to us. Our{' '}
-            <a href='#' className='text-blue-500 underline'>
+            <Link href='#' className='text-blue-500 underline'>
               Privacy Policy
-            </a>{' '}
+            </Link>{' '}
             explains how we collect, use, and protect your personal information.
             By using Astral, you consent to the collection and use of your
             information as outlined in the Privacy Policy.
@@ -149,12 +151,12 @@ export default function Page() {
           </h2>
           <p>
             If you have questions about these Terms, please contact us at{' '}
-            <a
+            <Link
               href='mailto:support@astral.com'
               className='text-blue-500 underline'
             >
               support@astral.com
-            </a>
+            </Link>
             .
           </p>
         </div>

@@ -12,6 +12,7 @@ import { AstralCreditCardIcon } from '@/icons/credit-card/main';
 import { AstralLogoutIcon } from '@/icons/logout/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
+import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 
 export function UserSettingsModal() {
@@ -59,16 +60,17 @@ export function UserSettingsModal() {
               >
                 <AstralCreditCardIcon />
               </AstralRoundedActionButton>
-              <AstralRoundedActionButton
-                className='from-slate-500 to-slate-600'
-                onClick={() => {
-                  alert('Logging out');
-                  window.location.href = portalMap.portal.login.link;
-                  logout();
-                }}
-              >
-                <AstralLogoutIcon />
-              </AstralRoundedActionButton>
+              <Link href={portalMap.portal.login.link}>
+                <AstralRoundedActionButton
+                  className='from-slate-500 to-slate-600'
+                  onClick={() => {
+                    alert('Logging out');
+                    logout();
+                  }}
+                >
+                  <AstralLogoutIcon />
+                </AstralRoundedActionButton>
+              </Link>
             </AstralModalBodyAction>
           </AstralModalBody>
         </AstralModalBodyWrapper>

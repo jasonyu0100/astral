@@ -41,7 +41,7 @@ export function HorizonHorizonSidebarItemHeader({
               {title}
             </p>
           </div>
-          <p className='ml-auto text-sm font-light text-slate-500'>{time}</p>
+          <p className='ml-auto text-sm font-light text-slate-400'>{time}</p>
         </GlassWindowContents>
         {hoverableController.hovered && (
           <GlassWindowPane glassFx={glassFx['glass-10']} />

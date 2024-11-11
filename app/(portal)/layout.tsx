@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
-import { PortalBackground } from './common/background/main';
+import { LandingBackground } from './common/background/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
-    <Suspense fallback={<PortalBackground />}>
-      <PortalBackground>{children}</PortalBackground>
+    <Suspense fallback={<LandingBackground />}>
+      <LandingBackground>{children}</LandingBackground>
     </Suspense>
   );
 }

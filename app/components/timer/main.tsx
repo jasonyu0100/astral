@@ -35,7 +35,7 @@ export function TimerComponent({ hours }: { hours?: number }) {
             className='flex cursor-pointer items-center justify-center'
             onClick={() => timerController.actions.updateTimeDilation(1)}
           >
-            <p className='text-xl font-bold text-slate-500'>-</p>
+            <p className='text-xl font-bold text-slate-400'>-</p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
@@ -47,7 +47,7 @@ export function TimerComponent({ hours }: { hours?: number }) {
             className='flex cursor-pointer items-center justify-center'
             onClick={() => timerController.actions.updateTimeDilation(100)}
           >
-            <p className='text-xl font-bold text-slate-500'>+</p>
+            <p className='text-xl font-bold text-slate-400'>+</p>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>

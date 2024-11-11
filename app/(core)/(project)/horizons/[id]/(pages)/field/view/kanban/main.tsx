@@ -123,7 +123,7 @@ export function HorizonsFieldKanban() {
               style={{ height: '100%' }}
             >
               {/* {inProgress.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
+                <p className='w-full text-center font-bold text-slate-400'>
                   No items
                 </p>
               )} */}
@@ -146,7 +146,7 @@ export function HorizonsFieldKanban() {
               style={{ height: '100%' }}
             >
               {/* {review.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
+                <p className='w-full text-center font-bold text-slate-400'>
                   No items
                 </p>
               )} */}
@@ -172,7 +172,7 @@ export function HorizonsFieldKanban() {
               style={{ height: '100%' }}
             >
               {/* {done.length === 0 && (
-                <p className='w-full text-center font-bold text-slate-500'>
+                <p className='w-full text-center font-bold text-slate-400'>
                   No items
                 </p>
               )} */}

@@ -8,19 +8,15 @@ import { SpaceObj } from '@/architecture/model/space/main';
 import { TaskObj } from '@/architecture/model/task/main';
 import { createContext } from 'react';
 import { blankSpaceTemplate } from './templates/blankSpaceTemplate';
-import { collaborationHubTemplate } from './templates/collaborationHubTemplate';
 import { creativeCampaignTemplate } from './templates/creativeCampaignTemplate';
 import { eventPlanningTemplate } from './templates/eventPlanningTemplate';
 import { ideationTemplate } from './templates/ideationTemplate';
 import { longFormVideoTemplate } from './templates/longFormTemplate';
 import { meetingTemplate } from './templates/meetingTemplate';
 import { musicAndAudioProductionTemplate } from './templates/musicAndAudioProductionTemplate';
-import { prototypeDevelopmentTemplate } from './templates/prototypeDevelopmentTemplate';
 import { shortFormVideoTemplate } from './templates/shortFormTemplate';
+import { socialMediaPostTemplate } from './templates/socialPostTemplate';
 import { startupTemplate } from './templates/startupTemplate';
-import { storyboardTemplate } from './templates/storyboardingTemplate';
-import { userTestingTemplate } from './templates/userTestingTemplate';
-import { uxUiDesignTemplate } from './templates/uxUiDesignTemplate';
 import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
 import { websiteTemplate } from './templates/websiteTemplate';
 import { workProjectTemplate } from './templates/workProjectTemplate';
@@ -119,7 +115,6 @@ export interface TemplatePostObj extends _TemplatePostObj {
 // TEMPLATES
 enum SpaceTemplate {
   Ideation = 'Ideation',
-  Storyboarding = 'Story Boarding',
   Minutes = 'Minutes',
   Blank = 'Blank',
   ShortForm = 'Short Form Video',
@@ -128,13 +123,10 @@ enum SpaceTemplate {
   MusicProduction = 'Music Production',
   Event = 'Event',
   Website = 'Website',
-  MarketingCampaign = '📢 Marketing Campaign',
+  Marketing = 'Marketing',
   Project = 'Project',
-  Design = 'Design',
-  Prototype = 'Prototype',
-  Collaboration = 'Collaboration',
   Startup = 'Startup',
-  UserTesting = 'User Testing',
+  SocialPost = 'Social Post',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -142,20 +134,16 @@ const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
   [SpaceTemplate.Ideation]: ideationTemplate,
   [SpaceTemplate.LongForm]: longFormVideoTemplate,
   [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
+  [SpaceTemplate.SocialPost]: socialMediaPostTemplate,
   [SpaceTemplate.Minutes]: meetingTemplate,
   [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
-  [SpaceTemplate.Startup]: startupTemplate,
   [SpaceTemplate.Project]: workProjectTemplate,
-  [SpaceTemplate.MarketingCampaign]: creativeCampaignTemplate,
-  [SpaceTemplate.Prototype]: prototypeDevelopmentTemplate,
-  [SpaceTemplate.Collaboration]: collaborationHubTemplate,
-  [SpaceTemplate.Design]: uxUiDesignTemplate,
+  [SpaceTemplate.Marketing]: creativeCampaignTemplate,
   [SpaceTemplate.VideoProduction]: videoProductionTemplate,
-  [SpaceTemplate.Website]: websiteTemplate,
-  [SpaceTemplate.Storyboarding]: storyboardTemplate,
-  [SpaceTemplate.UserTesting]: userTestingTemplate,
   [SpaceTemplate.Event]: eventPlanningTemplate,
   [SpaceTemplate.Blank]: blankSpaceTemplate,
+  [SpaceTemplate.Website]: websiteTemplate,
+  [SpaceTemplate.Startup]: startupTemplate,
 };
 
 export { SpaceTemplate as SpaceTemplate, SpaceTemplateMap as SpaceTemplateMap };

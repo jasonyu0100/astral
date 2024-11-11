@@ -34,7 +34,7 @@ export function SpacesChannelSearchImageryItem() {
       ></img>{' '}
       <div
         className={ctwn(
-          'flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-slate-500',
+          'flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-slate-400',
           {
             'bg-blue-500': selected.includes(imageryResult),
           },

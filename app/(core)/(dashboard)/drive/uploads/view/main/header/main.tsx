@@ -5,6 +5,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralFolderIcon } from '@/icons/folder/main';
 import { glassFx } from '@/style/data';
+import Link from 'next/link';
 import { useContext } from 'react';
 import { DriveUploadsDailyHeaderLeft } from './left/main';
 
@@ -19,13 +20,13 @@ export function DriveUploadsDailyHeader() {
         </div>
         <div></div>
         <div className='flex flex-row justify-end'>
-          <AstralFolderIcon
-            onClick={() => {
-              window.location.href = driveMap.drive.finder.gallery.id.link(
-                galleryController.state.objId,
-              );
-            }}
-          />
+          <Link
+            href={driveMap.drive.finder.gallery.id.link(
+              galleryController.state.objId,
+            )}
+          >
+            <AstralFolderIcon />
+          </Link>
         </div>
       </GlassWindowContents>
     </GlassWindowFrame>

@@ -27,7 +27,7 @@ export function SpacesFocusSidebarHeader() {
             onClick={() => updateSidebarMode(SpacesFocusSidebarMode.CHAPTERS)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   sidebarMode === SpacesFocusSidebarMode.CHAPTERS,
               })}
@@ -50,7 +50,7 @@ export function SpacesFocusSidebarHeader() {
             onClick={() => updateSidebarMode(SpacesFocusSidebarMode.ARCHIVE)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   sidebarMode === SpacesFocusSidebarMode.ARCHIVE,
               })}

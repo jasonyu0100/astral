@@ -88,8 +88,8 @@ export function UserProfileEditProfileModal() {
                 className='from-slate-500 to-slate-600'
                 onClick={() => {
                   alert('Logging out');
-                  window.location.href = portalMap.portal.login.link;
                   logout();
+                  window.location.href = portalMap.portal.login.link;
                 }}
               >
                 <AstralLogoutIcon />

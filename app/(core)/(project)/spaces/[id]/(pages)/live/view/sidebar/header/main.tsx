@@ -27,7 +27,7 @@ export function SpacesLiveSidebarHeader() {
             onClick={() => updateSidebarMode(SpacesLiveSidebarMode.CHAPTERS)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   sidebarMode === SpacesLiveSidebarMode.CHAPTERS,
               })}
@@ -50,7 +50,7 @@ export function SpacesLiveSidebarHeader() {
             onClick={() => updateSidebarMode(SpacesLiveSidebarMode.Attachments)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   sidebarMode === SpacesLiveSidebarMode.Attachments,
               })}

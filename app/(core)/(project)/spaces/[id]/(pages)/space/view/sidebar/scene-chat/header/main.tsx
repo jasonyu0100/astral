@@ -27,7 +27,7 @@ export function SpacesSpaceChatSceneHeader() {
           />
         </div>
         <div className='flex w-full items-center justify-center'>
-          <p className='text-md font-bold text-slate-500'>
+          <p className='text-md font-bold text-slate-400'>
             {conversationListController.state.index + 1} /{' '}
             {conversationListController.state.objs.length}
           </p>

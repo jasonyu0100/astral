@@ -6,6 +6,7 @@ import {
 import { createContext } from 'react';
 import { UserChatModal } from '../chat/main';
 import { UserSettingsModal } from '../settings/main';
+import { UserThemeModal } from '../theme/main';
 
 export const ContextForCommonTopbarModals = createContext(
   {} as CommonTopbarModals,
@@ -14,6 +15,7 @@ export const ContextForCommonTopbarModals = createContext(
 export interface CommonTopbarModals {
   userChatModal: ContextForOpenableInterface;
   userSettingsModal: ContextForOpenableInterface;
+  userThemeModal: ContextForOpenableInterface;
 }
 
 export function CommonTopbarModals({
@@ -23,12 +25,14 @@ export function CommonTopbarModals({
 }) {
   const userChatModal = useControllerForOpenable();
   const userSettingsModal = useControllerForOpenable();
+  const userThemeModal = useControllerForOpenable();
 
   return (
     <ContextForCommonTopbarModals.Provider
       value={{
         userChatModal: userChatModal,
         userSettingsModal: userSettingsModal,
+        userThemeModal: userThemeModal,
       }}
     >
       {children}
@@ -37,6 +41,9 @@ export function CommonTopbarModals({
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={userSettingsModal}>
         <UserSettingsModal />
+      </ContextForOpenable.Provider>
+      <ContextForOpenable.Provider value={userThemeModal}>
+        <UserThemeModal />
       </ContextForOpenable.Provider>
     </ContextForCommonTopbarModals.Provider>
   );

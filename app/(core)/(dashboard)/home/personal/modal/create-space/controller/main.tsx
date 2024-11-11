@@ -177,8 +177,6 @@ export const useControllerForHomePersonalCreateSpace =
     }
 
     useEffect(() => {
-      console.log('category', category);
-      console.log(SpaceTemplateMap[category].chapters);
       changeTemplateSpaceChapters(SpaceTemplateMap[category].chapters);
       changeTitle(category);
       changeDescription(SpaceTemplateMap[category].description);

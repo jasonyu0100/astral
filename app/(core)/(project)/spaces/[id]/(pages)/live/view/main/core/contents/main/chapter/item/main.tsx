@@ -13,6 +13,7 @@ import { useControllerForHoverable } from '@/logic/contexts/hoverable/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { glassFx } from '@/style/data';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
+import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 
 export function SpacesLiveChapterPost() {
@@ -68,14 +69,16 @@ export function SpacesLiveChapterPost() {
               />
             </div>
             <div className='col-span-2'>
-              <p
-                className='whitespace-wrap cursor-pointer text-xl font-bold text-blue-500'
-                onClick={() => {
-                  window.location.href = `${liveMap.live.link(spaceMainController.state.objId)}?chapter=${postObj.chapterId}&post=${postObj.id}`;
-                }}
+              <Link
+                href={
+                  liveMap.live.link(spaceMainController.state.objId) +
+                  `?chapter=${postObj.chapterId}&post=${postObj.id}`
+                }
               >
-                {postObj?.title?.trim() || 'Untitled'}
-              </p>
+                <p className='whitespace-wrap cursor-pointer text-xl font-bold text-blue-500'>
+                  {postObj?.title?.trim() || 'Untitled'}
+                </p>
+              </Link>
             </div>
             <div className='col-span-3'>
               <p className='cursor-pointer text-lg font-light text-slate-300'>

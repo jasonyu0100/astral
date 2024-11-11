@@ -16,7 +16,7 @@ export function PortalFormSelect({
       {emoji && <span className='text-2xl'>{emoji}</span>}
       <select
         title='position'
-        className='h-full w-full appearance-none border-none bg-transparent font-extraBold text-3xl leading-9 text-slate-500 outline-none'
+        className='h-full w-full appearance-none border-none bg-transparent font-extraBold text-3xl leading-9 text-slate-400 outline-none'
         {...props}
       >
         {children}

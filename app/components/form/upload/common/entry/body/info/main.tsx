@@ -6,7 +6,7 @@ export function UploadedFileEntryInfo() {
   return (
     <div className='flex flex-col'>
       <p className='text-lg font-bold text-slate-300'>{file.title}</p>
-      <p className='text-sm text-slate-500'>{file.ext}</p>
+      <p className='text-sm text-slate-400'>{file.ext}</p>
     </div>
   );
 }

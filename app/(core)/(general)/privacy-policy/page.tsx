@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Page() {
   return (
     <div className='mx-auto mt-10 max-w-4xl rounded-lg bg-white p-6 shadow-lg'>
@@ -132,12 +134,12 @@ export default function Page() {
           <p>
             If you have questions about this Privacy Policy or your data, please
             contact us at{' '}
-            <a
+            <Link
               href='mailto:support@astral.com'
               className='text-blue-500 underline'
             >
               support@astral.com
-            </a>
+            </Link>
             .
           </p>
         </div>

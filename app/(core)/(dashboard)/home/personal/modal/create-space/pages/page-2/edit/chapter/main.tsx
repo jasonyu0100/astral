@@ -34,7 +34,7 @@ export function HomePersonalCreateSpaceEditChapter() {
         />
         {hoverableController.hovered && (
           <button
-            className='ml-auto mr-[15px] h-[20px] w-[20px] rounded-full bg-slate-500 bg-opacity-30'
+            className='ml-auto mr-[15px] h-[20px] w-[20px] rounded-full bg-slate-400 bg-opacity-30'
             onClick={() =>
               updateTemplateProjectChapters(
                 templateProjectChapters.filter((_, i) => i !== index),

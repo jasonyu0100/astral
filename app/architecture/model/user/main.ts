@@ -44,6 +44,7 @@ export interface UserObj {
   priceId?: string;
   passwordHash?: string;
   clientId?: string;
+  theme?: string;
 }
 
 export const userGql = `
@@ -65,6 +66,7 @@ type UserObj {
 	subscriptionId: String
 	priceId: String
   clientId: String
+  background: String
 }
 `;
 

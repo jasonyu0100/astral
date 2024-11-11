@@ -448,7 +448,7 @@ export function calculateCompletionColor(taskListController: Controller) {
     case ChapterTaskStatus.WAITING:
       return 'bg-blue-500';
     case ChapterTaskStatus.EMPTY:
-      return 'bg-slate-500'; // No tasks at all
+      return 'bg-slate-400'; // No tasks at all
     default:
       return 'bg-red-500';
   }

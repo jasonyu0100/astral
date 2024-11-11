@@ -36,7 +36,7 @@ export function SpacesSpaceRowElement() {
         }}
       >
         <p
-          className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}
+          className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-400'}`}
         >
           {index + 1}. {scene.title || 'Untitled'}
         </p>

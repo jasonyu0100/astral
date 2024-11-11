@@ -1,9 +1,9 @@
+import { ContextForSpacesSpace } from '@/(core)/(project)/spaces/[id]/(pages)/space/controller/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
-import { ContextForSpacesSpace } from '../../../../../../controller/main';
 import { SpacesSpacePaletteDefault } from './default/main';
 import { SpacesSpacePaletteSelected } from './selected/main';
 

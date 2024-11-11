@@ -1,13 +1,14 @@
-import { HyperLinkInputProps } from '@/props/main';
+import { LinkInputProps } from '@/props/main';
+import Link from 'next/link';
 
-interface InputProps extends HyperLinkInputProps {
+interface InputProps extends LinkInputProps {
   children?: React.ReactNode;
 }
 
 export function Tab({ children, ...props }: InputProps) {
   return (
-    <a {...props} className='flex w-[9rem] flex-col items-start pt-1'>
+    <Link {...props} className='flex w-[9rem] flex-col items-start pt-1'>
       {children}
-    </a>
+    </Link>
   );
 }

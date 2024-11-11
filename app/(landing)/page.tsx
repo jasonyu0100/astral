@@ -1,5 +1,5 @@
 'use client';
-import { PortalBackground } from '@/(portal)/common/background/main';
+import { LandingBackground } from '@/(portal)/common/background/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -17,6 +17,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@radix-ui/react-accordion';
+import Link from 'next/link';
 import { SetStateAction, useEffect, useState } from 'react';
 import ScrollableCardList from './horizontal-scroll/main';
 
@@ -29,37 +30,40 @@ const Header = () => (
         alt='Brand Logo'
       />
       <nav className='flex space-x-2 sm:space-x-[3rem]'>
-        <a
+        <Link
           href='/'
           className='text-sm font-bold uppercase text-white sm:text-lg'
         >
           HOME
-        </a>
-        <a
+        </Link>
+        <Link
           href='https://www.youtube.com/@astral-fun'
           target='_blank'
           className='text-sm font-bold uppercase text-white sm:text-lg'
         >
           LEARN
-        </a>
-        <a
+        </Link>
+        <Link
           href='/pricing'
           className='text-sm font-bold uppercase text-white sm:text-lg'
         >
           PRICING
-        </a>
+        </Link>
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>
-      <a href='/register' className='text-sm font-bold text-white sm:text-lg'>
+      <Link
+        href='/register'
+        className='text-sm font-bold text-white sm:text-lg'
+      >
         Signup
-      </a>
-      <a
+      </Link>
+      <Link
         href='/login'
         className='rounded-full bg-blue-500 p-2 px-4 font-bold text-slate-300 sm:p-[1rem] sm:px-[2rem]'
       >
         Login
-      </a>
+      </Link>
     </div>
   </header>
 );
@@ -79,20 +83,20 @@ const HeroSection = () => {
           organized and inspired at every stage of your creative journey.
         </p>
         <div className='flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-[3rem] sm:space-y-0'>
-          <a
+          <Link
             href='/register'
             className='flex h-[4rem] min-w-[200px] max-w-[400px] flex-grow animate-pulse-slow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[6rem] sm:px-[1rem]'
           >
             <span className='font-extraBold text-2xl text-slate-300'>
               Start now
             </span>
-          </a>
-          <a
+          </Link>
+          <Link
             href='mailto:jason@astral.fun'
             className='min-w-[100px] rounded-full p-2 text-2xl font-bold text-slate-300 sm:p-[2rem]'
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
       <div className='w-full px-0 sm:px-[2rem]'>
@@ -193,7 +197,7 @@ const FeaturesSection = () => {
             </div>
             <p
               className={`text-lg font-bold sm:text-3xl ${
-                activeFeature === idx ? 'text-slate-300' : 'text-slate-500'
+                activeFeature === idx ? 'text-slate-300' : 'text-slate-400'
               }`}
             >
               {feature.text}
@@ -325,7 +329,7 @@ const Map = () => {
 
 const FooterCTA = () => (
   <footer className='flex w-full items-center justify-center py-8'>
-    <a
+    <Link
       href='/register'
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
@@ -333,7 +337,7 @@ const FooterCTA = () => (
         Start your creative journey today
       </p>
       <AstralArrowForwardIcon />
-    </a>
+    </Link>
   </footer>
 );
 
@@ -547,10 +551,10 @@ function FAQSection() {
               value={`faq-${index}`}
               className='border-b border-slate-300 border-opacity-30 p-[1rem]'
             >
-              <AccordionTrigger className='px-[1rem] text-start text-lg font-bold  text-slate-500'>
+              <AccordionTrigger className='px-[1rem] text-start text-lg font-bold  text-slate-400'>
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className='px-[1rem] py-[1rem] text-start text-sm font-light text-slate-500'>
+              <AccordionContent className='px-[1rem] py-[1rem] text-start text-sm font-light text-slate-400'>
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
@@ -563,7 +567,7 @@ function FAQSection() {
 
 function ChatWithAstralCTA() {
   return (
-    <a
+    <Link
       href={'/chat'}
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
@@ -571,29 +575,29 @@ function ChatWithAstralCTA() {
         chat with astral
       </p>
       <AstralChatIndicatorIcon />
-    </a>
+    </Link>
   );
 }
 
 function SocialFooter() {
   return (
     <footer className='flex items-center justify-center space-x-6 text-slate-300'>
-      <a
+      <Link
         href='https://linkedin.com/company/astral-fun'
         target='_blank'
         rel='noopener noreferrer'
         className='hover:text-slate-100'
       >
         <FaLinkedin size={24} />
-      </a>
-      <a
+      </Link>
+      <Link
         href='https://www.youtube.com/@astral-fun'
         target='_blank'
         rel='noopener noreferrer'
         className='hover:text-slate-100'
       >
         <FaYoutube size={24} />
-      </a>
+      </Link>
     </footer>
   );
 }
@@ -603,15 +607,18 @@ function SocialProof() {
     <div className='flex w-full flex-col space-y-[1rem] px-[3rem] py-[1rem]'>
       <p className='font-bold text-slate-300'>As featured on...</p>
       <div className='flex w-full flex-row items-center space-x-[2rem]'>
-        <a href='https://www.producthunt.com/products/astral-5' target='_blank'>
+        <Link
+          href='https://www.producthunt.com/products/astral-5'
+          target='_blank'
+        >
           <img src='/landing/product-hunt.png' className='w-[100px]' />
-        </a>
-        <a
+        </Link>
+        <Link
           href='https://www.smh.com.au/technology/from-side-hustle-to-buzzy-ai-start-up-build-club-raises-1-8-million-20241010-p5khd6.html'
           target='_blank'
         >
           <img src='/landing/build-club.png' className='w-[200px]' />
-        </a>
+        </Link>
         {/* <img src='/landing/ofa.jpg' className='w-[100px] rounded-full' /> */}
       </div>
     </div>
@@ -649,7 +656,7 @@ const Testimonials = () => {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className='flex aspect-video h-[250px] w-[320px] animate-pulse-slow flex-col justify-between rounded-lg border border-slate-300 border-opacity-30 bg-slate-500 bg-opacity-30 p-6 shadow-lg'
+            className='flex aspect-video h-[250px] w-[320px] animate-pulse-slow flex-col justify-between rounded-lg border border-slate-300 border-opacity-30 bg-slate-400 bg-opacity-30 p-6 shadow-lg'
           >
             <p className='text-md mb-4 font-bold text-slate-300'>
               "{testimonial.text}"
@@ -674,7 +681,7 @@ const Testimonials = () => {
 function ScheduleBooking() {
   return (
     <div className='flex flex-row space-x-[1rem]'>
-      <a
+      <Link
         href={'https://calendly.com/jasonyu0100/30min'}
         target='_blank'
         className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
@@ -683,14 +690,14 @@ function ScheduleBooking() {
           schedule a booking
         </p>
         <AstralCalendarIcon />
-      </a>
+      </Link>
     </div>
   );
 }
 
 function Page() {
   return (
-    <PortalBackground>
+    <LandingBackground>
       <Header />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HeroSection />
@@ -730,7 +737,7 @@ function Page() {
       <FooterCTA />
       <div className='h-[2rem] sm:h-[5rem]' />
       <SocialFooter />
-    </PortalBackground>
+    </LandingBackground>
   );
 }
 

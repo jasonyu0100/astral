@@ -29,7 +29,6 @@ interface ControllerState {
   interactionMode: SpacesSpaceInteractionMode;
   sidebarMediaMode: SpacesSpaceSidebarMediaMode;
   sidebarContentMode: SpacesSpaceSidebarContentMode;
-  sidebarMode: SpacesSpaceSidebarMode;
   sidebarVisibility: SpacesSpaceSidebarVisibility;
   bubbleMode: SpacesSpaceBubbleMode;
   screenshotRef: React.RefObject<HTMLDivElement>;
@@ -46,7 +45,6 @@ interface ControllerActions {
   updateSelectedIdeas: (ideas: IdeaObj[]) => void;
   updateInteractionMode: (mode: SpacesSpaceInteractionMode) => void;
   updateSidebarContentMode: (mode: SpacesSpaceSidebarContentMode) => void;
-  updateSidebarMode: (mode: SpacesSpaceSidebarMode) => void;
   checkContainsSelectedIdea: (ideaObj: IdeaObj) => boolean;
   updateSidebarVisibility: (visibility: SpacesSpaceSidebarVisibility) => void;
   updateZoom: (zoom: number) => void;
@@ -328,7 +326,6 @@ export function useControllerForSpacesSpace(): Controller {
       interactionMode: interactionMode,
       sidebarMediaMode: sidebarMediaMode,
       sidebarContentMode: listMode,
-      sidebarMode: listSceneMode,
       sidebarVisibility: sidebarVisibility,
       screenshotRef: screenshotRef,
       hideUI: hideUI,
@@ -346,7 +343,6 @@ export function useControllerForSpacesSpace(): Controller {
       updateBubbleMode: (mode) => setBubbleMode(mode),
       updateInteractionMode: (mode) => setInteractionMode(mode),
       updateSidebarContentMode: (mode) => setListMode(mode),
-      updateSidebarMode: (mode) => setListSceneMode(mode),
       updateSidebarVisibility: (visibility) => setSidebarVisibility(visibility),
       updateZoom: (zoom) => setZoom(zoom),
       goToHome: () => {

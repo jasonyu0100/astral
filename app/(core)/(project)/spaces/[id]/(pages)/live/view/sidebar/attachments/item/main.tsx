@@ -39,7 +39,7 @@ export function SpacesLiveSidebarItem() {
             onClick={() => postListController.actions.stateActions.select(post)}
             className='flex h-full w-full cursor-pointer flex-row space-x-[1rem]'
           >
-            <p className={'text-lg font-bold text-slate-500'}>
+            <p className={'text-lg font-bold text-slate-400'}>
               {post.title || 'Untitled'}
             </p>
           </GlassWindowContents>

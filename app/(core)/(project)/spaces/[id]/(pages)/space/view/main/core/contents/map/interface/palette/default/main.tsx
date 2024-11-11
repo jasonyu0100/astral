@@ -66,7 +66,7 @@ export function SpacesSpacePaletteDefault() {
           />
         </>
       )}
-      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-slate-400 p-[0.5rem]'>
         {showMore ? (
           <AstralArrowLeft
             className='h-[2rem] w-[2rem]'

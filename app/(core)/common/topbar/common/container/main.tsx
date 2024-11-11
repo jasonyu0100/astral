@@ -1,11 +1,22 @@
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { borderFx, glassFx } from '@/style/data';
+
 export function DashboardTopbarContainer({
   children,
 }: {
   children?: React.ReactNode;
 }) {
   return (
-    <div className='flex h-[4rem] flex-row border-b-[1px] border-slate-800 border-opacity-30 bg-slate-900 px-[1rem]'>
-      {children}
-    </div>
+    <GlassWindowFrame
+      className='h-[4rem] w-full px-[1rem]'
+      borderFx={borderFx['border-b']}
+    >
+      <GlassWindowContents className='flex flex-row'>
+        {children}
+      </GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-10']} />
+    </GlassWindowFrame>
   );
 }

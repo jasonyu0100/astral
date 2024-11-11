@@ -45,7 +45,7 @@ export function PublicSpaceChapterPostDetails() {
           </div>
         </div>
       </div>
-      <p className='text-lg text-slate-500'>{postObj?.description}</p>
+      <p className='text-lg text-slate-400'>{postObj?.description}</p>
       <GlassWindowFrame
         roundedFx={roundedFx['rounded-full']}
         className='w-[180px] flex-shrink-0'

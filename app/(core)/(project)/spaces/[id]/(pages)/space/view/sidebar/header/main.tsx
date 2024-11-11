@@ -28,7 +28,7 @@ export function SpacesSpaceSidebarHeader() {
             }
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   spacesMapController.state.sidebarContentMode ===
                   SpacesSpaceSidebarContentMode.CHAPTERS,
@@ -57,7 +57,7 @@ export function SpacesSpaceSidebarHeader() {
             }
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   spacesMapController.state.sidebarContentMode ===
                   SpacesSpaceSidebarContentMode.UPLOADS,

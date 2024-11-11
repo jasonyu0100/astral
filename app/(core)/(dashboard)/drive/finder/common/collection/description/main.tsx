@@ -6,6 +6,7 @@ import { ElementVariant } from '@/architecture/model/elements/main';
 import { ContextForGalleryCollectionObj } from '@/architecture/model/gallery/collection/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { getFormattedDate } from '@/utils/dateFormat';
+import Link from 'next/link';
 import { useContext } from 'react';
 import { ContextForDriveFinderModals } from '../../../modals/controller/main';
 
@@ -23,13 +24,9 @@ export function DriveFinderCollectionDescription() {
   );
 
   return (
-    <div
+    <Link
       className='flex w-full flex-grow cursor-pointer flex-col p-[1rem]'
-      onClick={() => {
-        window.location.href = driveMap.drive.finder.collection.id.link(
-          collectionObj.id,
-        );
-      }}
+      href={driveMap.drive.finder.collection.id.link(collectionObj.id)}
     >
       <div className='flex w-full flex-row justify-between space-x-[1rem]'>
         <div className='text-2xl font-bold text-slate-300'>
@@ -65,6 +62,6 @@ export function DriveFinderCollectionDescription() {
             </div>
           ))}
       </div>
-    </div>
+    </Link>
   );
 }

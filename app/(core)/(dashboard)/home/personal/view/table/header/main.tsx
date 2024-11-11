@@ -7,10 +7,10 @@ export function HomePersonalTableHeader() {
       <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
         <div className='grid w-full grid-cols-8 items-center py-[1rem]'>
           <div>
-            <p className='text-center text-sm font-bold text-slate-500'>#</p>
+            <p className='text-center text-sm font-bold text-slate-400'>#</p>
           </div>
           <div className='col-span-2'>
-            <p className='text-sm font-bold text-slate-500'>Space</p>
+            <p className='text-sm font-bold text-slate-400'>Space</p>
           </div>
           <div></div>
           <div></div>

@@ -19,7 +19,7 @@ export default function SpaceFlightRowAdd({
         roundedFx={roundedFx['rounded-full']}
       >
         <div className='flex h-full w-full items-center justify-center'>
-          <div className='font-bold text-slate-500'>{children}</div>
+          <div className='font-bold text-slate-400'>{children}</div>
         </div>
       </GlassAreaContainer>
     </button>

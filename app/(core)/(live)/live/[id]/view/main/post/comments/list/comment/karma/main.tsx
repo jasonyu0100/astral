@@ -65,7 +65,7 @@ export function PublicSpacePageCommentKarma() {
         className={ctwn('text-center text-sm font-bold text-slate-300', {
           'text-blue-300': userVote === -1,
           'text-red-300': userVote === 1,
-          'text-slate-500': userVote === 0,
+          'text-slate-400': userVote === 0,
         })}
       >
         {cumulativeKarma}

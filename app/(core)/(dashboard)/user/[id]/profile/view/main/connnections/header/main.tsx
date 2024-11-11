@@ -14,7 +14,7 @@ export function UserProfileCollaboratorsHeader() {
         <div className='flex w-full flex-row px-[2rem]'>
           <div className='flex w-1/3 flex-row'>
             <p
-              className='text-md cursor-pointer font-bold text-slate-500'
+              className='text-md cursor-pointer font-bold text-slate-400'
               onClick={() => {
                 profileController.actions.updatePage(ProfilePage.Overview);
               }}
@@ -23,12 +23,12 @@ export function UserProfileCollaboratorsHeader() {
             </p>
           </div>
           <div className='flex w-1/3 flex-row justify-center'>
-            <p className='text-md font-bold text-slate-500'>
+            <p className='text-md font-bold text-slate-400'>
               {collaboratorController.state.page}
             </p>
           </div>
           <div className='flex w-1/3 flex-row justify-end'>
-            <p className='text-md font-bold text-slate-500'>
+            <p className='text-md font-bold text-slate-400'>
               {userConectionList.state.objs.length} / 100
             </p>
           </div>

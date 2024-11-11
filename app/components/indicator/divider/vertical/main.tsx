@@ -10,7 +10,7 @@ export function VerticalDivider({ dividerFx, ...props }: VerticalDividerProps) {
       className={`flex h-full w-[20px] flex-shrink-0 flex-row items-center ${props.className}`}
     >
       <div
-        className={`h-full w-[1px] bg-slate-500 bg-opacity-30 ${dividerFx || ''}`}
+        className={`h-full w-[1px] bg-slate-400 bg-opacity-30 ${dividerFx || ''}`}
       />
     </div>
   );

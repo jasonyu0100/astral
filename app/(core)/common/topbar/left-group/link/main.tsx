@@ -1,13 +1,14 @@
-import { HyperLinkInputProps } from '@/props/main';
+import { LinkInputProps } from '@/props/main';
+import Link from 'next/link';
 
-interface InputProps extends HyperLinkInputProps {
+interface InputProps extends LinkInputProps {
   children?: React.ReactNode;
 }
 
 export function TopbarLink({ children, ...props }: InputProps) {
   return (
-    <a className='text-md font-bold uppercase text-slate-500' {...props}>
+    <Link className='text-md font-bold uppercase text-slate-400' {...props}>
       {children}
-    </a>
+    </Link>
   );
 }

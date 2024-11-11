@@ -81,7 +81,7 @@ export function PublicSpacePostContents() {
           <GlassWindowContents className='flex w-full flex-col space-y-[1rem]'>
             <div className='flex h-[5rem] w-full flex-row items-center space-x-[1rem] px-[2rem] shadow-glow'>
               <AstralDownloadIcon onClick={downloadZip} />
-              <p className='font-bold text-slate-500'>
+              <p className='font-bold text-slate-400'>
                 {fileAttachments.length} ideas attached
               </p>
             </div>
@@ -94,7 +94,7 @@ export function PublicSpacePostContents() {
                   <div className='flex w-[300px] flex-shrink-0 flex-col space-y-[1rem]'>
                     <GlassWindowFrame borderFx={borderFx['border-b']}>
                       <GlassWindowContents className='flex'>
-                        <p className='text-lg font-bold text-slate-500'>
+                        <p className='text-lg font-bold text-slate-400'>
                           {attachment?.title || 'untitled'}
                         </p>
                       </GlassWindowContents>

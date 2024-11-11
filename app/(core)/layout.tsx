@@ -1,5 +1,7 @@
-import { DefaultBackground } from '@/components/background/gradient/main';
+'use client';
+
+import { AppBackground } from '@/components/background/main';
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
-  return <DefaultBackground>{children}</DefaultBackground>;
+  return <AppBackground>{children}</AppBackground>;
 }

@@ -1,7 +1,7 @@
 'use client';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { CommonTopbar } from '@/(core)/common/topbar/main';
-import { PortalBackground } from '@/(portal)/common/background/main';
+import { LandingBackground } from '@/(portal)/common/background/main';
 import { Suspense } from 'react';
 
 export default function Layout({
@@ -11,7 +11,7 @@ export default function Layout({
   params: { id: string };
 }) {
   return (
-    <Suspense fallback={<PortalBackground />}>
+    <Suspense fallback={<LandingBackground />}>
       <CommonTopbar />
       <DashboardContainer>
         <div className='flex h-full w-full items-center justify-center'>

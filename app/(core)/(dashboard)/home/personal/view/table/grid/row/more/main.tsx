@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@radix-ui/react-popover';
+import Link from 'next/link';
 import { useContext } from 'react';
 
 export function HomePersonalRowMore() {
@@ -31,29 +32,20 @@ export function HomePersonalRowMore() {
         <PopoverContent>
           <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
             <GlassWindowContents className='flex flex-col space-y-[1rem]'>
-              <div
+              <Link
                 className='flex cursor-pointer flex-row space-x-[1rem]'
-                onClick={() => {
-                  window.location.href = spacesMap.spaces.id.focus.link(
-                    spaceObj.id,
-                  );
-                }}
+                href={spacesMap.spaces.id.focus.link(spaceObj.id)}
               >
                 <AstralFolderOpenIcon />
                 <p className='font-bold text-slate-300'>Open Space</p>
-              </div>
-              <div
+              </Link>
+              <Link
                 className='flex cursor-pointer flex-row space-x-[1rem]'
-                onClick={() => {
-                  navigator.clipboard.writeText(
-                    `astral.fun${liveMap.live.link(spaceObj.id)}`,
-                  );
-                  window.location.href = liveMap.live.link(spaceObj.id);
-                }}
+                href={liveMap.live.link(spaceObj.id)}
               >
                 <AstralLinkIcon />
                 <p className='font-bold text-slate-300'>View Live</p>
-              </div>
+              </Link>
               <HorizontalDivider />
               <div
                 className='flex cursor-pointer flex-row space-x-[1rem]'

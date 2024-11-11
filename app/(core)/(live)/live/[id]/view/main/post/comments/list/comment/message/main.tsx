@@ -17,7 +17,7 @@ export function PublicSpacePageCommentMessage() {
         />
         <p className='text-xl font-bold text-slate-300'>
           {userController.state.obj.displayName || 'Unknown'}{' '}
-          <span className='text-lg text-slate-500'>
+          <span className='text-lg text-slate-400'>
             - {getFormmatedTimeDifference(new Date(commentObj.created))}
           </span>
         </p>

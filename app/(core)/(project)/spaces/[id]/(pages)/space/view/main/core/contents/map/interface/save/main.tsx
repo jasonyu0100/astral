@@ -1,6 +1,6 @@
+import { ContextForSpacesSpace } from '@/(core)/(project)/spaces/[id]/(pages)/space/controller/main';
 import { AstralSaveIcon } from '@/icons/save/main';
 import { useContext } from 'react';
-import { ContextForSpacesSpace } from '../../../../../../controller/main';
 
 export function SpacesSpaceSave() {
   const spacesSpaceController = useContext(ContextForSpacesSpace);

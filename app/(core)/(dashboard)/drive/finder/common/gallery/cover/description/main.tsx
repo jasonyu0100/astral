@@ -3,6 +3,7 @@ import { driveMap } from '@/(core)/(dashboard)/drive/map';
 import { ContextForGalleryObj } from '@/architecture/model/gallery/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
 import { getFormattedDate } from '@/utils/dateFormat';
+import Link from 'next/link';
 import { useContext } from 'react';
 
 export function DriveFinderContainerDescription() {
@@ -10,13 +11,9 @@ export function DriveFinderContainerDescription() {
   const driveFinderModalsController = useContext(ContextForDriveFinderModals);
 
   return (
-    <div
+    <Link
       className='flex w-full flex-grow cursor-pointer flex-col p-[1rem]'
-      onClick={() => {
-        window.location.href = driveMap.drive.finder.gallery.id.link(
-          galleryObj.id,
-        );
-      }}
+      href={driveMap.drive.finder.gallery.id.link(galleryObj.id)}
     >
       <div className='flex w-full flex-row justify-between space-x-[1rem]'>
         <div className='font-extraBold text-2xl text-slate-300'>
@@ -35,6 +32,6 @@ export function DriveFinderContainerDescription() {
       <div className='mt-[1rem] text-sm font-light text-slate-300'>
         {getFormattedDate(new Date(galleryObj.created))}
       </div>
-    </div>
+    </Link>
   );
 }

@@ -43,7 +43,7 @@ export function SpacesSidebarAddMemberItem() {
     >
       <div
         className={ctwn(
-          'flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-slate-500 font-bold text-white',
+          'flex h-[2rem] w-[2rem] items-center justify-center rounded-full bg-slate-400 font-bold text-white',
           {
             'bg-blue-500': selected,
           },

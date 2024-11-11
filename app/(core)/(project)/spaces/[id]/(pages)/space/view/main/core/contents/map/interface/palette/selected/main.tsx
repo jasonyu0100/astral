@@ -15,7 +15,7 @@ export function SpacesSpacePaletteSelected() {
 
   return (
     <>
-      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-slate-400 p-[0.5rem]'>
         <AstralDeleteIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
@@ -26,7 +26,7 @@ export function SpacesSpacePaletteSelected() {
           }}
         />
       </div>
-      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-slate-400 p-[0.5rem]'>
         <AstralContentCopyIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
@@ -34,7 +34,7 @@ export function SpacesSpacePaletteSelected() {
           }}
         />
       </div>
-      <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+      <div className='flex items-center justify-center rounded-full bg-slate-400 p-[0.5rem]'>
         <AstralForwardIcon
           className='h-[2rem] w-[2rem]'
           onClick={() => {
@@ -43,7 +43,7 @@ export function SpacesSpacePaletteSelected() {
         />
       </div>
       {spacesSpaceController.state.selectedIdeas.length >= 2 && (
-        <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+        <div className='flex items-center justify-center rounded-full bg-slate-400 p-[0.5rem]'>
           <AstralCombineIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {
@@ -53,7 +53,7 @@ export function SpacesSpacePaletteSelected() {
         </div>
       )}
       {spacesSpaceController.state.selectedIdeas.length >= 2 && (
-        <div className='flex items-center justify-center rounded-full bg-slate-500 p-[0.5rem]'>
+        <div className='flex items-center justify-center rounded-full bg-slate-400 p-[0.5rem]'>
           <AstralPolylineIcon
             className='h-[2rem] w-[2rem]'
             onClick={() => {

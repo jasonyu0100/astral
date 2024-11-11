@@ -43,7 +43,7 @@ export function ImagePreview({
       </div>
       {fileElem?.src && (
         <div className='ml-[3rem] flex flex-grow flex-col space-y-[1rem] py-[1rem]'>
-          <p className='text-xl font-bold capitalize text-slate-500'>
+          <p className='text-xl font-bold capitalize text-slate-400'>
             {fileElem?.title}
           </p>
           <div className='flex flex-row'>

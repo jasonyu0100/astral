@@ -7,7 +7,7 @@ export function SpacesFocusHeaderRight() {
   return (
     <div className='flex w-1/3 flex-row items-center justify-end'>
       {/* {spacesFocusController.state.selectedTasks.length === 0 && (
-        <p className='animate-pulse-slow font-bold text-slate-500'>
+        <p className='animate-pulse-slow font-bold text-slate-400'>
           No tasks selected
         </p>
       )}

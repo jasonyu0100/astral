@@ -13,6 +13,7 @@ import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
+import Link from 'next/link';
 import { useContext } from 'react';
 import {
   ContextForPublicSpace,
@@ -104,7 +105,7 @@ function SelectedPublicSpaceSidebarItem() {
             </p>
           </div>
           <div
-            className={`flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.Chat ? 'bg-emerald-500' : 'bg-slate-500'}`}
+            className={`flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.Chat ? 'bg-emerald-500' : 'bg-slate-400'}`}
           >
             <AstralChatIndicatorIcon
               onClick={(e) => {
@@ -126,38 +127,35 @@ function SelectedPublicSpaceSidebarItem() {
           {chapterObj.description}
         </p>
         <HorizontalDivider />
-        <GlassWindowFrame
-          className='w-full flex-shrink-0'
-          roundedFx={roundedFx['rounded-full']}
-          borderFx={borderFx['border-around']}
+        <Link
+          href={spacesMap.spaces.id.focus.link(spaceMainController.state.objId)}
         >
-          <GlassWindowContents
-            onClick={() => {
-              window.location.href = spacesMap.spaces.id.focus.link(
-                spaceMainController.state.objId,
-              );
-            }}
-            className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'
+          <GlassWindowFrame
+            className='w-full flex-shrink-0'
+            roundedFx={roundedFx['rounded-full']}
+            borderFx={borderFx['border-around']}
           >
-            <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
-              <div
-                className='absolute top-0 h-full bg-yellow-500 '
-                style={{
-                  left: `0px`,
-                  width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                }}
-              ></div>
-              <div
-                className='absolute top-0 h-full bg-green-500'
-                style={{
-                  left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
-                }}
-              ></div>
-            </div>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
+            <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
+              <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
+                <div
+                  className='absolute top-0 h-full bg-yellow-500 '
+                  style={{
+                    left: `0px`,
+                    width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+                  }}
+                ></div>
+                <div
+                  className='absolute top-0 h-full bg-green-500'
+                  style={{
+                    left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+                    width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
+                  }}
+                ></div>
+              </div>
+            </GlassWindowContents>
+            <GlassWindowPane glassFx={glassFx['glass-10']} />
+          </GlassWindowFrame>
+        </Link>
       </GlassWindowContents>
       <GlassWindowPane glassFx={glassFx['glass-20']} />
     </GlassWindowFrame>

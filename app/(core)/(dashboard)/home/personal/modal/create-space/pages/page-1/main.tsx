@@ -23,7 +23,7 @@ export function HomePersonalCreateSpaceModalPageOne() {
       >
         {Object.entries(SpaceTemplateMap).map(([template, obj]) => (
           <option key={template} value={template}>
-            {obj.title}
+            {obj?.title}
           </option>
         ))}
       </FormSelect>

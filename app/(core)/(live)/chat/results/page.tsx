@@ -3,6 +3,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralCalendarIcon } from '@/icons/calendar/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
+import Link from 'next/link';
 
 const Map = () => (
   <div className='flex h-[600px] w-full flex-col items-center justify-center'>
@@ -120,14 +121,14 @@ export default function Results() {
       <Map />
       <div className='h-[2rem]' />
       <div className='flex flex-col items-center'>
-        <a
+        <Link
           href='https://calendly.com/jasonyu0100/15min'
           target='_blank'
           className=' flex animate-pulse-slow space-x-[1rem] rounded-full bg-gradient-to-r from-blue-500 to-cyan-500  px-[3rem] py-[2rem]'
         >
           <AstralCalendarIcon className='h-[2rem] w-[2rem] fill-white' />
           <p className='text-2xl  font-bold text-white'>Book a meeting</p>
-        </a>
+        </Link>
       </div>
     </div>
   );

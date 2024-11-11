@@ -27,6 +27,7 @@ export function HomePersonalView() {
           <div
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-[1rem] p-[2rem]'
             onClick={() => {
+              createSpaceController.pageOne.updateCategory(SpaceTemplate.Blank);
               spacesPersonalModalsController.createSpaceController.open();
             }}
           >
@@ -42,12 +43,16 @@ export function HomePersonalView() {
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-purple-500 to-violet-500 p-[1rem] p-[2rem]'
           >
             <p className='text-xl font-bold text-slate-300'>
-              Create from a source
+              Create from source
             </p>
             <AstralBookSparkIcon className='h-[2rem] w-[2rem]' />
           </div>
         </div>
-        <GlassWindowFrame className='p-[2rem]' roundedFx={roundedFx.rounded}>
+        <GlassWindowFrame
+          className='p-[2rem]'
+          roundedFx={roundedFx['rounded']}
+          borderFx={borderFx['border-around']}
+        >
           <GlassWindowContents className='flex flex-col space-y-[2rem]'>
             <p className='text-2xl font-bold text-slate-300'>
               Get started from a template
@@ -62,7 +67,7 @@ export function HomePersonalView() {
                   <GlassWindowContents className='flex flex-col space-y-[1rem]'>
                     <div className='flex flex-row items-center justify-between'>
                       <p className='text-xl font-bold text-slate-300'>
-                        {obj.title}
+                        {obj?.title}
                       </p>
                       <div
                         className='flex h-[2.5rem] w-[2.5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
@@ -70,7 +75,6 @@ export function HomePersonalView() {
                           createSpaceController.pageOne.updateCategory(
                             template as SpaceTemplate,
                           );
-                          console.log(template);
                           spacesPersonalModalsController.createSpaceController.open();
                         }}
                       >
@@ -78,7 +82,7 @@ export function HomePersonalView() {
                       </div>
                     </div>
                     <p className='text-sm font-light text-slate-300'>
-                      {obj.description}
+                      {obj?.description}
                     </p>
                   </GlassWindowContents>
                   <GlassWindowPane glassFx={glassFx['glass-5']} />

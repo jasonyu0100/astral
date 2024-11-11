@@ -21,7 +21,7 @@ export function DriveFinderBreadcrumbItem({
           {children}
         </Link>
       ) : (
-        <Link className='text-lg font-bold text-slate-500' {...props}>
+        <Link className='text-lg font-bold text-slate-400' {...props}>
           {children}
         </Link>
       )}

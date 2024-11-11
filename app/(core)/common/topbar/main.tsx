@@ -3,7 +3,7 @@ import { ContextForCurrentSpaceObj } from '@/architecture/model/space/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { CommonTopbarModals } from '../modals/controller/main';
+import { CommonTopbarModals } from './modals/controller/main';
 import { CommonTopbarView } from './view/main';
 
 export function CommonTopbar() {

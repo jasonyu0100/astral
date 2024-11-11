@@ -3,6 +3,7 @@ import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { stripeExistingBillingSession } from '@/external/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
+import Link from 'next/link';
 
 function Page() {
   const user = useGlobalUser((state) => state.user);
@@ -25,14 +26,15 @@ function Page() {
       >
         OPEN BILLING
       </button>
-      <button
-        type='submit'
-        role='link'
-        className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
-        onClick={() => (window.location.href = homeMap.home.personal.link)}
-      >
-        BACK HOME
-      </button>
+      <Link href={homeMap.home.personal.link}>
+        <button
+          type='submit'
+          role='link'
+          className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
+        >
+          BACK HOME
+        </button>
+      </Link>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export function PublicSpacePostCommentsList() {
 
   return (
     <div className='flex w-full flex-col space-y-[2rem]'>
-      <p className='font-extraBold text-lg text-slate-500'>
+      <p className='font-extraBold text-lg text-slate-400'>
         Comments ({commentListController.state.objs.length})
       </p>
       <HorizontalDivider />

@@ -9,8 +9,8 @@ export function HorizonsPointMainCore() {
     <div className='absolute h-full w-full divide-y-[1px] divide-slate-300 divide-opacity-30'>
       <HorizonsPointHemisphere>
         <HorizonsPointQuadrant>
-          <p className='text-sm font-bold text-slate-500'>Point: A</p>
-          <p className='text-sm font-bold text-slate-500'>
+          <p className='text-sm font-bold text-slate-400'>Point: A</p>
+          <p className='text-sm font-bold text-slate-400'>
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
@@ -20,8 +20,8 @@ export function HorizonsPointMainCore() {
           </HorizonQuadrantBacking>
         </HorizonsPointQuadrant>
         <HorizonsPointQuadrant>
-          <p className='text-sm font-bold text-slate-500'>Point: P1</p>
-          <p className='text-sm font-bold text-slate-500'>
+          <p className='text-sm font-bold text-slate-400'>Point: P1</p>
+          <p className='text-sm font-bold text-slate-400'>
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
@@ -33,8 +33,8 @@ export function HorizonsPointMainCore() {
       </HorizonsPointHemisphere>
       <HorizonsPointHemisphere>
         <HorizonsPointQuadrant>
-          <p className='text-sm font-bold text-slate-500'>Point: P2</p>
-          <p className='text-sm font-bold text-slate-500'>
+          <p className='text-sm font-bold text-slate-400'>Point: P2</p>
+          <p className='text-sm font-bold text-slate-400'>
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>
@@ -44,8 +44,8 @@ export function HorizonsPointMainCore() {
           </HorizonQuadrantBacking>
         </HorizonsPointQuadrant>
         <HorizonsPointQuadrant>
-          <p className='text-sm font-bold text-slate-500'>Point: B</p>
-          <p className='text-sm font-bold text-slate-500'>
+          <p className='text-sm font-bold text-slate-400'>Point: B</p>
+          <p className='text-sm font-bold text-slate-400'>
             What should we do about this?
           </p>
           <HorizonQuadrantBacking>

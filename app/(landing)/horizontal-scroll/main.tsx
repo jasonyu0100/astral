@@ -100,7 +100,7 @@ export default function ScrollableCardList() {
             >
               <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
                 <p className='text-xl font-bold text-slate-300'>{card.title}</p>
-                <p className='text-sm font-light text-slate-500'>
+                <p className='text-sm font-light text-slate-400'>
                   {card.description}
                 </p>
               </GlassWindowContents>

@@ -28,7 +28,7 @@ export function SpacesChannelSidebarHeader() {
             }
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   spacesConversationController.state.sidebarContentMode ===
                   SpacesChannelSidebarContentMode.CHAPTERS,
@@ -57,7 +57,7 @@ export function SpacesChannelSidebarHeader() {
             }
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 'text-slate-300':
                   spacesConversationController.state.sidebarContentMode ===
                   SpacesChannelSidebarContentMode.MEMBERS,

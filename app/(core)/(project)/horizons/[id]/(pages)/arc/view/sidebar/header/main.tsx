@@ -17,7 +17,7 @@ export function HorizonsArcSidebarHeader() {
             // onClick={() => updateSidebarMode(SpacesJourneySidebarMode.LINKS)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 // 'text-slate-300':
                 //   sidebarMode === SpacesJourneySidebarMode.LINKS,
               })}
@@ -38,7 +38,7 @@ export function HorizonsArcSidebarHeader() {
             // onClick={() => updateSidebarMode(SpacesJourneySidebarMode.NOTES)}
           >
             <p
-              className={ctwn('font-bold text-slate-500', {
+              className={ctwn('font-bold text-slate-400', {
                 // 'text-slate-300':
                 //   sidebarMode === SpacesJourneySidebarMode.NOTES,
               })}

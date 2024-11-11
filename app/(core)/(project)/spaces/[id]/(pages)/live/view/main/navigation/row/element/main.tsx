@@ -38,7 +38,7 @@ export function SpacesLiveRowElement() {
         }}
       >
         <p
-          className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-500'}`}
+          className={`w-full whitespace-nowrap font-bold ${active ? 'text-slate-300' : 'text-slate-400'}`}
         >
           {index + 1}. {post.title || 'Untitled'}
         </p>

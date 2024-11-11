@@ -33,7 +33,7 @@ export function SearchButton() {
         >
           <div className='flex h-full w-full flex-row items-center space-x-[2rem]'>
             <AstralSearchIcon className='h-[2rem] w-[2rem]' />
-            <p className='text-md font-light text-slate-500'>
+            <p className='text-md font-light text-slate-400'>
               {fileChangableController?.fileElem?.title === undefined
                 ? 'No image selected'
                 : fileChangableController?.fileElem?.title}
