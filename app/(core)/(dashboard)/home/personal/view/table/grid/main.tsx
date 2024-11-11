@@ -7,8 +7,6 @@ import { HomePersonalRowWrapper } from './wrapper/main';
 
 export function HomePersonalTableGrid() {
   const spaceListController = useContext(ContextForSpaceList);
-  console.log(spaceListController.state.objs);
-
   return (
     <div className='w-full px-[3rem] py-[1rem]'>
       {spaceListController.state.objs?.map((space, index) => (

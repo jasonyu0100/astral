@@ -47,18 +47,6 @@ export function SpacesChannelHeaderLeft() {
           );
         }}
       />
-      {/* <AstralCloseIcon
-        onClick={() => {
-          conversationListController.actions.deleteActions.delete(
-            conversationListController.state.objId,
-          );
-        }}
-      /> */}
-      {/* <AstralForumIcon
-        onClick={() => {
-          alert('coming soon');
-        }}
-      /> */}
     </div>
   );
 }

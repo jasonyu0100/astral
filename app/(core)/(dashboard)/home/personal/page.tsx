@@ -9,6 +9,10 @@ import {
   useControllerForChapterConversationList,
 } from '@/architecture/controller/conversation/list';
 import {
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/architecture/controller/idea/list';
+import {
   ContextForIdeaSceneList,
   useControllerForIdeaSceneList,
 } from '@/architecture/controller/scene/list';
@@ -34,6 +38,10 @@ import {
   HomePersonalModals,
 } from './modal/controller/main';
 import {
+  ContextForHomePersonalCreateFromSource,
+  useControllerForHomePersonalCreateFromSource,
+} from './modal/create-from-source/controller/main';
+import {
   ContextForHomePersonalCreateSpace,
   useControllerForHomePersonalCreateSpace,
 } from './modal/create-space/controller/main';
@@ -49,6 +57,9 @@ function Page() {
   const sceneListController = useControllerForIdeaSceneList(
     chapterListController.state.objId,
   );
+  const ideaListController = useControllerForSceneIdeaList(
+    sceneListController.state.objId,
+  );
   const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
   );
@@ -63,23 +74,25 @@ function Page() {
         <ContextForSpaceChapterList.Provider value={chapterListController}>
           <ContextForTaskListFromChapter.Provider value={taskListController}>
             <ContextForIdeaSceneList.Provider value={sceneListController}>
-              <ContextForChapterConversationList.Provider
-                value={conversationListController}
-              >
-                <ContextForUserActivityListFromChapter.Provider
-                  value={chapterActivityListController}
+              <ContextForSceneIdeaList.Provider value={ideaListController}>
+                <ContextForChapterConversationList.Provider
+                  value={conversationListController}
                 >
-                  <ControllerWrapper>
-                    <ModalWrapper>
-                      <EffectWrapper>
-                        <LoadingWrapper>
-                          <HomePersonalView />
-                        </LoadingWrapper>
-                      </EffectWrapper>
-                    </ModalWrapper>
-                  </ControllerWrapper>
-                </ContextForUserActivityListFromChapter.Provider>
-              </ContextForChapterConversationList.Provider>
+                  <ContextForUserActivityListFromChapter.Provider
+                    value={chapterActivityListController}
+                  >
+                    <ControllerWrapper>
+                      <ModalWrapper>
+                        <EffectWrapper>
+                          <LoadingWrapper>
+                            <HomePersonalView />
+                          </LoadingWrapper>
+                        </EffectWrapper>
+                      </ModalWrapper>
+                    </ControllerWrapper>
+                  </ContextForUserActivityListFromChapter.Provider>
+                </ContextForChapterConversationList.Provider>
+              </ContextForSceneIdeaList.Provider>
             </ContextForIdeaSceneList.Provider>
           </ContextForTaskListFromChapter.Provider>
         </ContextForSpaceChapterList.Provider>
@@ -94,11 +107,20 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const createSpaceController = useControllerForHomePersonalCreateSpace();
+  const createFromSourceController =
+    useControllerForHomePersonalCreateFromSource();
+
   return (
     <>
-      <ContextForHomePersonalCreateSpace.Provider value={createSpaceController}>
-        {children}
-      </ContextForHomePersonalCreateSpace.Provider>
+      <ContextForHomePersonalCreateFromSource.Provider
+        value={createFromSourceController}
+      >
+        <ContextForHomePersonalCreateSpace.Provider
+          value={createSpaceController}
+        >
+          {children}
+        </ContextForHomePersonalCreateSpace.Provider>
+      </ContextForHomePersonalCreateFromSource.Provider>
     </>
   );
 }

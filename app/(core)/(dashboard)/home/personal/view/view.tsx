@@ -1,5 +1,4 @@
 'use client';
-import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -15,11 +14,8 @@ import { HomePersonalContainer } from './container/main';
 import { HomePersonalTable } from './table/main';
 
 export function HomePersonalView() {
-  const spacesPersonalModalsController = useContext(
-    ContextForHomePersonalModals,
-  );
+  const homePersonalModalsController = useContext(ContextForHomePersonalModals);
   const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
-  const spaceListController = useContext(ContextForSpaceList);
 
   return (
     <>
@@ -30,7 +26,7 @@ export function HomePersonalView() {
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-[1rem] p-[2rem]'
             onClick={() => {
               createSpaceController.pageOne.updateCategory(SpaceTemplate.Blank);
-              spacesPersonalModalsController.createSpaceController.open();
+              homePersonalModalsController.createSpaceController.open();
             }}
           >
             <p className='text-xl font-bold text-slate-300'>
@@ -40,7 +36,7 @@ export function HomePersonalView() {
           </div>
           <div
             onClick={() => {
-              alert('coming soon...');
+              homePersonalModalsController.createFromSourceController.open();
             }}
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-purple-500 to-violet-500 p-[1rem] p-[2rem]'
           >
@@ -77,7 +73,7 @@ export function HomePersonalView() {
                           createSpaceController.pageOne.updateCategory(
                             template as SpaceTemplate,
                           );
-                          spacesPersonalModalsController.createSpaceController.open();
+                          homePersonalModalsController.createSpaceController.open();
                         }}
                       >
                         <AstralPlayIcon />

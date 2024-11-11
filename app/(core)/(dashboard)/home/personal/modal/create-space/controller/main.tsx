@@ -1,5 +1,6 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
+import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
@@ -9,6 +10,10 @@ import {
   exampleFileElement,
   FileElement,
 } from '@/architecture/model/elements/file/main';
+import {
+  TextElement,
+  TextElementVariant,
+} from '@/architecture/model/elements/text/main';
 import { SpaceObj } from '@/architecture/model/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import {
@@ -16,6 +21,7 @@ import {
   SpaceTemplateMap,
   TemplateChapterObj,
 } from '@/templates/space/main';
+import { getTextIdeaBounds } from '@/utils/bounds';
 import { createContext, useContext, useEffect, useState } from 'react';
 export interface PageOne {
   title: string;
@@ -56,6 +62,7 @@ export const useControllerForHomePersonalCreateSpace =
     const taskListController = useContext(ContextForTaskListFromChapter);
     const chapterListController = useContext(ContextForSpaceChapterList);
     const sceneListController = useContext(ContextForIdeaSceneList);
+    const ideaListController = useContext(ContextForSceneIdeaList);
     const conversationListController = useContext(
       ContextForChapterConversationList,
     );
@@ -63,16 +70,16 @@ export const useControllerForHomePersonalCreateSpace =
       ContextForUserActivityListFromChapter,
     );
     const spaceMembersListController = useControllerForSpaceMemberList('');
-    const [title, changeTitle] = useState(
+    const [title, setTitle] = useState(
       SpaceTemplateMap[SpaceTemplate.Blank].title,
     );
-    const [description, changeDescription] = useState(
+    const [description, setDescription] = useState(
       SpaceTemplateMap[SpaceTemplate.Blank].description,
     );
-    const [category, changeCategory] = useState(SpaceTemplate.Blank);
-    const [theme, changeTheme] = useState<FileElement>(exampleFileElement);
-    const [memberIds, changeMemberIds] = useState<string[]>([]);
-    const [templateSpaceChapters, changeTemplateSpaceChapters] = useState(
+    const [category, setCategory] = useState(SpaceTemplate.Blank);
+    const [theme, setTheme] = useState<FileElement>(exampleFileElement);
+    const [memberIds, setMemberIds] = useState<string[]>([]);
+    const [templateSpaceChapters, setTemplateSpaceChapters] = useState(
       SpaceTemplateMap[category].chapters,
     );
 
@@ -151,13 +158,38 @@ export const useControllerForHomePersonalCreateSpace =
 
       const scenes = await Promise.all(
         chapters.map((chapter, index) =>
-          sceneListController.actions.createActions.createScene(
-            'Scene',
-            chapter.description,
-            chapter.objective,
-            user.id,
-            chapter.id,
-          ),
+          sceneListController.actions.createActions
+            .createScene(
+              'Scene',
+              chapter.description,
+              chapter.objective,
+              user.id,
+              chapter.id,
+            )
+            .then((scene) => {
+              const textElem = {
+                id: crypto.randomUUID(),
+                title: chapter.title,
+                text: chapter.description,
+                variant: TextElementVariant.ARTICLE,
+              } as unknown as TextElement;
+
+              const { width, height } = getTextIdeaBounds(textElem);
+
+              ideaListController.actions.createActions.createIdeaFromTextElement(
+                user.id,
+                scene.id,
+                title,
+                description,
+                Math.ceil(Math.random() * 200),
+                Math.ceil(Math.random() * 200),
+                width,
+                height,
+                textElem,
+                ideaListController.state.objs.length,
+              );
+              console.log('SCENE CREATED', scene);
+            }),
         ),
       );
       console.log('SCENES CREATED', scenes);
@@ -177,51 +209,29 @@ export const useControllerForHomePersonalCreateSpace =
     }
 
     useEffect(() => {
-      changeTemplateSpaceChapters(SpaceTemplateMap[category].chapters);
-      changeTitle(category);
-      changeDescription(SpaceTemplateMap[category].description);
+      setTemplateSpaceChapters(SpaceTemplateMap[category].chapters);
+      setTitle(category);
+      setDescription(SpaceTemplateMap[category].description);
     }, [category]);
-
-    const pageOne: PageOne = {
-      title,
-      updateTitle: (title: string) => changeTitle(title),
-      category,
-      updateCategory: (category: SpaceTemplate) => changeCategory(category),
-      thumbnail: theme,
-      updateThumbnail: (thumbnail: FileElement) => changeTheme(thumbnail),
-      description,
-      updateDescription: (description: string) =>
-        changeDescription(description),
-      memberIds: memberIds,
-      updateMemberIds: (members: string[]) => changeMemberIds(members),
-    };
-
-    const pageTwo: PageTwo = {
-      category: category,
-      templateProjectChapters: templateSpaceChapters,
-      updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
-        changeTemplateSpaceChapters(templates),
-    };
 
     return {
       pageOne: {
         title,
-        updateTitle: (title: string) => changeTitle(title),
+        updateTitle: (title: string) => setTitle(title),
         category,
-        updateCategory: (category: SpaceTemplate) => changeCategory(category),
+        updateCategory: (category: SpaceTemplate) => setCategory(category),
         thumbnail: theme,
-        updateThumbnail: (thumbnail: FileElement) => changeTheme(thumbnail),
+        updateThumbnail: (thumbnail: FileElement) => setTheme(thumbnail),
         description,
-        updateDescription: (description: string) =>
-          changeDescription(description),
+        updateDescription: (description: string) => setDescription(description),
         memberIds: memberIds,
-        updateMemberIds: (members: string[]) => changeMemberIds(members),
+        updateMemberIds: (members: string[]) => setMemberIds(members),
       },
       pageTwo: {
         category: category,
         templateProjectChapters: templateSpaceChapters,
         updateTemplateProjectChapters: (templates: TemplateChapterObj[]) =>
-          changeTemplateSpaceChapters(templates),
+          setTemplateSpaceChapters(templates),
       },
       createSpace,
     };
