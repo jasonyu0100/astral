@@ -24,7 +24,7 @@ export function UserProfileRowProgress() {
 
   return (
     <div className='col-span-2 flex items-center justify-center'>
-      <Link href={spacesMap.spaces.id.focus.link(space.id)}>
+      <Link href={spacesMap.spaces.id.focus.link(space.id)} className='w-full'>
         <GlassWindowFrame
           className='w-full flex-shrink-0'
           roundedFx={roundedFx['rounded-full']}

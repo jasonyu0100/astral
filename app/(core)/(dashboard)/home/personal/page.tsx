@@ -25,6 +25,7 @@ import {
   useControllerForTaskListFromChapter,
 } from '@/architecture/controller/task/list-from-chapter';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import { LoadingWrapper } from '@/components/loading/controller/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useContext, useEffect } from 'react';
@@ -71,7 +72,9 @@ function Page() {
                   <ControllerWrapper>
                     <ModalWrapper>
                       <EffectWrapper>
-                        <HomePersonalView />
+                        <LoadingWrapper>
+                          <HomePersonalView />
+                        </LoadingWrapper>
                       </EffectWrapper>
                     </ModalWrapper>
                   </ControllerWrapper>

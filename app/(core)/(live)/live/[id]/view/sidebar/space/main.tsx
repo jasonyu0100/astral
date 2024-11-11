@@ -36,14 +36,14 @@ export function PublicSpaceSidebarSpace() {
             <div className='flex w-full flex-row items-center justify-between space-x-[1rem]'>
               <div className='flex flex-row items-center space-x-[1rem]'>
                 <img
-                  className='aspect-square h-[3rem] w-[3rem] animate-pulse-slow cursor-pointer rounded-full shadow-glow'
+                  className='aspect-square h-[3rem] w-[3rem] animate-pulse-slow rounded-full shadow-glow'
                   src={
                     spaceMainController.state.obj?.thumbnail?.src ||
                     exampleFileElement.src
                   }
                 />
                 <p className='font-extraBold text-2xl text-slate-300'>
-                  {spaceMainController.state.obj.title}
+                  {spaceMainController.state.obj?.title}
                 </p>
               </div>
               <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-400'>
@@ -57,10 +57,10 @@ export function PublicSpaceSidebarSpace() {
               </div>
             </div>
             <p className='text-md font-light text-slate-300'>
-              {spaceMainController.state.obj.description}
+              {spaceMainController.state.obj?.description}
             </p>
             <p className='text-md font-light text-slate-300'>
-              {spaceMainController.state.obj.objective}
+              {spaceMainController.state.obj?.objective}
             </p>
           </div>
           <HorizontalDivider />

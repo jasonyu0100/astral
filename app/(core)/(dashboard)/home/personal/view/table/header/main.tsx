@@ -3,7 +3,7 @@ import { borderFx } from '@/style/data';
 
 export function HomePersonalTableHeader() {
   return (
-    <div className='w-full px-[3rem]'>
+    <div className='w-full px-[3rem] py-[1rem]'>
       <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
         <div className='grid w-full grid-cols-8 items-center py-[1rem]'>
           <div>

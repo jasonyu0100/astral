@@ -3,7 +3,7 @@ import { TaskStatus } from '@/architecture/model/task/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 
-export function SpacesLiveSidebarChaptersProgress() {
+export function SpacesSpaceSidebarChaptersProgress() {
   const allTaskListFromController = useContext(ContextForTaskListFromSpace);
   const tasks = allTaskListFromController.state.objs;
   const upcoming = tasks.filter(

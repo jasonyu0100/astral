@@ -22,7 +22,7 @@ export function PublicSpaceBreadcrumbs() {
 
   return (
     <div className='flex h-[3rem] flex-shrink-0 flex-col justify-between'>
-      {publicSpaceController.state.feedView === PublicSpaceFeedView.Chat && (
+      {publicSpaceController.state.feedView === PublicSpaceFeedView.CHAT && (
         <div className='flex flex-shrink-0 flex-row justify-between pr-[1rem]'>
           <div className='flex flex-row items-center space-x-[1rem]'>
             <Link href={userMap.profile.link(userMainController.state.obj.id)}>
@@ -37,7 +37,7 @@ export function PublicSpaceBreadcrumbs() {
               )}
             >
               <p className='cursor-pointer text-lg font-bold text-slate-400'>
-                {spaceMainController.state.obj.title}
+                {spaceMainController.state.obj?.title}
               </p>
             </Link>
             <span className='text-lg font-bold text-slate-400'> / </span>
@@ -80,7 +80,7 @@ export function PublicSpaceBreadcrumbs() {
               )}
             >
               <p className='cursor-pointer text-lg font-bold text-slate-400'>
-                {spaceMainController.state.obj.title}
+                {spaceMainController.state.obj?.title}
               </p>
             </Link>
             <span className='text-lg font-bold text-slate-400'> / </span>
@@ -130,7 +130,7 @@ export function PublicSpaceBreadcrumbs() {
               )}
             >
               <p className='cursor-pointer text-lg font-bold text-slate-400'>
-                {spaceMainController.state.obj.title}
+                {spaceMainController.state.obj?.title}
               </p>
             </Link>
             <span className='text-lg font-bold text-slate-400'> / </span>

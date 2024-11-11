@@ -6,7 +6,7 @@ import { HorizontalDivider } from '@/components/indicator/divider/horizontal/mai
 import { useContext } from 'react';
 import { SpacesSpaceSidebarChaptersAdd } from './add/main';
 import { SpacesSpaceSidebarChaptersChapter } from './item/main';
-import { SpacesLiveSidebarChaptersProgress } from './progress/main';
+import { SpacesSpaceSidebarChaptersProgress } from './progress/main';
 
 export function SpacesSpaceSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -16,7 +16,7 @@ export function SpacesSpaceSidebarChapters() {
       className='flex w-full flex-col overflow-auto'
       style={{ height: '100%' }}
     >
-      <SpacesLiveSidebarChaptersProgress />
+      <SpacesSpaceSidebarChaptersProgress />
       <GlassWindowFrame className='h-full w-full flex-shrink-0'>
         <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
           {chapterListController.state.objs.map((chapter) => (

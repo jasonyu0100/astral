@@ -1,4 +1,5 @@
 'use client';
+import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -18,6 +19,7 @@ export function HomePersonalView() {
     ContextForHomePersonalModals,
   );
   const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
+  const spaceListController = useContext(ContextForSpaceList);
 
   return (
     <>
@@ -92,7 +94,9 @@ export function HomePersonalView() {
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
-        <p className='text-3xl font-bold text-slate-300'>Your spaces</p>
+        <div className='flex flex-row items-center space-x-[1rem]'>
+          <p className='text-3xl font-bold text-slate-300'>Your spaces</p>
+        </div>
       </div>
       <HomePersonalContainer>
         <HomePersonalTable />

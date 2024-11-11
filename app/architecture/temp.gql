@@ -1,0 +1,3729 @@
+type AgentObj {
+  id: String!
+  name: String!
+  dp: FileElem!
+  role: String!
+  bio: String!
+  created: String!
+}
+
+type AgentObjConnection {
+  items: [AgentObj]
+  nextToken: String
+}
+
+type ArcSectionObj {
+  id: String!
+  userId: String!
+  arcId: String!
+  title: String!
+  description: String!
+  objective: String!
+  idx: Int!
+  created: String!
+}
+
+type ArcSectionObjConnection {
+  items: [ArcSectionObj]
+  nextToken: String
+}
+
+type ChapterSceneObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  summary: String!
+  title: String!
+  objective: String!
+  created: String!
+}
+
+type ChapterSceneObjConnection {
+  items: [ChapterSceneObj]
+  nextToken: String
+}
+
+type ChapterSessionContributorObj {
+  id: String!
+  sessionId: String!
+  userId: String!
+  created: String!
+}
+
+type ChapterSessionContributorObjConnection {
+  items: [ChapterSessionContributorObj]
+  nextToken: String
+}
+
+type ChapterSessionObj {
+  id: String!
+  spaceId: String!
+  userId: String!
+  chapterId: String!
+  duration: Int!
+  title: String!
+  description: String!
+  created: String!
+}
+
+type ChapterSessionObjConnection {
+  items: [ChapterSessionObj]
+  nextToken: String
+}
+
+type ChapterSessionUpdateMemberObj {
+  id: String!
+  updateId: String!
+  userId: String!
+  created: String!
+}
+
+type ChapterSessionUpdateMemberObjConnection {
+  items: [ChapterSessionUpdateMemberObj]
+  nextToken: String
+}
+
+type ChapterSessionUpdateObj {
+  id: String!
+  userId: String!
+  spaceId: String!
+  chapterId: String!
+  sessionId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
+}
+
+type ChapterSessionUpdateObjConnection {
+  items: [ChapterSessionUpdateObj]
+  nextToken: String
+}
+
+type CollectionResourceObj {
+  id: String!
+  userId: String!
+  collectionId: String!
+  title: String!
+  description: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+  variant: String!
+  created: String!
+}
+
+type CollectionResourceObjConnection {
+  items: [CollectionResourceObj]
+  nextToken: String
+}
+
+type CommentKarmaObj {
+  id: String!
+  userId: String
+  commentId: String!
+  created: String!
+  neutrality: Boolean!
+}
+
+type CommentKarmaObjConnection {
+  items: [CommentKarmaObj]
+  nextToken: String
+}
+
+type ConversationMessageObj {
+  id: String!
+  userId: String
+  agentId: String
+  conversationId: String!
+  sceneId: String!
+  created: String!
+  message: String!
+  hasAttachment: Boolean!
+  variant: String
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+}
+
+type ConversationMessageObjConnection {
+  items: [ConversationMessageObj]
+  nextToken: String
+}
+
+type ConversationObj {
+  id: String!
+  userId: String!
+  chapterId: String
+  decisionId: String
+  toUserId: String
+  toAgentId: String
+  summary: String!
+  title: String!
+  created: String!
+}
+
+type ConversationObjConnection {
+  items: [ConversationObj]
+  nextToken: String
+}
+
+input CreateAgentObjInput {
+  name: String!
+  role: String!
+  created: String!
+  bio: String!
+}
+
+input CreateArcSectionObjInput {
+  userId: String!
+  arcId: String!
+  title: String!
+  description: String!
+  objective: String!
+  idx: Int!
+  created: String!
+}
+
+input CreateChapterSceneObjInput {
+  chapterId: String!
+  userId: String!
+  title: String!
+  summary: String!
+  objective: String!
+  created: String!
+}
+
+input CreateChapterSessionContributorObjInput {
+  sessionId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateChapterSessionObjInput {
+  spaceId: String!
+  userId: String!
+  chapterId: String!
+  duration: Int!
+  title: String!
+  description: String!
+  created: String!
+}
+
+input CreateChapterSessionUpdateMemberObjInput {
+  updateId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateChapterSessionUpdateObjInput {
+  userId: String!
+  spaceId: String!
+  chapterId: String!
+  sessionId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
+}
+
+input CreateCollectionResourceObjInput {
+  userId: String!
+  collectionId: String!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+}
+
+input CreateCommentKarmaObjInput {
+  userId: String
+  commentId: String!
+  created: String!
+  neutrality: Boolean!
+}
+
+input CreateConversationMessageObjInput {
+  userId: String
+  agentId: String
+  conversationId: String!
+  sceneId: String!
+  created: String!
+  message: String!
+  hasAttachment: Boolean!
+  variant: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+}
+
+input CreateConversationObjInput {
+  userId: String!
+  chapterId: String
+  decisionId: String
+  toUserId: String
+  toAgentId: String
+  summary: String!
+  title: String!
+  created: String!
+}
+
+input CreateDecisionQuadrantObjInput {
+  decisionId: String!
+  title: String!
+  description: String!
+  variant: String!
+  created: String!
+}
+
+input CreateGalleryCollectionObjInput {
+  galleryId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
+input CreateGalleryMemberObjInput {
+  galleryId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateGalleryObjInput {
+  userId: String!
+  title: String!
+  description: String!
+  created: String!
+  thumbnail: FileElemInput!
+}
+
+input CreateHorizonArcObjInput {
+  userId: String!
+  horizonId: String!
+  title: String!
+  description: String!
+  objective: String!
+  idx: Int!
+  created: String!
+}
+
+input CreateHorizonDecisionObjInput {
+  horizonId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
+input CreateHorizonObjInput {
+  userId: String!
+  title: String!
+  created: String!
+  description: String!
+  category: String!
+}
+
+input CreateHorizonSpaceMemberObjInput {
+  horizonId: String!
+  spaceId: String!
+  created: String!
+}
+
+input CreateHorizonUserMemberObjInput {
+  horizonId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateIdeaObjInput {
+  sceneId: String
+  pageId: String
+  userId: String!
+  idx: Int!
+  column: String!
+  title: String!
+  description: String!
+  visible: Boolean!
+  x: Int!
+  y: Int!
+  width: Int!
+  height: Int!
+  scale: Float!
+  rotation: Int!
+  variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+  created: String!
+}
+
+input CreateIdeaRelationshipObjInput {
+  spaceId: String
+  horizonId: String
+  fromUserId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float!
+  created: String!
+}
+
+input CreateIdeaSceneObjInput {
+  userId: String!
+  chapterId: String
+  arcId: String
+  title: String!
+  summary: String!
+  objective: String!
+  created: String!
+}
+
+input CreatePostAttachmentObjInput {
+  userId: String
+  postId: String!
+  ideaId: String
+  created: String!
+  variant: String!
+  title: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+}
+
+input CreatePostCommentObjInput {
+  userId: String
+  postId: String!
+  created: String!
+  message: String!
+}
+
+input CreatePostKarmaObjInput {
+  userId: String
+  postId: String!
+  created: String!
+  neutrality: Boolean!
+}
+
+input CreatePostMemberObjInput {
+  postId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateQuadrantMemberObjInput {
+  quadrantId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateSceneIdeaObjInput {
+  sceneId: String!
+  userId: String!
+  idx: Int!
+  column: String!
+  title: String!
+  description: String!
+  visible: Boolean!
+  x: Int!
+  y: Int!
+  width: Int!
+  height: Int!
+  scale: Float!
+  rotation: Int!
+  variant: String!
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+  created: String!
+}
+
+input CreateSceneMemberObjInput {
+  sceneId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateSpaceChapterMemberObjInput {
+  spaceId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateSpaceChapterObjInput {
+  spaceId: String!
+  userId: String!
+  title: String!
+  description: String!
+  objective: String!
+  context: String!
+  idx: Int!
+  created: String!
+}
+
+input CreateSpaceIdeaRelationshipObjInput {
+  spaceId: String!
+  fromUserId: String!
+  fromChapterId: String!
+  fromSceneId: String!
+  fromIdeaId: String!
+  toUserId: String!
+  toChapterId: String!
+  toSceneId: String!
+  toIdeaId: String!
+  weight: Float!
+  created: String!
+}
+
+input CreateSpaceMemberObjInput {
+  spaceId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateSpaceObjInput {
+  userId: String!
+  title: String!
+  thumbnail: FileElemInput
+  created: String!
+  description: String!
+  objective: String!
+  summary: String!
+  category: String!
+  hours: Int!
+  target: String!
+  completed: Boolean!
+  starred: Boolean!
+  visibility: String!
+}
+
+input CreateTaskMemberObjInput {
+  taskId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateTaskObjInput {
+  userId: String!
+  chapterId: String!
+  spaceId: String!
+  title: String!
+  description: String!
+  taskStatus: String!
+  created: String!
+}
+
+input CreateUserActivityObjInput {
+  userId: String!
+  chapterId: String
+  spaceId: String
+  horizonId: String
+  acitivtyId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  taskId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
+}
+
+input CreateUserBackerObjInput {
+  backedId: String!
+  userId: String!
+  created: String!
+}
+
+input CreateUserConnectionObjInput {
+  sourceId: String!
+  destinationId: String!
+  created: String!
+}
+
+input CreateUserObjInput {
+  displayName: String!
+  fname: String!
+  lname: String!
+  role: String!
+  bio: String!
+  email: String!
+  created: String!
+  dp: FileElemInput!
+  visibility: String!
+  passwordHash: String
+  customerId: String
+  subscriptionId: String
+  priceId: String
+  productId: String
+  journalId: String
+  clientId: String
+}
+
+input CreateUserPostObjInput {
+  userId: String!
+  chapterId: String!
+  spaceId: String!
+  title: String!
+  description: String!
+  created: String!
+  postStatus: String!
+  summary: String!
+}
+
+input CreateUserReservationObjInput {
+  fname: String!
+  lname: String!
+  email: String!
+  role: String!
+  created: String!
+}
+
+type DecisionQuadrantObj {
+  id: String!
+  decisionId: String!
+  title: String!
+  description: String!
+  variant: String!
+  created: String!
+}
+
+type DecisionQuadrantObjConnection {
+  items: [DecisionQuadrantObj]
+  nextToken: String
+}
+
+input DeleteAgentObjInput {
+  id: String!
+}
+
+input DeleteArcSectionObjInput {
+  id: String!
+}
+
+input DeleteChapterSceneObjInput {
+  id: String!
+}
+
+input DeleteChapterSessionContributorObjInput {
+  id: String!
+}
+
+input DeleteChapterSessionObjInput {
+  id: String!
+}
+
+input DeleteChapterSessionUpdateMemberObjInput {
+  id: String!
+}
+
+input DeleteChapterSessionUpdateObjInput {
+  id: String!
+}
+
+input DeleteCollectionResourceObjInput {
+  id: String!
+}
+
+input DeleteCommentKarmaObjInput {
+  id: String!
+}
+
+input DeleteConversationMessageObjInput {
+  id: String!
+}
+
+input DeleteConversationObjInput {
+  id: String!
+}
+
+input DeleteDecisionQuadrantObjInput {
+  id: String!
+}
+
+input DeleteGalleryCollectionObjInput {
+  id: String!
+}
+
+input DeleteGalleryMemberObjInput {
+  id: String!
+}
+
+input DeleteGalleryObjInput {
+  id: String!
+}
+
+input DeleteHorizonArcObjInput {
+  id: String!
+}
+
+input DeleteHorizonDecisionObjInput {
+  id: String!
+}
+
+input DeleteHorizonObjInput {
+  id: String!
+}
+
+input DeleteHorizonSpaceMemberObjInput {
+  id: String!
+}
+
+input DeleteHorizonUserMemberObjInput {
+  id: String!
+}
+
+input DeleteIdeaObjInput {
+  id: String!
+}
+
+input DeleteIdeaRelationshipObjInput {
+  id: String!
+}
+
+input DeleteIdeaSceneObjInput {
+  id: String!
+}
+
+input DeletePostAttachmentObjInput {
+  id: String!
+}
+
+input DeletePostCommentObjInput {
+  id: String!
+}
+
+input DeletePostKarmaObjInput {
+  id: String!
+}
+
+input DeletePostMemberObjInput {
+  id: String!
+}
+
+input DeleteQuadrantMemberObjInput {
+  id: String!
+}
+
+input DeleteSceneIdeaObjInput {
+  id: String!
+}
+
+input DeleteSceneMemberObjInput {
+  id: String!
+}
+
+input DeleteSpaceChapterMemberObjInput {
+  id: String!
+}
+
+input DeleteSpaceChapterObjInput {
+  id: String!
+}
+
+input DeleteSpaceIdeaRelationshipObjInput {
+  id: String!
+}
+
+input DeleteSpaceMemberObjInput {
+  id: String!
+}
+
+input DeleteSpaceObjInput {
+  id: String!
+}
+
+input DeleteTaskMemberObjInput {
+  id: String!
+}
+
+input DeleteTaskObjInput {
+  id: String!
+}
+
+input DeleteUserActivityObjInput {
+  id: String!
+}
+
+input DeleteUserBackerObjInput {
+  id: String!
+}
+
+input DeleteUserConnectionObjInput {
+  id: String!
+}
+
+input DeleteUserObjInput {
+  id: String!
+}
+
+input DeleteUserPostObjInput {
+  id: String!
+}
+
+input DeleteUserReservationObjInput {
+  id: String!
+}
+
+type FileElem {
+  id: String!
+  src: String
+  ext: String
+  title: String
+  size: Int
+  variant: String
+}
+
+input FileElemInput {
+  id: String!
+  src: String
+  ext: String
+  title: String
+  size: Int
+  variant: String
+}
+
+type GalleryCollectionObj {
+  id: String!
+  galleryId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
+type GalleryCollectionObjConnection {
+  items: [GalleryCollectionObj]
+  nextToken: String
+}
+
+type GalleryMemberObj {
+  id: String!
+  galleryId: String!
+  userId: String!
+  created: String!
+}
+
+type GalleryMemberObjConnection {
+  items: [GalleryMemberObj]
+  nextToken: String
+}
+
+type GalleryObj {
+  id: String!
+  userId: String!
+  title: String!
+  description: String!
+  thumbnail: FileElem!
+  created: String!
+}
+
+type GalleryObjConnection {
+  items: [GalleryObj]
+  nextToken: String
+}
+
+type HorizonArcObj {
+  id: String!
+  userId: String!
+  horizonId: String!
+  title: String!
+  description: String!
+  objective: String!
+  idx: Int!
+  created: String!
+}
+
+type HorizonArcObjConnection {
+  items: [HorizonArcObj]
+  nextToken: String
+}
+
+type HorizonDecisionObj {
+  id: String!
+  horizonId: String!
+  title: String!
+  description: String!
+  created: String!
+}
+
+type HorizonDecisionObjConnection {
+  items: [HorizonDecisionObj]
+  nextToken: String
+}
+
+type HorizonObj {
+  id: String!
+  userId: String!
+  title: String!
+  created: String!
+  description: String!
+  thumbnail: FileElem!
+  category: String!
+}
+
+type HorizonObjConnection {
+  items: [HorizonObj]
+  nextToken: String
+}
+
+type HorizonSpaceMemberObj {
+  id: String!
+  horizonId: String!
+  spaceId: String!
+  created: String!
+}
+
+type HorizonSpaceMemberObjConnection {
+  items: [HorizonSpaceMemberObj]
+  nextToken: String
+}
+
+type HorizonUserMemberObj {
+  id: String!
+  horizonId: String!
+  userId: String!
+  created: String!
+}
+
+type HorizonUserMemberObjConnection {
+  items: [HorizonUserMemberObj]
+  nextToken: String
+}
+
+type IdeaObj {
+  id: String!
+  idx: Int!
+  userId: String!
+  sceneId: String
+  pageId: String
+  title: String!
+  description: String!
+  column: String!
+  visible: Boolean!
+  x: Int!
+  y: Int!
+  width: Int!
+  height: Int!
+  scale: Float!
+  rotation: Int!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+  created: String!
+}
+
+type IdeaObjConnection {
+  items: [IdeaObj]
+  nextToken: String
+}
+
+type IdeaRelationshipObj {
+  id: String!
+  spaceId: String
+  horizonId: String
+  fromUserId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float!
+  created: String!
+}
+
+type IdeaRelationshipObjConnection {
+  items: [IdeaRelationshipObj]
+  nextToken: String
+}
+
+type IdeaSceneObj {
+  id: String!
+  userId: String!
+  chapterId: String
+  arcId: String
+  title: String!
+  summary: String!
+  objective: String!
+  created: String!
+}
+
+type IdeaSceneObjConnection {
+  items: [IdeaSceneObj]
+  nextToken: String
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+type PostAttachmentObj {
+  id: String!
+  userId: String
+  postId: String!
+  ideaId: String
+  created: String!
+  variant: String!
+  title: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+}
+
+type PostAttachmentObjConnection {
+  items: [PostAttachmentObj]
+  nextToken: String
+}
+
+type PostCommentObj {
+  id: String!
+  userId: String
+  postId: String!
+  created: String!
+  message: String!
+}
+
+type PostCommentObjConnection {
+  items: [PostCommentObj]
+  nextToken: String
+}
+
+type PostKarmaObj {
+  id: String!
+  userId: String
+  postId: String!
+  created: String!
+  neutrality: Boolean!
+}
+
+type PostKarmaObjConnection {
+  items: [PostKarmaObj]
+  nextToken: String
+}
+
+type PostMemberObj {
+  id: String!
+  postId: String!
+  userId: String!
+  created: String!
+}
+
+type PostMemberObjConnection {
+  items: [PostMemberObj]
+  nextToken: String
+}
+
+type QuadrantMemberObj {
+  id: String!
+  quadrantId: String!
+  userId: String!
+  created: String!
+}
+
+type QuadrantMemberObjConnection {
+  items: [QuadrantMemberObj]
+  nextToken: String
+}
+
+type SceneIdeaObj {
+  id: String!
+  userId: String!
+  sceneId: String!
+  idx: Int!
+  column: String!
+  title: String!
+  description: String!
+  x: Int!
+  y: Int!
+  visible: Boolean!
+  width: Int!
+  height: Int!
+  scale: Float!
+  rotation: Int!
+  variant: String!
+  fileElem: FileElem
+  textElem: TextElem
+  urlElem: UrlElem
+  created: String!
+}
+
+type SceneIdeaObjConnection {
+  items: [SceneIdeaObj]
+  nextToken: String
+}
+
+type SceneMemberObj {
+  id: String!
+  sceneId: String!
+  userId: String!
+  created: String!
+}
+
+type SceneMemberObjConnection {
+  items: [SceneMemberObj]
+  nextToken: String
+}
+
+type SpaceChapterMemberObj {
+  id: String!
+  spaceId: String!
+  userId: String!
+  created: String!
+}
+
+type SpaceChapterMemberObjConnection {
+  items: [SpaceChapterMemberObj]
+  nextToken: String
+}
+
+type SpaceChapterObj {
+  id: String!
+  spaceId: String!
+  title: String!
+  userId: String!
+  description: String!
+  objective: String!
+  context: String!
+  idx: Int!
+  created: String!
+}
+
+type SpaceChapterObjConnection {
+  items: [SpaceChapterObj]
+  nextToken: String
+}
+
+type SpaceIdeaRelationshipObj {
+  id: String!
+  fromUserId: String!
+  spaceId: String!
+  fromChapterId: String!
+  fromSceneId: String!
+  fromIdeaId: String!
+  toUserId: String!
+  toChapterId: String!
+  toSceneId: String!
+  toIdeaId: String!
+  weight: Float!
+  created: String!
+}
+
+type SpaceIdeaRelationshipObjConnection {
+  items: [SpaceIdeaRelationshipObj]
+  nextToken: String
+}
+
+type SpaceMemberObj {
+  id: String!
+  spaceId: String!
+  userId: String!
+  created: String!
+}
+
+type SpaceMemberObjConnection {
+  items: [SpaceMemberObj]
+  nextToken: String
+}
+
+type SpaceObj {
+  id: String!
+  userId: String!
+  title: String!
+  created: String!
+  description: String!
+  objective: String!
+  summary: String!
+  thumbnail: FileElem!
+  category: String!
+  hours: Int!
+  target: String!
+  completed: Boolean!
+  starred: Boolean!
+  visibility: String!
+}
+
+type SpaceObjConnection {
+  items: [SpaceObj]
+  nextToken: String
+}
+
+input TableAgentObjFilterInput {
+  id: TableStringFilterInput
+  name: TableStringFilterInput
+  role: TableStringFilterInput
+  created: TableStringFilterInput
+  bio: TableStringFilterInput
+}
+
+input TableArcSectionObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  arcId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  objective: TableStringFilterInput
+  idx: TableIntFilterInput
+  created: TableStringFilterInput
+}
+
+input TableBooleanFilterInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+}
+
+input TableChapterSceneObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  title: TableStringFilterInput
+  summary: TableStringFilterInput
+  objective: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableChapterSessionContributorObjFilterInput {
+  id: TableStringFilterInput
+  sessionId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableChapterSessionObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  userId: TableStringFilterInput
+  duration: TableIntFilterInput
+  chapterId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableChapterSessionUpdateMemberObjFilterInput {
+  id: TableStringFilterInput
+  updateId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableChapterSessionUpdateObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  sessionId: TableStringFilterInput
+  added: TableBooleanFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  variant: TableStringFilterInput
+  conversationId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  ideaId: TableStringFilterInput
+  postId: TableStringFilterInput
+  logId: TableStringFilterInput
+  commentId: TableStringFilterInput
+  attachmentId: TableStringFilterInput
+  memberId: TableStringFilterInput
+}
+
+input TableCollectionResourceObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  collectionId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  variant: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableCommentKarmaObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  commentId: TableStringFilterInput
+  created: TableStringFilterInput
+  neutrality: TableBooleanFilterInput
+}
+
+input TableConversationMessageObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  agentId: TableStringFilterInput
+  conversationId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  created: TableStringFilterInput
+  message: TableStringFilterInput
+  hasAttachment: TableBooleanFilterInput
+  variant: TableStringFilterInput
+}
+
+input TableConversationObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  decisionId: TableStringFilterInput
+  toUserId: TableStringFilterInput
+  toAgentId: TableStringFilterInput
+  summary: TableStringFilterInput
+  title: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableDecisionQuadrantObjFilterInput {
+  id: TableStringFilterInput
+  decisionId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  variant: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableFloatFilterInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+}
+
+input TableGalleryCollectionObjFilterInput {
+  id: TableStringFilterInput
+  galleryId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableGalleryMemberObjFilterInput {
+  id: TableStringFilterInput
+  galleryId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableGalleryObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableHorizonArcObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  objective: TableStringFilterInput
+  idx: TableIntFilterInput
+  created: TableStringFilterInput
+}
+
+input TableHorizonDecisionObjFilterInput {
+  id: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableHorizonObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  title: TableStringFilterInput
+  created: TableStringFilterInput
+  description: TableStringFilterInput
+  category: TableStringFilterInput
+}
+
+input TableHorizonSpaceMemberObjFilterInput {
+  id: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableHorizonUserMemberObjFilterInput {
+  id: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableIDFilterInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  size: ModelSizeInput
+}
+
+input TableIdeaObjFilterInput {
+  id: TableStringFilterInput
+  idx: TableIntFilterInput
+  userId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  pageId: TableStringFilterInput
+  visible: TableBooleanFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  column: TableStringFilterInput
+  x: TableIntFilterInput
+  y: TableIntFilterInput
+  width: TableIntFilterInput
+  height: TableIntFilterInput
+  scale: TableFloatFilterInput
+  rotation: TableIntFilterInput
+  variant: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableIdeaRelationshipObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  fromUserId: TableStringFilterInput
+  fromChapterId: TableStringFilterInput
+  fromSceneId: TableStringFilterInput
+  fromIdeaId: TableStringFilterInput
+  toUserId: TableStringFilterInput
+  toChapterId: TableStringFilterInput
+  toSceneId: TableStringFilterInput
+  toIdeaId: TableStringFilterInput
+  weight: TableFloatFilterInput
+  created: TableStringFilterInput
+}
+
+input TableIdeaSceneObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  arcId: TableStringFilterInput
+  title: TableStringFilterInput
+  summary: TableStringFilterInput
+  objective: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableIntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+}
+
+input TablePostAttachmentObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  postId: TableStringFilterInput
+  ideaId: TableStringFilterInput
+  created: TableStringFilterInput
+  variant: TableStringFilterInput
+  title: TableStringFilterInput
+}
+
+input TablePostCommentObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  postId: TableStringFilterInput
+  created: TableStringFilterInput
+  message: TableStringFilterInput
+}
+
+input TablePostKarmaObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  postId: TableStringFilterInput
+  created: TableStringFilterInput
+  neutrality: TableBooleanFilterInput
+}
+
+input TablePostMemberObjFilterInput {
+  id: TableStringFilterInput
+  postId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableQuadrantMemberObjFilterInput {
+  id: TableStringFilterInput
+  quadrantId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSceneIdeaObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  title: TableStringFilterInput
+  idx: TableIntFilterInput
+  column: TableStringFilterInput
+  description: TableStringFilterInput
+  visible: TableBooleanFilterInput
+  x: TableIntFilterInput
+  y: TableIntFilterInput
+  width: TableIntFilterInput
+  height: TableIntFilterInput
+  rotation: TableIntFilterInput
+  scale: TableFloatFilterInput
+  variant: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSceneMemberObjFilterInput {
+  id: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSpaceChapterMemberObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSpaceChapterObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  userId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  objective: TableStringFilterInput
+  context: TableStringFilterInput
+  idx: TableIntFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSpaceIdeaRelationshipObjFilterInput {
+  id: TableStringFilterInput
+  fromUserId: TableStringFilterInput
+  toUserId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  fromChapterId: TableStringFilterInput
+  fromSceneId: TableStringFilterInput
+  fromIdeaId: TableStringFilterInput
+  toChapterId: TableStringFilterInput
+  toSceneId: TableStringFilterInput
+  toIdeaId: TableStringFilterInput
+  weight: TableFloatFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSpaceMemberObjFilterInput {
+  id: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableSpaceObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  objective: TableStringFilterInput
+  summary: TableStringFilterInput
+  category: TableStringFilterInput
+  hours: TableIntFilterInput
+  target: TableStringFilterInput
+  completed: TableBooleanFilterInput
+  starred: TableBooleanFilterInput
+  visibility: TableStringFilterInput
+}
+
+input TableStringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  size: ModelSizeInput
+}
+
+input TableTaskMemberObjFilterInput {
+  id: TableStringFilterInput
+  taskId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableTaskObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  taskStatus: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableUserActivityObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  horizonId: TableStringFilterInput
+  acitivtyId: TableStringFilterInput
+  added: TableBooleanFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  variant: TableStringFilterInput
+  conversationId: TableStringFilterInput
+  sceneId: TableStringFilterInput
+  ideaId: TableStringFilterInput
+  postId: TableStringFilterInput
+  taskId: TableStringFilterInput
+  commentId: TableStringFilterInput
+  attachmentId: TableStringFilterInput
+  contributorId: TableStringFilterInput
+}
+
+input TableUserBackerObjFilterInput {
+  id: TableStringFilterInput
+  backedId: TableStringFilterInput
+  userId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableUserConnectionObjFilterInput {
+  id: TableStringFilterInput
+  sourceId: TableStringFilterInput
+  destinationId: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+input TableUserObjFilterInput {
+  id: TableStringFilterInput
+  displayName: TableStringFilterInput
+  role: TableStringFilterInput
+  bio: TableStringFilterInput
+  fname: TableStringFilterInput
+  lname: TableStringFilterInput
+  email: TableStringFilterInput
+  visibility: TableStringFilterInput
+  customerId: TableStringFilterInput
+  subscriptionId: TableStringFilterInput
+  priceId: TableStringFilterInput
+  productId: TableStringFilterInput
+  created: TableStringFilterInput
+  journalId: TableStringFilterInput
+  clientId: TableStringFilterInput
+}
+
+input TableUserPostObjFilterInput {
+  id: TableStringFilterInput
+  userId: TableStringFilterInput
+  chapterId: TableStringFilterInput
+  spaceId: TableStringFilterInput
+  title: TableStringFilterInput
+  description: TableStringFilterInput
+  created: TableStringFilterInput
+  postStatus: TableStringFilterInput
+  summary: TableStringFilterInput
+}
+
+input TableUserReservationObjFilterInput {
+  id: TableStringFilterInput
+  fname: TableStringFilterInput
+  lname: TableStringFilterInput
+  email: TableStringFilterInput
+  role: TableStringFilterInput
+  created: TableStringFilterInput
+}
+
+type TaskMemberObj {
+  id: String!
+  taskId: String!
+  userId: String!
+  created: String!
+}
+
+type TaskMemberObjConnection {
+  items: [TaskMemberObj]
+  nextToken: String
+}
+
+type TaskObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  spaceId: String!
+  title: String!
+  description: String!
+  taskStatus: String!
+  created: String!
+}
+
+type TaskObjConnection {
+  items: [TaskObj]
+  nextToken: String
+}
+
+type TextElem {
+  id: String!
+  title: String
+  text: String
+  variant: String
+}
+
+input TextElemInput {
+  id: String!
+  title: String
+  text: String
+  variant: String
+}
+
+input UpdateAgentObjInput {
+  id: String!
+  name: String
+  role: String
+  created: String
+  bio: String
+}
+
+input UpdateArcSectionObjInput {
+  id: String!
+  userId: String
+  arcId: String
+  title: String
+  description: String
+  objective: String
+  idx: Int
+  created: String
+}
+
+input UpdateChapterSceneObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  title: String
+  summary: String
+  objective: String
+  created: String
+}
+
+input UpdateChapterSessionContributorObjInput {
+  id: String!
+  sessionId: String
+  userId: String
+  created: String
+}
+
+input UpdateChapterSessionObjInput {
+  id: String!
+  spaceId: String
+  userId: String
+  chapterId: String
+  duration: Int
+  title: String
+  description: String
+  created: String
+}
+
+input UpdateChapterSessionUpdateMemberObjInput {
+  id: String!
+  updateId: String
+  userId: String
+  created: String
+}
+
+input UpdateChapterSessionUpdateObjInput {
+  id: String!
+  spaceId: String
+  userId: String
+  chapterId: String
+  sessionId: String
+  added: Boolean
+  title: String
+  description: String
+  created: String
+  variant: String
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  logId: String
+  commentId: String
+  attachmentId: String
+  memberId: String
+}
+
+input UpdateCollectionResourceObjInput {
+  id: String!
+  userId: String
+  collectionId: String
+  title: String
+  description: String
+  variant: String
+  created: String
+}
+
+input UpdateCommentKarmaObjInput {
+  id: String!
+  userId: String
+  commentId: String
+  created: String
+  neutrality: Boolean
+}
+
+input UpdateConversationMessageObjInput {
+  id: String!
+  userId: String
+  agentId: String
+  conversationId: String
+  sceneId: String
+  created: String
+  message: String
+  hasAttachment: Boolean
+  variant: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+}
+
+input UpdateConversationObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  decisionId: String
+  toUserId: String
+  toAgentId: String
+  summary: String
+  title: String
+  created: String
+}
+
+input UpdateDecisionQuadrantObjInput {
+  id: String!
+  decisionId: String
+  title: String
+  description: String
+  variant: String
+  created: String
+}
+
+input UpdateGalleryCollectionObjInput {
+  id: String!
+  galleryId: String
+  title: String
+  description: String
+  created: String
+}
+
+input UpdateGalleryMemberObjInput {
+  id: String!
+  galleryId: String
+  userId: String
+  created: String
+}
+
+input UpdateGalleryObjInput {
+  id: String!
+  userId: String
+  title: String
+  description: String
+  created: String
+  thumbnail: FileElemInput
+}
+
+input UpdateHorizonArcObjInput {
+  id: String!
+  userId: String
+  horizonId: String
+  title: String
+  description: String
+  objective: String
+  idx: Int
+  created: String
+}
+
+input UpdateHorizonDecisionObjInput {
+  id: String!
+  horizonId: String
+  title: String
+  description: String
+  created: String
+}
+
+input UpdateHorizonObjInput {
+  id: String!
+  userId: String
+  title: String
+  created: String
+  description: String
+  category: String
+}
+
+input UpdateHorizonSpaceMemberObjInput {
+  id: String!
+  horizonId: String
+  spaceId: String
+  created: String
+}
+
+input UpdateHorizonUserMemberObjInput {
+  id: String!
+  horizonId: String
+  userId: String
+  created: String
+}
+
+input UpdateIdeaObjInput {
+  id: String!
+  idx: Int
+  userId: String
+  visible: Boolean
+  sceneId: String
+  pageId: String
+  title: String
+  description: String
+  column: String
+  x: Int
+  y: Int
+  width: Int
+  height: Int
+  scale: Float
+  rotation: Int
+  variant: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+  created: String
+}
+
+input UpdateIdeaRelationshipObjInput {
+  id: String!
+  spaceId: String
+  horizonId: String
+  fromUserId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float
+  created: String
+}
+
+input UpdateIdeaSceneObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  arcId: String
+  title: String
+  summary: String
+  objective: String
+  created: String
+}
+
+input UpdatePostAttachmentObjInput {
+  id: String!
+  userId: String
+  postId: String
+  ideaId: String
+  created: String
+  variant: String
+  title: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+}
+
+input UpdatePostCommentObjInput {
+  id: String!
+  userId: String
+  postId: String
+  created: String
+  message: String
+}
+
+input UpdatePostKarmaObjInput {
+  id: String!
+  userId: String
+  postId: String
+  created: String
+  neutrality: Boolean
+}
+
+input UpdatePostMemberObjInput {
+  id: String!
+  postId: String
+  userId: String
+  created: String
+}
+
+input UpdateQuadrantMemberObjInput {
+  id: String!
+  quadrantId: String
+  userId: String
+  created: String
+}
+
+input UpdateSceneIdeaObjInput {
+  id: String!
+  userId: String
+  sceneId: String
+  idx: Int
+  column: String
+  title: String
+  description: String
+  visible: Boolean
+  x: Int
+  y: Int
+  width: Int
+  height: Int
+  rotation: Int
+  scale: Float
+  variant: String
+  fileElem: FileElemInput
+  textElem: TextElemInput
+  urlElem: UrlElemInput
+  created: String
+}
+
+input UpdateSceneMemberObjInput {
+  id: String!
+  sceneId: String
+  userId: String
+  created: String
+}
+
+input UpdateSpaceChapterMemberObjInput {
+  id: String!
+  spaceId: String
+  userId: String
+  created: String
+}
+
+input UpdateSpaceChapterObjInput {
+  id: String!
+  userId: String
+  spaceId: String
+  title: String
+  description: String
+  objective: String
+  context: String
+  idx: Int
+  created: String
+}
+
+input UpdateSpaceIdeaRelationshipObjInput {
+  id: String!
+  fromUserId: String
+  spaceId: String
+  fromChapterId: String
+  fromSceneId: String
+  fromIdeaId: String
+  toUserId: String
+  toChapterId: String
+  toSceneId: String
+  toIdeaId: String
+  weight: Float
+  created: String
+}
+
+input UpdateSpaceMemberObjInput {
+  id: String!
+  spaceId: String
+  userId: String
+  created: String
+}
+
+input UpdateSpaceObjInput {
+  id: String!
+  userId: String
+  title: String
+  thumbnail: FileElemInput
+  created: String
+  description: String
+  objective: String
+  summary: String
+  category: String
+  hours: Int
+  target: String
+  starred: Boolean
+  completed: Boolean
+  visibility: String
+}
+
+input UpdateTaskMemberObjInput {
+  id: String!
+  taskId: String
+  userId: String
+  created: String
+}
+
+input UpdateTaskObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  spaceId: String
+  title: String
+  description: String
+  taskStatus: String
+  created: String
+}
+
+input UpdateUserActivityObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  spaceId: String
+  horizonId: String
+  acitivtyId: String
+  added: Boolean
+  title: String
+  description: String
+  created: String
+  variant: String
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  taskId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
+}
+
+input UpdateUserBackerObjInput {
+  id: String!
+  backedId: String
+  userId: String
+  created: String
+}
+
+input UpdateUserConnectionObjInput {
+  id: String!
+  sourceId: String
+  destinationId: String
+  created: String
+}
+
+input UpdateUserObjInput {
+  id: String!
+  displayName: String
+  fname: String
+  lname: String
+  role: String
+  visibility: String
+  passwordHash: String
+  email: String
+  customerId: String
+  subscriptionId: String
+  priceId: String
+  productId: String
+  created: String
+  dp: FileElemInput
+  journalId: String
+  clientId: String
+  bio: String
+}
+
+input UpdateUserPostObjInput {
+  id: String!
+  userId: String
+  chapterId: String
+  spaceId: String
+  title: String
+  description: String
+  created: String
+  postStatus: String
+  summary: String
+}
+
+input UpdateUserReservationObjInput {
+  id: String!
+  fname: String
+  lname: String
+  email: String
+  role: String
+  created: String
+}
+
+type UrlElem {
+  id: String!
+  url: String
+  title: String
+  variant: String
+}
+
+input UrlElemInput {
+  id: String!
+  url: String
+  title: String
+  variant: String
+}
+
+type UserActivityObj {
+  id: String!
+  userId: String!
+  chapterId: String
+  spaceId: String
+  horizonId: String
+  acitivtyId: String
+  added: Boolean!
+  title: String!
+  description: String!
+  created: String!
+  variant: String!
+  conversationId: String
+  sceneId: String
+  ideaId: String
+  postId: String
+  taskId: String
+  commentId: String
+  attachmentId: String
+  contributorId: String
+}
+
+type UserActivityObjConnection {
+  items: [UserActivityObj]
+  nextToken: String
+}
+
+type UserBackerObj {
+  id: String!
+  backedId: String!
+  userId: String!
+  created: String!
+}
+
+type UserBackerObjConnection {
+  items: [UserBackerObj]
+  nextToken: String
+}
+
+type UserConnectionObj {
+  id: String!
+  sourceId: String!
+  destinationId: String!
+  created: String!
+}
+
+type UserConnectionObjConnection {
+  items: [UserConnectionObj]
+  nextToken: String
+}
+
+type UserObj {
+  id: String!
+  displayName: String!
+  fname: String!
+  lname: String!
+  email: String!
+  bio: String!
+  dp: FileElem!
+  visibility: String!
+  role: String!
+  passwordHash: String
+  customerId: String
+  subscriptionId: String
+  productId: String
+  priceId: String
+  created: String!
+  journalId: String!
+  clientId: String
+}
+
+type UserObjConnection {
+  items: [UserObj]
+  nextToken: String
+}
+
+type UserPostObj {
+  id: String!
+  userId: String!
+  chapterId: String!
+  spaceId: String!
+  title: String!
+  description: String!
+  created: String!
+  postStatus: String!
+  summary: String!
+}
+
+type UserPostObjConnection {
+  items: [UserPostObj]
+  nextToken: String
+}
+
+type UserReservationObj {
+  id: String!
+  fname: String!
+  lname: String!
+  email: String!
+  role: String!
+  created: String!
+}
+
+type UserReservationObjConnection {
+  items: [UserReservationObj]
+  nextToken: String
+}
+
+type Mutation {
+  createChapterSceneObj(input: CreateChapterSceneObjInput!): ChapterSceneObj
+  updateChapterSceneObj(input: UpdateChapterSceneObjInput!): ChapterSceneObj
+  deleteChapterSceneObj(input: DeleteChapterSceneObjInput!): ChapterSceneObj
+  createConversationMessageObj(
+    input: CreateConversationMessageObjInput!
+  ): ConversationMessageObj
+  updateConversationMessageObj(
+    input: UpdateConversationMessageObjInput!
+  ): ConversationMessageObj
+  deleteConversationMessageObj(
+    input: DeleteConversationMessageObjInput!
+  ): ConversationMessageObj
+  createSceneIdeaObj(input: CreateSceneIdeaObjInput!): SceneIdeaObj
+  updateSceneIdeaObj(input: UpdateSceneIdeaObjInput!): SceneIdeaObj
+  deleteSceneIdeaObj(input: DeleteSceneIdeaObjInput!): SceneIdeaObj
+  createCollectionResourceObj(
+    input: CreateCollectionResourceObjInput!
+  ): CollectionResourceObj
+  updateCollectionResourceObj(
+    input: UpdateCollectionResourceObjInput!
+  ): CollectionResourceObj
+  deleteCollectionResourceObj(
+    input: DeleteCollectionResourceObjInput!
+  ): CollectionResourceObj
+  createUserObj(input: CreateUserObjInput!): UserObj
+  updateUserObj(input: UpdateUserObjInput!): UserObj
+  deleteUserObj(input: DeleteUserObjInput!): UserObj
+  createSpaceChapterObj(input: CreateSpaceChapterObjInput!): SpaceChapterObj
+  updateSpaceChapterObj(input: UpdateSpaceChapterObjInput!): SpaceChapterObj
+  deleteSpaceChapterObj(input: DeleteSpaceChapterObjInput!): SpaceChapterObj
+  createSpaceObj(input: CreateSpaceObjInput!): SpaceObj
+  updateSpaceObj(input: UpdateSpaceObjInput!): SpaceObj
+  deleteSpaceObj(input: DeleteSpaceObjInput!): SpaceObj
+  createSpaceMemberObj(input: CreateSpaceMemberObjInput!): SpaceMemberObj
+  updateSpaceMemberObj(input: UpdateSpaceMemberObjInput!): SpaceMemberObj
+  deleteSpaceMemberObj(input: DeleteSpaceMemberObjInput!): SpaceMemberObj
+  createUserReservationObj(
+    input: CreateUserReservationObjInput!
+  ): UserReservationObj
+  updateUserReservationObj(
+    input: UpdateUserReservationObjInput!
+  ): UserReservationObj
+  deleteUserReservationObj(
+    input: DeleteUserReservationObjInput!
+  ): UserReservationObj
+  createAgentObj(input: CreateAgentObjInput!): AgentObj
+  updateAgentObj(input: UpdateAgentObjInput!): AgentObj
+  deleteAgentObj(input: DeleteAgentObjInput!): AgentObj
+  createChapterSessionObj(
+    input: CreateChapterSessionObjInput!
+  ): ChapterSessionObj
+  updateChapterSessionObj(
+    input: UpdateChapterSessionObjInput!
+  ): ChapterSessionObj
+  deleteChapterSessionObj(
+    input: DeleteChapterSessionObjInput!
+  ): ChapterSessionObj
+  createChapterSessionUpdateObj(
+    input: CreateChapterSessionUpdateObjInput!
+  ): ChapterSessionUpdateObj
+  updateChapterSessionUpdateObj(
+    input: UpdateChapterSessionUpdateObjInput!
+  ): ChapterSessionUpdateObj
+  deleteChapterSessionUpdateObj(
+    input: DeleteChapterSessionUpdateObjInput!
+  ): ChapterSessionUpdateObj
+  createChapterSessionUpdateMemberObj(
+    input: CreateChapterSessionUpdateMemberObjInput!
+  ): ChapterSessionUpdateMemberObj
+  updateChapterSessionUpdateMemberObj(
+    input: UpdateChapterSessionUpdateMemberObjInput!
+  ): ChapterSessionUpdateMemberObj
+  deleteChapterSessionUpdateMemberObj(
+    input: DeleteChapterSessionUpdateMemberObjInput!
+  ): ChapterSessionUpdateMemberObj
+  createUserBackerObj(input: CreateUserBackerObjInput!): UserBackerObj
+  updateUserBackerObj(input: UpdateUserBackerObjInput!): UserBackerObj
+  deleteUserBackerObj(input: DeleteUserBackerObjInput!): UserBackerObj
+  createUserConnectionObj(
+    input: CreateUserConnectionObjInput!
+  ): UserConnectionObj
+  updateUserConnectionObj(
+    input: UpdateUserConnectionObjInput!
+  ): UserConnectionObj
+  deleteUserConnectionObj(
+    input: DeleteUserConnectionObjInput!
+  ): UserConnectionObj
+  createChapterSessionContributorObj(
+    input: CreateChapterSessionContributorObjInput!
+  ): ChapterSessionContributorObj
+  updateChapterSessionContributorObj(
+    input: UpdateChapterSessionContributorObjInput!
+  ): ChapterSessionContributorObj
+  deleteChapterSessionContributorObj(
+    input: DeleteChapterSessionContributorObjInput!
+  ): ChapterSessionContributorObj
+  createSceneMemberObj(input: CreateSceneMemberObjInput!): SceneMemberObj
+  updateSceneMemberObj(input: UpdateSceneMemberObjInput!): SceneMemberObj
+  deleteSceneMemberObj(input: DeleteSceneMemberObjInput!): SceneMemberObj
+  createSpaceIdeaRelationshipObj(
+    input: CreateSpaceIdeaRelationshipObjInput!
+  ): SpaceIdeaRelationshipObj
+  updateSpaceIdeaRelationshipObj(
+    input: UpdateSpaceIdeaRelationshipObjInput!
+  ): SpaceIdeaRelationshipObj
+  deleteSpaceIdeaRelationshipObj(
+    input: DeleteSpaceIdeaRelationshipObjInput!
+  ): SpaceIdeaRelationshipObj
+  createCommentKarmaObj(input: CreateCommentKarmaObjInput!): CommentKarmaObj
+  updateCommentKarmaObj(input: UpdateCommentKarmaObjInput!): CommentKarmaObj
+  deleteCommentKarmaObj(input: DeleteCommentKarmaObjInput!): CommentKarmaObj
+  createSpaceChapterMemberObj(
+    input: CreateSpaceChapterMemberObjInput!
+  ): SpaceChapterMemberObj
+  updateSpaceChapterMemberObj(
+    input: UpdateSpaceChapterMemberObjInput!
+  ): SpaceChapterMemberObj
+  deleteSpaceChapterMemberObj(
+    input: DeleteSpaceChapterMemberObjInput!
+  ): SpaceChapterMemberObj
+  createGalleryObj(input: CreateGalleryObjInput!): GalleryObj
+  updateGalleryObj(input: UpdateGalleryObjInput!): GalleryObj
+  deleteGalleryObj(input: DeleteGalleryObjInput!): GalleryObj
+  createGalleryCollectionObj(
+    input: CreateGalleryCollectionObjInput!
+  ): GalleryCollectionObj
+  updateGalleryCollectionObj(
+    input: UpdateGalleryCollectionObjInput!
+  ): GalleryCollectionObj
+  deleteGalleryCollectionObj(
+    input: DeleteGalleryCollectionObjInput!
+  ): GalleryCollectionObj
+  createGalleryMemberObj(input: CreateGalleryMemberObjInput!): GalleryMemberObj
+  updateGalleryMemberObj(input: UpdateGalleryMemberObjInput!): GalleryMemberObj
+  deleteGalleryMemberObj(input: DeleteGalleryMemberObjInput!): GalleryMemberObj
+  createUserActivityObj(input: CreateUserActivityObjInput!): UserActivityObj
+  updateUserActivityObj(input: UpdateUserActivityObjInput!): UserActivityObj
+  deleteUserActivityObj(input: DeleteUserActivityObjInput!): UserActivityObj
+  createPostAttachmentObj(
+    input: CreatePostAttachmentObjInput!
+  ): PostAttachmentObj
+  updatePostAttachmentObj(
+    input: UpdatePostAttachmentObjInput!
+  ): PostAttachmentObj
+  deletePostAttachmentObj(
+    input: DeletePostAttachmentObjInput!
+  ): PostAttachmentObj
+  createPostCommentObj(input: CreatePostCommentObjInput!): PostCommentObj
+  updatePostCommentObj(input: UpdatePostCommentObjInput!): PostCommentObj
+  deletePostCommentObj(input: DeletePostCommentObjInput!): PostCommentObj
+  createPostKarmaObj(input: CreatePostKarmaObjInput!): PostKarmaObj
+  updatePostKarmaObj(input: UpdatePostKarmaObjInput!): PostKarmaObj
+  deletePostKarmaObj(input: DeletePostKarmaObjInput!): PostKarmaObj
+  createPostMemberObj(input: CreatePostMemberObjInput!): PostMemberObj
+  updatePostMemberObj(input: UpdatePostMemberObjInput!): PostMemberObj
+  deletePostMemberObj(input: DeletePostMemberObjInput!): PostMemberObj
+  createUserPostObj(input: CreateUserPostObjInput!): UserPostObj
+  updateUserPostObj(input: UpdateUserPostObjInput!): UserPostObj
+  deleteUserPostObj(input: DeleteUserPostObjInput!): UserPostObj
+  createIdeaRelationshipObj(
+    input: CreateIdeaRelationshipObjInput!
+  ): IdeaRelationshipObj
+  updateIdeaRelationshipObj(
+    input: UpdateIdeaRelationshipObjInput!
+  ): IdeaRelationshipObj
+  deleteIdeaRelationshipObj(
+    input: DeleteIdeaRelationshipObjInput!
+  ): IdeaRelationshipObj
+  createIdeaObj(input: CreateIdeaObjInput!): IdeaObj
+  updateIdeaObj(input: UpdateIdeaObjInput!): IdeaObj
+  deleteIdeaObj(input: DeleteIdeaObjInput!): IdeaObj
+  createIdeaSceneObj(input: CreateIdeaSceneObjInput!): IdeaSceneObj
+  updateIdeaSceneObj(input: UpdateIdeaSceneObjInput!): IdeaSceneObj
+  deleteIdeaSceneObj(input: DeleteIdeaSceneObjInput!): IdeaSceneObj
+  createTaskMemberObj(input: CreateTaskMemberObjInput!): TaskMemberObj
+  updateTaskMemberObj(input: UpdateTaskMemberObjInput!): TaskMemberObj
+  deleteTaskMemberObj(input: DeleteTaskMemberObjInput!): TaskMemberObj
+  createTaskObj(input: CreateTaskObjInput!): TaskObj
+  updateTaskObj(input: UpdateTaskObjInput!): TaskObj
+  deleteTaskObj(input: DeleteTaskObjInput!): TaskObj
+  createConversationObj(input: CreateConversationObjInput!): ConversationObj
+  updateConversationObj(input: UpdateConversationObjInput!): ConversationObj
+  deleteConversationObj(input: DeleteConversationObjInput!): ConversationObj
+  createHorizonObj(input: CreateHorizonObjInput!): HorizonObj
+  updateHorizonObj(input: UpdateHorizonObjInput!): HorizonObj
+  deleteHorizonObj(input: DeleteHorizonObjInput!): HorizonObj
+  createQuadrantMemberObj(
+    input: CreateQuadrantMemberObjInput!
+  ): QuadrantMemberObj
+  updateQuadrantMemberObj(
+    input: UpdateQuadrantMemberObjInput!
+  ): QuadrantMemberObj
+  deleteQuadrantMemberObj(
+    input: DeleteQuadrantMemberObjInput!
+  ): QuadrantMemberObj
+  createDecisionQuadrantObj(
+    input: CreateDecisionQuadrantObjInput!
+  ): DecisionQuadrantObj
+  updateDecisionQuadrantObj(
+    input: UpdateDecisionQuadrantObjInput!
+  ): DecisionQuadrantObj
+  deleteDecisionQuadrantObj(
+    input: DeleteDecisionQuadrantObjInput!
+  ): DecisionQuadrantObj
+  createHorizonDecisionObj(
+    input: CreateHorizonDecisionObjInput!
+  ): HorizonDecisionObj
+  updateHorizonDecisionObj(
+    input: UpdateHorizonDecisionObjInput!
+  ): HorizonDecisionObj
+  deleteHorizonDecisionObj(
+    input: DeleteHorizonDecisionObjInput!
+  ): HorizonDecisionObj
+  createHorizonSpaceMemberObj(
+    input: CreateHorizonSpaceMemberObjInput!
+  ): HorizonSpaceMemberObj
+  updateHorizonSpaceMemberObj(
+    input: UpdateHorizonSpaceMemberObjInput!
+  ): HorizonSpaceMemberObj
+  deleteHorizonSpaceMemberObj(
+    input: DeleteHorizonSpaceMemberObjInput!
+  ): HorizonSpaceMemberObj
+  createHorizonUserMemberObj(
+    input: CreateHorizonUserMemberObjInput!
+  ): HorizonUserMemberObj
+  updateHorizonUserMemberObj(
+    input: UpdateHorizonUserMemberObjInput!
+  ): HorizonUserMemberObj
+  deleteHorizonUserMemberObj(
+    input: DeleteHorizonUserMemberObjInput!
+  ): HorizonUserMemberObj
+  createArcSectionObj(input: CreateArcSectionObjInput!): ArcSectionObj
+  updateArcSectionObj(input: UpdateArcSectionObjInput!): ArcSectionObj
+  deleteArcSectionObj(input: DeleteArcSectionObjInput!): ArcSectionObj
+  createHorizonArcObj(input: CreateHorizonArcObjInput!): HorizonArcObj
+  updateHorizonArcObj(input: UpdateHorizonArcObjInput!): HorizonArcObj
+  deleteHorizonArcObj(input: DeleteHorizonArcObjInput!): HorizonArcObj
+}
+
+type Query {
+  getUser: UserObj
+  getChapterSceneObj(id: String!): ChapterSceneObj
+  listChapterSceneObjs(
+    filter: TableChapterSceneObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterSceneObjConnection
+  getConversationMessageObj(id: String!): ConversationMessageObj
+  listConversationMessageObjs(
+    filter: TableConversationMessageObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ConversationMessageObjConnection
+  getSceneIdeaObj(id: String!): SceneIdeaObj
+  listSceneIdeaObjs(
+    filter: TableSceneIdeaObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SceneIdeaObjConnection
+  getCollectionResourceObj(id: String!): CollectionResourceObj
+  listCollectionResourceObjs(
+    filter: TableCollectionResourceObjFilterInput
+    limit: Int
+    nextToken: String
+  ): CollectionResourceObjConnection
+  getUserObj(id: String!): UserObj
+  listUserObjs(
+    filter: TableUserObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserObjConnection
+  getSpaceChapterObj(id: String!): SpaceChapterObj
+  listSpaceChapterObjs(
+    filter: TableSpaceChapterObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SpaceChapterObjConnection
+  getSpaceObj(id: String!): SpaceObj
+  listSpaceObjs(
+    filter: TableSpaceObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SpaceObjConnection
+  getSpaceMemberObj(id: String!): SpaceMemberObj
+  listSpaceMemberObjs(
+    filter: TableSpaceMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SpaceMemberObjConnection
+  getUserReservationObj(id: String!): UserReservationObj
+  listUserReservationObjs(
+    filter: TableUserReservationObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserReservationObjConnection
+  getAgentObj(id: String!): AgentObj
+  listAgentObjs(
+    filter: TableAgentObjFilterInput
+    limit: Int
+    nextToken: String
+  ): AgentObjConnection
+  getChapterSessionObj(id: String!): ChapterSessionObj
+  listChapterSessionObjs(
+    filter: TableChapterSessionObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterSessionObjConnection
+  getChapterSessionUpdateObj(id: String!): ChapterSessionUpdateObj
+  listChapterSessionUpdateObjs(
+    filter: TableChapterSessionUpdateObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterSessionUpdateObjConnection
+  getChapterSessionUpdateMemberObj(id: String!): ChapterSessionUpdateMemberObj
+  listChapterSessionUpdateMemberObjs(
+    filter: TableChapterSessionUpdateMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterSessionUpdateMemberObjConnection
+  getUserBackerObj(id: String!): UserBackerObj
+  listUserBackerObjs(
+    filter: TableUserBackerObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserBackerObjConnection
+  getUserConnectionObj(id: String!): UserConnectionObj
+  listUserConnectionObjs(
+    filter: TableUserConnectionObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserConnectionObjConnection
+  getChapterSessionContributorObj(id: String!): ChapterSessionContributorObj
+  listChapterSessionContributorObjs(
+    filter: TableChapterSessionContributorObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ChapterSessionContributorObjConnection
+  getSceneMemberObj(id: String!): SceneMemberObj
+  listSceneMemberObjs(
+    filter: TableSceneMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SceneMemberObjConnection
+  getSpaceIdeaRelationshipObj(id: String!): SpaceIdeaRelationshipObj
+  listSpaceIdeaRelationshipObjs(
+    filter: TableSpaceIdeaRelationshipObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SpaceIdeaRelationshipObjConnection
+  getCommentKarmaObj(id: String!): CommentKarmaObj
+  listCommentKarmaObjs(
+    filter: TableCommentKarmaObjFilterInput
+    limit: Int
+    nextToken: String
+  ): CommentKarmaObjConnection
+  getSpaceChapterMemberObj(id: String!): SpaceChapterMemberObj
+  listSpaceChapterMemberObjs(
+    filter: TableSpaceChapterMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): SpaceChapterMemberObjConnection
+  getGalleryObj(id: String!): GalleryObj
+  listGalleryObjs(
+    filter: TableGalleryObjFilterInput
+    limit: Int
+    nextToken: String
+  ): GalleryObjConnection
+  getGalleryCollectionObj(id: String!): GalleryCollectionObj
+  listGalleryCollectionObjs(
+    filter: TableGalleryCollectionObjFilterInput
+    limit: Int
+    nextToken: String
+  ): GalleryCollectionObjConnection
+  getGalleryMemberObj(id: String!): GalleryMemberObj
+  listGalleryMemberObjs(
+    filter: TableGalleryMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): GalleryMemberObjConnection
+  getUserActivityObj(id: String!): UserActivityObj
+  listUserActivityObjs(
+    filter: TableUserActivityObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserActivityObjConnection
+  getPostAttachmentObj(id: String!): PostAttachmentObj
+  listPostAttachmentObjs(
+    filter: TablePostAttachmentObjFilterInput
+    limit: Int
+    nextToken: String
+  ): PostAttachmentObjConnection
+  getPostCommentObj(id: String!): PostCommentObj
+  listPostCommentObjs(
+    filter: TablePostCommentObjFilterInput
+    limit: Int
+    nextToken: String
+  ): PostCommentObjConnection
+  getPostKarmaObj(id: String!): PostKarmaObj
+  listPostKarmaObjs(
+    filter: TablePostKarmaObjFilterInput
+    limit: Int
+    nextToken: String
+  ): PostKarmaObjConnection
+  getPostMemberObj(id: String!): PostMemberObj
+  listPostMemberObjs(
+    filter: TablePostMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): PostMemberObjConnection
+  getUserPostObj(id: String!): UserPostObj
+  listUserPostObjs(
+    filter: TableUserPostObjFilterInput
+    limit: Int
+    nextToken: String
+  ): UserPostObjConnection
+  getIdeaRelationshipObj(id: String!): IdeaRelationshipObj
+  listIdeaRelationshipObjs(
+    filter: TableIdeaRelationshipObjFilterInput
+    limit: Int
+    nextToken: String
+  ): IdeaRelationshipObjConnection
+  getIdeaObj(id: String!): IdeaObj
+  listIdeaObjs(
+    filter: TableIdeaObjFilterInput
+    limit: Int
+    nextToken: String
+  ): IdeaObjConnection
+  getIdeaSceneObj(id: String!): IdeaSceneObj
+  listIdeaSceneObjs(
+    filter: TableIdeaSceneObjFilterInput
+    limit: Int
+    nextToken: String
+  ): IdeaSceneObjConnection
+  getTaskMemberObj(id: String!): TaskMemberObj
+  listTaskMemberObjs(
+    filter: TableTaskMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): TaskMemberObjConnection
+  getTaskObj(id: String!): TaskObj
+  listTaskObjs(
+    filter: TableTaskObjFilterInput
+    limit: Int
+    nextToken: String
+  ): TaskObjConnection
+  getConversationObj(id: String!): ConversationObj
+  listConversationObjs(
+    filter: TableConversationObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ConversationObjConnection
+  getHorizonObj(id: String!): HorizonObj
+  listHorizonObjs(
+    filter: TableHorizonObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonObjConnection
+  getQuadrantMemberObj(id: String!): QuadrantMemberObj
+  listQuadrantMemberObjs(
+    filter: TableQuadrantMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): QuadrantMemberObjConnection
+  getDecisionQuadrantObj(id: String!): DecisionQuadrantObj
+  listDecisionQuadrantObjs(
+    filter: TableDecisionQuadrantObjFilterInput
+    limit: Int
+    nextToken: String
+  ): DecisionQuadrantObjConnection
+  getHorizonDecisionObj(id: String!): HorizonDecisionObj
+  listHorizonDecisionObjs(
+    filter: TableHorizonDecisionObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonDecisionObjConnection
+  getHorizonSpaceMemberObj(id: String!): HorizonSpaceMemberObj
+  listHorizonSpaceMemberObjs(
+    filter: TableHorizonSpaceMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonSpaceMemberObjConnection
+  getHorizonUserMemberObj(id: String!): HorizonUserMemberObj
+  listHorizonUserMemberObjs(
+    filter: TableHorizonUserMemberObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonUserMemberObjConnection
+  getArcSectionObj(id: String!): ArcSectionObj
+  listArcSectionObjs(
+    filter: TableArcSectionObjFilterInput
+    limit: Int
+    nextToken: String
+  ): ArcSectionObjConnection
+  getHorizonArcObj(id: String!): HorizonArcObj
+  listHorizonArcObjs(
+    filter: TableHorizonArcObjFilterInput
+    limit: Int
+    nextToken: String
+  ): HorizonArcObjConnection
+}
+
+type Subscription {
+  onCreateChapterSceneObj(
+    id: String
+    chapterId: String
+    title: String
+    description: String
+    variant: String
+  ): ChapterSceneObj @aws_subscribe(mutations: ["createChapterSceneObj"])
+  onUpdateChapterSceneObj(
+    id: String
+    chapterId: String
+    title: String
+    description: String
+    variant: String
+  ): ChapterSceneObj @aws_subscribe(mutations: ["updateChapterSceneObj"])
+  onDeleteChapterSceneObj(
+    id: String
+    chapterId: String
+    title: String
+    description: String
+    variant: String
+  ): ChapterSceneObj @aws_subscribe(mutations: ["deleteChapterSceneObj"])
+  onCreateConversationMessageObj(
+    id: String
+    userId: String
+    conversationId: String
+    created: String
+  ): ConversationMessageObj
+    @aws_subscribe(mutations: ["createConversationMessageObj"])
+  onUpdateConversationMessageObj(
+    id: String
+    userId: String
+    conversationId: String
+    created: String
+  ): ConversationMessageObj
+    @aws_subscribe(mutations: ["updateConversationMessageObj"])
+  onDeleteConversationMessageObj(
+    id: String
+    userId: String
+    conversationId: String
+    created: String
+  ): ConversationMessageObj
+    @aws_subscribe(mutations: ["deleteConversationMessageObj"])
+  onCreateSceneIdeaObj(
+    id: String
+    sceneId: String
+    title: String
+    description: String
+    x: Int
+  ): SceneIdeaObj @aws_subscribe(mutations: ["createSceneIdeaObj"])
+  onUpdateSceneIdeaObj(
+    id: String
+    sceneId: String
+    title: String
+    description: String
+    x: Int
+  ): SceneIdeaObj @aws_subscribe(mutations: ["updateSceneIdeaObj"])
+  onDeleteSceneIdeaObj(
+    id: String
+    sceneId: String
+    title: String
+    description: String
+    x: Int
+  ): SceneIdeaObj @aws_subscribe(mutations: ["deleteSceneIdeaObj"])
+  onCreateCollectionResourceObj(
+    id: String
+    userId: String
+    collectionId: String
+    title: String
+    description: String
+  ): CollectionResourceObj
+    @aws_subscribe(mutations: ["createCollectionResourceObj"])
+  onUpdateCollectionResourceObj(
+    id: String
+    userId: String
+    collectionId: String
+    title: String
+    description: String
+  ): CollectionResourceObj
+    @aws_subscribe(mutations: ["updateCollectionResourceObj"])
+  onDeleteCollectionResourceObj(
+    id: String
+    userId: String
+    collectionId: String
+    title: String
+    description: String
+  ): CollectionResourceObj
+    @aws_subscribe(mutations: ["deleteCollectionResourceObj"])
+  onCreateUserObj(
+    id: String
+    fname: String
+    lname: String
+    passwordHash: String
+    email: String
+  ): UserObj @aws_subscribe(mutations: ["createUserObj"])
+  onUpdateUserObj(
+    id: String
+    fname: String
+    lname: String
+    passwordHash: String
+    email: String
+  ): UserObj @aws_subscribe(mutations: ["updateUserObj"])
+  onDeleteUserObj(
+    id: String
+    fname: String
+    lname: String
+    passwordHash: String
+    email: String
+  ): UserObj @aws_subscribe(mutations: ["deleteUserObj"])
+  onCreateSpaceChapterObj(
+    id: String
+    spaceId: String
+    title: String
+    description: String
+    idx: Int
+  ): SpaceChapterObj @aws_subscribe(mutations: ["createSpaceChapterObj"])
+  onUpdateSpaceChapterObj(
+    id: String
+    spaceId: String
+    title: String
+    description: String
+    idx: Int
+  ): SpaceChapterObj @aws_subscribe(mutations: ["updateSpaceChapterObj"])
+  onDeleteSpaceChapterObj(
+    id: String
+    spaceId: String
+    title: String
+    description: String
+    idx: Int
+  ): SpaceChapterObj @aws_subscribe(mutations: ["deleteSpaceChapterObj"])
+  onCreateSpaceObj(
+    id: String
+    userId: String
+    title: String
+    created: String
+    description: String
+  ): SpaceObj @aws_subscribe(mutations: ["createSpaceObj"])
+  onUpdateSpaceObj(
+    id: String
+    userId: String
+    title: String
+    created: String
+    description: String
+  ): SpaceObj @aws_subscribe(mutations: ["updateSpaceObj"])
+  onDeleteSpaceObj(
+    id: String
+    userId: String
+    title: String
+    created: String
+    description: String
+  ): SpaceObj @aws_subscribe(mutations: ["deleteSpaceObj"])
+  onCreateSpaceMemberObj(
+    id: String
+    spaceId: String
+    userId: String
+  ): SpaceMemberObj @aws_subscribe(mutations: ["createSpaceMemberObj"])
+  onUpdateSpaceMemberObj(
+    id: String
+    spaceId: String
+    userId: String
+  ): SpaceMemberObj @aws_subscribe(mutations: ["updateSpaceMemberObj"])
+  onDeleteSpaceMemberObj(
+    id: String
+    spaceId: String
+    userId: String
+  ): SpaceMemberObj @aws_subscribe(mutations: ["deleteSpaceMemberObj"])
+  onCreateUserReservationObj(
+    id: String
+    fname: String
+    lname: String
+    email: String
+    role: String
+  ): UserReservationObj @aws_subscribe(mutations: ["createUserReservationObj"])
+  onUpdateUserReservationObj(
+    id: String
+    fname: String
+    lname: String
+    email: String
+    role: String
+  ): UserReservationObj @aws_subscribe(mutations: ["updateUserReservationObj"])
+  onDeleteUserReservationObj(
+    id: String
+    fname: String
+    lname: String
+    email: String
+    role: String
+  ): UserReservationObj @aws_subscribe(mutations: ["deleteUserReservationObj"])
+  onCreateAgentObj(
+    id: String
+    name: String
+    role: String
+    created: String
+    bio: String
+  ): AgentObj @aws_subscribe(mutations: ["createAgentObj"])
+  onUpdateAgentObj(
+    id: String
+    name: String
+    role: String
+    created: String
+    bio: String
+  ): AgentObj @aws_subscribe(mutations: ["updateAgentObj"])
+  onDeleteAgentObj(
+    id: String
+    name: String
+    role: String
+    created: String
+    bio: String
+  ): AgentObj @aws_subscribe(mutations: ["deleteAgentObj"])
+  onCreateChapterSessionObj(
+    id: String
+    spaceId: String
+    userId: String
+    chapterId: String
+    title: String
+  ): ChapterSessionObj @aws_subscribe(mutations: ["createChapterSessionObj"])
+  onUpdateChapterSessionObj(
+    id: String
+    spaceId: String
+    userId: String
+    chapterId: String
+    title: String
+  ): ChapterSessionObj @aws_subscribe(mutations: ["updateChapterSessionObj"])
+  onDeleteChapterSessionObj(
+    id: String
+    spaceId: String
+    userId: String
+    chapterId: String
+    title: String
+  ): ChapterSessionObj @aws_subscribe(mutations: ["deleteChapterSessionObj"])
+  onCreateChapterSessionUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    sessionId: String
+    added: Boolean
+  ): ChapterSessionUpdateObj
+    @aws_subscribe(mutations: ["createChapterSessionUpdateObj"])
+  onUpdateChapterSessionUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    sessionId: String
+    added: Boolean
+  ): ChapterSessionUpdateObj
+    @aws_subscribe(mutations: ["updateChapterSessionUpdateObj"])
+  onDeleteChapterSessionUpdateObj(
+    id: String
+    userId: String
+    chapterId: String
+    sessionId: String
+    added: Boolean
+  ): ChapterSessionUpdateObj
+    @aws_subscribe(mutations: ["deleteChapterSessionUpdateObj"])
+  onCreateChapterSessionUpdateMemberObj(
+    id: String
+    updateId: String
+    userId: String
+    created: String
+  ): ChapterSessionUpdateMemberObj
+    @aws_subscribe(mutations: ["createChapterSessionUpdateMemberObj"])
+  onUpdateChapterSessionUpdateMemberObj(
+    id: String
+    updateId: String
+    userId: String
+    created: String
+  ): ChapterSessionUpdateMemberObj
+    @aws_subscribe(mutations: ["updateChapterSessionUpdateMemberObj"])
+  onDeleteChapterSessionUpdateMemberObj(
+    id: String
+    updateId: String
+    userId: String
+    created: String
+  ): ChapterSessionUpdateMemberObj
+    @aws_subscribe(mutations: ["deleteChapterSessionUpdateMemberObj"])
+  onCreateUserBackerObj(
+    id: String
+    backedId: String
+    userId: String
+    created: String
+  ): UserBackerObj @aws_subscribe(mutations: ["createUserBackerObj"])
+  onUpdateUserBackerObj(
+    id: String
+    backedId: String
+    userId: String
+    created: String
+  ): UserBackerObj @aws_subscribe(mutations: ["updateUserBackerObj"])
+  onDeleteUserBackerObj(
+    id: String
+    backedId: String
+    userId: String
+    created: String
+  ): UserBackerObj @aws_subscribe(mutations: ["deleteUserBackerObj"])
+  onCreateUserConnectionObj(
+    id: String
+    userId: String
+    connectedId: String
+    created: String
+  ): UserConnectionObj @aws_subscribe(mutations: ["createUserConnectionObj"])
+  onUpdateUserConnectionObj(
+    id: String
+    userId: String
+    connectedId: String
+    created: String
+  ): UserConnectionObj @aws_subscribe(mutations: ["updateUserConnectionObj"])
+  onDeleteUserConnectionObj(
+    id: String
+    userId: String
+    connectedId: String
+    created: String
+  ): UserConnectionObj @aws_subscribe(mutations: ["deleteUserConnectionObj"])
+  onCreateChapterSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): ChapterSessionContributorObj
+    @aws_subscribe(mutations: ["createChapterSessionContributorObj"])
+  onUpdateChapterSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): ChapterSessionContributorObj
+    @aws_subscribe(mutations: ["updateChapterSessionContributorObj"])
+  onDeleteChapterSessionContributorObj(
+    id: String
+    sessionId: String
+    userId: String
+    created: String
+  ): ChapterSessionContributorObj
+    @aws_subscribe(mutations: ["deleteChapterSessionContributorObj"])
+  onCreateSceneMemberObj(
+    id: String
+    sceneId: String
+    userId: String
+    created: String
+  ): SceneMemberObj @aws_subscribe(mutations: ["createSceneMemberObj"])
+  onUpdateSceneMemberObj(
+    id: String
+    sceneId: String
+    userId: String
+    created: String
+  ): SceneMemberObj @aws_subscribe(mutations: ["updateSceneMemberObj"])
+  onDeleteSceneMemberObj(
+    id: String
+    sceneId: String
+    userId: String
+    created: String
+  ): SceneMemberObj @aws_subscribe(mutations: ["deleteSceneMemberObj"])
+  onCreateSpaceIdeaRelationshipObj(
+    id: String
+    userId: String
+    spaceId: String
+    fromChapterId: String
+    fromSceneId: String
+  ): SpaceIdeaRelationshipObj
+    @aws_subscribe(mutations: ["createSpaceIdeaRelationshipObj"])
+  onUpdateSpaceIdeaRelationshipObj(
+    id: String
+    userId: String
+    spaceId: String
+    fromChapterId: String
+    fromSceneId: String
+  ): SpaceIdeaRelationshipObj
+    @aws_subscribe(mutations: ["updateSpaceIdeaRelationshipObj"])
+  onDeleteSpaceIdeaRelationshipObj(
+    id: String
+    userId: String
+    spaceId: String
+    fromChapterId: String
+    fromSceneId: String
+  ): SpaceIdeaRelationshipObj
+    @aws_subscribe(mutations: ["deleteSpaceIdeaRelationshipObj"])
+  onCreateCommentKarmaObj(
+    id: String
+    userId: String
+    commentId: String
+    created: String
+    neutrality: Boolean
+  ): CommentKarmaObj @aws_subscribe(mutations: ["createCommentKarmaObj"])
+  onUpdateCommentKarmaObj(
+    id: String
+    userId: String
+    commentId: String
+    created: String
+    neutrality: Boolean
+  ): CommentKarmaObj @aws_subscribe(mutations: ["updateCommentKarmaObj"])
+  onDeleteCommentKarmaObj(
+    id: String
+    userId: String
+    commentId: String
+    created: String
+    neutrality: Boolean
+  ): CommentKarmaObj @aws_subscribe(mutations: ["deleteCommentKarmaObj"])
+  onCreateSpaceChapterMemberObj(
+    id: String
+    spaceId: String
+    userId: String
+    created: String
+  ): SpaceChapterMemberObj
+    @aws_subscribe(mutations: ["createSpaceChapterMemberObj"])
+  onUpdateSpaceChapterMemberObj(
+    id: String
+    spaceId: String
+    userId: String
+    created: String
+  ): SpaceChapterMemberObj
+    @aws_subscribe(mutations: ["updateSpaceChapterMemberObj"])
+  onDeleteSpaceChapterMemberObj(
+    id: String
+    spaceId: String
+    userId: String
+    created: String
+  ): SpaceChapterMemberObj
+    @aws_subscribe(mutations: ["deleteSpaceChapterMemberObj"])
+  onCreateGalleryObj(
+    id: String
+    userId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryObj @aws_subscribe(mutations: ["createGalleryObj"])
+  onUpdateGalleryObj(
+    id: String
+    userId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryObj @aws_subscribe(mutations: ["updateGalleryObj"])
+  onDeleteGalleryObj(
+    id: String
+    userId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryObj @aws_subscribe(mutations: ["deleteGalleryObj"])
+  onCreateGalleryCollectionObj(
+    id: String
+    galleryId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryCollectionObj
+    @aws_subscribe(mutations: ["createGalleryCollectionObj"])
+  onUpdateGalleryCollectionObj(
+    id: String
+    galleryId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryCollectionObj
+    @aws_subscribe(mutations: ["updateGalleryCollectionObj"])
+  onDeleteGalleryCollectionObj(
+    id: String
+    galleryId: String
+    title: String
+    description: String
+    created: String
+  ): GalleryCollectionObj
+    @aws_subscribe(mutations: ["deleteGalleryCollectionObj"])
+  onCreateGalleryMemberObj(
+    id: String
+    galleryId: String
+    userId: String
+    created: String
+  ): GalleryMemberObj @aws_subscribe(mutations: ["createGalleryMemberObj"])
+  onUpdateGalleryMemberObj(
+    id: String
+    galleryId: String
+    userId: String
+    created: String
+  ): GalleryMemberObj @aws_subscribe(mutations: ["updateGalleryMemberObj"])
+  onDeleteGalleryMemberObj(
+    id: String
+    galleryId: String
+    userId: String
+    created: String
+  ): GalleryMemberObj @aws_subscribe(mutations: ["deleteGalleryMemberObj"])
+  onCreateUserActivityObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    horizonId: String
+  ): UserActivityObj @aws_subscribe(mutations: ["createUserActivityObj"])
+  onUpdateUserActivityObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    horizonId: String
+  ): UserActivityObj @aws_subscribe(mutations: ["updateUserActivityObj"])
+  onDeleteUserActivityObj(
+    id: String
+    userId: String
+    chapterId: String
+    spaceId: String
+    horizonId: String
+  ): UserActivityObj @aws_subscribe(mutations: ["deleteUserActivityObj"])
+  onCreatePostAttachmentObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    variant: String
+  ): PostAttachmentObj @aws_subscribe(mutations: ["createPostAttachmentObj"])
+  onUpdatePostAttachmentObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    variant: String
+  ): PostAttachmentObj @aws_subscribe(mutations: ["updatePostAttachmentObj"])
+  onDeletePostAttachmentObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    variant: String
+  ): PostAttachmentObj @aws_subscribe(mutations: ["deletePostAttachmentObj"])
+  onCreatePostCommentObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    message: String
+  ): PostCommentObj @aws_subscribe(mutations: ["createPostCommentObj"])
+  onUpdatePostCommentObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    message: String
+  ): PostCommentObj @aws_subscribe(mutations: ["updatePostCommentObj"])
+  onDeletePostCommentObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    message: String
+  ): PostCommentObj @aws_subscribe(mutations: ["deletePostCommentObj"])
+  onCreatePostKarmaObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    neutrality: Boolean
+  ): PostKarmaObj @aws_subscribe(mutations: ["createPostKarmaObj"])
+  onUpdatePostKarmaObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    neutrality: Boolean
+  ): PostKarmaObj @aws_subscribe(mutations: ["updatePostKarmaObj"])
+  onDeletePostKarmaObj(
+    id: String
+    userId: String
+    postId: String
+    created: String
+    neutrality: Boolean
+  ): PostKarmaObj @aws_subscribe(mutations: ["deletePostKarmaObj"])
+  onCreatePostMemberObj(
+    id: String
+    postId: String
+    userId: String
+    created: String
+  ): PostMemberObj @aws_subscribe(mutations: ["createPostMemberObj"])
+  onUpdatePostMemberObj(
+    id: String
+    postId: String
+    userId: String
+    created: String
+  ): PostMemberObj @aws_subscribe(mutations: ["updatePostMemberObj"])
+  onDeletePostMemberObj(
+    id: String
+    postId: String
+    userId: String
+    created: String
+  ): PostMemberObj @aws_subscribe(mutations: ["deletePostMemberObj"])
+  onCreateUserPostObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): UserPostObj @aws_subscribe(mutations: ["createUserPostObj"])
+  onUpdateUserPostObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): UserPostObj @aws_subscribe(mutations: ["updateUserPostObj"])
+  onDeleteUserPostObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): UserPostObj @aws_subscribe(mutations: ["deleteUserPostObj"])
+  onCreateIdeaRelationshipObj(
+    id: String
+    spaceId: String
+    horizonId: String
+    fromUserId: String
+    fromChapterId: String
+  ): IdeaRelationshipObj
+    @aws_subscribe(mutations: ["createIdeaRelationshipObj"])
+  onUpdateIdeaRelationshipObj(
+    id: String
+    spaceId: String
+    horizonId: String
+    fromUserId: String
+    fromChapterId: String
+  ): IdeaRelationshipObj
+    @aws_subscribe(mutations: ["updateIdeaRelationshipObj"])
+  onDeleteIdeaRelationshipObj(
+    id: String
+    spaceId: String
+    horizonId: String
+    fromUserId: String
+    fromChapterId: String
+  ): IdeaRelationshipObj
+    @aws_subscribe(mutations: ["deleteIdeaRelationshipObj"])
+  onCreateIdeaObj(
+    id: String
+    idx: Int
+    userId: String
+    sceneId: String
+    title: String
+  ): IdeaObj @aws_subscribe(mutations: ["createIdeaObj"])
+  onUpdateIdeaObj(
+    id: String
+    idx: Int
+    userId: String
+    sceneId: String
+    title: String
+  ): IdeaObj @aws_subscribe(mutations: ["updateIdeaObj"])
+  onDeleteIdeaObj(
+    id: String
+    idx: Int
+    userId: String
+    sceneId: String
+    title: String
+  ): IdeaObj @aws_subscribe(mutations: ["deleteIdeaObj"])
+  onCreateIdeaSceneObj(
+    id: String
+    userId: String
+    chapterId: String
+    arcId: String
+    title: String
+  ): IdeaSceneObj @aws_subscribe(mutations: ["createIdeaSceneObj"])
+  onUpdateIdeaSceneObj(
+    id: String
+    userId: String
+    chapterId: String
+    arcId: String
+    title: String
+  ): IdeaSceneObj @aws_subscribe(mutations: ["updateIdeaSceneObj"])
+  onDeleteIdeaSceneObj(
+    id: String
+    userId: String
+    chapterId: String
+    arcId: String
+    title: String
+  ): IdeaSceneObj @aws_subscribe(mutations: ["deleteIdeaSceneObj"])
+  onCreateTaskMemberObj(
+    id: String
+    taskId: String
+    userId: String
+    created: String
+  ): TaskMemberObj @aws_subscribe(mutations: ["createTaskMemberObj"])
+  onUpdateTaskMemberObj(
+    id: String
+    taskId: String
+    userId: String
+    created: String
+  ): TaskMemberObj @aws_subscribe(mutations: ["updateTaskMemberObj"])
+  onDeleteTaskMemberObj(
+    id: String
+    taskId: String
+    userId: String
+    created: String
+  ): TaskMemberObj @aws_subscribe(mutations: ["deleteTaskMemberObj"])
+  onCreateTaskObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): TaskObj @aws_subscribe(mutations: ["createTaskObj"])
+  onUpdateTaskObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): TaskObj @aws_subscribe(mutations: ["updateTaskObj"])
+  onDeleteTaskObj(
+    id: String
+    userId: String
+    chapterId: String
+    title: String
+    description: String
+  ): TaskObj @aws_subscribe(mutations: ["deleteTaskObj"])
+  onCreateConversationObj(
+    id: String
+    userId: String
+    chapterId: String
+    decisionId: String
+    toUserId: String
+  ): ConversationObj @aws_subscribe(mutations: ["createConversationObj"])
+  onUpdateConversationObj(
+    id: String
+    userId: String
+    chapterId: String
+    decisionId: String
+    toUserId: String
+  ): ConversationObj @aws_subscribe(mutations: ["updateConversationObj"])
+  onDeleteConversationObj(
+    id: String
+    userId: String
+    chapterId: String
+    decisionId: String
+    toUserId: String
+  ): ConversationObj @aws_subscribe(mutations: ["deleteConversationObj"])
+  onCreateHorizonObj(
+    id: String
+    userId: String
+    title: String
+    created: String
+    description: String
+  ): HorizonObj @aws_subscribe(mutations: ["createHorizonObj"])
+  onUpdateHorizonObj(
+    id: String
+    userId: String
+    title: String
+    created: String
+    description: String
+  ): HorizonObj @aws_subscribe(mutations: ["updateHorizonObj"])
+  onDeleteHorizonObj(
+    id: String
+    userId: String
+    title: String
+    created: String
+    description: String
+  ): HorizonObj @aws_subscribe(mutations: ["deleteHorizonObj"])
+  onCreateQuadrantMemberObj(
+    id: String
+    quadrantId: String
+    userId: String
+    created: String
+  ): QuadrantMemberObj @aws_subscribe(mutations: ["createQuadrantMemberObj"])
+  onUpdateQuadrantMemberObj(
+    id: String
+    quadrantId: String
+    userId: String
+    created: String
+  ): QuadrantMemberObj @aws_subscribe(mutations: ["updateQuadrantMemberObj"])
+  onDeleteQuadrantMemberObj(
+    id: String
+    quadrantId: String
+    userId: String
+    created: String
+  ): QuadrantMemberObj @aws_subscribe(mutations: ["deleteQuadrantMemberObj"])
+  onCreateDecisionQuadrantObj(
+    id: String
+    decisionId: String
+    title: String
+    description: String
+    variant: String
+  ): DecisionQuadrantObj
+    @aws_subscribe(mutations: ["createDecisionQuadrantObj"])
+  onUpdateDecisionQuadrantObj(
+    id: String
+    decisionId: String
+    title: String
+    description: String
+    variant: String
+  ): DecisionQuadrantObj
+    @aws_subscribe(mutations: ["updateDecisionQuadrantObj"])
+  onDeleteDecisionQuadrantObj(
+    id: String
+    decisionId: String
+    title: String
+    description: String
+    variant: String
+  ): DecisionQuadrantObj
+    @aws_subscribe(mutations: ["deleteDecisionQuadrantObj"])
+  onCreateHorizonDecisionObj(
+    id: String
+    horizonId: String
+    title: String
+    description: String
+    created: String
+  ): HorizonDecisionObj @aws_subscribe(mutations: ["createHorizonDecisionObj"])
+  onUpdateHorizonDecisionObj(
+    id: String
+    horizonId: String
+    title: String
+    description: String
+    created: String
+  ): HorizonDecisionObj @aws_subscribe(mutations: ["updateHorizonDecisionObj"])
+  onDeleteHorizonDecisionObj(
+    id: String
+    horizonId: String
+    title: String
+    description: String
+    created: String
+  ): HorizonDecisionObj @aws_subscribe(mutations: ["deleteHorizonDecisionObj"])
+  onCreateHorizonSpaceMemberObj(
+    id: String
+    horizonId: String
+    spaceId: String
+    created: String
+  ): HorizonSpaceMemberObj
+    @aws_subscribe(mutations: ["createHorizonSpaceMemberObj"])
+  onUpdateHorizonSpaceMemberObj(
+    id: String
+    horizonId: String
+    spaceId: String
+    created: String
+  ): HorizonSpaceMemberObj
+    @aws_subscribe(mutations: ["updateHorizonSpaceMemberObj"])
+  onDeleteHorizonSpaceMemberObj(
+    id: String
+    horizonId: String
+    spaceId: String
+    created: String
+  ): HorizonSpaceMemberObj
+    @aws_subscribe(mutations: ["deleteHorizonSpaceMemberObj"])
+  onCreateHorizonUserMemberObj(
+    id: String
+    horizonId: String
+    userId: String
+    created: String
+  ): HorizonUserMemberObj
+    @aws_subscribe(mutations: ["createHorizonUserMemberObj"])
+  onUpdateHorizonUserMemberObj(
+    id: String
+    horizonId: String
+    userId: String
+    created: String
+  ): HorizonUserMemberObj
+    @aws_subscribe(mutations: ["updateHorizonUserMemberObj"])
+  onDeleteHorizonUserMemberObj(
+    id: String
+    horizonId: String
+    userId: String
+    created: String
+  ): HorizonUserMemberObj
+    @aws_subscribe(mutations: ["deleteHorizonUserMemberObj"])
+  onCreateArcSectionObj(
+    id: String
+    userId: String
+    arcId: String
+    title: String
+    description: String
+  ): ArcSectionObj @aws_subscribe(mutations: ["createArcSectionObj"])
+  onUpdateArcSectionObj(
+    id: String
+    userId: String
+    arcId: String
+    title: String
+    description: String
+  ): ArcSectionObj @aws_subscribe(mutations: ["updateArcSectionObj"])
+  onDeleteArcSectionObj(
+    id: String
+    userId: String
+    arcId: String
+    title: String
+    description: String
+  ): ArcSectionObj @aws_subscribe(mutations: ["deleteArcSectionObj"])
+  onCreateHorizonArcObj(
+    id: String
+    userId: String
+    horizonId: String
+    title: String
+    description: String
+  ): HorizonArcObj @aws_subscribe(mutations: ["createHorizonArcObj"])
+  onUpdateHorizonArcObj(
+    id: String
+    userId: String
+    horizonId: String
+    title: String
+    description: String
+  ): HorizonArcObj @aws_subscribe(mutations: ["updateHorizonArcObj"])
+  onDeleteHorizonArcObj(
+    id: String
+    userId: String
+    horizonId: String
+    title: String
+    description: String
+  ): HorizonArcObj @aws_subscribe(mutations: ["deleteHorizonArcObj"])
+  subscribeToMessages: ConversationMessageObj
+}

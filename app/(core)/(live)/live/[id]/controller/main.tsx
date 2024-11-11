@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 export enum PublicSpaceFeedView {
-  Chat = 'Chat',
+  CHAT = 'Chat',
   POSTS = 'Posts',
   POST = 'Post',
 }

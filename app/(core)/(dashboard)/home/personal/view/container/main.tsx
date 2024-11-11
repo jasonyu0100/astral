@@ -1,5 +1,6 @@
-import { GlassAreaContainer } from '@/components/glass/area/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { borderFx, roundedFx } from '@/style/data';
 
 export function HomePersonalContainer({
   children,
@@ -7,15 +8,12 @@ export function HomePersonalContainer({
   children?: React.ReactNode;
 }) {
   return (
-    <GlassAreaContainer
-      name={HomePersonalContainer.name}
-      sizeFx='h-full flex-grow'
-      glassFx={glassFx['glass-5']}
-      borderFx={borderFx['border-around']}
+    <GlassWindowFrame
+      className='h-full w-full flex-shrink-0'
       roundedFx={roundedFx['rounded-container']}
-      className='flex flex-col py-[1rem]'
+      borderFx={borderFx['border-around']}
     >
-      {children}
-    </GlassAreaContainer>
+      <GlassWindowContents>{children}</GlassWindowContents>
+    </GlassWindowFrame>
   );
 }

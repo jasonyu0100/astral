@@ -22,6 +22,13 @@ export function PublicSpacePostCommentsInput() {
     );
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      createComment();
+    }
+  };
+
   return (
     <div className='flex flex-col space-y-[2rem]'>
       <div className='flex flex-row items-center justify-between space-x-[2rem]'>
@@ -35,6 +42,7 @@ export function PublicSpacePostCommentsInput() {
               placeholder='Add comment...'
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
             ></input>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />

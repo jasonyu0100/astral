@@ -81,7 +81,7 @@ function Page({ params }: { params: { id: string } }) {
   const loggedInUser = useGlobalUser((state) => state.user);
   const spaceMainController = useControllerForSpaceMain(params.id);
   const userMainController = useControllerForUserMain(
-    spaceMainController.state.obj.userId,
+    spaceMainController.state.obj?.userId,
   );
   const spaceMemberListController = useControllerForSpaceMemberList(
     spaceMainController.state.objId,
@@ -184,12 +184,12 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spaceMemberListController = useContext(ContextForSpaceMemberList);
 
-  const isOwner = loggedInUser?.id === spaceMainController.state.obj.userId;
+  const isOwner = loggedInUser?.id === spaceMainController.state.obj?.userId;
   const isMember = spaceMemberListController.state.objs.some(
     (member) => member.userId === loggedInUser?.id,
   );
   const isSpacePublic =
-    spaceMainController.state.obj.visibility === SpaceVisibility.PUBLIC;
+    spaceMainController.state.obj?.visibility === SpaceVisibility.PUBLIC;
   const isLoggedIn = !!loggedInUser.id;
 
   const pageRole = isOwner
@@ -208,7 +208,7 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
     <>
       <ContextForUserPageRole.Provider value={pageRole}>
         <ContextForSpaceVisibility.Provider
-          value={spaceMainController.state.obj.visibility as SpaceVisibility}
+          value={spaceMainController.state.obj?.visibility as SpaceVisibility}
         >
           <ContextForUserProfileVisibility.Provider
             value={
@@ -256,28 +256,6 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       setSpace(spaceMainController.state.obj);
     }
   }, [spaceMainController.state.obj]);
-
-  useEffect(() => {
-    if (
-      messageListController.state.objs.length === 0 &&
-      conversationListController.state.currentObj
-    ) {
-      const created = new Date(
-        conversationListController.state.currentObj.created,
-      );
-      const duration = new Date().getTime() - created.getTime();
-      if (duration < 1000 * 60) {
-        messageListController.actions.createActions.sendAgentMessage(
-          'astral',
-          conversationListController.state.objId,
-          "Hello, I'm Astral. How can I help you today?",
-        );
-      }
-    }
-  }, [
-    messageListController.state.objs,
-    conversationListController.state.objId,
-  ]);
 
   return <>{children}</>;
 }

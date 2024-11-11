@@ -7,7 +7,7 @@ export function UserProfileSpacesRowInfo() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <div className='col-span-2 flex flex-col justify-center space-y-[0.5rem]'>
+    <div className='col-span-2 flex flex-col space-y-[0.5rem]'>
       <p className='text-lg font-bold text-slate-300'>{space.title}</p>
       <p className='w-full text-ellipsis text-sm font-light text-slate-300'>
         {profileUser?.displayName}

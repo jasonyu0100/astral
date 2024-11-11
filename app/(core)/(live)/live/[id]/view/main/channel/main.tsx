@@ -45,11 +45,9 @@ export function PublicSpaceChapterChannel() {
       </Link>
       {conversationListController.state.objs.map((conversationObj) => (
         <Link
-          href={
-            (window.location.href = `${spacesMap.spaces.id.channel.link(
-              spaceMainController.state.objId,
-            )}?chapter=${chapterListController.state.currentObj?.id}&conversation=${conversationObj.id}`)
-          }
+          href={`${spacesMap.spaces.id.channel.link(
+            spaceMainController.state.objId,
+          )}?chapter=${chapterListController.state.currentObj?.id}&conversation=${conversationObj.id}`}
         >
           <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
             <GlassWindowContents className='flex cursor-pointer flex-col space-y-[1rem]'>

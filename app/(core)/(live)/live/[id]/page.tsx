@@ -78,7 +78,7 @@ function Page({ params }: { params: { id: string } }) {
 
   const spaceMainController = useControllerForSpaceMain(params.id);
   const userMainController = useControllerForUserMain(
-    spaceMainController.state.obj.userId,
+    spaceMainController.state.obj?.userId,
   );
   const spaceMemberListController = useControllerForSpaceMemberList(
     spaceMainController.state.objId,
@@ -186,7 +186,7 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const spaceMemberListController = useContext(ContextForSpaceMemberList);
 
-  const isOwner = loggedInUser?.id === spaceMainController.state.obj.userId;
+  const isOwner = loggedInUser?.id === spaceMainController.state.obj?.userId;
   const isMember = spaceMemberListController.state.objs.some(
     (member) => member.userId === loggedInUser?.id,
   );
@@ -195,7 +195,7 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
     ? UserPageRole.OWNER
     : isMember
       ? UserPageRole.MEMBER
-      : spaceMainController.state.obj.visibility === SpaceVisibility.PUBLIC
+      : spaceMainController.state.obj?.visibility === SpaceVisibility.PUBLIC
         ? UserPageRole.VIEWER
         : UserPageRole.NONE;
 
@@ -203,7 +203,7 @@ function PermissionWrapper({ children }: { children: React.ReactNode }) {
     <>
       <ContextForUserPageRole.Provider value={pageRole}>
         <ContextForSpaceVisibility.Provider
-          value={spaceMainController.state.obj.visibility as SpaceVisibility}
+          value={spaceMainController.state.obj?.visibility as SpaceVisibility}
         >
           <ContextForUserProfileVisibility.Provider
             value={
