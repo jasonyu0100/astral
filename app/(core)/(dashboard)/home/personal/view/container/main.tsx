@@ -1,6 +1,7 @@
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
-import { borderFx, roundedFx } from '@/style/data';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 
 export function HomePersonalContainer({
   children,
@@ -14,6 +15,7 @@ export function HomePersonalContainer({
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents>{children}</GlassWindowContents>
+      <GlassWindowPane glassFx={glassFx['glass-5']} />
     </GlassWindowFrame>
   );
 }
