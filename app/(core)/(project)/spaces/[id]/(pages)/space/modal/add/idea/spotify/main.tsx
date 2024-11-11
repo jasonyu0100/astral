@@ -96,7 +96,6 @@ export function SpacesSpaceAddSpotifyUrlModal() {
           <div className='flex flex-row items-center space-x-[2rem]'>
             <AstralModalStep>1</AstralModalStep>
             <AstralTextLineInput
-              className='w-[400px]'
               placeholder='Enter a Spotify Url'
               title='Url'
               value={spotifyId}
@@ -107,7 +106,7 @@ export function SpacesSpaceAddSpotifyUrlModal() {
             {spotifyId && (
               <>
                 <AstralModalStep>2</AstralModalStep>
-                <div className='max-h-[400px] w-full'>
+                <div className='min-w-[400px]'>
                   <iframe
                     src={`https://open.spotify.com/embed/track/${spotifyId}`}
                     style={{ width: '100%', height: '400px' }}

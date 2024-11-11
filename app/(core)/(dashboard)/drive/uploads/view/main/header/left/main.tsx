@@ -3,7 +3,7 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralAddIcon } from '@/icons/add/main';
-import { AstralEditSquareIcon } from '@/icons/edit-square/main';
+import { AstralUploadIcon } from '@/icons/upload/main';
 import { glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 
@@ -19,16 +19,16 @@ export function DriveUploadsDailyHeaderLeft() {
         <GlassWindowContents
           className='flex cursor-pointer items-center justify-center'
           onClick={() => {
-            modalController.addFileModal.open();
+            modalController.addTextStickyModal.open();
           }}
         >
           <AstralAddIcon />
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />
       </GlassWindowFrame>
-      <AstralEditSquareIcon
+      <AstralUploadIcon
         onClick={() => {
-          modalController.addTextStickyModal.open();
+          modalController.addFileModal.open();
         }}
       />
     </div>

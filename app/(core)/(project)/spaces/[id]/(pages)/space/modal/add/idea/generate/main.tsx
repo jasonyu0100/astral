@@ -15,7 +15,6 @@ import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
 import { useControllerForOpenAi } from '@/external/controller/openai/main';
-import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralCheckIcon } from '@/icons/check/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getFileIdeaBounds } from '@/utils/bounds';
@@ -71,6 +70,26 @@ export function SpacesSpaceAddGenerateIdeaModal() {
     openableController.close();
   }
 
+  const generateImage = () => {
+    loadingController.loadingController.open();
+    openableController.close();
+    getImageResponse(prompt).then((res) => {
+      openableController.open();
+      changeFile({
+        ...exampleFileElement,
+        src: res[0].url || exampleFileElement.src,
+      });
+      loadingController.loadingController.close();
+    });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      generateImage();
+    }
+  };
+
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
@@ -80,23 +99,15 @@ export function SpacesSpaceAddGenerateIdeaModal() {
             <AstralTextLineInput
               className='w-[400px]'
               placeholder='Enter an image prompt'
+              onKeyDown={handleKeyDown}
               title='Prompt'
               value={prompt}
               onChange={(e) => changePrompt(e.target.value)}
             />
             <div className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'>
-              <AstralBookSparkIcon
+              <AstralCheckIcon
                 onClick={() => {
-                  loadingController.loadingController.open();
-                  openableController.close();
-                  getImageResponse(prompt).then((res) => {
-                    openableController.open();
-                    changeFile({
-                      ...exampleFileElement,
-                      src: res[0].url || exampleFileElement.src,
-                    });
-                    loadingController.loadingController.close();
-                  });
+                  generateImage();
                 }}
               />
             </div>

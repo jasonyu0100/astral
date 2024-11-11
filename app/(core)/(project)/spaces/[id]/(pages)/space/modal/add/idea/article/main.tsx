@@ -68,6 +68,13 @@ export function SpacesSpaceAddArticleIdeaModal() {
       });
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      createArticle();
+    }
+  };
+
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
@@ -80,6 +87,7 @@ export function SpacesSpaceAddArticleIdeaModal() {
                   placeholder='Enter text here...'
                   className='text-md h-full w-full bg-transparent font-light text-black outline-none placeholder:text-slate-400'
                   onChange={(e) => changeText(e.target.value)}
+                  onKeyDown={handleKeyDown}
                 />
               </div>
             </div>

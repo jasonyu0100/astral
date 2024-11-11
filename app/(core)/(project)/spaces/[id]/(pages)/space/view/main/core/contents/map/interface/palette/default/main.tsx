@@ -4,17 +4,17 @@ import { AstralAlbumIcon } from '@/icons/album/main';
 import { AstralArrowLeft } from '@/icons/arrow-left/main';
 import { AstralArticleIcon } from '@/icons/article/main';
 import { AstralBookSparkIcon } from '@/icons/book-spark/main';
-import { AstralEditSquareIcon } from '@/icons/edit-square/main';
 import { AstralImageIcon } from '@/icons/image/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralMicIcon } from '@/icons/mic/main';
 import { AstralMoreIcon } from '@/icons/more/main';
 import { AstralSmartDisplayIcon } from '@/icons/smart-display/main';
+import { AstralUploadIcon } from '@/icons/upload/main';
 import { AstralVideoCamIcon } from '@/icons/video-cam/main';
 import { useContext, useState } from 'react';
 
 export function SpacesSpacePaletteDefault() {
-  const modalController = useContext(ContextForSpacesSpaceModals);
+  const spacesSpaceModalsController = useContext(ContextForSpacesSpaceModals);
   const [showMore, setShowMore] = useState(false);
 
   return (
@@ -22,47 +22,65 @@ export function SpacesSpacePaletteDefault() {
       <div className='flex items-center justify-center rounded-full bg-blue-500 p-[0.5rem]'>
         <AstralAddIcon
           className='h-[2rem] w-[2rem]'
-          onClick={() => modalController.addFileIdeaController.open()}
+          onClick={() =>
+            spacesSpaceModalsController.addStickyIdeaController.open()
+          }
         />
       </div>
-      <AstralEditSquareIcon
+      <AstralUploadIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addStickyIdeaController.open()}
+        onClick={() => spacesSpaceModalsController.addFileIdeaController.open()}
       />
       <AstralImageIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addSearchIdeaController.open()}
+        onClick={() =>
+          spacesSpaceModalsController.addSearchIdeaController.open()
+        }
       />
       <AstralMicIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addFileAudioIdeaController.open()}
+        onClick={() =>
+          spacesSpaceModalsController.addFileAudioIdeaController.open()
+        }
       />
       <AstralVideoCamIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addFileVideoIdeaController.open()}
+        onClick={() =>
+          spacesSpaceModalsController.addFileVideoIdeaController.open()
+        }
       />
 
       <AstralLinkIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addWebsiteUrlIdeaController.open()}
+        onClick={() =>
+          spacesSpaceModalsController.addWebsiteUrlIdeaController.open()
+        }
       />
       <AstralArticleIcon
         className='h-[2rem] w-[2rem]'
-        onClick={() => modalController.addArticleIdeaController.open()}
+        onClick={() =>
+          spacesSpaceModalsController.addArticleIdeaController.open()
+        }
       />
       {showMore && (
         <>
           <AstralSmartDisplayIcon
             className='h-[2rem] w-[2rem]'
-            onClick={() => modalController.addYouTubeUrlIdeaController.open()}
+            onClick={() =>
+              spacesSpaceModalsController.addYouTubeUrlIdeaController.open()
+            }
           />
           <AstralAlbumIcon
             className='h-[2rem] w-[2rem]'
-            onClick={() => modalController.addSpotifyUrlIdeaController.open()}
+            onClick={() =>
+              spacesSpaceModalsController.addSpotifyUrlIdeaController.open()
+            }
           />
           <AstralBookSparkIcon
             className='h-[2rem] w-[2rem]'
-            onClick={() => modalController.addGenerateIdeaController.open()}
+            onClick={() =>
+              spacesSpaceModalsController.addGenerateIdeaController.open()
+            }
           />
         </>
       )}

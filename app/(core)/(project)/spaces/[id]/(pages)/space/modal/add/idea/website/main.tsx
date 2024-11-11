@@ -46,7 +46,7 @@ export function SpacesSpaceAddWebsiteUrlModal() {
       await ideaListController.actions.createActions.createIdeaFromUrlElement(
         user.id,
         sceneListController.state.objId,
-        title,
+        '',
         description,
         Math.ceil(Math.random() * 200),
         Math.ceil(Math.random() * 200),
@@ -70,34 +70,42 @@ export function SpacesSpaceAddWebsiteUrlModal() {
     openableController.close();
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      createIdea();
+    }
+  };
+
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <div className='flex flex-row items-center space-x-[2rem]'>
-            <>
+          <div className='flex flex-col space-y-[1rem]'>
+            <div className='flex flex-row items-center space-x-[1rem]'>
               <AstralModalStep>1</AstralModalStep>
               <AstralTextLineInput
                 className='w-[400px]'
-                placeholder='Enter a website url'
+                placeholder='Enter a url'
                 onChange={(e) => changeWebsiteUrl(e.target.value)}
               />
-            </>
+            </div>
             {websiteUrl && (
-              <>
+              <div className='flex flex-row items-center space-x-[1rem]'>
                 <AstralModalStep>2</AstralModalStep>
                 <AstralTextLineInput
-                  placeholder='Enter a title'
+                  placeholder='Enter a label'
                   onChange={(e) => changeTitle(e.target.value)}
+                  onKeyDown={handleKeyDown}
                 />
-              </>
-            )}
-            {websiteUrl && (
-              <AstralRoundedActionButton onClick={createIdea}>
-                <AstralCheckIcon />
-              </AstralRoundedActionButton>
+              </div>
             )}
           </div>
+          {websiteUrl && (
+            <AstralRoundedActionButton onClick={createIdea}>
+              <AstralCheckIcon />
+            </AstralRoundedActionButton>
+          )}
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>

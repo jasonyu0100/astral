@@ -69,6 +69,13 @@ export function DashboardJournalAddTextStickyModal() {
     openableController.close();
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      createStickyNote();
+    }
+  };
+
   return (
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
@@ -81,6 +88,7 @@ export function DashboardJournalAddTextStickyModal() {
                   placeholder='Enter text here...'
                   className='h-full w-full bg-transparent outline-none placeholder:text-slate-800'
                   onChange={(e) => changeText(e.target.value)}
+                  onKeyDown={handleKeyDown}
                 />
               </div>
             </div>

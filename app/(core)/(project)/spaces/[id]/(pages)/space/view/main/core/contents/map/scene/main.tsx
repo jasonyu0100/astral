@@ -5,6 +5,7 @@ import { ElementIdea } from '@/components/element/idea/main';
 import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { useContext, useEffect, useRef } from 'react';
 import { ContextForSpacesSpace } from '../../../../../../controller/main';
+import { ContextForSpacesSpaceModals } from '../../../../../../modal/controller/main';
 import { SpacesSpaceContentsSceneConnections } from './connections/main';
 import { SpacesSpaceMovable } from './moveable/main';
 import { SpacesSpaceTextIdea } from './override/text/main';
@@ -12,6 +13,7 @@ import { SpacesSpaceTextIdea } from './override/text/main';
 export function SpacesSpaceScene() {
   const ideaListController = useContext(ContextForSceneIdeaList);
   const spacesSpaceController = useContext(ContextForSpacesSpace);
+  const spacesSpaceModalsController = useContext(ContextForSpacesSpaceModals);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,6 +42,9 @@ export function SpacesSpaceScene() {
       ref={ref}
       style={{ zoom: spacesSpaceController.state.zoom }}
       onClick={() => spacesSpaceController.actions.updateSelectedIdeas([])}
+      onDoubleClick={() => {
+        spacesSpaceModalsController.addStickyIdeaController.open();
+      }}
     >
       <p className=' absolute h-full w-[800px] p-[3rem] text-2xl text-slate-300'></p>
       {ideaListController.state.objs.map((idea, index) => (
