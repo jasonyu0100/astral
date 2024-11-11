@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { PublicSpaceChaptersEmpty } from './empty/main';
 import { PublicSpaceChapterPost } from './item/main';
 
-export function PublicSpaceChapterList() {
+export function PublicSpacePostList() {
   const postListController = useContext(ContextForUserPostListFromChapter);
 
   return (

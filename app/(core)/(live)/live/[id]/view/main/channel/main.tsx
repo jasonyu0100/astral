@@ -7,7 +7,7 @@ import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralChatIndicatorIcon } from '@/icons/chat/main';
-import { glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { getFormattedAMPM, getFormattedDate } from '@/utils/dateFormat';
 import Link from 'next/link';
 import { useContext } from 'react';
@@ -22,34 +22,17 @@ export function PublicSpaceChapterChannel() {
 
   return (
     <div className='flex flex-col space-y-[1rem] py-[2rem]'>
-      <Link
-        href={`${spacesMap.spaces.id.channel.link(
-          spaceMainController.state.objId,
-        )}?chapter=${chapterListController.state.currentObj?.id}&action=new`}
-      >
-        <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
-          <GlassWindowContents className='flex cursor-pointer flex-col space-y-[1rem]'>
-            <div className='flex flex-col space-y-[0.5rem]'>
-              <div className='flex flex-row items-center space-x-[1rem]'>
-                <div className='flex h-[3rem] w-[3rem] items-center justify-center rounded-full bg-emerald-500'>
-                  <AstralChatIndicatorIcon />
-                </div>
-                <p className='text-2xl font-bold text-slate-300'>
-                  Start Conversation
-                </p>
-              </div>
-            </div>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-5']} />
-        </GlassWindowFrame>
-      </Link>
       {conversationListController.state.objs.map((conversationObj) => (
         <Link
           href={`${spacesMap.spaces.id.channel.link(
             spaceMainController.state.objId,
           )}?chapter=${chapterListController.state.currentObj?.id}&conversation=${conversationObj.id}`}
         >
-          <GlassWindowFrame className='p-[1rem]' roundedFx={roundedFx.rounded}>
+          <GlassWindowFrame
+            className='p-[1rem]'
+            roundedFx={roundedFx.rounded}
+            borderFx={borderFx['border-around']}
+          >
             <GlassWindowContents className='flex cursor-pointer flex-col space-y-[1rem]'>
               <div className='flex flex-col space-y-[0.5rem]'>
                 <p className='text-2xl font-light text-slate-300'>

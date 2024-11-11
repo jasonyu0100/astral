@@ -14,7 +14,7 @@ export function SpacesTabLive({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
   const spaceContext = useContext(CreativePrivateSpacesContext);
-  const tabText = SpaceTabStage.Live;
+  const tabText = SpaceTabStage.Public;
   const active = tab === tabText;
 
   const spaceId = spaceContext?.spaceId;
@@ -23,7 +23,7 @@ export function SpacesTabLive({ tab }: { tab?: string }) {
 
   // Construct the URL only if spaceId is available
   const url = spaceId
-    ? `${spacesMap.spaces.id.live.link(spaceId)}?chapter=${chapterId ?? ''}&post=${postId ?? ''}`
+    ? `${spacesMap.spaces.id.public.link(spaceId)}?chapter=${chapterId ?? ''}&post=${postId ?? ''}`
     : '#'; // Fallback URL if spaceId is not defined
 
   return (

@@ -14,7 +14,7 @@ interface SpaceTabProps {
 export enum SpaceTabStage {
   Focus = 'Focus',
   Space = 'Space',
-  Live = 'Live',
+  Public = 'Public',
   Channel = 'Channel',
 }
 

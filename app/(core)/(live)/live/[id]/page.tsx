@@ -78,7 +78,7 @@ function Page({ params }: { params: { id: string } }) {
 
   const spaceMainController = useControllerForSpaceMain(params.id);
   const userMainController = useControllerForUserMain(
-    spaceMainController.state.obj?.userId,
+    spaceMainController.state.obj.userId,
   );
   const spaceMemberListController = useControllerForSpaceMemberList(
     spaceMainController.state.objId,
