@@ -27,8 +27,8 @@ export const onCreateChapterSceneObj = /* GraphQL */ `subscription OnCreateChapt
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }
@@ -55,8 +55,8 @@ export const onUpdateChapterSceneObj = /* GraphQL */ `subscription OnUpdateChapt
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }
@@ -83,8 +83,8 @@ export const onDeleteChapterSceneObj = /* GraphQL */ `subscription OnDeleteChapt
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }

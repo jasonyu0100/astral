@@ -18,8 +18,8 @@ export type ChapterSceneObj = {
   chapterId: string,
   summary: string,
   title: string,
-  objective: string,
   created: string,
+  objective: string,
 };
 
 export type UpdateChapterSceneObjInput = {
@@ -2418,8 +2418,8 @@ export type CreateChapterSceneObjMutation = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 
@@ -2435,8 +2435,8 @@ export type UpdateChapterSceneObjMutation = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 
@@ -2452,8 +2452,8 @@ export type DeleteChapterSceneObjMutation = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 
@@ -5200,8 +5200,8 @@ export type GetChapterSceneObjQuery = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 
@@ -5221,8 +5221,8 @@ export type ListChapterSceneObjsQuery = {
       chapterId: string,
       summary: string,
       title: string,
-      objective: string,
       created: string,
+      objective: string,
     } | null > | null,
     nextToken?: string | null,
   } | null,
@@ -7294,8 +7294,8 @@ export type OnCreateChapterSceneObjSubscription = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 
@@ -7315,8 +7315,8 @@ export type OnUpdateChapterSceneObjSubscription = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 
@@ -7336,8 +7336,8 @@ export type OnDeleteChapterSceneObjSubscription = {
     chapterId: string,
     summary: string,
     title: string,
-    objective: string,
     created: string,
+    objective: string,
   } | null,
 };
 

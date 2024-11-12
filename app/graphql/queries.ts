@@ -46,8 +46,8 @@ export const getChapterSceneObj = /* GraphQL */ `query GetChapterSceneObj($id: S
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }
@@ -67,8 +67,8 @@ export const listChapterSceneObjs = /* GraphQL */ `query ListChapterSceneObjs(
       chapterId
       summary
       title
-      objective
       created
+      objective
       __typename
     }
     nextToken

@@ -15,8 +15,8 @@ export const createChapterSceneObj = /* GraphQL */ `mutation CreateChapterSceneO
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }
@@ -31,8 +31,8 @@ export const updateChapterSceneObj = /* GraphQL */ `mutation UpdateChapterSceneO
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }
@@ -47,8 +47,8 @@ export const deleteChapterSceneObj = /* GraphQL */ `mutation DeleteChapterSceneO
     chapterId
     summary
     title
-    objective
     created
+    objective
     __typename
   }
 }

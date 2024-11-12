@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-astral-dev-c1865-authRole",
+      "UnauthRoleArn": "arn:aws:iam::342135806803:role/amplify-astral-dev-c1865-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::342135806803:role/amplify-astral-dev-c1865-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-astral-dev-c1865-deployment",
+      "UnauthRoleName": "amplify-astral-dev-c1865-unauthRole",
+      "StackName": "amplify-astral-dev-c1865",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:342135806803:stack/amplify-astral-dev-c1865/962ce900-8dd9-11ef-9a25-06c6fbbe7261",
+      "AmplifyAppId": "d1y0cwyghbiefz"
+    }
+  }
+}
