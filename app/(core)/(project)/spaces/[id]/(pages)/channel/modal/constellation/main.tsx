@@ -86,6 +86,7 @@ export function SpacesChannelConstellationModal() {
                 <AstralModalBody className='h-full w-full'>
                   <AstralModalBodyContents>
                     <AstralModalTitle>Generate Scene</AstralModalTitle>
+                    <SpacesChannelConstellationTabs />
                     <div className='flex w-full flex-row items-center justify-center'>
                       {generateSceneController.state.tab ===
                         GenerateSceneTab.TEXT && (
@@ -100,11 +101,10 @@ export function SpacesChannelConstellationModal() {
                         <SpacesChannelSearchMediaContent />
                       )}
                     </div>
-                    <SpacesChannelConstellationTabs />
                   </AstralModalBodyContents>
                   <AstralModalBodyAction>
                     <AstralRoundedActionButton
-                      className='h-[5rem] w-[5rem] from-slate-400 to-slate-600'
+                      className='from-slate-500 to-slate-600'
                       onClick={() => {
                         generateSceneController.actions.updatePage(
                           GenerateScenePage.PAGE_ONE,
@@ -114,7 +114,6 @@ export function SpacesChannelConstellationModal() {
                       <AstralArrowBackIcon />
                     </AstralRoundedActionButton>
                     <AstralRoundedActionButton
-                      className='h-[5rem] w-[5rem]'
                       onClick={() => {
                         generateSceneController.actions.createMap();
                       }}

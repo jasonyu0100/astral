@@ -14,7 +14,6 @@ export function SpacesFocusMain() {
     >
       <SpacesFocusHeader />
       <SpacesFocusKanban key={chapterListController.state.objId} />
-      {/* <SpacesFocusNavigation /> */}
     </GlassWindowFrame>
   );
 }

@@ -65,14 +65,6 @@ export function SpacesSpaceAddChapterModal() {
                 onChange={(e) => setObjective(e.target.value)}
                 style={{ resize: 'none' }}
               />
-              <AstralTextAreaInput
-                title='Description'
-                placeholder='Enter description'
-                rows={5}
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                style={{ resize: 'none' }}
-              />
             </AstralModalBodyContents>
             <AstralModalBodyAction>
               <AstralRoundedActionButton onClick={createChapter}>

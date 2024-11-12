@@ -127,7 +127,6 @@ export function useControllerForSpacesChannel() {
     Chapter ${index + 1}: ${chapter.title}
     This is the objective: ${chapter.objective}
     This is the description: ${chapter.description}
-    This is the context: ${chapter.context}
   `,
     );
 
@@ -260,19 +259,17 @@ export function useControllerForSpacesChannel() {
       ...getTaskContext(),
       ...getMessageContext(),
       `[Instructions]`,
-      `Convert the conversation history into a series of detailed insights`,
-      `Use the conversation history primarily and titles and descriptions as reference.`,
-      `Depending on the size of the conversaion history, aim for at least 3-10 insights.`,
-      `Please return the response strictly in a well-formatted JSON format, without any trailing commas or errors.`,
-      `E.G Be insightful and refer to the conversation history for key points.`,
+      `Summarise the conversation into a series of insights.`,
       `[Example return]`,
-      `{`,
-      `  "insights": [`,
-      `    {"text": "Insight 1"},`,
-      `    {"text": "Insight 2"},`,
-      `    {"text": "Insight 3"}`,
-      `  ]`,
-      `}`,
+      `
+      {
+        "insights": [
+          "text": "This is an insight",
+          "text": "This is another insight",
+          "text": "This is yet another insight"
+        ]
+      }
+      `,
     ];
     const messagePrompt = messageHistory.join('\n');
 
@@ -395,7 +392,7 @@ export function useControllerForSpacesChannel() {
   }
 
   async function summariseConversation(messages: ConversationMessageObj[]) {
-    async function getConversationSummary() {
+    async function getConversationDetails() {
       const messageHistory = [
         ...getRoleContext(),
         ...getSpaceContext(),
@@ -404,49 +401,48 @@ export function useControllerForSpacesChannel() {
         ...getTaskContext(),
         ...getMessageContext(),
         `[Instructions]`,
-        `Transform the conversation into a paragraph with all key points.`,
+        `Summarise the conversation into a title and a description.`,
+        `[Example return]`,
+        `
+      {
+        "title": "Productivity Tips",
+        "summary": "A conversation about improving productivity by 10%"
+      }
+      `,
       ];
       const messagePrompt = messageHistory.join('\n');
-      const summary =
+      const agentResponse =
         await openAiController.actions.getMessageResponse(messagePrompt);
-      return summary;
+      const replacedString = agentResponse
+        .replace('```json\n', '')
+        .replace('```', '');
+      const json = JSON.parse(replacedString);
+      const title = json.title;
+      const summary = json.summary;
+      return { title, summary };
     }
 
-    async function getConversationTitle() {
-      const messageHistory = [
-        ...getRoleContext(),
-        ...getSpaceContext(),
-        ...getChaptersContext(),
-        ...getCurrentChapterContext(),
-        ...getTaskContext(),
-        ...getMessageContext(),
-        `[Instructions]`,
-        `Summarise the conversation into a title.`,
-      ];
-      const messagePrompt = messageHistory.join('\n');
-      const title =
-        await openAiController.actions.getMessageResponse(messagePrompt);
-      return title;
-    }
-
-    async function getChapterContext() {
+    async function getChapterDescription() {
       const messageHistory = [
         ...getMessageContext(),
-        `[Existing Context]`,
-        chapterListController.state.currentObj?.context,
+        `[Existing Description]`,
+        chapterListController.state.currentObj?.description,
         `[Instructions]`,
-        `Update the chapter context with the conversation history.`,
-        `Note down key points and insights from the conversation.`,
+        `Generate an overall description for the chapter based on the conversation history.`,
+        `E.G "
+          This chapter is about improving productivity by 10%
+          We discussed the importance of color and design in the process
+          The user asked about the best tools to use for productivity
+        "`,
       ];
       const messagePrompt = messageHistory.join('\n');
-      const title =
+      const description =
         await openAiController.actions.getMessageResponse(messagePrompt);
-      return title;
+      return description;
     }
 
-    const summary = await getConversationSummary();
-    const title = await getConversationTitle();
-    const context = await getChapterContext();
+    const { title, summary } = await getConversationDetails();
+    const description = await getChapterDescription();
 
     await conversationListController.actions.editActions.edit(
       conversationListController.state.objId,
@@ -459,7 +455,7 @@ export function useControllerForSpacesChannel() {
     await chapterListController.actions.editActions.edit(
       chapterListController.state.objId,
       {
-        context: context || '',
+        description: description || '',
       },
     );
   }
