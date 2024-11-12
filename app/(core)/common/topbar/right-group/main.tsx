@@ -25,7 +25,7 @@ export function TopbarRightGroup() {
         />
         <AstralSettingsIcon
           onClick={() => {
-            commonTopBarModalsController.userThemeModal.open();
+            commonTopBarModalsController.userSettingsModal.open();
           }}
         />
         <TopbarAvatar href={userMap.profile.link(userId)} />
