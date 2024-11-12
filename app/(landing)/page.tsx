@@ -132,7 +132,7 @@ const CallToAction = () => {
         loop
       /> */}
       <iframe
-        src='https://www.youtube.com/embed/3m51tfnCrWk'
+        src='https://www.youtube.com/embed/wh7nnuBGmFQ'
         className='aspect-video w-[3/4] flex-shrink-0 rounded-[1rem] shadow-glow sm:w-3/4'
         allow='autoplay; encrypted-media'
         allowFullScreen
