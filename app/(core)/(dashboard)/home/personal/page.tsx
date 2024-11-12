@@ -8,6 +8,10 @@ import {
   useControllerForChapterConversationList,
 } from '@/architecture/controller/conversation/list';
 import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/architecture/controller/conversation/message/list';
+import {
   ContextForSceneIdeaList,
   useControllerForSceneIdeaList,
 } from '@/architecture/controller/idea/list';
@@ -62,6 +66,9 @@ function Page() {
   const conversationListController = useControllerForChapterConversationList(
     chapterListController.state.objId,
   );
+  const messageListController = useControllerForConversationMessageList(
+    chapterListController.state.objId,
+  );
   const chapterActivityListController =
     useControllerForUserActivityListFromChapter(
       chapterListController.state.objId,
@@ -77,19 +84,23 @@ function Page() {
                 <ContextForChapterConversationList.Provider
                   value={conversationListController}
                 >
-                  <ContextForUserActivityListFromChapter.Provider
-                    value={chapterActivityListController}
+                  <ContextForConversationMessageList.Provider
+                    value={messageListController}
                   >
-                    <ControllerWrapper>
-                      <ModalWrapper>
-                        <EffectWrapper>
-                          <LoadingWrapper>
-                            <HomePersonalView />
-                          </LoadingWrapper>
-                        </EffectWrapper>
-                      </ModalWrapper>
-                    </ControllerWrapper>
-                  </ContextForUserActivityListFromChapter.Provider>
+                    <ContextForUserActivityListFromChapter.Provider
+                      value={chapterActivityListController}
+                    >
+                      <ControllerWrapper>
+                        <ModalWrapper>
+                          <EffectWrapper>
+                            <LoadingWrapper>
+                              <HomePersonalView />
+                            </LoadingWrapper>
+                          </EffectWrapper>
+                        </ModalWrapper>
+                      </ControllerWrapper>
+                    </ContextForUserActivityListFromChapter.Provider>
+                  </ContextForConversationMessageList.Provider>
                 </ContextForChapterConversationList.Provider>
               </ContextForSceneIdeaList.Provider>
             </ContextForIdeaSceneList.Provider>

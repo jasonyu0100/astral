@@ -13,11 +13,15 @@ export function SpacesPublicSidebarChaptersProgress() {
     (task) => task.taskStatus === TaskStatus.CURRENT,
   );
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
+  const percentage =
+    (done.length / (upcoming.length + current.length + done.length)) * 100;
 
   return (
     <div className='flex flex-col space-y-[1rem] p-[1rem] shadow-glow'>
       <div className='flex flex-row justify-between'>
-        <p className={'text-xl font-bold text-slate-300'}>Overall</p>
+        <p className={'text-xl font-bold text-slate-300'}>
+          Progress {percentage.toFixed(0)}%
+        </p>
       </div>
       <HorizontalDivider />
       <div className='relative h-[2rem] w-full overflow-hidden rounded-full bg-blue-500'>

@@ -76,7 +76,7 @@ export function SpacesChannelSidebarChapterItemTasks() {
           borderFx={borderFx['border-around']}
         >
           <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
-            <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
+            <div className='relative h-[1.5rem] w-full overflow-hidden rounded-full bg-blue-500'>
               <div
                 className='absolute top-0 h-full bg-yellow-500 '
                 style={{

@@ -59,11 +59,13 @@ export function SpacesPublicEditChapterModal() {
               <AstralModalTitle>Edit Chapter</AstralModalTitle>
               <AstralTextLineInput
                 title='Title'
+                placeholder='Enter your title...'
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
               <AstralTextAreaInput
                 title='Objective'
+                placeholder='Enter your objective...'
                 rows={5}
                 value={objective}
                 onChange={(e) => setObjective(e.target.value)}
@@ -71,6 +73,7 @@ export function SpacesPublicEditChapterModal() {
               />
               <AstralTextAreaInput
                 title='Description'
+                placeholder='Enter your description...'
                 rows={5}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}

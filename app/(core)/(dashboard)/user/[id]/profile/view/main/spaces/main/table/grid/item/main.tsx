@@ -4,8 +4,8 @@ import {
 } from '@/architecture/controller/task/list-from-space';
 import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { useContext } from 'react';
+import { UserProfileSpacesRowIndicator } from './activity/main';
 import { UserProfileSpacesRowCategory } from './category/main';
-import { UserProfileSpacesRowDays } from './day/main';
 import { UserProfileSpacesRowInfo } from './info/main';
 import { UserProfileSpacesRowNumber } from './number/main';
 import { UserProfileRowProgress } from './progress/main';
@@ -21,7 +21,7 @@ export function UserProfileSpacesRow() {
         <UserProfileSpacesRowNumber />
         <UserProfileSpacesRowInfo />
         <UserProfileSpacesRowCategory />
-        <UserProfileSpacesRowDays />
+        <UserProfileSpacesRowIndicator />
         <UserProfileRowProgress />
       </div>
     </ContextForTaskListFromSpace.Provider>

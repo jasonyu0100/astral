@@ -17,8 +17,8 @@ export function SpacesChannelSidebarChapters() {
       style={{ height: '100%' }}
     >
       <SpacesChannelSidebarChaptersProgress />
-      <GlassWindowFrame className='h-full w-full flex-shrink-0'>
-        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem]'>
+      <GlassWindowFrame className='w-full flex-shrink-0'>
+        <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
           {chapterListController.state.more.queryResults.map((chapter) => (
             <ContextForSpaceChapterObj.Provider
               value={chapter}

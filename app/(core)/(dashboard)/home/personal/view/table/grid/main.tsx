@@ -8,7 +8,7 @@ import { HomePersonalRowWrapper } from './wrapper/main';
 export function HomePersonalTableGrid() {
   const spaceListController = useContext(ContextForSpaceList);
   return (
-    <div className='w-full px-[3rem] py-[1rem]'>
+    <div className='w-full p-[1rem]'>
       {spaceListController.state.objs?.map((space, index) => (
         <ContextForSpaceObj.Provider value={space} key={space.id}>
           <ContextForIndexable.Provider value={index}>

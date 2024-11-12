@@ -23,6 +23,8 @@ export function PublicSpaceSidebarSpace() {
     (task) => task.taskStatus === TaskStatus.CURRENT,
   );
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
+  const percentage =
+    (done.length / (upcoming.length + current.length + done.length)) * 100;
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
@@ -61,6 +63,11 @@ export function PublicSpaceSidebarSpace() {
             </p>
             <p className='text-md font-light text-slate-300'>
               {spaceMainController.state.obj?.objective}
+            </p>
+          </div>
+          <div className='flex flex-row justify-between'>
+            <p className={'text-xl font-bold text-slate-300'}>
+              Progress {percentage.toFixed(0)}%
             </p>
           </div>
           <HorizontalDivider />

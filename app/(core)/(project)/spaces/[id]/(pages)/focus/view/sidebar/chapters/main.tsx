@@ -3,7 +3,6 @@ import { ContextForSpaceChapterObj } from '@/architecture/model/space/chapter/ma
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
-import { roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import { SpacesFocusSidebarChaptersAdd } from './add/main';
 import { SpacesFocusSidebarChaptersItem } from './item/main';
@@ -18,11 +17,8 @@ export function SpacesFocusSidebarChapters() {
       style={{ height: '100%' }}
     >
       <SpacesFocusSidebarChaptersProgress />
-      <GlassWindowFrame
-        className='h-full w-full flex-shrink-0'
-        roundedFx={roundedFx.rounded}
-      >
-        <GlassWindowContents className='flex h-full w-full flex-col space-y-[1rem] p-[1rem] py-[2rem]'>
+      <GlassWindowFrame className='w-full flex-shrink-0'>
+        <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem] py-[2rem]'>
           {chapterListController.state.objs.map((chapter) => (
             <ContextForSpaceChapterObj.Provider value={chapter}>
               <SpacesFocusSidebarChaptersItem />

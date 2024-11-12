@@ -5,7 +5,6 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
-import { AstralChatIndicatorIcon } from '@/icons/chat/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { FaLinkedin, FaYoutube } from 'react-icons/fa';
 
@@ -563,20 +562,6 @@ function FAQSection() {
         </Accordion>
       </div>
     </section>
-  );
-}
-
-function ChatWithAstralCTA() {
-  return (
-    <Link
-      href={'/chat'}
-      className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
-    >
-      <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-        chat with astral
-      </p>
-      <AstralChatIndicatorIcon />
-    </Link>
   );
 }
 

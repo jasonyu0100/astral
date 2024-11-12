@@ -33,6 +33,7 @@ interface ControllerMoreState {
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
 interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createFromSpace: (userId: string, spaceId: string) => Promise<TargetObj>;
   createFromChapter: (
     userId: string,
     spaceId: string,
@@ -68,26 +69,6 @@ interface CreateActions extends BaseListCreateActions<TargetObj> {
     chapterId: string,
     sceneId: string,
     ideaId: string,
-  ) => Promise<TargetObj>;
-  createFromPostComment: (
-    userId: string,
-    spaceId: string,
-    chapterId: string,
-    postId: string,
-    commentId: string,
-  ) => Promise<TargetObj>;
-  createFromPostAttachment: (
-    userId: string,
-    spaceId: string,
-    chapterId: string,
-    postId: string,
-    attachmentId: string,
-  ) => Promise<TargetObj>;
-  createFromChapterMember: (
-    userId: string,
-    spaceId: string,
-    chapterId: string,
-    memberId: string,
   ) => Promise<TargetObj>;
 }
 interface EditActions extends BaseListEditActions<TargetObj> {}
@@ -327,6 +308,22 @@ export const useControllerForUserActivityListFromChapter = (
       changeId(newObj.id);
       return newObj;
     },
+    createFromSpace: async (userId, spaceId) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        userId: userId,
+        spaceId: spaceId,
+        added: false,
+        title: '',
+        description: '',
+        created: new Date().toISOString(),
+        variant: UserActivityVariant.SPACE,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushBack(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
     createFromChapter: async (userId, spaceId, chapterId) => {
       const createObj: Omit<TargetObj, 'id'> = {
         userId: userId,
@@ -439,74 +436,6 @@ export const useControllerForUserActivityListFromChapter = (
         description: '',
         created: new Date().toISOString(),
         variant: UserActivityVariant.IDEA,
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromPostComment: async (
-      userId,
-      spaceId,
-      chapterId,
-      postId,
-      commentId,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        userId: userId,
-        spaceId: spaceId,
-        postId: postId,
-        commentId: commentId,
-        added: false,
-        title: '',
-        description: '',
-        created: new Date().toISOString(),
-        variant: UserActivityVariant.COMMENT,
-        chapterId: '',
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromPostAttachment: async (
-      userId,
-      spaceId,
-      chapterId,
-      postId,
-      attachmentId,
-    ) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        userId: userId,
-        spaceId: spaceId,
-        postId: postId,
-        attachmentId: attachmentId,
-        added: false,
-        title: '',
-        description: '',
-        created: new Date().toISOString(),
-        variant: UserActivityVariant.ATTACHMENT,
-        chapterId: '',
-      };
-      const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
-      stateActions.searchAndUpdateQuery(query, newObjs);
-      changeId(newObj.id);
-      return newObj;
-    },
-    createFromChapterMember: async (userId, spaceId, chapterId, memberId) => {
-      const createObj: Omit<TargetObj, 'id'> = {
-        userId: userId,
-        chapterId: chapterId,
-        spaceId: spaceId,
-        contributorId: memberId,
-        added: false,
-        title: '',
-        description: '',
-        created: new Date().toISOString(),
-        variant: UserActivityVariant.MEMBER,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);

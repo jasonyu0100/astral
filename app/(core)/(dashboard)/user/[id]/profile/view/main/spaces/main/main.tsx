@@ -13,7 +13,7 @@ export function UserProfilePages() {
   const spaceListController = useControllerForSpaceList(profileUser?.id);
 
   return (
-    <div className='h-full w-full p-[2rem]'>
+    <div className='h-full w-full p-[1rem]'>
       <div className='h-full w-full overflow-auto pr-[2rem]'>
         <div className='flex w-full flex-col'>
           {profileController.state.page === ProfilePage.Spaces && (

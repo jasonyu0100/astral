@@ -29,7 +29,7 @@ export function HomePersonalRow() {
       <ContextForUserActivityListFromSpace.Provider
         value={activityListController}
       >
-        <div className='grid w-full grid-cols-8 py-[1rem]'>
+        <div className='grid w-full grid-cols-9 py-[1rem]'>
           <HomePersonalRowNumber />
           <HomePersonalRowInfo />
           <HomePersonalRowCategory />

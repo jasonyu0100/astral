@@ -1,5 +1,6 @@
 import { ContextForUserActivityListFromChapter } from '@/architecture/controller/activity/list-from-chapter';
 import { ContextForChapterConversationList } from '@/architecture/controller/conversation/list';
+import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
 import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
@@ -66,6 +67,7 @@ export const useControllerForHomePersonalCreateSpace =
     const conversationListController = useContext(
       ContextForChapterConversationList,
     );
+    const messageListController = useContext(ContextForConversationMessageList);
     const activityListController = useContext(
       ContextForUserActivityListFromChapter,
     );
@@ -83,10 +85,22 @@ export const useControllerForHomePersonalCreateSpace =
       SpaceTemplateMap[category].chapters,
     );
 
-    async function createChapters(
-      space: SpaceObj,
-      templateSpaceChapters: TemplateChapterObj[],
-    ) {
+    async function createSpace() {
+      const space =
+        await spaceListController.actions.createActions.createFromTemplate(
+          title,
+          description,
+          SpaceTemplateMap[category].objective,
+          user.id,
+          theme,
+          category,
+        );
+      await activityListController.actions.createActions.createFromSpace(
+        user.id,
+        space.id,
+      );
+      console.log('SPACE CREATED', space);
+
       const chapters = await Promise.all(
         templateSpaceChapters.map(async (templateChapter, index) => {
           const chapter =
@@ -106,37 +120,6 @@ export const useControllerForHomePersonalCreateSpace =
           return chapter;
         }),
       );
-
-      return chapters;
-    }
-
-    async function createMembers(space: SpaceObj, members: string[]) {
-      const memberObjs = await Promise.all(
-        members.map(async (memberId) => {
-          const member =
-            await spaceMembersListController.actions.createActions.createMember(
-              memberId,
-              space.id,
-            );
-          return member;
-        }),
-      );
-      return memberObjs;
-    }
-
-    async function createSpace() {
-      const space =
-        await spaceListController.actions.createActions.createFromTemplate(
-          title,
-          description,
-          SpaceTemplateMap[category].objective,
-          user.id,
-          theme,
-          category,
-        );
-
-      console.log('SPACE CREATED', space);
-      const chapters = await createChapters(space, templateSpaceChapters);
       console.log('CHAPTERS CREATED', chapters);
 
       const tasks = await Promise.all(
@@ -167,6 +150,13 @@ export const useControllerForHomePersonalCreateSpace =
               chapter.id,
             )
             .then((scene) => {
+              console.log('SCENE CREATED', scene);
+              activityListController.actions.createActions.createFromChapterScene(
+                user.id,
+                space.id,
+                chapter.id,
+                scene.id,
+              );
               const textElem = {
                 id: crypto.randomUUID(),
                 title: chapter.title,
@@ -176,19 +166,29 @@ export const useControllerForHomePersonalCreateSpace =
 
               const { width, height } = getTextIdeaBounds(textElem);
 
-              ideaListController.actions.createActions.createIdeaFromTextElement(
-                user.id,
-                scene.id,
-                title,
-                description,
-                Math.ceil(Math.random() * 200),
-                Math.ceil(Math.random() * 200),
-                width,
-                height,
-                textElem,
-                ideaListController.state.objs.length,
-              );
-              console.log('SCENE CREATED', scene);
+              ideaListController.actions.createActions
+                .createIdeaFromTextElement(
+                  user.id,
+                  scene.id,
+                  title,
+                  description,
+                  Math.ceil(Math.random() * 200),
+                  Math.ceil(Math.random() * 200),
+                  width,
+                  height,
+                  textElem,
+                  ideaListController.state.objs.length,
+                )
+                .then((idea) => {
+                  activityListController.actions.createActions.createFromChapterSceneIdea(
+                    user.id,
+                    space.id,
+                    chapter.id,
+                    scene.id,
+                    idea.id,
+                  );
+                  console.log('IDEA CREATED', textElem);
+                });
             }),
         ),
       );
@@ -196,15 +196,42 @@ export const useControllerForHomePersonalCreateSpace =
 
       const conversations = await Promise.all(
         chapters.map((chapter, index) =>
-          conversationListController.actions.createActions.createConversation(
-            user.id,
-            chapter.id,
-          ),
+          conversationListController.actions.createActions
+            .createConversation(user.id, chapter.id)
+            .then((conversation) => {
+              activityListController.actions.createActions.createFromChapterChapterConversation(
+                user.id,
+                space.id,
+                chapter.id,
+                conversation.id,
+              );
+              console.log('CONVERSATION CREATED', conversation);
+              messageListController.actions.createActions
+                .sendAgentMessage(
+                  'astral',
+                  conversation.id,
+                  "Hello I'm Astral 💫, how can I help you today.",
+                )
+                .then((message) => {
+                  console.log('MESSAGE CREATED', message);
+                });
+            }),
         ),
       );
+      console.log('CONVERSATIONS CREATED', conversations);
 
-      const members = await createMembers(space, memberIds);
+      const members = await Promise.all(
+        memberIds.map(async (memberId) => {
+          const member =
+            await spaceMembersListController.actions.createActions.createMember(
+              memberId,
+              space.id,
+            );
+          return member;
+        }),
+      );
       console.log('MEMBERS CREATED', members);
+
       return space;
     }
 

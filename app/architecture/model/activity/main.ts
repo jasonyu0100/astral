@@ -2,8 +2,9 @@ import { ModelInterface } from '@/architecture/model/main';
 import { createContext } from 'react';
 
 export enum UserActivityVariant {
-  CONVERSATION = 'CONVERSATION',
+  SPACE = 'SPACE',
   CHAPTER = 'CHAPTER',
+  CONVERSATION = 'CONVERSATION',
   SCENE = 'SCENE',
   IDEA = 'IDEA',
   TASK = 'TASK',
