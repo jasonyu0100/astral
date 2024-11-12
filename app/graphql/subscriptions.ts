@@ -736,7 +736,6 @@ export const onCreateSpaceChapterObj = /* GraphQL */ `subscription OnCreateSpace
     userId
     description
     objective
-    context
     idx
     created
     __typename
@@ -766,7 +765,6 @@ export const onUpdateSpaceChapterObj = /* GraphQL */ `subscription OnUpdateSpace
     userId
     description
     objective
-    context
     idx
     created
     __typename
@@ -796,7 +794,6 @@ export const onDeleteSpaceChapterObj = /* GraphQL */ `subscription OnDeleteSpace
     userId
     description
     objective
-    context
     idx
     created
     __typename

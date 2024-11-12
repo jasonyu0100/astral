@@ -562,7 +562,6 @@ export const createSpaceChapterObj = /* GraphQL */ `mutation CreateSpaceChapterO
     userId
     description
     objective
-    context
     idx
     created
     __typename
@@ -580,7 +579,6 @@ export const updateSpaceChapterObj = /* GraphQL */ `mutation UpdateSpaceChapterO
     userId
     description
     objective
-    context
     idx
     created
     __typename
@@ -598,7 +596,6 @@ export const deleteSpaceChapterObj = /* GraphQL */ `mutation DeleteSpaceChapterO
     userId
     description
     objective
-    context
     idx
     created
     __typename

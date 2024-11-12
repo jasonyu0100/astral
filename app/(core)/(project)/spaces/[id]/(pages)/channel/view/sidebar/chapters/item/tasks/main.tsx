@@ -33,7 +33,7 @@ export function SpacesChannelSidebarChapterItemTasks() {
       </div>
       <HorizontalDivider />
       {current.length > 0 ? (
-        <div className='flex w-full flex-col space-y-[1rem]'>
+        <div className='flex w-full flex-col space-y-[0.5rem]'>
           {current.map((task, index) => (
             <div
               className='flex w-full flex-row items-center justify-between space-y-[0.5rem]'

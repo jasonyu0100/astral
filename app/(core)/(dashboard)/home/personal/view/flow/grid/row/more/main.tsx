@@ -10,6 +10,7 @@ import { AstralDeleteIcon } from '@/icons/delete/main';
 import { AstralFolderOpenIcon } from '@/icons/folder-open/main';
 import { AstralLinkIcon } from '@/icons/link/main';
 import { AstralMoreVertIcon } from '@/icons/more-vert/main';
+import { AstralStarIcon } from '@/icons/star/main';
 import { glassFx, roundedFx } from '@/style/data';
 import {
   Popover,
@@ -46,6 +47,13 @@ export function HomePersonalRowMore() {
                 <AstralLinkIcon />
                 <p className='font-bold text-slate-300'>View Live</p>
               </Link>
+              <Link
+                className='flex cursor-pointer flex-row space-x-[1rem]'
+                href={liveMap.live.link(spaceObj.id)}
+              >
+                <AstralStarIcon />
+                <p className='font-bold text-slate-300'>Star Space</p>
+              </Link>
               <HorizontalDivider />
               <div
                 className='flex cursor-pointer flex-row space-x-[1rem]'
@@ -54,7 +62,7 @@ export function HomePersonalRowMore() {
                 }}
               >
                 <AstralDeleteIcon />
-                <p className='font-bold text-slate-300'>Delete</p>
+                <p className='font-bold text-slate-300'>Delete Space</p>
               </div>
             </GlassWindowContents>
             <GlassWindowPane glassFx={glassFx['glass-10']} />

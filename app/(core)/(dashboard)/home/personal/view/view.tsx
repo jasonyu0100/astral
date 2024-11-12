@@ -10,8 +10,7 @@ import { SpaceTemplate, SpaceTemplateMap } from '@/templates/space/main';
 import { useContext } from 'react';
 import { ContextForHomePersonalModals } from '../modal/controller/main';
 import { ContextForHomePersonalCreateSpace } from '../modal/create-space/controller/main';
-import { HomePersonalContainer } from './container/main';
-import { HomePersonalTable } from './table/main';
+import { HomePersonalTableMain } from './flow/main';
 
 export function HomePersonalView() {
   const homePersonalModalsController = useContext(ContextForHomePersonalModals);
@@ -91,12 +90,12 @@ export function HomePersonalView() {
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
         <div className='flex flex-row items-center space-x-[1rem]'>
-          <p className='text-3xl font-bold text-slate-300'>Your spaces</p>
+          <p className='text-3xl font-bold text-slate-300'>
+            Your creative flow
+          </p>
         </div>
       </div>
-      <HomePersonalContainer>
-        <HomePersonalTable />
-      </HomePersonalContainer>
+      <HomePersonalTableMain />
     </>
   );
 }

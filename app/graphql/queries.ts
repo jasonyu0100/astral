@@ -451,7 +451,6 @@ export const getSpaceChapterObj = /* GraphQL */ `query GetSpaceChapterObj($id: S
     userId
     description
     objective
-    context
     idx
     created
     __typename
@@ -474,7 +473,6 @@ export const listSpaceChapterObjs = /* GraphQL */ `query ListSpaceChapterObjs(
       userId
       description
       objective
-      context
       idx
       created
       __typename

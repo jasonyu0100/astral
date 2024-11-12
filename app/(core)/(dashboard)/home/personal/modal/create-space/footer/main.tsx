@@ -1,3 +1,4 @@
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
 import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
@@ -44,9 +45,9 @@ export function HomePersonalCreateSpaceModalFooter() {
                 loadingController.loadingController.open();
                 createSpace().then((spaceObj) => {
                   openableController.close();
-                  // window.location.href = spacesMap.spaces.id.focus.link(
-                  //   spaceObj.id,
-                  // );
+                  window.location.href = spacesMap.spaces.id.focus.link(
+                    spaceObj.id,
+                  );
                   loadingController.loadingController.close();
                 });
               }}
