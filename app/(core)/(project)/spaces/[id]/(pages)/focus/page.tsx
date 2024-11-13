@@ -47,7 +47,6 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
-import { SpacesSidebar } from '../../../sidebar/main';
 import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
 import {
@@ -242,7 +241,7 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
   return (
     <DashboardContainer fullHeight>
       <SpacesSidebarModals>
-        <SpacesSidebar />
+        {/* <SpacesSidebar /> */}
         <DashboardContent>
           <SpaceTabs tab={SpaceTabStage.Focus} />
           <DashboardBody>{children}</DashboardBody>

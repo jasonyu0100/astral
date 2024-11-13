@@ -1,5 +1,7 @@
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { TabsContainer } from '@/components/tabs/main';
+import { TabsBackButton } from '@/components/tabs/tabs-row/back-button/main';
 import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { useContext } from 'react';
 import { SpacesTabChannel } from './channel-tab/main';
@@ -22,6 +24,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   const spaceMainController = useContext(ContextForSpaceMain);
   return (
     <TabsContainer>
+      <TabsBackButton href={homeMap.home.personal.link} />
       <TabsRow>
         <SpaceTabFocus tab={tab} />
         <SpacesTabSpace tab={tab} />
