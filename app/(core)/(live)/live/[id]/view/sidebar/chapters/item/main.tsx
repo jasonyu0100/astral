@@ -160,40 +160,37 @@ function SelectedPublicSpaceSidebarItem() {
       </GlassWindowFrame>
       <div className='mt-[1rem] flex w-full items-center justify-center space-x-[1rem]'>
         <div
-          className={`flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.FOCUS ? 'bg-orange-500' : 'bg-slate-400'}`}
+          className={`flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.FOCUS ? 'bg-orange-500' : 'bg-slate-400'}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            publicSpaceController.actions.updateFeedView(
+              PublicSpaceFeedView.FOCUS,
+            );
+          }}
         >
-          <AstralTableIcon
-            onClick={(e) => {
-              e.stopPropagation();
-              publicSpaceController.actions.updateFeedView(
-                PublicSpaceFeedView.FOCUS,
-              );
-            }}
-          />
+          <AstralTableIcon />
         </div>
         <div
-          className={`flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.CHAT ? 'bg-emerald-500' : 'bg-slate-400'}`}
+          className={`flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.CHAT ? 'bg-emerald-500' : 'bg-slate-400'}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            publicSpaceController.actions.updateFeedView(
+              PublicSpaceFeedView.CHAT,
+            );
+          }}
         >
-          <AstralChatIndicatorIcon
-            onClick={(e) => {
-              e.stopPropagation();
-              publicSpaceController.actions.updateFeedView(
-                PublicSpaceFeedView.CHAT,
-              );
-            }}
-          />
+          <AstralChatIndicatorIcon />
         </div>
         <div
-          className={`flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.POSTS ? 'bg-blue-500' : 'bg-slate-400'}`}
+          className={`flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer flex-row items-center justify-center rounded-full ${publicSpaceController.state.feedView === PublicSpaceFeedView.POSTS ? 'bg-blue-500' : 'bg-slate-400'}`}
+          onClick={(e) => {
+            e.stopPropagation();
+            publicSpaceController.actions.updateFeedView(
+              PublicSpaceFeedView.POSTS,
+            );
+          }}
         >
-          <AstralBookmarkIcon
-            onClick={(e) => {
-              e.stopPropagation();
-              publicSpaceController.actions.updateFeedView(
-                PublicSpaceFeedView.POSTS,
-              );
-            }}
-          />
+          <AstralBookmarkIcon />
         </div>
       </div>
     </>

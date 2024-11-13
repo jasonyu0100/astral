@@ -22,7 +22,7 @@ export function PublicSpaceBreadcrumbsPosts() {
       <div className='flex flex-row items-center space-x-[1rem]'>
         <Link href={userMap.profile.link(userMainController.state.obj.id)}>
           <p className='cursor-pointer text-lg font-bold text-slate-400'>
-            {userMainController.state.obj.displayName}
+            {userMainController.state.obj.displayName || 'Untitled'}
           </p>
         </Link>
         <span className='text-lg font-bold text-slate-400'> / </span>
@@ -30,7 +30,7 @@ export function PublicSpaceBreadcrumbsPosts() {
           href={spacesMap.spaces.id.space.link(spaceMainController.state.objId)}
         >
           <p className='cursor-pointer text-lg font-bold text-slate-400'>
-            {spaceMainController.state.obj?.title}
+            {spaceMainController.state.obj?.title || 'Untitled'}
           </p>
         </Link>
         <span className='text-lg font-bold text-slate-400'> / </span>
@@ -42,13 +42,13 @@ export function PublicSpaceBreadcrumbsPosts() {
             );
           }}
         >
-          {chapterListController.state.currentObj?.title}
+          {chapterListController.state.currentObj?.title || 'Untitled'}
         </p>
         <span className='text-lg font-bold text-slate-400'> / </span>
         <p className='cursor-pointer text-lg font-bold text-slate-400'>Posts</p>
       </div>
       <Link
-        href={`${spacesMap.spaces.id.space.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`}
+        href={`${spacesMap.spaces.id.public.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`}
       >
         <div className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'>
           <AstralAddIcon />

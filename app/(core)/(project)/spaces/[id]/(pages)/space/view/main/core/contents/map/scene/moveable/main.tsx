@@ -57,9 +57,10 @@ export function SpacesSpaceMovable({
       <div
         className={`element absolute cursor-move`}
         style={{
-          width: `${ideaObj.width * ideaObj.scale}px`,
+          width: `${ideaObj.width}px`,
           top: `${initialY}px`,
           left: `${initialX}px`,
+          scale: `${initialScale}`,
         }}
         ref={targetRef}
         onMouseOver={() => {
@@ -100,7 +101,7 @@ export function SpacesSpaceMovable({
           }
         }}
       >
-        <div className='relative'>
+        <div className='relative p-[1rem]'>
           {spacesSpaceController.state.bubbleMode ===
           SpacesSpaceBubbleMode.ON ? (
             <SpacesSpaceIdeaLabel />
@@ -119,7 +120,7 @@ export function SpacesSpaceMovable({
         isDisplaySnapDigit={true}
         isDisplayInnerSnapDigit={false}
         throttleDrag={1}
-        edgeDraggable={false}
+        edgeDraggable={true}
         startDragRotate={0}
         throttleDragRotate={0}
         snappable={true}
@@ -141,12 +142,6 @@ export function SpacesSpaceMovable({
         }}
         elementGuidelines={['.element']}
         bounds={{ left: 0, top: 0, right: 0, bottom: 0, position: 'css' }}
-        // verticalGuidelines={[
-        //   0, 100, 200, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
-        // ]}
-        // horizontalGuidelines={[
-        //   0, 100, 200, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200,
-        // ]}
         renderDirections={['nw', 'n', 'ne', 'w', 'e', 'sw', 's', 'se']}
         onDrag={(e) => {
           e.target.style.transform = e.transform;

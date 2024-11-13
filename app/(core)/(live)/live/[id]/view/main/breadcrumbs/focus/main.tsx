@@ -24,7 +24,7 @@ export function PublicSpaceBreadcrumbsFocus() {
       <div className='flex flex-row items-center space-x-[1rem]'>
         <Link href={userMap.profile.link(userMainController.state.obj.id)}>
           <p className='cursor-pointer text-lg font-bold text-slate-400'>
-            {userMainController.state.obj.displayName}
+            {userMainController.state.obj.displayName || 'Untitled'}
           </p>
         </Link>
         <span className='text-lg font-bold text-slate-400'> / </span>
@@ -32,7 +32,7 @@ export function PublicSpaceBreadcrumbsFocus() {
           href={spacesMap.spaces.id.space.link(spaceMainController.state.objId)}
         >
           <p className='cursor-pointer text-lg font-bold text-slate-400'>
-            {spaceMainController.state.obj?.title}
+            {spaceMainController.state.obj?.title || 'Untitled'}
           </p>
         </Link>
         <span className='text-lg font-bold text-slate-400'> / </span>
@@ -44,7 +44,7 @@ export function PublicSpaceBreadcrumbsFocus() {
             );
           }}
         >
-          {chapterListController.state.currentObj?.title}
+          {chapterListController.state.currentObj?.title || 'Untitled'}
         </p>
       </div>
       <Link
