@@ -17,7 +17,7 @@ import { musicAndAudioProductionTemplate } from './templates/musicAndAudioProduc
 import { shortFormVideoTemplate } from './templates/shortFormTemplate';
 import { socialMediaPostTemplate } from './templates/socialPostTemplate';
 import { startupTemplate } from './templates/startupTemplate';
-import { videoProductionTemplate } from './templates/videoMediaProductionTemplate';
+import { filmProductionTemplate } from './templates/videoMediaProductionTemplate';
 import { websiteTemplate } from './templates/websiteTemplate';
 import { workProjectTemplate } from './templates/workProjectTemplate';
 
@@ -114,36 +114,36 @@ export interface TemplatePostObj extends _TemplatePostObj {
 
 // TEMPLATES
 enum SpaceTemplate {
-  Ideation = 'Ideation',
-  Minutes = 'Minutes',
-  Blank = 'Blank',
+  SocialPost = 'Social Post',
   ShortForm = 'Short Form Video',
   LongForm = 'Long Form Video',
-  VideoProduction = 'Film Production',
+  Ideation = 'Ideation',
+  Minutes = 'Minutes',
+  FilmProduction = 'Film Production',
   MusicProduction = 'Music Production',
   Event = 'Event',
   Website = 'Website',
   Marketing = 'Marketing',
   Project = 'Project',
   Startup = 'Startup',
-  SocialPost = 'Social Post',
+  Blank = 'Blank',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
-  [SpaceTemplate.Ideation]: ideationTemplate,
-  [SpaceTemplate.LongForm]: longFormVideoTemplate,
-  [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
   [SpaceTemplate.SocialPost]: socialMediaPostTemplate,
-  [SpaceTemplate.Minutes]: meetingTemplate,
   [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
-  [SpaceTemplate.Project]: workProjectTemplate,
-  [SpaceTemplate.Marketing]: creativeCampaignTemplate,
-  [SpaceTemplate.VideoProduction]: videoProductionTemplate,
+  [SpaceTemplate.LongForm]: longFormVideoTemplate,
+  [SpaceTemplate.Ideation]: ideationTemplate,
+  [SpaceTemplate.Minutes]: meetingTemplate,
+  [SpaceTemplate.FilmProduction]: filmProductionTemplate,
+  [SpaceTemplate.MusicProduction]: musicAndAudioProductionTemplate,
   [SpaceTemplate.Event]: eventPlanningTemplate,
-  [SpaceTemplate.Blank]: blankSpaceTemplate,
   [SpaceTemplate.Website]: websiteTemplate,
+  [SpaceTemplate.Marketing]: creativeCampaignTemplate,
+  [SpaceTemplate.Project]: workProjectTemplate,
   [SpaceTemplate.Startup]: startupTemplate,
+  [SpaceTemplate.Blank]: blankSpaceTemplate,
 };
 
 export { SpaceTemplate as SpaceTemplate, SpaceTemplateMap as SpaceTemplateMap };

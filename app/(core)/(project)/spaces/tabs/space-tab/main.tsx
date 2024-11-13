@@ -3,7 +3,7 @@
 import { ContextForIdeaSceneList } from '@/architecture/controller/scene/list';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
-import { TabGreenShard } from '@/components/tabs/tabs-row/tab/shard/green/main';
+import { TabBlueShard } from '@/components/tabs/tabs-row/tab/shard/blue/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativePrivateSpacesContext } from '../../[id]/layout';
@@ -30,7 +30,7 @@ export function SpacesTabSpace({ tab }: { tab?: string }) {
   return (
     <Tab href={url}>
       <TabText active={active}>{tabText}</TabText>
-      <TabGreenShard active={active} />
+      <TabBlueShard active={active} />
     </Tab>
   );
 }

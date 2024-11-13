@@ -148,22 +148,20 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       const diff = now.getTime() - created.getTime();
       if (diff < 1000 * 60) {
         // HARD LOCK IN STARTER FOR 1 minute
-        createSpaceController.actions
-          .createSpaceFromTemplate()
-          .then((space) => {
-            window.location.href = spacesMap.spaces.id.space.link(space.id);
-          });
+        createSpaceController.actions.createBlankSpace().then((space) => {
+          window.location.href = spacesMap.spaces.id.space.link(space.id);
+        });
       }
     }
 
-    if (
-      spaceListController.state.objs.length > 2 &&
-      spaceListController.state.objs.length < 5
-    ) {
-      spacesPersonalModalController.showNoticeController.open();
-    } else {
-      spacesPersonalModalController.showNoticeController.close();
-    }
+    // if (
+    //   spaceListController.state.objs.length > 2 &&
+    //   spaceListController.state.objs.length < 5
+    // ) {
+    //   spacesPersonalModalController.showNoticeController.open();
+    // } else {
+    //   spacesPersonalModalController.showNoticeController.close();
+    // }
   }, [spaceListController.state.objs.length, loggedInUser]);
   return <>{children}</>;
 }

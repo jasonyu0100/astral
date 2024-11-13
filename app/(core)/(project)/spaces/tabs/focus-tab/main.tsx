@@ -2,7 +2,7 @@
 
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
-import { TabBlueShard } from '@/components/tabs/tabs-row/tab/shard/blue/main';
+import { TabGreenShard } from '@/components/tabs/tabs-row/tab/shard/green/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
 import { useContext } from 'react';
 import { CreativePrivateSpacesContext } from '../../[id]/layout';
@@ -27,7 +27,7 @@ export function SpaceTabFocus({ tab }: { tab?: string }) {
   return (
     <Tab href={url}>
       <TabText active={active}>{tabText}</TabText>
-      <TabBlueShard active={active} />
+      <TabGreenShard active={active} />
     </Tab>
   );
 }

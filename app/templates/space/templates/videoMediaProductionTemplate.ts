@@ -1,7 +1,7 @@
 import { TemplateSpaceObj } from '../main';
 
-export const videoProductionTemplate: TemplateSpaceObj = {
-  title: '🎬 Video/Media Production Template',
+export const filmProductionTemplate: TemplateSpaceObj = {
+  title: '🎬 Film Production Template',
   description:
     'A structured template for planning, creating, and producing video content, ensuring a smooth workflow from concept to final edit.',
   summary:

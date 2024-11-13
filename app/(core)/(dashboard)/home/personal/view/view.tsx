@@ -1,13 +1,7 @@
 'use client';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { GlassWindowContents } from '@/components/glass/window/contents/main';
-import { GlassWindowFrame } from '@/components/glass/window/main';
-import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralGestureIcon } from '@/icons/gesture/main';
-import { AstralPlayIcon } from '@/icons/play/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
-import { SpaceTemplate, SpaceTemplateMap } from '@/templates/space/main';
 import { useContext } from 'react';
 import { ContextForHomePersonalModals } from '../modal/controller/main';
 import { ContextForHomePersonalCreateSpace } from '../modal/create-space/controller/main';
@@ -51,7 +45,7 @@ export function HomePersonalView() {
             <AstralBookSparkIcon className='h-[2rem] w-[2rem]' />
           </div>
         </div>
-        <GlassWindowFrame
+        {/* <GlassWindowFrame
           className='p-[2rem]'
           roundedFx={roundedFx['rounded']}
           borderFx={borderFx['border-around']}
@@ -94,7 +88,7 @@ export function HomePersonalView() {
             </div>
           </GlassWindowContents>
           <GlassWindowPane glassFx={glassFx['glass-5']} />
-        </GlassWindowFrame>
+        </GlassWindowFrame> */}
         <div className='flex flex-row items-center space-x-[1rem]'>
           <p className='text-3xl font-bold text-slate-300'>Your spaces</p>
         </div>

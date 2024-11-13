@@ -15,16 +15,19 @@ export function HomePersonalCreateFromSourceModalPageOne() {
       <AstralTextLineInput
         title='Title'
         placeholder='A title for your source'
-        defaultValue={createFromSourceController.actions.title}
+        defaultValue={createFromSourceController.state.title}
         onChange={(e) =>
           createFromSourceController.actions.updateTitle(e.target.value)
         }
       />
       <AstralTextAreaInput
         title='Source'
-        placeholder='Enter your source text here'
+        placeholder={`Enter your source text here
+E.g. a script, a paragraph, a quote, etc.
+          
+          `}
         rows={8}
-        defaultValue={createFromSourceController.actions.source}
+        defaultValue={createFromSourceController.state.source}
         onChange={(e) =>
           createFromSourceController.actions.updateSource(e.target.value)
         }
