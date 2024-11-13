@@ -6,7 +6,7 @@
     "start": "next start",
     "dev": "next",
     "build": "next build",
-    "preinstall": "node scripts/create-npmrc & node scripts/create-aws",
+    "preinstall": "node scripts/create-npmrc & node scripts/create-aws & sh scripts/run_codegen.sh",
     "codegen": "sh scripts/run_codegen.sh",
     "lint": "next lint",
     "format": "prettier --write .",
