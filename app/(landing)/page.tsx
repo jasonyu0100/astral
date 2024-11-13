@@ -42,12 +42,6 @@ const Header = () => (
         >
           LEARN
         </Link>
-        <Link
-          href='/pricing'
-          className='text-sm font-bold uppercase text-white sm:text-lg'
-        >
-          PRICING
-        </Link>
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>

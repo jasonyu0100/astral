@@ -34,7 +34,7 @@ export function FlowCurrentTableMain() {
                 </p>
               ) : (
                 <p className='text-xl font-bold text-slate-400'>
-                  {spacesList.length} total spaces
+                  {spacesList.length} available spaces
                 </p>
               )}
             </div>
