@@ -12,10 +12,7 @@ import {
 } from '../../../../../controller/main';
 
 export function SpacesChannelHeaderLeft() {
-  const {
-    state: { sidebarVisibility },
-    actions: { updateSidebarVisibility },
-  } = useContext(ContextForSpacesChannel);
+  const spacesChannelController = useContext(ContextForSpacesChannel);
 
   const loggedInUser = useContext(ContextForLoggedInUserObj);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -25,19 +22,25 @@ export function SpacesChannelHeaderLeft() {
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
-      <AstralSidebarLeftIcon
-        className={ctwn({
-          'rotate-180 transform':
-            sidebarVisibility === SpacesChannelSidebarVisibility.CLOSED,
-        })}
+      <div
+        className={`flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full ${spacesChannelController.state.sidebarVisibility === SpacesChannelSidebarVisibility.OPEN ? 'bg-blue-500' : 'bg-slate-500'}`}
         onClick={() => {
-          updateSidebarVisibility(
-            sidebarVisibility === SpacesChannelSidebarVisibility.CLOSED
+          spacesChannelController.actions.updateSidebarVisibility(
+            spacesChannelController.state.sidebarVisibility ===
+              SpacesChannelSidebarVisibility.CLOSED
               ? SpacesChannelSidebarVisibility.OPEN
               : SpacesChannelSidebarVisibility.CLOSED,
           );
         }}
-      />
+      >
+        <AstralSidebarLeftIcon
+          className={ctwn({
+            'rotate-180 transform':
+              spacesChannelController.state.sidebarVisibility ===
+              SpacesChannelSidebarVisibility.CLOSED,
+          })}
+        />
+      </div>
       <BarDividerIndicator />
       <AstralAddIcon
         onClick={() => {

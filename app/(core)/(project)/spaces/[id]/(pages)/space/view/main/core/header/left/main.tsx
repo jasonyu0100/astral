@@ -23,12 +23,8 @@ export function SpacesSpaceHeaderLeft() {
 
   return (
     <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
-      <AstralSidebarLeftIcon
-        className={ctwn({
-          'rotate-180 transform':
-            spacesSpaceController.state.sidebarVisibility ===
-            SpacesSpaceSidebarVisibility.CLOSED,
-        })}
+      <div
+        className={`flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full ${spacesSpaceController.state.sidebarVisibility === SpacesSpaceSidebarVisibility.OPEN ? 'bg-blue-500' : 'bg-slate-500'}`}
         onClick={() => {
           spacesSpaceController.actions.updateSidebarVisibility(
             spacesSpaceController.state.sidebarVisibility ===
@@ -37,7 +33,15 @@ export function SpacesSpaceHeaderLeft() {
               : SpacesSpaceSidebarVisibility.CLOSED,
           );
         }}
-      />
+      >
+        <AstralSidebarLeftIcon
+          className={ctwn({
+            'rotate-180 transform':
+              spacesSpaceController.state.sidebarVisibility ===
+              SpacesSpaceSidebarVisibility.CLOSED,
+          })}
+        />
+      </div>
       <BarDividerIndicator />
       <AstralCursorIcon
         className={

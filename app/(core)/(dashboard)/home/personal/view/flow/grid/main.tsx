@@ -5,7 +5,7 @@ import { HomePersonalRowWrapper } from './wrapper/main';
 
 export function HomePersonalTableGrid({ spaces }: { spaces: SpaceObj[] }) {
   return (
-    <div className='w-full p-[1rem]'>
+    <div className='w-full py-[1rem]'>
       {spaces?.map((space, index) => (
         <ContextForSpaceObj.Provider value={space} key={space.id}>
           <ContextForIndexable.Provider value={index}>

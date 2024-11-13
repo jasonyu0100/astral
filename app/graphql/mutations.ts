@@ -624,9 +624,8 @@ export const createSpaceObj = /* GraphQL */ `mutation CreateSpaceObj($input: Cre
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -655,9 +654,8 @@ export const updateSpaceObj = /* GraphQL */ `mutation UpdateSpaceObj($input: Upd
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -686,9 +684,8 @@ export const deleteSpaceObj = /* GraphQL */ `mutation DeleteSpaceObj($input: Del
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -2671,4 +2668,52 @@ export const deleteHorizonArcObj = /* GraphQL */ `mutation DeleteHorizonArcObj($
 ` as GeneratedMutation<
   APITypes.DeleteHorizonArcObjMutationVariables,
   APITypes.DeleteHorizonArcObjMutation
+>;
+export const createFlowObj = /* GraphQL */ `mutation CreateFlowObj($input: CreateFlowObjInput!) {
+  createFlowObj(input: $input) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateFlowObjMutationVariables,
+  APITypes.CreateFlowObjMutation
+>;
+export const updateFlowObj = /* GraphQL */ `mutation UpdateFlowObj($input: UpdateFlowObjInput!) {
+  updateFlowObj(input: $input) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateFlowObjMutationVariables,
+  APITypes.UpdateFlowObjMutation
+>;
+export const deleteFlowObj = /* GraphQL */ `mutation DeleteFlowObj($input: DeleteFlowObjInput!) {
+  deleteFlowObj(input: $input) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteFlowObjMutationVariables,
+  APITypes.DeleteFlowObjMutation
 >;

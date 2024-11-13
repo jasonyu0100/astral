@@ -1,4 +1,4 @@
-import { updatesMap } from '@/(core)/(dashboard)/feed/map';
+import { feedsMap } from '@/(core)/(dashboard)/feed/map';
 import { ContextForCommonSidebar } from '@/(core)/common/sidebar/main';
 import { useContext } from 'react';
 import { CommonIndicatorOrangeJewel } from '../../indicator/jewel/orange/main';
@@ -16,11 +16,11 @@ export function CommonSidebarUpdatesIndicator() {
   return (
     <>
       {commonSidebar.minimised ? (
-        <CommonSidebarIndicator href={updatesMap.updates.explore.link}>
+        <CommonSidebarIndicator href={feedsMap.feed.explore.link}>
           <CommonIndicatorOrangeJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
-        <CommonSidebarIndicator href={updatesMap.updates.explore.link}>
+        <CommonSidebarIndicator href={feedsMap.feed.explore.link}>
           <CommonIndicatorOrangeJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}

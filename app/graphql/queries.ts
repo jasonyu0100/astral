@@ -504,9 +504,8 @@ export const getSpaceObj = /* GraphQL */ `query GetSpaceObj($id: String!) {
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -540,9 +539,8 @@ export const listSpaceObjs = /* GraphQL */ `query ListSpaceObjs(
         __typename
       }
       category
-      hours
       target
-      completed
+      flowId
       starred
       visibility
       __typename
@@ -2198,4 +2196,44 @@ export const listHorizonArcObjs = /* GraphQL */ `query ListHorizonArcObjs(
 ` as GeneratedQuery<
   APITypes.ListHorizonArcObjsQueryVariables,
   APITypes.ListHorizonArcObjsQuery
+>;
+export const getFlowObj = /* GraphQL */ `query GetFlowObj($id: String!) {
+  getFlowObj(id: $id) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetFlowObjQueryVariables,
+  APITypes.GetFlowObjQuery
+>;
+export const listFlowObjs = /* GraphQL */ `query ListFlowObjs(
+  $filter: TableFlowObjFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFlowObjs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      userId
+      title
+      description
+      created
+      target
+      completed
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListFlowObjsQueryVariables,
+  APITypes.ListFlowObjsQuery
 >;

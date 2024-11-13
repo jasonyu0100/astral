@@ -354,9 +354,8 @@ export type CreateSpaceObjInput = {
   objective: string,
   summary: string,
   category: string,
-  hours: number,
+  flowId?: string | null,
   target: string,
-  completed: boolean,
   starred: boolean,
   visibility: string,
 };
@@ -372,9 +371,8 @@ export type SpaceObj = {
   summary: string,
   thumbnail: FileElem,
   category: string,
-  hours: number,
   target: string,
-  completed: boolean,
+  flowId?: string | null,
   starred: boolean,
   visibility: string,
 };
@@ -389,10 +387,9 @@ export type UpdateSpaceObjInput = {
   objective?: string | null,
   summary?: string | null,
   category?: string | null,
-  hours?: number | null,
+  flowId?: string | null,
   target?: string | null,
   starred?: boolean | null,
-  completed?: boolean | null,
   visibility?: string | null,
 };
 
@@ -1638,6 +1635,40 @@ export type DeleteHorizonArcObjInput = {
   id: string,
 };
 
+export type CreateFlowObjInput = {
+  userId: string,
+  title: string,
+  description: string,
+  created: string,
+  target: string,
+  completed: boolean,
+};
+
+export type FlowObj = {
+  __typename: "FlowObj",
+  id: string,
+  userId: string,
+  title: string,
+  description: string,
+  created: string,
+  target: string,
+  completed: boolean,
+};
+
+export type UpdateFlowObjInput = {
+  id: string,
+  userId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  created?: string | null,
+  target?: string | null,
+  completed?: boolean | null,
+};
+
+export type DeleteFlowObjInput = {
+  id: string,
+};
+
 export type TableChapterSceneObjFilterInput = {
   id?: TableStringFilterInput | null,
   userId?: TableStringFilterInput | null,
@@ -1816,9 +1847,8 @@ export type TableSpaceObjFilterInput = {
   objective?: TableStringFilterInput | null,
   summary?: TableStringFilterInput | null,
   category?: TableStringFilterInput | null,
-  hours?: TableIntFilterInput | null,
+  flowId?: TableStringFilterInput | null,
   target?: TableStringFilterInput | null,
-  completed?: TableBooleanFilterInput | null,
   starred?: TableBooleanFilterInput | null,
   visibility?: TableStringFilterInput | null,
 };
@@ -2399,6 +2429,22 @@ export type TableHorizonArcObjFilterInput = {
 export type HorizonArcObjConnection = {
   __typename: "HorizonArcObjConnection",
   items?:  Array<HorizonArcObj | null > | null,
+  nextToken?: string | null,
+};
+
+export type TableFlowObjFilterInput = {
+  id?: TableStringFilterInput | null,
+  userId?: TableStringFilterInput | null,
+  title?: TableStringFilterInput | null,
+  description?: TableStringFilterInput | null,
+  created?: TableStringFilterInput | null,
+  target?: TableStringFilterInput | null,
+  completed?: TableBooleanFilterInput | null,
+};
+
+export type FlowObjConnection = {
+  __typename: "FlowObjConnection",
+  items?:  Array<FlowObj | null > | null,
   nextToken?: string | null,
 };
 
@@ -3029,9 +3075,8 @@ export type CreateSpaceObjMutation = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -3061,9 +3106,8 @@ export type UpdateSpaceObjMutation = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -3093,9 +3137,8 @@ export type DeleteSpaceObjMutation = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -5147,6 +5190,57 @@ export type DeleteHorizonArcObjMutation = {
   } | null,
 };
 
+export type CreateFlowObjMutationVariables = {
+  input: CreateFlowObjInput,
+};
+
+export type CreateFlowObjMutation = {
+  createFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
+  } | null,
+};
+
+export type UpdateFlowObjMutationVariables = {
+  input: UpdateFlowObjInput,
+};
+
+export type UpdateFlowObjMutation = {
+  updateFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
+  } | null,
+};
+
+export type DeleteFlowObjMutationVariables = {
+  input: DeleteFlowObjInput,
+};
+
+export type DeleteFlowObjMutation = {
+  deleteFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
+  } | null,
+};
+
 export type GetUserQueryVariables = {
 };
 
@@ -5643,9 +5737,8 @@ export type GetSpaceObjQuery = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -5679,9 +5772,8 @@ export type ListSpaceObjsQuery = {
         variant?: string | null,
       },
       category: string,
-      hours: number,
       target: string,
-      completed: boolean,
+      flowId?: string | null,
       starred: boolean,
       visibility: string,
     } | null > | null,
@@ -7269,6 +7361,46 @@ export type ListHorizonArcObjsQuery = {
   } | null,
 };
 
+export type GetFlowObjQueryVariables = {
+  id: string,
+};
+
+export type GetFlowObjQuery = {
+  getFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
+  } | null,
+};
+
+export type ListFlowObjsQueryVariables = {
+  filter?: TableFlowObjFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListFlowObjsQuery = {
+  listFlowObjs?:  {
+    __typename: "FlowObjConnection",
+    items?:  Array< {
+      __typename: "FlowObj",
+      id: string,
+      userId: string,
+      title: string,
+      description: string,
+      created: string,
+      target: string,
+      completed: boolean,
+    } | null > | null,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type OnCreateChapterSceneObjSubscriptionVariables = {
   id?: string | null,
   chapterId?: string | null,
@@ -7969,9 +8101,8 @@ export type OnCreateSpaceObjSubscription = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -8005,9 +8136,8 @@ export type OnUpdateSpaceObjSubscription = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -8041,9 +8171,8 @@ export type OnDeleteSpaceObjSubscription = {
       variant?: string | null,
     },
     category: string,
-    hours: number,
     target: string,
-    completed: boolean,
+    flowId?: string | null,
     starred: boolean,
     visibility: string,
   } | null,
@@ -10523,5 +10652,68 @@ export type SubscribeToMessagesSubscription = {
       title?: string | null,
       variant?: string | null,
     } | null,
+  } | null,
+};
+
+export type OnCreateFlowObjSubscriptionVariables = {
+  id?: string | null,
+  userId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  created?: string | null,
+};
+
+export type OnCreateFlowObjSubscription = {
+  onCreateFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
+  } | null,
+};
+
+export type OnUpdateFlowObjSubscriptionVariables = {
+  id?: string | null,
+  userId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  created?: string | null,
+};
+
+export type OnUpdateFlowObjSubscription = {
+  onUpdateFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
+  } | null,
+};
+
+export type OnDeleteFlowObjSubscriptionVariables = {
+  id?: string | null,
+  userId?: string | null,
+  title?: string | null,
+  description?: string | null,
+  created?: string | null,
+};
+
+export type OnDeleteFlowObjSubscription = {
+  onDeleteFlowObj?:  {
+    __typename: "FlowObj",
+    id: string,
+    userId: string,
+    title: string,
+    description: string,
+    created: string,
+    target: string,
+    completed: boolean,
   } | null,
 };

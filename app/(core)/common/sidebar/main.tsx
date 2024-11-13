@@ -7,6 +7,7 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext } from 'react';
 import { CommonSidebarContainer } from './common/container/main';
 import { CommonSidebarIndicators } from './common/indicators/main';
+import { CommonSidebarFlowsIndicator } from './common/indicators/variants/flows/main';
 import { CommonSidebarNetworkIndicator } from './common/indicators/variants/network/main';
 import { CommonSidebarHomeIndicator } from './common/indicators/variants/studio/main';
 import { CommonSidebarDriveIndicator } from './common/indicators/variants/vault/main';
@@ -51,8 +52,9 @@ export function CommonSidebar({
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <CommonSidebarIndicators>
                 <CommonSidebarHomeIndicator />
-                <CommonSidebarNetworkIndicator />
+                <CommonSidebarFlowsIndicator />
                 <CommonSidebarDriveIndicator />
+                <CommonSidebarNetworkIndicator />
                 {/* <CommonSidebarUpdatesIndicator /> */}
                 {/* <CommonSidebarExplorerIndicator /> */}
               </CommonSidebarIndicators>

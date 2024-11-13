@@ -1,7 +1,7 @@
 import { Tab } from '@/components/tabs/tabs-row/tab/main';
 import { TabOrangeShard } from '@/components/tabs/tabs-row/tab/shard/orange/main';
 import { TabText } from '@/components/tabs/tabs-row/tab/text/main';
-import { updatesMap } from '../../map';
+import { feedsMap } from '../../map';
 import { UpdatesTabStage } from '../main';
 
 export function TabTwo({ tab }: { tab?: string }) {
@@ -9,7 +9,7 @@ export function TabTwo({ tab }: { tab?: string }) {
   const active = tab === tabText;
 
   return (
-    <Tab href={updatesMap.updates.following.link}>
+    <Tab href={feedsMap.feed.following.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>

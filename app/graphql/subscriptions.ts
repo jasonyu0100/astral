@@ -834,9 +834,8 @@ export const onCreateSpaceObj = /* GraphQL */ `subscription OnCreateSpaceObj(
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -877,9 +876,8 @@ export const onUpdateSpaceObj = /* GraphQL */ `subscription OnUpdateSpaceObj(
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -920,9 +918,8 @@ export const onDeleteSpaceObj = /* GraphQL */ `subscription OnDeleteSpaceObj(
       __typename
     }
     category
-    hours
     target
-    completed
+    flowId
     starred
     visibility
     __typename
@@ -4110,4 +4107,88 @@ export const subscribeToMessages = /* GraphQL */ `subscription SubscribeToMessag
 ` as GeneratedSubscription<
   APITypes.SubscribeToMessagesSubscriptionVariables,
   APITypes.SubscribeToMessagesSubscription
+>;
+export const onCreateFlowObj = /* GraphQL */ `subscription OnCreateFlowObj(
+  $id: String
+  $userId: String
+  $title: String
+  $description: String
+  $created: String
+) {
+  onCreateFlowObj(
+    id: $id
+    userId: $userId
+    title: $title
+    description: $description
+    created: $created
+  ) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateFlowObjSubscriptionVariables,
+  APITypes.OnCreateFlowObjSubscription
+>;
+export const onUpdateFlowObj = /* GraphQL */ `subscription OnUpdateFlowObj(
+  $id: String
+  $userId: String
+  $title: String
+  $description: String
+  $created: String
+) {
+  onUpdateFlowObj(
+    id: $id
+    userId: $userId
+    title: $title
+    description: $description
+    created: $created
+  ) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateFlowObjSubscriptionVariables,
+  APITypes.OnUpdateFlowObjSubscription
+>;
+export const onDeleteFlowObj = /* GraphQL */ `subscription OnDeleteFlowObj(
+  $id: String
+  $userId: String
+  $title: String
+  $description: String
+  $created: String
+) {
+  onDeleteFlowObj(
+    id: $id
+    userId: $userId
+    title: $title
+    description: $description
+    created: $created
+  ) {
+    id
+    userId
+    title
+    description
+    created
+    target
+    completed
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteFlowObjSubscriptionVariables,
+  APITypes.OnDeleteFlowObjSubscription
 >;

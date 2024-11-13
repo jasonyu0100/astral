@@ -2,7 +2,7 @@ import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralAddIcon } from '@/icons/add/main';
 import { AstralCloseIcon } from '@/icons/close/main';
-import { AstralSidebarRightIcon } from '@/icons/sidebar-right/main';
+import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
@@ -19,12 +19,8 @@ export function SpacesPublicHeaderLeft() {
   return (
     <>
       <div className='flex w-1/3 flex-row items-center space-x-[1rem]'>
-        <AstralSidebarRightIcon
-          className={ctwn({
-            'rotate-180 transform':
-              spacesPublicController.state.sidebarVisibility ===
-              SpacesPublicSidebarVisibility.CLOSED,
-          })}
+        <div
+          className={`flex h-[2.5rem] w-[2.5rem] items-center justify-center rounded-full ${spacesPublicController.state.sidebarVisibility === SpacesPublicSidebarVisibility.OPEN ? 'bg-blue-500' : 'bg-slate-500'}`}
           onClick={() => {
             spacesPublicController.actions.updateSidebarVisibility(
               spacesPublicController.state.sidebarVisibility ===
@@ -33,7 +29,15 @@ export function SpacesPublicHeaderLeft() {
                 : SpacesPublicSidebarVisibility.CLOSED,
             );
           }}
-        />
+        >
+          <AstralSidebarLeftIcon
+            className={ctwn({
+              'rotate-180 transform':
+                spacesPublicController.state.sidebarVisibility ===
+                SpacesPublicSidebarVisibility.CLOSED,
+            })}
+          />
+        </div>
         <BarDividerIndicator />
         <AstralAddIcon
           onClick={() => spacesPublicModalController.addPostController.open()}

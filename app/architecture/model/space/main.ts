@@ -13,16 +13,15 @@ export const ContextForSpaceVisibility = createContext('' as SpaceVisibility);
 export interface SpaceObj {
   id: string;
   userId: string;
+  flowId?: string;
   title: string;
   description: string;
   objective: string;
   summary: string;
   created: string;
   thumbnail: FileElement;
-  hours: number;
   target: string;
   category: string;
-  completed: boolean;
   starred: boolean;
   visibility: string;
 }
@@ -31,6 +30,7 @@ export const spaceGql = `
 type SpaceObj {
 	id: String!
 	userId: String!
+  flowId: String
 	title: String!
 	description: String!
   objective: String!
@@ -38,9 +38,7 @@ type SpaceObj {
 	created: String!
 	thumbnail: FileElem!
   category: String!
-  hours: Int!
   target: String!
-  completed: Boolean!
   starred: Boolean!
   visibility: String
 }
@@ -55,63 +53,63 @@ export const ContextForCurrentSpaceObj = createContext<SpaceObj>(
 export const exampleSpace: SpaceObj = {
   id: '0',
   userId: '0',
+  flowId: undefined,
   title: 'Space Example',
   description: 'Space Objective',
   summary: 'Space Summary',
   created: new Date().toISOString(),
   thumbnail: exampleFileElement,
   category: 'Space Category',
-  hours: 10,
   target: moment(new Date()).add(7, 'd').toISOString(),
-  completed: false,
   starred: false,
   objective: '',
+  visibility: SpaceVisibility.PUBLIC,
 };
 
 export const exampleSpaces: SpaceObj[] = [
   {
     id: '0',
     userId: '0',
+    flowId: undefined,
     title: 'Space Example',
     description: 'Space Objective',
     summary: 'Space Summary',
     created: new Date().toISOString(),
     thumbnail: exampleFileElement,
     category: 'Space Category',
-    hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
-    completed: false,
     starred: false,
     objective: '',
+    visibility: SpaceVisibility.PUBLIC,
   },
   {
     id: '1',
     userId: '0',
+    flowId: undefined,
     title: 'Space Example',
     description: 'Space Objective',
     summary: 'Space Summary',
     created: new Date().toISOString(),
     thumbnail: exampleFileElement,
     category: 'Space Category',
-    hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
-    completed: false,
     starred: false,
+    visibility: SpaceVisibility.PUBLIC,
     objective: '',
   },
   {
     id: '2',
     userId: '0',
+    flowId: undefined,
     title: 'Space Example',
     description: 'Space Objective',
     summary: 'Space Summary',
     created: new Date().toISOString(),
     thumbnail: exampleFileElement,
     category: 'Space Category',
-    hours: 10,
     target: moment(new Date()).add(7, 'd').toISOString(),
-    completed: false,
     starred: false,
+    visibility: SpaceVisibility.PUBLIC,
     objective: '',
   },
 ];

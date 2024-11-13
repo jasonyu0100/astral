@@ -1,7 +1,7 @@
 const baseUrl = `/feed`;
 
-export const updatesMap = {
-  updates: {
+export const feedsMap = {
+  feed: {
     following: {
       link: `${baseUrl}/following`,
     },

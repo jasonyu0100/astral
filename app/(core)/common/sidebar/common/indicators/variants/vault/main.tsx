@@ -1,7 +1,7 @@
 import { driveMap } from '@/(core)/(dashboard)/drive/map';
 import { ContextForCommonSidebar } from '@/(core)/common/sidebar/main';
 import { useContext } from 'react';
-import { CommonIndicatorGoldJewel } from '../../indicator/jewel/gold/main';
+import { CommonIndicatorGreenJewel } from '../../indicator/jewel/green/main';
 import {
   CommonSidebarIndicator,
   CommonSidebarIndicatorType,
@@ -17,11 +17,11 @@ export function CommonSidebarDriveIndicator() {
     <>
       {commonSidebar?.minimised ? (
         <CommonSidebarIndicator href={driveMap.drive.uploads.link}>
-          <CommonIndicatorGoldJewel active={active} />
+          <CommonIndicatorGreenJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
         <CommonSidebarIndicator href={driveMap.drive.uploads.link}>
-          <CommonIndicatorGoldJewel active={active} />
+          <CommonIndicatorGreenJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}
           </CommonSidebarIndicatorText>
