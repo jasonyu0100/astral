@@ -24,7 +24,7 @@ export function PublicSpaceSidebarSpace() {
   );
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
   const percentage =
-    (done.length / (upcoming.length + current.length + done.length)) * 100;
+    (done.length / (upcoming.length + current.length + done.length)) * 100 || 0;
 
   return (
     <div className='flex flex-col space-y-[1rem]'>
@@ -94,7 +94,7 @@ export function PublicSpaceSidebarSpace() {
                     className='absolute top-0 h-full bg-green-500'
                     style={{
                       left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                      width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
+                      width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
                     }}
                   ></div>
                 </div>

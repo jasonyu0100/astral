@@ -28,9 +28,6 @@ export function SpacesChannelSidebarChaptersItemDescription() {
       <p className={'text-md font-light text-slate-300'}>
         {chapterObj?.objective || 'No objective'}
       </p>
-      <p className={'text-md font-light text-slate-300'}>
-        {chapterObj?.description || 'No summary'}
-      </p>
     </>
   );
 }

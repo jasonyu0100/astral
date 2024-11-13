@@ -23,7 +23,7 @@ export function HomePersonalRowProgress() {
   );
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
   const percentage =
-    (done.length / (upcoming.length + current.length + done.length)) * 100;
+    (done.length / (upcoming.length + current.length + done.length)) * 100 || 0;
 
   return (
     <div className='col-span-3 flex items-center justify-center space-x-[1rem] px-[2rem]'>
@@ -34,7 +34,7 @@ export function HomePersonalRowProgress() {
           borderFx={borderFx['border-around']}
         >
           <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
-            <div className='relative h-[1.5rem] w-full overflow-hidden rounded-full bg-blue-500'>
+            <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
               <div
                 className='absolute top-0 h-full bg-yellow-500 '
                 style={{
@@ -46,7 +46,7 @@ export function HomePersonalRowProgress() {
                 className='absolute top-0 h-full bg-green-500'
                 style={{
                   left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
+                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
                 }}
               ></div>
             </div>
@@ -54,7 +54,7 @@ export function HomePersonalRowProgress() {
           <GlassWindowPane glassFx={glassFx['glass-10']} />
         </GlassWindowFrame>
       </Link>
-      <p className={'text-md w-[3rem] font-light text-slate-300'}>
+      <p className={'w-[3rem] text-sm font-bold text-slate-300'}>
         {percentage.toFixed(0)}%
       </p>
     </div>

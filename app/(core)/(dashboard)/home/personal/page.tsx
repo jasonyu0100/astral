@@ -1,4 +1,5 @@
 'use client';
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import {
   ContextForUserActivityListFromChapter,
   useControllerForUserActivityListFromChapter,
@@ -37,13 +38,13 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
 import { useContext, useEffect } from 'react';
 import {
+  ContextForHomePersonal,
+  useControllerForHomePersonal,
+} from './controller/main';
+import {
   ContextForHomePersonalModals,
   HomePersonalModals,
 } from './modal/controller/main';
-import {
-  ContextForHomePersonalCreateFromSource,
-  useControllerForHomePersonalCreateFromSource,
-} from './modal/create-from-source/controller/main';
 import {
   ContextForHomePersonalCreateSpace,
   useControllerForHomePersonalCreateSpace,
@@ -117,20 +118,17 @@ function ModalWrapper({ children }: { children: React.ReactNode }) {
 
 function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const createSpaceController = useControllerForHomePersonalCreateSpace();
-  const createFromSourceController =
-    useControllerForHomePersonalCreateFromSource();
+  const homePersonalController = useControllerForHomePersonal();
 
   return (
     <>
-      <ContextForHomePersonalCreateFromSource.Provider
-        value={createFromSourceController}
-      >
+      <ContextForHomePersonal.Provider value={homePersonalController}>
         <ContextForHomePersonalCreateSpace.Provider
           value={createSpaceController}
         >
           {children}
         </ContextForHomePersonalCreateSpace.Provider>
-      </ContextForHomePersonalCreateFromSource.Provider>
+      </ContextForHomePersonal.Provider>
     </>
   );
 }
@@ -144,17 +142,20 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
   const createSpaceController = useContext(ContextForHomePersonalCreateSpace);
 
   useEffect(() => {
-    // if (spaceListController.state.objs.length === 0) {
-    //   const created = new Date(loggedInUser.created);
-    //   const now = new Date();
-    //   const diff = now.getTime() - created.getTime();
-    //   if (diff < 1000 * 60) {
-    //     // HARD LOCK IN STARTER FOR 1 minute
-    //     createSpaceController.createSpace().then((space) => {
-    //       window.location.href = spacesMap.spaces.id.focus.link(space.id);
-    //     });
-    //   }
-    // }
+    if (spaceListController.state.objs.length === 0) {
+      const created = new Date(loggedInUser.created);
+      const now = new Date();
+      const diff = now.getTime() - created.getTime();
+      if (diff < 1000 * 60) {
+        // HARD LOCK IN STARTER FOR 1 minute
+        createSpaceController.actions
+          .createSpaceFromTemplate()
+          .then((space) => {
+            window.location.href = spacesMap.spaces.id.space.link(space.id);
+          });
+      }
+    }
+
     if (
       spaceListController.state.objs.length > 2 &&
       spaceListController.state.objs.length < 5

@@ -22,7 +22,7 @@ export function UserProfileRowProgress() {
   );
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
   const percentage =
-    (done.length / (upcoming.length + current.length + done.length)) * 100;
+    (done.length / (upcoming.length + current.length + done.length)) * 100 || 0;
 
   return (
     <div className='col-span-2 flex items-center justify-center space-x-[1rem]'>
@@ -33,7 +33,7 @@ export function UserProfileRowProgress() {
           borderFx={borderFx['border-around']}
         >
           <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
-            <div className='relative h-[1.5rem] w-full overflow-hidden rounded-full bg-blue-500'>
+            <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
               <div
                 className='absolute top-0 h-full bg-yellow-500 '
                 style={{
@@ -45,7 +45,7 @@ export function UserProfileRowProgress() {
                 className='absolute top-0 h-full bg-green-500'
                 style={{
                   left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
+                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
                 }}
               ></div>
             </div>
@@ -54,7 +54,7 @@ export function UserProfileRowProgress() {
         </GlassWindowFrame>
       </Link>
       <div className='flex w-[3rem] flex-row justify-between'>
-        <p className={'text-md font-light text-slate-300'}>
+        <p className={'text-sm font-bold text-slate-300'}>
           {percentage.toFixed(0)}%
         </p>
       </div>

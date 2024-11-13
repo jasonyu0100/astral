@@ -1,4 +1,5 @@
 'use client';
+import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -24,12 +25,17 @@ export function HomePersonalView() {
           <div
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-[1rem] p-[2rem]'
             onClick={() => {
-              createSpaceController.pageOne.updateCategory(SpaceTemplate.Blank);
-              homePersonalModalsController.createSpaceController.open();
+              createSpaceController.actions
+                .createBlankSpace()
+                .then((spaceObj) => {
+                  window.location.href = spacesMap.spaces.id.space.link(
+                    spaceObj.id,
+                  );
+                });
             }}
           >
             <p className='text-xl font-bold text-slate-300'>
-              Create a freeform space
+              Create blank space
             </p>
             <AstralGestureIcon className='h-[2rem] w-[2rem]' />
           </div>
@@ -40,7 +46,7 @@ export function HomePersonalView() {
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-purple-500 to-violet-500 p-[1rem] p-[2rem]'
           >
             <p className='text-xl font-bold text-slate-300'>
-              Create from source
+              Create custom space
             </p>
             <AstralBookSparkIcon className='h-[2rem] w-[2rem]' />
           </div>
@@ -66,7 +72,7 @@ export function HomePersonalView() {
                       <div
                         className='flex h-[2.5rem] w-[2.5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
                         onClick={() => {
-                          createSpaceController.pageOne.updateCategory(
+                          createSpaceController.actions.updateCategory(
                             template as SpaceTemplate,
                           );
                           homePersonalModalsController.createSpaceController.open();
@@ -90,9 +96,7 @@ export function HomePersonalView() {
           <GlassWindowPane glassFx={glassFx['glass-5']} />
         </GlassWindowFrame>
         <div className='flex flex-row items-center space-x-[1rem]'>
-          <p className='text-3xl font-bold text-slate-300'>
-            Your creative flow
-          </p>
+          <p className='text-3xl font-bold text-slate-300'>Your spaces</p>
         </div>
       </div>
       <HomePersonalTableMain />

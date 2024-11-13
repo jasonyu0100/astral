@@ -24,6 +24,12 @@ export function HomePersonalRowMore() {
   const spaceListController = useContext(ContextForSpaceList);
   const spaceObj = useContext(ContextForSpaceObj);
 
+  const starSpace = () => {
+    spaceListController.actions.editActions.edit(spaceObj.id, {
+      starred: !spaceObj.starred,
+    });
+  };
+
   return (
     <div className='flex items-center justify-center'>
       <Popover>
@@ -35,7 +41,7 @@ export function HomePersonalRowMore() {
             <GlassWindowContents className='flex flex-col space-y-[1rem]'>
               <Link
                 className='flex cursor-pointer flex-row space-x-[1rem]'
-                href={spacesMap.spaces.id.focus.link(spaceObj.id)}
+                href={spacesMap.spaces.id.space.link(spaceObj.id)}
               >
                 <AstralFolderOpenIcon />
                 <p className='font-bold text-slate-300'>Open Space</p>
@@ -47,13 +53,15 @@ export function HomePersonalRowMore() {
                 <AstralLinkIcon />
                 <p className='font-bold text-slate-300'>View Live</p>
               </Link>
-              <Link
+              <div
                 className='flex cursor-pointer flex-row space-x-[1rem]'
-                href={liveMap.live.link(spaceObj.id)}
+                onClick={starSpace}
               >
                 <AstralStarIcon />
-                <p className='font-bold text-slate-300'>Star Space</p>
-              </Link>
+                <p className='font-bold text-slate-300'>
+                  {spaceObj.starred ? 'Unstar Space' : 'Star Space'}
+                </p>
+              </div>
               <HorizontalDivider />
               <div
                 className='flex cursor-pointer flex-row space-x-[1rem]'

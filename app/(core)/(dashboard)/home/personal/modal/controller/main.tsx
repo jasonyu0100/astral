@@ -4,8 +4,8 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { HomePersonalCreateFromSourceModalView } from '../create-from-source/main';
-import { HomePersonalCreateSpaceModalView } from '../create-space/main';
+import { HomePersonalCreateFromSourceModalView } from '../create-space/from-source/main';
+import { HomePersonalCreateSpaceModalView } from '../create-space/from-template/main';
 import { HomePersonalShowNoticeModal } from '../show/notice/main';
 
 export const ContextForHomePersonalModals = createContext(

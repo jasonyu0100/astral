@@ -88,7 +88,7 @@ export function SpacesChannelSidebarChapterItemTasks() {
                 className='absolute top-0 h-full bg-green-500'
                 style={{
                   left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100}%`,
+                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
                 }}
               ></div>
             </div>

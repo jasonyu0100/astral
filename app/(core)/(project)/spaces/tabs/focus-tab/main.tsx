@@ -9,7 +9,7 @@ import { CreativePrivateSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';
 import { SpaceTabStage } from '../main';
 
-export function SpaceTabMission({ tab }: { tab?: string }) {
+export function SpaceTabFocus({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceContext = useContext(CreativePrivateSpacesContext);
   const tabText = SpaceTabStage.Focus;

@@ -11,7 +11,7 @@ export function HomePersonalFlowContainer({
   return (
     <GlassWindowFrame
       className='min-h-screen w-full flex-shrink-0'
-      roundedFx={roundedFx['rounded-container']}
+      roundedFx={roundedFx['rounded']}
       borderFx={borderFx['border-around']}
     >
       <GlassWindowContents>{children}</GlassWindowContents>
