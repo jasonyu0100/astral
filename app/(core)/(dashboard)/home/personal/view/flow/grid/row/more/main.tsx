@@ -55,7 +55,11 @@ export function HomePersonalRowMore() {
               </Link>
               <div
                 className='flex cursor-pointer flex-row space-x-[1rem]'
-                onClick={starSpace}
+                onClick={(e) => {
+                  console.log('asdads');
+                  e.stopPropagation();
+                  starSpace();
+                }}
               >
                 <AstralStarIcon />
                 <p className='font-bold text-slate-300'>

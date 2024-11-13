@@ -1,7 +1,7 @@
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralChevronDownIcon } from '@/icons/chevron-down/main';
-import { useContext } from 'react';
+import { AstralChevronUpIcon } from '@/icons/chevron-up/main';
+import { useContext, useState } from 'react';
 import { ContextForHomePersonal } from '../../controller/main';
 import { HomePersonalFlowContainer } from './container/main';
 import { HomePersonalTableGrid } from './grid/main';
@@ -12,28 +12,47 @@ export function HomePersonalTableMain() {
   const spacesList = spacesListController.state.objs;
   const unstarredSpaces = spacesList.filter((space) => !space.starred);
   const starredSpaces = spacesList.filter((space) => space.starred);
+  const [showStarred, setShowStarred] = useState(true);
+  const [showUnstarred, setShowUnstarred] = useState(true);
 
   return (
     <>
       <HomePersonalFlowContainer>
         <div className='flex flex-col px-[1rem] pb-[1rem]'>
-          {starredSpaces.length > 0 && (
+          {starredSpaces.length > 0 ? (
             <>
-              <div className='flex w-full items-center justify-between p-[1rem]'>
+              <div
+                className='flex w-full cursor-pointer items-center justify-between border-b border-slate-300 border-opacity-30 p-[1rem]'
+                onClick={() => setShowStarred(!showStarred)}
+              >
                 <p className='text-sm font-bold text-slate-400'>Starred</p>
-                <AstralChevronDownIcon />
+                {showStarred ? (
+                  <AstralChevronDownIcon />
+                ) : (
+                  <AstralChevronUpIcon />
+                )}
               </div>
-              <HorizontalDivider />
-              <HomePersonalTableGrid spaces={starredSpaces} />
-              <div className='flex w-full items-center justify-between p-[1rem]'>
+              {showStarred && <HomePersonalTableGrid spaces={starredSpaces} />}
+              <div
+                className='flex w-full cursor-pointer items-center justify-between border-b border-slate-300 border-opacity-30 p-[1rem]'
+                onClick={() => setShowUnstarred(!showUnstarred)}
+              >
                 <p className='text-sm font-bold text-slate-400'>General</p>
-                <AstralChevronDownIcon />
+                {showUnstarred ? (
+                  <AstralChevronDownIcon />
+                ) : (
+                  <AstralChevronUpIcon />
+                )}
               </div>
-              <HorizontalDivider />
+              {showUnstarred && (
+                <HomePersonalTableGrid spaces={unstarredSpaces} />
+              )}
+            </>
+          ) : (
+            <>
+              <HomePersonalTableGrid spaces={unstarredSpaces} />
             </>
           )}
-          <HomePersonalTableGrid spaces={unstarredSpaces} />
-          <HorizontalDivider />
         </div>
       </HomePersonalFlowContainer>
     </>
