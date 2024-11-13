@@ -85,9 +85,7 @@ const HeroSection = () => {
             href='/register'
             className='flex h-[4rem] min-w-[200px] max-w-[400px] flex-grow animate-pulse-slow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[6rem] sm:px-[1rem]'
           >
-            <span className='font-extraBold text-2xl text-slate-300'>
-              Start now
-            </span>
+            <span className='font-extraBold text-3xl text-white'>Sign up</span>
           </Link>
           <Link
             href='mailto:jason@astral.fun'
@@ -333,8 +331,8 @@ const FooterCTA = () => (
       href='/register'
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
-      <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
-        Start your creative journey today
+      <p className='font-extraBold text-lg text-white sm:text-2xl'>
+        Start your journey today
       </p>
       <AstralArrowForwardIcon />
     </Link>
@@ -691,6 +689,18 @@ function ScheduleBooking() {
   );
 }
 
+function TestimonialCta() {
+  return (
+    <Link
+      href='/register'
+      className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+    >
+      <p className='text-lg font-bold text-white sm:text-2xl'>Start now</p>
+      <AstralArrowForwardIcon />
+    </Link>
+  );
+}
+
 function Page() {
   return (
     <LandingBackground>
@@ -709,8 +719,8 @@ function Page() {
       <div className='h-[2rem] sm:h-[5rem]' />
       <Testimonials />
       <div className='h-[2rem] sm:h-[5rem]' />
-      {/* <ScheduleBooking />
-      <div className='h-[2rem] sm:h-[5rem]' /> */}
+      <TestimonialCta />
+      <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FeaturesSection />
