@@ -12,22 +12,24 @@ export function SpacesFocusSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <div
-      className='flex w-full flex-col overflow-auto'
-      style={{ height: '100%' }}
-    >
+    <>
+      <div
+        style={{ height: 'calc(100% - 5rem)' }}
+        className='flex w-full flex-col overflow-auto'
+      >
+        <GlassWindowFrame className='w-full flex-shrink-0'>
+          <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem] py-[2rem]'>
+            {chapterListController.state.objs.map((chapter) => (
+              <ContextForSpaceChapterObj.Provider value={chapter}>
+                <SpacesFocusSidebarChaptersItem />
+              </ContextForSpaceChapterObj.Provider>
+            ))}
+            <HorizontalDivider />
+            <SpacesFocusSidebarChaptersAdd />
+          </GlassWindowContents>
+        </GlassWindowFrame>
+      </div>
       <SpacesFocusSidebarChaptersProgress />
-      <GlassWindowFrame className='w-full flex-shrink-0'>
-        <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem] py-[2rem]'>
-          {chapterListController.state.objs.map((chapter) => (
-            <ContextForSpaceChapterObj.Provider value={chapter}>
-              <SpacesFocusSidebarChaptersItem />
-            </ContextForSpaceChapterObj.Provider>
-          ))}
-          <HorizontalDivider />
-          <SpacesFocusSidebarChaptersAdd />
-        </GlassWindowContents>
-      </GlassWindowFrame>
-    </div>
+    </>
   );
 }

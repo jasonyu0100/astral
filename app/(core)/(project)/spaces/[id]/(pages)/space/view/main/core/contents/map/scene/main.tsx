@@ -42,7 +42,17 @@ export function SpacesSpaceScene() {
       ref={ref}
       style={{ zoom: spacesSpaceController.state.zoom }}
       onClick={() => spacesSpaceController.actions.updateSelectedIdeas([])}
-      onDoubleClick={() => {
+      onDoubleClick={(e) => {
+        if (ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+
+          // Calculate X, Y relative to the div
+          const relativeX = e.clientX - rect.left;
+          const relativeY = e.clientY - rect.top;
+          console.log(relativeX, relativeY);
+          spacesSpaceController.actions.updateCursorX(relativeX);
+          spacesSpaceController.actions.updateCursorY(relativeY);
+        }
         spacesSpaceModalsController.addStickyIdeaController.open();
       }}
     >

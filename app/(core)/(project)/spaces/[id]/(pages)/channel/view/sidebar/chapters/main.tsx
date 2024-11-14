@@ -12,25 +12,27 @@ export function SpacesChannelSidebarChapters() {
   const chapterListController = useContext(ContextForSpaceChapterList);
 
   return (
-    <div
-      className='flex w-full flex-col overflow-auto'
-      style={{ height: '100%' }}
-    >
+    <>
+      <div
+        style={{ height: 'calc(100% - 5rem)' }}
+        className='flex w-full flex-col overflow-auto'
+      >
+        <GlassWindowFrame className='w-full flex-shrink-0'>
+          <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
+            {chapterListController.state.more.queryResults.map((chapter) => (
+              <ContextForSpaceChapterObj.Provider
+                value={chapter}
+                key={chapter.id}
+              >
+                <SpacesChannelSidebarChapter key={chapter.id} />
+              </ContextForSpaceChapterObj.Provider>
+            ))}
+            <HorizontalDivider />
+            <SpacesChannelSidebarChaptersAdd />
+          </GlassWindowContents>
+        </GlassWindowFrame>
+      </div>
       <SpacesChannelSidebarChaptersProgress />
-      <GlassWindowFrame className='w-full flex-shrink-0'>
-        <GlassWindowContents className='flex w-full flex-col space-y-[1rem] p-[1rem]'>
-          {chapterListController.state.more.queryResults.map((chapter) => (
-            <ContextForSpaceChapterObj.Provider
-              value={chapter}
-              key={chapter.id}
-            >
-              <SpacesChannelSidebarChapter key={chapter.id} />
-            </ContextForSpaceChapterObj.Provider>
-          ))}
-          <HorizontalDivider />
-          <SpacesChannelSidebarChaptersAdd />
-        </GlassWindowContents>
-      </GlassWindowFrame>
-    </div>
+    </>
   );
 }

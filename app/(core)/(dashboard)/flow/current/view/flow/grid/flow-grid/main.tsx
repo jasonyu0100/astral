@@ -3,11 +3,7 @@ import { ContextForIndexable } from '@/logic/contexts/indexable/main';
 import { FlowCurrentRowWrapper } from '../wrapper/main';
 import { FlowCurrentActiveFlowRow } from './row/main';
 
-export function FlowCurrentTableGridActiveFlow({
-  spaces,
-}: {
-  spaces: SpaceObj[];
-}) {
+export function FlowCurrentTableGridFlow({ spaces }: { spaces: SpaceObj[] }) {
   return (
     <div className='w-full'>
       {spaces?.map((space, index) => (

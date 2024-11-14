@@ -23,6 +23,8 @@ interface ControllerState {
   updateToggle: boolean;
   divWidth: number;
   divHeight: number;
+  cursorX: number;
+  cursorY: number;
   selectedIdeas: IdeaObj[];
   directoryMode: SpacesSpaceDirectoryMode;
   linkMode: SpacesSpaceLinkMode;
@@ -43,6 +45,8 @@ interface ControllerActions {
   updateLinkMode: (mode: SpacesSpaceLinkMode) => void;
   updateBubbleMode: (mode: SpacesSpaceBubbleMode) => void;
   updateSelectedIdeas: (ideas: IdeaObj[]) => void;
+  updateCursorX: (x: number) => void;
+  updateCursorY: (y: number) => void;
   updateInteractionMode: (mode: SpacesSpaceInteractionMode) => void;
   updateSidebarContentMode: (mode: SpacesSpaceSidebarContentMode) => void;
   checkContainsSelectedIdea: (ideaObj: IdeaObj) => boolean;
@@ -122,6 +126,8 @@ export function useControllerForSpacesSpace(): Controller {
     ContextForIdeaRelationshipListFromScene,
   );
   const [selectedIdeas, setSelectedIdeas] = useState<IdeaObj[]>([]);
+  const [cursorX, setCursorX] = useState(0);
+  const [cursorY, setCursorY] = useState(0);
   const [bubbleMode, setBubbleMode] = useState<SpacesSpaceBubbleMode>(
     SpacesSpaceBubbleMode.ON,
   );
@@ -318,6 +324,8 @@ export function useControllerForSpacesSpace(): Controller {
     state: {
       updateToggle,
       directoryMode: directoryMode,
+      cursorX: cursorX,
+      cursorY: cursorY,
       divWidth: divWidth,
       divHeight: divHeight,
       linkMode: linkMode,
@@ -336,6 +344,8 @@ export function useControllerForSpacesSpace(): Controller {
       updateHideUI: (hide: boolean) => setHideUI(hide),
       takeScreenshot: takeScreenshot,
       updateDivWidth: (width) => setDivWidth(width),
+      updateCursorX: (x) => setCursorX(x),
+      updateCursorY: (y) => setCursorY(y),
       updateDirectoryMode: (mode) => setDirectoryMode(mode),
       updateDivHeight: (height) => setDivHeight(height),
       updateLinkMode: (mode) => setLinkMode(mode),

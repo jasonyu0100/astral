@@ -18,9 +18,11 @@ import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { getTextIdeaBounds } from '@/utils/bounds';
 import { useContext, useState } from 'react';
+import { ContextForSpacesSpace } from '../../../../controller/main';
 
 export function SpacesSpaceAddStickyIdeaModal() {
   const user = useContext(ContextForLoggedInUserObj);
+  const spacesSpaceController = useContext(ContextForSpacesSpace);
   const spaceController = useContext(ContextForSpaceMain);
   const ideaListController = useContext(ContextForSceneIdeaList);
   const chapterListController = useContext(ContextForSpaceChapterList);
@@ -43,14 +45,23 @@ export function SpacesSpaceAddStickyIdeaModal() {
 
     const { width, height } = getTextIdeaBounds(textElem);
 
+    const x =
+      spacesSpaceController.state.cursorX > 0
+        ? spacesSpaceController.state.cursorX + Math.ceil(Math.random() * 10)
+        : Math.ceil(Math.random() * 200);
+    const y =
+      spacesSpaceController.state.cursorY > 0
+        ? spacesSpaceController.state.cursorY + Math.ceil(Math.random() * 10)
+        : Math.ceil(Math.random() * 200);
+
     ideaListController.actions.createActions
       .createIdeaFromTextElement(
         user.id,
         sceneListController.state.objId,
         title,
         description,
-        Math.ceil(Math.random() * 200),
-        Math.ceil(Math.random() * 200),
+        x,
+        y,
         width,
         height,
         textElem,

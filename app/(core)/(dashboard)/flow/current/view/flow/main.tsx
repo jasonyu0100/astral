@@ -3,13 +3,14 @@ import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { AstralAddIcon } from '@/icons/add/main';
+import { AstralGestureIcon } from '@/icons/gesture/main';
 import { AstralStopIcon } from '@/icons/stop/main';
 import { useContext } from 'react';
 import { ContextForFlowCurrent } from '../../controller/main';
 import { ContextForFlowCurrentModals } from '../../modal/controller/main';
 import { FlowCurrentContainer } from './container/main';
-import { FlowCurrentTableGridActiveFlow } from './grid/active-grid/main';
-import { FlowCurrentTableGridInactiveFlow } from './grid/inactive-grid/main';
+import { FlowCurrentTableGridFlow } from './grid/flow-grid/main';
+import { FlowCurrentTableSelectGrid } from './grid/select-grid/main';
 
 export function FlowCurrentTableMain() {
   const flowCurrentController = useContext(ContextForFlowCurrent);
@@ -30,8 +31,7 @@ export function FlowCurrentTableMain() {
     if (isFlowActive) {
       return isFlowCompleted ? (
         <p className='text-md font-bold text-slate-400'>
-          {spacesList.length} available spaces,{' '}
-          {flowCurrentController.state.selectedSpaces.length} selected
+          {spacesList.length} available spaces{' '}
         </p>
       ) : (
         <p className='text-md font-bold text-slate-400'>
@@ -42,7 +42,6 @@ export function FlowCurrentTableMain() {
       return (
         <p className='text-md font-bold text-slate-400'>
           {spacesList.length} available spaces,{' '}
-          {flowCurrentController.state.selectedSpaces.length} selected
         </p>
       );
     }
@@ -57,18 +56,24 @@ export function FlowCurrentTableMain() {
             flowCurrentModalsController.createFlowController.open()
           }
         >
-          <p className='font-bold text-slate-300'>Create Flow</p>
-          <AstralAddIcon />
+          <p className='font-bold text-slate-300'>
+            Create Flow ({flowCurrentController.state.selectedSpaces.length})
+          </p>
+          <AstralGestureIcon />
         </button>
       ) : (
         <button
           className='flex animate-pulse-slow flex-row items-center space-x-[1rem] rounded-md bg-gradient-to-r from-purple-700 to-purple-500 px-[1rem] py-[0.5rem]'
-          onClick={() =>
+          onClick={() => {
+            flowCurrentController.actions.updateSelectedSpaces(
+              flowSpaces.map((space) => space.id),
+            );
+            console.log(flowSpaces.map((space) => space.id));
             flowListController.actions.editActions.edit(
               flowListController.state.objId,
               { completed: true },
-            )
-          }
+            );
+          }}
         >
           <p className='font-bold text-slate-300'>End Flow</p>
           <AstralStopIcon />
@@ -104,9 +109,9 @@ export function FlowCurrentTableMain() {
       </GlassWindowFrame>
       <div className='flex flex-col space-y-[1rem] p-[1rem]'>
         {isFlowActive && !isFlowCompleted ? (
-          <FlowCurrentTableGridActiveFlow spaces={flowSpaces} />
+          <FlowCurrentTableGridFlow spaces={flowSpaces} />
         ) : (
-          <FlowCurrentTableGridInactiveFlow spaces={spacesList} />
+          <FlowCurrentTableSelectGrid spaces={spacesList} />
         )}
       </div>
     </FlowCurrentContainer>

@@ -1,6 +1,5 @@
 import { ContextForTaskListFromSpace } from '@/architecture/controller/task/list-from-space';
 import { TaskStatus } from '@/architecture/model/task/main';
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { useContext } from 'react';
 
 export function SpacesPublicSidebarChaptersProgress() {
@@ -17,14 +16,8 @@ export function SpacesPublicSidebarChaptersProgress() {
     (done.length / (upcoming.length + current.length + done.length)) * 100 || 0;
 
   return (
-    <div className='flex flex-col space-y-[1rem] p-[1rem] shadow-glow'>
-      <div className='flex flex-row justify-between'>
-        <p className={'text-xl font-bold text-slate-300'}>
-          Progress {percentage.toFixed(0)}%
-        </p>
-      </div>
-      <HorizontalDivider />
-      <div className='relative h-[2rem] w-full overflow-hidden rounded-full bg-blue-500'>
+    <div className='flex h-[5rem] w-full flex-col items-center space-y-[1rem] p-[1rem] shadow-glow'>
+      <div className='relative h-[3rem] w-full overflow-hidden rounded-full bg-blue-500'>
         <div
           className='absolute top-0 h-full bg-yellow-500 '
           style={{
