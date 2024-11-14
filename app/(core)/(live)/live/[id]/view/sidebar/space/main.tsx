@@ -65,11 +65,6 @@ export function PublicSpaceSidebarSpace() {
               {spaceMainController.state.obj?.objective}
             </p>
           </div>
-          <div className='flex flex-row justify-between'>
-            <p className={'text-xl font-bold text-slate-300'}>
-              Progress {percentage.toFixed(0)}%
-            </p>
-          </div>
           <HorizontalDivider />
           <Link
             href={spacesMap.spaces.id.focus.link(
