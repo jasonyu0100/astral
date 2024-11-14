@@ -4,8 +4,8 @@ import {
   useControllerForOpenable,
 } from '@/logic/contexts/openable/main';
 import { createContext } from 'react';
-import { FlowCurrentAddFlowModal } from '../chapter/main';
 import { FlowCurrentCreateSpaceModalView } from '../create-space/from-template/main';
+import { FlowCurrentAddFlowModal } from '../flow/main';
 
 export const ContextForFlowCurrentModals = createContext(
   {} as flowCurrentModalsController,

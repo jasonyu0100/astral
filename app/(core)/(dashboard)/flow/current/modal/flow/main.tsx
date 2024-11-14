@@ -1,3 +1,6 @@
+import { ContextForFlowList } from '@/architecture/controller/flow/list';
+import { ContextForSpaceList } from '@/architecture/controller/space/list';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralTextAreaInput } from '@/components/input/area/main';
 import { AstralTextLineInput } from '@/components/input/line/main';
@@ -13,14 +16,30 @@ import { useContext, useState } from 'react';
 import { ContextForFlowCurrent } from '../../controller/main';
 
 export function FlowCurrentAddFlowModal() {
+  const loggedInUser = useContext(ContextForLoggedInUserObj);
   const openableController = useContext(ContextForOpenable);
   const flowCurrentController = useContext(ContextForFlowCurrent);
+  const flowListController = useContext(ContextForFlowList);
+  const spaceListController = useContext(ContextForSpaceList);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [objective, setObjective] = useState('');
 
   async function createFlow() {
-    flowCurrentController.actions.updateInFlow(true);
+    if (flowCurrentController.state.selectedSpaces.length === 0) {
+      alert('Please select at least one space');
+      return;
+    }
+    flowListController.actions.createActions
+      .createFlow(loggedInUser.id, title, description, new Date().toISOString())
+      .then((flow) => {
+        flowCurrentController.state.selectedSpaces.map((spaceId) => {
+          spaceListController.actions.editActions.edit(spaceId, {
+            flowId: flow.id,
+          });
+        });
+        flowCurrentController.actions.updateSelectedSpaces([]);
+      });
     openableController.close();
   }
 

@@ -2,7 +2,7 @@ import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { useContext } from 'react';
 import { HomePersonalFlowContainer } from './container/main';
 import { HomePersonalTableGrid } from './grid/main';
-import { HomePersonalTableMainStarredUnstarred } from './starred/main';
+import { HomePersonalTableMainMixedGrid } from './starred/main';
 
 export function HomePersonalTableMain() {
   const spacesListController = useContext(ContextForSpaceList);
@@ -15,7 +15,7 @@ export function HomePersonalTableMain() {
       <HomePersonalFlowContainer>
         <div className='flex flex-col px-[1rem] pb-[1rem]'>
           {starredSpaces.length > 0 ? (
-            <HomePersonalTableMainStarredUnstarred />
+            <HomePersonalTableMainMixedGrid />
           ) : (
             <HomePersonalTableGrid spaces={unstarredSpaces} />
           )}

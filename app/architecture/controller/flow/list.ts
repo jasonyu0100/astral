@@ -19,13 +19,25 @@ interface ControllerState {
   objs: TargetObj[];
   objId: string;
   userId: string;
+  more: ControllerMoreState;
+  index: number;
+}
+
+interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
 }
 
 interface StateActions extends BaseListStateActions<TargetObj> {}
 interface GatherActions extends BaseListGatherActions<TargetObj> {}
-interface CreateActions extends BaseListCreateActions<TargetObj> {}
+interface CreateActions extends BaseListCreateActions<TargetObj> {
+  createFlow: (
+    userId: string,
+    title: string,
+    description: string,
+    target: string,
+  ) => Promise<TargetObj>;
+}
 interface EditActions extends BaseListEditActions<TargetObj> {}
 interface DeleteActions extends BaseListDeleteActions<TargetObj> {}
 interface ControllerActions {
@@ -51,15 +63,18 @@ export const useControllerForFlowList = (
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
     objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
+  const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
-    userId: id,
-    query: query,
-    queryResults: queryResults,
+    index: index,
+    more: {
+      query: query,
+      queryResults: queryResults,
+    },
   };
 
   const stateActions: StateActions = {
@@ -252,7 +267,27 @@ export const useControllerForFlowList = (
         completed: false,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
-      const newObjs = stateActions.pushBack(newObj);
+      const newObjs = stateActions.pushFront(newObj);
+      stateActions.searchAndUpdateQuery(query, newObjs);
+      changeId(newObj.id);
+      return newObj;
+    },
+    createFlow: async (
+      userId: string,
+      title: string,
+      description: string,
+      target: string,
+    ) => {
+      const createObj: Omit<TargetObj, 'id'> = {
+        created: new Date().toISOString(),
+        userId: userId,
+        title: title,
+        description: description,
+        target: target,
+        completed: false,
+      };
+      const newObj = await gqlDbWrapper.createObj(createObj);
+      const newObjs = stateActions.pushFront(newObj);
       stateActions.searchAndUpdateQuery(query, newObjs);
       changeId(newObj.id);
       return newObj;
@@ -329,7 +364,7 @@ export const useControllerForFlowList = (
     if (listId === null || listId === undefined || listId === '') {
       changeObjs([]);
     } else {
-      controllerActions.gatherActions.gatherFromEnd().then((objs) => {
+      controllerActions.gatherActions.gatherFromBeginning().then((objs) => {
         if (initialId) {
           if (objs.find((obj) => obj.id === initialId)) {
             stateActions.selectViaId(initialId);

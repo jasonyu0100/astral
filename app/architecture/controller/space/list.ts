@@ -26,7 +26,11 @@ interface ControllerState {
   currentObj: TargetObj;
   objs: TargetObj[];
   objId: string;
-  userId: string;
+  more: ControllerMoreState;
+  index: number;
+}
+
+interface ControllerMoreState {
   query: string;
   queryResults: TargetObj[];
 }
@@ -68,15 +72,18 @@ export const useControllerForSpaceList = (
   const [queryResults, changeQueryResults] = useState<TargetObj[]>([]);
   const currentObj =
     objs.filter((obj) => obj.id === id).at(0) || ({} as TargetObj);
+  const index = objs.findIndex((obj) => obj.id === id);
 
   const controllerState: ControllerState = {
     listId: listId,
     objs: objs,
     currentObj: currentObj,
     objId: id,
-    userId: id,
-    query: query,
-    queryResults: queryResults,
+    index: index,
+    more: {
+      query: query,
+      queryResults: queryResults,
+    },
   };
 
   const stateActions: StateActions = {

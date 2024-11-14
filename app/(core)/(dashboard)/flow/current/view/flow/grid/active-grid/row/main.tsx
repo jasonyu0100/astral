@@ -8,14 +8,14 @@ import {
 } from '@/architecture/controller/task/list-from-space';
 import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { useContext } from 'react';
-import { FlowCurrentRowVisibility } from './activity/main';
-import { FlowCurrentRowCategory } from './category/main';
-import { FlowCurrentRowInfo } from './info/main';
-import { FlowCurrentRowMore } from './more/main';
-import { FlowCurrentRowNumber } from './number/main';
-import { FlowCurrentRowProgress } from './progress/main';
+import { FlowCurrentRowVisibility } from '../../common/activity/main';
+import { FlowCurrentRowCategory } from '../../common/category/main';
+import { FlowCurrentRowInfo } from '../../common/info/main';
+import { FlowCurrentRowMore } from '../../common/more/main';
+import { FlowCurrentRowNumber } from '../../common/number/main';
+import { FlowCurrentRowProgress } from '../../common/progress/main';
 
-export function FlowCurrentRow() {
+export function FlowCurrentActiveFlowRow() {
   const spaceObj = useContext(ContextForSpaceObj);
   const activityListController = useControllerForUserActivityListFromSpace(
     spaceObj.id,
