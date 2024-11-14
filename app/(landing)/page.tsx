@@ -42,6 +42,13 @@ const Header = () => (
         >
           LEARN
         </Link>
+        <Link
+          href='https://astral.ghost.io/'
+          target='_blank'
+          className='text-sm font-bold uppercase text-white sm:text-lg'
+        >
+          BLOG
+        </Link>
       </nav>
     </div>
     <div className='flex items-center space-x-2 sm:space-x-[3rem]'>
