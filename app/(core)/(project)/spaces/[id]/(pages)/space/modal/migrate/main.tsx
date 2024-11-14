@@ -82,7 +82,7 @@ export function SpacesSpaceMigrateSceneModal() {
 
     setTimeout(() => {
       loadingController.loadingController.close();
-      window.location.href = `${spacesMap.spaces.id.space.link(spaceController.state.objId)}?chapter=${chapterListController.state.objId}&scene=${sceneId}`;
+      window.location.href = `${spacesMap.spaces.id.focus.link(spaceController.state.objId)}?chapter=${chapterListController.state.objId}&scene=${sceneId}`;
     }, 1000);
   }
 

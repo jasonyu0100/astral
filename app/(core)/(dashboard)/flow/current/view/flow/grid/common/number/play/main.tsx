@@ -8,7 +8,7 @@ export function FlowCurrentNumberPlay() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <Link href={spacesMap.spaces.id.space.link(space.id)}>
+    <Link href={spacesMap.spaces.id.focus.link(space.id)}>
       <AstralPlayIcon className='h-[1.5rem] w-[1.5rem]' />
     </Link>
   );

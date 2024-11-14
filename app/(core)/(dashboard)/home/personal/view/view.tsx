@@ -29,7 +29,7 @@ export function HomePersonalView() {
               createSpaceController.actions
                 .createBlankSpace()
                 .then((spaceObj) => {
-                  window.location.href = spacesMap.spaces.id.space.link(
+                  window.location.href = spacesMap.spaces.id.focus.link(
                     spaceObj.id,
                   );
                 });

@@ -47,7 +47,7 @@ export function HomePersonalCreateSpaceModalFooter() {
                   .createSpaceFromTemplate()
                   .then((spaceObj) => {
                     openableController.close();
-                    window.location.href = spacesMap.spaces.id.space.link(
+                    window.location.href = spacesMap.spaces.id.focus.link(
                       spaceObj.id,
                     );
                     loadingController.loadingController.close();

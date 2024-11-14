@@ -27,7 +27,7 @@ export function PublicSpaceBreadcrumbsPosts() {
         </Link>
         <span className='text-lg font-bold text-slate-400'> / </span>
         <Link
-          href={spacesMap.spaces.id.space.link(spaceMainController.state.objId)}
+          href={spacesMap.spaces.id.focus.link(spaceMainController.state.objId)}
         >
           <p className='cursor-pointer text-lg font-bold text-slate-400'>
             {spaceMainController.state.obj?.title || 'Untitled'}

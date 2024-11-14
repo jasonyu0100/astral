@@ -341,7 +341,7 @@ export function useGenerateSceneController(): Controller {
     );
 
     setTimeout(() => {
-      window.location.href = `${spacesMap.spaces.id.space.link(
+      window.location.href = `${spacesMap.spaces.id.focus.link(
         spaceController.state.objId,
       )}?chapter=${chapterListController.state.objId}&scene=${newScene.id}`;
     }, 1000);

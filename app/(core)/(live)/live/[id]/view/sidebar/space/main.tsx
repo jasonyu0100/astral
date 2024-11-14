@@ -50,7 +50,7 @@ export function PublicSpaceSidebarSpace() {
               </div>
               <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-400'>
                 <Link
-                  href={spacesMap.spaces.id.space.link(
+                  href={spacesMap.spaces.id.focus.link(
                     spaceMainController.state.objId,
                   )}
                 >

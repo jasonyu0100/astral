@@ -32,7 +32,7 @@ export function SpacesSpaceShareViewModal() {
                 }}
               >
                 <p className='font-slate-300 w-[300px] overflow-hidden whitespace-nowrap text-lg font-bold text-slate-300'>
-                  {spacesMap.spaces.id.space.link(
+                  {spacesMap.spaces.id.focus.link(
                     spaceMainController.state.objId,
                   )}
                 </p>

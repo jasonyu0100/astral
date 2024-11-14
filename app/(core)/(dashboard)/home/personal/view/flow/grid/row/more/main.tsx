@@ -41,7 +41,7 @@ export function HomePersonalRowMore() {
             <GlassWindowContents className='flex flex-col space-y-[1rem]'>
               <Link
                 className='flex cursor-pointer flex-row space-x-[1rem]'
-                href={spacesMap.spaces.id.space.link(spaceObj.id)}
+                href={spacesMap.spaces.id.focus.link(spaceObj.id)}
               >
                 <AstralFolderOpenIcon />
                 <p className='font-bold text-slate-300'>Open Space</p>

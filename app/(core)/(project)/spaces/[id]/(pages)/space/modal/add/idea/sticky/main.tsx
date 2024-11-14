@@ -47,11 +47,11 @@ export function SpacesSpaceAddStickyIdeaModal() {
 
     const x =
       spacesSpaceController.state.cursorX > 0
-        ? spacesSpaceController.state.cursorX + Math.ceil(Math.random() * 10)
+        ? spacesSpaceController.state.cursorX
         : Math.ceil(Math.random() * 200);
     const y =
       spacesSpaceController.state.cursorY > 0
-        ? spacesSpaceController.state.cursorY + Math.ceil(Math.random() * 10)
+        ? spacesSpaceController.state.cursorY
         : Math.ceil(Math.random() * 200);
 
     ideaListController.actions.createActions
