@@ -5,7 +5,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
       <DriveTabs tab={DriveTabStage.Uploads} />
-      <DashboardContent>{children}</DashboardContent>
+      <DashboardContent padding>{children}</DashboardContent>
     </>
   );
 }

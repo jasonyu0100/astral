@@ -1,6 +1,6 @@
 'use client';
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx } from '@/style/data';
 import { useContext } from 'react';
 import {
   ContextForSpacesChannel,
@@ -21,7 +21,6 @@ export function SpacesChannelView() {
       glassFx={glassFx['glass-5']}
       className={`flex`}
       borderFx={borderFx['border-around']}
-      roundedFx={roundedFx['rounded-container']}
     >
       {sidebarVisibility !== SpacesChannelSidebarVisibility.CLOSED && (
         <SpacesChannelSidebar />

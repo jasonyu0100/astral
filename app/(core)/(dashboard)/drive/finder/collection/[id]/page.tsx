@@ -41,7 +41,7 @@ function Page({ params }: { params: { id: string } }) {
             value={resourceListController}
           >
             <DriveFinderModals>
-              <DashboardContent>
+              <DashboardContent padding>
                 <DriveTabs tab={DriveTabStage.Finder} />
                 <DriveFinderCollectionResources />
               </DashboardContent>

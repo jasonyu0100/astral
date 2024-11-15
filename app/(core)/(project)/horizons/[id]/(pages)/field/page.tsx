@@ -26,7 +26,7 @@ function ViewWrapper({ children }: { children?: React.ReactNode }) {
       <HorizonSidebar />
       <DashboardBody>
         <HorizonTabs tab={HorizonTabStage.Field} />
-        <DashboardContent>{children}</DashboardContent>
+        <DashboardContent padding>{children}</DashboardContent>
       </DashboardBody>
     </DashboardContainer>
   );

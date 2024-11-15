@@ -5,7 +5,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
       <FlowTabs tab={FlowTabStage.Current} />
-      <DashboardContent>{children}</DashboardContent>
+      <DashboardContent padding>{children}</DashboardContent>
     </>
   );
 }

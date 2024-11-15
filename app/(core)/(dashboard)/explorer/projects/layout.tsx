@@ -9,7 +9,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
       <ProjectTabs tab={ProjectTabStage.Projects} />
-      <DashboardContent>{children}</DashboardContent>
+      <DashboardContent padding>{children}</DashboardContent>
     </>
   );
 }

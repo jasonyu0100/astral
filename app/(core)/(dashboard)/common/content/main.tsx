@@ -1,5 +1,15 @@
-export function DashboardContent({ children }: { children?: React.ReactNode }) {
+export function DashboardContent({
+  children,
+  padding,
+}: {
+  children?: React.ReactNode;
+  padding?: boolean;
+}) {
   return (
-    <div className='flex h-full w-full flex-col px-[2rem]'>{children}</div>
+    <div
+      className={`flex h-full w-full flex-col ${padding ? 'px-[2rem]' : ''}`}
+    >
+      {children}
+    </div>
   );
 }

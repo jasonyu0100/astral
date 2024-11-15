@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { borderFx, glassFx } from '@/style/data';
 import { useContext } from 'react';
 import {
   ContextForSpacesSpace,
@@ -20,7 +20,6 @@ export function SpacesSpaceView() {
       className={`flex`}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
-      roundedFx={roundedFx['rounded-container']}
     >
       {sidebarVisibility !== SpacesSpaceSidebarVisibility.CLOSED && (
         <SpacesSpaceSidebar />

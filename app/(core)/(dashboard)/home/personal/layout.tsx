@@ -5,7 +5,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <>
       <HomeTabs tab={HomeTabStages.Personal} />
-      <DashboardContent>{children}</DashboardContent>
+      <DashboardContent padding>{children}</DashboardContent>
     </>
   );
 }

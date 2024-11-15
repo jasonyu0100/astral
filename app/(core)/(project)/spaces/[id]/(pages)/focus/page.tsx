@@ -238,6 +238,7 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 }
 
 function ViewWrapper({ children }: { children: React.ReactNode }) {
+  const spaceMainController = useContext(ContextForSpaceMain);
   return (
     <DashboardContainer fullHeight>
       <SpacesSidebarModals>
