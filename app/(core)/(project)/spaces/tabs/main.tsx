@@ -14,10 +14,10 @@ interface SpaceTabProps {
 }
 
 export enum SpaceTabStage {
-  Focus = 'Focus',
-  Space = 'Space',
-  Public = 'Public',
-  Channel = 'Channel',
+  Focus = 'Work',
+  Space = 'Ideas',
+  Channel = 'Chat',
+  Public = 'Posts',
 }
 
 export function SpaceTabs({ tab }: SpaceTabProps) {
