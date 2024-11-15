@@ -9,20 +9,22 @@ import {
   TextElementVariant,
 } from '@/architecture/model/elements/text/main';
 import { ContextForIdeaObj } from '@/architecture/model/idea/main';
+import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { ElementIdea } from '@/components/element/idea/main';
-import { FormBody } from '@/components/form/body/main';
-import { FormButton, FormButtonVariant } from '@/components/form/button/main';
-import { FormFooter } from '@/components/form/footer/main';
-import { FormContainer } from '@/components/form/main';
-import { FormTitle } from '@/components/form/title/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { ContextForLoading } from '@/components/loading/controller/main';
-import { PolaroidModal } from '@/components/modal/polaroid/main';
+import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
+import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
+import { AstralModalBody } from '@/components/modal/astral/body/main';
+import { AstralModal } from '@/components/modal/astral/main';
+import { AstralModalTitle } from '@/components/modal/astral/title/main';
+import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { useControllerForOpenAi } from '@/external/controller/openai/main';
+import { AstralCheckIcon } from '@/icons/check/main';
 import { AstralSubjectIcon } from '@/icons/subject/main';
 import { ContextForOpenable } from '@/logic/contexts/openable/main';
 import { useGlobalUser } from '@/logic/store/user/main';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ContextForSpacesSpace } from '../../controller/main';
 
 export function SpacesSpaceCombineIdeas() {
@@ -43,15 +45,27 @@ export function SpacesSpaceCombineIdeas() {
   );
   const [combinationDescription, setCombinationDescription] = useState('');
 
+  useEffect(() => {
+    setCombinationDescription('');
+  }, [openableController.opened]);
+
   async function combineIdeas() {
     loadingController.loadingController.open();
     const ideaSummary = selectedIdeas
       .filter((idea) => idea.variant === ElementVariant.TEXT)
-      .map((idea, index) => `Idea ${index} - ${idea.textElem?.text}`)
-      .join(' ');
-    const combination = await openAiController.actions.getMessageResponse(
-      `Summarise the following ideas: ${ideaSummary}`,
-    );
+      .map((idea, index) => `${idea.textElem?.text}`)
+      .join(', ');
+    const messageHistory = [
+      `[Source Ideas]`,
+      ideaSummary,
+      `[Instructions]: Combine the ideas into a single idea. For example, if the ideas are "A" and "B", the combined idea could be "A and B" or "A but not B".`,
+      `If you can combine the ideas, please provide a description of the combined idea. If you cannot combine the ideas, please provide a reason why not.`,
+      `Length of combined idea should be less than 300 characters.`,
+    ];
+    const messagePrompt = messageHistory.join('\n');
+
+    const combination =
+      await openAiController.actions.getMessageResponse(messagePrompt);
     setCombinationDescription(combination || '');
     loadingController.loadingController.close();
   }
@@ -59,11 +73,6 @@ export function SpacesSpaceCombineIdeas() {
   async function executeCombineIdeas() {
     openableController.close();
     loadingController.loadingController.open();
-    await Promise.all(
-      selectedIdeas.map((idea) =>
-        ideaListController.actions.deleteActions.delete(idea.id),
-      ),
-    );
 
     const idea =
       await ideaListController.actions.createActions.createIdeaFromTextElement(
@@ -71,10 +80,10 @@ export function SpacesSpaceCombineIdeas() {
         sceneListController.state.objId,
         selectedIdeas[0].title,
         selectedIdeas[0].description,
-        selectedIdeas[0].x,
-        selectedIdeas[0].y,
-        selectedIdeas[0].width * 1.5,
-        selectedIdeas[0].height * 1.5,
+        selectedIdeas[0].x + Math.round(Math.random() * 50),
+        selectedIdeas[0].y + Math.round(Math.random() * 50),
+        selectedIdeas[0].width,
+        selectedIdeas[0].height,
         {
           id: crypto.randomUUID(),
           title: 'Combined Idea',
@@ -97,46 +106,47 @@ export function SpacesSpaceCombineIdeas() {
 
   return (
     <ContextForOpenable.Provider value={openableController}>
-      <PolaroidModal>
-        <FormContainer>
-          <FormTitle>Combine Ideas</FormTitle>
-          <FormBody>
-            <div className='grid w-full grid-cols-3 gap-[1rem]'>
-              {selectedIdeas.map((idea) => (
-                <ContextForIdeaObj.Provider value={idea}>
-                  <ElementIdea />
-                </ContextForIdeaObj.Provider>
-              ))}
-            </div>
-            <HorizontalDivider />
-            <div className='grid w-full grid-cols-3 gap-[1rem]'>
-              <div className='col-span-2 aspect-square bg-yellow-500 p-[1rem]'>
-                <textarea
-                  className='h-full w-full bg-transparent outline-none'
-                  value={combinationDescription}
-                  onChange={(e) => setCombinationDescription(e.target.value)}
-                />
+      <AstralModal>
+        <AstralModalBodyWrapper>
+          <AstralModalBody>
+            <AstralModalBodyContents>
+              <AstralModalTitle>Combine Ideas</AstralModalTitle>
+              <div className='grid w-full grid-cols-3 gap-[1rem]'>
+                {selectedIdeas.map((idea) => (
+                  <ContextForIdeaObj.Provider value={idea}>
+                    <ElementIdea />
+                  </ContextForIdeaObj.Provider>
+                ))}
               </div>
-              <div className='flex items-center justify-center'>
-                <div
-                  className='flex h-[3rem] w-[3rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
-                  onClick={() => combineIdeas()}
-                >
-                  <AstralSubjectIcon />
+              <HorizontalDivider />
+              <div className='grid w-full grid-cols-3 gap-[1rem]'>
+                <div className='col-span-1 aspect-square bg-yellow-500 p-[1rem]'>
+                  <textarea
+                    className='h-full w-full bg-transparent outline-none'
+                    value={combinationDescription}
+                    onChange={(e) => setCombinationDescription(e.target.value)}
+                  />
                 </div>
               </div>
-            </div>
-          </FormBody>
-          <FormFooter>
-            <FormButton
-              variant={FormButtonVariant.PRIMARY}
-              onClick={() => executeCombineIdeas()}
-            >
-              Combine
-            </FormButton>
-          </FormFooter>
-        </FormContainer>
-      </PolaroidModal>
+            </AstralModalBodyContents>
+            <AstralModalBodyAction>
+              <AstralRoundedActionButton
+                className='from-slate-500 to-slate-600'
+                onClick={() => combineIdeas()}
+              >
+                <AstralSubjectIcon />
+              </AstralRoundedActionButton>
+              {combinationDescription !== '' && (
+                <AstralRoundedActionButton
+                  onClick={() => executeCombineIdeas()}
+                >
+                  <AstralCheckIcon />
+                </AstralRoundedActionButton>
+              )}
+            </AstralModalBodyAction>
+          </AstralModalBody>
+        </AstralModalBodyWrapper>
+      </AstralModal>
     </ContextForOpenable.Provider>
   );
 }
