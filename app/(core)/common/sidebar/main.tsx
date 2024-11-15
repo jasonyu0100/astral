@@ -54,7 +54,9 @@ export function CommonSidebar({
                 <CommonSidebarHomeIndicator />
                 <CommonSidebarFlowsIndicator />
                 <CommonSidebarDriveIndicator />
-                <CommonSidebarNetworkIndicator />
+                {process.env.LIVE_MODE !== 'true' && (
+                  <CommonSidebarNetworkIndicator />
+                )}
                 {/* <CommonSidebarUpdatesIndicator /> */}
                 {/* <CommonSidebarExplorerIndicator /> */}
               </CommonSidebarIndicators>
