@@ -86,10 +86,12 @@ const HeroSection = () => {
             href='/register'
             className='flex h-[4rem] min-w-[200px] max-w-[400px] flex-grow animate-pulse-slow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[6rem] sm:px-[1rem]'
           >
-            <span className='font-extraBold text-3xl text-white'>Sign up</span>
+            <span className='font-extraBold text-3xl text-white'>
+              Free Trial
+            </span>
           </Link>
           <Link
-            href='mailto:jason@astral.fun'
+            href='mailto:jasonyu0100@gmail.com'
             className='min-w-[100px] rounded-full p-2 text-2xl font-bold text-slate-300 sm:p-[2rem]'
           >
             Contact Us
@@ -696,7 +698,19 @@ function TestimonialCta() {
       href='/register'
       className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
     >
-      <p className='text-lg font-bold text-white sm:text-2xl'>Start now</p>
+      <p className='text-lg font-bold text-white sm:text-2xl'>Start today</p>
+      <AstralArrowForwardIcon />
+    </Link>
+  );
+}
+
+function FaqCta() {
+  return (
+    <Link
+      href='/register'
+      className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-violet-600 to-purple-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
+    >
+      <p className='text-lg font-bold text-white sm:text-2xl'>Start now free</p>
       <AstralArrowForwardIcon />
     </Link>
   );
@@ -733,6 +747,8 @@ function Page() {
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />
       <FAQSection />
+      <div className='h-[2rem] sm:h-[5rem]' />
+      <FaqCta />
       <div className='h-[2rem] sm:h-[5rem]' />
       <HorizontalDivider />
       <div className='h-[2rem] sm:h-[5rem]' />

@@ -98,7 +98,7 @@ function MemberPricingCard({
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
-  const [activeTab, setActiveTab] = useState('yearly');
+  const [activeTab, setActiveTab] = useState('monthly');
 
   function triggerCheckout(priceId: string) {
     if (
@@ -122,15 +122,6 @@ function Page() {
       >
         <TabsList className='h-[80px] w-[500px] rounded bg-slate-700 p-[5px]'>
           <TabsTrigger
-            value='yearly'
-            className={ctwn('h-full w-1/2 rounded font-bold text-slate-300', {
-              'bg-slate-950': activeTab === 'yearly',
-            })}
-            onClick={() => setActiveTab('yearly')}
-          >
-            Yearly
-          </TabsTrigger>
-          <TabsTrigger
             value='monthly'
             className={ctwn('h-full w-1/2 rounded font-bold text-slate-300', {
               'bg-slate-950': activeTab === 'monthly',
@@ -138,6 +129,15 @@ function Page() {
             onClick={() => setActiveTab('monthly')}
           >
             Monthly
+          </TabsTrigger>
+          <TabsTrigger
+            value='yearly'
+            className={ctwn('h-full w-1/2 rounded font-bold text-slate-300', {
+              'bg-slate-950': activeTab === 'yearly',
+            })}
+            onClick={() => setActiveTab('yearly')}
+          >
+            Yearly
           </TabsTrigger>
         </TabsList>
         <TabsContent value='yearly' className='mt-[2rem]'>
@@ -166,7 +166,9 @@ function Page() {
               title='Enterprise'
               price='Contact us'
               imageSrc='/portal/personality-m.png'
-              onClick={() => (window.location.href = 'mailto:jason@astral.fun')}
+              onClick={() =>
+                (window.location.href = 'mailto:jasonyu0100@gmail.com')
+              }
             />
           </div>
         </TabsContent>
@@ -196,7 +198,9 @@ function Page() {
               title='Enterprise'
               price='Contact us'
               imageSrc='/portal/personality-m.png'
-              onClick={() => (window.location.href = 'mailto:jason@astral.fun')}
+              onClick={() =>
+                (window.location.href = 'mailto:jasonyu0100@gmail.com')
+              }
             />
           </div>
         </TabsContent>

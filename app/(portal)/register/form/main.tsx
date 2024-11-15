@@ -55,7 +55,7 @@ export function PortalRegisterForm() {
       if (redirect) {
         window.location.href = redirect;
       } else {
-        window.location.href = homeMap.home.personal.link;
+        window.location.href = '/pricing';
       }
     }
   }

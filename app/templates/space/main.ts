@@ -117,6 +117,7 @@ enum SpaceTemplate {
   SocialPost = 'Social Post',
   ShortForm = 'Short Form Video',
   LongForm = 'Long Form Video',
+  Blank = 'Blank',
   Ideation = 'Ideation',
   Minutes = 'Minutes',
   FilmProduction = 'Film Production',
@@ -126,7 +127,6 @@ enum SpaceTemplate {
   Marketing = 'Marketing',
   Project = 'Project',
   Startup = 'Startup',
-  Blank = 'Blank',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -134,6 +134,7 @@ const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
   [SpaceTemplate.SocialPost]: socialMediaPostTemplate,
   [SpaceTemplate.ShortForm]: shortFormVideoTemplate,
   [SpaceTemplate.LongForm]: longFormVideoTemplate,
+  [SpaceTemplate.Blank]: blankSpaceTemplate,
   [SpaceTemplate.Ideation]: ideationTemplate,
   [SpaceTemplate.Minutes]: meetingTemplate,
   [SpaceTemplate.FilmProduction]: filmProductionTemplate,
@@ -143,7 +144,6 @@ const SpaceTemplateMap: Record<SpaceTemplate, TemplateSpaceObj> = {
   [SpaceTemplate.Marketing]: creativeCampaignTemplate,
   [SpaceTemplate.Project]: workProjectTemplate,
   [SpaceTemplate.Startup]: startupTemplate,
-  [SpaceTemplate.Blank]: blankSpaceTemplate,
 };
 
 export { SpaceTemplate as SpaceTemplate, SpaceTemplateMap as SpaceTemplateMap };
