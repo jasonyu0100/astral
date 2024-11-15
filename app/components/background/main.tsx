@@ -12,13 +12,14 @@ export enum AppBackgroundLabel {
   'Midnight Storm' = 'Midnight Storm',
   'Fire & Ice' = 'Fire & Ice',
   'Ultra Violet' = 'Ultra Violet',
+  'Soft Creme Base' = 'Soft Creme Base',
 }
 
 export function AppBackground({ children }: { children?: React.ReactNode }) {
   const loggedInUser = useGlobalUser((state) => state.user);
 
   const gradients = {
-    Blank: 'bg-slate-950',
+    Blank: '',
     Original: 'bg-gradient-to-b from-slate-950 from-10% to-purple-900 to-90%',
     'Original Fade':
       'bg-gradient-to-b from-slate-950 from-5% via-slate-800 to-purple-900 to-95%',

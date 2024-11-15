@@ -40,7 +40,7 @@ export interface ControllerActions {
   updateTemplateProjectChapters: (templates: TemplateChapterObj[]) => void;
   createChaptersFromSource: () => Promise<TemplateChapterObj[]>;
   createSpaceFromTemplate: () => Promise<SpaceObj>;
-  createBlankSpace: () => Promise<SpaceObj>;
+  createIdeationSpace: () => Promise<SpaceObj>;
   createSpaceFromSource: () => Promise<SpaceObj>;
 }
 
@@ -330,10 +330,10 @@ export const useControllerForHomePersonalCreateSpace =
       return space;
     }
 
-    async function createBlankSpace() {
-      const category = SpaceTemplate.Blank;
+    async function createIdeaSpace() {
+      const category = SpaceTemplate.Ideation;
       const templateSpaceChapters =
-        SpaceTemplateMap[SpaceTemplate.Blank].chapters;
+        SpaceTemplateMap[SpaceTemplate.Ideation].chapters;
 
       async function createSpace() {
         const space =
@@ -696,7 +696,7 @@ export const useControllerForHomePersonalCreateSpace =
         updateSource: (source: string) => setSource(source),
         createChaptersFromSource,
         createSpaceFromTemplate: createSpaceFromTemplate,
-        createBlankSpace,
+        createIdeationSpace: createIdeaSpace,
         createSpaceFromSource: createSpaceFromSource,
       },
       state: {

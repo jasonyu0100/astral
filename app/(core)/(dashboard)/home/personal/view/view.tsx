@@ -27,7 +27,7 @@ export function HomePersonalView() {
             className='flex h-[50px] w-[350px] cursor-pointer flex-row items-center justify-between rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-[1rem] p-[2rem]'
             onClick={() => {
               createSpaceController.actions
-                .createBlankSpace()
+                .createIdeationSpace()
                 .then((spaceObj) => {
                   window.location.href = spacesMap.spaces.id.focus.link(
                     spaceObj.id,
@@ -36,7 +36,7 @@ export function HomePersonalView() {
             }}
           >
             <p className='text-xl font-bold text-slate-300'>
-              Create blank space
+              Create idea space
             </p>
             <AstralGestureIcon className='h-[2rem] w-[2rem]' />
           </div>

@@ -148,7 +148,7 @@ function EffectWrapper({ children }: { children: React.ReactNode }) {
       const diff = now.getTime() - created.getTime();
       if (diff < 1000 * 60) {
         // HARD LOCK IN STARTER FOR 1 minute
-        createSpaceController.actions.createBlankSpace().then((space) => {
+        createSpaceController.actions.createIdeationSpace().then((space) => {
           window.location.href = spacesMap.spaces.id.focus.link(space.id);
         });
       }
