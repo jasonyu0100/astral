@@ -79,12 +79,10 @@ import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
-import { spacesMap } from '../../map';
 import {
   ContextForSpacesIdeasChat,
   useControllerForSpacesIdeasChat,
@@ -93,7 +91,10 @@ import {
   ContextForSpacesIdeas,
   useControllerForSpacesIdeas,
 } from './controller/main';
-import { SpacesIdeasModals } from './modal/controller/main';
+import {
+  ContextForSpacesIdeasModals,
+  SpacesIdeasModals,
+} from './modal/controller/main';
 import { SpacesIdeasView } from './view/main';
 
 function Page({ params }: { params: { id: string } }) {
@@ -367,6 +368,8 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 
 function ViewWrapper({ children }: { children: React.ReactNode }) {
   const spaceMainController = useContext(ContextForSpaceMain);
+  const spaceIdeasModalController = useContext(ContextForSpacesIdeasModals);
+
   return (
     <DashboardContainer fullHeight>
       <SpacesSidebarModals>
@@ -376,14 +379,14 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
             <SpaceTabs tab={SpaceTabStage.Ideas} />
             <DashboardBody>{children}</DashboardBody>
           </DashboardContent>
-          <Link
-            href={spacesMap.spaces.id.posts.link(
-              spaceMainController.state.objId,
-            )}
+          <div
+            onClick={() => {
+              spaceIdeasModalController.generatePlanController.open();
+            }}
             className='flex h-[5rem] w-[5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-purple-500'
           >
             <AstralArrowForwardIcon />
-          </Link>
+          </div>
         </div>
       </SpacesSidebarModals>
     </DashboardContainer>
