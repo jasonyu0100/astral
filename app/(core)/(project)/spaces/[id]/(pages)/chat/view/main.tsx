@@ -1,6 +1,6 @@
 'use client';
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { borderFx, glassFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import {
   ContextForSpacesChat,
@@ -19,6 +19,7 @@ export function SpacesChatView() {
       name={SpacesChatView.name}
       sizeFx='h-full flex-grow'
       glassFx={glassFx['glass-5']}
+      roundedFx={roundedFx['rounded-container']}
       className={`flex`}
       borderFx={borderFx['border-around']}
     >

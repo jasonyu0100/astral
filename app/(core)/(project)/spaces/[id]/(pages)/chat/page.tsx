@@ -314,7 +314,7 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
     <DashboardContainer fullHeight>
       <SpacesSidebarModals>
         {/* <SpacesSidebar /> */}
-        <DashboardContent>
+        <DashboardContent padding>
           <SpaceTabs tab={SpaceTabStage.Chat} />
           <DashboardBody>{children}</DashboardBody>
         </DashboardContent>

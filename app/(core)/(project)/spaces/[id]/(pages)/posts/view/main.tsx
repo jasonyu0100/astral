@@ -1,5 +1,5 @@
 import { GlassAreaContainer } from '@/components/glass/area/main';
-import { borderFx, glassFx } from '@/style/data';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
 import { useContext } from 'react';
 import {
   ContextForSpacesPosts,
@@ -18,6 +18,7 @@ export function SpacesPostsView() {
       name={SpacesPostsView.name}
       sizeFx='h-full flex-grow'
       className={`flex`}
+      roundedFx={roundedFx['rounded-container']}
       glassFx={glassFx['glass-5']}
       borderFx={borderFx['border-around']}
     >
