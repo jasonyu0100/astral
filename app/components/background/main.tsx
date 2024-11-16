@@ -12,7 +12,6 @@ export enum AppBackgroundLabel {
   'Midnight Storm' = 'Midnight Storm',
   'Fire & Ice' = 'Fire & Ice',
   'Ultra Violet' = 'Ultra Violet',
-  'Soft Creme Base' = 'Soft Creme Base',
 }
 
 export function AppBackground({ children }: { children?: React.ReactNode }) {
