@@ -1,4 +1,4 @@
-import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
+import { explorerMap } from '@/(core)/(dashboard)/archive/explorer/map';
 import { CommonSidebarTopBack } from '@/(core)/common/sidebar/top/back/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 
