@@ -1,5 +1,5 @@
 'use client';
-import { homeMap } from '@/(core)/(dashboard)/home/map';
+import { createMap } from '@/(core)/(dashboard)/create/map';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
 import { ContextForCurrentSpaceObj } from '@/architecture/model/space/main';
 import Link from 'next/link';
@@ -9,12 +9,12 @@ import { CommonSidebarTopSpaceInfo } from './info/main';
 
 export function CommonSidebarTopSpace() {
   const space = useContext(ContextForCurrentSpaceObj);
-  const [url, changeUrl] = useState(homeMap.home.personal.link);
+  const [url, changeUrl] = useState(createMap.home.spaces.link);
   useEffect(() => {
     changeUrl(
       space.id
-        ? spacesMap.spaces.id.channel.link(space.id)
-        : homeMap.home.personal.link,
+        ? spacesMap.spaces.id.chat.link(space.id)
+        : createMap.home.spaces.link,
     );
   }, [space]);
 

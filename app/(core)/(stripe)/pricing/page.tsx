@@ -1,6 +1,6 @@
 'use client';
 
-import { homeMap } from '@/(core)/(dashboard)/home/map';
+import { createMap } from '@/(core)/(dashboard)/create/map';
 import { useGlobalUser } from '@/logic/store/user/main';
 import { ctwn } from '@/utils/cn';
 import PrivateAstralPage from '@/utils/private-astral-page';
@@ -147,7 +147,7 @@ function Page() {
               price='Free'
               imageSrc='/portal/personality-f.png'
               onClick={() => {
-                window.location.href = homeMap.home.personal.link;
+                window.location.href = createMap.home.spaces.link;
               }}
             />
             <MemberPricingCard
@@ -179,7 +179,7 @@ function Page() {
               price='Free'
               imageSrc='/portal/personality-f.png'
               onClick={() => {
-                window.location.href = homeMap.home.personal.link;
+                window.location.href = createMap.home.spaces.link;
               }}
             />
             <MemberPricingCard

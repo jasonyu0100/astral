@@ -149,7 +149,7 @@ export function SpaceFocusKanbanTask({ task }) {
               taskListController.actions.editActions.edit(task.id, {
                 taskStatus: TaskStatus.CURRENT,
               });
-              window.location.href = `${spacesMap.spaces.id.focus.link(
+              window.location.href = `${spacesMap.spaces.id.ideas.link(
                 spaceMainController.state.objId,
               )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
@@ -162,7 +162,7 @@ export function SpaceFocusKanbanTask({ task }) {
               taskListController.actions.editActions.edit(task.id, {
                 taskStatus: TaskStatus.CURRENT,
               });
-              window.location.href = `${spacesMap.spaces.id.public.link(
+              window.location.href = `${spacesMap.spaces.id.posts.link(
                 spaceMainController.state.objId,
               )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}
@@ -175,7 +175,7 @@ export function SpaceFocusKanbanTask({ task }) {
               taskListController.actions.editActions.edit(task.id, {
                 taskStatus: TaskStatus.CURRENT,
               });
-              window.location.href = `${spacesMap.spaces.id.channel.link(
+              window.location.href = `${spacesMap.spaces.id.chat.link(
                 spaceMainController.state.objId,
               )}?chapter=${chapterListController.state.currentObj?.id}`;
             }}

@@ -24,7 +24,7 @@ export function PublicSpaceChapterChannel() {
     <div className='flex flex-col space-y-[1rem] py-[2rem]'>
       {conversationListController.state.objs.map((conversationObj) => (
         <Link
-          href={`${spacesMap.spaces.id.channel.link(
+          href={`${spacesMap.spaces.id.chat.link(
             spaceMainController.state.objId,
           )}?chapter=${chapterListController.state.currentObj?.id}&conversation=${conversationObj.id}`}
         >

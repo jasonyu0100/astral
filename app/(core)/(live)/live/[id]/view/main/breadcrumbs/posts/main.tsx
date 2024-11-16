@@ -27,7 +27,7 @@ export function PublicSpaceBreadcrumbsPosts() {
         </Link>
         <span className='text-lg font-bold text-slate-400'> / </span>
         <Link
-          href={spacesMap.spaces.id.focus.link(spaceMainController.state.objId)}
+          href={spacesMap.spaces.id.ideas.link(spaceMainController.state.objId)}
         >
           <p className='cursor-pointer text-lg font-bold text-slate-400'>
             {spaceMainController.state.obj?.title || 'Untitled'}
@@ -48,7 +48,7 @@ export function PublicSpaceBreadcrumbsPosts() {
         <p className='cursor-pointer text-lg font-bold text-slate-400'>Posts</p>
       </div>
       <Link
-        href={`${spacesMap.spaces.id.public.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`}
+        href={`${spacesMap.spaces.id.posts.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.currentObj?.id}`}
       >
         <div className='flex h-[2rem] w-[2rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'>
           <AstralAddIcon />

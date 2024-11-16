@@ -20,10 +20,9 @@ export function CommonSidebarIndicator({ children, ...props }: InputProps) {
   );
 }
 export enum CommonSidebarIndicatorType {
-  Home = 'Home',
-  Flow = 'Flow',
+  Explore = 'Explore',
+  Create = 'Create',
   Network = 'Network',
   Drive = 'Drive',
-  Feed = 'Feed',
   Explorer = 'Explorer',
 }

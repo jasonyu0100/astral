@@ -6,14 +6,14 @@ export const spacesMap = {
       focus: {
         link: (id: string) => `${baseUrl}/${id}/focus`,
       },
-      channel: {
-        link: (id: string) => `${baseUrl}/${id}/channel`,
+      chat: {
+        link: (id: string) => `${baseUrl}/${id}/chat`,
       },
-      space: {
-        link: (id: string) => `${baseUrl}/${id}/space`,
+      ideas: {
+        link: (id: string) => `${baseUrl}/${id}/ideas`,
       },
-      public: {
-        link: (id: string) => `${baseUrl}/${id}/public`,
+      posts: {
+        link: (id: string) => `${baseUrl}/${id}/posts`,
       },
       link: (id: string) => `${baseUrl}/${id}`,
     },

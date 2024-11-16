@@ -7,9 +7,9 @@ import { useGlobalUser } from '@/logic/store/user/main';
 import { createContext } from 'react';
 import { CommonSidebarContainer } from './common/container/main';
 import { CommonSidebarIndicators } from './common/indicators/main';
-import { CommonSidebarFlowsIndicator } from './common/indicators/variants/flows/main';
+import { CommonSidebarCreateIndicator } from './common/indicators/variants/create/main';
+import { CommonSidebarExploreIndicator } from './common/indicators/variants/feed/main';
 import { CommonSidebarNetworkIndicator } from './common/indicators/variants/network/main';
-import { CommonSidebarHomeIndicator } from './common/indicators/variants/studio/main';
 import { CommonSidebarDriveIndicator } from './common/indicators/variants/vault/main';
 import { CommonSidebarModals } from './modals/controller/main';
 import { CommonSidebarTopSpace } from './top/space/main';
@@ -51,13 +51,12 @@ export function CommonSidebar({
               <CommonSidebarTopSpace />
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <CommonSidebarIndicators>
-                <CommonSidebarHomeIndicator />
-                <CommonSidebarFlowsIndicator />
+                <CommonSidebarCreateIndicator />
+                <CommonSidebarExploreIndicator />
                 <CommonSidebarDriveIndicator />
                 {process.env.LIVE_MODE !== 'true' && (
                   <CommonSidebarNetworkIndicator />
                 )}
-                {/* <CommonSidebarUpdatesIndicator /> */}
                 {/* <CommonSidebarExplorerIndicator /> */}
               </CommonSidebarIndicators>
             </CommonSidebarContainer>

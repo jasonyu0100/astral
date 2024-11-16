@@ -1,5 +1,5 @@
 'use client';
-import { homeMap } from '@/(core)/(dashboard)/home/map';
+import { createMap } from '@/(core)/(dashboard)/create/map';
 import { stripeExistingBillingSession } from '@/external/stripe/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
@@ -26,7 +26,7 @@ function Page() {
       >
         OPEN BILLING
       </button>
-      <Link href={homeMap.home.personal.link}>
+      <Link href={createMap.home.spaces.link}>
         <button
           type='submit'
           role='link'
