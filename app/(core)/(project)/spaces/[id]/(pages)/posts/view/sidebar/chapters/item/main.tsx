@@ -1,4 +1,3 @@
-import { ExplorerProjectsSidebarOption } from '@/(core)/(dashboard)/explorer/projects/view/sidebar/(common)/list/option/main';
 import { ContextForSpaceChapterList } from '@/architecture/controller/space/chapter/list';
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import {
@@ -45,7 +44,6 @@ export function SpacesPostsSidebarChaptersChapter() {
     >
       {selected ? (
         <GlassWindowFrame
-          name={ExplorerProjectsSidebarOption.name}
           borderFx={borderFx['border-all']}
           roundedFx={roundedFx['rounded']}
           className='p-[1rem]'
@@ -58,7 +56,6 @@ export function SpacesPostsSidebarChaptersChapter() {
         </GlassWindowFrame>
       ) : (
         <GlassWindowFrame
-          name={ExplorerProjectsSidebarOption.name}
           borderFx={borderFx['border-around']}
           roundedFx={roundedFx['rounded']}
           className='p-[1rem]'
