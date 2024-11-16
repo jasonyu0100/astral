@@ -14,7 +14,7 @@ interface CreateTabProps {
 
 export function CreateTabs({ tab }: CreateTabProps) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabSpaces tab={tab} />
         <TabFlow tab={tab} />

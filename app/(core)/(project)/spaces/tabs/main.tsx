@@ -23,7 +23,7 @@ export enum SpaceTabStage {
 export function SpaceTabs({ tab }: SpaceTabProps) {
   const spaceMainController = useContext(ContextForSpaceMain);
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsBackButton href={createMap.home.spaces.link} />
       <TabsRow>
         <SpacesTabSpace tab={tab} />

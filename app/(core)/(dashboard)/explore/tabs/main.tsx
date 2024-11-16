@@ -13,7 +13,7 @@ interface ExploreTabProps {
 
 export function ExploreTabs({ tab }: ExploreTabProps) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabForYou tab={tab} />
         <TabFollowing tab={tab} />

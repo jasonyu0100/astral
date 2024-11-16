@@ -11,7 +11,7 @@ interface ProjectTabProps {
 
 export function ProjectTabs({ tab }: ProjectTabProps) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabOne tab={tab} />
       </TabsRow>

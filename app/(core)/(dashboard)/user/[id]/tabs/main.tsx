@@ -15,7 +15,7 @@ export enum UserTabStage {
 
 export function UserTabs({ tab }: UserTabProps) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabOne tab={tab} />
       </TabsRow>

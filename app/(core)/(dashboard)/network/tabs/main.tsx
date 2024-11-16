@@ -12,7 +12,7 @@ interface CreativeTabProps {
 
 export function CreativeTabs({ tab }: CreativeTabProps) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabOne tab={tab} />
       </TabsRow>

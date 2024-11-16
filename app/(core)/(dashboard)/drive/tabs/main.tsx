@@ -13,7 +13,7 @@ interface DriveTabsInput {
 
 export function DriveTabs({ tab }: DriveTabsInput) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabTwo tab={tab} />
         <TabOne tab={tab} />

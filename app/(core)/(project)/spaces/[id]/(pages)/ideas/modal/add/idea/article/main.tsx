@@ -11,7 +11,6 @@ import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { AstralRoundedActionButton } from '@/components/button/action/main';
 import { AstralModalBodyContents } from '@/components/modal/astral/body/action/main';
 import { AstralModalBodyAction } from '@/components/modal/astral/body/contents/main';
-import { AstralModalBody } from '@/components/modal/astral/body/main';
 import { AstralModal } from '@/components/modal/astral/main';
 import { AstralModalBodyWrapper } from '@/components/modal/astral/wrapper/main';
 import { AstralModalStep } from '@/components/step/main';
@@ -80,26 +79,24 @@ export function SpacesIdeasAddArticleIdeaModal() {
     <ContextForOpenable.Provider value={openableController}>
       <AstralModal>
         <AstralModalBodyWrapper>
-          <AstralModalBody>
-            <AstralModalBodyContents>
-              <div className='flex w-full flex-row items-center space-x-[1rem]'>
-                <AstralModalStep>1</AstralModalStep>
-                <div className='aspect-[10/14] w-[500px] bg-slate-200 p-[2rem] shadow-md'>
-                  <textarea
-                    placeholder='Enter text here...'
-                    className='text-md h-full w-full bg-transparent font-light text-black outline-none placeholder:text-slate-300'
-                    onChange={(e) => changeText(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                  />
-                </div>
+          <AstralModalBodyContents>
+            <div className='flex w-full flex-row items-center space-x-[1rem]'>
+              <AstralModalStep>1</AstralModalStep>
+              <div className='aspect-[10/14] w-[300px] bg-slate-200 p-[2rem] shadow-md'>
+                <textarea
+                  placeholder='Enter text here...'
+                  className='text-md h-full w-full bg-transparent font-light text-black outline-none placeholder:text-slate-800'
+                  onChange={(e) => changeText(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                />
               </div>
-            </AstralModalBodyContents>
-            <AstralModalBodyAction>
-              <AstralRoundedActionButton onClick={createArticle}>
-                <AstralArrowForwardIcon />
-              </AstralRoundedActionButton>
-            </AstralModalBodyAction>
-          </AstralModalBody>
+            </div>
+          </AstralModalBodyContents>
+          <AstralModalBodyAction>
+            <AstralRoundedActionButton onClick={createArticle}>
+              <AstralArrowForwardIcon />
+            </AstralRoundedActionButton>
+          </AstralModalBodyAction>
         </AstralModalBodyWrapper>
       </AstralModal>
     </ContextForOpenable.Provider>

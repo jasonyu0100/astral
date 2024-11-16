@@ -18,7 +18,7 @@ export enum HorizonTabStage {
 
 export function HorizonTabs({ tab }: HorizonTabProps) {
   return (
-    <TabsContainer>
+    <TabsContainer padding>
       <TabsRow>
         <TabHorizon tab={tab} />
         <TabArc tab={tab} />
