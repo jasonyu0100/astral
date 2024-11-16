@@ -27,8 +27,8 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
       <TabsBackButton href={homeMap.home.personal.link} />
       <TabsRow>
         <SpaceTabFocus tab={tab} />
-        <SpacesTabIdeas tab={tab} />
         <SpacesTabChat tab={tab} />
+        <SpacesTabIdeas tab={tab} />
         <SpacesTabPosts tab={tab} />
       </TabsRow>
     </TabsContainer>

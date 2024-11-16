@@ -75,13 +75,16 @@ import {
   UserProfileVisibility,
 } from '@/architecture/model/user/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
+import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useGlobalSpace } from '@/logic/store/space/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
 import { SpaceTabs, SpaceTabStage } from '../../../tabs/main';
+import { spacesMap } from '../../map';
 import {
   ContextForSpacesIdeasChat,
   useControllerForSpacesIdeasChat,
@@ -363,14 +366,25 @@ function ControllerWrapper({ children }: { children: React.ReactNode }) {
 }
 
 function ViewWrapper({ children }: { children: React.ReactNode }) {
+  const spaceMainController = useContext(ContextForSpaceMain);
   return (
     <DashboardContainer fullHeight>
       <SpacesSidebarModals>
         {/* <SpacesSidebar /> */}
-        <DashboardContent padding>
-          <SpaceTabs tab={SpaceTabStage.Ideas} />
-          <DashboardBody>{children}</DashboardBody>
-        </DashboardContent>
+        <div className='flex w-full flex-row items-center pr-[2rem]'>
+          <DashboardContent padding>
+            <SpaceTabs tab={SpaceTabStage.Ideas} />
+            <DashboardBody>{children}</DashboardBody>
+          </DashboardContent>
+          <Link
+            href={spacesMap.spaces.id.posts.link(
+              spaceMainController.state.objId,
+            )}
+            className='flex h-[5rem] w-[5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-purple-500'
+          >
+            <AstralArrowForwardIcon />
+          </Link>
+        </div>
       </SpacesSidebarModals>
     </DashboardContainer>
   );
