@@ -2,18 +2,12 @@ import { ContextForSceneIdeaList } from '@/architecture/controller/idea/list';
 import { BarDividerIndicator } from '@/components/indicator/bar/main';
 import { AstralCameraIcon } from '@/icons/camera/main';
 import { AstralCategoryIcon } from '@/icons/category/main';
-import { AstralCursorIcon } from '@/icons/cursor/main';
 import { AstralFullscreenIcon } from '@/icons/fullscreen/main';
-import { AstralLabelIcon } from '@/icons/label/main';
-import { AstralPolylineIcon } from '@/icons/polyline/main';
 import { AstralSidebarLeftIcon } from '@/icons/sidebar-left/main';
 import { ctwn } from '@/utils/cn';
 import { useContext } from 'react';
 import {
   ContextForSpacesIdeas,
-  SpacesIdeasBubbleMode,
-  SpacesIdeasInteractionMode,
-  SpacesIdeasLinkMode,
   SpacesIdeasSidebarVisibility,
 } from '../../../../../controller/main';
 
@@ -42,8 +36,8 @@ export function SpacesIdeasHeaderLeft() {
           })}
         />
       </div>
-      <BarDividerIndicator />
-      <AstralCursorIcon
+      {/* <BarDividerIndicator /> */}
+      {/* <AstralCursorIcon
         className={
           spacesSpaceController.state.interactionMode ===
           SpacesIdeasInteractionMode.CURSOR
@@ -102,7 +96,7 @@ export function SpacesIdeasHeaderLeft() {
             );
           }
         }}
-      />
+      /> */}
       <BarDividerIndicator />
       <AstralCategoryIcon
         onClick={() => {

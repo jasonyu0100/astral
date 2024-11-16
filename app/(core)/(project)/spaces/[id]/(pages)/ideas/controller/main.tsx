@@ -129,7 +129,7 @@ export function useControllerForSpacesIdeas(): Controller {
   const [cursorX, setCursorX] = useState(0);
   const [cursorY, setCursorY] = useState(0);
   const [bubbleMode, setBubbleMode] = useState<SpacesIdeasBubbleMode>(
-    SpacesIdeasBubbleMode.ON,
+    SpacesIdeasBubbleMode.OFF,
   );
   const [directoryMode, setDirectoryMode] = useState<SpacesIdeasDirectoryMode>(
     SpacesIdeasDirectoryMode.DEFAULT,
@@ -166,8 +166,6 @@ export function useControllerForSpacesIdeas(): Controller {
   // Function to handle screenshot
   const takeScreenshot = async () => {
     // Hide UI components before taking the screenshot
-    setLinkMode(SpacesIdeasLinkMode.ON);
-    setBubbleMode(SpacesIdeasBubbleMode.OFF);
     setHideUI(true);
 
     setTimeout(async () => {
@@ -197,8 +195,6 @@ export function useControllerForSpacesIdeas(): Controller {
         } finally {
           // Show UI components again after the screenshot
           setHideUI(false);
-          setLinkMode(SpacesIdeasLinkMode.ON);
-          setBubbleMode(SpacesIdeasBubbleMode.ON);
         }
       }
     }, 500);

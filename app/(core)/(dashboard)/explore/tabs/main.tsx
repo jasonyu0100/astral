@@ -1,19 +1,22 @@
 import { TabsContainer } from '@/components/tabs/main';
 import { TabsRow } from '@/components/tabs/tabs-row/main';
-import { TabOne } from './tab-1/main';
+import { TabFollowing } from './following-tab/main';
+import { TabForYou } from './for-you-tab/main';
 
-export enum UpdatesTabStage {
+export enum ExploreTabStage {
   ForYou = 'For You',
+  Following = 'Following',
 }
-interface UpdatesTabProps {
+interface ExploreTabProps {
   tab?: string;
 }
 
-export function UpdatesTabs({ tab }: UpdatesTabProps) {
+export function ExploreTabs({ tab }: ExploreTabProps) {
   return (
     <TabsContainer>
       <TabsRow>
-        <TabOne tab={tab} />
+        <TabForYou tab={tab} />
+        <TabFollowing tab={tab} />
       </TabsRow>
     </TabsContainer>
   );
