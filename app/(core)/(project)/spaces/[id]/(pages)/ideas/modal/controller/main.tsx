@@ -25,7 +25,6 @@ import { SpacesIdeasEditSceneModal } from '../edit/scene/main';
 import { SpacesIdeasEditSpaceModal } from '../edit/space/main';
 import { SpacesIdeasGeneratePost } from '../generate/main';
 import { SpacesIdeasMigrateSceneModal } from '../migrate/main';
-import { SpacesIdeasShareViewModal } from '../share/main';
 
 export const ContextForSpacesIdeasModals = createContext(
   {} as SpacesIdeasModals,
@@ -47,7 +46,6 @@ export interface SpacesIdeasModals {
   addGenerateIdeaController: ContextForOpenableInterface;
   generatePlanController: ContextForOpenableInterface;
   combineIdeasController: ContextForOpenableInterface;
-  shareViewController: ContextForOpenableInterface;
   editChapterController: ContextForOpenableInterface;
   editSpaceController: ContextForOpenableInterface;
   editSceneController: ContextForOpenableInterface;
@@ -71,7 +69,6 @@ export function SpacesIdeasModals({ children }: { children: React.ReactNode }) {
   const generatePlanController = useControllerForOpenable();
   const addSearchIdeaController = useControllerForOpenable();
   const combineIdeasController = useControllerForOpenable();
-  const shareViewController = useControllerForOpenable();
   const editChapterController = useControllerForOpenable();
   const editSpaceController = useControllerForOpenable();
   const editSceneController = useControllerForOpenable();
@@ -98,7 +95,6 @@ export function SpacesIdeasModals({ children }: { children: React.ReactNode }) {
         addSearchIdeaController: addSearchIdeaController,
         generatePlanController: generatePlanController,
         combineIdeasController: combineIdeasController,
-        shareViewController: shareViewController,
         editChapterController: editChapterController,
         editSpaceController: editSpaceController,
         editSceneController: editSceneController,
@@ -149,9 +145,6 @@ export function SpacesIdeasModals({ children }: { children: React.ReactNode }) {
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={combineIdeasController}>
         <SpacesIdeasCombineIdeas />
-      </ContextForOpenable.Provider>
-      <ContextForOpenable.Provider value={shareViewController}>
-        <SpacesIdeasShareViewModal />
       </ContextForOpenable.Provider>
       <ContextForOpenable.Provider value={editChapterController}>
         <SpacesIdeasEditChapterModal />

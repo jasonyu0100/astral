@@ -27,7 +27,7 @@ export function HomeFlowRowProgress() {
 
   return (
     <div className='col-span-3 flex items-center justify-center space-x-[1rem] px-[2rem]'>
-      <Link href={spacesMap.spaces.id.ideas.link(space.id)} className='w-full'>
+      <Link href={spacesMap.spaces.id.focus.link(space.id)} className='w-full'>
         <GlassWindowFrame
           className='w-full flex-shrink-0'
           roundedFx={roundedFx['rounded-full']}

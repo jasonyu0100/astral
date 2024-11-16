@@ -10,7 +10,7 @@ import { CreativePrivateSpacesContext } from '../../[id]/layout';
 import { spacesMap } from '../../[id]/map';
 import { SpaceTabStage } from '../main';
 
-export function SpacesTabLive({ tab }: { tab?: string }) {
+export function SpacesTabPosts({ tab }: { tab?: string }) {
   const chapterListController = useContext(ContextForSpaceChapterList);
   const postListController = useContext(ContextForUserPostListFromChapter);
   const spaceContext = useContext(CreativePrivateSpacesContext);

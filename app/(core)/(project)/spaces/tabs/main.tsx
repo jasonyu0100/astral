@@ -4,10 +4,10 @@ import { TabsContainer } from '@/components/tabs/main';
 import { TabsBackButton } from '@/components/tabs/tabs-row/back-button/main';
 import { TabsRow } from '@/components/tabs/tabs-row/main';
 import { useContext } from 'react';
-import { SpacesTabChannel } from './chat-tab/main';
+import { SpacesTabChat } from './chat-tab/main';
 import { SpaceTabFocus } from './focus-tab/main';
-import { SpacesTabSpace } from './ideas-tab/main';
-import { SpacesTabLive } from './posts-tab/main';
+import { SpacesTabIdeas } from './ideas-tab/main';
+import { SpacesTabPosts } from './posts-tab/main';
 
 interface SpaceTabProps {
   tab?: string;
@@ -26,10 +26,10 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
     <TabsContainer padding>
       <TabsBackButton href={homeMap.home.personal.link} />
       <TabsRow>
-        <SpacesTabSpace tab={tab} />
         <SpaceTabFocus tab={tab} />
-        <SpacesTabChannel tab={tab} />
-        <SpacesTabLive tab={tab} />
+        <SpacesTabIdeas tab={tab} />
+        <SpacesTabChat tab={tab} />
+        <SpacesTabPosts tab={tab} />
       </TabsRow>
     </TabsContainer>
   );
