@@ -550,7 +550,7 @@ function FAQSection() {
             <AccordionItem
               key={index}
               value={`faq-${index}`}
-              className='border-b border-slate-500 border-opacity-30 p-[1rem]'
+              className='border-b border-slate-300 border-opacity-30 p-[1rem]'
             >
               <AccordionTrigger className='text-decoration-none px-[1rem] text-start text-lg  font-bold text-slate-400 hover:no-underline focus:no-underline'>
                 {faq.question}

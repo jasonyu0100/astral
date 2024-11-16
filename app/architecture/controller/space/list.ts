@@ -278,7 +278,7 @@ export const useControllerForSpaceList = (
         starred: false,
         summary: '',
         objective: '',
-        visibility: SpaceVisibility.PUBLIC,
+        visibility: SpaceVisibility.PRIVATE,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
@@ -316,7 +316,7 @@ export const useControllerForSpaceList = (
         target: '',
         starred: false,
         objective: objective,
-        visibility: SpaceVisibility.PUBLIC,
+        visibility: SpaceVisibility.PRIVATE,
       };
       const newObj = await gqlDbWrapper.createObj(createObj);
       const newObjs = stateActions.pushBack(newObj);
