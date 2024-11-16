@@ -1,6 +1,6 @@
 'use client';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
-import { createMap } from '@/(core)/(dashboard)/create/map';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { CommonSidebar } from '@/(core)/common/sidebar/main';
 import { createContext } from 'react';
 
@@ -23,7 +23,7 @@ export default function Layout({
   return (
     <ContextForProfileId.Provider value={{ userId: params.id }}>
       <DashboardContainer>
-        <CommonSidebar backUrl={createMap.home.spaces.link} minimised />
+        <CommonSidebar backUrl={homeMap.home.personal.link} minimised />
         {children}
       </DashboardContainer>
     </ContextForProfileId.Provider>

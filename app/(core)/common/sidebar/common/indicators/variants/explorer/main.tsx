@@ -1,4 +1,4 @@
-import { explorerMap } from '@/(core)/(dashboard)/explorer/map';
+import { explorerMap } from '@/(core)/(dashboard)/archive/explorer/map';
 import { ContextForCommonSidebar } from '@/(core)/common/sidebar/main';
 import { useContext } from 'react';
 import { CommonIndicatorOrangeJewel } from '../../indicator/jewel/orange/main';

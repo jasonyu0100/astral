@@ -36,7 +36,7 @@ export function AppBackground({ children }: { children?: React.ReactNode }) {
     Blank: '',
   };
 
-  const defaultGradient = gradients['Ultra Violet'];
+  const defaultGradient = gradients['Original'];
   const [gradient, setGradient] = useState(defaultGradient);
 
   useEffect(() => {

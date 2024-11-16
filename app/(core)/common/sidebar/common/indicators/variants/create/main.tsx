@@ -1,4 +1,4 @@
-import { createMap } from '@/(core)/(dashboard)/create/map';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { ContextForCommonSidebar } from '@/(core)/common/sidebar/main';
 import { useContext } from 'react';
 import { CommonIndicatorBlueJewel } from '../../indicator/jewel/blue/main';
@@ -16,11 +16,11 @@ export function CommonSidebarCreateIndicator() {
   return (
     <>
       {commonSidebar.minimised ? (
-        <CommonSidebarIndicator href={createMap.home.spaces.link}>
+        <CommonSidebarIndicator href={homeMap.home.personal.link}>
           <CommonIndicatorBlueJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
-        <CommonSidebarIndicator href={createMap.home.spaces.link}>
+        <CommonSidebarIndicator href={homeMap.home.personal.link}>
           <CommonIndicatorBlueJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}

@@ -1,5 +1,5 @@
 'use client';
-import { createMap } from '@/(core)/(dashboard)/create/map';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import {
   stripeNewBillingSession,
   stripeProcessSubscription,
@@ -46,7 +46,7 @@ function Page() {
       </button>
       <button
         className='h-[100px] w-[500px] border-[3px] border-black bg-white font-extraBold text-lg'
-        onClick={() => (window.location.href = createMap.home.spaces.link)}
+        onClick={() => (window.location.href = homeMap.home.personal.link)}
       >
         BACK HOME
       </button>

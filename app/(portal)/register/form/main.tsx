@@ -1,4 +1,4 @@
-import { createMap } from '@/(core)/(dashboard)/create/map';
+import { homeMap } from '@/(core)/(dashboard)/home/map';
 import { PortalFormAction } from '@/(portal)/common/container/form/action-container/action/main';
 import { PortalFormAltActionLink } from '@/(portal)/common/container/form/action-container/alt-action/link/main';
 import { PortalFormAltAction } from '@/(portal)/common/container/form/action-container/alt-action/main';
@@ -94,7 +94,7 @@ export function PortalRegisterForm() {
       if (redirect) {
         window.location.href = redirect;
       } else {
-        window.location.href = createMap.home.spaces.link;
+        window.location.href = homeMap.home.personal.link;
       }
     }
   }
