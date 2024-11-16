@@ -78,6 +78,9 @@ export function SpacesIdeasMovable({
             }
           }
         }}
+        onDoubleClick={(e) => {
+          e.stopPropagation();
+        }}
         onClick={(e) => {
           e.stopPropagation();
           if (hoverableController.hovered) {

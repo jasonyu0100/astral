@@ -57,7 +57,7 @@ export function SpacesIdeasAddSceneModal() {
           id: crypto.randomUUID(),
           title: scene.title,
           text: scene.objective,
-          variant: TextElementVariant.ARTICLE,
+          variant: TextElementVariant.STICKY,
         } as unknown as TextElement;
 
         const { width, height } = getTextIdeaBounds(textElem);
