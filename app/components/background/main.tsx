@@ -18,7 +18,6 @@ export function AppBackground({ children }: { children?: React.ReactNode }) {
   const loggedInUser = useGlobalUser((state) => state.user);
 
   const gradients = {
-    Blank: '',
     Original: 'bg-gradient-to-b from-slate-950 from-10% to-purple-900 to-90%',
     'Original Fade':
       'bg-gradient-to-b from-slate-950 from-5% via-slate-800 to-purple-900 to-95%',
@@ -34,9 +33,10 @@ export function AppBackground({ children }: { children?: React.ReactNode }) {
       'bg-gradient-to-br from-orange-600 from-30% to-blue-500 to-80%',
     'Ultra Violet':
       'bg-gradient-to-l from-indigo-600 from-10% to-violet-900 to-90%',
+    Blank: '',
   };
 
-  const defaultGradient = gradients['Original'];
+  const defaultGradient = gradients['Ultra Violet'];
   const [gradient, setGradient] = useState(defaultGradient);
 
   useEffect(() => {
@@ -44,7 +44,6 @@ export function AppBackground({ children }: { children?: React.ReactNode }) {
       const newGradient =
         gradients[loggedInUser.theme as AppBackgroundLabel] || defaultGradient;
       setGradient(newGradient);
-      console.log('NEW GRADIENT:', newGradient);
     } else {
       setGradient(defaultGradient);
     }

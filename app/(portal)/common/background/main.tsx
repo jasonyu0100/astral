@@ -4,7 +4,7 @@ export function LandingBackground({
   children?: React.ReactNode;
 }) {
   const gradient =
-    'bg-gradient-to-br from-purple-950 from-50% to-slate-950 to-90%';
+    'bg-gradient-to-l from-indigo-600 from-10% to-violet-900 to-90%';
 
   return (
     <div
