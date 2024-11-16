@@ -5,7 +5,7 @@ export function CreateSpacesTableHeader() {
   return (
     <div className='w-full p-[1rem]'>
       <GlassWindowFrame borderFx={borderFx['border-b']} className='w-full'>
-        <div className='grid w-full grid-cols-8 items-center py-[1rem]'>
+        <div className='grid w-full grid-cols-9 items-center py-[1rem]'>
           <div>
             <p className='text-center text-sm font-bold text-slate-400'>#</p>
           </div>

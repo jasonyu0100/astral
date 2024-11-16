@@ -1,8 +1,13 @@
 'use client';
 import { spacesMap } from '@/(core)/(project)/spaces/[id]/map';
-import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
+import { GlassWindowContents } from '@/components/glass/window/contents/main';
+import { GlassWindowFrame } from '@/components/glass/window/main';
+import { GlassWindowPane } from '@/components/glass/window/pane/main';
+import { AstralAddIcon } from '@/icons/add/main';
 import { AstralBookSparkIcon } from '@/icons/book-spark/main';
 import { AstralGestureIcon } from '@/icons/gesture/main';
+import { borderFx, glassFx, roundedFx } from '@/style/data';
+import { SpaceTemplate, SpaceTemplateMap } from '@/templates/space/main';
 import { useContext } from 'react';
 import { ContextForCreateSpacesModals } from '../modal/controller/main';
 import { ContextForCreateSpacesCreateSpace } from '../modal/create-space/controller/main';
@@ -42,8 +47,7 @@ export function CreateSpacesView() {
             <AstralBookSparkIcon className='h-[2rem] w-[2rem]' />
           </div>
         </div>
-        <HorizontalDivider />
-        {/* <GlassWindowFrame>
+        <GlassWindowFrame>
           <GlassWindowContents className='flex flex-col space-y-[2rem]'>
             <div className='flex w-full flex-row space-x-[2rem] overflow-auto pb-[2rem]'>
               {Object.entries(SpaceTemplateMap).map(([template, obj]) => (
@@ -78,7 +82,7 @@ export function CreateSpacesView() {
               ))}
             </div>
           </GlassWindowContents>
-        </GlassWindowFrame> */}
+        </GlassWindowFrame>
         <div className='flex flex-row items-center space-x-[1rem]'>
           <p className='text-3xl font-bold text-slate-300'>Your spaces</p>
         </div>

@@ -12,8 +12,8 @@ export function NetworkCreativeRowActivity() {
     <div className='flex flex-row justify-center'>
       <div
         className={ctwn(`h-[1rem] w-[1rem] animate-pulse-slow rounded-full`, {
-          'bg-green-500': userObj.visibility === UserProfileVisibility.PUBLIC,
-          'bg-red-500': userObj.visibility === UserProfileVisibility.PRIVATE,
+          'bg-green-400': userObj.visibility === UserProfileVisibility.PUBLIC,
+          'bg-orange-400': userObj.visibility === UserProfileVisibility.PRIVATE,
         })}
       ></div>
     </div>
