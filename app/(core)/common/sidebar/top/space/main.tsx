@@ -9,12 +9,12 @@ import { CommonSidebarTopSpaceInfo } from './info/main';
 
 export function CommonSidebarTopSpace() {
   const space = useContext(ContextForCurrentSpaceObj);
-  const [url, changeUrl] = useState(homeMap.home.personal.link);
+  const [url, changeUrl] = useState(homeMap.home.create.link);
   useEffect(() => {
     changeUrl(
       space.id
         ? spacesMap.spaces.id.chat.link(space.id)
-        : homeMap.home.personal.link,
+        : homeMap.home.create.link,
     );
   }, [space]);
 

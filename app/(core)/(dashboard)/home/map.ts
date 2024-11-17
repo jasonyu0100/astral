@@ -2,8 +2,8 @@ const baseUrl = `/home`;
 
 export const homeMap = {
   home: {
-    personal: {
-      link: `${baseUrl}/personal`,
+    create: {
+      link: `${baseUrl}/create`,
     },
     flow: {
       link: `${baseUrl}/flow`,

@@ -4,7 +4,7 @@ import { TabFlow } from './flow-tab/main';
 import { TabSpaces } from './spaces-tab/main';
 
 export enum CreateTabStages {
-  Spaces = 'Spaces',
+  Create = 'Create',
   Flow = 'Flow',
 }
 

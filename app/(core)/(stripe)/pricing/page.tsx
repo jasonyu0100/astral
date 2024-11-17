@@ -147,7 +147,7 @@ function Page() {
               price='Free'
               imageSrc='/portal/personality-f.png'
               onClick={() => {
-                window.location.href = homeMap.home.personal.link;
+                window.location.href = homeMap.home.create.link;
               }}
             />
             <MemberPricingCard
@@ -179,7 +179,7 @@ function Page() {
               price='Free'
               imageSrc='/portal/personality-f.png'
               onClick={() => {
-                window.location.href = homeMap.home.personal.link;
+                window.location.href = homeMap.home.create.link;
               }}
             />
             <MemberPricingCard

@@ -26,7 +26,7 @@ function Page() {
       >
         OPEN BILLING
       </button>
-      <Link href={homeMap.home.personal.link}>
+      <Link href={homeMap.home.create.link}>
         <button
           type='submit'
           role='link'

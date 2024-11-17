@@ -24,7 +24,7 @@ export function SpaceTabs({ tab }: SpaceTabProps) {
   const spaceMainController = useContext(ContextForSpaceMain);
   return (
     <TabsContainer padding>
-      <TabsBackButton href={homeMap.home.personal.link} />
+      <TabsBackButton href={homeMap.home.create.link} />
       <TabsRow>
         <SpaceTabFocus tab={tab} />
         <SpacesTabChat tab={tab} />

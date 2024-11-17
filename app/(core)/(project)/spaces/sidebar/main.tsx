@@ -11,7 +11,7 @@ export function SpacesSidebar() {
   return (
     <GlassWindowFrame className='flex h-full w-[4.5rem] flex-shrink-0 flex-col items-center p-[1rem]'>
       <GlassWindowContents className='relative flex h-full w-full flex-col'>
-        <CommonSidebarTopBack href={homeMap.home.personal.link} />
+        <CommonSidebarTopBack href={homeMap.home.create.link} />
         <HorizontalDivider className='my-[2rem] mb-[2rem]' />
         <SpaceSidebarMembersList />
       </GlassWindowContents>

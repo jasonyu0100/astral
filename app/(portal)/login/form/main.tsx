@@ -42,7 +42,7 @@ export function PortalLoginForm() {
         if (redirect) {
           window.location.href = redirect;
         } else {
-          window.location.href = homeMap.home.personal.link;
+          window.location.href = homeMap.home.create.link;
         }
       });
   };
@@ -59,7 +59,7 @@ export function PortalLoginForm() {
         if (redirect) {
           window.location.href = redirect;
         } else {
-          window.location.href = homeMap.home.personal.link;
+          window.location.href = homeMap.home.create.link;
         }
       });
   };

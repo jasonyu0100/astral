@@ -45,7 +45,7 @@ export function PublicSpaceSidebarSpace() {
                   }
                 />
                 <p className='font-extraBold text-2xl text-slate-300'>
-                  {spaceMainController.state.obj?.title}
+                  {spaceMainController.state.obj?.title || 'Untitled'}
                 </p>
               </div>
               <div className='flex h-[3rem] w-[3rem] flex-shrink-0 flex-row items-center justify-center rounded-full bg-slate-400'>
@@ -59,10 +59,10 @@ export function PublicSpaceSidebarSpace() {
               </div>
             </div>
             <p className='text-md font-light text-slate-300'>
-              {spaceMainController.state.obj?.description}
+              {spaceMainController.state.obj?.description || 'No description'}
             </p>
             <p className='text-md font-light text-slate-300'>
-              {spaceMainController.state.obj?.objective}
+              {spaceMainController.state.obj?.objective || 'No objective'}
             </p>
           </div>
           <HorizontalDivider />
@@ -71,31 +71,27 @@ export function PublicSpaceSidebarSpace() {
               spaceMainController.state.objId,
             )}
           >
-            <GlassWindowFrame
-              className='w-full flex-shrink-0'
-              roundedFx={roundedFx['rounded-full']}
-              borderFx={borderFx['border-around']}
-            >
-              <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
-                <div className='relative h-[2rem] w-full overflow-hidden rounded-full bg-blue-500'>
-                  <div
-                    className='absolute top-0 h-full bg-yellow-500 '
-                    style={{
-                      left: `0px`,
-                      width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                    }}
-                  ></div>
-                  <div
-                    className='absolute top-0 h-full bg-green-500'
-                    style={{
-                      left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                      width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
-                    }}
-                  ></div>
-                </div>
-              </GlassWindowContents>
-              <GlassWindowPane glassFx={glassFx['glass-10']} />
-            </GlassWindowFrame>
+            <div className='flex w-full flex-row items-center space-x-[1rem]'>
+              <p className={'w-[3rem] text-lg font-bold text-slate-300'}>
+                {percentage.toFixed(0)}%
+              </p>
+              <div className='relative h-[2rem] w-full overflow-hidden rounded-full bg-blue-500'>
+                <div
+                  className='absolute top-0 h-full bg-green-500'
+                  style={{
+                    left: `0px`,
+                    width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+                  }}
+                ></div>
+                <div
+                  className='absolute top-0 h-full bg-yellow-500 '
+                  style={{
+                    left: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+                    width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+                  }}
+                ></div>
+              </div>
+            </div>
           </Link>
         </GlassWindowContents>
         <GlassWindowPane glassFx={glassFx['glass-10']} />

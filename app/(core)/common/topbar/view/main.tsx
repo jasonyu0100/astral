@@ -7,7 +7,7 @@ import { TopbarRightGroup } from '../right-group/main';
 export function CommonTopbarView() {
   return (
     <DashboardTopbarContainer>
-      <TopbarLogo href={homeMap.home.personal.link} />
+      <TopbarLogo href={homeMap.home.create.link} />
       <TopbarLeftGroup />
       <TopbarRightGroup />
     </DashboardTopbarContainer>
