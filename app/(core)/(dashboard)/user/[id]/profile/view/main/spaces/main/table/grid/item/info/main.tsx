@@ -9,10 +9,10 @@ export function UserProfileSpacesRowInfo() {
   const space = useContext(ContextForSpaceObj);
 
   return (
-    <div className='col-span-2 flex flex-col space-y-[0.5rem]'>
+    <div className='col-span-2 flex flex-col'>
       <Link
         href={liveMap.live.link(space.id)}
-        className='text-lg font-bold text-blue-500'
+        className='text-lg font-bold text-slate-300'
       >
         {space?.title || 'Untitled'}
       </Link>
