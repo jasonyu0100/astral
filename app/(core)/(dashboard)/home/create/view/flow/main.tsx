@@ -1,6 +1,6 @@
 import { ContextForSpaceList } from '@/architecture/controller/space/list';
 import { useContext } from 'react';
-import { HomeCreateFlowContainer } from './container/main';
+import { HomeCreateTableContainer } from './container/main';
 import { HomeCreateTableGrid } from './grid/main';
 import { HomeCreateTableMainMixedGrid } from './starred/main';
 
@@ -12,7 +12,7 @@ export function HomeCreateTableMain() {
 
   return (
     <>
-      <HomeCreateFlowContainer>
+      <HomeCreateTableContainer>
         {/* <HomeCreateTableHeader /> */}
         <div className='flex flex-col px-[1rem] pb-[1rem]'>
           {starredSpaces.length > 0 ? (
@@ -21,7 +21,7 @@ export function HomeCreateTableMain() {
             <HomeCreateTableGrid spaces={unstarredSpaces} />
           )}
         </div>
-      </HomeCreateFlowContainer>
+      </HomeCreateTableContainer>
     </>
   );
 }

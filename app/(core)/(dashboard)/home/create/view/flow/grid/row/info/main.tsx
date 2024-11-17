@@ -1,5 +1,7 @@
+import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { ContextForSpaceObj } from '@/architecture/model/space/main';
 import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
+import Link from 'next/link';
 import { useContext } from 'react';
 
 export function HomeCreateRowInfo() {
@@ -8,9 +10,12 @@ export function HomeCreateRowInfo() {
 
   return (
     <div className='col-span-2 flex flex-col justify-center space-y-[0.5rem]'>
-      <p className='text-lg font-bold text-slate-300'>
+      <Link
+        href={liveMap.live.link(space.id)}
+        className='text-lg font-bold text-blue-500'
+      >
         {space?.title || 'Untitled'}
-      </p>
+      </Link>
       <p className='w-full text-ellipsis text-sm font-light text-slate-300'>
         {loggedInUser?.displayName || 'Unknown'}
       </p>

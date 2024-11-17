@@ -3,7 +3,7 @@ import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { borderFx, glassFx, roundedFx } from '@/style/data';
 
-export function HomeCreateFlowContainer({
+export function HomeCreateTableContainer({
   children,
 }: {
   children?: React.ReactNode;
