@@ -56,17 +56,17 @@ export function HomePersonalView() {
                   roundedFx={roundedFx.rounded}
                   borderFx={borderFx['border-around']}
                 >
-                  <GlassWindowContents className='flex flex-col space-y-[1rem]'>
+                  <GlassWindowContents
+                    className='flex cursor-pointer flex-col space-y-[1rem]'
+                    onClick={() => {
+                      createSpaceController.actions.updateCategory(
+                        template as SpaceTemplate,
+                      );
+                      homePersonalModalsController.createSpaceController.open();
+                    }}
+                  >
                     <div className='flex flex-row items-center space-x-[1rem]'>
-                      <div
-                        className='flex h-[2.5rem] w-[2.5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-blue-500'
-                        onClick={() => {
-                          createSpaceController.actions.updateCategory(
-                            template as SpaceTemplate,
-                          );
-                          homePersonalModalsController.createSpaceController.open();
-                        }}
-                      >
+                      <div className='flex h-[2.5rem] w-[2.5rem] flex-shrink-0 items-center justify-center rounded-full bg-blue-500'>
                         <AstralAddIcon />
                       </div>
                       <p className='text-xl font-bold text-slate-300'>

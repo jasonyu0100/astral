@@ -16,20 +16,23 @@ export function SpacesChatSidebarChaptersProgress() {
     (done.length / (upcoming.length + current.length + done.length)) * 100 || 0;
 
   return (
-    <div className='flex h-[5rem] w-full flex-col items-center space-y-[1rem] p-[1rem] shadow-glow'>
+    <div className='flex h-[5rem] w-full flex-row items-center space-x-[1rem] p-[1rem] shadow-glow'>
+      <p className={'w-[3rem] text-lg font-bold text-slate-300'}>
+        {percentage.toFixed(0)}%
+      </p>
       <div className='relative h-[3rem] w-full overflow-hidden rounded-full bg-blue-500'>
-        <div
-          className='absolute top-0 h-full bg-yellow-500 '
-          style={{
-            left: `0px`,
-            width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-          }}
-        ></div>
         <div
           className='absolute top-0 h-full bg-green-500'
           style={{
-            left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+            left: `0px`,
             width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+          }}
+        ></div>
+        <div
+          className='absolute top-0 h-full bg-yellow-500 '
+          style={{
+            left: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+            width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
           }}
         ></div>
       </div>

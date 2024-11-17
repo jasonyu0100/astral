@@ -3,13 +3,9 @@ import { ContextForSpaceChapterList } from '@/architecture/controller/space/chap
 import { ContextForSpaceMain } from '@/architecture/controller/space/main';
 import { ContextForTaskListFromChapter } from '@/architecture/controller/task/list-from-chapter';
 import { TaskStatus } from '@/architecture/model/task/main';
-import { GlassWindowContents } from '@/components/glass/window/contents/main';
-import { GlassWindowFrame } from '@/components/glass/window/main';
-import { GlassWindowPane } from '@/components/glass/window/pane/main';
 import { HorizontalDivider } from '@/components/indicator/divider/horizontal/main';
 import { AstralBackIndicatorIcon } from '@/icons/back/main';
 import { AstralCheckIcon } from '@/icons/check/main';
-import { borderFx, glassFx, roundedFx } from '@/style/data';
 import Link from 'next/link';
 import { useContext } from 'react';
 
@@ -25,6 +21,8 @@ export function SpacesFocusSidebarChapterItemTasks() {
     (task) => task.taskStatus === TaskStatus.CURRENT,
   );
   const done = tasks.filter((task) => task.taskStatus === TaskStatus.DONE);
+  const percentage =
+    (done.length / (upcoming.length + current.length + done.length)) * 100 || 0;
 
   return (
     <>
@@ -68,31 +66,27 @@ export function SpacesFocusSidebarChapterItemTasks() {
       <Link
         href={`${spacesMap.spaces.id.focus.link(spaceMainController.state.objId)}?chapter=${chapterListController.state.objId}`}
       >
-        <GlassWindowFrame
-          className='w-full flex-shrink-0'
-          roundedFx={roundedFx['rounded-full']}
-          borderFx={borderFx['border-around']}
-        >
-          <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
-            <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
-              <div
-                className='absolute top-0 h-full bg-yellow-500 '
-                style={{
-                  left: `0px`,
-                  width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                }}
-              ></div>
-              <div
-                className='absolute top-0 h-full bg-green-500'
-                style={{
-                  left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
-                }}
-              ></div>
-            </div>
-          </GlassWindowContents>
-          <GlassWindowPane glassFx={glassFx['glass-10']} />
-        </GlassWindowFrame>
+        <div className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
+          <p className={'w-[2rem] text-sm font-bold text-slate-300'}>
+            {percentage.toFixed(0)}%
+          </p>
+          <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
+            <div
+              className='absolute top-0 h-full bg-green-500'
+              style={{
+                left: `0px`,
+                width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+              }}
+            ></div>
+            <div
+              className='absolute top-0 h-full bg-yellow-500 '
+              style={{
+                left: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+                width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+              }}
+            ></div>
+          </div>
+        </div>
       </Link>
     </>
   );

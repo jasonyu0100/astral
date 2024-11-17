@@ -2,7 +2,6 @@
 import { DashboardBody } from '@/(core)/(dashboard)/common/container/body/main';
 import { DashboardContainer } from '@/(core)/(dashboard)/common/container/main';
 import { DashboardContent } from '@/(core)/(dashboard)/common/content/main';
-import { liveMap } from '@/(core)/(live)/live/[id]/map';
 import { portalMap } from '@/(portal)/map';
 import {
   ContextForUserActivityListFromChapter,
@@ -60,10 +59,8 @@ import {
   UserProfileVisibility,
 } from '@/architecture/model/user/main';
 import { LoadingWrapper } from '@/components/loading/controller/main';
-import { AstralArrowForwardIcon } from '@/icons/arrow-forward/main';
 import { useGlobalUser } from '@/logic/store/user/main';
 import PrivateAstralPage from '@/utils/private-astral-page';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useEffect } from 'react';
 import { SpacesSidebarModals } from '../../../sidebar/modal/controller/main';
@@ -293,18 +290,10 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
     <DashboardContainer fullHeight>
       <SpacesSidebarModals>
         {/* <SpacesSidebar /> */}
-        <div className='flex w-full flex-row items-center pr-[2rem]'>
-          <DashboardContent padding>
-            <SpaceTabs tab={SpaceTabStage.Public} />
-            <DashboardBody>{children}</DashboardBody>
-          </DashboardContent>
-          <Link
-            href={liveMap.live.link(spaceMainController.state.objId)}
-            className='flex h-[5rem] w-[5rem] flex-shrink-0 cursor-pointer items-center justify-center rounded-full bg-purple-500'
-          >
-            <AstralArrowForwardIcon />
-          </Link>
-        </div>
+        <DashboardContent padding>
+          <SpaceTabs tab={SpaceTabStage.Public} />
+          <DashboardBody>{children}</DashboardBody>
+        </DashboardContent>
       </SpacesSidebarModals>
     </DashboardContainer>
   );

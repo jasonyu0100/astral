@@ -1,4 +1,5 @@
 import { ContextForConversationMessageList } from '@/architecture/controller/conversation/message/list';
+import { AstralArrowBackIcon } from '@/icons/arrow-back/main';
 import { useContext } from 'react';
 import { ContextForSpacesChatModals } from '../../../../../modal/controller/main';
 
@@ -11,7 +12,7 @@ export function SpacesChatHeaderRight() {
 
   return (
     <div className='flex w-1/3 flex-row justify-end'>
-      {/* {conversationLength === 0 && (
+      {conversationLength === 0 && (
         <p className='animate-pulse font-bold text-slate-400'>
           No messages sent
         </p>
@@ -33,7 +34,7 @@ export function SpacesChatHeaderRight() {
             Share Ideas ({conversationLength})
           </p>
         </button>
-      )} */}
+      )}
     </div>
   );
 }

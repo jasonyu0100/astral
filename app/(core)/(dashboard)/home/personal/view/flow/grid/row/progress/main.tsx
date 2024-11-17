@@ -27,6 +27,9 @@ export function HomePersonalRowProgress() {
 
   return (
     <div className='col-span-3 flex items-center justify-center space-x-[1rem] px-[2rem]'>
+      <p className={'w-[3rem] text-sm font-bold text-slate-300'}>
+        {percentage.toFixed(0)}%
+      </p>
       <Link href={spacesMap.spaces.id.focus.link(space.id)} className='w-full'>
         <GlassWindowFrame
           className='w-full flex-shrink-0'
@@ -36,17 +39,17 @@ export function HomePersonalRowProgress() {
           <GlassWindowContents className='flex h-full w-full cursor-pointer flex-row items-center justify-between space-x-[1rem]'>
             <div className='relative h-[1rem] w-full overflow-hidden rounded-full bg-blue-500'>
               <div
-                className='absolute top-0 h-full bg-yellow-500 '
+                className='absolute top-0 h-full bg-green-500'
                 style={{
                   left: `0px`,
-                  width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
+                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
                 }}
               ></div>
               <div
-                className='absolute top-0 h-full bg-green-500'
+                className='absolute top-0 h-full bg-yellow-500 '
                 style={{
-                  left: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
-                  width: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+                  left: `${(done.length / (upcoming.length + current.length + done.length)) * 100 || 0}%`,
+                  width: `${(current.length / (current.length + done.length + upcoming.length)) * 100}%`,
                 }}
               ></div>
             </div>
@@ -54,9 +57,6 @@ export function HomePersonalRowProgress() {
           <GlassWindowPane glassFx={glassFx['glass-10']} />
         </GlassWindowFrame>
       </Link>
-      <p className={'w-[3rem] text-sm font-bold text-slate-300'}>
-        {percentage.toFixed(0)}%
-      </p>
     </div>
   );
 }

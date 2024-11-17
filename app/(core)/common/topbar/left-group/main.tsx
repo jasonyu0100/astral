@@ -11,7 +11,7 @@ export function TopbarLeftGroup() {
       </TopbarLink>
       <TopbarLink href='/pricing'>PRICING</TopbarLink>
       <TopbarLink href='https://auora.atlassian.net/servicedesk/customer/portal/1'>
-        HELP
+        SUPPORT
       </TopbarLink>
     </div>
   );

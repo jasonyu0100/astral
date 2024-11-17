@@ -149,7 +149,7 @@ export function useControllerForSpacesIdeas(): Controller {
     SpacesIdeasSidebarMediaMode.Collection,
   );
   const [sidebarVisibility, setSidebarVisibility] = useState(
-    SpacesIdeasSidebarVisibility.CLOSED,
+    SpacesIdeasSidebarVisibility.OPEN,
   );
   const [updateToggle, setUpdateToggle] = useState(false);
 
