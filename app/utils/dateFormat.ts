@@ -16,6 +16,24 @@ export function getFormattedDate(currentDate: Date) {
   return `${days[day]}, ${date} ${month} ${year}`;
 }
 
+export function getFormattedNumberDate(currentDate: Date) {
+  const day = currentDate.getDay();
+  const date = currentDate.getDate();
+  const month = currentDate.toLocaleString('default', { month: 'long' });
+  const year = currentDate.getFullYear();
+
+  const days: { [key: number]: string } = {
+    0: 'Sun',
+    1: 'Mon',
+    2: 'Tue',
+    3: 'Wed',
+    4: 'Thu',
+    5: 'Fri',
+    6: 'Sat',
+  };
+  return `${days[day]}, ${date} ${month} ${year}`;
+}
+
 export function getFormattedAMPM(date: Date) {
   let hours = date.getHours();
   let minutes = date.getMinutes();

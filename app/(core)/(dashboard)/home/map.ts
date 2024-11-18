@@ -2,11 +2,11 @@ const baseUrl = `/home`;
 
 export const homeMap = {
   home: {
-    create: {
-      link: `${baseUrl}/create`,
+    projects: {
+      link: `${baseUrl}/projects`,
     },
-    flow: {
-      link: `${baseUrl}/flow`,
+    campaign: {
+      link: `${baseUrl}/campaign`,
     },
     link: `${baseUrl}`,
   },

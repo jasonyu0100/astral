@@ -5,11 +5,11 @@ import { homeMap } from '../../map';
 import { CreateTabStages } from '../main';
 
 export function TabFlow({ tab }: { tab?: string }) {
-  const tabText = CreateTabStages.Flow;
+  const tabText = CreateTabStages.Campaign;
   const active = tab === tabText;
 
   return (
-    <Tab href={homeMap.home.flow.link}>
+    <Tab href={homeMap.home.campaign.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabOrangeShard active={active} />
     </Tab>

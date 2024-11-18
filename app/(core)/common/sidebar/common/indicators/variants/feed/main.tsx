@@ -1,4 +1,4 @@
-import { feedsMap } from '@/(core)/(dashboard)/explore/map';
+import { feedsMap } from '@/(core)/(dashboard)/inspire/map';
 import { ContextForCommonSidebar } from '@/(core)/common/sidebar/main';
 import { useContext } from 'react';
 import { CommonIndicatorOrangeJewel } from '../../indicator/jewel/orange/main';
@@ -10,7 +10,7 @@ import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarExploreIndicator() {
   const commonSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = CommonSidebarIndicatorType.Explore;
+  const indicatorLabel = CommonSidebarIndicatorType.Inspire;
   const active = commonSidebar.indicator === indicatorLabel;
 
   return (

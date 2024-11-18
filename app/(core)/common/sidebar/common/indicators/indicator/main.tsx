@@ -21,8 +21,8 @@ export function CommonSidebarIndicator({ children, ...props }: InputProps) {
 }
 export enum CommonSidebarIndicatorType {
   Home = 'Home',
-  Explore = 'Explore',
+  Inspire = 'Inspire',
   Network = 'Network',
-  Drive = 'Drive',
+  Brand = 'Brand',
   Explorer = 'Explorer',
 }

@@ -60,7 +60,7 @@ const Header = () => (
       </Link>
       <Link
         href='/login'
-        className='rounded-full bg-blue-500 p-2 px-4 font-bold text-slate-300 sm:p-[1rem] sm:px-[2rem]'
+        className='rounded-full bg-blue-500 p-2 px-4 font-bold text-white sm:p-[1rem] sm:px-[2rem]'
       >
         Login
       </Link>
@@ -72,7 +72,7 @@ const HeroSection = () => {
   return (
     <section className='grid grid-cols-1 items-center gap-[5rem] p-[1rem] sm:grid-cols-2'>
       <div className='flex flex-col space-y-4 sm:space-y-[3rem]'>
-        <h1 className='text-center font-extraBold text-2xl text-slate-300 sm:text-left sm:text-8xl'>
+        <h1 className='text-center font-extraBold text-2xl text-white sm:text-left sm:text-8xl'>
           Your Creative Journey, Streamlined
         </h1>
         <p className='text-center text-lg font-light text-slate-400 sm:text-left sm:text-2xl'>
@@ -87,12 +87,12 @@ const HeroSection = () => {
             className='flex h-[4rem] min-w-[200px] max-w-[400px] flex-grow animate-pulse-slow items-center justify-center rounded-full bg-gradient-to-r from-purple-400 to-violet-500 px-4 sm:h-[6rem] sm:px-[1rem]'
           >
             <span className='font-extraBold text-3xl text-white'>
-              Free Trial
+              Start today
             </span>
           </Link>
           <Link
             href='mailto:jasonyu0100@gmail.com'
-            className='min-w-[100px] rounded-full p-2 text-2xl font-bold text-slate-300 sm:p-[2rem]'
+            className='min-w-[100px] rounded-full p-2 text-2xl font-bold text-white sm:p-[2rem]'
           >
             Contact Us
           </Link>
@@ -200,7 +200,7 @@ const FeaturesSection = () => {
             </div>
             <p
               className={`text-lg font-bold sm:text-3xl ${
-                activeFeature === idx ? 'text-slate-300' : 'text-slate-400'
+                activeFeature === idx ? 'text-white' : 'text-slate-400'
               }`}
             >
               {feature.text}
@@ -240,7 +240,7 @@ const Map = () => {
               roundedFx={roundedFx.rounded}
               borderFx={borderFx['border-around']}
             >
-              <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-lg bg-slate-950 bg-opacity-50 p-4 text-lg font-light text-slate-300'>
+              <GlassWindowContents className='flex h-full w-full animate-pulse-slow flex-col overflow-hidden rounded-lg bg-slate-950 bg-opacity-50 p-4 text-lg font-light text-white'>
                 "It’s the iteration of ideas with a goal in mind, that moves a
                 project forward."
               </GlassWindowContents>
@@ -284,19 +284,19 @@ const Map = () => {
 
           {/* Text Elements */}
           <div className='absolute left-[300px] top-0 h-[200px] w-[300px]'>
-            <p className='animate-pulse-slow text-center text-4xl font-bold text-slate-300'>
+            <p className='animate-pulse-slow text-center text-4xl font-bold text-white'>
               conversations
             </p>
           </div>
 
           <div className='absolute left-[550px] top-[450px] h-[200px] w-[300px]'>
-            <p className='animate-pulse-slow text-center text-3xl font-bold text-slate-300'>
+            <p className='animate-pulse-slow text-center text-3xl font-bold text-white'>
               linked ideas
             </p>
           </div>
 
           <div className='absolute left-[1200px] top-[75px] h-[200px] w-[300px]'>
-            <p className='animate-pulse-slow text-3xl font-bold text-slate-300'>
+            <p className='animate-pulse-slow text-3xl font-bold text-white'>
               creative co-pilot
             </p>
           </div>
@@ -349,7 +349,7 @@ function MembershipSection() {
   return (
     <section className={ctwn('py-12', { hidden: ready })}>
       <div className='container mx-auto'>
-        <h2 className='mb-6 text-center text-3xl font-bold text-slate-300'>
+        <h2 className='mb-6 text-center text-3xl font-bold text-white'>
           Member Plans
         </h2>
         <br />
@@ -365,7 +365,7 @@ function MembershipSection() {
               type='button'
               role='tab'
               aria-selected={activeTab === 'yearly'}
-              className={`h-full w-1/2 rounded font-bold text-slate-300 ${
+              className={`h-full w-1/2 rounded font-bold text-white ${
                 activeTab === 'yearly' ? 'bg-slate-950' : ''
               }`}
               tabIndex={0}
@@ -377,7 +377,7 @@ function MembershipSection() {
               type='button'
               role='tab'
               aria-selected={activeTab === 'monthly'}
-              className={`h-full w-1/2 rounded font-bold text-slate-300 ${
+              className={`h-full w-1/2 rounded font-bold text-white ${
                 activeTab === 'monthly' ? 'bg-slate-950' : ''
               }`}
               tabIndex={0}
@@ -540,9 +540,9 @@ function FAQSection() {
   ];
 
   return (
-    <section className='flex w-full flex-col items-center py-12 text-slate-300'>
+    <section className='flex w-full flex-col items-center py-12 text-white'>
       <div className='container w-full p-[1rem]'>
-        <h2 className='mb-6 text-center text-3xl font-bold text-slate-300'>
+        <h2 className='mb-6 text-center text-3xl font-bold text-white'>
           Frequently Asked Questions
         </h2>
         <Accordion type='multiple' className='mx-auto max-w-3xl'>
@@ -568,7 +568,7 @@ function FAQSection() {
 
 function SocialFooter() {
   return (
-    <footer className='flex flex-col items-center justify-center space-y-4 text-slate-300'>
+    <footer className='flex flex-col items-center justify-center space-y-4 text-white'>
       <div className='flex space-x-6'>
         <Link
           href='https://linkedin.com/company/astral-fun'
@@ -602,7 +602,7 @@ function SocialFooter() {
 function SocialProof() {
   return (
     <div className='flex w-full flex-col space-y-[1rem] px-[3rem] py-[1rem]'>
-      <p className='font-bold text-slate-300'>As featured on...</p>
+      <p className='font-bold text-white'>As featured on...</p>
       <div className='flex w-full flex-row items-center space-x-[2rem]'>
         <Link
           href='https://www.producthunt.com/products/astral-5'
@@ -646,7 +646,7 @@ const Testimonials = () => {
 
   return (
     <section className='px-4 py-16'>
-      <h2 className='mb-10 text-center text-4xl font-bold text-slate-300'>
+      <h2 className='mb-10 text-center text-4xl font-bold text-white'>
         What Our Users Say
       </h2>
       <div className='flex flex-row flex-wrap items-center justify-center gap-8 px-4'>
@@ -683,7 +683,7 @@ function ScheduleBooking() {
         target='_blank'
         className='flex h-[3rem] items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 px-6 sm:h-[5rem] sm:space-x-[1rem] sm:px-[2rem]'
       >
-        <p className='text-lg font-bold text-slate-300 sm:text-2xl'>
+        <p className='text-lg font-bold text-white sm:text-2xl'>
           schedule a booking
         </p>
         <AstralCalendarIcon />

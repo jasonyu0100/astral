@@ -1,4 +1,4 @@
-import { driveMap } from '@/(core)/(dashboard)/drive/map';
+import { brandMap } from '@/(core)/(dashboard)/brand/map';
 import { ContextForCommonSidebar } from '@/(core)/common/sidebar/main';
 import { useContext } from 'react';
 import { CommonIndicatorGreenJewel } from '../../indicator/jewel/green/main';
@@ -10,17 +10,17 @@ import { CommonSidebarIndicatorText } from '../../indicator/text/main';
 
 export function CommonSidebarDriveIndicator() {
   const commonSidebar = useContext(ContextForCommonSidebar);
-  const indicatorLabel = CommonSidebarIndicatorType.Drive;
+  const indicatorLabel = CommonSidebarIndicatorType.Brand;
   const active = commonSidebar.indicator === indicatorLabel;
 
   return (
     <>
       {commonSidebar?.minimised ? (
-        <CommonSidebarIndicator href={driveMap.drive.uploads.link}>
+        <CommonSidebarIndicator href={brandMap.drive.uploads.link}>
           <CommonIndicatorGreenJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
-        <CommonSidebarIndicator href={driveMap.drive.uploads.link}>
+        <CommonSidebarIndicator href={brandMap.drive.uploads.link}>
           <CommonIndicatorGreenJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}

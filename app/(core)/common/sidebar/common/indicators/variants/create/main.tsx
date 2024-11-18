@@ -16,11 +16,11 @@ export function CommonSidebarCreateIndicator() {
   return (
     <>
       {commonSidebar.minimised ? (
-        <CommonSidebarIndicator href={homeMap.home.create.link}>
+        <CommonSidebarIndicator href={homeMap.home.projects.link}>
           <CommonIndicatorBlueJewel active={active} />
         </CommonSidebarIndicator>
       ) : (
-        <CommonSidebarIndicator href={homeMap.home.create.link}>
+        <CommonSidebarIndicator href={homeMap.home.projects.link}>
           <CommonIndicatorBlueJewel active={active} />
           <CommonSidebarIndicatorText active={active}>
             {indicatorLabel}

@@ -5,11 +5,11 @@ import { homeMap } from '../../map';
 import { CreateTabStages } from '../main';
 
 export function TabSpaces({ tab }: { tab?: string }) {
-  const tabText = CreateTabStages.Create;
+  const tabText = CreateTabStages.Projects;
   const active = tab === tabText;
 
   return (
-    <Tab href={homeMap.home.create.link}>
+    <Tab href={homeMap.home.projects.link}>
       <TabText active={active}>{tabText}</TabText>
       <TabBlueShard active={active} />
     </Tab>
