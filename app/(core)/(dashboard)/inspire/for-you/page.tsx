@@ -1,4 +1,37 @@
 'use client';
+import {
+  ContextForUserActivityListFromChapter,
+  useControllerForUserActivityListFromChapter,
+} from '@/architecture/controller/activity/list-from-chapter';
+import {
+  ContextForChapterConversationList,
+  useControllerForChapterConversationList,
+} from '@/architecture/controller/conversation/list';
+import {
+  ContextForConversationMessageList,
+  useControllerForConversationMessageList,
+} from '@/architecture/controller/conversation/message/list';
+import {
+  ContextForSceneIdeaList,
+  useControllerForSceneIdeaList,
+} from '@/architecture/controller/idea/list';
+import {
+  ContextForIdeaSceneList,
+  useControllerForIdeaSceneList,
+} from '@/architecture/controller/scene/list';
+import {
+  ContextForSpaceChapterList,
+  useControllerForSpaceChapterList,
+} from '@/architecture/controller/space/chapter/list';
+import {
+  ContextForSpaceList,
+  useControllerForSpaceList,
+} from '@/architecture/controller/space/list';
+import {
+  ContextForTaskListFromChapter,
+  useControllerForTaskListFromChapter,
+} from '@/architecture/controller/task/list-from-chapter';
+import { ContextForLoggedInUserObj } from '@/architecture/model/user/main';
 import { GlassWindowContents } from '@/components/glass/window/contents/main';
 import { GlassWindowFrame } from '@/components/glass/window/main';
 import { GlassWindowPane } from '@/components/glass/window/pane/main';
@@ -20,14 +53,71 @@ import {
 
 function Page() {
   const loggedInUser = useGlobalUser((state) => state.user);
+  const spaceListController = useControllerForSpaceList(loggedInUser?.id);
+  const chapterListController = useControllerForSpaceChapterList('');
+  const taskListController = useControllerForTaskListFromChapter(
+    chapterListController.state.objId,
+  );
+  const sceneListController = useControllerForIdeaSceneList(
+    chapterListController.state.objId,
+  );
+  const ideaListController = useControllerForSceneIdeaList(
+    sceneListController.state.objId,
+  );
+  const conversationListController = useControllerForChapterConversationList(
+    chapterListController.state.objId,
+  );
+  const messageListController = useControllerForConversationMessageList(
+    chapterListController.state.objId,
+  );
+  const chapterActivityListController =
+    useControllerForUserActivityListFromChapter(
+      chapterListController.state.objId,
+    );
+
+  return (
+    <ContextForLoggedInUserObj.Provider value={loggedInUser}>
+      <ContextForSpaceList.Provider value={spaceListController}>
+        <ContextForSpaceChapterList.Provider value={chapterListController}>
+          <ContextForTaskListFromChapter.Provider value={taskListController}>
+            <ContextForIdeaSceneList.Provider value={sceneListController}>
+              <ContextForSceneIdeaList.Provider value={ideaListController}>
+                <ContextForChapterConversationList.Provider
+                  value={conversationListController}
+                >
+                  <ContextForConversationMessageList.Provider
+                    value={messageListController}
+                  >
+                    <ContextForUserActivityListFromChapter.Provider
+                      value={chapterActivityListController}
+                    >
+                      <ControllerWrapper>
+                        <ModalWrapper>
+                          <InspireView />
+                        </ModalWrapper>
+                      </ControllerWrapper>
+                    </ContextForUserActivityListFromChapter.Provider>
+                  </ContextForConversationMessageList.Provider>
+                </ContextForChapterConversationList.Provider>
+              </ContextForSceneIdeaList.Provider>
+            </ContextForIdeaSceneList.Provider>
+          </ContextForTaskListFromChapter.Provider>
+        </ContextForSpaceChapterList.Provider>
+      </ContextForSpaceList.Provider>
+    </ContextForLoggedInUserObj.Provider>
+  );
+}
+function ModalWrapper({ children }: { children: React.ReactNode }) {
+  return <InspireModals>{children}</InspireModals>;
+}
+
+function ControllerWrapper({ children }: { children: React.ReactNode }) {
   const createSpaceController = useControllerForHomeCreateCreateSpace();
 
   return (
     <>
       <ContextForHomeCreateCreateSpace.Provider value={createSpaceController}>
-        <InspireModals>
-          <InspireView />
-        </InspireModals>
+        {children}
       </ContextForHomeCreateCreateSpace.Provider>
     </>
   );

@@ -19,17 +19,15 @@ export function HomeCampaignView() {
           </>
         ) : (
           <>
-            <div className='flex flex-col'>
-              <p className='text-5xl font-bold text-slate-300'>
-                {flowListController.state.currentObj?.title || 'Untitled Flow'}
-              </p>
-              <p className='text-sm font-light text-slate-300'>
-                Created{' '}
-                {getFormattedDate(
-                  new Date(flowListController.state.currentObj?.created ?? ''),
-                )}
-              </p>
-            </div>
+            <p className='text-5xl font-bold text-slate-300'>
+              {flowListController.state.currentObj?.title || 'Untitled Flow'}
+            </p>
+            <p className='text-sm font-light text-slate-300'>
+              Created{' '}
+              {getFormattedDate(
+                new Date(flowListController.state.currentObj?.created ?? ''),
+              )}
+            </p>
             <p className='text-xl font-light text-slate-300'>
               {flowListController.state.currentObj?.description ||
                 'No description available'}
