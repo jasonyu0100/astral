@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { ContextForHomeProjectsModals } from '../modal/controller/main';
 import { ContextForHomeProjectsCreateSpace } from '../modal/create-space/controller/main';
 import { HomeProjectsTableMain } from './flow/main';
+import { HomeProjectsViewTemplates } from './templates/main';
 
 export function HomeProjectsView() {
   const homePersonalModalsController = useContext(ContextForHomeProjectsModals);
@@ -40,7 +41,7 @@ export function HomeProjectsView() {
           <AstralBookSparkIcon className='h-[2rem] w-[2rem]' />
         </div>
       </div>
-      {/* <HomeProjectsViewTemplates /> */}
+      <HomeProjectsViewTemplates />
       <div className='flex flex-row items-center space-x-[1rem]'>
         <p className='text-3xl font-bold text-slate-300'>Your projects</p>
       </div>
