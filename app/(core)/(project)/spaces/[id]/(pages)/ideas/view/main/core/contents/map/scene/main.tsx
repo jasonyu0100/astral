@@ -49,7 +49,6 @@ export function SpacesIdeasScene() {
           // Calculate X, Y relative to the div
           const relativeX = e.clientX - rect.left;
           const relativeY = e.clientY - rect.top;
-          console.log(relativeX, relativeY);
           spacesSpaceController.actions.updateCursorX(relativeX);
           spacesSpaceController.actions.updateCursorY(relativeY);
         }
