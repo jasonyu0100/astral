@@ -14,7 +14,7 @@ export function SpacesTabChat({ tab }: { tab?: string }) {
   const sceneListController = useContext(ContextForIdeaSceneList);
   const chapterListController = useContext(ContextForSpaceChapterList);
   const spaceContext = useContext(CreativePrivateSpacesContext);
-  const tabText = SpaceTabStage.Chat;
+  const tabText = SpaceTabStage.Inspire;
   const active = tab === tabText;
 
   // Safely check if the necessary context values are available

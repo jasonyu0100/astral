@@ -320,7 +320,7 @@ function ViewWrapper({ children }: { children: React.ReactNode }) {
       <SpacesSidebarModals>
         {/* <SpacesSidebar /> */}
         <DashboardContent padding>
-          <SpaceTabs tab={SpaceTabStage.Chat} />
+          <SpaceTabs tab={SpaceTabStage.Inspire} />
           <DashboardBody>{children}</DashboardBody>
         </DashboardContent>
       </SpacesSidebarModals>
