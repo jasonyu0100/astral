@@ -11,14 +11,13 @@ export function BrandManageContainerDescription() {
   const driveFinderModalsController = useContext(ContextForBrandManageModals);
 
   return (
-    <Link
-      className='flex w-full flex-grow cursor-pointer flex-col p-[1rem]'
-      href={brandMap.drive.manage.gallery.id.link(galleryObj.id)}
-    >
+    <div className='flex w-full flex-grow cursor-pointer flex-col p-[1rem]'>
       <div className='flex w-full flex-row justify-between space-x-[1rem]'>
-        <div className='font-extraBold text-2xl text-slate-300'>
-          {galleryObj.title?.trim() || 'Untitled'}
-        </div>
+        <Link href={brandMap.drive.manage.gallery.id.link(galleryObj.id)}>
+          <div className='font-extraBold text-2xl text-slate-300'>
+            {galleryObj.title?.trim() || 'Untitled'}
+          </div>
+        </Link>
         <AstralMoreVertIcon
           onClick={(e) => {
             e.stopPropagation();
@@ -32,6 +31,6 @@ export function BrandManageContainerDescription() {
       <div className='mt-[1rem] text-sm font-light text-slate-300'>
         {getFormattedDate(new Date(galleryObj.created))}
       </div>
-    </Link>
+    </div>
   );
 }

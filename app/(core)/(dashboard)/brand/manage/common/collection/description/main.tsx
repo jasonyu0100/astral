@@ -24,14 +24,13 @@ export function BrandManageCollectionDescription() {
   );
 
   return (
-    <Link
-      className='flex w-full flex-grow cursor-pointer flex-col p-[1rem]'
-      href={brandMap.drive.manage.collection.id.link(collectionObj.id)}
-    >
+    <div className='flex w-full flex-grow cursor-pointer flex-col p-[1rem]'>
       <div className='flex w-full flex-row justify-between space-x-[1rem]'>
-        <div className='text-2xl font-bold text-slate-300'>
-          {collectionControllerMain.state?.obj.title?.trim() || 'Untitled'}
-        </div>
+        <Link href={brandMap.drive.manage.collection.id.link(collectionObj.id)}>
+          <div className='text-2xl font-bold text-slate-300'>
+            {collectionControllerMain.state?.obj.title?.trim() || 'Untitled'}
+          </div>
+        </Link>
         <AstralMoreVertIcon
           onClick={(e) => {
             e.stopPropagation();
@@ -62,6 +61,6 @@ export function BrandManageCollectionDescription() {
             </div>
           ))}
       </div>
-    </Link>
+    </div>
   );
 }

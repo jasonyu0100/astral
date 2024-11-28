@@ -28,16 +28,8 @@ export function ElementImage({ src }: { src: string }) {
         : 'aspect-square';
 
   return (
-    <img
-      src={src}
-      className='w-full flex-shrink-0 bg-black object-contain shadow-md'
-      alt='Polaroid frame styled image'
-    />
-  );
-
-  return (
     <div
-      className={`flex-shrink-0 bg-slate-100 p-[1rem] shadow-md ${aspectClass}`}
+      className={`flex-shrink-0 bg-slate-100 p-[0.5rem] shadow-md ${aspectClass}`}
     >
       {aspectRatio === 'portrait' && (
         <div className='flex aspect-square w-full items-center justify-center bg-black'>
