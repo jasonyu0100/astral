@@ -8,7 +8,6 @@ import { createContext } from 'react';
 import { CommonSidebarContainer } from './common/container/main';
 import { CommonSidebarIndicators } from './common/indicators/main';
 import { CommonSidebarCreateIndicator } from './common/indicators/variants/create/main';
-import { CommonSidebarExploreIndicator } from './common/indicators/variants/feed/main';
 import { CommonSidebarNetworkIndicator } from './common/indicators/variants/network/main';
 import { CommonSidebarDriveIndicator } from './common/indicators/variants/vault/main';
 import { CommonSidebarModals } from './modals/controller/main';
@@ -52,7 +51,7 @@ export function CommonSidebar({
               <HorizontalDivider className='my-[1rem] mb-[2rem]' />
               <CommonSidebarIndicators>
                 <CommonSidebarCreateIndicator />
-                <CommonSidebarExploreIndicator />
+                {/* <CommonSidebarExploreIndicator /> */}
                 <CommonSidebarDriveIndicator />
                 {process.env.LIVE_MODE !== 'true' && (
                   <CommonSidebarNetworkIndicator />
