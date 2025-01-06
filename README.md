@@ -3,7 +3,7 @@ Astral is a dynamic creative platform designed to foster collaboration and innov
 
 Overview
 Astral's decision-making system revolves around a central concept:
-
+test
 Aura represents the quality and intrinsic creativity of an idea.
 Karma reflects the social proof or validation an idea has earned through community interaction.
 In this project, a visual field of ideas is created, where each idea (point) is connected to a central node. The closer a point is to the center, the more impactful it is—determined by its aura and karma.
